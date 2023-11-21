@@ -1,0 +1,58 @@
+site_name: Micro Simulations for Education
+site_description: 'Resources for teaching classes on Micro Simulators using generative AI and ChatGPT.'
+site_author: 'Dan McCreary'
+repo_name: 'GitHub Repo'
+site_url: 'https://dmccreary.github.io/microsims'
+repo_url: 'https://github.com/dmccreary/microsims'
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Getting Started:
+    - Introduction: setup/index.md
+    - Canvas: setup/canvas.md
+  - Simulations:
+    - Introduction: sims/index.md
+  - References: references.md
+  - Glossary: glossary.md
+  - Contact: contact.md
+
+# CoderDojo Microsite Standards from here down
+edit_uri: 'blob/master/docs'
+theme:
+  name: material
+  custom_dir: custom-theme
+  icon:
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+  extra_css:
+    - styles/custom.css
+  palette:
+    primary: '#642580'
+    accent: '#41BAC1'
+  include_sidebar: true
+  features:
+    - content.code.copy
+    - navigation.expand
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    # this adds the prev and next icons in the footer
+    - navigation.footer
+plugins:
+  - search
+#  - social
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.highlight:
+      linenums: true
+extra:
+  analytics:
+    provider: google
+    # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
+    # property: G-EKTEBLZ2KP
