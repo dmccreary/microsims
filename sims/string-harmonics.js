@@ -1,8 +1,6 @@
-"""
-Sine Wave Oscillator With Sound
-contributed by Shawn McBurnie
+// Sine Wave Oscillator With Sound
+// contributed by Shawn McBurnie
 
-"""
 
 let width = 800
 let height = 200
