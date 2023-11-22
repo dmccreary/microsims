@@ -18,7 +18,7 @@ function setup() {
 
   // Create a slider for the multiplier
   multiplierSlider = createSlider(1, 16, 1, .1);
-  multiplierSlider.position(130, height - 30);
+  multiplierSlider.position(130, height - 20);
   multiplierSlider.style('width', width - 140 + 'px')
 
   // Initialize the sine wave oscillator
