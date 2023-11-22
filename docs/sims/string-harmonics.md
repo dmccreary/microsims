@@ -5,7 +5,7 @@ Contributed by Shawn McBurnie
 ![String Harmonics](./../img/string-harmonics.png)
 
 * [String Harmonics Demo No Sound](./string-harmonics.html)
-* [String Harmonics Demo With Sound](./string-harmonics-osc.html)
+* [String Harmonics Demo With Sound](./string-harmonics-osc.html) (not working)
 
 ## Sample Prompt
 
