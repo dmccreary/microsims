@@ -5,15 +5,18 @@ Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 ![String Harmonics](./../img/string-harmonics.png)
 
 * [String Harmonics Demo No Sound](./string-harmonics.html)
-* [String Harmonics Demo With Sound](./string-harmonics-osc.html) (not working)
+* [String Harmonics Demo With Sound](./string-harmonics-osc.html)
 
 ## Sample Prompt
 
 ```linenums="0"
 Create a single file p5.js sketch on a canvas of width=800 and height=200.
 Generate a demonstration of string harmonics.
-Allow the string to vary from a frequency of 1 to 16.
-Add a slider that changes the frequency with a step of .1
+Allow the string to vary from a frequency of 1 to 16 wave forms.
+Add a slider that changes the frequency with a step of .1.
+Add two small black circles at the endpoints of the wave.
+Indent the endpoints with a margin of 20 points from the edges.
+Add a label and value to the left of the slider.
 ```
 
 ## Lesson Plan: Exploring String Harmonics with Interactive Simulation
