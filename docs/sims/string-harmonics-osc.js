@@ -18,20 +18,20 @@ function setup() {
 
   // Create a slider for the multiplier
   multiplierSlider = createSlider(1, 16, 1, .1);
-  multiplierSlider.position(130, height - 20);
+  multiplierSlider.position(130, height - 30);
   multiplierSlider.style('width', width - 140 + 'px')
 
   // Initialize the sine wave oscillator
-  //osc = new p5.Oscillator('sine');
-  //osc.amp(0.3); // Set amplitude (volume) of the sound
-  //osc.start(); // Start the oscillator
+  osc = new p5.Oscillator('sine');
+  osc.amp(0.3); // Set amplitude (volume) of the sound
+  osc.start(); // Start the oscillator
 }
 
 function draw() {
   background(245);
 
   let multiplier = multiplierSlider.value(); // Get the value from the slider
-  // osc.freq(55 * multiplier); // Set the oscillator frequency
+  osc.freq(55 * multiplier); // Set the oscillator frequency
   stroke(1);
   strokeWeight(2);
   noFill();
