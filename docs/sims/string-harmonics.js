@@ -1,7 +1,6 @@
 // Sine Wave Oscillator With Sound
 // contributed by Shawn McBurnie
 
-
 let width = 800
 let height = 200
 
@@ -23,16 +22,16 @@ function setup() {
   multiplierSlider.style('width', width - 140 + 'px')
 
   // Initialize the sine wave oscillator
-  osc = new p5.Oscillator('sine');
-  osc.amp(0.3); // Set amplitude (volume) of the sound
-  osc.start(); // Start the oscillator
+  //osc = new p5.Oscillator('sine');
+  //osc.amp(0.3); // Set amplitude (volume) of the sound
+  //osc.start(); // Start the oscillator
 }
 
 function draw() {
   background(245);
 
   let multiplier = multiplierSlider.value(); // Get the value from the slider
-  osc.freq(55 * multiplier); // Set the oscillator frequency
+  // osc.freq(55 * multiplier); // Set the oscillator frequency
   stroke(1);
   strokeWeight(2);
   noFill();
