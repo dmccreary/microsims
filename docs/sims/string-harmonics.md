@@ -1,6 +1,6 @@
 # String Harmonics
 
-Contributed by Shawn McBurnie
+Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 
 ![String Harmonics](./../img/string-harmonics.png)
 
@@ -59,3 +59,8 @@ Add a slider that changes the frequency with a step of .1
 - Participation in the interactive session and group discussion.
 - Quality and creativity of the musical instrument design.
 - Understanding demonstrated in the homework report.
+
+## A Story about this MicroSim
+
+I met Shawn at a ChatGPT meetup and I gave him a short demo of MicroSims.  The meetup was over lunch.  By supper time he had already finished his first MicroSim, despite never having used Processing before.  AND he figured
+out how to get sound working.  WOW!
