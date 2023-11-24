@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>p5.js Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <!-- Put your script file name here -->
+    <script src="pwm.js"></script>
+</head>
+<body>
+    <!-- Put the following lines in your setup() function
+    const canvas = createCanvas(400, 400);
+    canvas.parent('canvas-container');
+    -->
+    <div id="canvas-container"></div>
+    <p>
+        <b>ChatGPT Prompt:</b>
+Generate a p5.js sketch file of a simulation of a static pulse width<br/>
+
+modulation (PWM) waveform on a 300x600 canvas.<br/><br/>
+
+Add a range control slider to adjust the duty cycle of the waveform <br/>
+with a default value of 50%..  The min should be 0% and the max should be 100%.<br/>
+ Make sure the range control slider has a width of 400px using the style attribute.<br/>
+
+At the end of the draw() function add a text() function that displays <br/>
+the label and value of the duty cycle.<br/><br/>
+
+<b>ChatGPT Explanation:</b><br/>
+
+This sketch creates a simple sinewave that toggles between two heights to create a PWM waveform. 
+The height of the waveform is determined by the duty cycle, with the waveform 
+being "high" during the "on" period and "low" during the "off" period. The duty cycle is 
+controlled by a slider, and the current duty cycle is displayed at the bottom of the sketch. 
+The nf() function is used to format the duty cycle as a percentage with two decimal places.
+<br/><br/>
+By multiplying TWO_PI by cycles in the map function, we can adjust the frequency of the waveform. 
+By increasing the number of cycles to 10, 
+the waveform now completes 10 full cycles across the width of the canvas.
+    </p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Koch Curve</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="koch-curve.js"
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p>Koch Curve</p>
+    <div id="canvasContainer"></div>
+    <p><b>Prompt:</b> Generate a p5.js sketch that draws fractal Koch curves.  Add a slider to set
+        the recursion level.  Use a canvas of 620x250 and have the initial line be 600 long.
+        Make the slider range from 0 to 6 with an inital positon of 0.
+    </p>
+    <p>
+        In this code, the KochCurve function draws the Koch curve. It first checks if the level 
+        is greater than 0. If it is, it calculates the points of the smaller line segments that 
+        make up the Koch curve and calls itself recursively on these smaller segments, 
+        decreasing the level each time. If the level is not greater than 0 (meaning we've
+         reached the maximum level of recursion), it simply draws a line from the start 
+         point to the end point.
+        </p>
+        <p>
+The draw function clears the canvas and then calls the KochCurve function with the start and end 
+points of the line and the level of recursion. The level of recursion is determined by the 
+value of the slider, which can be adjusted by the user.
+</p>
+<p>
+This sketch will create a simple, straight Koch curve. You can experiment with changing 
+the angle and start and end points to create more complex shapes. Note that 
+due to the recursive nature of the Koch curve, higher levels of recursion 
+can be very resource-intensive and may cause the sketch to run slowly.
+    </p>
+</body>
+</html>
