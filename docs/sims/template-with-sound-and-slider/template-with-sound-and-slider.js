@@ -1,92 +1,110 @@
-// template with sound and slider
-// contributed by Shawn McBurnie
 // p5.js template for a demo with a title, option to enable sound, 
 // and a slider with label/info
 
-let oscillator;
-let isSoundOn = false;
-let slider, sliderY, sliderLabel, title;
+// Base class for the demo
+class DemoTemplate {
+  constructor(title, sliderLabel) {
+    this.title = title;
+    this.sliderLabel = sliderLabel;
+    this.isSoundOn = false;
+    this.speakerIconX = 400; // X position of the speaker icon
+    this.speakerIconY = 40;  // Y position of the speaker icon
+    this.oscillator = new p5.Oscillator('sine');
+  }
 
-let speakerIconX = 400; // initial X coordinate for speaker icon
-let speakerIconY = 40;  // initial Y coordinate for speaker icon
+  setup() {
+    createCanvas(500, 300);
+    background(255);
+    this.oscillator.amp(0); // Initial volume is 0
+    this.oscillator.start();
+  }
+
+  draw() {
+    background(255);
+    noStroke();
+    fill(0);
+    this.createSlider();
+    this.displayTitle();
+    this.displaySliderValue();
+    this.drawSpeakerIcon();
+
+    this.customContent(); // Call to custom content method
+  }
+
+  createSlider() {
+    let sliderY = height - 40;
+    this.slider = createSlider(0, 100, 50);
+    this.slider.position(10, sliderY);
+    this.slider.style('width', '480px');
+  }
+
+  displayTitle() {
+    textAlign(CENTER);
+    textSize(20);
+    text(this.title, width / 2, 45);
+  }
+
+  displaySliderValue() {
+    let sliderY = height - 40;
+    textAlign(LEFT);
+    textSize(12);
+    text(this.sliderLabel + ": " + this.slider.value(), 10, sliderY - 10);
+  }
+
+  drawSpeakerIcon() {
+    let speakerIconX = width - 50;
+    ellipse(speakerIconX, this.speakerIconY, 10, 10); // Speaker dot
+    stroke(0);
+    noFill();
+    ellipse(speakerIconX, this.speakerIconY, 24, 24); // Outer circles
+    ellipse(speakerIconX, this.speakerIconY, 30, 30);
+    textSize(12);
+    fill(0);
+    noStroke();
+    text(this.isSoundOn ? "Turn sound off" : "Turn sound on", speakerIconX - 40, this.speakerIconY + 30);
+    if (!this.isSoundOn) {
+      stroke(0);
+      line(speakerIconX + 15, this.speakerIconY - 15, speakerIconX - 15, this.speakerIconY + 15);
+    }
+  }
+
+  toggleSound() {
+    this.isSoundOn = !this.isSoundOn;
+    this.oscillator.amp(this.isSoundOn ? 0.3 : 0, 0.5); // Adjust volume with smooth transition
+  }
+
+  mousePressed(mx, my) {
+    let speakerIconX = width - 50;
+    if (mx > speakerIconX - 40 && mx < speakerIconX + 40 &&
+        my > this.speakerIconY - 40 && my < this.speakerIconY + 40) {
+      this.toggleSound();
+    }
+  }
+
+  // Method for custom content
+  // PLACE ALL CONTENT WITHIN THIS METHOD
+  customContent() {
+    // add custom demo code here
+    // ---------------------------------------
+    // Example:
+    // fill(255, 0, 0);
+    // ellipse(100, 100, 50, 50);
+    // ---------------------------------------
+  }
+}
+
+// Utilize the DemoTemplate class
+let demo;
 
 function setup() {
-
-  // Create canvas and set background color
-  createCanvas(500, 300);
-  background(255);
-
-  // Initialize the oscillator
-  oscillator = new p5.Oscillator('sine');
-  oscillator.amp(0); // Volume set to 0 initially
-  oscillator.start();
-  
-  // Title; replace with real content
-  title = 'Your Title Here';
-  // Slider label; replace with real content
-  sliderLabel = 'Slider Info';
-  
+  demo = new DemoTemplate('Your Title Here', 'Slider Info');
+  demo.setup();
 }
 
 function draw() {
-  // Clear canvas and set background
-  background(255);
-  noStroke();
-  fill(0);
-
-  // Create slider
-  let sliderY = height - 40;
-  slider = createSlider(0, 100, 50);
-  slider.position(10, sliderY);
-  slider.style('width', '480px');
-
-  // Draw title
-  textAlign(CENTER);
-  textSize(20);
-  // replace with real title
-  text(title, width / 2, 45);
-
-  // Draw Speaker Icon
-  drawSpeakerIcon();
-
-  // Display slider value
-  textAlign(LEFT);
-  textSize(12);
-  text(sliderLabel + ": " + slider.value(), 10, sliderY-10);
+  demo.draw();
 }
 
-function drawSpeakerIcon() {
-  let speakerIconX = width-50; // X coordinate for speaker icon based on  canvas size
-
-  // Speaker icon
-  ellipse(speakerIconX, speakerIconY, 10, 10); // Filled dot
-
-  stroke(0); // Black color for circles
-  noFill();
-  ellipse(speakerIconX, speakerIconY, 24, 24); // First concentric circle
-  ellipse(speakerIconX, speakerIconY, 30, 30); // Second concentric circle
-  
-  textSize(12);
-  
-  if (!isSoundOn) {
-    line(speakerIconX + 15, speakerIconY - 15, speakerIconX - 15, speakerIconY + 15);
-    noStroke();
-    fill(0);
-    text("Turn sound on", speakerIconX - 5, speakerIconY + 25);
-  } else {
-
-  noStroke();
-  fill(0);
-    text("Turn sound off", speakerIconX - 5, speakerIconY + 25);
-  }
-}
-
-function mousePressed() {  
-let speakerIconX = width-40;
-  // Toggle sound on speaker icon click
-  if (mouseX > speakerIconX - 40 && mouseX < speakerIconX + 40 &&
-      mouseY > speakerIconY - 40 && mouseY < speakerIconY + 40) {
-    isSoundOn = !isSoundOn;
-    oscillator.amp(isSoundOn ? 0.3 : 0, 0.5); // Smooth transition in volume
-  }
+function mousePressed() {
+  demo.mousePressed(mouseX, mouseY);
 }
