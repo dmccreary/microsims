@@ -2,6 +2,8 @@
 
 Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 
+![Template with Sound and Slider](./../img/template-with-sound-and-slider.png)
+
 
 * [Template with Sound and Slider](./template-with-sound-and-slider.html)
 

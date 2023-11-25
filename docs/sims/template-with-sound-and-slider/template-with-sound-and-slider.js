@@ -1,63 +1,92 @@
-// Sine Wave Oscillator With Sound
+// template with sound and slider
 // contributed by Shawn McBurnie
+// p5.js template for a demo with a title, option to enable sound, 
+// and a slider with label/info
 
-let width = 800
-let height = 200
+let oscillator;
+let isSoundOn = false;
+let slider, sliderY, sliderLabel, title;
 
-let amplitude = 80;
-let stringLength;
-let omega = 0.055; // 1/1000 of the vibration rate of the tone
-let multiplierSlider;
-let osc; // Sine wave oscillator
+let speakerIconX = 400; // initial X coordinate for speaker icon
+let speakerIconY = 40;  // initial Y coordinate for speaker icon
 
 function setup() {
-  const canvas = createCanvas(width, height);
-  canvas.parent('canvas-container');
-  textSize(16);
-  stringLength = width - 40; // Leave some space at both ends for anchoring
 
-  // Create a slider for the multiplier
-  multiplierSlider = createSlider(1, 16, 1, .1);
-  multiplierSlider.position(130, height - 20);
-  multiplierSlider.style('width', width - 140 + 'px')
+  // Create canvas and set background color
+  createCanvas(500, 300);
+  background(255);
 
-  // Initialize the sine wave oscillator
-  osc = new p5.Oscillator('sine');
-  osc.amp(0.3); // Set amplitude (volume) of the sound
-  osc.start(); // Start the oscillator
+  // Initialize the oscillator
+  oscillator = new p5.Oscillator('sine');
+  oscillator.amp(0); // Volume set to 0 initially
+  oscillator.start();
+  
+  // Title; replace with real content
+  title = 'Your Title Here';
+  // Slider label; replace with real content
+  sliderLabel = 'Slider Info';
+  
 }
 
 function draw() {
-  background(245);
-
-  let multiplier = multiplierSlider.value(); // Get the value from the slider
-  osc.freq(55 * multiplier); // Set the oscillator frequency
-  stroke(1);
-  strokeWeight(2);
-  noFill();
-
-  // Label for the slider
-  fill(0);
+  // Clear canvas and set background
+  background(255);
   noStroke();
-  text('Frequency: ' + multiplier, 10, height - 15);
-  stroke(1);
-  // Anchor points
-  ellipse(20, height / 2-10, 8, 8); // Left anchor
-  ellipse(width - 20, height / 2-10, 8, 8); // Right anchor
+  fill(0);
 
-  // Vibrating string
+  // Create slider
+  let sliderY = height - 40;
+  slider = createSlider(0, 100, 50);
+  slider.position(10, sliderY);
+  slider.style('width', '480px');
+
+  // Draw title
+  textAlign(CENTER);
+  textSize(20);
+  // replace with real title
+  text(title, width / 2, 45);
+
+  // Draw Speaker Icon
+  drawSpeakerIcon();
+
+  // Display slider value
+  textAlign(LEFT);
+  textSize(12);
+  text(sliderLabel + ": " + slider.value(), 10, sliderY-10);
+}
+
+function drawSpeakerIcon() {
+  let speakerIconX = width-50; // X coordinate for speaker icon based on  canvas size
+
+  // Speaker icon
+  ellipse(speakerIconX, speakerIconY, 10, 10); // Filled dot
+
+  stroke(0); // Black color for circles
   noFill();
-  beginShape();
-     vertex(20, height / 2 - 10); // Start at the left anchor
+  ellipse(speakerIconX, speakerIconY, 24, 24); // First concentric circle
+  ellipse(speakerIconX, speakerIconY, 30, 30); // Second concentric circle
+  
+  textSize(12);
+  
+  if (!isSoundOn) {
+    line(speakerIconX + 15, speakerIconY - 15, speakerIconX - 15, speakerIconY + 15);
+    noStroke();
+    fill(0);
+    text("Turn sound on", speakerIconX - 5, speakerIconY + 25);
+  } else {
 
-  for (let x = 0; x <= stringLength; x++) {
-    let localAmplitude = amplitude * sin(multiplier * PI * x / stringLength);
-    let timeComponent = cos(multiplier * omega * frameCount); // Oscillation speed
-
-    let y = height / 2 + localAmplitude * timeComponent;
-    vertex(x + 20, y-10); // Offset by 20 to account for the left anchor
+  noStroke();
+  fill(0);
+    text("Turn sound off", speakerIconX - 5, speakerIconY + 25);
   }
+}
 
-  vertex(width - 20, height / 2 - 10); // End at the right anchor
-  endShape();
+function mousePressed() {  
+let speakerIconX = width-40;
+  // Toggle sound on speaker icon click
+  if (mouseX > speakerIconX - 40 && mouseX < speakerIconX + 40 &&
+      mouseY > speakerIconY - 40 && mouseY < speakerIconY + 40) {
+    isSoundOn = !isSoundOn;
+    oscillator.amp(isSoundOn ? 0.3 : 0, 0.5); // Smooth transition in volume
+  }
 }
