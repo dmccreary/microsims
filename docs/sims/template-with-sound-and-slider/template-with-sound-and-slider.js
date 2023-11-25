@@ -1,41 +1,33 @@
-// p5.js template for a demo with a title, option to enable sound, 
-// and a slider with label/info
-
-// Base class for the demo
+// Base class for the p5.js demo with sound and slider
 class DemoTemplate {
   constructor(title, sliderLabel) {
     this.title = title;
     this.sliderLabel = sliderLabel;
+    this.sliderRange = [1, 100]; // Default range for the slider
     this.isSoundOn = false;
     this.speakerIconX = 400; // X position of the speaker icon
     this.speakerIconY = 40;  // Y position of the speaker icon
     this.oscillator = new p5.Oscillator('sine');
+    this.slider = null; // Initialize slider as null
   }
+
 
   setup() {
     createCanvas(500, 300);
     background(255);
     this.oscillator.amp(0); // Initial volume is 0
     this.oscillator.start();
+    this.placeSlider(); // Create the slider in setup
+    this.sliderLabel = `Slider Value: ${this.getSliderValue()}`; // Initialize the slider label
   }
 
-  draw() {
-    background(255);
-    noStroke();
-    fill(0);
-    this.createSlider();
-    this.displayTitle();
-    this.displaySliderValue();
-    this.drawSpeakerIcon();
-
-    this.customContent(); // Call to custom content method
-  }
-
-  createSlider() {
-    let sliderY = height - 40;
-    this.slider = createSlider(0, 100, 50);
-    this.slider.position(10, sliderY);
-    this.slider.style('width', '480px');
+  placeSlider() {
+    if (!this.slider) {
+      let sliderY = height - 40;
+      this.slider = createSlider(this.sliderRange[0], this.sliderRange[1], 1, 1);
+      this.slider.position(10, sliderY);
+      this.slider.style('width', '480px');
+    }
   }
 
   displayTitle() {
@@ -45,14 +37,16 @@ class DemoTemplate {
   }
 
   displaySliderValue() {
+    noStroke();
+    fill(0);
     let sliderY = height - 40;
     textAlign(LEFT);
     textSize(12);
-    text(this.sliderLabel + ": " + this.slider.value(), 10, sliderY - 10);
+    text(this.sliderLabel, 10, sliderY - 10); // Only display the label
   }
 
   drawSpeakerIcon() {
-    let speakerIconX = width - 50;
+    let speakerIconX = width - 60;
     ellipse(speakerIconX, this.speakerIconY, 10, 10); // Speaker dot
     stroke(0);
     noFill();
@@ -61,7 +55,7 @@ class DemoTemplate {
     textSize(12);
     fill(0);
     noStroke();
-    text(this.isSoundOn ? "Turn sound off" : "Turn sound on", speakerIconX - 40, this.speakerIconY + 30);
+    text(this.isSoundOn ? "Turn sound off" : "Turn sound on", speakerIconX - 5, this.speakerIconY + 30);
     if (!this.isSoundOn) {
       stroke(0);
       line(speakerIconX + 15, this.speakerIconY - 15, speakerIconX - 15, this.speakerIconY + 15);
@@ -81,23 +75,54 @@ class DemoTemplate {
     }
   }
 
-  // Method for custom content
-  // PLACE ALL CONTENT WITHIN THIS METHOD
-  customContent() {
-    // add custom demo code here
-    // ---------------------------------------
-    // Example:
-    // fill(255, 0, 0);
-    // ellipse(100, 100, 50, 50);
-    // ---------------------------------------
+  draw() {
+    background(255);
+    noStroke();
+    fill(0);
+    this.displayTitle();
+    this.drawSpeakerIcon();
+    this.setSliderLabel(`Slider Value: ${this.getSliderValue()}`);
+    this.customContent(); // include the content
+    this.displaySliderValue();
   }
+
+  getSliderValue() {
+   return this.slider.value();
+  }
+
+  getDemoTitle() {
+    return this.title;
+  }
+
+  getSliderLabel() {
+    return this.sliderLabel;
+  }
+
+  setSliderLabel(newLabel) {
+    this.sliderLabel = newLabel;
+  }
+
+  setSliderRange(range) {
+    this.sliderRange = range;
+    if (this.slider) {
+      this.slider.attribute('min', range[0]);
+      this.slider.attribute('max', range[1]);
+    }
+  }
+
+  getSliderRange() {
+    return this.sliderRange;
+  }
+
+  // Method for custom content - place all content for the template here!
+  customContent() {}
 }
 
-// Utilize the DemoTemplate class
+// Use the DemoTemplate class
 let demo;
 
 function setup() {
-  demo = new DemoTemplate('Your Title Here', 'Slider Info');
+  demo = new DemoTemplate('String Harmonics');
   demo.setup();
 }
 
