@@ -122,7 +122,7 @@ class DemoTemplate {
 let demo;
 
 function setup() {
-  demo = new DemoTemplate('String Harmonics');
+  demo = new DemoTemplate('Your Title');
   demo.setup();
 }
 

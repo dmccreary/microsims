@@ -19,7 +19,7 @@ Please generate a p5.js base template, with the following attributes:
 - A slider status label above the slider, with placeholder text "Slider Info", inset 10px left and right
 ```
 
-## Processing Code 
+## P5.js Code 
 Provide the following (which has been iteratively refined for ease of use) to ChatGPT via upload or copy/paste, and prompt it to use `customContent` in this p5.js script for the demo you have in mind:
 ```
 // p5.js template for a demo with a title, option to enable sound, 
