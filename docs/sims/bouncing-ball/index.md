@@ -1,9 +1,9 @@
 # Bouncing Ball
 
-![](../../img/bouncing-ball.png)
+![](./bouncing-ball.png)
 
 The bouncing ball is the "Hello World!" of the Processing system.
-It contains the key element that shows the power of Processing:
+It contains the key element that shows the power of the Processing system:
 graphics with movement.  In the area of MicroSims, we also
 want clearly visible user interface elements that can control
 the running of our simulations.  This version contains a 
