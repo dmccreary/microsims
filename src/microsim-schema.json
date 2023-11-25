@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "MicroSim": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Description": {
+            "type": "string"
+          },
+          "SubjectArea": {
+            "type": "string"
+          },
+          "Topic": {
+            "type": "string"
+          },
+          "Parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Label": {"type": "string"},
+                "Min": {"type": "number"},
+                "Max": {"type": "number"},
+                "Default": {"type": "number"},
+                "Increment": {"type": "number"}
+              },
+              "required": ["Label", "Min", "Max", "Default", "Increment"]
+            }
+          },
+          "GradeLevel": {
+            "type": "string"
+          },
+          "LessonPlans": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Title": {"type": "string"},
+                "Description": {"type": "string"}
+                // Add additional properties for lesson plans if needed
+              },
+              "required": ["Title", "Description"]
+            }
+          }
+        },
+        "required": ["Name", "Description", "SubjectArea", "Topic", "Parameters", "GradeLevel"]
+      }
+    },
+    "required": ["MicroSim"]
+  }
+  
