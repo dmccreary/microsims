@@ -15,7 +15,8 @@ class DemoTemplate {
 
 
   setup() {
-    createCanvas(500, 300);
+    const canvas = createCanvas(500, 300);
+    canvas.parent('canvas-container');
     background(255);
     this.oscillator.amp(0); // Initial volume is 0
     this.oscillator.start();

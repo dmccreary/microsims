@@ -32,9 +32,9 @@ class DemoTemplate {
     this.slider = null; // Initialize slider as null
   }
 
-
   setup() {
-    createCanvas(500, 300);
+    const canvas = createCanvas(500, 300);
+    canvas.parent('canvas-container');
     background(255);
     this.oscillator.amp(0); // Initial volume is 0
     this.oscillator.start();
@@ -166,7 +166,7 @@ let nodes = this.getSliderValue() + 1;
 
   // Updating the slider label
   let harmonicData = this.getHarmonicData(nodes);
-  this.setSliderLabel(`Nodes: ${nodes - 2}, Harmonic: ${harmonicData.name} (${harmonicData.note} - ${harmonicData.interval}; ${baseFreq * nodes} Hz)`);
+  this.setSliderLabel(`Nodes: ${nodes - 2}, Harmonic: ${harmonicData.name} (${harmonicData.note} - ${harmonicData.interval}; ; ${baseFreq * (nodes-1)} Hz)`);
 }
 
   // Additional method to get harmonic data based on nodes
@@ -189,7 +189,6 @@ let nodes = this.getSliderValue() + 1;
   { name: "Fourteenth Overtone", note: "G-", interval: "Minor Seventh-" }, // Microtone
   { name: "Fifteenth Overtone", note: "G#", interval: "Major Seventh" }
 ];
-
 
     // Return the corresponding harmonic data
     return harmonics[nodes - 2] || { name: "Unknown", note: "N/A", interval: "N/A" };
