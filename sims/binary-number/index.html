@@ -350,6 +350,8 @@
         
       
         
+          
+        
       
         
           
@@ -571,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../circuits/index.md" class="md-nav__link">
+      <a href="../circuits/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -824,9 +826,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    Response
+  <a href="#sample-response" class="md-nav__link">
+    Sample Response
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    Lesson Plan
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lesson-outline" class="md-nav__link">
+    Lesson Outline:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    Assessment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-activities" class="md-nav__link">
+    Extension Activities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1157,9 +1193,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    Response
+  <a href="#sample-response" class="md-nav__link">
+    Sample Response
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    Lesson Plan
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lesson-outline" class="md-nav__link">
+    Lesson Outline:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment" class="md-nav__link">
+    Assessment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-activities" class="md-nav__link">
+    Extension Activities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1183,16 +1253,202 @@
 
 <h1 id="binary-number">Binary Number</h1>
 <p>A binary number is one where each of the digits can only be a 0 or a 1.  The values
-will double with each position.  So the left-most digit is 0 or 1, and the second is 0 or 2, the third is 0 or 4 and the fourth is 0 or 8.  You can generate any number from 0 to 15 by adding the values.</p>
+will double with each position.  So the left-most digit is 0 or 1, 
+ the second bit is 0 or 2, the third is 0 or 4 and the fourth is 0 or 8.
+You can generate any number from 0 to 15 by adding the values.</p>
 <p><a href="binary-number.html">Binary Number Demo</a></p>
 <h2 id="prompt">Prompt</h2>
 <div class="highlight"><pre><span></span><code>Create a simulation of a 4-bit binary number.
 Add buttons that toggle each of the four bits. 
 Add a text output that shows the decimal equivalent of the binary number.
 </code></pre></div>
-<h2 id="response">Response</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+<h2 id="sample-response">Sample Response</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Global canvas dimensions</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">330</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">120</span><span class="p">;</span>
+
+<span class="c1">// Binary bits and decimal value</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">];</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">decimalValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">24</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">245</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Create toggle buttons for each bit with correct labeling</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">4</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">btn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Bit &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">btn</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span><span class="w"> </span><span class="c1">// Placing buttons with Bit 3 on the left and Bit 0 on the right</span>
+<span class="w">    </span><span class="nx">btn</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">toggleBit</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Clear the previous frame</span>
+<span class="w">  </span><span class="nx">clear</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">245</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Draw binary bits</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">bits</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="nx">bits</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="mf">40</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span><span class="w"> </span><span class="c1">// Displaying bits with Bit 3 on the left and Bit 0 on the right</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Calculate and draw the decimal value</span>
+<span class="w">  </span><span class="nx">decimalValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">binaryToDecimal</span><span class="p">(</span><span class="nx">bits</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Decimal: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">decimalValue</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">110</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Toggle bit value</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleBit</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">bits</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bits</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Convert binary array to decimal</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">binaryToDecimal</span><span class="p">(</span><span class="nx">binaryArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">decimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">binaryArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">decimal</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">binaryArray</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">decimal</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="lesson-plan">Lesson Plan</h2>
+<p><strong>Objective:</strong></p>
+<p>Students will understand the binary number system and how it is used in computer science. 
+They will learn to convert binary numbers to decimal numbers and vice versa.</p>
+<p><strong>Grade Level:</strong> 9th Grade</p>
+<p><strong>Duration:</strong> 1-2 class periods (45-90 minutes)</p>
+<p><strong>Materials:</strong></p>
+<ol>
+<li>Computers with internet access (or offline environment set up with p5.js).</li>
+<li>Projector to demonstrate the simulation.</li>
+<li>Link to the simulation.</li>
+<li>Worksheets or online notebooks for binary-to-decimal conversion exercises.</li>
+<li>Whiteboard and markers.</li>
+</ol>
+<h3 id="lesson-outline">Lesson Outline:</h3>
+<ol>
+<li>
+<p><strong>Introduction to Binary Numbers (15 minutes):</strong></p>
+</li>
+<li>
+<p>Begin with a discussion on number systems, focusing on the decimal system.</p>
+</li>
+<li>Introduce the binary number system, explaining its base-2 nature.</li>
+<li>
+<p>Discuss the significance of binary numbers in computer science.</p>
+</li>
+<li>
+<p><strong>Demonstration of the Simulation (10 minutes):</strong></p>
+</li>
+<li>
+<p>Project the simulation on the screen.</p>
+</li>
+<li>Explain the interface, pointing out the bits, their significance, and the decimal conversion.</li>
+<li>
+<p>Demonstrate toggling the bits and observing the decimal output.</p>
+</li>
+<li>
+<p><strong>Interactive Session with Simulation (20 minutes):</strong></p>
+</li>
+<li>
+<p>Allow students to experiment with the simulation on their computers.</p>
+</li>
+<li>Encourage them to predict the decimal output before toggling the bits.</li>
+<li>
+<p>Facilitate a discussion about their observations and insights.</p>
+</li>
+<li>
+<p><strong>Binary to Decimal Conversion Exercise (15 minutes):</strong></p>
+</li>
+<li>
+<p>Distribute worksheets with binary numbers.</p>
+</li>
+<li>Instruct students to convert them to decimal numbers using the simulation as a reference.</li>
+<li>
+<p>Review the answers as a class, discussing any common errors or misconceptions.</p>
+</li>
+<li>
+<p><strong>Group Activity: Real-World Applications (15-30 minutes):</strong></p>
+</li>
+<li>
+<p>Divide students into small groups.</p>
+</li>
+<li>Assign each group to research and present a short explanation about a real-world application of binary numbers (e.g., digital storage, computer processors).</li>
+<li>
+<p>Facilitate a class discussion on these applications, linking them back to the simulation.</p>
+</li>
+<li>
+<p><strong>Wrap-up and Reflection (5-10 minutes):</strong></p>
+</li>
+<li>
+<p>Summarize key takeaways from the lesson.</p>
+</li>
+<li>Encourage students to reflect on what they learned and how they might see binary numbers in their daily lives.</li>
+<li>Answer any remaining questions.</li>
+</ol>
+<h3 id="assessment">Assessment</h3>
+<ul>
+<li>Evaluate students based on their participation in activities and discussions.</li>
+<li>Review their worksheets for accuracy in binary to decimal conversion.</li>
+<li>Assess group presentations for understanding of real-world applications.</li>
+</ul>
+<h3 id="extension-activities">Extension Activities</h3>
+<ul>
+<li>Extend the simulation to be 8, 16, 32 and 64 bits</li>
+<li>Introduce the concept of hexadecimal numbers and how they relate to binary and decimal systems.</li>
+<li>Create a project where students develop their own simple binary-based simulations or games using p5.js.</li>
+<li>Discuss the process of adding binary numbers.</li>
+</ul>
 
 
   

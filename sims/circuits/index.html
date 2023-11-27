@@ -12,13 +12,13 @@
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/logic-gates/">
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/circuits/">
       
       
-        <link rel="prev" href="../binary-number/">
+        <link rel="prev" href="../string-harmonics/">
       
       
-        <link rel="next" href="../motor/">
+        <link rel="next" href="../h-bridge/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Logic Gates - Micro Simulations for Education</title>
+        <title>Circuits - Micro Simulations for Education</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#logic-gates" class="md-skip">
+        <a href="#battery-circuit" class="md-skip">
           Skip to content
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Logic Gates
+              Circuits
             
           </span>
         </div>
@@ -571,9 +571,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../circuits/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -582,6 +591,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -713,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../circuits/circuit.md" class="md-nav__link">
+      <a href="circuit.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -791,29 +801,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Logic Gates
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../logic-gates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,33 +812,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1138,21 +1101,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1169,165 +1117,32 @@
   
 
 
-<h1 id="logic-gates">Logic Gates</h1>
-<p>In this example, we will generate a graphical simulation of Boolean logic gates.
-This example shows how both "AND" and "OR" gates work.  You can easily change the prompt to perform other operations such as "NOT", "NAND" and "NOR".</p>
-<p>You will note that we are explicit on the horizontal line placement location.  Generative AI is not good at doing precise layout.</p>
-<p>Prompt:</p>
-<div class="highlight"><pre><span></span><code>Create a single p5.js sketch using a 400x400 canvas.  
-The sketch is a simulation of two simple logic gates, one &quot;AND&quot; and one &quot;OR&quot;.
-There are two input wires on the left.  
-Label the inputs &quot;A&quot; and &quot;B&quot; using size 16 black text.
-Draw input A as a horizontal line at y=50.
-Draw input B as a horizontal line at y=150.
-Have both input wires connect to both the &quot;AND&quot; and &quot;OR&quot; logic gates.  
-The top gate is a Boolean &quot;AND&quot; operation.  
-The bottom gate is a Boolean an &quot;OR&quot; operation.
-Add two input toggle buttons on the left side to control the state of the inputs.
-Initialize the initial states of the inputs to be off. 
-When a wire is high, draw it in red.  
-When a wire is at ground, draw it in black.
-Place a label &quot;AND&quot; in size 16 point test on the &quot;AND&quot; gate.
-Place a label &quot;OR&quot; in size 16 point text over the &quot;AND&quot; gate.
-</code></pre></div>
-<p><a href="logic-gates.html">Link to Simulation Demo</a></p>
-<h2 id="sample-code">Sample Code</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">inputA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">inputB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">buttonA</span><span class="p">,</span><span class="w"> </span><span class="nx">buttonB</span><span class="p">;</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Create input buttons for A and B</span>
-<span class="w">  </span><span class="nx">buttonA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Toggle A&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">buttonA</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">buttonA</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">toggleA</span><span class="p">);</span>
-
-<span class="w">  </span><span class="nx">buttonB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Toggle B&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">buttonB</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">buttonB</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">toggleB</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">220</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">24</span><span class="p">)</span>
-
-<span class="w">  </span><span class="c1">// Draw the labels</span>
-<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
-
-
-<span class="w">  </span><span class="c1">// Draw input wires</span>
-<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">5</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="nx">inputA</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="nx">inputB</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Draw AND gate</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">beginShape</span><span class="p">();</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">endShape</span><span class="p">(</span><span class="nx">CLOSE</span><span class="p">);</span>
-
-<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">24</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;AND&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">155</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Draw OR gate</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="w">  </span><span class="nx">beginShape</span><span class="p">();</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">120</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">120</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">180</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">vertex</span><span class="p">(</span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">180</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">endShape</span><span class="p">(</span><span class="nx">CLOSE</span><span class="p">);</span>
-
-<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;OR&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">155</span><span class="p">,</span><span class="w"> </span><span class="mf">160</span><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
+<h1 id="battery-circuit">Battery Circuit</h1>
+<p><img alt="" src="./../../img/circuit-on-off.png" /></p>
+<p>In this lesson, we will create an animation of a circuit that includes:</p>
+<ol>
+<li>A battery</li>
+<li>An on/off switch</li>
+<li>A resistor</li>
+<li>An LED</li>
+<li>Wires that connect the components in a series loop</li>
+</ol>
+<p>We will use the <a href="./wire-animate.md">Animated Wire</a> demo that we did in a prior lab.</p>
+<p>We will break the problem down into ChatGPT prompts that animate and test individual components.
+We will then concatenate the components into a main animation file.</p>
+<p>This is the most complex program we have generated so far.  It requires us
+to first use ChatGPT to create several functions:</p>
+<ol>
+<li>A drawBattery function that draws the positive and negative parts of a battery</li>
+<li>A drawSwitch function that will toggle on or off</li>
+<li>A resistor function that draws a resistor zig-zag symbol</li>
+<li>An LED function that is black in the off state and red in the on state</li>
+<li>An animate wire function that animates the flow of current (see the previous example)</li>
+</ol>
+<p>Once we have functions for all these components, we can then assemble them together in
+an entire simulation.  You will find that ChatGPT will not usually get the the layout
+wrong and you will need to adjust the positions of the wires.</p>
+<p><a href="battery-circuit.html">Battery Circuit Demo</a></p>
 
 
   
@@ -1357,7 +1172,7 @@ Place a label &quot;OR&quot; in size 16 point text over the &quot;AND&quot; gate
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../binary-number/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Binary Number" rel="prev">
+          <a href="../string-harmonics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: String Harmonics" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1367,20 +1182,20 @@ Place a label &quot;OR&quot; in size 16 point text over the &quot;AND&quot; gate
                 Previous
               </span>
               <div class="md-ellipsis">
-                Binary Number
+                String Harmonics
               </div>
             </div>
           </a>
         
         
           
-          <a href="../motor/" class="md-footer__link md-footer__link--next" aria-label="Next: Motor" rel="next">
+          <a href="../h-bridge/" class="md-footer__link md-footer__link--next" aria-label="Next: H-Bridge" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Motor
+                H-Bridge
               </div>
             </div>
             <div class="md-footer__button md-icon">
