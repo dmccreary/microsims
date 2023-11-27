@@ -26,6 +26,8 @@ Provide the following (which has been iteratively refined for ease of use) to Ch
 // and a slider with label/info
 
 // Base class for the p5.js demo with sound and slider
+// Base class for the p5.js demo with sound and slider
+// Base class for the p5.js demo with sound and slider
 class DemoTemplate {
   constructor(title, sliderLabel) {
     this.title = title;
@@ -36,11 +38,13 @@ class DemoTemplate {
     this.speakerIconY = 40;  // Y position of the speaker icon
     this.oscillator = new p5.Oscillator('sine');
     this.slider = null; // Initialize slider as null
+    this.initialSliderValue = 0;
   }
+
 
   setup() {
     const canvas = createCanvas(500, 300);
-    canvas.parent('canvas-container');
+    // canvas.parent('canvas-container'); must be commented out for p5.js sketch testing
     background(255);
     this.oscillator.amp(0); // Initial volume is 0
     this.oscillator.start();
@@ -51,7 +55,8 @@ class DemoTemplate {
   placeSlider() {
     if (!this.slider) {
       let sliderY = height - 40;
-      this.slider = createSlider(this.sliderRange[0], this.sliderRange[1], 1, 1);
+      let initialValue = this.initialSliderValue !== null ? this.initialSliderValue : this.sliderRange[0];
+      this.slider = createSlider(this.sliderRange[0], this.sliderRange[1], initialValue, 1);
       this.slider.position(10, sliderY);
       this.slider.style('width', '480px');
     }
@@ -117,6 +122,12 @@ class DemoTemplate {
    return this.slider.value();
   }
 
+  setInitialSliderValue(value) {
+    if (this.slider) {
+      this.slider.value(value); 
+    }
+  }
+
   getDemoTitle() {
     return this.title;
   }
@@ -141,16 +152,16 @@ class DemoTemplate {
     return this.sliderRange;
   }
 
-  // Method for custom content - place all content for the template here!
+  // Method for custom content
   customContent() {}
 }
 
-// Use the DemoTemplate class
-let demo;
-
+// Modify the setup function to set the appropriate slider range and starting value
 function setup() {
-  demo = new DemoTemplate('String Harmonics');
+  demo = new DemoTemplate('Your Title Here');
+  demo.setSliderRange([1, 100]); // Set the slider range
   demo.setup();
+  // demo.setInitialSliderValue(1);
 }
 
 function draw() {

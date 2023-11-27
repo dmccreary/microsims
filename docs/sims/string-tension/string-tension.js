@@ -1,5 +1,6 @@
-// Base class for the p5.js demo with sound and slider
-// Base class for the p5.js demo with sound and slider
+// String Tension Demo
+// contributed by Shawn McBurnie
+
 class DemoTemplate {
   constructor(title, sliderLabel) {
     this.title = title;
@@ -10,13 +11,12 @@ class DemoTemplate {
     this.speakerIconY = 40;  // Y position of the speaker icon
     this.oscillator = new p5.Oscillator('sine');
     this.slider = null; // Initialize slider as null
-    this.initialSliderValue = 0;
   }
 
 
   setup() {
     const canvas = createCanvas(500, 300);
-    // canvas.parent('canvas-container'); must be commented out for p5.js sketch testing
+    canvas.parent('canvas-container');
     background(255);
     this.oscillator.amp(0); // Initial volume is 0
     this.oscillator.start();
@@ -27,8 +27,7 @@ class DemoTemplate {
   placeSlider() {
     if (!this.slider) {
       let sliderY = height - 40;
-      let initialValue = this.initialSliderValue !== null ? this.initialSliderValue : this.sliderRange[0];
-      this.slider = createSlider(this.sliderRange[0], this.sliderRange[1], initialValue, 1);
+      this.slider = createSlider(this.sliderRange[0], this.sliderRange[1], 1, 1);
       this.slider.position(10, sliderY);
       this.slider.style('width', '480px');
     }
@@ -94,12 +93,6 @@ class DemoTemplate {
    return this.slider.value();
   }
 
-  setInitialSliderValue(value) {
-    if (this.slider) {
-      this.slider.value(value); 
-    }
-  }
-
   getDemoTitle() {
     return this.title;
   }
@@ -125,15 +118,71 @@ class DemoTemplate {
   }
 
   // Method for custom content
-  customContent() {}
+  customContent() {
+  // Drawing the string
+  stroke(0);
+  strokeWeight(2);
+  let stringY = height / 2;
+  let leftEndX = 10;
+  let rightEndX = width - 10;
+
+  // Draw small circles at the endpoints
+  fill(0);
+  ellipse(leftEndX, stringY, 10, 10);
+  ellipse(rightEndX, stringY, 10, 10);
+
+  // Animating the string as a standing wave
+let nodes = this.getSliderValue() + 1;
+  let amplitude = 25;
+  let visualFrequency = 0.11 * (nodes-1); // Apply multiplier to visual frequency
+  for (let x = leftEndX; x <= rightEndX; x++) {
+    let proportion = (x - leftEndX) / (rightEndX - leftEndX);
+    let angle = proportion * PI * (nodes - 1);
+    let y = stringY + sin(angle) * amplitude * cos(frameCount * visualFrequency);
+    point(x, y);
+  }
+
+  // Setting oscillator frequency
+  let baseFreq = 110;
+  this.oscillator.freq(baseFreq * nodes);
+
+  // Updating the slider label
+  let harmonicData = this.getHarmonicData(nodes);
+  this.setSliderLabel(`Nodes: ${nodes - 2}, Harmonic: ${harmonicData.name} (${harmonicData.note} - ${harmonicData.interval}; ${baseFreq * nodes} Hz)`);
 }
 
-// Modify the setup function to set the appropriate slider range and starting value
+  // Additional method to get harmonic data based on nodes
+  getHarmonicData(nodes) {
+    const harmonics = [
+  { name: "Fundamental", note: "A", interval: "Unison" },
+  { name: "First Overtone", note: "A", interval: "Octave" },
+  { name: "Second Overtone", note: "E", interval: "Perfect Fifth" },
+  { name: "Third Overtone", note: "A", interval: "Octave" },
+  { name: "Fourth Overtone", note: "C#", interval: "Major Third" },
+  { name: "Fifth Overtone", note: "E", interval: "Perfect Fifth" },
+  { name: "Sixth Overtone", note: "G", interval: "Minor Seventh" },
+  { name: "Seventh Overtone", note: "G+", interval: "Minor Seventh+" }, // Microtone
+  { name: "Eighth Overtone", note: "A", interval: "Octave" },
+  { name: "Ninth Overtone", note: "B", interval: "Major Second" },
+  { name: "Tenth Overtone", note: "C#", interval: "Major Third" },
+  { name: "Eleventh Overtone", note: "D+", interval: "Perfect Fourth+" }, // Microtone
+  { name: "Twelfth Overtone", note: "E", interval: "Perfect Fifth" },
+  { name: "Thirteenth Overtone", note: "F", interval: "Minor Sixth" }, // Adjusted for clarity
+  { name: "Fourteenth Overtone", note: "G-", interval: "Minor Seventh-" }, // Microtone
+  { name: "Fifteenth Overtone", note: "G#", interval: "Major Seventh" }
+];
+
+
+    // Return the corresponding harmonic data
+    return harmonics[nodes - 2] || { name: "Unknown", note: "N/A", interval: "N/A" };
+  }
+}
+
+// Modify the setup function to set the appropriate slider range
 function setup() {
-  demo = new DemoTemplate('Your Title Here');
-  demo.setSliderRange([1, 100]); // Set the slider range
+  demo = new DemoTemplate('String Harmonics at 0.1% Speed');
+  demo.setSliderRange([1, 16]); // Set the slider range from 1 to 16
   demo.setup();
-  // demo.setInitialSliderValue(1);
 }
 
 function draw() {
