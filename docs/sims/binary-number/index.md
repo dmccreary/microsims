@@ -5,7 +5,8 @@ will double with each position.  So the left-most digit is 0 or 1,
  the second bit is 0 or 2, the third is 0 or 4 and the fourth is 0 or 8.
 You can generate any number from 0 to 15 by adding the values.
 
-[Binary Number Demo](./binary-number.html)
+* [Binary Number 4-Bit Demo](./binary-number.html)
+* [Binary Number 8-Bit Demo](./binary-number-8.html)
 
 ## Prompt
 
@@ -137,6 +138,7 @@ They will learn to convert binary numbers to decimal numbers and vice versa.
 ### Extension Activities
 
 - Extend the simulation to be 8, 16, 32 and 64 bits
+- Discuss what the shift-left and shift-right functions will do.  Hint: how would you double the number?
 - Introduce the concept of hexadecimal numbers and how they relate to binary and decimal systems.
 - Create a project where students develop their own simple binary-based simulations or games using p5.js.
 - Discuss the process of adding binary numbers.
