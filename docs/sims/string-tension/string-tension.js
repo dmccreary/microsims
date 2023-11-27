@@ -1,25 +1,6 @@
-# String Harmonics
+// String Tension Demo
+// contributed by Shawn McBurnie
 
-Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
-
-![String Harmonics](./../img/string-harmonics.png)
-
-* [String Harmonics Demo](./string-harmonics.html)
-
-## Sample Prompt
-
-```linenums="0"
-Please add `customContent` function contents to the following p5.js demo template*, such that:
-- There is a line representing an instrument string, vertically centered and anchored with fixed nodes at both ends 10px in from the edges of the canvas. It vibrates at an initial rate of 0.11hz, and plays a sine oscillation tone at 110hz.
-- The slider controls a multiplier that is applied to the number of nodes, the speed of the animation, and the pitch of the tone. Its range is 1 to 16.
-- The slider  label shows: "Nodes: [nodes], Harmonic: [harmonic name] ([harmonic note] - [pitch relative to fundamental]; [number] Hz"; the harmonic and interval information is from an array of strings.
-- Values are populated via getters and setters, rather than by changing template code.
-```
-(The template provided, omitted here for brevity, is [Template With Sound and Slider](../template-with-sound-and-slider).)
-
-## ## P5.js Code
-```
-// Base class for the p5.js demo with sound and slider
 class DemoTemplate {
   constructor(title, sliderLabel) {
     this.title = title;
@@ -31,6 +12,7 @@ class DemoTemplate {
     this.oscillator = new p5.Oscillator('sine');
     this.slider = null; // Initialize slider as null
   }
+
 
   setup() {
     const canvas = createCanvas(500, 300);
@@ -166,7 +148,7 @@ let nodes = this.getSliderValue() + 1;
 
   // Updating the slider label
   let harmonicData = this.getHarmonicData(nodes);
-  this.setSliderLabel(`Nodes: ${nodes - 2}, Harmonic: ${harmonicData.name} (${harmonicData.note} - ${harmonicData.interval}; ; ${baseFreq * (nodes-1)} Hz)`);
+  this.setSliderLabel(`Nodes: ${nodes - 2}, Harmonic: ${harmonicData.name} (${harmonicData.note} - ${harmonicData.interval}; ${baseFreq * nodes} Hz)`);
 }
 
   // Additional method to get harmonic data based on nodes
@@ -190,6 +172,7 @@ let nodes = this.getSliderValue() + 1;
   { name: "Fifteenth Overtone", note: "G#", interval: "Major Seventh" }
 ];
 
+
     // Return the corresponding harmonic data
     return harmonics[nodes - 2] || { name: "Unknown", note: "N/A", interval: "N/A" };
   }
@@ -209,61 +192,3 @@ function draw() {
 function mousePressed() {
   demo.mousePressed(mouseX, mouseY);
 }
-```
-
-## Sample Lesson Plan
-### Elementary School (Grades 3-5)
-
-**Objective**: Introduce the basic concepts of sound, vibration, and simple musical instruments.
-
-#### Understanding Vibration and Sound
-- **Activity**: Use rubber bands or simple strings to demonstrate how vibration creates sound.
-- **Discussion**: Relate these vibrations to sounds in everyday life.
-
-#### Exploring the Demo
-- **Activity**: Show the p5.js demo, explaining how changing the slider alters the string's vibration.
-- **Interactive Play**: Let students experiment with the demo to see how the string's pattern changes.
-
-#### Simple Instruments and Sound
-- **Activity**: Introduce the bugle and other simple wind instruments. Explain how they produce sound without keys or valves.
-- **Demonstration**: If possible, have someone demonstrate a bugle or watch a video.
-
-### Middle School (Grades 6-8)
-
-**Objective**: Dive into the science of sound waves, introduce harmonic overtones, and relate them to musical instruments.
-
-#### The Science of Sound Waves
-- **Activity**: Use the demo to illustrate how different frequencies create different harmonics.
-- **Discussion**: Explain the concept of fundamental frequency and harmonics.
-
-#### Musical Instruments and Harmonics
-- **Activity**: Show videos or have live demonstrations of instruments like the bugle, explaining how they use harmonics.
-- **Hands-On**: Students can try creating their own simple wind instruments (like PVC pipe horns) to explore harmonics.
-
-#### Experimenting with the Demo
-- **Activity**: Assign students to experiment with the demo and record their observations of how the harmonics change with the slider.
-
-### High School (Grades 9-12)
-
-**Objective**: Conduct an in-depth study of acoustics, harmonic series, and their application in music and physics.
-
-#### Advanced Acoustics
-- **Activity**: Analyze the math behind the demo's harmonics. Discuss waveforms, frequencies, and the physics of sound.
-- **Project**: Research how different musical instruments utilize harmonics.
-
-#### Musical Composition and Harmonics
-- **Activity**: Study how composers use harmonic overtones in their works.
-- **Analysis**: Listen to and analyze pieces that prominently feature harmonics, like bugle calls or brass fanfares.
-
-#### Technology and Music
-- **Discussion**: Explore modern music technology that manipulates harmonics, like synthesizers.
-- **Coding Integration**: Students with coding interest can modify the demo or create their own version to simulate different instruments and harmonics.
-
-### Cross-Grade Collaboration
-
-**Collaborative Project**: High school students could present a lesson to younger students, demonstrating the p5.js demo and explaining the basics of harmonics.
-
-## A Story about this MicroSim
-
-I met Shawn at a ChatGPT meetup and I gave him a short demo of MicroSims.  The meetup was over lunch.  By supper time he had already finished his first MicroSim, despite never having used Processing before.  AND he figured
-out how to get sound working.  WOW!
