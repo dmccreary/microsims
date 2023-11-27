@@ -7,7 +7,8 @@ let bits = [0, 0, 0, 0, 0, 0, 0, 0];
 let decimalValue = 0;
 
 function setup() {
-  createCanvas(canvasWidth, canvasHeight);
+  const canvas = createCanvas(canvasWidth, canvasHeight);
+  canvas.parent('canvas-container');
   textSize(32);
   background(245);
 
