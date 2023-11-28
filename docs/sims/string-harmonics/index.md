@@ -2,7 +2,7 @@
 
 Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 
-![String Harmonics](./../img/string-harmonics.png)
+![String Harmonics](./string-harmonics.png)
 
 * [String Harmonics Demo No Sound](./string-harmonics.html)
 * [String Harmonics Demo With Sound](./string-harmonics-osc.html)
