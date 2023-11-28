@@ -69,8 +69,13 @@ function binaryToDecimal(binaryArray) {
   }
   return decimal;
 }
-
 ```
+
+## Learnings from The Response
+
+1. How to set up an array of buttons each with different actions
+2. How to use the pow(2, i) to convert a binary to decimal value
+3. How to setup a tobbleBit(index) function using the ```?``` and ```:``` syntax
 
 ## Lesson Plan
 
@@ -142,3 +147,7 @@ They will learn to convert binary numbers to decimal numbers and vice versa.
 - Introduce the concept of hexadecimal numbers and how they relate to binary and decimal systems.
 - Create a project where students develop their own simple binary-based simulations or games using p5.js.
 - Discuss the process of adding binary numbers.
+
+## References
+
+* [ChatGPT Transcript](https://chat.openai.com/share/e1e0beda-05cd-4d78-824e-ca8d5447c513) - this demonstrates the iterative nature of prompting including giving up and fixing the code myself after multiple attempts.

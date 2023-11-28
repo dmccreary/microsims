@@ -1,8 +1,10 @@
 # Micro Simulations for Education
 
+![MicroSim Banner](./img/banner.png)
+
 Welcome to the MicroSims for Education website.
 
-A MicroSim (or Micro-Simulation) is a simple animation or simulation program that is quickly generated to help teachers explain concepts to students.  They are
+A MicroSim (or Micro-Simulation) is a simple animation or simulation program that is quickly generated using generative AI to help teachers explain concepts to students.  MicroSims are
 designed to be generated from a brief description of a problem using generative
 AI tools such as ChatGPT.
 
@@ -17,8 +19,7 @@ Although it is easy for a non-programmer to use generative AI to create a new Mi
 
 1. Clearly labeled controls with values.
 2. Controls placed at the bottom of the simulation
-3. Controls aligned for visual asthetics
-
+3. Controls aligned for visual aesthetics
 
 
 * [Bouncing Ball](./sims/bouncing-ball/)
