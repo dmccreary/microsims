@@ -55,7 +55,7 @@ function setup() {
     noStroke();
     for (let i = 0; i < texSize; i += 20) {
       for (let j = 0; j < texSize; j += 20) {
-        texture.fill((i + j) % 40 === 0 ? 'white' : 'orange');
+        texture.fill((i + j) % 40 === 0 ? 'white' : 'red');
         texture.rect(i, j, 20, 20);
       }
     }
