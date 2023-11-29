@@ -1046,6 +1046,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extending-the-lesson" class="md-nav__link">
+    Extending the Lesson
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-lesson-plan" class="md-nav__link">
     Sample Lesson Plan
   </a>
@@ -1150,6 +1157,13 @@
         <li class="md-nav__item">
   <a href="#follow-up-activities" class="md-nav__link">
     Follow-Up Activities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-shadow" class="md-nav__link">
+    Draw Shadow
   </a>
   
 </li>
@@ -1288,6 +1302,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#extending-the-lesson" class="md-nav__link">
+    Extending the Lesson
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sample-lesson-plan" class="md-nav__link">
     Sample Lesson Plan
   </a>
@@ -1397,6 +1418,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#draw-shadow" class="md-nav__link">
+    Draw Shadow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -1426,14 +1454,17 @@
 <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a>, short for Web Graphics Library is
 is a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser.
 The p5.js has many high-level 3D shapes such as box, cone, cylinder, ellipsoid, plane, sphere, and torus 
-in the <a href="https://p5js.org/reference/#/p5/WEBGL">WEBGL Library</a>.
-* <a href="sphere.html">3D Sphere Demo</a></p>
+in the <a href="https://p5js.org/reference/#/p5/WEBGL">WEBGL Library</a>.</p>
+<ul>
+<li><a href="sphere.html">3D Sphere Demo</a></li>
+</ul>
 <h2 id="sample-prompt">Sample Prompt</h2>
 <div class="highlight"><pre><span></span><code>1. Generate a single file p5.js sketch using WEBGL for a 3D animation.
 2. Show a sphere of size 50 that is bouncing around the canvas.
 3. Use the ```WEBGL``` as the third parameter of the createCanvas.
 4. Cover the sphere with a texture that has grid of white and red squares.
 5. Use noStroke() in the texture to not draw the outlines of the grid.
+6. Add a drop shadow under the sphere
 
 function setup() {
   createCanvas(600, 400, WEBGL);
@@ -1571,6 +1602,12 @@ function setup() {
 <li>P5.js has a function that builds textures</li>
 <li>You just need to generate a 2D pattern to use that texture.</li>
 </ul>
+<h2 id="extending-the-lesson">Extending the Lesson</h2>
+<ul>
+<li>Add a drop shadow to the ball</li>
+<li>Place axis lines in the background</li>
+<li>Add a slider to control the speed and size of the sphere</li>
+</ul>
 <h2 id="sample-lesson-plan">Sample Lesson Plan</h2>
 <h3 id="objective">Objective</h3>
 <ul>
@@ -1629,6 +1666,27 @@ function setup() {
 <li>Assign a project where students create their own 3D animation using p5.js.</li>
 <li>Encourage students to explore more complex shapes and textures.</li>
 </ul>
+<h2 id="draw-shadow">Draw Shadow</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="c1">// Draw shadow</span>
+<span class="w">  </span><span class="nx">drawShadow</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="o">+</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="o">+</span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="nx">ballSize</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">drawShadow</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">push</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span><span class="w"> </span><span class="c1">// Semi-transparent shadow</span>
+<span class="w">    </span><span class="nx">ellipse</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">8</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pop</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=-ga41edXw3A">YouTube Video of the Amiga Boing Ball</a></li>
