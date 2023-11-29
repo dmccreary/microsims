@@ -361,6 +361,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    System Prompt
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -370,6 +381,39 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-prompte-for-a-2d-p5js" class="md-nav__link">
+    System Prompte for a 2D p5.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-prompte-for-a-3d-p5js" class="md-nav__link">
+    System Prompte for a 3D p5.js
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -571,6 +615,10 @@
           
         
       
+        
+          
+        
+      
     
     
       
@@ -677,6 +725,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-prompte-for-a-2d-p5js" class="md-nav__link">
+    System Prompte for a 2D p5.js
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-prompte-for-a-3d-p5js" class="md-nav__link">
+    System Prompte for a 3D p5.js
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -694,9 +764,11 @@
 
 
 <h1 id="setting-up-a-system-prompt">Setting up a System Prompt</h1>
-<p>With ChatGPT you can setup a single system prompt for generating p5.js MicroSims.</p>
-<p>Here is a sample systems prompt.</p>
-<div class="highlight"><pre><span></span><code>1. Generate a single file p5.js sketch.
+<p>With ChatGPT you can set up a single <strong>system prompt</strong> for generating p5.js MicroSims.  The text is
+automatically inserted before your prompt.</p>
+<h2 id="system-prompte-for-a-2d-p5js">System Prompte for a 2D p5.js</h2>
+<p>Here is a sample systems prompt for a 2D simulation.</p>
+<div class="highlight"><pre><span></span><code>1. Generate a single file p5.js sketch for a 2D animation.
 2. Do not generate any html files.
 3. Set the width and height of the canvas as global variables before the setup.
 4. Use a default text of 16 by placing the textSize(16) in the setup.
@@ -718,6 +790,18 @@ let width = 400;
 let height = 300;
 function draw {
     const canvas = createCanvas(width, height)
+}
+</code></pre></div>
+<h2 id="system-prompte-for-a-3d-p5js">System Prompte for a 3D p5.js</h2>
+<div class="highlight"><pre><span></span><code>1. Generate a single file p5.js sketch for a 3D animation.
+2. Use the ```WEBGL``` as the third parameter of the createCanvas.
+
+function setup() {
+  createCanvas(710, 400, WEBGL);
+
+  describe(
+    &#39;a 3d example.&#39;
+  );
 }
 </code></pre></div>
 
