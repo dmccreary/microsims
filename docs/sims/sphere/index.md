@@ -5,6 +5,7 @@ You can also use the 3D "WebGL" rendering system that is built into p5.js.
 is a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser.
 The p5.js has many high-level 3D shapes such as box, cone, cylinder, ellipsoid, plane, sphere, and torus 
 in the [WEBGL Library](https://p5js.org/reference/#/p5/WEBGL).
+
 * [3D Sphere Demo](sphere.html)
 
 ## Sample Prompt
@@ -15,6 +16,7 @@ in the [WEBGL Library](https://p5js.org/reference/#/p5/WEBGL).
 3. Use the ```WEBGL``` as the third parameter of the createCanvas.
 4. Cover the sphere with a texture that has grid of white and red squares.
 5. Use noStroke() in the texture to not draw the outlines of the grid.
+6. Add a drop shadow under the sphere
 
 function setup() {
   createCanvas(600, 400, WEBGL);
@@ -96,6 +98,12 @@ function createGridTexture() {
 * P5.js has a function that builds textures
 * You just need to generate a 2D pattern to use that texture.
 
+## Extending the Lesson
+
+* Add a drop shadow to the ball
+* Place axis lines in the background
+* Add a slider to control the speed and size of the sphere
+
 ## Sample Lesson Plan
 
 ### Objective
@@ -147,6 +155,20 @@ function createGridTexture() {
 - Assign a project where students create their own 3D animation using p5.js.
 - Encourage students to explore more complex shapes and textures.
 
+## Draw Shadow
+
+```javascript
+  // Draw shadow
+  drawShadow(ball.x+10, ball.y+30, ballSize);
+
+  function drawShadow(x, y, size) {
+  push();
+    noStroke();
+    fill(50, 50, 50, 100); // Semi-transparent shadow
+    ellipse(x, y + size / 4, size * 0.8, size / 8);
+  pop();
+}
+```
 ## References
 
 - [YouTube Video of the Amiga Boing Ball](https://www.youtube.com/watch?v=-ga41edXw3A)
