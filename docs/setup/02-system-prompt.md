@@ -1,11 +1,14 @@
 # Setting up a System Prompt
 
-With ChatGPT you can setup a single system prompt for generating p5.js MicroSims.
+With ChatGPT you can set up a single **system prompt** for generating p5.js MicroSims.  The text is
+automatically inserted before your prompt.
 
-Here is a sample systems prompt.
+## System Prompte for a 2D p5.js
+
+Here is a sample systems prompt for a 2D simulation.
 
 ```linenums="0"
-1. Generate a single file p5.js sketch.
+1. Generate a single file p5.js sketch for a 2D animation.
 2. Do not generate any html files.
 3. Set the width and height of the canvas as global variables before the setup.
 4. Use a default text of 16 by placing the textSize(16) in the setup.
@@ -28,4 +31,21 @@ let height = 300;
 function draw {
     const canvas = createCanvas(width, height)
 }
+```
+
+## System Prompte for a 3D p5.js
+
+```linenums="0"
+
+1. Generate a single file p5.js sketch for a 3D animation.
+2. Use the ```WEBGL``` as the third parameter of the createCanvas.
+
+function setup() {
+  createCanvas(710, 400, WEBGL);
+
+  describe(
+    'a 3d example.'
+  );
+}
+
 ```
