@@ -570,9 +570,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    Response:
+  <a href="#sample-response" class="md-nav__link">
+    Sample Response
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    Lesson Plan
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    Activities
+  </a>
+  
+    <nav class="md-nav" aria-label="Activities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-slider" class="md-nav__link">
+    Add Slider
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1163,9 +1196,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    Response:
+  <a href="#sample-response" class="md-nav__link">
+    Sample Response
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    Lesson Plan
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activities" class="md-nav__link">
+    Activities
+  </a>
+  
+    <nav class="md-nav" aria-label="Activities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-slider" class="md-nav__link">
+    Add Slider
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1206,7 +1272,8 @@ of the canvas 100 points in from the left.
 Use the text() function at the end of the draw() function to display the
 name and current values of the sliders in the bottom left of the screen.
 </code></pre></div>
-<h2 id="response">Response:</h2>
+<h2 id="sample-response">Sample Response</h2>
+<p>This sample code has been manually edited to improve the placement and formatting of the controls.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1246,27 +1313,52 @@ name and current values of the sliders in the bottom left of the screen.
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Ploygon with sliders for number of points and color</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// A MicroSim of drawing a polygon.  Sliders controls the number of edges and the color.</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">polygonRadius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">150</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">colorSlider</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">pointSlider</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">140</span><span class="p">;</span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasSize</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">colorMode</span><span class="p">(</span><span class="nx">HSB</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasSize</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="s1">&#39;canvas-container&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Change the default color scheme from RGB to Hue, Saturation and Brightness</span>
+<span class="w">    </span><span class="nx">colorMode</span><span class="p">(</span><span class="nx">HSB</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
 
-<span class="w">  </span><span class="nx">pointSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">pointSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">140</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">pointSlider</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;180pt&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// number of points (or edges) in polygon</span>
+<span class="w">    </span><span class="nx">pointSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">pointSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">35</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">pointSlider</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;px&#39;</span><span class="p">)</span>
 
-<span class="w">  </span><span class="nx">colorSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">colorSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">140</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">colorSlider</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;180pt&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">colorSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">170</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">colorSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">colorSlider</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;px&#39;</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">230</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">245</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="o">-</span><span class="nx">drawHeight</span><span class="p">);</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">colorValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">colorSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">pointValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pointSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
 
@@ -1274,19 +1366,26 @@ name and current values of the sliders in the bottom left of the screen.
 <span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="nx">colorValue</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
 <span class="w">    </span><span class="nx">beginShape</span><span class="p">();</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">pointValue</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// walk around the 360 angles</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">pointValue</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">TWO_PI</span><span class="p">);</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasSize</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">150</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasSize</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">150</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasSize</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">polygonRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">cos</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">polygonRadius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">sin</span><span class="p">(</span><span class="nx">angle</span><span class="p">);</span>
 <span class="w">        </span><span class="nx">vertex</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="nx">endShape</span><span class="p">(</span><span class="nx">CLOSE</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// Draw the slider values</span>
 <span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Number Points: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pointValue</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Color: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">colorValue</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">noStroke</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Point Value: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">pointValue</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Color Value: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">colorValue</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="lesson-plan">Lesson Plan</h2>
+<h3 id="activities">Activities</h3>
+<h4 id="add-slider">Add Slider</h4>
+<p>Add a new slider to control the radius of the polygon.</p>
 
 
   
