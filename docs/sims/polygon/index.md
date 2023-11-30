@@ -2,6 +2,8 @@
 
 In this example, we will use a more detailed prompt to control the placement of the sliders and their values.
 
+[Polygon Demonstration](./polygon.html){ .md-button .md-button--primary }
+
 ## Prompt
 
 ```linenums="0"
@@ -21,7 +23,7 @@ Use the text() function at the end of the draw() function to display the
 name and current values of the sliders in the bottom left of the screen.
 ```
 
-[Polygon Demonstration](./polygon.html)
+
 
 ## Response:
 
