@@ -1,3 +1,4 @@
+// A MicroSim of drawing a polygon.  Sliders controls the number of edges and the color.
 let canvasSize = 400;
 let polygonRadius = 150
 let colorSlider;
@@ -11,6 +12,7 @@ function setup() {
     textSize(16);
     noStroke();
     strokeWeight(0);
+    // Change the default color scheme from RGB to Hue, Saturation and Brightness
     colorMode(HSB, 255);
 
     // number of points (or edges) in polygon
@@ -24,8 +26,10 @@ function setup() {
 }
 
 function draw() {
-    fill(245);
+    fill(230);
     rect(0, 0, width, drawHeight);
+    fill(245);
+    rect(0, drawHeight, width, canvasSize-drawHeight);
     let colorValue = colorSlider.value();
     let pointValue = pointSlider.value();
 
@@ -43,8 +47,7 @@ function draw() {
 
     // Draw the slider values
     fill('black');
-    noStroke();
-    
+    noStroke(); 
     strokeWeight(0);
     text("Point Value: " + pointValue, 5, canvasSize - 25);
     text("Color Value: " + colorValue, 5, canvasSize - 5);  
