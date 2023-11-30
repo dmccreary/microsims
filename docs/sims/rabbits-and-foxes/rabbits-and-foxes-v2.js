@@ -3,15 +3,23 @@ let foxSlider, rabbitSlider;
 
 let foxes = [];
 let rabbits = [];
+let initRabbitCount = 20;
+let initFoxCount = 5;
+let mode = 0; // 0=off, 1=step, 2=run
+let steps = 0;
 
 let width = 800;
-let height = 600;
+let height = 500;
 
 function setup() {
-  createCanvas(width, height);
+  const canvas = createCanvas(width, height);
+  canvas.parent('canvas-container');
 
   startButton = createButton("Start");
   startButton.mousePressed(startSimulation);
+
+  stepButton = createButton("Step");
+  stepButton.mousePressed(stepSimulation);
 
   stopButton = createButton("Stop");
   stopButton.mousePressed(stopSimulation);
@@ -19,27 +27,31 @@ function setup() {
   resetButton = createButton("Reset");
   resetButton.mousePressed(resetSimulation);
 
-  foxSlider = createSlider(1, 20, 10);
-  foxSlider.position(width/2 - 100, 10);
+  foxSlider = createSlider(1, 20, initFoxCount);
+  foxSlider.position(width/2 + 100, height - 25);
 
-  rabbitSlider = createSlider(1, 50, 20);
-  rabbitSlider.position(width/2 + 100, 10);
+  rabbitSlider = createSlider(1, 50, initRabbitCount);
+  rabbitSlider.position(width/2 - 100, height - 25);
 }
 
 function draw() {
-  background(220);
+  background(245);
+  initRabbitCount = rabbitSlider.value();
+  initFoxCount = foxSlider.value()
 
   // Update foxes
   for (let i = 0; i < foxes.length; i++) {
     foxes[i].update();
     foxes[i].display();
 
-    // Check for collisions with rabbits
-    for (let j = 0; j < rabbits.length; j++) {
-      if (foxes[i].isColliding(rabbits[j])) {
-        // Fox eats rabbit
-        rabbits.splice(j, 1);
-        break;
+    if (mode===1) {
+      // Check for collisions with rabbits
+      for (let j = 0; j < rabbits.length; j++) {
+        if (foxes[i].isColliding(rabbits[j])) {
+          // Fox eats rabbit
+          rabbits.splice(j, 1);
+          break;
+        }
       }
     }
   }
@@ -53,37 +65,47 @@ function draw() {
     for (let j = i + 1; j < rabbits.length; j++) {
       if (rabbits[i].isColliding(rabbits[j])) {
         // Rabbits reproduce
-        rabbits.push(new Rabbit());
+        // rabbits.push(new Rabbit(rabbits[i].x, rabbits[i].y));
         break;
       }
     }
   }
+
+  fill(0);
+  text("Rabbits:" + initRabbitCount, width/2 - 100, height-35)
+  text("Foxes:" + initFoxCount, width/2 + 100, height-35, )
 }
 
 function startSimulation() {
   // Reset simulation
   foxes = [];
   rabbits = [];
+  mode = 1;
 
   // Create initial population
   for (let i = 0; i < foxSlider.value(); i++) {
     foxes.push(new Fox());
   }
   for (let i = 0; i < rabbitSlider.value(); i++) {
-    rabbits.push(new Rabbit());
+    rabbits.push(new Rabbit(random(width), random(height)));
   }
 }
 
+function stepSimulation() {
+  mode = 1;
+  steps = steps + 1;
+}
+
+// stop to view canvas
 function stopSimulation() {
-  // Stop simulation by clearing the arrays
-  foxes = [];
-  rabbits = [];
+  mode = 0;
 }
 
 function resetSimulation() {
   // Reset simulation to initial state
   stopSimulation();
-  startSimulation();
+  foxes = [];
+  rabbits = [];
 }
 
 class Fox {
@@ -107,8 +129,8 @@ class Fox {
   }
 
   display() {
-    fill(255, 0, 0);
-    ellipse(this.x, this.y, this.size, this.size);
+    fill(255, 128, 0);
+    circle(this.x, this.y, this.size);
   }
 
   isColliding(rabbit) {
@@ -118,9 +140,9 @@ class Fox {
 }
 
 class Rabbit {
-  constructor() {
-    this.x = random(width);
-    this.y = random(height);
+  constructor(nx,ny) {
+    this.x = nx; //random(width);
+    this.y = ny; // random(height);
     this.size = 10;
     this.vx = random(-2, 2);
     this.vy = random(-2, 2);
@@ -149,10 +171,11 @@ class Rabbit {
   }
 
   display() {
-    fill(0, 0, 255);
-    ellipse(this.x, this.y, this.size, this.size);
+    fill('silver');
+    circle(this.x, this.y, this.size);
   }
 
+  // if rabbits collide
   isColliding(otherRabbit) {
     let distance = dist(this.x, this.y, otherRabbit.x, otherRabbit.y);
     return distance < this.size/2 + otherRabbit.size/2;
