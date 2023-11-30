@@ -1,6 +1,9 @@
 # Battery Circuit
 
-![](./../../img/circuit-on-off.png)
+<figure>
+  ![Circuit On Off](./circuit-on-off.png)
+  <figcaption>See animated current when the circuit is turned on.</figcaption>
+</figure>
 
 
 [Battery Circuit Demo](./battery-circuit.html){ .md-button .md-button--primary }
