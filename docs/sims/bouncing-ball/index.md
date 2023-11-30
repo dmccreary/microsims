@@ -1,6 +1,9 @@
 # Bouncing Ball
 
-![](./bouncing-ball.png)
+<figure>
+    ![](./bouncing-ball.png){ width="200" }
+    <figcaption>A bouncing ball is our "Hello World!".</figcaption>
+</figure>
 
 The bouncing ball is the "Hello World!" of the Processing system.
 It contains the key element that shows the power of the Processing system:
