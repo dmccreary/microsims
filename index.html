@@ -274,8 +274,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-prompt-limitations" class="md-nav__link">
+    System Prompt Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-microsim-registry" class="md-nav__link">
     The MicroSim Registry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-site" class="md-nav__link">
+    How to Use This Site
   </a>
   
 </li>
@@ -589,8 +603,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-prompt-limitations" class="md-nav__link">
+    System Prompt Limitations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-microsim-registry" class="md-nav__link">
     The MicroSim Registry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-site" class="md-nav__link">
+    How to Use This Site
   </a>
   
 </li>
@@ -619,21 +647,29 @@
 <p>A MicroSim (or Micro-Simulation) is a simple animation or simulation program that is quickly generated using generative AI to help teachers explain concepts to students.  MicroSims are
 designed to be generated from a brief description of a problem using generative
 AI tools such as ChatGPT.</p>
-<p>The term <strong>MicroSim</strong> was coined by <a href="https://www.linkedin.com/in/valockhart/">Val Lockhart</a> in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful simulations using <a href="https://p5js.org/">p5.js</a> with little or no training.</p>
+<p>The term <strong>MicroSim</strong> was coined by <a href="https://www.linkedin.com/in/valockhart/">Val Lockhart</a> in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful <a href="https://p5js.org/">p5.js</a> simulations using GPT-4 with little or no training.</p>
+<h2 id="system-prompt-limitations">System Prompt Limitations</h2>
+<p>Although you can create a <a href="setup/02-system-prompt/">System Prompt</a> that puts many best practices in the context window of ChatGPT, it is not an ideal solution.
+A better process is building a customized GPT on
+curated examples that have a high-quality interface with good user experience design reviews.  This is one of the objectives
+of this website.</p>
 <h2 id="the-microsim-registry">The MicroSim Registry</h2>
 <p>One of our goals on this site is to create a library of MicroSims that can be used to fine-tune a generative AI application.  We have found that new <a href="https://openai.com/blog/introducing-gpts">GPTs</a> will create higher-quality simulations if they are trained with a high-quality training set.  This reflects the fact that although there are tens of thousands of sample p5.js animations, many of them are created by first-time programmers.</p>
 <p>Although it is easy for a non-programmer to use generative AI to create a new MicroSim, it is more difficult to find high-quality MicroSims that have been peer-reviewed by senior software developers and user experience designers.  These MicroSims have some of the following qualities:</p>
 <ol>
 <li>Clearly labeled controls with values.</li>
 <li>Controls placed at the bottom of the simulation</li>
-<li>
-<p>Controls aligned for visual aesthetics</p>
-</li>
-<li>
-<p><a href="./sims/bouncing-ball/">Bouncing Ball</a></p>
-</li>
-<li><a href="./sims/string-harmonics.md">String Harmonics</a></li>
+<li>Controls aligned for visual aesthetics</li>
+<li>A machine-readable (yml) description of the MicroSim including subject, topic and UI controls.</li>
 </ol>
+<h2 id="how-to-use-this-site">How to Use This Site</h2>
+<p>We provide both a search and navigation system to reach the MicroSims.</p>
+<p>Here are some samples to get you started:</p>
+<ul>
+<li><a href="sims/bouncing-ball/">Bouncing Ball</a> - our classic "Hello World" demo to get started</li>
+<li><a href="sims/string-harmonics/">String Harmonics</a> - one version includes the use of sound.</li>
+<li><a href="sims/sphere/">3D Sphere</a> - demonstrates the use of the 3D libraries</li>
+</ul>
 
 
   
