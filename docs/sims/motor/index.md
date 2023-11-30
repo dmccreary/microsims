@@ -7,7 +7,7 @@ are going forward and counter-clockwise when we are going in reverse.
 
 ## Draw Rotating Motor
 
-[Rotating Motor Demo](./motor.html)
+[Rotating Motor Demo](./motor.html){ .md-button .md-button--primary }
 
 ## Draw Motor
 

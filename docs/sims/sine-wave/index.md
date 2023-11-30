@@ -9,7 +9,7 @@ In this demo, we use three range control sliders to change the:
 
 of a sine wave.
 
-[Sine Wave Demo](./sine.html)
+[Sine Wave Demo](./sine.html){ .md-button .md-button--primary }
 
 ### Prompt
 

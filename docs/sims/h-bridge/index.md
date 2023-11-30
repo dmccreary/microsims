@@ -7,7 +7,7 @@ When the lower-left and upper-right switches are closed, the motor spins in the 
 
 ![](../../img/h-bridge.png)
 
-[H-Bridge Demo](./h-bridge.html)
+[H-Bridge Demo](./h-bridge.html){ .md-button .md-button--primary }
 
 ```linenums="0"
 Generate a single p5.js sketch file.

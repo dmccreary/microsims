@@ -25,7 +25,7 @@ Place a label "AND" in size 16 point test on the "AND" gate.
 Place a label "OR" in size 16 point text over the "AND" gate.
 ```
 
-[Link to Simulation Demo](./logic-gates.html)
+[Link to Simulation Demo](./logic-gates.html){ .md-button .md-button--primary }
 
 ## Sample Code
 
