@@ -8,8 +8,14 @@ A MicroSim (or Micro-Simulation) is a simple animation or simulation program tha
 designed to be generated from a brief description of a problem using generative
 AI tools such as ChatGPT.
 
-The term **MicroSim** was coined by [Val Lockhart](https://www.linkedin.com/in/valockhart/) in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful simulations using [p5.js](https://p5js.org/) with little or no training.
+The term **MicroSim** was coined by [Val Lockhart](https://www.linkedin.com/in/valockhart/) in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful [p5.js](https://p5js.org/) simulations using GPT-4 with little or no training.
 
+## System Prompt Limitations
+
+Although you can create a [System Prompt](./setup/02-system-prompt.md) that puts many best practices in the context window of ChatGPT, it is not an ideal solution.
+A better process is building a customized GPT on
+curated examples that have a high-quality interface with good user experience design reviews.  This is one of the objectives
+of this website.
 
 ## The MicroSim Registry
 
@@ -20,7 +26,14 @@ Although it is easy for a non-programmer to use generative AI to create a new Mi
 1. Clearly labeled controls with values.
 2. Controls placed at the bottom of the simulation
 3. Controls aligned for visual aesthetics
+4. A machine-readable (yml) description of the MicroSim including subject, topic and UI controls.
 
+## How to Use This Site
 
-* [Bouncing Ball](./sims/bouncing-ball/)
-* [String Harmonics](./sims/string-harmonics.md)
+We provide both a search and navigation system to reach the MicroSims.
+
+Here are some samples to get you started:
+
+* [Bouncing Ball](./sims/bouncing-ball/index.md) - our classic "Hello World" demo to get started
+* [String Harmonics](./sims/string-harmonics/index.md) - one version includes the use of sound.
+* [3D Sphere](./sims/sphere/index.md) - demonstrates the use of the 3D libraries
