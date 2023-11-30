@@ -23,32 +23,43 @@ Use the text() function at the end of the draw() function to display the
 name and current values of the sliders in the bottom left of the screen.
 ```
 
+## Sample Response
 
-
-## Response:
+This sample code has been manually edited to improve the placement and formatting of the controls.
 
 ```js
-// Ploygon with sliders for number of points and color
+// A MicroSim of drawing a polygon.  Sliders controls the number of edges and the color.
 let canvasSize = 400;
+let polygonRadius = 150
 let colorSlider;
 let pointSlider;
+let drawHeight = 350;
+let sliderLeftMargin = 140;
 
-function setup() {
-  createCanvas(canvasSize, canvasSize);
-  colorMode(HSB, 255);
-  textSize(16);
+function setup() { 
+    const canvas = createCanvas(canvasSize, canvasSize);
+    canvas.parent('canvas-container');
+    textSize(16);
+    noStroke();
+    strokeWeight(0);
+    // Change the default color scheme from RGB to Hue, Saturation and Brightness
+    colorMode(HSB, 255);
 
-  pointSlider = createSlider(3, 20, 3);
-  pointSlider.position(140, canvasSize - 40);
-  pointSlider.style('width', '180pt')
+    // number of points (or edges) in polygon
+    pointSlider = createSlider(3, 20, 10);
+    pointSlider.position(sliderLeftMargin, canvasSize - 35);
+    pointSlider.style('width', width - sliderLeftMargin + 'px')
 
-  colorSlider = createSlider(0, 255, 100);
-  colorSlider.position(140, canvasSize - 20);
-  colorSlider.style('width', '180pt')
+    colorSlider = createSlider(0, 255, 170);
+    colorSlider.position(sliderLeftMargin, canvasSize - 15);
+    colorSlider.style('width', width - sliderLeftMargin + 'px')
 }
 
 function draw() {
-    background(240);
+    fill(230);
+    rect(0, 0, width, drawHeight);
+    fill(245);
+    rect(0, drawHeight, width, canvasSize-drawHeight);
     let colorValue = colorSlider.value();
     let pointValue = pointSlider.value();
 
@@ -56,16 +67,28 @@ function draw() {
     fill(colorValue, 255, 255);
     beginShape();
     for (let i = 0; i < pointValue; i++) {
+        // walk around the 360 angles
         let angle = map(i, 0, pointValue, 0, TWO_PI);
-        let x = canvasSize/2 + 150 * cos(angle);
-        let y = canvasSize/2 + 150 * sin(angle);
+        let x = canvasSize/2 + polygonRadius * cos(angle);
+        let y = drawHeight/2 + polygonRadius * sin(angle);
         vertex(x, y);
     }
     endShape(CLOSE);
 
     // Draw the slider values
     fill('black');
-    text("Number Points: " + pointValue, 5, canvasSize - 25);
-    text("Color: " + colorValue, 5, canvasSize - 5);  
+    noStroke(); 
+    strokeWeight(0);
+    text("Point Value: " + pointValue, 5, canvasSize - 25);
+    text("Color Value: " + colorValue, 5, canvasSize - 5);  
 }
+
 ```
+
+## Lesson Plan
+
+### Activities
+
+#### Add Slider
+
+Add a new slider to control the radius of the polygon.

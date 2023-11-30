@@ -1,17 +1,31 @@
+let canvasWidth = 400;
+let canvasHeight = 450;
+let drawHeight = 420;
 let angleSlider;
+let leftSliderMargin = 110;
 
 function setup() {
-  const canvas = createCanvas(400, 400);
+  const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('canvas-container');
-  angleSlider = createSlider(0, TWO_PI, PI / 4, 0.01);
-  angleSlider.position(10, height + 10);
+
+  angleSlider = createSlider(0, PI, PI / 4, 0.01);
+  angleSlider.position(leftSliderMargin, height - 15);
+  angleSlider.style("width", width - leftSliderMargin + 'px')
 }
 
 function draw() {
-  background(255);
-  stroke(0);
-  translate(width / 2, height);
-  drawBranch(100);
+  fill(230);
+  rect(0,0,canvasWidth, drawHeight);
+  fill(245);
+  rect(0,drawHeight,canvasWidth, canvasHeight-drawHeight);
+  textSize(16);
+  angle = angleSlider.value()
+  fill(0);
+  text('Angle: ' + angle, 10, height-10)
+
+  translate(width / 2, drawHeight);
+  drawBranch(120);
+
 }
 
 function drawBranch(len) {
