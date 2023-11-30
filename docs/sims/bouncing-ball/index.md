@@ -9,13 +9,23 @@ want clearly visible user interface elements that can control
 the running of our simulations.  This version contains a 
 slider to control the speed of the ball's movement.
 
+* [Link to Bouncing Ball Demo](./bouncing-ball.html)
+
 ## Prompt
 
-Here is a precise prompt to get you started.
+Here is a simple prompt to get you started.
 
 ```linenums="0"
-Generate a single p5.js sketch on a 500x300 canvas.
-The sketch shows a ball boucing around a rectagular area.
+Generate a single p5.js sketch of a blue bouncing ball on a 500x300 canvas.
+```
+
+Copy the prompt into ChatGPT.  It will generate a JavaScript file you can copy and paste or download
+into the p5.js editor to test.
+
+Here is a more precise prompt that also allows us to change the speed using a slider.
+
+```linenums="0"
+The sketch shows a ball bouncing around a rectangular area.
 The canvas should be 500 wide and 300 high.
 The default text size is 16.
 The ball is blue and has a radius of 20.
@@ -26,15 +36,14 @@ The slider should span the width of the canvas after the label and value.
 DD NOT use objects - just functions.
 ```
 
-Copy the prompt into ChatGPT.  It will generate a JavaScript file you can copy and paste or download
-into the p5.js editor to test.
+Here is an additional example that allows the user to change both the speed and the ball size:
 
-Here are two examples:
 
-* [Link to Version 1 Demo](./bouncing-ball.html) - the simplest code [source](./bouncing-ball.js)
-* [Link to Version 2 Demo](./bouncing-ball-v2.html) - with fixes for radius and display area [source](./bouncing-ball-v2.js)
+* [Bouncing Ball with Speed and Radius Controls](./bouncing-ball-v2.html)
 
-## Sample Code
+## Sample Source Code
+
+Here is some sample source code that has been generated and modified just a little for readability.
 
 ```js
 // bouncing ball - version 1
@@ -56,17 +65,22 @@ sliderLeftMargin = 83;
 
 function setup() {
   const canvas = createCanvas(width, height);
+  // Include this for placement in our HTML page but not in the editor
   // canvas.parent('canvas-container');
+
+  // make the text a bit larger for large classrooms
+  textSize(16);
+
   speedSlider = createSlider(0, 20, speed);
   speedSlider.position(sliderLeftMargin, height - 25);
   speedSlider.style('width', width - sliderLeftMargin - 15 + 'px');
 }
 
 function draw() {
-  background(240);
-  textSize(16);
-  
+  background(240); // light gray
+
   speed = speedSlider.value()
+  
   if (dx > 0) dx = speed;
      else dx = -speed;
   
@@ -90,6 +104,12 @@ function draw() {
   text('Speed: ' + speed, 10, height-10)
 }
 ```
+
+## Key Points about the Code
+
+1. We created some global variables before the setup() function
+2. We created a setup() function to initialize the canvas and the slider
+3. We created a draw() function to render check that moves the ball, checks the edges, and draws the circle and text.
 
 ## Use In Classroom
 
