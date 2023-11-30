@@ -526,8 +526,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
+  <a href="#sample-source-code" class="md-nav__link">
+    Sample Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-points-about-the-code" class="md-nav__link">
+    Key Points about the Code
   </a>
   
 </li>
@@ -1242,8 +1249,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-code" class="md-nav__link">
-    Sample Code
+  <a href="#sample-source-code" class="md-nav__link">
+    Sample Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-points-about-the-code" class="md-nav__link">
+    Key Points about the Code
   </a>
   
 </li>
@@ -1377,10 +1391,17 @@ graphics with movement.  In the area of MicroSims, we also
 want clearly visible user interface elements that can control
 the running of our simulations.  This version contains a 
 slider to control the speed of the ball's movement.</p>
+<ul>
+<li><a href="bouncing-ball.html">Link to Bouncing Ball Demo</a></li>
+</ul>
 <h2 id="prompt">Prompt</h2>
-<p>Here is a precise prompt to get you started.</p>
-<div class="highlight"><pre><span></span><code>Generate a single p5.js sketch on a 500x300 canvas.
-The sketch shows a ball boucing around a rectagular area.
+<p>Here is a simple prompt to get you started.</p>
+<div class="highlight"><pre><span></span><code>Generate a single p5.js sketch of a blue bouncing ball on a 500x300 canvas.
+</code></pre></div>
+<p>Copy the prompt into ChatGPT.  It will generate a JavaScript file you can copy and paste or download
+into the p5.js editor to test.</p>
+<p>Here is a more precise prompt that also allows us to change the speed using a slider.</p>
+<div class="highlight"><pre><span></span><code>The sketch shows a ball bouncing around a rectangular area.
 The canvas should be 500 wide and 300 high.
 The default text size is 16.
 The ball is blue and has a radius of 20.
@@ -1390,14 +1411,12 @@ The slider should have a label &quot;Speed: &quot; and the speed value to the le
 The slider should span the width of the canvas after the label and value.
 DD NOT use objects - just functions.
 </code></pre></div>
-<p>Copy the prompt into ChatGPT.  It will generate a JavaScript file you can copy and paste or download
-into the p5.js editor to test.</p>
-<p>Here are two examples:</p>
+<p>Here is an additional example that allows the user to change both the speed and the ball size:</p>
 <ul>
-<li><a href="bouncing-ball.html">Link to Version 1 Demo</a> - the simplest code <a href="bouncing-ball.js">source</a></li>
-<li><a href="bouncing-ball-v2.html">Link to Version 2 Demo</a> - with fixes for radius and display area <a href="bouncing-ball-v2.js">source</a></li>
+<li><a href="bouncing-ball-v2.html">Bouncing Ball with Speed and Radius Controls</a></li>
 </ul>
-<h2 id="sample-code">Sample Code</h2>
+<h2 id="sample-source-code">Sample Source Code</h2>
+<p>Here is some sample source code that has been generated and modified just a little for readability.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1449,7 +1468,12 @@ into the p5.js editor to test.</p>
 <span class="normal">49</span>
 <span class="normal">50</span>
 <span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// bouncing ball - version 1</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// bouncing ball - version 1</span>
 <span class="c1">// designed for use using touch sensitive whiteboard in a classroom</span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="p">;</span>
@@ -1468,17 +1492,22 @@ into the p5.js editor to test.</p>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// Include this for placement in our HTML page but not in the editor</span>
 <span class="w">  </span><span class="c1">// canvas.parent(&#39;canvas-container&#39;);</span>
+
+<span class="w">  </span><span class="c1">// make the text a bit larger for large classrooms</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span>
+
 <span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">speed</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;px&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">);</span><span class="w"> </span><span class="c1">// light gray</span>
 
 <span class="w">  </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span>
+
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dx</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
 <span class="w">     </span><span class="k">else</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">speed</span><span class="p">;</span>
 
@@ -1502,6 +1531,12 @@ into the p5.js editor to test.</p>
 <span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Speed: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">-</span><span class="mf">10</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="key-points-about-the-code">Key Points about the Code</h2>
+<ol>
+<li>We created some global variables before the setup() function</li>
+<li>We created a setup() function to initialize the canvas and the slider</li>
+<li>We created a draw() function to render check that moves the ball, checks the edges, and draws the circle and text.</li>
+</ol>
 <h2 id="use-in-classroom">Use In Classroom</h2>
 <ol>
 <li><strong>Physics Lesson:</strong> Use this simulation to discuss concepts like velocity, acceleration, and kinetic energy. Ask students to predict how changing the speed will affect the ball's movement.</li>
