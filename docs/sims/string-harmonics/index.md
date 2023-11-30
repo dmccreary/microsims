@@ -2,7 +2,7 @@
 
 Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 
-![String Harmonics](./string-harmonics.png)
+![String Harmonics](./string-harmonics.png){ .md-button .md-button--primary }
 
 [String Harmonics Demo No Sound](./string-harmonics.html){ .md-button .md-button--primary }
 
