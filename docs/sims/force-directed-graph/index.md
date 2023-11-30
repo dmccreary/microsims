@@ -1,5 +1,7 @@
 # Force Directed Graph
 
+[Forced Directed Graph Demo](./force-directed-graph.html){ .md-button .md-button--primary }
+
 ## Sample Prompt
 
 ```linenums="0"
@@ -17,7 +19,7 @@ Display the number of steps, and the total movement of the verticies in
 each step.
 ```
 
-[Forced Directed Graph Demo](./force-directed-graph.html)
+
 
 ## Sample Response
 
