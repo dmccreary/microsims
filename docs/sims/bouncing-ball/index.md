@@ -9,7 +9,7 @@ want clearly visible user interface elements that can control
 the running of our simulations.  This version contains a 
 slider to control the speed of the ball's movement.
 
-* [Link to Bouncing Ball Demo](./bouncing-ball.html)
+* [Link to Bouncing Ball Demo](./bouncing-ball.html){ .md-button .md-button--primary }
 
 ## Prompt
 

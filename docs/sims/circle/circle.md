@@ -2,6 +2,8 @@
 
 Here is a simple example that you can start with.  The ChatGPT prompt would be the following:
 
+[Circle Slider](./circle-slider.html){ .md-button .md-button--primary }
+
 ```linenums="0"
 Generate a single p5.js sketch file that draws a blue circle
 in the center of a 400x400 canvas.
@@ -13,7 +15,6 @@ Use the text() function within the draw() function to display the
 label and current value of the radius.
 ```
 
-[Circle Slider](./circle-slider.html)
 
 ```javascript
 let radiusSlider;
