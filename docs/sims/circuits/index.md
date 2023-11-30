@@ -2,6 +2,9 @@
 
 ![](./../../img/circuit-on-off.png)
 
+
+[Battery Circuit Demo](./battery-circuit.html){ .md-button .md-button--primary }
+
 In this lesson, we will create an animation of a circuit that includes:
 
 1. A battery
@@ -27,5 +30,3 @@ to first use ChatGPT to create several functions:
 Once we have functions for all these components, we can then assemble them together in
 an entire simulation.  You will find that ChatGPT will not usually get the the layout
 wrong and you will need to adjust the positions of the wires.
-
-[Battery Circuit Demo](./battery-circuit.html)

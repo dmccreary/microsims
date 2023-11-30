@@ -7,6 +7,8 @@ In a recursive program, a function calls itself repeatedly.
 The result is often a beautiful complex image generated from
 a very small program.
 
+[Recursion Tree Demo](./recursion-tree.html){ .md-button .md-button--primary }
+
 ## Prompt
 
 ```linenums="0"

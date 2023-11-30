@@ -7,7 +7,7 @@ add slider controls that change the number of layers and the number of neurons i
 
 [Link to Chat Transcript](https://chat.openai.com/share/10acccc0-b4b0-4232-8ae6-9e5a77195dcb)
 
-[Link to Demo](./neural-network.html)
+[Link to Demo](./neural-network.html){ .md-button .md-button--primary }
 
 ```js
 // Demo of parameters in neural networks

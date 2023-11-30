@@ -1,5 +1,7 @@
 # Analog Clock Face
 
+[Link to Demo](./analog-clock-face.html){ .md-button .md-button--primary }
+
 ## Prompt
 
 ```
@@ -14,8 +16,6 @@ Automatic mode use the local time to update the display.
 Add labels and values for the sliders.
 Make sure to reenable the controls as we switch back to manual mode.
 ```
-
-[Link to Demo](./analog-clock-face.html)
 
 ## Code
 

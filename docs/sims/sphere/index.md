@@ -6,7 +6,7 @@ is a JavaScript API for rendering interactive 2D and 3D graphics within any comp
 The p5.js has many high-level 3D shapes such as box, cone, cylinder, ellipsoid, plane, sphere, and torus 
 in the [WEBGL Library](https://p5js.org/reference/#/p5/WEBGL).
 
-* [3D Sphere Demo](sphere.html)
+* [3D Sphere Demo](sphere.html){ .md-button .md-button--primary }
 
 ## Sample Prompt
 

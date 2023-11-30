@@ -4,8 +4,9 @@ Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 
 ![String Harmonics](./string-harmonics.png)
 
-* [String Harmonics Demo No Sound](./string-harmonics.html)
-* [String Harmonics Demo With Sound](./string-harmonics-osc.html)
+[String Harmonics Demo No Sound](./string-harmonics.html){ .md-button .md-button--primary }
+
+[String Harmonics Demo With Sound](./string-harmonics-osc.html){ .md-button .md-button--primary }
 
 ## Sample Prompt
 
