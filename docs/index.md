@@ -23,8 +23,8 @@ One of our goals on this site is to create a library of MicroSims that can be us
 
 Although it is easy for a non-programmer to use generative AI to create a new MicroSim, it is more difficult to find high-quality MicroSims that have been peer-reviewed by senior software developers and user experience designers.  These MicroSims have some of the following qualities:
 
-1. Clearly labeled controls with values.
-2. Controls placed at the bottom of the simulation
+1. Clearly labeled controls with values.  We discourage the use of mouse actions that are unlabeled.
+2. Controls that are placed at the bottom of the simulation.  This encourages [smartboard](./glossary.md#smartboard) use in classrooms.
 3. Controls aligned for visual aesthetics
 4. A machine-readable (yml) description of the MicroSim including subject, topic and UI controls.
 

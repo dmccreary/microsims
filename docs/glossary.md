@@ -4,49 +4,91 @@ This glossary focuses on high-level concepts related to creating high-quality si
 
 ## Terms and Definitions
 
-1. **Canvas**
-   - The area where all the drawing in p5.js takes place, foundational for simulations and UIs.
+#### Accessibility**
 
-2. **Rendering**
-   - How graphics are drawn on the canvas, including 2D and WEBGL (3D) in p5.js.
+Making simulations and UIs usable by people with a wide range of abilities.
 
-3. **Event Handling**
-   - Responding to user actions like mouse clicks, key presses, or touch events for interactivity.
+#### Animation**
 
-4. **Animation**
-   - Creating motion and shape change, often through frame-by-frame updates.
+Creating motion and shape change, often through frame-by-frame updates.
+Animations with speed controls are a core element to good user experience design.
 
-5. **Vector Graphics**
-   - Scalable graphics for rendering shapes, essential for simulations and UI elements.
+#### Canvas
 
-6. **Interactivity**
-   - Involves user input and system feedback, from simple clicks to complex gestures.
+The area where all the drawing in p5.js takes place.  Setting up
+the correct canvas dimensions with a clear area for drawing
+and an area for simulation controls is foundational for simulations and good user experience design.
 
-7. **User Experience (UX) Design**
-   - Designing interfaces and simulations that are easy, intuitive, and enjoyable to use.
+#### Rendering
 
-8. **Responsive Design**
-   - Techniques ensuring simulations and UIs work well on various devices and screen sizes.
+How graphics are drawn on the canvas, including 2D and WEBGL (3D) in p5.js.
+Many of the lastest features of p5.js focus on allowing simulations to
+create complex simulations with fast rendering speed using the WebGL
+3D libraries.
 
-9. **Simulation Fidelity**
-   - The degree to which a simulation replicates real-world processes or systems.
+#### Event Handling
 
-10. **Performance Optimization**
-    - Techniques to make simulations and interfaces run smoothly, including code optimization.
+Responding to user actions like mouse clicks, key presses, or touch events for interactivity.
 
-11. **Accessibility**
-    - Making simulations and UIs usable by people with a wide range of abilities.
+#### Vector Graphics
 
-12. **Prototyping**
-    - Creating a preliminary model of a simulation or UI for exploring ideas and testing UX.
+Scalable graphics for rendering shapes, essential for simulations and UI elements.
 
-13. **State Management**
-    - Tracking and updating the status of different elements and interactions in the system.
+#### Interactivity**
 
-14. **User Testing**
-    - Evaluating a simulation or interface by testing it with real users for feedback.
+Involves user input and system feedback, from simple clicks to complex gestures.
 
-15. **Interaction Design**
-    - Designing interactive digital products with logical and thought-out behaviors.
+#### User Experience (UX) Design**
+
+Designing interfaces and simulations that are easy, intuitive, and enjoyable to use.
+
+#### Responsive Design**
+
+Techniques ensuring simulations and UIs work well on various devices and screen sizes.
+
+#### Smart Board
+
+An interactive whiteboard, also known as an interactive board or smart board,
+is a large interactive display board in the form factor of a whiteboard.
+In many classrooms, an instructor can stand at the front of a classroom
+and move sliders below a simulation to control the simulation.
+
+For effective use of smart boards, we use a minimum text size of 16 for control labels and values.
+
+#### Simulation Fidelity
+
+The degree to which a simulation replicates real-world processes or systems.
+
+#### Slider
+
+A user interface control that allows a simulation parameter to vary from a minimum to a maximum value.
+Sliders have a default value and a value for incrementing the range.
+
+A slider is also called a "Range Control Slider", but in our examples we will just use the shorthand "slider".
+
+#### Performance Optimization
+
+Techniques to make simulations and interfaces run smoothly, including code optimization.
+
+#### Prototyping
+
+Creating a preliminary model of a simulation or UI for exploring ideas and testing UX.
+
+#### State Management
+
+Tracking and updating the status of different elements and interactions in the system.
+Many simulations use a mode variable to controls the state of a simulation.
+Examples of states include Running, Stopped and Step instructions.
+
+#### User Testing
+
+Evaluating a simulation or interface by testing it with real users for feedback.
+
+#### Interaction Design
+
+Designing interactive digital products with logical and thought-out behaviors.
+
+#### WebGL
+We Graphics Language (WebGL) is the name of the standard list of commands for drawing within web browsers.
 
 This glossary aims to provide a foundational understanding for effectively using the p5.js framework in creating high-quality simulations and user interfaces.
