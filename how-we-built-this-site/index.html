@@ -18,7 +18,7 @@
         <link rel="prev" href="../glossary/">
       
       
-        <link rel="next" href="../contact/">
+        <link rel="next" href="../license/">
       
       
       <link rel="icon" href="../img/favicon.ico">
@@ -710,6 +710,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../contact/" class="md-nav__link">
         
   
@@ -986,6 +1006,24 @@ Note that it does not commit your code to GitHub.</p>
 <h2 id="mkdocs-material-social-tags">Mkdocs Material Social Tags</h2>
 <p>We are using the <a href="https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/">Material Social</a> tags.  This
 is a work in progress!</p>
+<p>Here is what we have learned.</p>
+<ol>
+<li>There are extensive image processing libraries that can't be installed with just pip.  You will need to run a tool like <a href="https://brew.sh/">brew</a> on the Mac to get the libraries installed.</li>
+<li>Even after <code>brew</code> installs the libraries, you have to get your environment to find the libraries.  The only way I could get that to work was to set up a local UNIX environment variable.</li>
+</ol>
+<p>Here is the brew command that I ran:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>cairo<span class="w"> </span>freetype<span class="w"> </span>libffi<span class="w"> </span>libjpeg<span class="w"> </span>libpng<span class="w"> </span>zlib
+</code></pre></div></td></tr></table></div>
+<p>I then had to add the following to my ~/.zshrc file:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="o">=</span>/opt/homebrew/lib
+</code></pre></div></td></tr></table></div>
+<p>Note that I am running on a Mac with Apple silicon.  This means that the
+image libraries that brew downloads must be specific to the Mac Arm
+instruction set.</p>
+<ul>
+<li><a href="https://github.com/squidfunk/mkdocs-material/issues/4364">Cover images for blog post #4364</a></li>
+<li><a href="https://github.com/squidfunk/mkdocs-material/discussions/5162">Discussion on overriding the Social Card Image</a></li>
+</ul>
 
 
   
@@ -1032,13 +1070,13 @@ is a work in progress!</p>
         
         
           
-          <a href="../contact/" class="md-footer__link md-footer__link--next" aria-label="Next: Contact">
+          <a href="../license/" class="md-footer__link md-footer__link--next" aria-label="Next: Creative Commons License">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Contact
+                Creative Commons License
               </div>
             </div>
             <div class="md-footer__button md-icon">
