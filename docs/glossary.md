@@ -19,12 +19,14 @@ The area where all the drawing in p5.js takes place.  Setting up
 the correct canvas dimensions with a clear area for drawing
 and an area for simulation controls is foundational for simulations and good user experience design.
 
-#### Rendering
+#### Link Preview
 
-How graphics are drawn on the canvas, including 2D and WEBGL (3D) in p5.js.
-Many of the lastest features of p5.js focus on allowing simulations to
-create complex simulations with fast rendering speed using the WebGL
-3D libraries.
+The image, title and description of a web page when the link is posted to a social media or video chat.
+We use mkdocs material for this site so we use the configuration provided by the material plugin.
+
+* [Material Social Cards Plugin Docs](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/)
+* [YouTube Tutorial](https://www.youtube.com/watch?v=4OjnOc6ftJ8)
+
 
 #### Event Handling
 
@@ -41,6 +43,13 @@ Involves user input and system feedback, from simple clicks to complex gestures.
 #### User Experience (UX) Design**
 
 Designing interfaces and simulations that are easy, intuitive, and enjoyable to use.
+
+#### Rendering
+
+How graphics are drawn on the canvas, including 2D and WEBGL (3D) in p5.js.
+Many of the lastest features of p5.js focus on allowing simulations to
+create complex simulations with fast rendering speed using the WebGL
+3D libraries.
 
 #### Responsive Design**
 
@@ -66,6 +75,18 @@ Sliders have a default value and a value for incrementing the range.
 
 A slider is also called a "Range Control Slider", but in our examples we will just use the shorthand "slider".
 
+#### Social Page Metadata
+
+Data 
+
+```
+---
+title:
+description:
+image:
+---
+```
+
 #### Performance Optimization
 
 Techniques to make simulations and interfaces run smoothly, including code optimization.
@@ -87,6 +108,12 @@ Evaluating a simulation or interface by testing it with real users for feedback.
 #### Interaction Design
 
 Designing interactive digital products with logical and thought-out behaviors.
+
+### URLlib
+
+The Python library we use to generate social cards.
+
+We use urllib3=1.26.6
 
 #### WebGL
 We Graphics Language (WebGL) is the name of the standard list of commands for drawing within web browsers.
