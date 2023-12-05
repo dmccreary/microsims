@@ -137,3 +137,27 @@ Note that it does not commit your code to GitHub.
 
 We are using the [Material Social](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/) tags.  This
 is a work in progress!
+
+Here is what we have learned.
+
+1. There are extensive image processing libraries that can't be installed with just pip.  You will need to run a tool like [brew](https://brew.sh/) on the Mac to get the libraries installed.
+2. Even after ```brew``` installs the libraries, you have to get your environment to find the libraries.  The only way I could get that to work was to set up a local UNIX environment variable.
+
+Here is the brew command that I ran:
+
+```sh
+brew install cairo freetype libffi libjpeg libpng zlib
+```
+
+I then had to add the following to my ~/.zshrc file:
+
+```sh
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
+```
+
+Note that I am running on a Mac with Apple silicon.  This means that the
+image libraries that brew downloads must be specific to the Mac Arm
+instruction set.
+
+* [Cover images for blog post #4364](https://github.com/squidfunk/mkdocs-material/issues/4364)
+* [Discussion on overriding the Social Card Image](https://github.com/squidfunk/mkdocs-material/discussions/5162)
