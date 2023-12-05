@@ -140,8 +140,9 @@ class Graph {
 
 let graph = new Graph();
 
-function setup() {
-    createCanvas(canvasWidth, canvasHeight);
+function setup() { 
+    const canvas = createCanvas(canvasWidth, canvasHeight);
+    canvas.parent('canvas-container');
     textSize(16);
     background(245);
 
