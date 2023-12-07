@@ -2,13 +2,15 @@
 
 ![PWM](./pwm.png)
 
-[Pulse-Width Modulation](./pwm.html){ .md-button .md-button--primary }
+[Run the Pulse-Width Modulation Demo](./pwm.html){ .md-button .md-button--primary }
 
-Pulse-width modulation is the way that microcontrollers send a precise signal to a 
-device such as a motor controller.  This simulation models an old CRT oscilloscope display
-with a bright green line on a black background.
+Pulse-width modulation is the way for microcontrollers to send a precise signal to a 
+device such as a motor controller to control motor speed.  
+This simulation has a slider that allows the user to change the "duty cycle" of
+a waveform.  The simulation is a bright green line on a black background, just like
+the old CRT oscilloscope displays.
 
-## Sample Prompt
+## Sample ChatGPT Prompt
 
 ```linenums="0"
 Generate a p5.js sketch file of a simulation of a static pulse width
@@ -22,6 +24,8 @@ Make sure the range control slider has a width of 400px using the
 At the end of the draw() function add a text() function that displays
    the label and value of the duty cycle.
 ```
+
+I have tested this several times using GPT-4 and it seems to work very well.
 
 ## Sample Response
 
@@ -90,6 +94,7 @@ I have a webpage that simulates a pulse-width-modulation waveform.
 The page has a slider that allows students to change the duty cycle from 0% to 100%.
 When the students change the slider, the waveform is updated with the duty cycle.
 Generate a lesson plan for a 9th-grade robotics class that uses this simulation.
+For follow up activities, we have Raspberry Pi Picos that we program with MicroPython.
 Return the response in a single raw markdown file.
 ```
 
