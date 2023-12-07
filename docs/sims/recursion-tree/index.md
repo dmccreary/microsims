@@ -69,3 +69,7 @@ In setup(), the canvas is created, and the slider is initialized.
 draw() continuously updates the canvas, translating the origin to the bottom center and then drawing the tree.
 drawBranch(len) is the recursive function. It draws a line, then moves to the end of that line. If the branch is long enough, it draws two smaller branches at angles determined by the slider.
 This code provides a basic recursive tree. You can enhance it with more features like changing the color, stroke weight, or the number of branches.
+
+## References
+
+* [Google Gemini Demo](https://www.youtube.com/watch?v=NHLnjWTEZps)
