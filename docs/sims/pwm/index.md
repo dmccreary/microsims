@@ -1,4 +1,4 @@
-### Pulse-Width Modulation
+# Pulse-Width Modulation
 
 ![PWM](./pwm.png)
 
