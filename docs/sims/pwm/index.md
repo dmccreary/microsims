@@ -20,13 +20,16 @@ Add a range control slider to adjust the Duty Cycle of the waveform.
 Make the default Duty Cycle be 50%.
 The min should be 0% and the max should be 100%.
 Place the range control slider at the bottom of the canvas.
-Make sure the range control slider has a width of 400px using the 
+Make the leftSliderMargin be 155.
+Make sure the range control slider has a width of canvasWidth-leftSliderMargin-20 using the 
    style attribute.
 At the end of the draw() function add a text() function that displays
    the label and value of the duty cycle.
 ```
 
-I have tested this prompt several times using GPT-4 and it seems to work very well.
+I have tested this prompt several times using GPT-4 and it seems to work very well
+except for the precise layout of the duty cycle label, value and slider positioning.
+I had to tweak these by hand.
 
 [Edit This MicroSim Using the P5.js Editor](https://editor.p5js.org/dmccreary/sketches/LuroLLnh9)
 
