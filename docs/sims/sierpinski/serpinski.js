@@ -2,7 +2,8 @@ let points = [];
 let current;
 
 function setup() {
-    createCanvas(400, 400);
+    const canvas = createCanvas(400, 400);
+    canvas.parent('canvas-container');
     let a = createVector(width / 2, height / 2 - 100);
     let b = createVector(width / 2 - 100, height / 2 + 100);
     let c = createVector(width / 2 + 100, height / 2 + 100);
