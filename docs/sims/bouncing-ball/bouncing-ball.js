@@ -3,7 +3,7 @@
 
 let width = 500;
 let height = 350;
-let drHeight = 320; // region for drawing
+let drawHeight = 320; // region for drawing
 r = 20; // radius of the ball
 
 // initial position
@@ -20,16 +20,16 @@ function setup() {
   canvas.parent('canvas-container');
   textSize(16);
   speedSlider = createSlider(0, 20, speed);
-  speedSlider.position(sliderLeftMargin, height - 15);
+  speedSlider.position(sliderLeftMargin, drawHeight + 15);
   speedSlider.style('width', width - sliderLeftMargin - 15 + 'px');
 }
 
 function draw() {
   fill(240);
   noStroke();
-  rect(0, 0, width, drHeight+1); // fill drawing area with light gray
+  rect(0, 0, width, drawHeight+1); // fill drawing area with light gray
   fill('white');
-  rect(0, drHeight, width, height-drHeight); // fill control with white
+  rect(0, drawHeight, width, height-drawHeight); // fill control with white
   
   // get the new speed from the UI
   speed = speedSlider.value();
@@ -49,7 +49,7 @@ function draw() {
   if ((x > width-r) || (x < r)) {
     dx = dx * -1; // change direction
   }
-  if ((y > drHeight - r) || (y < r)) {
+  if ((y > drawHeight - r) || (y < r)) {
     dy = dy * -1;
   }
 
@@ -57,5 +57,5 @@ function draw() {
   circle(x, y, r*2);
   fill('black');
   strokeWeight(0);
-  text('Speed: ' + speed, 10, height-10)
+  text('Speed: ' + speed, 10, drawHeight+20)
 }

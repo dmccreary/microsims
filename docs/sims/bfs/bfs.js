@@ -1,10 +1,12 @@
 
 // Global canvas size variables
 let canvasWidth = 400;
-let canvasHeight = 400;
+let canvasHeight = 430;
+// leave room for bottom controls
+let drawHeight = 400;
 
-// Array of colors
-let colors = ['red', 'orange', 'yellow', 'lightgreen', 'lightblue', 'cyan', 'purple', 'gray', 'pink', 'olive', 'gold', 'brown'];
+// Array of colors but not too dark so we can read black text over the colors
+let colors = ['pink', 'orange', 'yellow', 'lightgreen', 'lightblue', 'cyan', 'plum', 'silver', 'pink', 'olive', 'gold', 'brown'];
 
 // Node and graph class definitions
 class Node {
@@ -144,12 +146,13 @@ function setup() {
     const canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas-container');
     textSize(16);
-    background(245);
+
 
     // Create nodes
     for (let i = 0; i < 20; i++) {
         let x = random(20, canvasWidth - 20);
-        let y = random(20, canvasHeight - 20);
+        // note we only draw down to the drawHeight not the canvasHeight
+        let y = random(20, drawHeight - 20);
         let node = new Node(x, y);
         graph.addNode(node);
     }
@@ -163,16 +166,26 @@ function setup() {
     // Connect nodes
     graph.connectClosest();
 
-    // Add buttons
-    createButton('Next Step').mousePressed(() => { graph.nextStep(); redraw(); });
-    createButton('Finish').mousePressed(() => { graph.finish(); redraw(); });
-    createButton('Restart').mousePressed(() => { graph.restart(); redraw(); });
+   // Position buttons at the bottom of the canvas
+   createButton('Next Step')
+   .position(10, drawHeight + 15)
+   .mousePressed(() => { graph.nextStep(); redraw(); });
+
+   createButton('Finish')
+   .position(95, drawHeight + 15)
+   .mousePressed(() => { graph.finish(); redraw(); });
+
+   createButton('Restart')
+   .position(160, drawHeight + 15)
+   .mousePressed(() => { graph.restart(); redraw(); })
 
     // Draw the graph
     noLoop();
 }
 
 function draw() {
-    background(245);
+    fill(245);
+    // draw all but the bottom control area
+    rect(0, 0, canvasWidth, drawHeight);
     graph.drawGraph();
 }

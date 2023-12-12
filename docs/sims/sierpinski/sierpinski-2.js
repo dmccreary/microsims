@@ -16,7 +16,7 @@ function setup() {
   depthSlider.position(sliderLeftMargin, canvasHeight - 60);
   depthSlider.style('width', canvasWidth - sliderLeftMargin + 'px');
 
-  colorSlider = createSlider(0, 255, 0);
+  colorSlider = createSlider(0, 255, 50);
   colorSlider.position(sliderLeftMargin, canvasHeight - 40);
   colorSlider.style('width', canvasWidth - sliderLeftMargin + 'px');
 
