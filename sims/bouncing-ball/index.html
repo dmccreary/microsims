@@ -400,6 +400,10 @@
         
       
         
+          
+        
+      
+        
       
         
       
@@ -676,6 +680,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -756,6 +767,26 @@
   
   <span class="md-ellipsis">
     Sine Wave
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Canon
   </span>
   
 
@@ -1477,6 +1508,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1496,25 +1534,33 @@
 
 
 <h1 id="bouncing-ball">Bouncing Ball</h1>
-<p><img alt="Bouncing Ball" src="bouncing-ball.png" /></p>
+<!--
+Note that <figure> and <figcaption> don't seem to work in this file.
+-->
+<figure>
+<p><img alt="Bouncing Ball" src="bouncing-ball-v2.png" width="400" />
+   </p>
+<figcaption>Bouncing Ball</figcaption>
+</figure>
+<p><a class="md-button md-button--primary" href="bouncing-ball.html">Run Bouncing Ball Demo</a></p>
 <p>The bouncing ball is the "Hello World!" of the Processing system.
 It contains the key element that shows the power of the Processing system:
-graphics with movement.  In the area of MicroSims, we also
-want clearly visible user interface elements that can control
+graphics with movement and user interaction.  When we design MicroSims, we also
+want clearly-visible user interface elements that can control
 the running of our simulations.  This version contains a 
 slider to control the speed of the ball's movement.</p>
-<p><a class="md-button md-button--primary" href="bouncing-ball.html">Link to Bouncing Ball Demo</a></p>
 <h2 id="prompt">Prompt</h2>
 <p>Here is a simple prompt to get you started.</p>
-<div class="highlight"><pre><span></span><code>Generate a single p5.js sketch of a blue bouncing ball on a 500x300 canvas.
+<div class="highlight"><pre><span></span><code>Generate a single p5.js sketch of a blue bouncing ball on a 400x400 canvas.
 </code></pre></div>
 <p>Copy the prompt into ChatGPT.  It will generate a JavaScript file you can copy and paste or download
 into the p5.js editor to test.</p>
 <p>Here is a more precise prompt that also allows us to change the speed using a slider.</p>
-<div class="highlight"><pre><span></span><code>The sketch shows a ball bouncing around a rectangular area.
+<div class="highlight"><pre><span></span><code>Generate a single p5.js sketch of a blue bouncing ball on a 400x400 canvas.
+The sketch shows a ball bouncing around a rectangular area.
 The canvas should be 500 wide and 300 high.
 The default text size is 16.
-The ball is blue and has a radius of 20.
+The ball is blue and has a radius of 50.
 There is a slider that changes the speed from 0 to 20 with a default speed of 3.
 The slider should be placed at the bottom of the canvas.
 The slider should have a label &quot;Speed: &quot; and the speed value to the left of the slider.
@@ -1525,6 +1571,7 @@ DD NOT use objects - just functions.
 <ul>
 <li><a href="bouncing-ball-v2.html">Bouncing Ball with Speed and Radius Controls</a></li>
 </ul>
+<p><a href="https://editor.p5js.org/dmccreary/sketches/et2sWNXZb">Edit Using P5.js Editor</a></p>
 <h2 id="sample-source-code">Sample Source Code</h2>
 <p>Here is some sample source code that has been generated and modified just a little for readability.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1583,12 +1630,18 @@ DD NOT use objects - just functions.
 <span class="normal">54</span>
 <span class="normal">55</span>
 <span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// bouncing ball - version 1</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// bouncing ball - version 1</span>
 <span class="c1">// designed for use using touch sensitive whiteboard in a classroom</span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">500</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">drHieght</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">320</span><span class="p">;</span><span class="w"> </span><span class="c1">// region for drawing</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHieght</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">320</span><span class="p">;</span><span class="w"> </span><span class="c1">// region for drawing</span>
 <span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// radius of the ball</span>
 
 <span class="c1">// initial position</span>
@@ -1598,26 +1651,29 @@ DD NOT use objects - just functions.
 <span class="c1">// direction of motion</span>
 <span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
 <span class="nx">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
+<span class="c1">// spacing before the slider</span>
 <span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">83</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
-<span class="w">  </span><span class="c1">// Include this for placement in our HTML page but not in the editor</span>
+<span class="w">  </span><span class="c1">// Include this for placement in our HTML page but not in the p5.js editor</span>
 <span class="w">  </span><span class="c1">// canvas.parent(&#39;canvas-container&#39;);</span>
 
 <span class="w">  </span><span class="c1">// make the text a bit larger for large classrooms</span>
 <span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span>
 
 <span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">speed</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHieght</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;px&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">);</span><span class="w"> </span><span class="c1">// light gray</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHieght</span><span class="p">);</span><span class="w"> </span><span class="c1">// light gray</span>
 
+<span class="w">  </span><span class="c1">// get the new value from the slider</span>
 <span class="w">  </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span>
 
+<span class="w">  </span><span class="c1">// set the new speed but don&#39;t change the direction (positive or negative)</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dx</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
 <span class="w">     </span><span class="k">else</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">speed</span><span class="p">;</span>
 
@@ -1628,6 +1684,7 @@ DD NOT use objects - just functions.
 <span class="w">  </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">dx</span><span class="p">;</span>
 <span class="w">  </span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">dy</span><span class="p">;</span>
 
+<span class="w">  </span><span class="c1">// simple bounce check without considering the radius of the ball</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">width</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <span class="w">  </span><span class="p">}</span>
@@ -1637,6 +1694,8 @@ DD NOT use objects - just functions.
 
 <span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="o">*</span><span class="mf">2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Add the label and value at the bottom</span>
 <span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Speed: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">-</span><span class="mf">10</span><span class="p">)</span>
 <span class="p">}</span>
@@ -1706,9 +1765,10 @@ DD NOT use objects - just functions.
 <h3 id="assessment">Assessment</h3>
 <ul>
 <li>Participation in the interactive activity and group discussion.</li>
-<li>Accuracy and understanding shown in the worksheet.</li>
+<li>Accuracy and understanding is shown in the worksheet.</li>
 <li>Reflection paragraph and homework project.</li>
 </ul>
+<h2 id="references">References</h2>
 
 
   
