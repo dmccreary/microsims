@@ -1,6 +1,9 @@
 # Breadth First Graph Search
 
-[Demo](./bfs.html)
+<figure>
+[Run Demo of Breadth First Graph Search](./bfs.html)
+   <figcaption>Figure caption.</figcaption>
+</figure>
 
 ## Sample Prompt
 

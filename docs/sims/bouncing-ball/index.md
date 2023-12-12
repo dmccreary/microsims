@@ -1,22 +1,28 @@
 # Bouncing Ball
 
-![Bouncing Ball](./bouncing-ball.png)
+<!--
+Note that <figure> and <figcaption> don't seem to work in this file.
+-->
+<figure markdown>
+![Bouncing Ball](./bouncing-ball-v2.png){ width="400" }
+   <figcaption>Bouncing Ball</figcaption>
+</figure>
+
+[Run Bouncing Ball Demo](./bouncing-ball.html){ .md-button .md-button--primary }
 
 The bouncing ball is the "Hello World!" of the Processing system.
 It contains the key element that shows the power of the Processing system:
-graphics with movement.  In the area of MicroSims, we also
-want clearly visible user interface elements that can control
+graphics with movement and user interaction.  When we design MicroSims, we also
+want clearly-visible user interface elements that can control
 the running of our simulations.  This version contains a 
 slider to control the speed of the ball's movement.
-
-[Link to Bouncing Ball Demo](./bouncing-ball.html){ .md-button .md-button--primary }
 
 ## Prompt
 
 Here is a simple prompt to get you started.
 
 ```linenums="0"
-Generate a single p5.js sketch of a blue bouncing ball on a 500x300 canvas.
+Generate a single p5.js sketch of a blue bouncing ball on a 400x400 canvas.
 ```
 
 Copy the prompt into ChatGPT.  It will generate a JavaScript file you can copy and paste or download
@@ -25,10 +31,11 @@ into the p5.js editor to test.
 Here is a more precise prompt that also allows us to change the speed using a slider.
 
 ```linenums="0"
+Generate a single p5.js sketch of a blue bouncing ball on a 400x400 canvas.
 The sketch shows a ball bouncing around a rectangular area.
 The canvas should be 500 wide and 300 high.
 The default text size is 16.
-The ball is blue and has a radius of 20.
+The ball is blue and has a radius of 50.
 There is a slider that changes the speed from 0 to 20 with a default speed of 3.
 The slider should be placed at the bottom of the canvas.
 The slider should have a label "Speed: " and the speed value to the left of the slider.
@@ -38,8 +45,9 @@ DD NOT use objects - just functions.
 
 Here is an additional example that allows the user to change both the speed and the ball size:
 
-
 * [Bouncing Ball with Speed and Radius Controls](./bouncing-ball-v2.html)
+
+[Edit Using P5.js Editor](https://editor.p5js.org/dmccreary/sketches/et2sWNXZb)
 
 ## Sample Source Code
 
@@ -51,7 +59,7 @@ Here is some sample source code that has been generated and modified just a litt
 
 let width = 500;
 let height = 350;
-let drHieght = 320; // region for drawing
+let drawHieght = 320; // region for drawing
 r = 20; // radius of the ball
 
 // initial position
@@ -61,26 +69,29 @@ speed = 3; // default speed
 // direction of motion
 dx = speed;
 dy = speed;
+// spacing before the slider
 sliderLeftMargin = 83;
 
 function setup() {
   const canvas = createCanvas(width, height);
-  // Include this for placement in our HTML page but not in the editor
+  // Include this for placement in our HTML page but not in the p5.js editor
   // canvas.parent('canvas-container');
 
   // make the text a bit larger for large classrooms
   textSize(16);
 
   speedSlider = createSlider(0, 20, speed);
-  speedSlider.position(sliderLeftMargin, height - 25);
+  speedSlider.position(sliderLeftMargin, drawHieght + 15);
   speedSlider.style('width', width - sliderLeftMargin - 15 + 'px');
 }
 
 function draw() {
-  background(240); // light gray
+  rect(0,0, canvasWidth, drawHieght); // light gray
 
+  // get the new value from the slider
   speed = speedSlider.value()
   
+  // set the new speed but don't change the direction (positive or negative)
   if (dx > 0) dx = speed;
      else dx = -speed;
   
@@ -91,6 +102,7 @@ function draw() {
   x += dx;
   y += dy;
 
+  // simple bounce check without considering the radius of the ball
   if ((x > width) || (x < 0)) {
     dx = dx * -1;
   }
@@ -100,6 +112,8 @@ function draw() {
 
   fill('blue');
   circle(x, y, r*2);
+
+  // Add the label and value at the bottom
   fill('black');
   text('Speed: ' + speed, 10, height-10)
 }
@@ -164,6 +178,8 @@ Students will understand the concepts of kinetic and potential energy, and how t
 
 ### Assessment
 - Participation in the interactive activity and group discussion.
-- Accuracy and understanding shown in the worksheet.
+- Accuracy and understanding is shown in the worksheet.
 - Reflection paragraph and homework project.
+
+## References
 

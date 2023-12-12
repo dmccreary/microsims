@@ -1,6 +1,47 @@
+# Canon and Projectile Motion
+
+<figure markdown>
+   ![Image Name](./canon.png){ width="400" }
+   <figcaption>Figure caption.</figcaption>
+</figure>
+
+[Run Demo of Canon Projectile Motion](./canon.html){ .md-button .md-button--primary }
+
+In this lesson, we add gravity to our simulation.  The program has a "Fire" button
+and you can adjust the angle an power of the canon that fires the ball.
+
+## Sample Prompts
+
+```linenums="0"
+Generate a single file p5.js sketch that demonstrates projectile motion.
+Allow the user to set the initial angle and power of a projectile.
+```
+
+Here is a more precise specification with details on the control placement.
+
+```linenums="0"
+Generate a single file p5.js sketch on an 800x550 canvas.
+The program is a simulation of projecile motion.
+The upper drawing region is 800x500 and is intialized with a light gray rectangle of 245.
+The lower 50 height is for placing the controls on a white background.
+A circle of radius 10 is placed in the lower left corner of the drawing region.
+A "Fire" buttin is below the circle.
+To the right of the fire button are two sliders.
+One slider is for the initial angle at fire time.
+One slider is for the power at fire time.
+Gravity is in the positive y of force 0.05
+When the ball goes outside the drawing region (800x500) the simulation must stop.
+When the simulation stops, place a new ball in the lower left corner of the drawing region.
+```
+
+[Edit this Code Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/KK75id7n4)
+
+## Sample Code
+
+```js
 // Cannon Ball - a demonstration of projectile motion
 // Gravity is a constant
-let canvasWidth = 600;
+let canvasWidth = 800;
 let drawHeight = 500;
 let canvasHeight = drawHeight + 40; // add 20 per slider
 let angleSlider, powerSlider;
@@ -14,7 +55,7 @@ let sliderLeftMargin = 140;
 function setup() {
   const canvas = createCanvas(canvasWidth, canvasHeight);
   // uncomment when placing into HTML
-  canvas.parent('canvas-container');
+  // canvas.parent('canvas-container');
   textSize(16);
 
   angleSlider = createSlider(0, 90, 75, 1);
@@ -95,3 +136,14 @@ class CannonBall {
     circle(this.pos.x, this.pos.y, this.r * 2);
   }
 }
+
+```
+
+## Learnings from the Code
+
+1. The p5.js has a library for simulating forces on an object.
+2. We can use the Class operator to create functions on the canon ball.
+
+## References
+
+1. 

@@ -1,5 +1,15 @@
 # Simulation of an Arithmetic Logic Unit (ALU)
 
+<figure markdown>
+![ALU](alu.png)
+   <figcaption>Arithmetic Logic Unit</figcaption>
+</figure>
+[Demo](alu.html){ .md-button .md-button--primary }
+
+!!! Note
+  This microsim is a work-in-progress.  The ALU works in some cases but has bugs
+  and the layout is not optimized.
+
 Prompt:
 
 ```linenums="0"
@@ -17,7 +27,7 @@ Create an input toggle button to display all values in either binary or decimal.
 Make the default value be decimal.
 ```
 
-[Demo](alu.html)
+
 
 ```js
 let inputA;
