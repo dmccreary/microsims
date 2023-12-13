@@ -128,6 +128,13 @@ function updateBattery() {
 }
 ```
 
+!!! Challenges
+    1. Add a label that shows the percent of charge remaining
+    2. Add a label that predicts how long the battery will last at the current discharge rate
+    3. Add another button called "Recharge" that will slowly recharge the battery
+    4. Add animation to the wires of red dots moving along the wires.  Make the dots go faster at a higher power.
+    5. Make the battery explode if you charge it too quickly
+
 ## Lesson Plans
 
 ### 5th Grade Robotics Class Lesson Plan
