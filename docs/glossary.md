@@ -4,11 +4,11 @@ This glossary focuses on high-level concepts related to creating high-quality si
 
 ## Terms and Definitions
 
-#### Accessibility**
+#### Accessibility
 
 Making simulations and UIs usable by people with a wide range of abilities.
 
-#### Animation**
+#### Animation
 
 Creating motion and shape change, often through frame-by-frame updates.
 Animations with speed controls are a core element to good user experience design.
@@ -51,7 +51,7 @@ Many of the lastest features of p5.js focus on allowing simulations to
 create complex simulations with fast rendering speed using the WebGL
 3D libraries.
 
-#### Responsive Design**
+#### Responsive Design
 
 Techniques ensuring simulations and UIs work well on various devices and screen sizes.
 
