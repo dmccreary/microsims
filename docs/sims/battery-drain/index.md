@@ -133,45 +133,42 @@ function updateBattery() {
 ### 5th Grade Robotics Class Lesson Plan
 
 #### Objective
-- Introduce students to basic robotics concepts.
-- Enable students to understand and operate simple robot kits.
-- Foster teamwork and problem-solving skills.
+  - Understand the concept of battery discharge and its application in powering motors, particularly in robotics.
+  - Develop an understanding of how adjusting variables (like motor speed) can impact power consumption.
+  - Ask questions about what we do with batteries when they are discharged?
 
 #### Duration
-- 1 hour (can be adjusted based on class schedule)
+- 1 hour
 
 #### Materials
-- LEGO Mindstorms EV3 kits or equivalent robotic kits.
-- Computers with appropriate robotics programming software (e.g., LEGO Mindstorms software).
-- Instruction manuals for the robotic kits.
-- Worksheets for design planning and reflection.
-- Whiteboard and markers for instruction and brainstorming.
+- Computers with internet access to use the p5.js Web Editor.
+- Projector to demonstrate the p5.js simulation.
+- Printed screenshots of the p5.js canvas setup (for reference).
 
 #### Introduction (10 minutes)
-- **Teacher-led Discussion**: Briefly discuss what robots are and their importance in today's world.
-- **Video Presentation**: Show a short video on basic robotics and their applications.
+- **Interactive Questioning**: Begin by asking students about their experiences with batteries. "What devices at home use batteries?" "Have you noticed how the performance changes as the battery drains?"
+- **Relevance to Robotics**: Discuss why robots need batteries, linking to their own experiences with battery-powered devices.
 
-#### Activity Part 1: Exploring the Robot Kits (15 minutes)
-- **Team Formation**: Divide the class into small groups.
-- **Kit Exploration**: Allow each group to explore their robot kit, identifying different components like sensors, motors, and the main processing unit.
+#### Demonstration of the Simulation (10 minutes)
+- **Show the p5.js Simulation**: Project the simulation on the screen. Demonstrate how the motor's speed changes with the slider and how this affects battery discharge.
+- **Explain the Components**: Point out the battery, the wires, the motor, and the spinning circle, explaining their roles.
 
-#### Activity Part 2: Basic Programming (20 minutes)
-- **Programming Introduction**: Demonstrate how to use the programming software to control a robot.
-- **Hands-On Activity**: Each group programs their robot to perform simple tasks (e.g., moving in a straight line, turning, stopping).
+#### Group Activity: Experimenting with the Simulation (20 minutes)
+- **Hands-On Exploration**: Students work in pairs on computers to experiment with the simulation.
+- **Guided Inquiry**: Encourage students to observe what happens as they adjust the motor speed. Does the battery discharge faster at higher speeds?
 
-#### Activity Part 3: Design Challenge (10 minutes)
-- **Challenge Introduction**: Pose a simple challenge, like navigating a basic obstacle course.
-- **Teamwork and Planning**: Groups plan their approach and begin programming their robots to complete the challenge.
+#### Discussion and Reflection (15 minutes)
+- **Group Discussion**: Reconvene as a class and discuss observations. Key questions: "How did changing the motor speed affect the battery life?" "Why is this important for designing robots?"
+- **Connecting to Real Life**: Relate the activity to real-world scenarios. "How might this knowledge impact the way we design battery-powered devices or robots?"
 
 #### Conclusion (5 minutes)
-- **Group Sharing**: Each group shares their experience, challenges faced, and how they overcame them.
-- **Reflection**: Encourage students to think about how they can apply what they learned in future projects.
+- **Summarize Key Learnings**: Reinforce the importance of understanding battery usage in robotics and everyday devices.
+- **Reflect on the Activity**: Ask students to share one new thing they learned and how they might apply this knowledge.
 
 #### Assessment
-- Observation of student engagement and participation.
-- Review of the completed worksheets for design planning and reflection.
-- Assessment of the ability to program the robot to complete the given challenge.
+- Participation and engagement during the activity.
+- Responses during the discussion, reflecting understanding of the concept.
 
 #### Follow-Up
-- In subsequent lessons, introduce more complex programming concepts and challenges.
-- Encourage students to think of real-world problems that can be solved with robotics.
+- In the next lesson, explore other factors affecting battery life in robots, like weight or the type of task performed.
+- Assign a small project where students design a simple battery-powered device or robot, considering battery life.
