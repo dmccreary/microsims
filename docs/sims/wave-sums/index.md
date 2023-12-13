@@ -1,6 +1,6 @@
 ## Wave Sums
 
-![](./../../img/sum-of-waveforms.png)
+![](./sum-of-waveforms.png)
 
 This lab demonstrates calculating the sum of sine waves of different lengths.
 Understanding how to convert waves from spacial domains into frequency

@@ -1,8 +1,14 @@
+// Collision Avoidance Robot
+let canvasWidth = 400;
+let drawHeight = 400;
+let canvasHeight = 430;
+
 let robotPos; // a vector of x and y values
 let robotVel; // velocity vector of x and y values
 // The angle that the robot is moving
 // orient to the right
 let robotAngle = 90;
+// dist beyond square
 let sensorLength = 40;
 let circleRadius = 200;
 let robotSize = 20; // dist to edge for turn
@@ -14,31 +20,34 @@ let remainingBackup = 20;
 let delay = 100; // 1/10 second delay when animating a turn
 
 function setup() {
-  const canvas = createCanvas(400, 400);
+  const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('canvas-container');
-  
+
   // place the robot in the center of the corral
-  robotPos = createVector(width / 2, height / 2);
+  robotPos = createVector(width / 2, drawHeight / 2);
   robotVel = createVector(.01, 0);
 
   let startButton = createButton('Start');
+  startButton.position(10, drawHeight+10);
   startButton.mousePressed(() => moving = true);
 
   let stopButton = createButton('Stop');
+  stopButton.position(65, drawHeight+10);
   stopButton.mousePressed(stopRobot);
-
-  let resumeButton = createButton('Resume');
-  resumeButton.mousePressed(() => moving = true);
   
   let resetButton = createButton('Reset');
+  resetButton.position(120, drawHeight+10);
   resetButton.mousePressed(resetRobot);
   
   frameRate(60);
 }
 
 function draw() {
-  background(220);
-  circle(width / 2, height / 2, circleRadius * 2);
+  fill(245);
+  rect(0,0, canvasWidth, drawHeight);
+  fill('white');
+  circle(width / 2, drawHeight / 2, circleRadius * 2);
+  rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight);
 
   if (moving) {
     moveRobot();
@@ -71,7 +80,15 @@ function draw() {
   }
   
   drawRobot();
-  
+
+  // draw line to tip
+  fill('silver')
+  strokeWeight(1);
+  x1 = cos(robotAngle)*(sensorLength+20)+60;
+  y1 = sin(robotAngle)*(sensorLength+20);
+  line(width/2,drawHeight/2,robotPos.x+x1,robotPos.y+y1);
+
+  text("a:"+round(robotAngle), 5, drawHeight-40)
 }
 
 function Robot() {
@@ -87,9 +104,12 @@ function moveRobot() {
 }
 
 function checkCollision() {
-  // distance of the center of the robot to the circle
-  let d = dist(robotPos.x, robotPos.y, width / 2, height / 2);
-  if (d + robotSize > circleRadius - sensorLength) {
+  // distance of the front sensor
+  x1 = cos(robotAngle)*(sensorLength+20);
+  y1 = -sin(robotAngle)*(sensorLength+20);
+
+  let d = dist(robotPos.x+x1, robotPos.y+y1, width / 2, drawHeight / 2);
+  if (d > circleRadius) {
     
     // Set up the backing 
     isBacking = true; // back up by 20 units
@@ -113,6 +133,7 @@ function drawRobot() {
     fill(0, 255, 0);
     // triangle(-robotSize, robotSize, robotSize, robotSize, 0, -robotSize);
     rect(-robotSize,-robotSize, robotSize*2, robotSize*2)
+    strokeWeight(4);
     stroke(255, 0, 0);
     line(0, -robotSize, 0, -sensorLength-15);
   pop();
@@ -120,12 +141,14 @@ function drawRobot() {
 
 function stopRobot() {
   moving = false;
-  printRobotState();
+  isTurning = false;
+  isBacking = false;
+  // printRobotState();
 }
 
 function resetRobot() {
   stopRobot();
-  robotPos = createVector(width / 2, height / 2);
+  robotPos = createVector(width / 2, drawHeight / 2);
   robotVel = createVector(1.2, 0);
   robotAngle = 90;
 }
