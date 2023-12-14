@@ -1,0 +1,5 @@
+| Sim | Sim | Sim | Sim |
+| --- | --- | --- | --- |
+| [Simulation of an Arithmetic Logic Unit (ALU)](../sims/alu) ![thumbnail](./thumbnails/alu.png) | [Battery Drain](../sims/battery-drain) ![thumbnail](./thumbnails/battery-drain.png) | [Breadth First Graph Search](../sims/bfs) ![thumbnail](./thumbnails/bfs.png) | [Binary Number](../sims/binary-number) ![thumbnail](./thumbnails/binary-number.png) |
+| [Bouncing Ball](../sims/bouncing-ball) ![thumbnail](./thumbnails/bouncing-ball.png) | [Canon and Projectile Motion](../sims/canon) ![thumbnail](./thumbnails/canon.png) | [Collision Avoidance Robot](../sims/collision-avoidance-robot) ![thumbnail](./thumbnails/collision-avoidance-robot.png) | [Gold Star](../sims/gold-star) ![thumbnail](./thumbnails/gold-star.png) |
+| [Logic Gates](../sims/logic-gates) ![thumbnail](./thumbnails/logic-gates.png) | [Named Colors](../sims/named-colors) ![thumbnail](./thumbnails/named-colors.png) | [Pulse-Width Modulation](../sims/pwm) ![thumbnail](./thumbnails/pwm.png) | [String Harmonics](../sims/string-harmonics) ![thumbnail](./thumbnails/string-harmonics.png) |
