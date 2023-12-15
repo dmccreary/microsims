@@ -1,13 +1,20 @@
 # Supply and Demand
 
+
+<figure markdown>
+![Supply and Demand Input](./supply-and-demand.png){ width="400" }
+   <figcaption>Figure caption.</figcaption>
+</figure>
+
+* [Link to Demo](./supply-and-demand.html){ .md-button .md-button--primary }
+
 ## Prompt
 
-![Supply and Demand Input](../../img/supply-and-demmand-in.png)
 ```py
 Create a single file p5.js sketch that replicates the function of this image.
 ```
 
-* [Link to Demo](./supply-and-demand.html)
+![Input Image](./input-image.png)
 
 ## Lesson Plan
 
