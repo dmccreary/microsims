@@ -1,8 +1,14 @@
 # Polygon
 
+<figure markdown>
+   ![Polygon](./polygon.png)
+   <figcaption>Figure caption.</figcaption>
+</figure>
+
+[Run Polygon MicroSim](./polygon.html){ .md-button .md-button--primary }
+
 In this example, we will use a more detailed prompt to control the placement of the sliders and their values.
 
-[Polygon Demonstration](./polygon.html){ .md-button .md-button--primary }
 
 ## Prompt
 

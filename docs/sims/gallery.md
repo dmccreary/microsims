@@ -1,0 +1,7 @@
+# Gallery
+
+|     |     |     |     |
+| --- | --- | --- | --- |
+| [Simulation of an Arithmetic Logic Unit (ALU)](../alu) ![thumbnail](./thumbnails/alu.png) | [Battery Drain](../battery-drain) ![thumbnail](./thumbnails/battery-drain.png) | [Breadth First Graph Search](../bfs) ![thumbnail](./thumbnails/bfs.png) | [Binary Number](../binary-number) ![thumbnail](./thumbnails/binary-number.png) |
+| [Bouncing Ball](../bouncing-ball) ![thumbnail](./thumbnails/bouncing-ball.png) | [Canon and Projectile Motion](../canon) ![thumbnail](./thumbnails/canon.png) | [Collision Avoidance Robot](../collision-avoidance-robot) ![thumbnail](./thumbnails/collision-avoidance-robot.png) | [Gold Star](../gold-star) ![thumbnail](./thumbnails/gold-star.png) |
+| [Logic Gates](../logic-gates) ![thumbnail](./thumbnails/logic-gates.png) | [Named Colors](../named-colors) ![thumbnail](./thumbnails/named-colors.png) | [Pulse-Width Modulation](../pwm) ![thumbnail](./thumbnails/pwm.png) | [String Harmonics](../string-harmonics) ![thumbnail](./thumbnails/string-harmonics.png) |

@@ -1,7 +1,7 @@
 # Battery Circuit
 
 <figure>
-  ![Circuit On Off](./circuit-on-off.png)
+  ![Circuit](./circuits.png){ width="400" }
   <figcaption>See animated current when the circuit is turned on.</figcaption>
 </figure>
 
