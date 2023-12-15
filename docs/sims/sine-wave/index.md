@@ -1,11 +1,11 @@
 # Sine Wave
 
 <figure markdown>
-   ![Image Name](./sine.png){ width="400" }
+   ![Image Name](./sine-wave.png){ width="400" }
    <figcaption>Sine Wave.</figcaption>
 </figure>
 
-[Run the Sine Wave Demo](./sine.html){ .md-button .md-button--primary }
+[Run the Sine Wave Demo](./sine-wave.html){ .md-button .md-button--primary }
 
 In this demo, we use three range control sliders to change 
 the ways a sine wave is drawn on a canvas.
