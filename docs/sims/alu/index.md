@@ -1,4 +1,4 @@
-# Simulation of an Arithmetic Logic Unit (ALU)
+# Arithmetic Logic Unit (ALU)
 
 <figure markdown>
 ![ALU](alu.png)
