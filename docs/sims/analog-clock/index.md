@@ -1,8 +1,8 @@
-# Analog Clock Face
+# Analog Clock
 
 <figure markdown>
-   ![Image Name](./sine-wave.png){ width="400" }
-   <figcaption>Sine Wave.</figcaption>
+   ![Analog Clock](./analog-clock.png){ width="400" }
+   <figcaption>Analog Clock</figcaption>
 </figure>
 
 [Run Analog Clock MicroSim](./analog-clock.html){ .md-button .md-button--primary }
