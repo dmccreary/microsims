@@ -1,9 +1,12 @@
-# Breadth First Graph Search
+# Breath First Graph Search
 
-<figure>
-[Run Demo of Breadth First Graph Search](./bfs.html)
-   <figcaption>Figure caption.</figcaption>
+<figure markdown>
+   ![](./bfs.png)
+   <figcaption>Breath First Search</figcaption>
 </figure>
+
+[Run Breath First Graph Search MicroSim](./bfs.html){ .md-button .md-button--primary }
+Note you must click on the Next Button twice to get to level 1 search.
 
 ## Sample Prompt
 
