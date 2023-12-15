@@ -1,6 +1,6 @@
 # Battery Circuit
 
-<figure>
+<figure markdown>
   ![Circuit](./circuits.png){ width="400" }
   <figcaption>See animated current when the circuit is turned on.</figcaption>
 </figure>
