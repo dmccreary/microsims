@@ -1,5 +1,11 @@
 # Rotating Motor
 
+</figure markdown>
+![](./motor.png){ width="400" }
+   <figcaption>Rotating Motor</figcaption>
+</figure>
+
+[Rotating Motor Demo](./motor.html){ .md-button .md-button--primary }
 We want to animate a rotating motor as a circle.
 
 The motor must have circular arrows on it that show the direction of the rotation of the motor.  The arrows must point clockwise when we
@@ -7,7 +13,7 @@ are going forward and counter-clockwise when we are going in reverse.
 
 ## Draw Rotating Motor
 
-[Rotating Motor Demo](./motor.html){ .md-button .md-button--primary }
+
 
 ## Draw Motor
 
