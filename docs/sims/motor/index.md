@@ -6,14 +6,21 @@
 </figure>
 
 [Rotating Motor Demo](./motor.html){ .md-button .md-button--primary }
-We want to animate a rotating motor as a circle.
 
-The motor must have circular arrows on it that show the direction of the rotation of the motor.  The arrows must point clockwise when we
-are going forward and counter-clockwise when we are going in reverse.
+We want to animate a rotating motor as a circle.  The motor must have circular arrows on it that show the direction of the rotation of the motor.  The arrows must point clockwise when we
+are going forward and counter-clockwise when we are going in reverse.  Drawing arrows
+with a triangle at the end is easy.  But circular arrows that scale well up or
+down is a lot more challenging.
+
+In this lesson we will use "decomposition" to break this task down into steps:
+
+1. Draw the outline of a circle
+2. Draw arcs within the circle using the arc() function
+3. Draw arrows at the tips of the arcs
+
+We will use the translate(), scale(), and rotate() functions to perform this animation.
 
 ## Draw Rotating Motor
-
-
 
 ## Draw Motor
 
@@ -23,11 +30,13 @@ functions:
 
 1. translate() to the center of the motor
 2. scale the motor to the correct size
-3. rotate the motor so it appers to spin in the right direction
+3. rotate the motor so it appears to spin in the right direction
 
 ```js
 function drawMotor(x, y, scaleVal, angle, direction) {
   angleMode(DEGREES);  // Change the mode to 
+  
+  // get ready to jump into a new reference frame
   push();
       
       // order is key
