@@ -1,4 +1,4 @@
-// AC circut and current chart
+// AC circuit and current chart
 
 let canvasWidth = 600;
 let drawHeight = 250;
@@ -13,7 +13,7 @@ function setup() {
   canvas.parent('canvas-container');
 
   textSize(16);
-  
+
   const startButton = createButton('Start');
   startButton.position(buttonLeftMargin, drawHeight);
   startButton.mousePressed(() => running = true);
