@@ -2,12 +2,15 @@
 
 <figure markdown>
    ![](./555-timer.png)
-   <figcaption>Figure caption.</figcaption>
+   <figcaption>555 Timer MicroSim</figcaption>
 </figure>
 
 [Run the 555 Timer MicroSim](./555-timer.html){ .md-button .md-button--primary }
 
 [Edit the 555 Timer MicroSim](https://editor.p5js.org/dmccreary/sketches/mccfRwlmJ)
+
+The 555 timer IC is an integrated circuit used in a variety of timer, delay, pulse generation, and oscillator applications. It is one of the most popular timing ICs due to its flexibility and price.
+
 ## Prompt
 
 ```linenums="0"
@@ -101,10 +104,9 @@ function drawLabelsAndValues() {
 function windowResized() {
   resizeCanvas(canvasWidth, canvasHeight);
 }
-
 ```
+
 ## References
 
-https://en.wikipedia.org/wiki/555_timer_IC
-
-https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-555-timer
+* [555 timer IC on Wikipedia](https://en.wikipedia.org/wiki/555_timer_IC)
+* [Digikey 555-timer Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-555-timer)
