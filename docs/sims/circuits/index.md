@@ -33,3 +33,8 @@ to first use ChatGPT to create several functions:
 Once we have functions for all these components, we can then assemble them together in
 an entire simulation.  You will find that ChatGPT will not usually get the the layout
 wrong and you will need to adjust the positions of the wires.
+
+## References
+
+* [Paul Falstad's Web-based circuit simulator](https://www.falstad.com/circuit/)
+* [Circuit JS 1](https://github.com/sharpie7/circuitjs1) - open source JavaScript based circuit simulator.
