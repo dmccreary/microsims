@@ -1,7 +1,7 @@
 # 555 Timer
 
 <figure markdown>
-   ![](./555-timer.png)
+   ![](./555-timer.png){ width="400" }
    <figcaption>555 Timer MicroSim</figcaption>
 </figure>
 
