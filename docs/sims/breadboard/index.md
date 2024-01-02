@@ -5,7 +5,7 @@
    <figcaption>Figure caption.</figcaption>
 </figure>
 
-[Link to Demo](./template.html){ .md-button .md-button--primary }
+[Link to Demo](./breadboard.html){ .md-button .md-button--primary }
 
 ## About this MicroSim
 
