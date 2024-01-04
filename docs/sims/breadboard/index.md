@@ -8,6 +8,8 @@
 [Link to Breadboard Demo](./breadboard.html){ .md-button .md-button--primary }
 [Link to Push Button Demo](./push-buttons.html){ .md-button .md-button--primary }
 [Link to Resistors Demo](./resistors-demo.html){ .md-button .md-button--primary }
+[Link to Vector Breadboard](./breadboard-vector.html){ .md-button .md-button--primary }
+[Edit the Breadboard MicroSim](https://editor.p5js.org/dmccreary/sketches/6BlWx729A)
 
 ## About this MicroSim
 
@@ -126,3 +128,20 @@ or larger by changing the radius from 10 to 200.
 
 Change the prompt to move the circle to the left or right.
 
+## Prompt for 400-Tie Breadboard Layout
+
+```linenums="0"
+Create a p5.js drawing like the image attached.
+Create a single file p5.js layout on a 400X275 canvas.
+Create a layout of a 400-tie solderless mini breadboard.
+The breadboard has a landscape orientation.
+Each tie should be represented by a 4x4 black rectangle.
+The breadboard should have two power rails at the top and bottom of the breadboard.
+Each power rail has both a positive and negative horizontal row of ties.
+The power rail rows have 5 groupings of 5 ties with a small space between the groups.
+The positive power rail is red and the negative power rail is black.
+The power rails run horizontally.
+The center region has 30 columns of five vertical ties in columns at the top an bottom.
+The 30 columns are evenly spaced in the 400 pixel width.
+A central trough runs horizontally down the center of the breadboard.
+```
