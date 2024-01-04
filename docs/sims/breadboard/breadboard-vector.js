@@ -24,7 +24,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(canvasWidth, canvasHeight);
+  const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('canvas-container');
 
   background(235);
