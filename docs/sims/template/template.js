@@ -27,5 +27,5 @@ function draw() {
     val = mySlider.value();
 
     // draw label and value
-    text("MySlider: ", val, 10, drawHeight + 10)
+    text("MySlider: " +  val, 10, drawHeight + 25)
 }
