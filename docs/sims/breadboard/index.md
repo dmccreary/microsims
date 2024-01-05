@@ -145,3 +145,7 @@ The center region has 30 columns of five vertical ties in columns at the top an 
 The 30 columns are evenly spaced in the 400 pixel width.
 A central trough runs horizontally down the center of the breadboard.
 ```
+
+## References
+
+* [WokWi Online Simulator of the Pico](https://wokwi.com/pi-pico)
