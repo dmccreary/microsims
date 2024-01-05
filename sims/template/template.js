@@ -5,7 +5,9 @@ sliderLeftMargin = 110;
 
 function setup {
     const canvas = createCanvas(canvasWidth, canvasHeight);
-    canvas.parent('canvas-container');
+    // canvas.parent('canvas-container');
+    var mainElement = document.querySelector('main');
+    canvas.parent(mainElement);
     textSize(16);
 
     // create a new slider at th bottom of the canvas
