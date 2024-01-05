@@ -110,3 +110,4 @@ function windowResized() {
 
 * [555 timer IC on Wikipedia](https://en.wikipedia.org/wiki/555_timer_IC)
 * [Digikey 555-timer Calculator](https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-555-timer)
+* [555 Circuit Simulator on Falstad](https://www.falstad.com/circuit/circuitjs.html) - this allows you to change the resistor and capacitor in a simulator and it will show you the frequency of a signal.
