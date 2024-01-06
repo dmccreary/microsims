@@ -1,5 +1,18 @@
 # NeoPixel Simulation
 
+<figure markdown>
+   ![Image Name](./image.png){ width="400" }
+   <figcaption>Figure caption.</figcaption>
+</figure>
+
+[Link to NeoPixel Demo](./neopixel.html){ .md-button .md-button--primary }
+
+## About this MicroSim
+
+This MicroSim teaches us how the NeoPixel works to convert a stream of rgb values
+into color setting for each pixel.
+
+
 ```linenums="0"
 Please create a single file p5.js sketch for downloading. 
 Use a canvas variables of canvasWidth=600 and canvasHeight=200 as global variables.
