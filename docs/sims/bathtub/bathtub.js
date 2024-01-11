@@ -1,5 +1,5 @@
 let canvasWidth = 600;
-let canvasHeight = 300;
+let canvasHeight = 310;
 let tubHeight = 200;
 let tubWidth = 200;
 let initialWaterHeight = tubHeight * .75; // 75% full
@@ -8,8 +8,8 @@ let drainFlowRate = 1;
 let initialSourceFlowRate = 0;
 let initialDrainFlowRate = .2;
 let simulationRunning = false;
-let Xmargin = 50;
-let Ymargin = 50;
+let Xmargin = 30;
+let Ymargin = 30;
 
 function setup() {
   const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -37,7 +37,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(245);
   
   // get updates from the sliders
   sourceFlowRate = sourceSlider.value();
@@ -52,8 +52,8 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(RIGHT);
-  text('Source Flow Rate:' + sourceFlowRate, 310, canvasHeight - 25);
-  text('Drain Flow Rate:' + drainFlowRate, 310, canvasHeight - 0);
+  text('Source Flow Rate:' + sourceFlowRate, 310, canvasHeight - 40);
+  text('Drain Flow Rate:' + drainFlowRate, 310, canvasHeight - 10);
 }
 
 function drawBathtub(x,y,w,h,waterHeight,inFlow,outFlow) {
@@ -69,7 +69,7 @@ function drawBathtub(x,y,w,h,waterHeight,inFlow,outFlow) {
   // draw labels
   noStroke();
   fill('black')
-  text(str(inFlow),x-30,y);
+  text(str(inFlow),x,y-10);
   text(str(outFlow),x+w+30,y+h);
 }
 
@@ -89,16 +89,20 @@ function drawChart() {
   let chartWidth = 300;
   let chartHeight = 200;
   let chartX = 300;
-  let chartY = height - 50;
+  let chartY = 230;
   
   // draw axis lines
   stroke('black');
   strokeWeight(2);
-  line(chartX, chartY, chartX + chartWidth, chartY);
+  // horizontal time axis
+  line(chartX, chartY, chartX + chartWidth - 10, chartY);
+  // vertical water height axis
   line(chartX, chartY, chartX, chartY - chartHeight);
+
+  // draw the axis labels
   noStroke();
-  text("Water Height", chartX+100, Ymargin)
-  text("Time", canvasWidth-10, canvasHeight - Ymargin + 20);
+  text("Water Height", chartX+100, Ymargin);
+  text("Time", canvasWidth - 20, chartY + 20);
    
   // Plot the water height vs time
   noFill();
@@ -106,7 +110,11 @@ function drawChart() {
   stroke(0, 255, 0);
   beginShape();
   for (let i = 0; i < waterHeightHistory.length; i++) {
-    let x = map(i, 0, waterHeightHistory.length - 1, chartX, chartX + chartWidth);
+    // first 200 points draw left to right
+    if (waterHeightHistory.length < chartWidth) 
+      x = map(i, 0, 199, chartX, chartX + chartWidth);
+    else
+      x = map(i, 0, waterHeightHistory.length - 1, chartX, chartX + chartWidth);
     let y = map(waterHeightHistory[i], 0, 200, chartY, chartY - chartHeight);
     // console.log(i, x,y);
     vertex(x, y);
