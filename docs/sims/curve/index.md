@@ -7,6 +7,9 @@
 
 [Run the Curve Control Point MicroSim](./curve.html){ .md-button .md-button--primary }
 
+## Curve Percent
+![](./curve-percent.png)
+
 [Curve Percent](./curve-percent.html)
 
 [Edit MicroSim](https://editor.p5js.org/dmccreary/sketches/XS9qIjZdZ)
