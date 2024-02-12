@@ -1427,15 +1427,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-prompt" class="md-nav__link">
-    Sample Prompt
+  <a href="#sample-decomposition-prompt" class="md-nav__link">
+    Sample Decomposition Prompt
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-30-element-wordlist" class="md-nav__link">
-    Sample 30-Element Wordlist
+  <a href="#sample-decomposition-response" class="md-nav__link">
+    Sample Decomposition Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-30-element-wordlist-prompt" class="md-nav__link">
+    Sample 30-Element Wordlist Prompt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-response" class="md-nav__link">
+    Sample Response
   </a>
   
 </li>
@@ -1578,15 +1592,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sample-prompt" class="md-nav__link">
-    Sample Prompt
+  <a href="#sample-decomposition-prompt" class="md-nav__link">
+    Sample Decomposition Prompt
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-30-element-wordlist" class="md-nav__link">
-    Sample 30-Element Wordlist
+  <a href="#sample-decomposition-response" class="md-nav__link">
+    Sample Decomposition Response
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-30-element-wordlist-prompt" class="md-nav__link">
+    Sample 30-Element Wordlist Prompt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-response" class="md-nav__link">
+    Sample Response
   </a>
   
 </li>
@@ -1611,10 +1639,84 @@
 
 <h1 id="flashcards-app">Flashcards App</h1>
 <p><a class="md-button md-button--primary" href="flashcards.html">Run the flashcard application</a></p>
-<h2 id="sample-prompt">Sample Prompt</h2>
+<h2 id="sample-decomposition-prompt">Sample Decomposition Prompt</h2>
 <div class="highlight"><pre><span></span><code>I want to create a web application that displays 300 flashcards to help me learn the meaning of the 300 most common words in Tagalog.  How can we decompose this into smaller functions?
 </code></pre></div>
-<h2 id="sample-30-element-wordlist">Sample 30-Element Wordlist</h2>
+<h2 id="sample-decomposition-response">Sample Decomposition Response</h2>
+<p>Creating a web application to display flashcards for learning the 300 most common words in Tagalog is a great idea. To make this project manageable and organized, we can decompose it into smaller functions and components. Here's a suggested breakdown:</p>
+<ol>
+<li>
+<p><strong>Data Collection and Preparation</strong></p>
+<ul>
+<li><strong>Function to Fetch Word Data:</strong> Develop a function to gather the 300 most common Tagalog words. This might involve scraping a website or using an existing dataset.</li>
+<li><strong>Data Structuring Function:</strong> Design a structure to hold word data, including the Tagalog word, its English translation, and any additional data like usage examples or pronunciation guides.</li>
+<li>
+<p><strong>Flashcard Generation</strong></p>
+</li>
+<li>
+<p><strong>Flashcard Object Creation:</strong> Create a class or structure for a flashcard, encapsulating all necessary data (Tagalog word, English translation, examples, etc.).</p>
+</li>
+<li><strong>Flashcard Display Logic:</strong> Develop a function to display a single flashcard with its content, including front (Tagalog word) and back (translation, examples).</li>
+<li>
+<p><strong>User Interface (UI) Design</strong></p>
+</li>
+<li>
+<p><strong>Main Layout:</strong> Design the main layout of the web application, considering where the flashcards will be displayed, navigation buttons, and any other necessary interface elements.</p>
+</li>
+<li><strong>Flashcard UI Component:</strong> Create a UI component for the flashcard that can flip or reveal additional information upon user interaction.</li>
+<li><strong>Navigation Controls:</strong> Implement UI controls for moving between flashcards (next, previous, random).</li>
+<li>
+<p><strong>Interactivity and User Progress Tracking</strong></p>
+</li>
+<li>
+<p><strong>Progress Tracking Function:</strong> Develop a system to track the user's progress, such as which flashcards have been seen and any scoring or mastery system you want to include.</p>
+</li>
+<li><strong>Review and Testing Mechanisms:</strong> Optionally, add features for users to test themselves, like quizzes or a mode where they must recall the translation before seeing it.</li>
+<li>
+<p><strong>Data Persistence</strong></p>
+</li>
+<li>
+<p><strong>Local Storage or Database Integration:</strong> Decide on and implement a method to store user progress, either locally in the browser or in a backend database.</p>
+</li>
+<li>
+<p><strong>Backend Development (if needed)</strong></p>
+</li>
+<li>
+<p><strong>Server-side Functions:</strong> If your app requires a backend, develop the necessary APIs for fetching flashcard data, saving progress, and any other server-side logic.</p>
+</li>
+<li><strong>Database Management:</strong> Set up a database to manage the flashcards data and user progress, if not stored locally.</li>
+<li>
+<p><strong>Testing and Quality Assurance</strong></p>
+</li>
+<li>
+<p><strong>Unit Testing for Functions:</strong> Write tests for individual functions to ensure they work as expected.</p>
+</li>
+<li><strong>Integration Testing:</strong> Test how different parts of your application work together.</li>
+<li><strong>User Acceptance Testing:</strong> Get feedback from potential users to see if the app meets their needs and is user-friendly.</li>
+<li>
+<p><strong>Deployment</strong></p>
+</li>
+<li>
+<p><strong>Deployment Setup:</strong> Prepare your application for deployment, which may include setting up a web server, domain, etc.</p>
+</li>
+<li><strong>Launch:</strong> Deploy your application to a web server or hosting service.</li>
+<li>
+<p><strong>Maintenance and Updates</strong></p>
+</li>
+<li>
+<p><strong>Regular Maintenance:</strong> Plan for regular checks and maintenance of your application.</p>
+</li>
+<li><strong>Feature Updates:</strong> Consider potential future updates, like adding more words or functionalities based on user feedback.</li>
+</ul>
+</li>
+</ol>
+<p>By breaking down the project into these smaller components, you can manage the workload more effectively and ensure each part of your application is well-designed and functional.</p>
+<h2 id="sample-30-element-wordlist-prompt">Sample 30-Element Wordlist Prompt</h2>
+<div class="highlight"><pre><span></span><code>Create a list of the 30 most common words
+in Tagalog that are used by visitors.
+Place them in a JSON file with their English translations.
+</code></pre></div>
+<h2 id="sample-response">Sample Response</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
