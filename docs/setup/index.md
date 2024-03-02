@@ -1,4 +1,4 @@
-# Introduction to MicroSims
+# MicroSims Quick Start
 
 ## Getting Started
 
@@ -6,8 +6,13 @@ Getting started is easy!
 
 1. Go to your favorite generative AI tool such as OpenAi's [ChatGPT](https://chat.openai.com/).  GPT-4 is the best version to use but it has a $20/month fee.
 2. Type in a chat that starts with "Generate a p5.js file that does..."
-3. Copy this code and paste it into the [p5.js Editor](https://editor.p5js.org/)
+3. Copy the generated code and paste it into the [p5.js Editor](https://editor.p5js.org/).  You will need to replace the default code.
 4. Press the "Play" button (the red triangle)
+5. Save your MicroSim and share the link with your friends!
+
+That is it!  Most people can generate their first MicroSims in a few minutes.
+
+You can also use the custom GPT called the [Knowledge Graph Builder](https://chat.openai.com/g/g-5iaafjkKY-knowlege-graph-builder) which has been fine-tuned on the p5.js reference library.
 
 If you don't like what you saw, go back to your generative AI tool and create a more specific request.
 Then copy the result of this new result into the P5.js editor.
