@@ -1,16 +1,16 @@
-# MicroSim Template
+# Analog Circuits
 
-<figure markdown>
-   ![Image Name](./image.png){ width="400" }
-   <figcaption>Figure caption.</figcaption>
-</figure>
+![Image Name](./input-image.png){ width="400" }
 
-[Link to Demo](./template.html){ .md-button .md-button--primary }
+In these MicroSims we will build simulations of analog circuits.  Instead of DC voltages, these circuits often have AC inputs
+and include components such as capacitors, inductors and resistors.
+
+
+[Link to Demo](./analog-circiut.html){ .md-button .md-button--primary }
 
 ## About this MicroSim
 
-This MicroSim teaches us how to
-specify the drawing of a static filled circle.
+
 
 ## Sample Prompt
 
