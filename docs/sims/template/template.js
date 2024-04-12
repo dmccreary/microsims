@@ -1,7 +1,7 @@
-canvasWidth = 400;
-drawHeight = 400;
-canvasHeight = 450;
-sliderLeftMargin = 120;
+let canvasWidth = 400;
+let drawHeight = 400;
+let canvasHeight = 450;
+let sliderLeftMargin = 120;
 
 function setup {
     const canvas = createCanvas(canvasWidth, canvasHeight);
