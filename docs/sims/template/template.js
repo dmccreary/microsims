@@ -1,7 +1,7 @@
 canvasWidth = 400;
 drawHeight = 400;
-canvasHeight = 430;
-sliderLeftMargin = 110;
+canvasHeight = 450;
+sliderLeftMargin = 120;
 
 function setup {
     const canvas = createCanvas(canvasWidth, canvasHeight);
@@ -19,14 +19,17 @@ function setup {
 
 function draw() {
     // make the background drawing region light gray
-    fill(245);
-    rect(0,0,canvasWidth, canvasWidth);
+    fill('aliceblue');
+    rect(0, 0, canvasWidth, canvasWidth);
     // make the background of the controls white
     fill('white')
-    rect(0,drawHeight,canvasWidth, canvasHeight-drawHeight);
+    rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight);
 
     // get the updated slider value
     val = mySlider.value();
+
+    // draw the sim here
+    circle(canvasWidth/2, drawHeight/2, val)
 
     // draw label and value
     text("MySlider: " +  val, 10, drawHeight + 25)
