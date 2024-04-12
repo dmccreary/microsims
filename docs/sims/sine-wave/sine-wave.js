@@ -1,10 +1,11 @@
 // p5.js code to generate a sine wave with amplitude and period controls
 
 // sine wave with 3 sliders
-let width = 600;
-let height = 400;
-let halfWidth = width / 2
-let halfHeight = height / 2
+let canvasWidth = 600;
+let drawHeight = 400;
+let canvasHeight = 475;
+let halfWidth = canvasWidth / 2
+let halfHeight = drawHeight / 2
 let amplitude = 100;
 let phase = 0;
 
@@ -12,36 +13,53 @@ let amplitudeSlider, periodSlider, phaseSlider;
 let labelValueMargin = 120;
 
 function setup() {
-  const canvas = createCanvas(width, height);
-  canvas.parent('canvas-container');
-  textSize(16)
+  const canvas = createCanvas(canvasWidth, canvasHeight);
+  // This code will also work in the p5.js editor
+  var mainElement = document.querySelector('main');
+  canvas.parent(mainElement);
+  
+  textFont('Arial');
+  textSize(16);
   
   // Create sliders
   amplitudeSlider = createSlider(0, 200, 100);
-  amplitudeSlider.position(labelValueMargin, height - 20);
-  amplitudeSlider.style('width', width - labelValueMargin + 'px')
+  amplitudeSlider.position(labelValueMargin, drawHeight + 10);
+  amplitudeSlider.size(width - labelValueMargin - 15);
   
   periodSlider = createSlider(1, 100, 50);
-  periodSlider.position(labelValueMargin, height - 40);
-  periodSlider.style('width', width - labelValueMargin + 'px')
+  periodSlider.position(labelValueMargin, drawHeight + 30);
+  periodSlider.size(width - labelValueMargin - 15);
   
   phaseSlider = createSlider(-PI*100, PI*100, 0, 0.01);
-  phaseSlider.position(labelValueMargin, height - 60);
-  phaseSlider.style('width', width - labelValueMargin + 'px')
+  phaseSlider.position(labelValueMargin, drawHeight + 50);
+  phaseSlider.size(width - labelValueMargin - 15);
 }
-
+  
 function draw() {
-  background(240);
+  stroke(0);
+  // make the background drawing region light gray
+  fill('aliceblue');
+  rect(0, 0, canvasWidth, canvasWidth);
+  // make the background of the controls white
+  fill('white')
+  rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight);
   
   amplitude = amplitudeSlider.value();
   period = periodSlider.value();
   phase = phaseSlider.value();
   
+  // draw slider labels
+  strokeWeight(0);
+  fill('black'); // Text color
+  text('Amplitude: ' + amplitude/100,    10, drawHeight + 25);
+  text('Period: '    + period,           10, drawHeight + 45);
+  text('Phase: '     + phase.toFixed(2), 10, drawHeight + 65);
+  
   // draw on the standard axis to keep text upright
   drawAxis();
-  translate(width / 2, height / 2); // Shift origin to center
-  scale(1, -1); // Flip y-axis to make positive y up
+  translate(canvasWidth / 2, drawHeight / 2); // Shift origin to center
   
+  scale(1, -1); // Flip y-axis to make positive y up
   drawSineWave(amplitude, 1/period, phase);
 }
 
@@ -61,14 +79,9 @@ function drawAxis() {
   // horizontal line
   line(0, halfHeight, width, halfHeight)
   // vertical line
-  line(halfWidth, 0, halfWidth, height)
+  line(halfWidth, 0, halfWidth, drawHeight)
   
-  stroke(0)
-  strokeWeight(0);
-  fill('black'); // Text color
-  text('Amplitude: ' + amplitude/100,    10, height - 5);
-  text('Period: '    + period,           10, height - 25);
-  text('Phase: '     + phase.toFixed(2), 10, height - 45);
+
 }
 
 function drawSineWave(amplitude, frequency, phase) {
