@@ -1,6 +1,6 @@
 # Recursion Tree
 
-![Recursion Tree Icon](icon.png)
+![Recursion Tree Icon](icon.png){ width="400" }
 
 Recursion trees are ideal ways to demonstrate recursive programming.
 In a recursive program, a function calls itself repeatedly.
