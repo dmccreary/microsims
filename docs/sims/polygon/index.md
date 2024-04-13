@@ -1,7 +1,7 @@
 # Polygon
 
 <figure markdown>
-   ![Polygon](./polygon.png)
+   ![Polygon](./polygon.png){ width="400" }
    <figcaption>Figure caption.</figcaption>
 </figure>
 

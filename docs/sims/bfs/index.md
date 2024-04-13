@@ -1,7 +1,7 @@
 # Breath First Graph Search
 
 <figure markdown>
-   ![](./bfs.png)
+   ![](./bfs.png){ width="400" }
    <figcaption>Breath First Search</figcaption>
 </figure>
 
