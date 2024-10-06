@@ -26,5 +26,6 @@ Outcome logic updates based on the combination of choices.
 Visual feedback with a red box highlighting the current outcome based on the last choices made.
 Organized layout that clearly shows the prisoners' choices and the corresponding outcomes.
 ```
+[GPT Dialog](https://chat.openai.com/g/g-yLEKOCjXP-p5-js-visual-art-composer/c/42bf6e25-4095-4d1f-816f-9336622d92c1)
 
-https://en.wikipedia.org/wiki/Prisoner%27s_dilemma
+[Wikipedia](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma)
