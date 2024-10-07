@@ -1,5 +1,7 @@
 # Slope and Intercept
 
+[Run the Slope and Intercept MicroSim](./slope.html){ .md-button .md-button--primary }
+
 ## Prompt
 
 ```linenums="0"
