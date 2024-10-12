@@ -39,26 +39,27 @@ When two gears mesh:
 - **Speed Ratio:** The rotation speed of each gear is inversely proportional to its number of teeth.
 
 $$
-\frac{\omega\_1}{\omega\_2} = -\frac{N\_2}{N\_1}
+\frac{\omega_1}{\omega_2} = -\frac{N_2}{N_1}
 $$
 
 where:
 
-- $ω_1$​: Angular speed of Gear 1
-- **ω2\\omega\_2ω2​:** Angular speed of Gear 2
-- **N1N\_1N1​:** Number of teeth on Gear 1
-- **N2N\_2N2​:** Number of teeth on Gear 2
+- $\omega_1$ ​: Angular speed of Gear 1
+- $\omega_2$ ​: Angular speed of Gear 2
+- $N_1$ ​: Number of teeth on Gear 1
+- $N_2$ ​: Number of teeth on Gear 2
 - **Negative Sign:** Indicates opposite rotation directions
 
 In this sketch:
 
--   **Large Gear (Gear 1):** N1\20N\_1 = 20N1​\20 teeth
--   **Small Gear (Gear 2):** N2\10N\_2 = 10N2​\10 teeth
+-   **Large Gear (Gear 1):** $N_1$ = 20 teeth
+-   **Small Gear (Gear 2):** $N_2$ = 10 teeth
 
 Thus, the angular speed relationship becomes:
 
 $$
-ω1ω2\-1020\-0.5⇒ω2\-2ω1\\frac{\\omega\_1}{\\omega\_2} = -\\frac{10}{20} = -0.5 \\Rightarrow \\omega\_2 = -2 \\omega\_1ω2​ω1​​\-2010​\-0.5⇒ω2​\-2ω1​
+\frac{\omega_1}{\omega_2} = -\frac{10}{20} = -0.5 
+\Rightarrow \omega_2 = -2 \omega_1​
 $$
 
 This means the small gear rotates twice as fast as the large gear in the opposite direction.
@@ -248,10 +249,6 @@ For a live demonstration, copy the above code into the p5.js online editor and r
 
 Feel free to reach out if you have any questions or need further assistance with the sketch. Happy coding and gear modeling!
 
-
-window.\_\_oai\_logHTML?window.\_\_oai\_logHTML():window.\_\_oai\_SSR\_HTML=window.\_\_oai\_SSR\_HTML||Date.now();requestAnimationFrame((function(){window.\_\_oai\_logTTI?window.\_\_oai\_logTTI():window.\_\_oai\_SSR\_TTI=window.\_\_oai\_SSR\_TTI||Date.now()}))
-
-ChatGPT can make mistakes. Check important info.
 
 ## References
 

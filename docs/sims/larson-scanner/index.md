@@ -151,3 +151,7 @@ function draw() {
 -   **Initial Speed:** Change the default value in the `createSlider` function to set a different initial speed.
 
 Feel free to experiment with the parameters to create a Larson Scanner that fits your preferences!
+
+## References
+
+[Link to Full ChatGPT Transcript](https://chatgpt.com/share/670a71af-1244-8001-aeb9-e996820bd5fd)
