@@ -1,5 +1,7 @@
 # Lissajous Figures
 
+![](lissajous.png)
+
 [Run the Lissajous MicroSim](./lissajous-figures.html){ .md-button .md-button--primary }
 
 [Edit the MicroSim with the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/8FETmXFqX)

@@ -12,11 +12,11 @@ function setup() {
   
   // Create sliders
   createP('X-axis Frequency (a):');
-  sliderXFreq = createSlider(1, 10, xFreq, 1);
+  sliderXFreq = createSlider(1, 10, xFreq, .5);
   sliderXFreq.style('width', '580px');
   
   createP('Y-axis Frequency (b):');
-  sliderYFreq = createSlider(1, 10, yFreq, 1);
+  sliderYFreq = createSlider(1, 10, yFreq, .5);
   sliderYFreq.style('width', '580px');
   
   // Set drawing parameters
