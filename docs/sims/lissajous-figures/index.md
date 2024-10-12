@@ -22,7 +22,10 @@ Sure! Below is a p5.js sketch that animates Lissajous figures with two sliders c
 Lissajous figures are complex harmonic motion patterns formed by combining two perpendicular oscillations. They are defined by the parametric equations:
 
 $$
-{x(t)=Asin⁡(at+δ)y(t)=Bsin⁡(bt)\\begin{cases} x(t) = A \\sin(a t + \\delta) \\\\ y(t) = B \\sin(b t) \\end{cases}{x(t)=Asin(at+δ)y(t)=Bsin(bt)​
+\begin{cases}
+   x(t) = A \sin(a t + \delta) \ 
+   y(t) = B \sin(b t) 
+\end{cases}
 $$
 
 where:
