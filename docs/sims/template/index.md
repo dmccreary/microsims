@@ -1,11 +1,10 @@
 # MicroSim Template
 
-<figure markdown>
-   ![Image Name](./image.png){ width="400" }
-   <figcaption>Figure caption.</figcaption>
-</figure>
+![Image Name](./image.png){ width="400" }
 
-[Link to Demo](./template.html){ .md-button .md-button--primary }
+
+[Link to MicroSim](./template.html){ .md-button .md-button--primary }
+[Edit this MicroSim]()
 
 ## About this MicroSim
 
