@@ -13,7 +13,7 @@ slider control the y-axis.
 Draw the figure on an aliceblue background.
 ```
 
-## Response
+## ChatGPT o1-mini Response
 
 Sure! Below is a p5.js sketch that animates Lissajous figures with two sliders controlling the frequencies of the x-axis and y-axis respectively.
 
