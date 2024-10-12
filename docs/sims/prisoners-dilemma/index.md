@@ -7,7 +7,7 @@
    <figcaption>Figure caption.</figcaption>
 </figure>
 
-[Link to MicroSim](./prisoners-dilemma.html.html){ .md-button .md-button--primary }
+[Link to MicroSim](./prisoners-dilemma.html){ .md-button .md-button--primary }
 
 ## About this MicroSim
 
