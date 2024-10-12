@@ -59,7 +59,7 @@ let phaseSpeed = 0.02;
 
 function setup() {
   createCanvas(600, 600);
-  background(255);
+  background('aliceblue');
 
   // Create sliders
   createP('X-axis Frequency (a):');
