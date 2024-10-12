@@ -23,7 +23,7 @@ Lissajous figures are complex harmonic motion patterns formed by combining two p
 
 $$
 \begin{cases}
-   x(t) = A \sin(a t + \delta) \ 
+   x(t) = A \sin(a t + \delta) \\ 
    y(t) = B \sin(b t) 
 \end{cases}
 $$
