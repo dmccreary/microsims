@@ -39,15 +39,16 @@ When two gears mesh:
 - **Speed Ratio:** The rotation speed of each gear is inversely proportional to its number of teeth.
 
 $$
-ω1ω2\-N2N1\\frac{\\omega\_1}{\\omega\_2} = -\\frac{N\_2}{N\_1}ω2​ω1​​\-N1​N2​​
+\frac{\omega\_1}{\omega\_2} = -\frac{N\_2}{N\_1}
 $$
 
 where:
--   **ω1\\omega\_1ω1​:** Angular speed of Gear 1
--   **ω2\\omega\_2ω2​:** Angular speed of Gear 2
--   **N1N\_1N1​:** Number of teeth on Gear 1
--   **N2N\_2N2​:** Number of teeth on Gear 2
--   **Negative Sign:** Indicates opposite rotation directions
+
+- $ω_1$​: Angular speed of Gear 1
+- **ω2\\omega\_2ω2​:** Angular speed of Gear 2
+- **N1N\_1N1​:** Number of teeth on Gear 1
+- **N2N\_2N2​:** Number of teeth on Gear 2
+- **Negative Sign:** Indicates opposite rotation directions
 
 In this sketch:
 
