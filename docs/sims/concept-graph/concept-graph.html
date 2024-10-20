@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Visualization</title>
+    <!-- Include vis.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <!-- Include the custom script to visualize the graph -->
+    <style>
+       body {
+         font-family: Arial, Helvetica, sans-serif;
+         color: black;
+       }
+      #mynetwork {
+        width: 95%;
+        height: 700px;
+        border: 1px solid lightgray;
+        margin-left: 10px;
+        background-color: aliceblue;
+      }
+    </style>
+</head>
+<body>
+    <h4>Concepts Graph Viewer</h4>
+    <a href=".">Return to lesson plan</a>
+    <div id="mynetwork"></div>
+
+    <!-- Load the graph data and visualize it -->
+    <script src="concept-graph.js"></script>
+
+    <script>
+        // Call the function to load the graph data and display it
+        window.onload = function() {
+            drawGraph();
+        };
+    </script>
+
+</body>
+</html>

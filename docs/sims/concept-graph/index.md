@@ -1,7 +1,9 @@
 # Concept Graph Prompt
 
+[Run The Concept Graph MicroSim](./concept-graph.html)
+
 A concept graph or learning graph is a directed graph that lists
-all of the concepts taught in a typical course or cirriculum.
+all of the concepts taught in a typical course or curriculum.
 
 ## Sample Prompt
 
