@@ -2,9 +2,8 @@
 
 ![Image Name](./image.png){ width="400" }
 
-
-[Link to MicroSim](./template.html){ .md-button .md-button--primary }
-[Edit this MicroSim]()
+[Run the MicroSim Template](./template.html){ .md-button .md-button--primary }
+[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
 
 ## About this MicroSim
 
@@ -21,16 +20,28 @@ Draw a green circle on a 600x400 canvas with a radius of 200.
 ## Sample Response
 
 ```javascript
-let canvasHeight = 400;
+// canvas regions setup
+// let canvasWidth = 750;
+let drawHeight = 400;
+let controlHeight = 50;
+let canvasHeight = drawHeight + controlHeight;
 let aspectRatio = 1.91; // Open Graph standard
 let canvasWidth = canvasHeight * aspectRatio;
 let radius = 200;
 function setup() {
-const canvas = createCanvas(canvasWidth, canvasHeight);
+  const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('canvas-container');
-  fill(245);
-  rect(0,0, canvasWidth, canvasHeight);
-  fill('green');
+  
+}
+
+function draw() {
+  // background of drawing region
+  fill('aliceblue');
+  rect(0, 0, canvasWidth, drawHeight);
+
+  // background of controls
+  fill('whitegray');
+  rect(0, drawHeight, canvasWidth, controlHeight);
   circle(canvasWidth/2, canvasHeight/2, radius);
 }
 ```
