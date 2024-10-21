@@ -54,12 +54,22 @@ function drawGraph() {
       borderWidth: 2,
       borderWidthSelected: 4
     }
-  };
+};
 
-            // Initialize the network
-            const network = new vis.Network(container, graphData, options);
+// Initialize the network
+const network = new vis.Network(container, graphData, options);
         })
         .catch(error => {
             console.error("Error loading or parsing graph-data.json:", error);
         });
 }
+
+// Workaround: Lock x position while letting y position be free
+network.on("beforeDrawing", function () {
+    nodes.forEach(function (node) {
+      if (node.fixed && node.fixed.x) {
+        var currentPosition = network.getPosition(node.id);
+        nodes.update({ id: node.id, x: node.x, y: currentPosition.y });
+      }
+    });
+  });
