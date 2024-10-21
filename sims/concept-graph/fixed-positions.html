@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>vis.js Network from JSON with Fixed Positions</title>
+  <script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>
+  <style>
+    #network {
+      width: 95%;
+      height: 700px;
+      border: 1px solid aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="network"></div>
+
+  <script>
+    // Function to initialize the network
+    async function initNetwork() {
+      try {
+        // Fetch the graph data from graph.json
+        const response = await fetch('graph.json');
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const graphData = await response.json();
+
+        // Create DataSet instances for nodes and edges
+        const nodes = new vis.DataSet(graphData.nodes);
+        const edges = new vis.DataSet(graphData.edges);
+
+        // Get the container element
+        const container = document.getElementById('network');
+
+        // Provide the data in the vis format
+        const data = {
+          nodes: nodes,
+          edges: edges
+        };
+
+        // Configuration options
+        const options = {
+          physics: {
+            enabled: true,
+            solver: 'forceAtlas2Based',
+            stabilization: false, // Disable stabilization to respect initial positions
+            forceAtlas2Based: {
+              gravitationalConstant: -50,
+              centralGravity: 0.01,
+              springLength: 100,
+              springConstant: 0.08,
+              damping: 0.4,
+              avoidOverlap: 0.5
+            }
+          },
+          layout: {
+            improvedLayout: false // Disable improved layout to respect initial positions
+          },
+          interaction: { 
+            dragNodes: true // Allow dragging of nodes
+          },
+          edges: {
+            arrows: {
+              to: {
+                enabled: true,
+                type: 'arrow', // Options: 'arrow', 'bar', 'circle', 'triangle'
+                scaleFactor: 1
+              }
+            },
+            smooth: {
+              type: 'continuous' // Smooth edges
+            }
+          },
+          // Define how nodes behave
+          nodes: {
+            shape: 'dot',
+            size: 15,
+            font: {
+              size: 14,
+              color: 'black'
+            },
+            borderWidth: 2,
+            borderWidthSelected: 4,
+            // Do not set 'physics' here to allow per-node settings to take effect
+            physics: undefined
+          }
+        };
+
+        // Initialize the network
+        const network = new vis.Network(container, data, options);
+
+        // Optional: Handle window resize to keep the network centered
+        window.addEventListener('resize', function () {
+          network.fit({
+            animation: {
+              duration: 500,
+              easingFunction: 'easeInOutQuad'
+            }
+          });
+        });
+
+      } catch (error) {
+        console.error('Error loading the graph:', error);
+      }
+    }
+
+    // Initialize the network when the page loads
+    window.addEventListener('DOMContentLoaded', initNetwork);
+  </script>
+</body>
+</html>
