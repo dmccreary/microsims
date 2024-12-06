@@ -1858,6 +1858,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sample-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample iframe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#about-this-microsim" class="md-nav__link">
     <span class="md-ellipsis">
       About this MicroSim
@@ -2236,6 +2245,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sample-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample iframe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#about-this-microsim" class="md-nav__link">
     <span class="md-ellipsis">
       About this MicroSim
@@ -2370,9 +2388,17 @@
 
 
 <h1 id="microsim-template">MicroSim Template</h1>
-<p><img alt="Image Name" src="./image.png" width="400" /></p>
+<iframe src="template.html" height="200px"></iframe>
+
+<!--
+![Image Name](./image.png){ width="400" }
+-->
+
 <p><a class="md-button md-button--primary" href="template.html">Run the MicroSim Template</a>
 <a href="https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4">Edit this MicroSim</a></p>
+<h2 id="sample-iframe">Sample iframe</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/resize-in-iframe/resize-in-iframe.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;200&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="about-this-microsim">About this MicroSim</h2>
 <p>This MicroSim teaches us how to
 specify the drawing of a static filled circle.</p>
@@ -2404,7 +2430,8 @@ Draw a green circle on a 600x400 canvas with a radius of 200.
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// canvas regions setup</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// canvas regions setup</span>
 <span class="c1">// let canvasWidth = 750;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
@@ -2412,10 +2439,11 @@ Draw a green circle on a 600x400 canvas with a radius of 200.
 <span class="kd">let</span><span class="w"> </span><span class="nx">aspectRatio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.91</span><span class="p">;</span><span class="w"> </span><span class="c1">// Open Graph standard</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">aspectRatio</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span>
+
 <span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="s1">&#39;canvas-container&#39;</span><span class="p">);</span>
-
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">mainElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">mainElement</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>

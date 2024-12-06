@@ -6,7 +6,9 @@ function setup() {
     // Create a canvas to match the parent container's size
     updateCanvasSize();
     const canvas = createCanvas(containerWidth, containerHeight);
-    canvas.parent('p5-container');
+    var mainElement = document.querySelector('main');
+    canvas.parent(mainElement);
+    /* canvas.parent('p5-container'); */
     noLoop(); // Stop the draw loop since we'll redraw only on resize
 }
 

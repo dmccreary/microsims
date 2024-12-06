@@ -1926,6 +1926,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Resize in iframe
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1935,6 +1946,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of the Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      setup() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      draw() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windowresized-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      windowResized() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatecanvassize-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      updateCanvasSize() Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2088,6 +2196,92 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explanation-of-the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of the Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      setup() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      draw() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windowresized-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      windowResized() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatecanvassize-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      updateCanvasSize() Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2112,7 +2306,191 @@
 <h1 id="resize-in-iframe">Resize in iframe</h1>
 <iframe src="/microsims/sims/resize-in-iframe/resize-in-iframe.html" height="200px"></iframe>
 
-<p><a class="md-button md-button--primary" href="resize-in-iframe.html">Run Resize in iFrame MicroSim</a></p>
+<p><a class="md-button md-button--primary" href="resize-in-iframe.html">Run Resize in iFrame MicroSim</a>
+<a href="https://editor.p5js.org/dmccreary/sketches/egl_OTZYr">Edit in p5.js</a></p>
+<h2 id="prompt">Prompt</h2>
+<div class="highlight"><pre><span></span><code>I would like to create a p5.js program that is aware of the width of the HTML container element that it is executing within.  I want to do this because my users want to use my p5.js application within an HTML iframe that is placed in a central content region knowing that the user will run in
+many different sized windows.  Basically I want a responsive design for the width.
+
+Please generate a p5.js program that displays the width and height of the region that contains it
+in a 36 size.  Make the canvas background be aliceblue.
+
+Also give guidance on how I should change the site CSS to style the iFrame that contains the p5.js program so it always expands to the width of the container it is running in.
+
+Assume the standard p5.js HTML template that puts the container in a &lt;main&gt; element.
+Assume that each p5.js will set the canvas hight to a fixed number of pixels.
+</code></pre></div>
+<h2 id="response">Response</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// global variables for width and height</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">containerWidth</span><span class="p">;</span><span class="w"> </span><span class="c1">// calculated by container upon resize</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">containerHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span><span class="w"> </span><span class="c1">// fixed height on page</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create a canvas to match the parent container&#39;s size</span>
+<span class="w">    </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">mainElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">mainElement</span><span class="p">);</span>
+<span class="w">    </span><span class="cm">/* canvas.parent(&#39;p5-container&#39;); */</span>
+<span class="w">    </span><span class="nx">noLoop</span><span class="p">();</span><span class="w"> </span><span class="c1">// Stop the draw loop since we&#39;ll redraw only on resize</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">36</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Display container dimensions</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="sb">`Width: </span><span class="si">${</span><span class="nx">containerWidth</span><span class="si">}</span><span class="sb">px\nHeight: </span><span class="si">${</span><span class="nx">containerHeight</span><span class="si">}</span><span class="sb">px`</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Update canvas size when the container resizes</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">redraw</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Get the exact dimensions of the container</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;p5-container&#39;</span><span class="p">).</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">width</span><span class="p">);</span><span class="w">  </span><span class="c1">// Avoid fractional pixels</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="explanation-of-the-code">Explanation of the Code</h2>
+<p>This code is a p5.js sketch that creates a canvas sized to the width of a parent HTML container element but uses a fixed height. It also updates and redraws the canvas whenever the browser window is resized. Here's a line-by-line explanation of what's happening:</p>
+<h3 id="global-variables">Global Variables</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">containerWidth</span><span class="p">;</span><span class="w"> </span><span class="c1">// Will store the width of the container</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">containerHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span><span class="w"> </span><span class="c1">// A fixed height for the canvas</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>containerWidth</strong>: This variable will be updated dynamically based on the <code>#p5-container</code> element's width.</li>
+<li><strong>containerHeight</strong>: This is fixed at 200 pixels. Unlike width, it won't change when the window is resized.</li>
+</ul>
+<h3 id="setup-function">setup() Function</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create a canvas to match the parent container&#39;s size</span>
+<span class="w">    </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="s1">&#39;p5-container&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">noLoop</span><span class="p">();</span><span class="w"> </span><span class="c1">// Stop the draw loop since we&#39;ll redraw only on resize</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>updateCanvasSize()</strong>: This function call updates <code>containerWidth</code> by measuring the HTML element with the ID <code>p5-container</code>.</li>
+<li><strong>createCanvas(containerWidth, containerHeight)</strong>: Creates a p5.js canvas. The width is taken from the container's width; the height is the fixed 200 pixels.</li>
+<li><strong>canvas.parent('p5-container')</strong>: Inserts the created canvas element inside the HTML element with the ID <code>p5-container</code>. This ensures the canvas is placed in the correct part of the page.</li>
+<li><strong>noLoop()</strong>: Tells p5.js not to continuously call <code>draw()</code> every frame. Instead, it will only call <code>draw()</code> when explicitly instructed to. This helps prevent unnecessary re-rendering.</li>
+</ul>
+<h3 id="draw-function">draw() Function</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">36</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Display container dimensions</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="sb">`Width: </span><span class="si">${</span><span class="nx">containerWidth</span><span class="si">}</span><span class="sb">px\nHeight: </span><span class="si">${</span><span class="nx">containerHeight</span><span class="si">}</span><span class="sb">px`</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>background('aliceblue')</strong>: Sets a light blue background color for the canvas.</li>
+<li><strong>fill('black')</strong>: Sets the text drawing color to black.</li>
+<li><strong>textSize(36)</strong>: Sets the size of the text to be displayed on the canvas.</li>
+<li><strong>textAlign(CENTER, CENTER)</strong>: Centers text both horizontally and vertically.</li>
+<li><strong>text(<code>Width: ${containerWidth}px\nHeight: ${containerHeight}px</code>, width / 2, height / 2)</strong>: Draws a message in the center of the canvas displaying the current width and height values. The <code>\n</code> creates a new line so both values appear one above the other.</li>
+</ul>
+<h3 id="windowresized-function">windowResized() Function</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Update canvas size when the container resizes</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">redraw</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>windowResized()</strong>: A p5.js event function that is automatically called whenever the browser window changes size.</li>
+<li><strong>updateCanvasSize()</strong>: Updates <code>containerWidth</code> based on the container's current dimensions.</li>
+<li><strong>resizeCanvas(containerWidth, containerHeight)</strong>: Adjusts the existing canvas to the new width and height. Because the height is fixed, only the width may really change.</li>
+<li><strong>redraw()</strong>: Manually triggers <code>draw()</code> again, ensuring the text reflects the new dimensions.</li>
+</ul>
+<h3 id="updatecanvassize-function">updateCanvasSize() Function</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Get the exact dimensions of the container</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;p5-container&#39;</span><span class="p">).</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">width</span><span class="p">);</span><span class="w">  </span><span class="c1">// Avoid fractional pixels</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>document.getElementById('p5-container').getBoundingClientRect()</strong>: Returns an object containing the size and position of the element relative to the viewport.</li>
+<li><strong>containerWidth = Math.floor(container.width)</strong>: Assigns the container's width (rounded down to the nearest whole number) to the <code>containerWidth</code> variable, ensuring no fractional pixel values that might cause layout jitter.</li>
+</ul>
+<p><strong>Why This Matters:</strong></p>
+<ul>
+<li>By separating the container width calculation from the canvas height (which is fixed), you ensure a stable vertical dimension.</li>
+<li>Calling <code>updateCanvasSize()</code> before creating or resizing the canvas ensures the canvas matches the container's dimensions at all times.</li>
+<li>Using <code>noLoop()</code> and <code>redraw()</code> allows the canvas to only update when necessary (on initial load and window resize), making the sketch more efficient.</li>
+</ul>
 
 
 
