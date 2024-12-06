@@ -1,6 +1,7 @@
 # Concept Graph Prompt
 
 [Run The Concept Graph MicroSim](./concept-graph.html)
+
 [Fixed Positions](./fixed-positions.html)
 
 A concept graph or learning graph is a directed graph that lists
