@@ -3,6 +3,7 @@
 <iframe src="main-v2.html" height="450px" width="400px"></iframe>
 
 [Run the Ball in Hexagon MicroSim](main-v2.html){ .md-button .md-button--primary }
+[Edit the MicroSim with the p5.js editor](https://editor.p5js.org/dmccreary/sketches/b9cXAHp6A)
 
 Just copy this iframe into your webpage to use the MicroSim in your classroom:
 
