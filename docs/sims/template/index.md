@@ -88,3 +88,6 @@ or larger by changing the radius from 10 to 200.
 
 Change the prompt to move the circle to the left or right.
 
+## References
+
+* [Processing Wiki on Positioning Your Canvas](https://github.com/processing/p5.js/wiki/Positioning-your-canvas)
