@@ -6,7 +6,7 @@
 ![Image Name](./image.png){ width="400" }
 -->
 
-[Run the Maze Solver MicroSim](./template.html){ .md-button .md-button--primary }
+[Run the Maze Solver MicroSim](./main.html){ .md-button .md-button--primary }
 [Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/UvmgsjQuZ)
 
 ## Sample iframe
