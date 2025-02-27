@@ -27,12 +27,14 @@ function setup() {
 }
 
 function draw() {
-  fill(240);
-  noStroke();
-  rect(0, 0, width, drawHeight+1); // fill drawing area with light gray
+  // fill drawing area with very light blue
+  fill('aliceblue');
+  stroke('silver');
+  strokeWeight(1);
+  rect(0, 0, width, drawHeight);
+  // fill control with white
   fill('white');
-  rect(0, drawHeight, width, height-drawHeight); // fill control with white
-  
+  rect(0, drawHeight, width, height-drawHeight); 
   // get the new speed from the UI
   speed = speedSlider.value();
 
