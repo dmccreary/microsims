@@ -4,7 +4,7 @@
 Note that <figure> and <figcaption> don't seem to work in this file.
 -->
 <figure markdown>
-![Bouncing Ball](./bouncing-ball-v2.png){ width="400" }
+![Bouncing Ball](./bouncing-ball.png){ width="400" }
    <figcaption>Bouncing Ball</figcaption>
 </figure>
 
