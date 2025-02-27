@@ -91,9 +91,9 @@ BFS guarantees finding the shortest possible path through the maze.
 5.  **Path Finding**: BFS is optimal for finding the shortest path in an unweighted graph
 
 !!! Challenge
-   1.  Why does BFS guarantee the shortest path while DFS doesn't?
-   2.  What changes would you make to use DFS instead of BFS for solving?
-   3.  How might you modify the code to create mazes with multiple possible solutions?
-   4.  Can you think of real-world applications that use these same algorithms?
+    1.  Why does BFS guarantee the shortest path while DFS doesn't?
+    2.  What changes would you make to use DFS instead of BFS for solving?
+    3.  How might you modify the code to create mazes with multiple possible solutions?
+    4.  Can you think of real-world applications that use these same algorithms?
 
 Understanding these maze algorithms provides excellent preparation for studying more advanced topics in computer science, including artificial intelligence, network routing, and game development.
