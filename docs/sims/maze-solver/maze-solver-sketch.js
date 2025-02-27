@@ -2,7 +2,7 @@
 // Canvas dimensions
 let canvasWidth = 400;
 let drawHeight = 400;
-let controlHeight = 50;
+let controlHeight = 60;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
 let defaultTextSize = 16;
@@ -26,27 +26,30 @@ let start, end;
 
 function setup() {
     const canvas = createCanvas(canvasWidth, canvasHeight);
+    // place the canvas in the main element of the HTML page
     var mainElement = document.querySelector('main');
     canvas.parent(mainElement);
     textSize(defaultTextSize);
     
     // Create solver speed slider
-    solveSpeedSlider = createSlider(1, 60, 10, 1);
-    solveSpeedSlider.position(margin, drawHeight + 30);
+    solveSpeedSlider = createSlider(0, 60, 8, 1);
+    solveSpeedSlider.position(margin, drawHeight + 40);
     solveSpeedSlider.size(canvasWidth - 2*margin);
     
-    // Initialize maze
+    // Initialize maze - note this is a responsive design
     cols = floor((canvasWidth - 2*margin) / cellSize);
     rows = floor((drawHeight - 2*margin) / cellSize);
     
     // Create maze cells
     createMaze();
     
-    // Generate maze using DFS
+    // Generate maze using Depth First Search (DFS)
     generateMaze();
     
     // Set start and end points
+    // green square in upper left corner
     start = grid[0][0];
+    // red square in lower right corner
     end = grid[cols-1][rows-1];
     
     // Setup for solving
@@ -56,6 +59,7 @@ function setup() {
 function draw() {
     // Background for drawing area
     fill('aliceblue');
+    stroke('silver');
     rect(0, 0, canvasWidth, drawHeight);
     
     // Background for controls area
@@ -298,32 +302,32 @@ function drawUI() {
     fill(0);
     text("Solve Speed: " + solveSpeed, margin, drawHeight + 25);
     
-    // Solve button
+    // Green "Solve" button in lower right corner of the controls area
     if (!solving && solutionPath.length === 0) {
         fill(0, 150, 0);
         rect(canvasWidth - 100, drawHeight + 10, 80, 30);
         fill(255);
         textAlign(CENTER, CENTER);
-        text("SOLVE", canvasWidth - 60, drawHeight + 25);
+        text("Solve", canvasWidth - 60, drawHeight + 25);
         textAlign(LEFT, BASELINE);
     }
     
-    // Reset button
+    // Maroon Reset button when running
     if (solving || solutionPath.length > 0) {
         fill(150, 0, 0);
         rect(canvasWidth - 100, drawHeight + 10, 80, 30);
         fill(255);
         textAlign(CENTER, CENTER);
-        text("RESET", canvasWidth - 60, drawHeight + 25);
+        text("Reset", canvasWidth - 60, drawHeight + 25);
         textAlign(LEFT, BASELINE);
     }
     
     // New Maze button
     fill(0, 0, 150);
-    rect(canvasWidth - 190, drawHeight + 10, 80, 30);
+    rect(canvasWidth - 200, drawHeight + 10, 90, 30);
     fill(255);
     textAlign(CENTER, CENTER);
-    text("NEW MAZE", canvasWidth - 150, drawHeight + 25);
+    text("New Maze", canvasWidth - 155, drawHeight + 25);
     textAlign(LEFT, BASELINE);
 }
 
