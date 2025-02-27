@@ -2051,6 +2051,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Mobile Buttons
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2060,6 +2071,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#native-p5js-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Native p5.js Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-rect-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Rect Buttons
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2213,6 +2261,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#native-p5js-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Native p5.js Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-rect-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Rect Buttons
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2235,6 +2309,35 @@
 
 
 <h1 id="mobile-compatible-buttons">Mobile Compatible Buttons</h1>
+<h2 id="native-p5js-buttons">Native p5.js Buttons</h2>
+<p>Using the native p5.js createButton() function is indeed an excellent alternative that would solve your iPhone compatibility issues. This approach has several advantages:</p>
+<p>Using p5.js's built-in createButton() function offers several advantages over canvas-drawn buttons:</p>
+<ol>
+<li>
+<p><strong>Native touch support</strong>: The buttons are actual HTML elements that work correctly on all devices including iPhones, with no special handling needed for touch events.</p>
+</li>
+<li>
+<p><strong>Accessibility</strong>: HTML buttons are keyboard-accessible and work with screen readers, making your application more accessible.</p>
+</li>
+<li>
+<p><strong>Styling flexibility</strong>: You can easily style the buttons using CSS properties like in the example code.</p>
+</li>
+<li>
+<p><strong>Cleaner interaction code</strong>: You don't need to track mouse/touch positions and check bounds - just use the mousePressed() callback function.</p>
+</li>
+<li>
+<p><strong>State management</strong>: You can easily show/hide buttons based on the application state using the show() and hide() methods.</p>
+</li>
+</ol>
+<p>The key changes in this implementation:</p>
+<ul>
+<li>Created HTML buttons with createButton() instead of drawing them on the canvas</li>
+<li>Added button event handlers (startSolving, resetMaze, createNewMaze)</li>
+<li>Implemented show/hide logic for the buttons based on the application state</li>
+<li>Added CSS styling to make the buttons visually appealing</li>
+</ul>
+<p>This approach should work perfectly on iPhones and all other devices without requiring any special handling for touch events.</p>
+<h2 id="creating-rect-buttons">Creating Rect Buttons</h2>
 <p>There common issue with canvas-based interactions on mobile devices like iPhones running the Apple Safari Browser. The problem stems from how touch events differ from mouse events. Here are the key issues and solutions:</p>
 <ol>
 <li>Mobile Safari on iPhone processes touch events differently than mousePressed() events</li>
