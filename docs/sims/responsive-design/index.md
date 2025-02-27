@@ -1,9 +1,10 @@
 # Responsive Design
 <iframe src="main.html" height="450px"></iframe>
 
-<!--
-![Image Name](./image.png){ width="400" }
--->
+A responsive design is one that adapts to changing screen
+sizes.  This example resizes the drawing region, the control
+region as well as the slider controls every time the screen
+is resized.
 
 [Run the Responsive Design MicroSim](./main.html){ .md-button .md-button--primary }
 [Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/rBPH8rAw1)
