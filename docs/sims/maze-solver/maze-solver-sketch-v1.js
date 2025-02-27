@@ -21,11 +21,6 @@ let solutionPath = [];
 let solveSpeed = 10;
 let solveSpeedSlider;
 
-// UI elements
-let solveButton;
-let resetButton;
-let newMazeButton;
-
 // Start and end points
 let start, end;
 
@@ -40,35 +35,6 @@ function setup() {
     solveSpeedSlider = createSlider(0, 60, 8, 1);
     solveSpeedSlider.position(margin, drawHeight + 40);
     solveSpeedSlider.size(canvasWidth - 2*margin);
-    
-    // Create buttons using p5.js createButton function
-    solveButton = createButton('Solve');
-    solveButton.position(canvasWidth - 100, drawHeight + 10);
-    solveButton.size(80, 30);
-    solveButton.mousePressed(startSolving);
-    solveButton.style('background-color', 'green');
-    solveButton.style('color', 'white');
-    solveButton.style('border', 'none');
-    solveButton.style('border-radius', '4px');
-    
-    resetButton = createButton('Reset');
-    resetButton.position(canvasWidth - 100, drawHeight + 10);
-    resetButton.size(80, 30);
-    resetButton.mousePressed(resetMaze);
-    resetButton.style('background-color', 'maroon');
-    resetButton.style('color', 'white');
-    resetButton.style('border', 'none');
-    resetButton.style('border-radius', '4px');
-    resetButton.hide(); // Initially hidden
-    
-    newMazeButton = createButton('New Maze');
-    newMazeButton.position(canvasWidth - 200, drawHeight + 10);
-    newMazeButton.size(90, 30);
-    newMazeButton.mousePressed(createNewMaze);
-    newMazeButton.style('background-color', 'blue');
-    newMazeButton.style('color', 'white');
-    newMazeButton.style('border', 'none');
-    newMazeButton.style('border-radius', '4px');
     
     // Initialize maze - note this is a responsive design
     cols = floor((canvasWidth - 2*margin) / cellSize);
@@ -226,11 +192,8 @@ function resetSolving() {
     solveStack = [];
     solutionPath = [];
     
-    // Set the correct button visibility
-    solveButton.show();
-    resetButton.hide();
-    
     // We'll mark start as visited when we begin solving
+    // to avoid confusing the user when they press solve
     start.visited = true;
     solveStack.push({
         cell: start,
@@ -254,10 +217,6 @@ function solveMazeStep() {
                 solutionPath[i].inSolution = true;
             }
             console.log("Solution found!");
-            
-            // Update button visibility
-            solveButton.hide();
-            resetButton.show();
             return;
         }
         
@@ -313,10 +272,6 @@ function solveMazeStep() {
         // No solution found
         solving = false;
         console.log("No solution found");
-        
-        // Update button visibility
-        solveButton.hide();
-        resetButton.show();
     }
 }
 
@@ -347,39 +302,59 @@ function drawUI() {
     fill(0);
     text("Solve Speed: " + solveSpeed, margin, drawHeight + 25);
     
-    // Toggle button visibility based on state
-    if (solving || solutionPath.length > 0) {
-        solveButton.hide();
-        resetButton.show();
+    // Green "Solve" button in lower right corner of the controls area
+    if (!solving && solutionPath.length === 0) {
+        fill(0, 150, 0);
+        rect(canvasWidth - 100, drawHeight + 10, 80, 30);
+        fill(255);
+        textAlign(CENTER, CENTER);
+        text("Solve", canvasWidth - 60, drawHeight + 25);
+        textAlign(LEFT, BASELINE);
     }
+    
+    // Maroon Reset button when running
+    if (solving || solutionPath.length > 0) {
+        fill(150, 0, 0);
+        rect(canvasWidth - 100, drawHeight + 10, 80, 30);
+        fill(255);
+        textAlign(CENTER, CENTER);
+        text("Reset", canvasWidth - 60, drawHeight + 25);
+        textAlign(LEFT, BASELINE);
+    }
+    
+    // New Maze button
+    fill(0, 0, 150);
+    rect(canvasWidth - 200, drawHeight + 10, 90, 30);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text("New Maze", canvasWidth - 155, drawHeight + 25);
+    textAlign(LEFT, BASELINE);
 }
 
-// Button event handlers
-function startSolving() {
-    resetSolving();
-    solving = true;
+function mousePressed() {
+    // Check if clicked on Solve button
+    if (mouseX > canvasWidth - 100 && mouseX < canvasWidth - 20 &&
+        mouseY > drawHeight + 10 && mouseY < drawHeight + 40) {
+        
+        if (!solving && solutionPath.length === 0) {
+            // Start solving
+            resetSolving();
+            solving = true;
+        } else {
+            // Reset if already solving or solved
+            resetSolving();
+        }
+        return;
+    }
     
-    // Switch button visibility
-    solveButton.hide();
-    resetButton.show();
-}
-
-function resetMaze() {
-    resetSolving();
-    
-    // Switch button visibility
-    resetButton.hide();
-    solveButton.show();
-}
-
-function createNewMaze() {
-    createMaze();
-    generateMaze();
-    resetSolving();
-    
-    // Set correct button visibility
-    resetButton.hide();
-    solveButton.show();
+    // Check if clicked on New Maze button
+    if (mouseX > canvasWidth - 190 && mouseX < canvasWidth - 110 &&
+        mouseY > drawHeight + 10 && mouseY < drawHeight + 40) {
+        
+        createMaze();
+        generateMaze();
+        resetSolving();
+    }
 }
 
 // Cell class to represent each cell in the maze
