@@ -1,5 +1,32 @@
 # Mobile Compatible Buttons
 
+## Native p5.js Buttons
+
+Using the native p5.js createButton() function is indeed an excellent alternative that would solve your iPhone compatibility issues. This approach has several advantages:
+
+Using p5.js's built-in createButton() function offers several advantages over canvas-drawn buttons:
+
+1.  **Native touch support**: The buttons are actual HTML elements that work correctly on all devices including iPhones, with no special handling needed for touch events.
+
+2.  **Accessibility**: HTML buttons are keyboard-accessible and work with screen readers, making your application more accessible.
+
+3.  **Styling flexibility**: You can easily style the buttons using CSS properties like in the example code.
+
+4.  **Cleaner interaction code**: You don't need to track mouse/touch positions and check bounds - just use the mousePressed() callback function.
+
+5.  **State management**: You can easily show/hide buttons based on the application state using the show() and hide() methods.
+
+The key changes in this implementation:
+
+-   Created HTML buttons with createButton() instead of drawing them on the canvas
+-   Added button event handlers (startSolving, resetMaze, createNewMaze)
+-   Implemented show/hide logic for the buttons based on the application state
+-   Added CSS styling to make the buttons visually appealing
+
+This approach should work perfectly on iPhones and all other devices without requiring any special handling for touch events.
+
+## Creating Rect Buttons
+
 There common issue with canvas-based interactions on mobile devices like iPhones running the Apple Safari Browser. The problem stems from how touch events differ from mouse events. Here are the key issues and solutions:
 
 1. Mobile Safari on iPhone processes touch events differently than mousePressed() events

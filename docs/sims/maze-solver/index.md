@@ -7,7 +7,7 @@
 -->
 
 [Run the Maze Solver MicroSim](./main.html){ .md-button .md-button--primary }
-[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/UvmgsjQuZ)
+[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/Lfa-_QoaD)
 
 ## Sample iframe
 
