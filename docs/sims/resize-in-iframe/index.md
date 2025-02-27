@@ -88,7 +88,7 @@ This code is a p5.js sketch that creates a canvas sized to the width of a parent
 
 ```javascript
 let canvasWidth; // Will store the width of the container
-let canvasHeight = 200; // A fixed height for the canvas
+let canvasHeight = 400; // A fixed height for the canvas
 ```
 
 - **canvasWidth**: This variable will be updated dynamically based on the `#p5-container` element's width.
@@ -165,3 +165,7 @@ function updateCanvasSize() {
 -   By separating the container width calculation from the canvas height (which is fixed), you ensure a stable vertical dimension.
 -   Calling `updateCanvasSize()` before creating or resizing the canvas ensures the canvas matches the container's dimensions at all times.
 -   Using `noLoop()` and `redraw()` allows the canvas to only update when necessary (on initial load and window resize), making the sketch more efficient.
+
+## References
+
+* [Processing Wiki on Positioning Your Canvas](https://github.com/processing/p5.js/wiki/Positioning-your-canvas))
