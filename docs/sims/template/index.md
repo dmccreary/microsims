@@ -1,6 +1,6 @@
 # MicroSim Template
 
-<iframe src="main.html" height="200px"></iframe>
+<iframe src="main.html" height="400px"></iframe>
 
 <!--
 ![Image Name](./image.png){ width="400" }
