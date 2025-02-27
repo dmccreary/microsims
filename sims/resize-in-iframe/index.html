@@ -618,6 +618,10 @@
           
         
       
+        
+          
+        
+      
     
     
     
@@ -2078,6 +2082,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2099,6 +2112,27 @@
   
   <span class="md-ellipsis">
     Ball in Rotating Hexagon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maze-solver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Maze Solver
   </span>
   
 
@@ -2348,6 +2382,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2480,7 +2523,7 @@ Assume that the p5.js will fix the canvasHeight to be 400.
 <h3 id="global-variables">Global Variables</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">;</span><span class="w"> </span><span class="c1">// Will store the width of the container</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span><span class="w"> </span><span class="c1">// A fixed height for the canvas</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w"> </span><span class="c1">// A fixed height for the canvas</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li><strong>canvasWidth</strong>: This variable will be updated dynamically based on the <code>#p5-container</code> element's width.</li>
@@ -2572,6 +2615,10 @@ Assume that the p5.js will fix the canvasHeight to be 400.
 <li>By separating the container width calculation from the canvas height (which is fixed), you ensure a stable vertical dimension.</li>
 <li>Calling <code>updateCanvasSize()</code> before creating or resizing the canvas ensures the canvas matches the container's dimensions at all times.</li>
 <li>Using <code>noLoop()</code> and <code>redraw()</code> allows the canvas to only update when necessary (on initial load and window resize), making the sketch more efficient.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/processing/p5.js/wiki/Positioning-your-canvas">Processing Wiki on Positioning Your Canvas</a>)</li>
 </ul>
 
 
