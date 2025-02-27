@@ -13,7 +13,7 @@
 
 ```html
 <iframe src="https://dmccreary.github.io/microsims/sims/maze-solver/main.html" 
-   width="400px" height="400" scrolling="no"></iframe>
+   width="400px" height="470" scrolling="no"></iframe>
 ```
 
 ### Lesson Plan Prompt for a High-School Classroom
