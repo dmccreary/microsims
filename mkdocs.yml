@@ -21,6 +21,9 @@ nav:
     - P5 Reference Manual: setup/p5-reference-manual.md
     - Paste As Markdown: setup/08-paste-as-markdown.md
     - Link Previews: setup/06-link-previews.md
+  - Prompts:
+    - Introduction: prompts/index.md
+    - Basic Prompts: prompts/basic-prompts.md
   - MicroSims:
     - Introduction: sims/index.md
     - Learning Graph: sims/learning-graph/index.md
@@ -116,9 +119,7 @@ theme:
 plugins:
   - search
   - social
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -131,8 +132,10 @@ markdown_extensions:
       linenums: true
 extra_css:
    - css/extra.css
-extra:
-  analytics:
+extra_javascript:
+  - js/extra.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.jsextra:
+analytics:
     provider: google
     # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
     property: G-BBR7MPK96Z

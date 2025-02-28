@@ -16,12 +16,46 @@ iframe {
   overflow: hidden; /* Disable scrollbars - may not work so use scrolling="no" in iframe */
 }
 
-/* for microsims */
-#p5-container {
-  width: 100%; /* Adjust to the iframe's size */
-  display: flex; /* Centers the canvas */
-  justify-content: center;
-  align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+/* Container to control the iframe size and scaling */
+.iframe-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center; /* Center the iframe */
 }
-  
+
+/* Iframe styles */
+iframe {
+  width: 100%;     /* Responsive width */
+  max-width: 600px; /* Maximum width for larger screens */
+  border: solid 2px blue;
+  margin: 0 auto;  /* Center the iframe when it's below max-width */
+}
+
+/* if a div with <div class="upper-alpha"> wraps a list, then number A.B.C.D etc */
+/* this requires that the markdown extension md_in_html is enabled in the mkdocs.yml file */
+.upper-alpha ol {
+  list-style-type: upper-alpha;
+}
+
+/* Styling for the Copy Button */
+.admonition.prompt {
+  position: relative;
+}
+
+.admonition.prompt .copy-button {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background-color: #0056d6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.3rem;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.admonition.prompt .copy-button:hover {
+  background-color: #0041a4; /* Darker blue on hover */
+}

@@ -1,6 +1,6 @@
 # MicroSim Template
 
-<iframe src="main.html" height="400px"></iframe>
+<iframe src="main.html" height="400px" scrolling="no"></iframe>
 
 <!--
 ![Image Name](./image.png){ width="400" }
@@ -12,7 +12,7 @@
 ## Sample iframe
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/sims/resize-in-iframe/resize-in-iframe.html" height="200"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/sims/name/main.html" height="400"  scrolling="no"></iframe>
 ```
 
 ## About this MicroSim

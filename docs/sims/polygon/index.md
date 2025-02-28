@@ -1,14 +1,14 @@
 # Polygon
 
-<figure markdown>
-   ![Polygon](./polygon.png){ width="400" }
-   <figcaption>Figure caption.</figcaption>
-</figure>
+<iframe src="./main.html" height="460" scrolling="no"></iframe>
 
 [Run Polygon MicroSim](./polygon.html){ .md-button .md-button--primary }
 
 In this example, we will use a more detailed prompt to control the placement of the sliders and their values.
 
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/polygon/main.html" height="400"  scrolling="no"></iframe>
+```
 
 ## Prompt
 

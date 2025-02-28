@@ -2,7 +2,7 @@
 // Canvas dimensions
 let canvasWidth = 400;
 let drawHeight = 400;
-let controlHeight = 60;
+let controlHeight = 65;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
 let defaultTextSize = 16;
