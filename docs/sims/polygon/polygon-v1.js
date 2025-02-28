@@ -9,7 +9,7 @@ let controlHeight = 50;
 let canvasHeight = drawHeight + controlHeight;
 // margin around the active plotting region
 let margin = 25;
-let sliderLeftMargin = 100;
+let sliderLeftMargin = 140;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
 

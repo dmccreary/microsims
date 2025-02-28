@@ -1,5 +1,5 @@
 # Responsive Design
-<iframe src="main.html" height="450px"></iframe>
+<iframe src="main.html" height="450px" scrolling="no"></iframe>
 
 A responsive design is one that adapts to changing screen
 sizes.  This example resizes the drawing region, the control
@@ -12,5 +12,5 @@ is resized.
 ## Sample iframe
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/sims/responsive-design/main.html" height="200"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/sims/responsive-design/main.html" height="200"  scrolling="no"></iframe>
 ```
