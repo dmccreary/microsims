@@ -1,10 +1,10 @@
 // Fractal Tree MicroSim with responsive design
 let canvasWidth = 400;
 let drawHeight = 400;
-let controlHeight = 160;
+let controlHeight = 170;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
-let sliderLeftMargin = 160;
+let sliderLeftMargin = 110;
 let defaultTextSize = 16;
 
 let containerWidth;
