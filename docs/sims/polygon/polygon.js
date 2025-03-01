@@ -45,10 +45,12 @@ function setup() {
 }
 
 function draw() {
-    // Draw the display area
-    fill('aliceblue');
+    // draw a light gray border to our regions
     stroke('silver');
     strokeWeight(1);
+
+    // Draw the display area
+    fill('aliceblue');
     rect(0, 0, containerWidth, drawHeight);
     
     // Draw the controls area

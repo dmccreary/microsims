@@ -1,13 +1,13 @@
-# MicroSim Template
+# Simple Tree
 
-<iframe src="main.html" height="400px" scrolling="no"></iframe>
+<iframe src="main.html" height="450px" scrolling="no"></iframe>
 
 <!--
 ![Image Name](./image.png){ width="400" }
 -->
 
-[Run the MicroSim](main.html){ .md-button .md-button--primary }
-[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
+[Run the Simple Tree MicroSim](./main.html){.md-button .md-button--primary}
+[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/iNg7Y7pp8)
 
 ## Sample iframe
 
