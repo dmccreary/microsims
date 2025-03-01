@@ -1,18 +1,19 @@
 # Gold Star
 
-<figure markdown>
-  ![Gold Star](./gold-star.png){ width="300" }
-  <figcaption>Use a slider to change the number of points in a star.</figcaption>
-</figure>
+<iframe src="main.html" height="450px" scrolling="no"></iframe>
 
 
-[Gold Star Demo](./gold-star.html){ .md-button .md-button--primary }
+[Run the Gold Star MicroSim](./main.html){ .md-button .md-button--primary }
 
-## Prompt
+!!! prompt
+  Draw a gold star width number points as a parameter.
+  Use the circle.js file as your template.
 
-```linenums="0"
-Draw a gold star width number points as a parameter.
-```
+!!! prompt
+  Draw a gold star with number points as a parameter.
+  Use a slider so that the number of points range from 4 to 30.
+  Make the default number of points be 10.
+  Use the circle.js file as your template.
 
 ## Sample Code
 
