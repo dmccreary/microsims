@@ -1,7 +1,6 @@
 // MicroSim for a simple recursive tree
-// This version has responsive design
-
-// the width of the entire canvas for initialization
+// This version has a fixed-width with no responsive resizing
+// the width of the entire canvas
 let canvasWidth = 500;
 // The top drawing region above the interactive controls
 let drawHeight = 400;
@@ -9,17 +8,11 @@ let drawHeight = 400;
 let controlHeight = 40;
 // The total height of both the drawing region height + the control region height
 let canvasHeight = drawHeight + controlHeight;
-
 // margin around the active plotting region
 let margin = 25;
 let sliderLeftMargin = 80;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
-
-// For our responsive design.  We recalculate these by container upon resize
-let containerHeight = canvasHeight;
-let containerWidth =canvasWidth; 
-
 
 let slider;
 
@@ -28,18 +21,14 @@ let branchLength = 120;
 let branchShrink = 0.7
 
 function setup() {
-  // Create a canvas to match the parent container's size
-  updateCanvasSize();
-  const canvas = createCanvas(containerWidth, containerHeight);
+  createCanvas(canvasWidth, canvasHeight);
   textSize(16);
-  
   slider = createSlider(0, 10, 5, 1);  // Depth control
   slider.position(sliderLeftMargin, drawHeight + 10);
   slider.size(canvasWidth - sliderLeftMargin - 20);
 }
 
 function draw() {
-  updateCanvasSize();
   // draw a light gray boarder around regions
   stroke('silver');
   strokeWeight(1);
@@ -98,20 +87,4 @@ function branch(len, depth) {
     rotate(-PI / 6);
     branch(len * branchShrink, depth - 1);
   pop();
-}
-
-function windowResized() {
-  // Update canvas size when the container resizes
-  updateCanvasSize();
-  resizeCanvas(containerWidth, containerHeight);
-  redraw();
-  // resize the sliders to match the new canvasWidth
-  slider.size(canvasWidth - sliderLeftMargin - 15);
-}
-
-function updateCanvasSize() {
-    // Get the exact dimensions of the container
-    const container = document.querySelector('main').getBoundingClientRect();
-    containerWidth = Math.floor(container.width);  // Avoid fractional pixels
-    canvasWidth = containerWidth;
 }
