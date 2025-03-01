@@ -78,3 +78,4 @@ This code provides a basic recursive tree. You can enhance it with more features
 ## References
 
 * [Google Gemini Demo](https://www.youtube.com/watch?v=NHLnjWTEZps)
+* [p5.js Examples](https://editor.p5js.org/p5/sketches/Simulate:_Recursive_Tree)
