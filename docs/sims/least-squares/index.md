@@ -2,7 +2,9 @@
 
 <iframe src="main.html" height="565px" scrolling="no"></iframe>
 
-[Run Least Squares MicroSim V1](./main.html){ .md-button .md-button--primary }
+[Run the Least Squares MicroSim](./main.html){.md-button .md-button--primary}
+<br/>
+[Edit the Least Squares MicroSim](https://editor.p5js.org/dmccreary/sketches/voN2RROfE)
 
 ## Lesson Plan for High School Algebra
 
