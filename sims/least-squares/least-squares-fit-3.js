@@ -34,7 +34,7 @@ function setup() {
     slopeSlider.size(containerWidth - labelValueWidth - 20);
     
     // Intercept slider
-    interceptSlider = createSlider(-100, 140, 0, 1);
+    interceptSlider = createSlider(-100, 170, 0, 1);
     interceptSlider.position(labelValueWidth, drawHeight + 30);
     interceptSlider.size(containerWidth - labelValueWidth - 20);
 }
