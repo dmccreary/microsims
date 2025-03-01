@@ -2389,23 +2389,29 @@
 
 
 <h1 id="recursion-tree">Recursion Tree</h1>
-<p><img alt="Recursion Tree Icon" src="icon.png" width="400" /></p>
+<iframe src="main.html" height="470px" scrolling="no"></iframe>
+
 <p>Recursion trees are ideal ways to demonstrate recursive programming.
 In a recursive program, a function calls itself repeatedly.
 The result is often a beautiful complex image generated from
 a very small program.</p>
-<p><a class="md-button md-button--primary" href="recursion-tree.html">Recursion Tree Demo</a></p>
+<p><a class="md-button md-button--primary" href="main.html">Run Recursion Tree MicroSim</a>
+<a href="https://editor.p5js.org/dmccreary/sketches/6p_xSPRi7">Edit the MicroSim</a></p>
 <h2 id="prompt">Prompt</h2>
-<div class="highlight"><pre><span></span><code>Generate a single file p5.js sketch on a 400x400 canvas.
-Generate a drawing of a tree that uses recursion.
-Add a slider that changes the angle between the branches of the tree.
-</code></pre></div>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+</div>
+<p>Generate a single file p5.js sketch on a 400x400 canvas.
+  Generate a drawing of a tree that uses recursion.
+  Add a slider that changes the angle between the branches of the tree.</p>
 <h2 id="response">Response</h2>
 <p>Creating a p5.js sketch that draws a recursive tree with a slider to adjust the angle between branches involves a few key steps. Here's a basic outline of the code:</p>
-<p>Setup the Canvas: Initialize a 400x400 canvas using createCanvas(400, 400) in the setup() function.
-Create a Slider: Create a slider for the branch angle using createSlider() and position it on the canvas.
-Draw the Tree: Use a recursive function to draw the tree in the draw() function. The angle between branches will be controlled by the slider's value.
-Recursive Function: The recursive function will draw a line for the branch and then call itself twice to draw the two smaller branches at the specified angle.</p>
+<ol>
+<li>Setup the Canvas: Initialize a 400x400 canvas using createCanvas(400, 400) in the setup() function.</li>
+<li>Create a Slider: Create a slider for the branch angle using createSlider() and position it on the canvas.</li>
+<li>Draw the Tree: Use a recursive function to draw the tree in the draw() function. The angle between branches will be controlled by the slider's value.</li>
+<li>Recursive Function: The recursive function will draw a line for the branch and then call itself twice to draw the two smaller branches at the specified angle.</li>
+</ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2437,7 +2443,12 @@ Recursive Function: The recursive function will draw a line for the branch and t
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">angleSlider</span><span class="p">;</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">angleSlider</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
@@ -2447,25 +2458,30 @@ Recursive Function: The recursive function will draw a line for the branch and t
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">drawBranch</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">drawBranch</span><span class="p">(</span><span class="nx">len</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// draw branch from center up to len</span>
 <span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nx">len</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// move up to end</span>
 <span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="nx">len</span><span class="p">);</span>
 
+<span class="w">  </span><span class="c1">// if we have a long len</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">len</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">push</span><span class="p">();</span>
-<span class="w">    </span><span class="nx">rotate</span><span class="p">(</span><span class="nx">angleSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
-<span class="w">    </span><span class="nx">drawBranch</span><span class="p">(</span><span class="nx">len</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.67</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// rotate coordinate system clockwise</span>
+<span class="w">      </span><span class="nx">rotate</span><span class="p">(</span><span class="nx">angleSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
+<span class="w">      </span><span class="nx">drawBranch</span><span class="p">(</span><span class="nx">len</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.67</span><span class="p">);</span>
 <span class="w">    </span><span class="nx">pop</span><span class="p">();</span>
 
 <span class="w">    </span><span class="nx">push</span><span class="p">();</span>
-<span class="w">    </span><span class="nx">rotate</span><span class="p">(</span><span class="o">-</span><span class="nx">angleSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
-<span class="w">    </span><span class="nx">drawBranch</span><span class="p">(</span><span class="nx">len</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.67</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// rotate coordinate system counter clockwise</span>
+<span class="w">      </span><span class="nx">rotate</span><span class="p">(</span><span class="o">-</span><span class="nx">angleSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
+<span class="w">      </span><span class="nx">drawBranch</span><span class="p">(</span><span class="nx">len</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.67</span><span class="p">);</span>
 <span class="w">    </span><span class="nx">pop</span><span class="p">();</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
