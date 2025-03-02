@@ -50,7 +50,7 @@ function setup() {
 
   depthSlider = createSlider(1, 10, 5, 1);
   depthSlider.position(sliderLeftMargin, drawHeight + 10);
-  depthSlider.size(canvasWidth - sliderLeftMargin - 120);
+  depthSlider.size(canvasWidth - sliderLeftMargin - 150);
 
   depthSlider.input(() => {
     if (!isAnimating) {
@@ -64,10 +64,10 @@ function setup() {
 
   speedSlider = createSlider(1, 30, 10, 1);
   speedSlider.position(sliderLeftMargin, drawHeight + 35);
-  speedSlider.size(canvasWidth - sliderLeftMargin - 120);
+  speedSlider.size(canvasWidth - sliderLeftMargin - 150);
 
   multipleBugsCheckbox = createCheckbox('Multiple Bugs', true);
-  multipleBugsCheckbox.position(canvasWidth - 100, drawHeight + 5);
+  multipleBugsCheckbox.position(canvasWidth - 130, drawHeight + 5);
   multipleBugsCheckbox.changed(function() {
     multipleBugs = this.checked();
     if (!isAnimating) {
@@ -77,8 +77,8 @@ function setup() {
   });
 
   startButton = createButton('Start');
-  startButton.position(canvasWidth - 100, drawHeight + 30);
-  startButton.size(80, 30);
+  startButton.position(canvasWidth - 120, drawHeight + 30);
+  startButton.size(80, 25);
   startButton.mousePressed(toggleAnimation);
 
   generateCommands();
