@@ -45,12 +45,13 @@ function setup() {
 }
 
 function draw() {
-  fill('aliceblue');
+  // Draw light gray outlines of the draw and controls regions
   stroke('silver');
   strokeWeight(1);
+  // Draw the drawing area background in light blue
+  fill('aliceblue');
   rect(0,0, canvasWidth, drawHeight);
-  // Draw the display area
-  // Draw the controls area
+  // Draw the controls area background in white
   fill('white');
   rect(0,drawHeight, canvasWidth, controlHeight);
 
@@ -107,8 +108,9 @@ function windowResized() {
 }
 
 function updateCanvasSize() {
-    // Get the exact dimensions of the container
+    // Get the width of the <main> element
     const container = document.querySelector('main').getBoundingClientRect();
     containerWidth = Math.floor(container.width);  // Avoid fractional pixels
+    // set the canvas width to the container width
     canvasWidth = containerWidth;
 }
