@@ -1,3 +1,8 @@
+// Lady Bug Tree Walker
+// Dan McCreary
+// A MicroSim of a ladybug walking on a tree branch
+// The tree is drawn using a recursive algorithm
+// The ladybug walks along the tree branches to draw the tree
 // Canvas dimensions
 let canvasWidth = 500;
 let drawHeight = 400;

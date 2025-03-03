@@ -1,18 +1,16 @@
 # Supply and Demand
 
+<iframe src="main.html" height="450px" scrolling="no"></iframe>
 
-<figure markdown>
-![Supply and Demand Input](./supply-and-demand.png){ width="400" }
-   <figcaption>Figure caption.</figcaption>
-</figure>
+[Run the Supply and Demand Demo](./main.html){.md-button .md-button--primary}
+<br/>
+[Edit the Supply and Demand MicroSim](https://editor.p5js.org/dmccreary/sketches/1fr3e7xtB)
 
-* [Link to Demo](./supply-and-demand.html){ .md-button .md-button--primary }
+In this example, I uploaded an image of an old JavaScript SVG program I had written over 15
+years ago.  I asked ChatGPT to replicate the program using p5.js
 
-## Prompt
-
-```py
-Create a single file p5.js sketch that replicates the function of this image.
-```
+!!! prompt
+    Create a single file p5.js sketch that replicates the function of this image.
 
 ![Input Image](./input-image.png)
 
