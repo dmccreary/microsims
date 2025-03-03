@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#polygon" class="md-skip">
+        <a href="#regular-polygons" class="md-skip">
           Skip to content
         </a>
       
@@ -875,15 +875,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prompt
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#sample-response" class="md-nav__link">
@@ -2419,15 +2410,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prompt
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#sample-response" class="md-nav__link">
     <span class="md-ellipsis">
       Sample Response
@@ -2498,29 +2480,27 @@
   
 
 
-<h1 id="polygon">Polygon</h1>
+<h1 id="regular-polygons">Regular Polygons</h1>
 <iframe src="./main.html" height="460" scrolling="no"></iframe>
 
 <p><a class="md-button md-button--primary" href="./polygon.html">Run Polygon MicroSim</a></p>
 <p>In this example, we will use a more detailed prompt to control the placement of the sliders and their values.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/polygon/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;400&quot;</span>  <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="prompt">Prompt</h2>
-<div class="highlight"><pre><span></span><code>Generate a p5.js sketch file that draws filled polygons on a 400x400 canvas.
-
-Create one range control slider that allows the number of points on
-the polygon to vary from 3 to 10 in steps of 1.  Make the default be 10.
-
-Create a second range control slider that allows the color inside the polygon
-to be changed to any color.  Make the default value be 170 (blue).
-
-Make the sliders be the width of the canvas less the width of the
-labels and values.  Place the sliders at the bottom
-of the canvas 100 points in from the left.
-
-Use the text() function at the end of the draw() function to display the
-name and current values of the sliders in the bottom left of the screen.
-</code></pre></div>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+<p>Generate a p5.js sketch file that draws regular polygons on a 400 pixel high canvas.</p>
+<p>Create one range control slider that allows the number of points on
+the polygon to vary from 3 to 40 in steps of 1.  Make the default be 10.</p>
+<p>Create a second range control slider that allows the color inside the polygon
+to be changed to any color.  Make the default value be blue (170).</p>
+<p>Make the sliders be the width of the canvas less the width of the
+labels and values.  Place the sliders at the bottom of the canvas 
+100 points in from the left.</p>
+<p>Use the text() function at the end of the draw() function to display the
+label and current values of the sliders in the bottom left of the screen.</p>
+<p>Use the <a href="../template/responsive-template.js">responsive-template.js</a> as a starting point.</p>
+</div>
 <h2 id="sample-response">Sample Response</h2>
 <p>This sample code has been manually edited to improve the placement and formatting of the controls.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
