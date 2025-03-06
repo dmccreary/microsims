@@ -1,6 +1,6 @@
-// MicroSim Template with region drawing parameters
+// MicroSim Template for 2D geometry with region drawing parameters
 // the width of the entire canvas
-let canvasWidth = 400;
+let canvasWidth = 600;
 // The top drawing region above the interactive controls
 let drawHeight = 400;
 // control region height
