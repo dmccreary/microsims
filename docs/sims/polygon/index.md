@@ -1,33 +1,33 @@
-# Polygon
+# Regular Polygons
 
-<figure markdown>
-   ![Polygon](./polygon.png){ width="400" }
-   <figcaption>Figure caption.</figcaption>
-</figure>
+<iframe src="./main.html" height="460" scrolling="no"></iframe>
 
 [Run Polygon MicroSim](./polygon.html){ .md-button .md-button--primary }
 
 In this example, we will use a more detailed prompt to control the placement of the sliders and their values.
 
-
-## Prompt
-
-```linenums="0"
-Generate a p5.js sketch file that draws filled polygons on a 400x400 canvas.
-
-Create one range control slider that allows the number of points on
-the polygon to vary from 3 to 10 in steps of 1.  Make the default be 10.
-
-Create a second range control slider that allows the color inside the polygon
-to be changed to any color.  Make the default value be 170 (blue).
-
-Make the sliders be the width of the canvas less the width of the
-labels and values.  Place the sliders at the bottom
-of the canvas 100 points in from the left.
-
-Use the text() function at the end of the draw() function to display the
-name and current values of the sliders in the bottom left of the screen.
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/polygon/main.html" height="400"  scrolling="no"></iframe>
 ```
+
+!!! prompt
+    Generate a p5.js sketch file that draws regular polygons on a 400 pixel high canvas.
+
+    Create one range control slider that allows the number of points on
+    the polygon to vary from 3 to 40 in steps of 1.  Make the default be 10.
+
+    Create a second range control slider that allows the color inside the polygon
+    to be changed to any color.  Make the default value be blue (170).
+
+    Make the sliders be the width of the canvas less the width of the
+    labels and values.  Place the sliders at the bottom of the canvas 
+    100 points in from the left.
+
+    Use the text() function at the end of the draw() function to display the
+    label and current values of the sliders in the bottom left of the screen.
+
+    Use the [responsive-template.js](../template/responsive-template.js) as a starting point.
+
 
 ## Sample Response
 

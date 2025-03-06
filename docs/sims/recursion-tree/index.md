@@ -1,30 +1,30 @@
 # Recursion Tree
 
-![Recursion Tree Icon](icon.png){ width="400" }
+<iframe src="main.html" height="470px" scrolling="no"></iframe>
 
 Recursion trees are ideal ways to demonstrate recursive programming.
 In a recursive program, a function calls itself repeatedly.
 The result is often a beautiful complex image generated from
 a very small program.
 
-[Recursion Tree Demo](./recursion-tree.html){ .md-button .md-button--primary }
+[Run Recursion Tree MicroSim](./main.html){ .md-button .md-button--primary }
+[Edit the MicroSim](https://editor.p5js.org/dmccreary/sketches/6p_xSPRi7)
 
 ## Prompt
 
-```linenums="0"
-Generate a single file p5.js sketch on a 400x400 canvas.
-Generate a drawing of a tree that uses recursion.
-Add a slider that changes the angle between the branches of the tree.
-```
+!!! prompt
+  Generate a single file p5.js sketch on a 400x400 canvas.
+  Generate a drawing of a tree that uses recursion.
+  Add a slider that changes the angle between the branches of the tree.
 
 ## Response
 
 Creating a p5.js sketch that draws a recursive tree with a slider to adjust the angle between branches involves a few key steps. Here's a basic outline of the code:
 
-Setup the Canvas: Initialize a 400x400 canvas using createCanvas(400, 400) in the setup() function.
-Create a Slider: Create a slider for the branch angle using createSlider() and position it on the canvas.
-Draw the Tree: Use a recursive function to draw the tree in the draw() function. The angle between branches will be controlled by the slider's value.
-Recursive Function: The recursive function will draw a line for the branch and then call itself twice to draw the two smaller branches at the specified angle.
+1. Setup the Canvas: Initialize a 400x400 canvas using createCanvas(400, 400) in the setup() function.
+2. Create a Slider: Create a slider for the branch angle using createSlider() and position it on the canvas.
+3. Draw the Tree: Use a recursive function to draw the tree in the draw() function. The angle between branches will be controlled by the slider's value.
+4. Recursive Function: The recursive function will draw a line for the branch and then call itself twice to draw the two smaller branches at the specified angle.
 
 
 ```js
@@ -38,25 +38,30 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background('aliceblue');
   stroke(0);
   translate(width / 2, height);
   drawBranch(100);
 }
 
 function drawBranch(len) {
+  // draw branch from center up to len
   line(0, 0, 0, -len);
+  // move up to end
   translate(0, -len);
 
+  // if we have a long len
   if (len > 4) {
     push();
-    rotate(angleSlider.value());
-    drawBranch(len * 0.67);
+      // rotate coordinate system clockwise
+      rotate(angleSlider.value());
+      drawBranch(len * 0.67);
     pop();
 
     push();
-    rotate(-angleSlider.value());
-    drawBranch(len * 0.67);
+      // rotate coordinate system counter clockwise
+      rotate(-angleSlider.value());
+      drawBranch(len * 0.67);
     pop();
   }
 }
@@ -73,3 +78,4 @@ This code provides a basic recursive tree. You can enhance it with more features
 ## References
 
 * [Google Gemini Demo](https://www.youtube.com/watch?v=NHLnjWTEZps)
+* [p5.js Examples](https://editor.p5js.org/p5/sketches/Simulate:_Recursive_Tree)

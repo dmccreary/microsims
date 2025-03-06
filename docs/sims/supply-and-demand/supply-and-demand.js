@@ -1,3 +1,8 @@
+// Supply and Demand Curve MicroSim
+// Students move the price slider to see how the quantity sold changes based on the demand curve.
+// This example uses a simple linear demand curve 
+// where the quantity sold an inversely proportional to the price.
+// The layout is fixed and will not resize.
 let canvasWidth = 400;
 let drawHeight = 400;
 let canvasHeight = 450;
@@ -13,9 +18,9 @@ let labelValueMargin = 140
 
 function setup() {
   const canvas = createCanvas(canvasWidth, canvasHeight);
-  // canvas.parent('canvas-container');
   var mainElement = document.querySelector('main');
   canvas.parent(mainElement);
+
   textSize(16);
   
   // Create a slider element for price adjustment
@@ -28,6 +33,9 @@ function setup() {
 }
 
 function draw() {
+  // Draw light gray outlines of the draw and controls regions
+  stroke('silver');
+  strokeWeight(1);
   // make the background drawing very light blue
   fill('aliceblue');
   rect(0, 0, canvasWidth, canvasWidth);
@@ -86,7 +94,7 @@ function draw() {
   fill(0);
   textSize(16);
   // title
-  text("Price and Demand Curve", 120, 30);
+  text("Supply and Demand Curve", 120, 30);
   text(`Input Price: ${price}`, 10, height - 30);
   text(`Quantity Sold: ${quantity}`, 10, height - 10);
   textSize(12);

@@ -2,10 +2,20 @@
 
 <iframe src="main.html" height="400"></iframe>
 
-![Image Name](./image.png){ width="400" }
+<iframe src="main.html" height="400px" scrolling="no"></iframe>
 
-[Run the MicroSim Template](./template.html){ .md-button .md-button--primary }
+<!--
+![Image Name](./image.png){ width="400" }
+-->
+
+[Run the MicroSim](main.html){ .md-button .md-button--primary }
 [Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
+
+## Sample iframe
+
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/name/main.html" height="400"  scrolling="no"></iframe>
+```
 
 ## About this MicroSim
 
@@ -29,10 +39,11 @@ let canvasHeight = drawHeight + controlHeight;
 let aspectRatio = 1.91; // Open Graph standard
 let canvasWidth = canvasHeight * aspectRatio;
 let radius = 200;
+
 function setup() {
   const canvas = createCanvas(canvasWidth, canvasHeight);
-  canvas.parent('canvas-container');
-  
+  var mainElement = document.querySelector('main');
+  canvas.parent(mainElement);
 }
 
 function draw() {
@@ -78,3 +89,6 @@ or larger by changing the radius from 10 to 200.
 
 Change the prompt to move the circle to the left or right.
 
+## References
+
+* [Processing Wiki on Positioning Your Canvas](https://github.com/processing/p5.js/wiki/Positioning-your-canvas)
