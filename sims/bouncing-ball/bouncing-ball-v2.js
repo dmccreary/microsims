@@ -3,7 +3,7 @@
 
 let width = 500;
 let height = 350;
-let drawHeight = 300; // region for drawing
+let drHeight = 300; // region for drawing
 r = 20; // radius of the ball
 
 // initial position
@@ -30,14 +30,11 @@ function setup() {
 }
 
 function draw() {
- // fill drawing area with very light blue
- fill('aliceblue');
- stroke('silver');
- strokeWeight(1);
- rect(0, 0, width, drawHeight);
- // fill control with white
- fill('white');
- rect(0, drawHeight, width, height-drawHeight); 
+  fill(240);
+  noStroke();
+  rect(0, 0, width, drHeight+1); // fill drawing area with light gray
+  fill('white');
+  rect(0, drHeight, width, height-drHeight); // fill control with white
   
   // get the new speed from the UI
   speed = speedSlider.value();
@@ -59,7 +56,7 @@ function draw() {
   if ((x > width-r) || (x < r)) {
     dx = dx * -1; // change direction
   }
-  if ((y > drawHeight - r) || (y < r)) {
+  if ((y > drHeight - r) || (y < r)) {
     dy = dy * -1;
   }
 
@@ -67,6 +64,6 @@ function draw() {
   circle(x, y, r*2);
   fill('black');
   strokeWeight(0);
-  text('Speed: ' + speed, 10, drawHeight+20)
-  text('Ball Size: ' + r, 10, drawHeight+40)
+  text('Speed: ' + speed, 10, height-30)
+  text('Ball Size: ' + r, 10, height-10)
 }
