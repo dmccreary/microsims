@@ -1,5 +1,5 @@
 site_name: Micro Simulations for Education
-site_description: 'Resources for teaching classes on Micro Simulators using generative AI and ChatGPT.'
+site_description: 'Resources for teaching classes on MicroSims using generative AI p5.js.'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
 site_url: 'https://dmccreary.github.io/microsims'
@@ -21,13 +21,21 @@ nav:
     - P5 Reference Manual: setup/p5-reference-manual.md
     - Paste As Markdown: setup/08-paste-as-markdown.md
     - Link Previews: setup/06-link-previews.md
-  - Simulations:
+  - Prompts:
+    - Introduction: prompts/index.md
+    - Basic Prompts: prompts/basic-prompts.md
+  - MicroSims:
     - Introduction: sims/index.md
+    - Learning Graph: sims/learning-graph/index.md
     - Bouncing Ball: sims/bouncing-ball/index.md
+    - Responsive Design: sims/responsive-design/index.md
     - Circle: sims/circle/index.md
     - Gold Star: sims/gold-star/index.md
     - Polygon: sims/polygon/index.md
+    - Simple Tree: sims/simple-tree/index.md
     - Recursion Tree: sims/recursion-tree/index.md
+    - Fractal Tree: sims/fractal-tree/index.md
+    - Lady Bug Walk: sims/lady-bug-walk/index.md
     - Sine Wave: sims/sine-wave/index.md
     - Canon: sims/canon/index.md
     - String Harmonics: sims/string-harmonics/index.md
@@ -36,6 +44,7 @@ nav:
     - Rabbits and Foxes: sims/rabbits-and-foxes/index.md
     - ALU: sims/alu/index.md
     - Analog Clock: sims/analog-clock/index.md
+    - Fibonacci Clock: sims/fibonacci-clock/index.md
     - Brownian Motion: sims/bouncing-ball/brownian-motion.md
     - Conway's Game of Life: sims/conway/index.md
     - Least Squares: sims/least-squares/index.md
@@ -82,7 +91,11 @@ nav:
     - Sine and Cosine: sims/sine-and-cosine/index.md
     - sims/rotating-gears/index.md
     - sims/larson-scanner/index.md
-    - sims/concept-graph/index.md
+    - sims/pendulum/index.md
+    - Resize in iframe: sims/resize-in-iframe/index.md
+    - Ball in Rotating Hexagon: sims/ball-in-rotating-hexagon/index.md
+    - Maze Solver: sims/maze-solver/index.md
+    - Mobile Buttons: sims/mobile-buttons/index.md
   - Submission Guidelines: submission-guidelines.md
   - References: references.md
   - Glossary: glossary.md
@@ -110,9 +123,7 @@ theme:
 plugins:
   - search
   - social
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -125,8 +136,10 @@ markdown_extensions:
       linenums: true
 extra_css:
    - css/extra.css
-extra:
-  analytics:
+extra_javascript:
+  - js/extra.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.jsextra:
+analytics:
     provider: google
     # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
     property: G-BBR7MPK96Z

@@ -69,3 +69,7 @@ function windowResized() {
   resizeCanvas(windowWidth-20, windowHeight-35);
 }
 ```
+
+## References
+
+[Processing Wiki on Positioning Your Canvas](https://github.com/processing/p5.js/wiki/Positioning-your-canvas)

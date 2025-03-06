@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // MicroSim Template for 2D geometry with region drawing parameters
 // the width of the entire canvas
 let canvasWidth = 600;
@@ -40,4 +41,40 @@ function draw() {
     
     // draw label and value
     text("MySlider: " +  val, 10, drawHeight + 25)
+=======
+// global variables for width and height
+let containerWidth; // calculated by container upon resize
+let containerHeight = 200; // fixed height on page
+
+function setup() {
+    // Create a canvas to match the parent container's size
+    updateCanvasSize();
+    const canvas = createCanvas(containerWidth, containerHeight);
+    canvas.parent(document.querySelector('main'));
+    /* canvas.parent('p5-container'); */
+    noLoop(); // Stop the draw loop since we'll redraw only on resize
+}
+
+function draw() {
+  background('aliceblue');
+  fill('black');
+  textSize(36);
+  textAlign(CENTER, CENTER);
+
+  // Display container dimensions
+  text(`Width: ${containerWidth}px\nHeight: ${containerHeight}px`, width / 2, height / 2);
+}
+
+function windowResized() {
+  // Update canvas size when the container resizes
+  updateCanvasSize();
+  resizeCanvas(containerWidth, containerHeight);
+  redraw();
+}
+
+function updateCanvasSize() {
+    // Get the exact dimensions of the container
+    const container = document.querySelector('main').getBoundingClientRect();
+    containerWidth = Math.floor(container.width);  // Avoid fractional pixels
+>>>>>>> fca05a3e66c92aa31c23acb1d85d21069fd37346
 }

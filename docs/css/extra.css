@@ -7,21 +7,25 @@
     width: 150px;
 }
 
+iframe {
+  width: 100%; /* Fill the width of the parent container */
+  border: 2px solid blue; /* Optional border for visual separation */
+  display: flex; /* Centers the canvas */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Disable scrollbars - may not work so use scrolling="no" in iframe */
+}
+
 /* Container to control the iframe size and scaling */
 .iframe-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center; /* Center the iframe */
+}
 
   /* Iframe styles */
   iframe {
     width: 100%;
     border: solid 1px silver;
-  }
-
-  /* if a div with <div class="upper-alpha"> wraps a list, then number A.B.C.D etc */
-  /* this requires that the markdown extension md_in_html is enabled in the mkdocs.yml file */
-  .upper-alpha ol {
-    list-style-type: upper-alpha;
   }
