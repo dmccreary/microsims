@@ -543,9 +543,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-responsive-layout" class="md-nav__link">
+  <a href="#2-responsive-width-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Responsive Layout
+      2. Responsive Width Layout
     </span>
   </a>
   
@@ -1204,9 +1204,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-responsive-layout" class="md-nav__link">
+  <a href="#2-responsive-width-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Responsive Layout
+      2. Responsive Width Layout
     </span>
   </a>
   
@@ -1355,7 +1355,7 @@ for controlling animations and educational simulations.</p>
 <h2 id="the-microsim-software-stack">The MicroSim Software Stack</h2>
 <ol>
 <li>MicroSims are written in p5.js sketches using JavaScript so they can run in any browser.</li>
-<li>Always use p5.js unless given specific instructions to not use p5.js</li>
+<li>Always use p5.js unless given specific instructions to not use p5.js.</li>
 <li>Make sure that the code generated will work in the p5.js editor without changes.  This means that p5.js script will have the canvas running in a <code>main</code> HTML element.</li>
 <li>Add the <code>describe()</code> function to the end of the <code>setup()</code> to make the MicroSim more accessible for sight impaired users.</li>
 <li>By default, you will never generate HTML for the MicroSim to run in.  If you do, you will make sure you include the p5.js libraries and make the padding and margin zero.</li>
@@ -1425,8 +1425,8 @@ for controlling animations and educational simulations.</p>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Always use the <code>size</code> method of the slider to set the width of the slider.</p>
-<h3 id="2-responsive-layout">2. Responsive Layout</h3>
-<p>Responsive layouts adjust component positions and dimensions when the window resizes:</p>
+<h3 id="2-responsive-width-layout">2. Responsive Width Layout</h3>
+<p>Responsive width layouts adjust component positions and dimensions when the window resizes its width.  Our Microsims don't get resized vertically since they are designed to have a specific hight that does not change.  Only the horizontal dimensions need to be responsive.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1454,7 +1454,7 @@ for controlling animations and educational simulations.</p>
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span><span class="w">  </span><span class="c1">// get the container width and height here</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
 
@@ -1526,8 +1526,8 @@ for controlling animations and educational simulations.</p>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
-<span class="w">  </span><span class="nx">simWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.6</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">chartWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">simWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.6</span><span class="p">;</span><span class="w"> </span><span class="c1">// width of the left side simulation</span>
+<span class="w">  </span><span class="nx">chartWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span><span class="w"> </span><span class="c1">// width of the right side chart</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
 <span class="p">}</span>
@@ -1538,7 +1538,7 @@ for controlling animations and educational simulations.</p>
 <span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="s1">&#39;silver&#39;</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">simWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
 
-<span class="w">  </span><span class="c1">// Draw chart area</span>
+<span class="w">  </span><span class="c1">// Draw chart area with a white background</span>
 <span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="s1">&#39;silver&#39;</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="nx">simWidth</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">chartWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
@@ -1566,6 +1566,7 @@ for controlling animations and educational simulations.</p>
 <li>Draw the background of the controls area with 'white'</li>
 <li>Use the windowResized() function to handle responsive behavior</li>
 <li>Center title at the top of the drawing area in 24pt font</li>
+<li>Don't resize any vertical placements</li>
 </ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1654,7 +1655,7 @@ for controlling animations and educational simulations.</p>
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Standard control setup</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">setupControls</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Speed slider</span>
 <span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
@@ -1678,7 +1679,7 @@ for controlling animations and educational simulations.</p>
 <span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="nx">defaultTextSize</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
 
-<span class="w">  </span><span class="c1">// Label with current value</span>
+<span class="w">  </span><span class="c1">// Label with current value of the slider</span>
 <span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Speed: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(),</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -1721,9 +1722,11 @@ for controlling animations and educational simulations.</p>
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Variables for simulation control</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Variables for simulation control</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 
+<span class="c1">// change the label on the Start/Pause button based on the state</span>
 <span class="kd">function</span><span class="w"> </span><span class="nx">toggleSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span>
 <span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
@@ -1884,11 +1887,12 @@ for controlling animations and educational simulations.</p>
 <li>Setup function for initialization</li>
 <li>Draw function for regular updates</li>
 <li>Clearly named helper functions for specific tasks</li>
-<li>Event handlers at the bottom</li>
+<li>Place all event handlers at the bottom of the program</li>
 <li>Group related functionality</li>
 </ol>
 <h2 id="responsive-text-sizing">Responsive Text Sizing</h2>
-<p>Scale text based on container size for better readability:</p>
+<p>Scale text based on container size for better readability but
+never go below a 10 point font.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1979,7 +1983,7 @@ for controlling animations and educational simulations.</p>
 <li>Don't rely on color alone to convey information</li>
 <li>Include text labels for all controls</li>
 <li>Support keyboard navigation where possible</li>
-<li>Use ARIA attributes for custom UI elements</li>
+<li>Use ARIA (Accessible Rich Internet Applications) attributes for custom UI elements </li>
 </ol>
 
 
