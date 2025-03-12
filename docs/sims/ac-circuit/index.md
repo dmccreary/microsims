@@ -1,13 +1,17 @@
 
-# AC Circut
+# AC Circuit MicroSim
 
-<figure markdown>
-   ![Image Name](./ac-circuit.png){ width="400" }
-   <figcaption>AC Circuit</figcaption>
-</figure>
-
-[Run AC Circuit MicroSim](./ac-circuit.html){ .md-button .md-button--primary }
+<iframe src="main.html" height="320"  scrolling="no"></iframe>
 
 
 
-[Edit This MicroSim](https://editor.p5js.org/dmccreary/sketches/TYNk9OFvI)
+
+[Run AC Circuit MicroSim](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit The AC Circuit MicroSim](https://editor.p5js.org/dmccreary/sketches/_inKRENUk)
+
+## Sample IFrame
+
+```html
+<iframe src="main.html" height="320"  scrolling="no"></iframe>
+```
