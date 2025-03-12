@@ -1,13 +1,14 @@
 // AC circuit and current chart
 
 let canvasWidth;
-let drawHeight = 250;
-let controlHeight = 50;
+let drawHeight = 280;
+let controlHeight = 40;
 let canvasHeight;
 let running = false;
 let time = 0;
 let currentValues = [];
-let margin;
+let vmargin = 25;
+let hmargin = 25;
 let circuitWidth;
 let circuitHeight;
 let chartWidth;
@@ -15,17 +16,24 @@ let chartHeight;
 let defaultTextSize = 16;
 let sliderLeftMargin = 105;
 
+// Button references
+let startButton;
+let stopButton;
+let resetButton;
+
 function updateDimensions() {
   // Get the container width from main element
   const container = document.querySelector('main').getBoundingClientRect();
   canvasWidth = Math.floor(container.width);
   canvasHeight = drawHeight + controlHeight;
   
-  // Responsive dimensions
-  margin = canvasWidth * 0.05;
-  circuitWidth = canvasWidth * 0.3;
-  circuitHeight = drawHeight * 0.6;
-  chartWidth = canvasWidth * 0.5;
+  // Responsive dimensions for horizontal only
+  // hmargin = canvasWidth * 0.05;
+  // fixed width is OK
+  circuitWidth = 200;
+  // circut has a fixed height
+  circuitHeight = 200;
+  chartWidth = canvasWidth * 0.6;
   chartHeight = drawHeight * 0.8;
 }
 
@@ -38,7 +46,7 @@ function setup() {
   let responsiveTextSize = max(12, min(16, canvasWidth * 0.02));
   textSize(responsiveTextSize);
 
-  const startButton = createButton('Start');
+  startButton = createButton('Start');
   startButton.position(10, drawHeight + 10);
   startButton.mousePressed(() => {
     running = true;
@@ -46,7 +54,7 @@ function setup() {
     stopButton.removeAttribute('disabled');
   });
 
-  const stopButton = createButton('Stop');
+  stopButton = createButton('Stop');
   stopButton.position(70, drawHeight + 10);
   stopButton.mousePressed(() => {
     running = false;
@@ -55,7 +63,7 @@ function setup() {
   });
   stopButton.attribute('disabled', '');
 
-  const resetButton = createButton('Reset');
+  resetButton = createButton('Reset');
   resetButton.position(130, drawHeight + 10);
   resetButton.mousePressed(() => {
     resetSimulation();
@@ -70,13 +78,10 @@ function windowResized() {
   updateDimensions();
   resizeCanvas(canvasWidth, canvasHeight);
   
-  // Update button positions
-  const buttons = document.querySelectorAll('button');
-  if (buttons.length >= 3) {
-    buttons[0].position(10, drawHeight + 10);
-    buttons[1].position(70, drawHeight + 10);
-    buttons[2].position(130, drawHeight + 10);
-  }
+  // Update button positions using stored references
+  startButton.position(10, drawHeight + 10);
+  stopButton.position(70, drawHeight + 10);
+  resetButton.position(130, drawHeight + 10);
 }
 
 function draw() {
@@ -98,7 +103,7 @@ function draw() {
   noStroke();
   textSize(24);
   textAlign(CENTER, TOP);
-  text("AC Circuit Simulation", canvasWidth/2, margin/2);
+  text("AC Circuit Simulation", canvasWidth/2, vmargin/2);
   
   // Reset text properties
   textSize(defaultTextSize);
@@ -122,50 +127,62 @@ function drawCircuit() {
   fill(245);
   
   // Draw circuit square
-  rect(margin, margin * 2, circuitWidth, circuitHeight);
+  rect(hmargin, vmargin * 2, circuitWidth, circuitHeight);
   
   // AC source circle
   fill('gray');
-  let circleSize = min(40, circuitWidth * 0.2);
-  circle(margin, circuitHeight/2 + margin * 2, circleSize);
+  let circleSize = 40;
+  // x, y, radius
+  circle(hmargin, vmargin + 125, circleSize);
   
   // Circuit lines
-  line(margin, margin * 2, margin + circuitWidth, margin * 2);
+  line(hmargin, vmargin * 2, hmargin + circuitWidth, vmargin * 2);
   
   // Resistor
-  strokeWeight(min(10, circuitWidth * 0.05));
-  line(margin + circuitWidth, margin * 3, margin + circuitWidth, margin * 2 + circuitHeight - margin);
+  strokeWeight(10);
+  // vertical line
+  x_offset = hmargin + circuitWidth
+  line(x_offset, vmargin * 5, x_offset, vmargin * 2 + circuitHeight - vmargin*3);
   strokeWeight(1);
   
   fill(0);
   let labelSize = max(12, min(16, circuitWidth * 0.08));
+  noStroke();
   textSize(labelSize);
-  text("1 kHz", margin + circuitWidth * 0.1, circuitHeight/2 + margin * 2);
-  text("1K Ohm", margin + circuitWidth * 0.7, circuitHeight/2 + margin * 2);
+  text("1 kHz", hmargin + circuitWidth * 0.15, circuitHeight/2 + vmargin * 2);
+  text("1K Ohm", hmargin + circuitWidth * 0.65, circuitHeight/2 + vmargin * 2);
 }
 
+// be responsive only in the width, not the height
 function drawChart() {
-  const xOffset = canvasWidth * 0.45;
-  const yOffset = margin * 2;
+  const xOffset = 280;
+  const yOffset = vmargin * 2.5;
 
   // Axes
   stroke(0);
-  line(xOffset, yOffset + chartHeight, xOffset + chartWidth, yOffset + chartHeight);
-  line(xOffset, yOffset + 10, xOffset, yOffset + chartHeight);
+  // horizontal line
+  hline_yOffest = drawHeight - 30;
+  vline_xOffset = xOffset + 10;
+  // horizontal line
+  line(xOffset, hline_yOffest, canvasWidth - 10, hline_yOffest);
+  // vertical line
+  line(xOffset, vmargin * 2.5, xOffset, hline_yOffest);
   
   // Axis Labels
-  let labelSize = max(12, min(16, chartWidth * 0.05));
+  let labelSize = 16;
+  noStroke();
   textSize(labelSize);
-  text('Current', xOffset, yOffset);
-  text('Time', xOffset + chartWidth - 40, yOffset + chartHeight + 20);
+  text('Current', xOffset, yOffset-10);
+  text('Time', canvasWidth - 50, drawHeight - 15);
 
   // Plot current values
   noFill();
   stroke(0);
+  // draw the waveform from the current values
   beginShape();
   for (let i = 0; i < currentValues.length; i++) {
-    let x = map(i, 0, currentValues.length - 1, xOffset, xOffset + chartWidth);
-    let y = map(currentValues[i], -5, 5, yOffset + chartHeight, yOffset);
+    let x = map(i, 0, currentValues.length - 1, xOffset, canvasWidth - 10);
+    let y = map(currentValues[i], -5, 5, yOffset + chartHeight - 40, yOffset);
     vertex(x, y);
   }
   endShape();
