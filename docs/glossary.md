@@ -95,6 +95,10 @@ Techniques to make simulations and interfaces run smoothly, including code optim
 
 Creating a preliminary model of a simulation or UI for exploring ideas and testing UX.
 
+#### Smartboard
+
+
+
 #### State Management
 
 Tracking and updating the status of different elements and interactions in the system.
