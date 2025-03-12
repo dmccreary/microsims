@@ -31,7 +31,7 @@ function updateDimensions() {
   // hmargin = canvasWidth * 0.05;
   // fixed width is OK
   circuitWidth = 200;
-  // circut has a fixed height
+  // circuit has a fixed height
   circuitHeight = 200;
   chartWidth = canvasWidth * 0.6;
   chartHeight = drawHeight * 0.8;
