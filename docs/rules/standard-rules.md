@@ -7,7 +7,7 @@ for controlling animations and educational simulations.
 ## The MicroSim Software Stack
 
 1. MicroSims are written in p5.js sketches using JavaScript so they can run in any browser.
-2. Always use p5.js unless given specific instructions to not use p5.js
+2. Always use p5.js unless given specific instructions to not use p5.js.
 3. Make sure that the code generated will work in the p5.js editor without changes.  This means that p5.js script will have the canvas running in a `main` HTML element.
 4. Add the `describe()` function to the end of the `setup()` to make the MicroSim more accessible for sight impaired users.
 5. By default, you will never generate HTML for the MicroSim to run in.  If you do, you will make sure you include the p5.js libraries and make the padding and margin zero.
@@ -65,13 +65,13 @@ function setup() {
 Always use the `size` method of the slider to set the width of the slider.
 
 
-### 2. Responsive Layout
+### 2. Responsive Width Layout
 
-Responsive layouts adjust component positions and dimensions when the window resizes:
+Responsive width layouts adjust component positions and dimensions when the window resizes its width.  Our Microsims don't get resized vertically since they are designed to have a specific hight that does not change.  Only the horizontal dimensions need to be responsive.
 
 ```javascript
 function setup() {
-  updateCanvasSize();
+  updateCanvasSize();  // get the container width and height here
   const canvas = createCanvas(containerWidth, containerHeight);
   canvas.parent(document.querySelector('main'));
   
@@ -111,8 +111,8 @@ let chartMargin = 40; // Margin around chart for axes and labels
 
 function setup() {
   updateCanvasSize();
-  simWidth = containerWidth * 0.6;
-  chartWidth = containerWidth * 0.4;
+  simWidth = containerWidth * 0.6; // width of the left side simulation
+  chartWidth = containerWidth * 0.4; // width of the right side chart
   const canvas = createCanvas(containerWidth, containerHeight);
   canvas.parent(document.querySelector('main'));
 }
@@ -123,7 +123,7 @@ function draw() {
   stroke('silver');
   rect(0, 0, simWidth, drawHeight);
   
-  // Draw chart area
+  // Draw chart area with a white background
   fill('white');
   stroke('silver');
   rect(simWidth, 0, chartWidth, drawHeight);
@@ -153,6 +153,7 @@ For all MicroSims, regardless of layout type:
 4. Draw the background of the controls area with 'white'
 5. Use the windowResized() function to handle responsive behavior
 6. Center title at the top of the drawing area in 24pt font
+7. Don't resize any vertical placements
 
 ```javascript
 // Standard drawing area and controls background setup
@@ -193,7 +194,7 @@ function draw() {
 
 ```javascript
 // Standard control setup
-function setupControls() {
+function setup() {
   // Speed slider
   speedSlider = createSlider(0, 20, 5);
   speedSlider.position(sliderLeftMargin, drawHeight + 10);
@@ -217,7 +218,7 @@ function drawControlLabels() {
   textSize(defaultTextSize);
   textAlign(LEFT, CENTER);
   
-  // Label with current value
+  // Label with current value of the slider
   text('Speed: ' + speedSlider.value(), 10, drawHeight + 15);
 }
 ```
@@ -235,6 +236,7 @@ All interactive simulations should include:
 // Variables for simulation control
 let isRunning = false;
 
+// change the label on the Start/Pause button based on the state
 function toggleSimulation() {
   isRunning = !isRunning;
   startButton.html(isRunning ? 'Pause' : 'Start');
@@ -355,12 +357,13 @@ Structure your code consistently:
 2. Setup function for initialization
 3. Draw function for regular updates
 4. Clearly named helper functions for specific tasks
-5. Event handlers at the bottom
+5. Place all event handlers at the bottom of the program
 6. Group related functionality
 
 ## Responsive Text Sizing
 
-Scale text based on container size for better readability:
+Scale text based on container size for better readability but
+never go below a 10 point font.
 
 ```javascript
 function getResponsiveTextSize(baseSize) {
@@ -426,4 +429,4 @@ Ensure simulations are accessible:
 2. Don't rely on color alone to convey information
 3. Include text labels for all controls
 4. Support keyboard navigation where possible
-5. Use ARIA attributes for custom UI elements
+5. Use ARIA (Accessible Rich Internet Applications) attributes for custom UI elements 
