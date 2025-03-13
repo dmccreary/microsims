@@ -1,3 +1,8 @@
+---
+description: "Rules for generating educational MicroSims based on p5.js"
+globs: **/*.{js}
+alwaysApply: false
+---
 # Standardized Educational MicroSim Rules
 
 You are an expert at generating high quality educational MicroSims using
