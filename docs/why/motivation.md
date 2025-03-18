@@ -1,5 +1,22 @@
 # Why Simulations for Education
 
+<!--
+Please create a chapter of this book on the topic of "Why SImulations for Education".  
+
+Begin with the dream of adaptive learning as described in Neal Stephenson's book Diamond Age and how stories were customized to the needs of the learner.
+
+Focus on the perspective of great instructional design and the importance of hands on learning.  Describe how students that use interactive simulations learn faster and have more fun.  Discuss the challenge of short attention spans in today's youth and the role of gamification.
+
+Also discuss the role of high-quality user interfaces and the need for good user experience (UX) design and testing.
+
+Talk about how generative AI can be used with best practice rules to create more usable interfaces.
+
+Mention that details such as label and value placement near slider controls and clear labels on buttons that control simulations is key to a great user experience.
+
+Mention that despite the ability of generative tools to create new MicroSims quickly, there still needs to be careful testing of the effectiveness of a MicroSim in the classroom.  Discuss the process of A/B testing and the need for short assessments after a student has use a MicroSim.
+
+-->
+
 ## The Dream of Adaptive Learning
 
 In Neal Stephenson's visionary novel *The Diamond Age: Or, A Young Lady's Illustrated Primer*, he presents a compelling glimpse into the future of education. The story centers around a remarkable interactive book called "The Young Lady's Illustrated Primer," which adapts its narrative and lessons to the specific needs, progress, and circumstances of its reader. As the young protagonist Nell interacts with the book, it constructs personalized stories that teach her valuable skills—from literacy and critical thinking to self-defense and computer programming—all calibrated precisely to her developmental stage and learning style.
@@ -15,6 +32,8 @@ Educational research consistently confirms what many of us intuitively understan
 - Students retain approximately 75% of what they learn when they practice by doing, compared to just 5% of what they hear in lectures and 10% of what they read.
 - Concepts explored through interactive simulation lead to 30-40% faster mastery than traditional instructional methods alone.
 - Information learned through active engagement is retained up to 4 times longer than information consumed passively.
+
+[See References](#references)
 
 Educational simulations embody this hands-on approach by placing students in interactive environments where they can manipulate variables, observe outcomes, test hypotheses, and develop intuitive understanding through direct experience. This approach transforms abstract concepts into tangible experiences—making invisible forces visible, compressing time to observe long-term effects, and allowing safe experimentation with potentially dangerous or expensive real-world processes.
 
@@ -173,3 +192,30 @@ While we haven't yet achieved the fully adaptive educational experience envision
 The coming years will likely see further advances as AI-enhanced simulations become increasingly personalized, responsive to individual learning patterns, and integrated with broader educational ecosystems. As these tools continue to evolve, they promise to help address some of education's most persistent challenges: maintaining engagement, accommodating diverse learning styles, and providing individualized support at scale.
 
 Yet amid this technological progress, the fundamental goal remains unchanged: creating learning experiences that inspire curiosity, build understanding, and empower students to apply knowledge in meaningful ways. The most advanced simulation is ultimately valuable only insofar as it serves this essential educational purpose—helping learners construct their own understanding of our complex and fascinating world.
+
+## References
+
+
+Adams, W. K., Reid, S., LeMaster, R., McKagan, S. B., Perkins, K. K., Dubson, M., & Wieman, C. E. (2008). [A study of educational simulations part I - Engagement and learning](https://psycnet.apa.org/record/2008-12265-001). Journal of Interactive Learning Research, 19(3), 397-419.
+
+D'Angelo, C., Rutstein, D., Harris, C., Bernard, R., Borokhovski, E., & Haertel, G. (2014). [Simulations for STEM learning: Systematic review and meta-analysis. SRI International.](https://www.sri.com/wp-content/uploads/2021/12/simulations-for-stem-learning-full-report.pdf)
+
+Dale, E. (1969). [Audiovisual methods in teaching](https://www.google.com/books/edition/_/s6ocAAAAMAAJ?hl=en&kptab=overview) (3rd ed.). Holt, Rinehart & Winston.
+
+Davids, M. R., Chikte, U. M., & Halperin, M. L. (2015). [Effect of improving the usability of an e-learning resource: A randomized trial](https://pubmed.ncbi.nlm.nih.gov/24913451/). Advances in Physiology Education, 39(2), 59-66.
+
+Freeman, S., Eddy, S. L., McDonough, M., Smith, M. K., Okoroafor, N., Jordt, H., & Wenderoth, M. P. (2014). [Active learning increases student performance in science, engineering, and mathematics](https://psycnet.apa.org/record/2014-27762-001). Proceedings of the National Academy of Sciences, 111(23), 8410-8415.
+
+Merchant, Z., Goetz, E. T., Cifuentes, L., Keeney-Kennicutt, W., & Davis, T. J. (2014). Effectiveness of virtual reality-based instruction on students' learning outcomes in K-12 and higher education: A meta-analysis. Computers & Education, 70, 29-40.
+
+Prince, M. (2004). Does active learning work? A review of the research. Journal of Engineering Education, 93(3), 223-231.
+
+Rutten, N., van Joolingen, W. R., & van der Veen, J. T. (2012). The learning effects of computer simulations in science education. Computers & Education, 58(1), 136-153.
+
+Smetana, L. K., & Bell, R. L. (2012). Computer simulations to support science instruction and learning: A critical review of the literature. International Journal of Science Education, 34(9), 1337-1370.
+
+Wieman, C. E., Adams, W. K., & Perkins, K. K. (2008). PhET: Simulations that enhance learning. Science, 322(5902), 682-683.
+
+World Bank. (2023). Learning pyramid: Retention rates from different ways of learning. Education Global Practice.
+
+Zaharias, P., & Poylymenakou, A. (2009). Developing a usability evaluation method for e-learning applications: Beyond functional usability. International Journal of Human-Computer Interaction, 25(1), 75-98.

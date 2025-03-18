@@ -9,7 +9,11 @@ edit_uri: edit/master/docs/
 nav:
   - Home: index.md
   - About: about.md
-  - Why Simulations for Education: why-sims-for-education.md
+  - Why MicroSims:
+    - Introduction: why/index.md
+    - Motivation: why/motivation.md
+    - Impact Analysis: why/impact-analysis.md
+    - Deep Research: why/deep-research-final.md
   - Getting Started:
     - Quick Start: setup/index.md
     - Setup: setup/01-processing.md
@@ -151,12 +155,16 @@ markdown_extensions:
       generic: true
   - pymdownx.highlight:
       linenums: true
+
 extra_css:
    - css/extra.css
+
 extra_javascript:
   - js/extra.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.jsextra:
-analytics:
-    provider: google
-    # https://analytics.google.com/analytics/web/#/a1420179p349994530/admin/streams/table/4433129821
-    property: G-BBR7MPK96Z
+  # required for rendering math equations
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  analytics:
+      provider: google
+      property: G-BBR7MPK96Z
