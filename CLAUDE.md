@@ -17,5 +17,5 @@
 - Documentation: Use `describe()` for accessibility; comment simulation purpose and parameters
 
 ### File Organization
-- Each simulation: directory with index.md, .js file, .html file, and optional .png preview
+- Each simulation: directory with index.md, .js file, main.html file, and optional .png preview
 - YAML metadata requires: Name, Description, SubjectArea, Topic, Parameters, GradeLevel
