@@ -1,0 +1,1972 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/why/impact-analysis/">
+      
+      
+        <link rel="prev" href="../motivation/">
+      
+      
+        <link rel="next" href="../deep-research-final/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>Impact Analysis - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Impact Analysis - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/why/impact-analysis.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/why/impact-analysis/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Impact Analysis - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/why/impact-analysis.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microsim-maximal-impact-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Impact Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Why MicroSims
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motivation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motivation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Impact Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Impact Analysis
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#research-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research Prompt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-deep-research-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Deep Research Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-research-clarification-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Clarification Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-response-to-clarification" class="md-nav__link">
+    <span class="md-ellipsis">
+      My Response to Clarification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-research-response-to-clarification-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Response to Clarification Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-research-final-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Final Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-research-activity-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Activity Log
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Citations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Citations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-phet-simulations-to-replace-real-equipment-in-lab-circuit-construction-kit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using PhET simulations to replace real equipment in lab -- Circuit Construction Kit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developing-system-thinking-skills-in-elementary-school" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-investigation-of-the-potential-of-interactive-simulations-for-developing-system-thinking-skills-in-elementary-school" class="md-nav__link">
+    <span class="md-ellipsis">
+      An Investigation of the Potential of Interactive Simulations for Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-the-use-of-phet-interactive-simulations-in-us-college-and-high-school-classrooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examining the Use of PhET Interactive Simulations in US College and High School Classrooms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-the-use-of-phet-interactive-simulations-in-us-college-and-high-school-classrooms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examining the Use of PhET Interactive Simulations in US College and High School Classrooms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital Simulations in STEM Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developing-system-thinking-skills-in-elementary-school-a-case-study-with-fifth-graders-and-sixth-graders-international-journal-of-science-education-2009-mar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing System Thinking Skills in Elementary School: A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-investigation-of-the-potential-of-interactive-simulations-for-developing-system-thinking-skills-in-elementary-school_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      An Investigation of the Potential of Interactive Simulations for Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developing-system-thinking-skills-in-elementary-school_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-research-final/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Research
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Rules
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#research-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research Prompt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research Prompt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-deep-research-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial Deep Research Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-research-clarification-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Clarification Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#my-response-to-clarification" class="md-nav__link">
+    <span class="md-ellipsis">
+      My Response to Clarification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-research-response-to-clarification-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Response to Clarification Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-research-final-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Final Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-research-activity-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Research Activity Log
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Citations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Citations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-phet-simulations-to-replace-real-equipment-in-lab-circuit-construction-kit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using PhET simulations to replace real equipment in lab -- Circuit Construction Kit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developing-system-thinking-skills-in-elementary-school" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-investigation-of-the-potential-of-interactive-simulations-for-developing-system-thinking-skills-in-elementary-school" class="md-nav__link">
+    <span class="md-ellipsis">
+      An Investigation of the Potential of Interactive Simulations for Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-the-use-of-phet-interactive-simulations-in-us-college-and-high-school-classrooms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examining the Use of PhET Interactive Simulations in US College and High School Classrooms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-the-use-of-phet-interactive-simulations-in-us-college-and-high-school-classrooms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examining the Use of PhET Interactive Simulations in US College and High School Classrooms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Digital Simulations in STEM Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developing-system-thinking-skills-in-elementary-school-a-case-study-with-fifth-graders-and-sixth-graders-international-journal-of-science-education-2009-mar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing System Thinking Skills in Elementary School: A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-investigation-of-the-potential-of-interactive-simulations-for-developing-system-thinking-skills-in-elementary-school_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      An Investigation of the Potential of Interactive Simulations for Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developing-system-thinking-skills-in-elementary-school_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developing System Thinking Skills in Elementary School
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/why/impact-analysis.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="microsim-maximal-impact-analysis">MicroSim Maximal Impact Analysis</h1>
+<p>Here is a use of the OpenAI ChatGPT Deep Research tool to help us focus on finding what MicroSims would have the maximal impact on education.</p>
+<h2 id="research-prompt">Research Prompt</h2>
+<h3 id="initial-deep-research-prompt">Initial Deep Research Prompt</h3>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+<p>We represent a group of software engineers who have developed a framework for generative AI and agentic IDEs to quickly and efficiently generate classroom interactive simulations.  These interactive simulations, which we call MicroSims, run within a web browser and use the p5.js JavaScript library, which is ideal for running simulations and animations.  All our simulations have controls like sliders and buttons that require students to interact with the MicroSims.</p>
+<p>Our goal is to start creating new MicroSims that will have the most impact in schools from 5th grade through college.  Please research what interactive simulations would be most beneficial for teachers.  Focus on finding specific types of interactive simulations that would have the maximum positive impact on our students.  Do not focus on any country or geography.  Include a wide range of subjects, including math, geometry, physics, chemistry, biology, computer science, robotics, systems thinking, graph databases, graph data modeling, graph algorithms, data science, machine learning, deep learning, agentic AI, user experience design, explainable AI and user interface design with HTML, CSS, and JavaScript.</p>
+<p>After you have found strong evidence of what MicroSims have a high positive impact, analyze the common characteristics of these MicroSims.  Include factors such as how many students might use these MicroSims and how effectively they explain complex concepts.  Conclude with a list of the categories of MicroSims that will have the most significant impact on education.</p>
+</div>
+<h3 id="deep-research-clarification-response">Deep Research Clarification Response</h3>
+<p>I’d be happy to research this for you! To make sure the findings are as useful as possible, could you clarify the following:</p>
+<ol>
+<li>Are you looking for research based on existing interactive simulations currently in use, or are you also interested in potential gaps where new simulations could have the most impact?</li>
+<li>Do you want the analysis to focus more on student engagement, conceptual understanding, or both?</li>
+<li>Would you like data on how teachers perceive the effectiveness of these simulations, or just how students interact with them?</li>
+<li>Should the research focus more on STEM subjects, or should it also include humanities and other disciplines?</li>
+<li>Would you like a breakdown of findings by education level (e.g., elementary, middle school, high school, college), or should it be generalized across all levels?
+These details will help refine the research so it aligns closely with your objectives!</li>
+</ol>
+<h3 id="my-response-to-clarification">My Response to Clarification</h3>
+<ol>
+<li>look at research on both existing MicroSims and opportunities to fill gaps</li>
+<li>Include both student engagement and conceptual understanding</li>
+<li>Focus on how students interact with the MicroSims</li>
+<li>Focus on STEM subjects.  Do not include humanities.  Include systems thinking.</li>
+<li>Return results generalized across all levels.</li>
+</ol>
+<h3 id="deep-research-response-to-clarification-response">Deep Research Response to Clarification Response</h3>
+<p>Great! I will research the most impactful interactive simulations for education, focusing on existing MicroSims and identifying opportunities to fill gaps. This will include STEM subjects and systems thinking, analyzing both student engagement and conceptual understanding. I will also examine how students interact with these simulations and generalize the findings across all education levels. I'll get back to you with detailed insights soon!</p>
+<h3 id="deep-research-final-response">Deep Research Final Response</h3>
+<p><a href="../deep-research-final/">Deep Research Final Response</a></p>
+<h2 id="deep-research-activity-log">Deep Research Activity Log</h2>
+<p>High-Impact Interactive Simulations for STEM Education</p>
+<p>OK, let's think through how interactive simulations boost engagement, foster systems thinking, and enhance STEM learning at various education levels. This involves digging into the latest research and available tools.</p>
+<p>OK, I'm thinking about how MDPI's open access journals can really enrich STEM education with their digital simulations.</p>
+<p><a href="https://www.mdpi.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.mdpi.com/">mdpi.com</a></p>
+<p>Interactive simulations show clear advantages in learning, enhancing engagement and understanding, particularly in adeptly visualizing abstract concepts through intuitive controls and immediate feedback.</p>
+<p>I'm gathering info on interactive simulations in systems thinking. It seems promising and worth further exploration.</p>
+<p><a href="https://www.tandfonline.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.tandfonline.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.tandfonline.com/">tandfonline.com</a></p>
+<p>I'm examining Linda Booth Sweeney's work on systems thinking, considering its potential relevance to my search for conceptual understanding in simulations.</p>
+<p><a href="https://www.mdpi.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.mdpi.com/">mdpi.com</a></p>
+<p>ChatGPT</p>
+<p>I'm noting the need to specifically address "MicroSims" as interactive simulations, highlighting their impact on engagement, conceptual understanding, and practical skills in STEM education.</p>
+<p>I'm gathering info on the PDF titled "Student engagement and learning with PhET interactive simulations" from phet.colorado.edu. It seems to offer engaging simulations.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>Observing student interactions with PhET simulations reveals vast popularity and substantial usage, suggesting a significant impact on understanding through guided exploration and analogy.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm noting that simulations, particularly using PhET, yield significant student benefits such as enhanced understanding, intuition, and exam performance.</p>
+<p>Students leveraging PhET Circuit Construction Kit excelled on specific DC circuits questions, showcasing notable conceptual understanding.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>OK, let me see. Concluding the most impactful MicroSim categories involves evaluating extensive subject areas like physics, chemistry, and biology, emphasizing conceptual simulations and systems thinking.</p>
+<p>OK, let me see. Checking PhET's research page for best practices and design guidelines to use in future projects.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm looking at articles like "PhET: Simulations that Enhance Learning" and "Interactive sims: what works, what doesn't, and why" 2008 (AJPh) to find relevant research for effective simulation design.</p>
+<p><a href="https://www.mitrmedia.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mitrmedia.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.mitrmedia.com/">mitrmedia.com</a></p>
+<p>ChatGPT</p>
+<p>I'm curious about students' engagement with MicroSims, their progression from amateur play to pattern recognition, and potential pitfalls.</p>
+<p>I'm piecing together how "showing the invisible" is explored in W.K. Adams' 2010 work and possibly aligns with Wieman's talk. Searching the PDF for "invisible" and "analogy".</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>The report highlights how simulations enhance understanding by making invisible phenomena, like current and magnetic fields, visible and presenting information in various formats.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>Identifying key traits: intuitive UI, real-world connections, multiple representations, engaging small puzzles, and fostering exploration.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm working through intuitive UI, relatable design, and immediate feedback. Considering age appropriateness and global usage.</p>
+<p>I'm working through the PhET Global Initiatives page to find key numbers. Progress is steady and revealing insightful data.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm examining the search results to find specific statistics on simulations involving PhET Interactive Simulations in US colleges. The top two results seem promising.</p>
+<p><a href="https://www.per-central.org/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.per-central.org&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.per-central.org/">per-central.org</a></p>
+<p>ChatGPT</p>
+<p>Considering the annual usage of PhET simulations, covering over 45 million runs, and their role in fostering systems thinking.</p>
+<p><a href="https://microcredentials.digitalpromise.org/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://microcredentials.digitalpromise.org&amp;sz=16" /></a></p>
+<p>Read <a href="https://microcredentials.digitalpromise.org/">microcredentials.digitalpromise.org</a></p>
+<p>ChatGPT</p>
+<p>I'm piecing together insights on "interactive simulations systems thinking research." This involves creating simulations to explore systems thinking.</p>
+<p>I'm investigating the potential of interactive simulations for developing system thinking, potentially from 2008, though blocked by a paywall. ResearchGate might offer an abstract snippet, while ERIC often provides accessible PDFs.</p>
+<p><a href="https://eric.ed.gov/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://eric.ed.gov&amp;sz=16" /></a></p>
+<p>Read <a href="https://eric.ed.gov/">eric.ed.gov</a></p>
+<p>ChatGPT</p>
+<p>Crafting a detailed scenario on interactive simulations. Observing improvements in systems thinking skills at various education levels. Notably, visual simulations enhance understanding of dynamic systems.</p>
+<p>I'm considering the impact of ending curriculum-based simulations for STEM subjects on the effectiveness of simulations when used as supplemental tools. This leads me to look at their broader applications and potential drawbacks.</p>
+<p><a href="https://www.mdpi.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.mdpi.com/">mdpi.com</a></p>
+<p>ChatGPT</p>
+<p>I'm mapping out the gaps in primary and special education simulations, highlighting benefits and the need for more diverse research with broad populations.</p>
+<p><a href="https://www.mdpi.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://www.mdpi.com/">mdpi.com</a></p>
+<p>ChatGPT</p>
+<p>Interestingly, I tried searching for "physics" and "chemistry" in MDPI, but they yielded no results. Next, I'll explore "mathematics."</p>
+<p><a href="https://www.mdpi.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://www.mdpi.com/">mdpi.com</a></p>
+<p>ChatGPT</p>
+<p>I'm gathering info on STEM simulations, especially interactive ones, and their impact on education.</p>
+<p>I'm digging into how students engage with MicroSims, balancing free exploration with guided inquiry, assessing implicit scaffolding, and noting teacher integration strategies.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm combining quantitative data like performance stats and qualitative insights such as student attitudes, with a special focus on the benefits of PhET interactive simulations.</p>
+<p>I reviewed the PDF for images, considering PhET simulations for lab replacements, and consulted SERC for additional visual aids.</p>
+<p><a href="https://serc.carleton.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://serc.carleton.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://serc.carleton.edu/">serc.carleton.edu</a></p>
+<p>ChatGPT</p>
+<p>The page highlights PhET CCK's advantages: easy use, quick modifications, risk-free, and focus on key concepts without distractions, aligning with the provided information.</p>
+<p><a href="https://cdn.serc.carleton.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://cdn.serc.carleton.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://cdn.serc.carleton.edu/">cdn.serc.carleton.edu</a></p>
+<p>ChatGPT</p>
+<p>Initially, I'm examining a 342x600 pixel image that shows a real circuit on one side and a simulation on the other, considering its suitability and the potential need for a higher resolution version.</p>
+<p>I'm clicking on something intriguing.</p>
+<p><a href="https://serc.carleton.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://serc.carleton.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://serc.carleton.edu/">serc.carleton.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm pulling together options to find an engaging image of a student using a simulation, possibly from Flickr or another source. Hm, I wonder what the best representation could be.</p>
+<p><a href="https://www.flickr.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.flickr.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://www.flickr.com/">flickr.com</a></p>
+<p>ChatGPT</p>
+<p>I'm thinking through the Flickr page and its links. The left arrow likely indicates different image sizes.</p>
+<p><a href="https://live.staticflickr.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://live.staticflickr.com&amp;sz=16" /></a></p>
+<p>Read <a href="https://live.staticflickr.com/">live.staticflickr.com</a></p>
+<p>ChatGPT</p>
+<p>I'm thinking about trying a new approach to the problem presented in item 46. Progress seems promising.</p>
+<p><a href="https://live.staticflickr.com/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://live.staticflickr.com&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://live.staticflickr.com/">live.staticflickr.com</a></p>
+<p>ChatGPT</p>
+<p>I'm noting that "_n.jpg" might indicate a small thumbnail image from Flickr, and I should try replacing "_n" with "_b" for a larger image.</p>
+<p>Simplifying image search by consulting OpenAI's policies.</p>
+<p><a href="https://ascnhighered.org/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://ascnhighered.org&amp;sz=16" /></a></p>
+<p>Read <a href="https://ascnhighered.org/">ascnhighered.org</a></p>
+<p>ChatGPT</p>
+<p>I'm noting the image resolution and its suitability for current needs.</p>
+<p><a href="https://cdn.serc.carleton.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://cdn.serc.carleton.edu&amp;sz=16" /></a></p>
+<p>Read <a href="https://cdn.serc.carleton.edu/">cdn.serc.carleton.edu</a></p>
+<p>ChatGPT</p>
+<p>I'm thinking through the PhET "Greenhouse Effect" simulation, considering its interface and controls. This could illustrate systems thinking and climate systems.</p>
+<p>I'm curious to see what happens next, but I need to be mindful of the text's context.</p>
+<p><a href="https://phet.colorado.edu/"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=16" /></a></p>
+<p>Read more from <a href="https://phet.colorado.edu/">phet.colorado.edu</a></p>
+<p>ChatGPT</p>
+<p>Hm, that's interesting. It seems the recent weather map accurately portrays temperature fluctuations, aiding effective lesson delivery.</p>
+<p>I'm pulling together final citations to ensure a comprehensive analysis of interactions with interactive simulations, spanning various education levels, characteristics, and effectiveness. Progress is steady on this front.</p>
+<p>I'm piecing together a structured format for the report, ensuring inclusion of citations, images for engagement, and clear delineation of sections for readability. Progress is steady and methodical.</p>
+<h2 id="citations">Citations</h2>
+<h3 id="digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review"><strong>Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review</strong></h3>
+<p>The studies included in this review revealed several significant trends in the effectiveness and impact of simulations across various educational settings. A common finding was the positive influence of simulations on student attitudes and engagement. Simulations consistently enhanced students' interest and motivation in STEM subjects, often making abstract concepts more accessible and engaging, especially in fields like physics and engineering. Several studies noted improved student participation and enthusiasm, with certain methods, like augmented reality and online collaboration tools, leading to high levels of engagement.
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=The%20studies%20included%20in%20this,to%20high%20levels%20of%20engagement)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+<ol>
+<li>
+<p><strong>Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review</strong>
+understanding by enabling students to actively explore and test hypotheses [20].
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=understanding%20by%20enabling%20students%20to,20)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+</li>
+<li>
+<p>Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+In terms of learning outcomes, simulations often led to better comprehension and knowledge retention compared to traditional methods. For example, students using computer-based simulations to study physics concepts, such as Newton's Second Law, showed a deeper understanding of these topics [15 ]. The integration of simulations with guided inquiry or interactive frameworks, like the KWL approach, further promoted critical thinking, reflective learning, and conceptual understanding [ 124].
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=In%20terms%20of%20learning%20outcomes%2C,124)<a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=However%2C%20sims%20have%20the%20additional,with%20the%20simulations%20via%20engaged"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+However, sims have the additional benefit of being able to make the invisible visible and provide multiple representations (macroscopic, microscopic, graphs, etc. . . ). One of the key features of sims is the inclusion of balanced challenges such as little puzzles and clues. These challenges are attainable and slowly bring the student to the main goal of understanding the underlying scientific concept via the exploration of physical phenomena. The students interact with the simulations via engaged
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=The%20PhET%20sims%20are%20designed,able%20to%20make%20the%20invisible"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+The PhET sims are designed with an intuitive interface for students and minimal text (fig. 2). The sims are interactive and animated, responding instantaneously to student interaction. Real world items (e.g. Light bulbs, bicycle pump, skate boards) are used so that students see the connections between the phenomena and their existing knowledge. However, sims have the additional benefit of being able to make the invisible
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://serc.carleton.edu&amp;sz=32" />serc.carleton.edu</p>
+</li>
+</ol>
+<h3 id="using-phet-simulations-to-replace-real-equipment-in-lab-circuit-construction-kit">Using PhET simulations to replace real equipment in lab -- Circuit Construction Kit</h3>
+<p>Research shows that substituting the PhET Circuit Construction Kit simulation for real equipment in a variety of contexts leads to improved conceptual learning in the best cases, and the same conceptual learning in the worst cases. There are many advantages to using PhET simulations over real equipment: They are easy to use, so students can play around and modify the experiment quickly and easily without fear of breaking the equipment. They have productive constraints to focus attention on the most important aspects of the experiment (e.g. bulb brightness and current flow) rather than on irrelevant aspects (e.g. wire color and length). Finally, if real equipment is
+](https://serc.carleton.edu/sp/library/phet/examples/example2.html#:~:text=PhET%20simulations%20instead,Finally%2C%20if%20real%20equipment%20is)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://serc.carleton.edu&amp;sz=32" />serc.carleton.edu</p>
+<ol>
+<li>Using PhET simulations to replace real equipment in lab -- Circuit Construction Kit
+over real equipment: They are easy to use, so students can play around and modify the experiment quickly and easily without fear of breaking the equipment. They have productive constraints to focus attention on the most important aspects of the experiment (e.g. bulb brightness and current flow) rather than on irrelevant aspects (e.g. wire color and length). Finally, if real equipment is not available, PhET simulations provide the opportunity to do multiple experiments with a single piece of equipment: a computer.
+](https://serc.carleton.edu/sp/library/phet/examples/example2.html#:~:text=over%20real%20equipment%3A%20They%20are,piece%20of%20equipment%3A%20a%20computer)<a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=%28fig,make%20the%20invisible%20visible%20and"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+(fig. 2). The sims are interactive and animated, responding instantaneously to student interaction. Real world items (e.g. Light bulbs, bicycle pump, skate boards) are used so that students see the connections between the phenomena and their existing knowledge. However, sims have the additional benefit of being able to make the invisible visible and
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=One%20of%20the%20key%20features,the%20simulations%20via%20engaged%20exploration"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+One of the key features of sims is the inclusion of balanced challenges such as little puzzles and clues. These challenges are attainable and slowly bring the student to the main goal of understanding the underlying scientific concept via the exploration of physical phenomena. The students interact with the simulations via engaged exploration
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=where%20they%20can%20interact%20with,between%20the%20bits%20of%20knowledge"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+where they can interact with this visual environment at their own pace investigating what they are not sure about and building an expert-like mental framework around the concept as they see what features affect how the simulation behaves. This creates an understanding that includes a visualization of the phenomena and many connections between the bits of knowledge.
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=effective%20levels%20of%20guidance%20with,are%20not%20able%20to%20%E2%80%9Cdiscover%E2%80%9D"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+effective levels of guidance with simulations. Educators have found that use of heavily guided activities does not elicit deep thinking and learning from students; while other studies have found that with pure discovery learning students are not able to "discover"
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=ac%02tivities%20does%20not%20elicit%20deep,are%20not%20able%20to%20%E2%80%9Cdiscover%E2%80%9D"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+activities does not elicit deep thinking and learning from students; while other studies have found that with pure discovery learning students are not able to "discover"
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=attitude%20during%20lab%20where%20the,assessments%20we%20document%20affective%20differences"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+attitude during lab where the sim students explored and investigated without needing much assistance from the Teaching Assistant, while the real equipment students were nervous about breaking the equipment or themselves. In addition to measuring learning on assessments we document affective differences
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=Then%20students%20can%20construct%20their,use%20simulations%20to%20construct%20this"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+Then students can construct their own understanding within this framework. Our work has focused on understanding how students use simulations to construct this
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=too,researcher%20can%20watch%20what%20the"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+too. The sims create a common visualization and probe into the student's mind which provides many benefits such as when the student becomes quiet during an interview, the researcher can "see" what the student is thinking by watching what they are exploring with the simulation. The simulation also provides a common vocabulary. Students often use words they've gotten from the simulation or the researcher can watch what the
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=with%20their%20attitude%20during%20lab,assessments%20we%20document%20affective%20differences"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+with their attitude during lab where the sim students explored and investigated without needing much assistance from the Teaching Assistant, while the real equipment students were nervous about breaking the equipment or themselves. In addition to measuring learning on assessments we document affective differences
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=with%20their%20attitude%20during%20lab,breaking%20the%20equipment%20or%20themselves"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+with their attitude during lab where the sim students explored and investigated without needing much assistance from the Teaching Assistant, while the real equipment students were nervous about breaking the equipment or themselves.
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://eric.ed.gov&amp;sz=32" />eric.ed.gov
+ERIC - EJ833089 - An Investigation of the Potential of Interactive Simulations for </li>
+</ol>
+<h3 id="developing-system-thinking-skills-in-elementary-school">Developing System Thinking Skills in Elementary School</h3>
+<p>A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar
+development of system thinking skills. The learning environment included interactive simulations using the Stagecast Creator software to simulate the ecosystem of a marsh. Simulations are an important tool in any effort to develop system thinking, because they have the potential to highlight the dynamic nature of systems. Before the implementation of the learning environment (over a period of five 90-min lessons) two written tests were administered to the students, investigating the development of seven aspects of system thinking. The same tests were administered after the implementation. Specifically, four of the tasks included in each test were associated with skills concerning the structure and the elements of a system and three were associated with the
+](https://eric.ed.gov/?id=EJ833089#:~:text=development%20of%20system%20thinking%20skills,three%20were%20associated%20with%20the)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://eric.ed.gov&amp;sz=32" />eric.ed.gov
+ERIC - EJ833089 - </p>
+<h3 id="an-investigation-of-the-potential-of-interactive-simulations-for-developing-system-thinking-skills-in-elementary-school">An Investigation of the Potential of Interactive Simulations for Developing System Thinking Skills in Elementary School</h3>
+<p>A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar
+processes and interactions taking place within a system. The findings indicated that elementary school students have the potential to develop system thinking skills. The proposed learning environment provoked considerable improvements in some system thinking skills during a relatively brief learning process. However, the learning environment was not successful in promoting feedback thinking. We interpret these results in view of the difficulties encountered by the students. We also discuss the implications of our findings for the design of learning environments. (Contains 2 figures and 4 tables.)
+](https://eric.ed.gov/?id=EJ833089#:~:text=processes%20and%20interactions%20taking%20place,2%20figures%20and%204%20tables)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.per-central.org&amp;sz=32" />per-central.org</p>
+<h3 id="examining-the-use-of-phet-interactive-simulations-in-us-college-and-high-school-classrooms">Examining the Use of PhET Interactive Simulations in US College and High School Classrooms</h3>
+<p>self-report survey from 1,233 high school and 276 college educators who are using PhET in their physics instruction, to provide insight into who uses PhET simulations, with which populations of students, towards what pedagogical goals, and with what instructional approaches. We found that new and experienced teachers use simulations, with diverse student populations, and to support a wide range of pedagogical goals. The responding high school and college educators were found to be similar in the goals they intended use of PhET simulations to support (for example, to develop conceptual goals, and to conduct science inquiry), but differed in their instructional approaches.
+](https://www.per-central.org/items/detail.cfm?ID=13484#:~:text=self,differed%20in%20their%20instructional%20approaches)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+<h3 id="digital-simulations-in-stem-education">Digital Simulations in STEM Education</h3>
+<p>Insights from Recent Empirical Studies, a Systematic Review</p>
+<p>Employing pre- and post-tests to evaluate intervention effectiveness. While inquiry-based learning emerges as the most frequently implemented instructional strategy, hybrid and simulation-based approaches also feature prominently. Despite the evident benefits of digital simulations in enhancing conceptual understanding, engagement, and problem-solving skills, research gaps remain, particularly regarding their application in primary and special education contexts. This review underscores the need for diverse research methodologies and broader population studies to maximize the potential of digital simulations in STEM education.
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=employing%20pre,digital%20simulations%20in%20STEM%20education)<a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=simula%02tions,while%20the%20nature%20of%20guidance"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+simulations. Careful analysis reveals that showing the invisible and use of analogy both facilitate students' construction of their understanding; while the nature of guidance
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=However%2C%20sims%20have%20the%20additional,of%20balanced%20challenges%20such%20as"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+However, sims have the additional benefit of being able to make the invisible visible and provide multiple representations (macroscopic, microscopic, graphs, etc. . . ). One of the key features of sims is the inclusion of balanced challenges such as
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=think,This"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+think-aloud style interviews with more than 100 different student volunteers. During these interviews, the student is not asked for their opinion or feedback on the simulation, only to think out-loud as they explore. Four to six 30--60 minute interviews are conducted with each version of a simulation. Interview results are used to modify the simulation if necessary and then a new series of interviews are conducted with new students. This
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=process%20continues%20until%20the%20simulation,student%20becomes%20quiet%20during%20an"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+process continues until the simulation is eliciting only correct concepts and the interface is intuitive to use. The PhET simulations are very involved, interactive animated environments that create a unique opportunity for learning not only for the student but the researcher too. The sims create a common visualization and probe into the student's mind which provides many benefits such as when the student becomes quiet during an
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=with%20each%20version%20of%20a,for%20the%20student%20but%20the"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+with each version of a simulation. Interview results are used to modify the simulation if necessary and then a new series of interviews are conducted with new students. This process continues until the simulation is eliciting only correct concepts and the interface is intuitive to use. The PhET simulations are very involved, interactive animated environments that create a unique opportunity for learning not only for the student but the
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.per-central.org&amp;sz=32" />per-central.org</p>
+<h3 id="examining-the-use-of-phet-interactive-simulations-in-us-college-and-high-school-classrooms_1">Examining the Use of PhET Interactive Simulations in US College and High School Classrooms</h3>
+<p>Flexible use, available free of charge, and usable across platforms. The resulting simulations are compatible with diverse learning goals, implementation contexts, pedagogical approaches, grade levels, and learners. While website statistics establish that over 45 million simulations are run per year, these statistics provide little information about who uses the simulations and how they are being used. Here we report on analysis of responses to a large-scale, self-report survey from 1,233 high school and 276 college educators who are using PhET in their physics instruction, to provide insight into who uses PhET simulations, with which populations of students, towards what pedagogical goals,
+](https://www.per-central.org/items/detail.cfm?ID=13484#:~:text=flexible%20use%2C%20available%20free%20of,students%2C%20towards%20what%20pedagogical%20goals)<a href="https://gizmos.explorelearning.com/#:~:text=Labs%20gizmos,12"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://gizmos.explorelearning.com&amp;sz=32" />gizmos.explorelearning.com
+Gizmos: Interactive STEM Simulations &amp; Virtual Labs
+Labs gizmos.explorelearning.com Featuring over 550 virtual, interactive STEM simulations all crafted to meet the latest educational standards, Gizmos empowers educators in grades 3-12.
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+<h3 id="digital-simulations-in-stem-education_1">Digital Simulations in STEM Education</h3>
+<p>Insights from Recent Empirical Studies, a Systematic Review</p>
+<p>The review includes 31 peer-reviewed empirical studies published in the last five years, sourced from ERIC, Scopus, and Web of Science, and adheres to the PRISMA methodology to ensure transparency and rigor. The findings reveal that interactive simulations are the most widely used type of digital tool, accounting for 25 of the 31 studies, followed by game-based simulations and virtual labs. Quasi-experimental designs dominate the research landscape, often employing pre- and post-tests to evaluate intervention effectiveness. While inquiry-based learning emerges as the most frequently implemented instructional strategy, hybrid and simulation-based approaches also feature prominently.
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=The%20review%20includes%2031%20peer,based%20approaches%20also%20feature%20prominently)<a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=%28bulbs%2C%20wires%2C%20resistors%20etc,In%20addition"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+(bulbs, wires, resistors etc.). The lab activity written around the sim/equipment was identical otherwise. On the final exam (6 weeks later) three questions were asked about DC circuits. The students who had used CCK in lab performed statistically better on average than the students who used real equipment. The averages for the two groups were identical on the exam questions that did not address circuits. In addition,
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=was%20followed%20up%20by%20an,This%20is%20consistent%20with%20their"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+was followed up by an activity where both groups used real equipment. Students had to build a complicated circuit and then describe how the circuit would react if they created a break in a specified location. The students who had used the sim for the previous 1 1 2 of lab were faster on average and completing this challenge. This is consistent with their
+</a><a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=much%20assistance%20from%20the%20Teaching,things%20with%20the%20simulations%20than"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+much assistance from the Teaching Assistant, while the real equipment students were nervous about breaking the equipment or themselves. In addition to measuring learning on assessments we document affective differences when using sims compared to other instructional materials. As with CCK in the lab above, where students were more comfortable trying things with the simulations than
+</a><a href="https://www.per-central.org/items/detail.cfm?ID=13484#:~:text=interactive%20simulations%20developed%20by%20the,uses%20the%20simulations%20and%20how"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.per-central.org&amp;sz=32" />per-central.org
+Examining the Use of PhET Interactive Simulations in US College and High School Classrooms
+interactive simulations developed by the PhET Interactive Simulations project at University of Colorado Boulder. The design of each simulation seeks to support educators in achieving a range of pedagogical goals through implicit scaffolding. To decrease barriers to adoption, the simulations are designed for flexible use, available free of charge, and usable across platforms. The resulting simulations are compatible with diverse learning goals, implementation contexts, pedagogical approaches, grade levels, and learners. While website statistics establish that over 45 million simulations are run per year, these statistics provide little information about who uses the simulations and how
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+<h4 id="digital-simulations-in-stem-education_2">Digital Simulations in STEM Education</h4>
+<p>Insights from Recent Empirical Studies, a Systematic Review**
+effectiveness and impact of simulations across various educational settings. A common finding was the positive influence of simulations on student attitudes and engagement. Simulations consistently enhanced students' interest and motivation in STEM subjects, often making abstract concepts more accessible and engaging, especially in fields like physics and engineering. Several studies noted improved student participation and enthusiasm, with certain methods, like augmented reality and online collaboration tools, leading to high levels of engagement.
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=effectiveness%20and%20impact%20of%20simulations,to%20high%20levels%20of%20engagement)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+<h4 id="digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review_1">Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review</h4>
+<p>engaging, especially in fields like physics and engineering. Several studies noted improved student participation and enthusiasm, with certain methods, like augmented reality and online collaboration tools, leading to high levels of engagement.
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=engaging%2C%20especially%20in%20fields%20like,to%20high%20levels%20of%20engagement)<a href="https://www.mdpi.com/2673-8392/5/1/10#:~:text=behavioral%2C%20cognitive%2C%20and%20emotional%20dimensions,113%2C28%20%2C%20136%2C39%20%2C%20138"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com
+Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review
+behavioral, cognitive, and emotional dimensions. Many studies aimed to understand how simulations impacted students' motivation, interest, and participation in STEM subjects, indicating a strong interest in simulations as a tool for increasing student involvement [13 , 121,19 , 113,28 , 136,39 , 138].
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://www.mdpi.com&amp;sz=32" />mdpi.com</p>
+<h4 id="digital-simulations-in-stem-education-insights-from-recent-empirical-studies-a-systematic-review_2">Digital Simulations in STEM Education: Insights from Recent Empirical Studies, a Systematic Review</h4>
+<p>and engagement. Simulations consistently enhanced students' interest and motivation in STEM subjects, often making abstract concepts more accessible and engaging, especially in fields like physics and engineering. Several studies noted improved student participation and enthusiasm, with certain methods, like augmented reality and online collaboration tools, leading to high levels of engagement.
+](https://www.mdpi.com/2673-8392/5/1/10#:~:text=and%20engagement,to%20high%20levels%20of%20engagement)<a href="https://phet.colorado.edu/publications/MPTL_2010_PhET_final.pdf#:~:text=demonstrate%20that%20simulations%20help%20students%E2%80%99,three%20questions%20were"><img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://phet.colorado.edu&amp;sz=32" />phet.colorado.edu
+ncc9630-ofirst@ncc9630.dvi
+demonstrate that simulations help students' conceptual understanding about the phenomena. For example, one two hour lab of an algebra based physics course was divided into two groups---those that only used a simulation (CCK shown in fig. 4) and those that only used real equipment (bulbs, wires, resistors etc.). The lab activity written around the sim/equipment was identical otherwise. On the final exam (6 weeks later) three questions were
+</a>[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://eric.ed.gov&amp;sz=32" />eric.ed.gov
+ERIC - EJ833089 - An Investigation of the Potential of Interactive Simulations for </p>
+<h3 id="developing-system-thinking-skills-in-elementary-school-a-case-study-with-fifth-graders-and-sixth-graders-international-journal-of-science-education-2009-mar">Developing System Thinking Skills in Elementary School: A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar</h3>
+<p>that elementary school students have the potential to develop system thinking skills. The proposed learning environment provoked considerable improvements in some system thinking skills during a relatively brief learning process. However, the learning environment was not successful in promoting feedback thinking. We interpret these results in view of the difficulties encountered by the students.
+](https://eric.ed.gov/?id=EJ833089#:~:text=that%20elementary%20school%20students%20have,difficulties%20encountered%20by%20the%20students)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://eric.ed.gov&amp;sz=32" />eric.ed.gov
+ERIC - EJ833089 -</p>
+<h3 id="an-investigation-of-the-potential-of-interactive-simulations-for-developing-system-thinking-skills-in-elementary-school_1">An Investigation of the Potential of Interactive Simulations for Developing System Thinking Skills in Elementary School</h3>
+<p>A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar
+Ecosystem of a marsh. Simulations are an important tool in any effort to develop system thinking, because they have the potential to highlight the dynamic nature of systems. Before the implementation of the learning environment (over a period of five 90-min lessons) two written tests were administered to the students, investigating the development of seven aspects of system thinking. The same tests were administered after the implementation. Specifically, four of the tasks included in each test were associated with skills concerning the structure and the elements of a system and three were associated with the processes and interactions taking place within a system. The findings indicated
+](https://eric.ed.gov/?id=EJ833089#:~:text=ecosystem%20of%20a%20marsh,The%20findings%20indicated)[<img alt="Favicon" src="https://www.google.com/s2/favicons?domain=https://eric.ed.gov&amp;sz=32" />eric.ed.gov
+ERIC - EJ833089 - An Investigation of the Potential of Interactive Simulations for </p>
+<h3 id="developing-system-thinking-skills-in-elementary-school_1">Developing System Thinking Skills in Elementary School</h3>
+<p>A Case Study with Fifth-Graders and Sixth-Graders, International Journal of Science Education, 2009-Mar
+that elementary school students have the potential to develop system thinking skills. The proposed learning environment provoked considerable
+](https://eric.ed.gov/?id=EJ833089#:~:text=that%20elementary%20school%20students%20have,2%20figures%20and%204%20tables)</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../motivation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Motivation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Motivation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../deep-research-final/" class="md-footer__link md-footer__link--next" aria-label="Next: Deep Research">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Deep Research
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
