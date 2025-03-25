@@ -1,7 +1,5 @@
 # MicroSim Template
 
-<iframe src="main.html" height="400"></iframe>
-
 <iframe src="main.html" height="400px" scrolling="no"></iframe>
 
 <!--
