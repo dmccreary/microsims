@@ -12,6 +12,15 @@
 
 [MicroSim Design](./microsim-design.md)
 
-## MicroSim Metadata Schema
+## Section 4: Describing a MicroSim - The MicroSim Metadata Schema
 
+[Describing a MicroSim](./describing-a-microsim.md)
+
+## Section 5: Sample MicroSims
+
+
+
+## MicroSim Development Workflow
+
+[MicroSim Development Workflow](./microsim-dev-workflow.md)
 
