@@ -40,6 +40,10 @@ We define an **Educational MicroSim** as a lightweight, standalone interactive s
 
 To clarify the scope and boundaries of Educational MicroSims, it is important to establish what they explicitly are not:
 
+**MicroSims Are Not Animations**: MicroSims are not simple animations of educational concepts.  Although generative AI can create beautiful animations, without some student action required for participation we cannot use feedback
+and reinforcement learning in our intelligent textbooks.  Simulations must at a minimum contain controls
+such as "Start" and "Pause" a simulation.
+
 **Technology-Agnostic Implementation**: MicroSims are not bound to any specific JavaScript library or framework. While our implementation examples utilize p5.js for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, D3.js, Three.js, or any other web-based rendering technology that meets the functional requirements.
 
 **Legacy Standards Compliance**: MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee), or xAPI (Experience API). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  MicroSims can be designed to work with xAPI standards but these standards are not required.
