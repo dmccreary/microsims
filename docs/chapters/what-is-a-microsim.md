@@ -1,6 +1,8 @@
 # Definition of Educational MicroSims
 
-We define an **Educational MicroSim** as a lightweight, standalone interactive simulation that executes within standard web browsers and is specifically designed for pedagogical applications. These simulations are characterized by the following key properties:
+We define an **Educational MicroSim** as a lightweight, standalone interactive simulation that executes within standard web browsers and is specifically designed for pedagogical applications. In this document we use the single word `MicroSim` for the full term `Educational MicroSim`.
+
+MicroSims are characterized by the following key properties:
 
 ## Key Attributes of a MicroSim
 
@@ -37,16 +39,17 @@ of intelligent textbooks.
 ### Technology-Agnostic Implementation
 MicroSims are not bound to any specific JavaScript library or framework. While our implementation examples utilize p5.js for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, D3.js, Three.js, or any other web-based rendering technology that meets the functional requirements.
 
-### Legacy Standards Compliance
+### Not Legacy Standards Compliance
 
-MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee), or xAPI (Experience API). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  MicroSims can be designed to work with xAPI standards but these standards are not required.
+MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  Note that because MicroSims 
+all have interactive controls, they can be designed to easily work with xAPI standards but these standards are not required.  Generative AI can be used to automatically add xAPI calls to the controls area of a MicroSim.
+
+### Not Comprehensive Simulation Environments
+MicroSims are not intended to replace complex, full-featured simulation platforms or virtual laboratories. They are purposefully constrained in scope to address specific, well-defined learning objectives rather than attempting to model entire systems or domains.
 
 ## Metadata Strategy
 
 MicroSims do leverage established metadata standards where appropriate. They incorporate Dublin Core metadata elements for resource description, enabling proper cataloging, discovery, and interoperability within educational repositories and learning management systems.
-
-### Comprehensive Simulation Environments
-MicroSims are not intended to replace complex, full-featured simulation platforms or virtual laboratories. They are purposefully constrained in scope to address specific, well-defined learning objectives rather than attempting to model entire systems or domains.
 
 ### Platform-Specific Applications
 Unlike native mobile applications or desktop software, MicroSims are not tied to specific operating systems or device types. They maintain platform independence through adherence to web standards and responsive design principles.
