@@ -20,9 +20,11 @@
 
 [Image Convolution](../sims/image-convolution/index.md)
 
-## Signal Processing (FFT)
+## Sound Frequency Response
 
-[Signal Processing FFT](../sims/mic-fft/index.md)
+Read the sound from the computer microphone and display a chart of the frequency
+
+[Signal Processing FFT](../sims/fft-mic/index.md)
 
 ## Graph Search
 
