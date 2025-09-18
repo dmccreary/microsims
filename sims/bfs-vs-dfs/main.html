@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graph Traversal Visualization - DFS vs BFS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .algorithm-selection {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .next-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .next-btn:hover:not(:disabled) {
+            background-color: #45a049;
+        }
+        
+        .next-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .reset-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .reset-btn:hover {
+            background-color: #da190b;
+        }
+        
+        .info-panel {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        #mynetwork {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: white;
+        }
+        
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Graph Traversal Visualization</h1>
+        <h3>Depth-First Search (DFS) vs Breadth-First Search (BFS)</h3>
+    </div>
+
+    <div class="controls">
+        <div class="algorithm-selection">
+            <strong>Algorithm:</strong>
+            <div class="radio-group">
+                <input type="radio" id="dfs" name="algorithm" value="dfs" checked>
+                <label for="dfs">Depth-First Search</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="bfs" name="algorithm" value="bfs">
+                <label for="bfs">Breadth-First Search</label>
+            </div>
+        </div>
+        
+        <div class="button-group">
+            <button id="nextStep" class="next-btn">Next Step</button>
+            <button id="reset" class="reset-btn">Reset</button>
+        </div>
+    </div>
+
+    <div class="info-panel">
+        <div><strong>Current Algorithm:</strong> <span id="currentAlgorithm">Depth-First Search</span></div>
+        <div><strong>Step:</strong> <span id="stepCounter">0</span></div>
+        <div><strong>Nodes Visited:</strong> <span id="nodesVisited">0</span> / <span id="totalNodes">0</span></div>
+    </div>
+
+    <div id="mynetwork"></div>
+
+    <div class="legend">
+        <h4>Legend:</h4>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #4CAF50;"></div>
+            <span>Starting Point</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #ADD8E6;"></div>
+            <span>Unvisited Node</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #FFD700;"></div>
+            <span>Visited Node (with step number)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #FF6B6B;"></div>
+            <span>Currently Processing</span>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script>
+        class GraphTraversalVisualizer {
+            constructor() {
+                this.network = null;
+                this.nodes = null;
+                this.edges = null;
+                this.currentAlgorithm = 'dfs';
+                this.step = 0;
+                this.visitedNodes = [];
+                this.stack = []; // For DFS
+                this.queue = []; // For BFS
+                this.isTraversalComplete = false;
+                
+                this.initializeGraph();
+                this.setupEventListeners();
+                this.reset(); // Initialize the traversal structures
+            }
+            
+            initializeGraph() {
+                // Create nodes in concentric circles
+                const nodesArray = [];
+                const edgesArray = [];
+                
+                // Starting point (center)
+                const startId = 0;
+                nodesArray.push({
+                    id: startId,
+                    label: 'START',
+                    x: 0,
+                    y: 0,
+                    color: {
+                        background: '#4CAF50',
+                        border: '#2E7D32'
+                    },
+                    font: { color: 'white', size: 16, face: 'Arial' },
+                    size: 25,
+                    fixed: true
+                });
+                
+                let nodeId = 1;
+                const rings = [
+                    { radius: 150, nodeCount: 6 },
+                    { radius: 250, nodeCount: 8 },
+                    { radius: 350, nodeCount: 10 }
+                ];
+                
+                // Create nodes in rings
+                rings.forEach((ring, ringIndex) => {
+                    const angleStep = (2 * Math.PI) / ring.nodeCount;
+                    const ringNodes = [];
+                    
+                    for (let i = 0; i < ring.nodeCount; i++) {
+                        const angle = i * angleStep;
+                        const x = ring.radius * Math.cos(angle);
+                        const y = ring.radius * Math.sin(angle);
+                        
+                        const node = {
+                            id: nodeId,
+                            label: nodeId.toString(),
+                            x: x,
+                            y: y,
+                            color: {
+                                background: '#ADD8E6',
+                                border: '#4682B4'
+                            },
+                            font: { size: 14 },
+                            size: 20,
+                            fixed: true
+                        };
+                        
+                        nodesArray.push(node);
+                        ringNodes.push(nodeId);
+                        nodeId++;
+                    }
+                    
+                    // Connect to center if first ring
+                    if (ringIndex === 0) {
+                        ringNodes.forEach(id => {
+                            edgesArray.push({ from: startId, to: id });
+                        });
+                    }
+                    
+                    // Connect nodes within ring
+                    for (let i = 0; i < ringNodes.length; i++) {
+                        const nextIndex = (i + 1) % ringNodes.length;
+                        edgesArray.push({ from: ringNodes[i], to: ringNodes[nextIndex] });
+                    }
+                    
+                    // Connect to previous ring
+                    if (ringIndex > 0) {
+                        const prevRingStart = ringIndex === 1 ? 1 : (1 + rings[0].nodeCount);
+                        const prevRingCount = rings[ringIndex - 1].nodeCount;
+                        
+                        ringNodes.forEach((nodeId, index) => {
+                            // Connect to 1-2 nodes in previous ring
+                            const prevNodeIndex = Math.floor((index * prevRingCount) / ring.nodeCount);
+                            const prevNodeId = prevRingStart + prevNodeIndex;
+                            edgesArray.push({ from: prevNodeId, to: nodeId });
+                            
+                            // Sometimes connect to adjacent node in previous ring
+                            if (Math.random() > 0.6) {
+                                const adjacentPrevNodeId = prevRingStart + ((prevNodeIndex + 1) % prevRingCount);
+                                edgesArray.push({ from: adjacentPrevNodeId, to: nodeId });
+                            }
+                        });
+                    }
+                });
+                
+                // Add some random connections for complexity
+                for (let i = 0; i < Math.floor(nodesArray.length * 0.3); i++) {
+                    const node1 = 1 + Math.floor(Math.random() * (nodesArray.length - 1));
+                    const node2 = 1 + Math.floor(Math.random() * (nodesArray.length - 1));
+                    
+                    if (node1 !== node2 && !edgesArray.some(e => 
+                        (e.from === node1 && e.to === node2) || 
+                        (e.from === node2 && e.to === node1)
+                    )) {
+                        edgesArray.push({ from: node1, to: node2 });
+                    }
+                }
+                
+                // Create DataSets
+                this.nodes = new vis.DataSet(nodesArray);
+                this.edges = new vis.DataSet(edgesArray);
+                
+                // Network options
+                const options = {
+                    physics: {
+                        enabled: false
+                    },
+                    nodes: {
+                        shape: 'dot',
+                        borderWidth: 3,
+                        font: {
+                            size: 14,
+                            color: '#333333',
+                            face: 'Arial'
+                        }
+                    },
+                    edges: {
+                        color: {
+                            color: '#848484',
+                            hover: '#848484',
+                            highlight: '#333333'
+                        },
+                        width: 2,
+                        smooth: {
+                            type: 'continuous'
+                        }
+                    },
+                    interaction: {
+                        dragNodes: false,
+                        dragView: true,
+                        zoomView: true
+                    }
+                };
+                
+                // Initialize network
+                const container = document.getElementById('mynetwork');
+                this.network = new vis.Network(container, {
+                    nodes: this.nodes,
+                    edges: this.edges
+                }, options);
+                
+                this.updateInfo();
+            }
+            
+            setupEventListeners() {
+                document.getElementById('nextStep').addEventListener('click', () => this.nextStep());
+                document.getElementById('reset').addEventListener('click', () => this.reset());
+                
+                document.querySelectorAll('input[name="algorithm"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        this.currentAlgorithm = e.target.value;
+                        this.reset();
+                    });
+                });
+            }
+            
+            reset() {
+                this.step = 0;
+                this.visitedNodes = [];
+                this.stack = [0]; // Start with node 0 for DFS
+                this.queue = [0]; // Start with node 0 for BFS
+                this.isTraversalComplete = false;
+                
+                // Reset all node colors
+                const updates = [];
+                this.nodes.forEach(node => {
+                    if (node.id === 0) {
+                        // Keep starting node green
+                        updates.push({
+                            id: node.id,
+                            label: 'START',
+                            color: {
+                                background: '#4CAF50',
+                                border: '#2E7D32'
+                            },
+                            font: { color: 'white', size: 16 }
+                        });
+                    } else {
+                        // Reset other nodes to light blue
+                        updates.push({
+                            id: node.id,
+                            label: node.id.toString(),
+                            color: {
+                                background: '#ADD8E6',
+                                border: '#4682B4'
+                            },
+                            font: { color: '#333333', size: 14 }
+                        });
+                    }
+                });
+                
+                this.nodes.update(updates);
+                this.updateInfo();
+                document.getElementById('nextStep').disabled = false;
+            }
+            
+            nextStep() {
+                if (this.isTraversalComplete) return;
+                
+                let currentNode;
+                
+                if (this.currentAlgorithm === 'dfs') {
+                    currentNode = this.nextStepDFS();
+                } else {
+                    currentNode = this.nextStepBFS();
+                }
+                
+                if (currentNode !== null) {
+                    this.step++;
+                    this.visitedNodes.push(currentNode);
+                    
+                    // Update node appearance
+                    this.nodes.update({
+                        id: currentNode,
+                        label: currentNode === 0 ? `START\n(${this.step})` : this.step.toString(),
+                        color: {
+                            background: '#FFD700',
+                            border: '#FFA500'
+                        },
+                        font: { 
+                            color: '#333333', 
+                            size: currentNode === 0 ? 14 : 16,
+                            face: 'Arial'
+                        }
+                    });
+                }
+                
+                this.updateInfo();
+                
+                // Check if traversal is complete
+                if (this.currentAlgorithm === 'dfs' && this.stack.length === 0) {
+                    this.isTraversalComplete = true;
+                    document.getElementById('nextStep').disabled = true;
+                } else if (this.currentAlgorithm === 'bfs' && this.queue.length === 0) {
+                    this.isTraversalComplete = true;
+                    document.getElementById('nextStep').disabled = true;
+                }
+            }
+            
+            nextStepDFS() {
+                if (this.stack.length === 0) return null;
+                
+                const currentNode = this.stack.pop();
+                
+                // If already visited, skip
+                if (this.visitedNodes.includes(currentNode)) {
+                    return this.nextStepDFS();
+                }
+                
+                // Get unvisited neighbors
+                const neighbors = this.getNeighbors(currentNode);
+                const unvisitedNeighbors = neighbors.filter(n => !this.visitedNodes.includes(n) && n !== currentNode);
+                
+                // Add unvisited neighbors to stack (in reverse order for proper DFS order)
+                unvisitedNeighbors.reverse().forEach(neighbor => {
+                    if (!this.stack.includes(neighbor)) {
+                        this.stack.push(neighbor);
+                    }
+                });
+                
+                return currentNode;
+            }
+            
+            nextStepBFS() {
+                if (this.queue.length === 0) return null;
+                
+                const currentNode = this.queue.shift();
+                
+                // If already visited, skip
+                if (this.visitedNodes.includes(currentNode)) {
+                    return this.nextStepBFS();
+                }
+                
+                // Get unvisited neighbors
+                const neighbors = this.getNeighbors(currentNode);
+                const unvisitedNeighbors = neighbors.filter(n => !this.visitedNodes.includes(n) && n !== currentNode);
+                
+                // Add unvisited neighbors to queue
+                unvisitedNeighbors.forEach(neighbor => {
+                    if (!this.queue.includes(neighbor)) {
+                        this.queue.push(neighbor);
+                    }
+                });
+                
+                return currentNode;
+            }
+            
+            getNeighbors(nodeId) {
+                const neighbors = [];
+                this.edges.forEach(edge => {
+                    if (edge.from === nodeId) {
+                        neighbors.push(edge.to);
+                    } else if (edge.to === nodeId) {
+                        neighbors.push(edge.from);
+                    }
+                });
+                return neighbors;
+            }
+            
+            updateInfo() {
+                document.getElementById('currentAlgorithm').textContent = 
+                    this.currentAlgorithm === 'dfs' ? 'Depth-First Search' : 'Breadth-First Search';
+                document.getElementById('stepCounter').textContent = this.step;
+                document.getElementById('nodesVisited').textContent = this.visitedNodes.length;
+                document.getElementById('totalNodes').textContent = this.nodes.length;
+            }
+        }
+        
+        // Initialize the application when the page loads
+        window.addEventListener('load', () => {
+            new GraphTraversalVisualizer();
+        });
+    </script>
+</body>
+</html>
