@@ -22,7 +22,7 @@
 
 ## Signal Processing (FFT)
 
-[Signal Processing FFT](../sims/fft.md)
+[Signal Processing FFT](../sims/mic-fft/index.md)
 
 ## Graph Search
 
