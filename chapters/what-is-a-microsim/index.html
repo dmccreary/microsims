@@ -560,9 +560,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-standards-compliance" class="md-nav__link">
+  <a href="#not-legacy-standards-compliance" class="md-nav__link">
     <span class="md-ellipsis">
-      Legacy Standards Compliance
+      Not Legacy Standards Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-comprehensive-simulation-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Not Comprehensive Simulation Environments
     </span>
   </a>
   
@@ -582,15 +591,6 @@
   
     <nav class="md-nav" aria-label="Metadata Strategy">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#comprehensive-simulation-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprehensive Simulation Environments
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#platform-specific-applications" class="md-nav__link">
@@ -1505,9 +1505,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-standards-compliance" class="md-nav__link">
+  <a href="#not-legacy-standards-compliance" class="md-nav__link">
     <span class="md-ellipsis">
-      Legacy Standards Compliance
+      Not Legacy Standards Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-comprehensive-simulation-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Not Comprehensive Simulation Environments
     </span>
   </a>
   
@@ -1527,15 +1536,6 @@
   
     <nav class="md-nav" aria-label="Metadata Strategy">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#comprehensive-simulation-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprehensive Simulation Environments
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#platform-specific-applications" class="md-nav__link">
@@ -1584,7 +1584,8 @@
 
 
 <h1 id="definition-of-educational-microsims">Definition of Educational MicroSims</h1>
-<p>We define an <strong>Educational MicroSim</strong> as a lightweight, standalone interactive simulation that executes within standard web browsers and is specifically designed for pedagogical applications. These simulations are characterized by the following key properties:</p>
+<p>We define an <strong>Educational MicroSim</strong> as a lightweight, standalone interactive simulation that executes within standard web browsers and is specifically designed for pedagogical applications. In this document we use the single word <code>MicroSim</code> for the full term <code>Educational MicroSim</code>.</p>
+<p>MicroSims are characterized by the following key properties:</p>
 <h2 id="key-attributes-of-a-microsim">Key Attributes of a MicroSim</h2>
 <h3 id="technical-architecture">Technical Architecture</h3>
 <p>MicroSims are implemented as self-contained web applications, typically using JavaScript frameworks such as p5.js, that require no external dependencies or server-side infrastructure. They follow a standardized width responsive design pattern with distinct regions for visualization (drawing area) and user controls (interaction area).  The
@@ -1609,12 +1610,13 @@ such as "Start" and "Pause" a simulation.  Monitoring who clicks these controls 
 of intelligent textbooks.</p>
 <h3 id="technology-agnostic-implementation">Technology-Agnostic Implementation</h3>
 <p>MicroSims are not bound to any specific JavaScript library or framework. While our implementation examples utilize p5.js for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, D3.js, Three.js, or any other web-based rendering technology that meets the functional requirements.</p>
-<h3 id="legacy-standards-compliance">Legacy Standards Compliance</h3>
-<p>MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee), or xAPI (Experience API). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  MicroSims can be designed to work with xAPI standards but these standards are not required.</p>
+<h3 id="not-legacy-standards-compliance">Not Legacy Standards Compliance</h3>
+<p>MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  Note that because MicroSims 
+all have interactive controls, they can be designed to easily work with xAPI standards but these standards are not required.  Generative AI can be used to automatically add xAPI calls to the controls area of a MicroSim.</p>
+<h3 id="not-comprehensive-simulation-environments">Not Comprehensive Simulation Environments</h3>
+<p>MicroSims are not intended to replace complex, full-featured simulation platforms or virtual laboratories. They are purposefully constrained in scope to address specific, well-defined learning objectives rather than attempting to model entire systems or domains.</p>
 <h2 id="metadata-strategy">Metadata Strategy</h2>
 <p>MicroSims do leverage established metadata standards where appropriate. They incorporate Dublin Core metadata elements for resource description, enabling proper cataloging, discovery, and interoperability within educational repositories and learning management systems.</p>
-<h3 id="comprehensive-simulation-environments">Comprehensive Simulation Environments</h3>
-<p>MicroSims are not intended to replace complex, full-featured simulation platforms or virtual laboratories. They are purposefully constrained in scope to address specific, well-defined learning objectives rather than attempting to model entire systems or domains.</p>
 <h3 id="platform-specific-applications">Platform-Specific Applications</h3>
 <p>Unlike native mobile applications or desktop software, MicroSims are not tied to specific operating systems or device types. They maintain platform independence through adherence to web standards and responsive design principles.</p>
 <h3 id="server-dependent-systems">Server-Dependent Systems</h3>
