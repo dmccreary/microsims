@@ -1,0 +1,2731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/paper-steps/">
+      
+      
+        <link rel="prev" href="../describing-a-microsim/">
+      
+      
+        <link rel="next" href="../references/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Paper Steps - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Paper Steps - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/paper-steps.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/chapters/paper-steps/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Paper Steps - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/paper-steps.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#complete-guide-to-publishing-microsims-paper-on-arxiv" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Paper Steps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Formal Education Theory Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Formal Education Theory Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-a-microsim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsims-in-the-ed-tech-landscape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSims in the Ed Tech Landscape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../describing-a-microsim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Paper Steps
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Paper Steps
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-pre-writing-planning-2-3-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Pre-Writing Planning (2-3 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Pre-Writing Planning (2-3 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-define-your-research-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Define Your Research Contribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-literature-review-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Literature Review Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-data-collection-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Data Collection Planning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-paper-structure-and-writing-4-6-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Paper Structure and Writing (4-6 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Paper Structure and Writing (4-6 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-choose-paper-type-and-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Choose Paper Type and Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-standard-academic-paper-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Standard Academic Paper Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Standard Academic Paper Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-150-250-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract (150-250 words)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-introduction-1-2-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction (1-2 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-related-work-2-3-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Related Work (2-3 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-microsims-design-framework-2-3-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. MicroSims Design Framework (2-3 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-implementation-and-examples-2-3-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Implementation and Examples (2-3 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-evaluation-3-4-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Evaluation (3-4 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-discussion-1-2-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Discussion (1-2 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-conclusion-and-future-work-1-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Conclusion and Future Work (1 page)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ai-assisted-reference-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 AI-Assisted Reference Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 AI-Assisted Reference Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-ai-tools-for-literature-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using AI Tools for Literature Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Quality Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-tools-for-reference-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Tools for Reference Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-technical-implementation-1-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Technical Implementation (1-2 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Technical Implementation (1-2 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-document-your-microsims-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Document Your MicroSims Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-prepare-supplementary-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Prepare Supplementary Materials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-manuscript-preparation-1-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Manuscript Preparation (1-2 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Manuscript Preparation (1-2 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-latex-setup-for-arxiv" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 LaTeX Setup for arXiv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-figure-and-table-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Figure and Table Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-ai-assisted-writing-and-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 AI-Assisted Writing and Editing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 AI-Assisted Writing and Editing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grammar-and-style-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grammar and Style Checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-enhancement-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Enhancement Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consistency Checking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-arxiv-submission-process-1-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: arXiv Submission Process (1 week)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: arXiv Submission Process (1 week)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-arxiv-account-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 arXiv Account Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-pre-submission-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Pre-submission Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-submission-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Submission Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Submission Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-common-submission-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Common Submission Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-post-submission-strategy-ongoing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 6: Post-Submission Strategy (Ongoing)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Post-Submission Strategy (Ongoing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-promotion-and-dissemination" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Promotion and Dissemination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-community-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Community Engagement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-future-publication-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Future Publication Strategy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-quality-assurance-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 7: Quality Assurance Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: Quality Assurance Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-2-research-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1-2: Research and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3-4-first-draft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3-4: First Draft
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-6-review-and-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 5-6: Review and Revision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-7-final-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 7: Final Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-submission-and-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8: Submission and Launch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-tools-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Tools Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Tools Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-assistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Assistance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Rules
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-pre-writing-planning-2-3-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Pre-Writing Planning (2-3 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Pre-Writing Planning (2-3 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-define-your-research-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Define Your Research Contribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-literature-review-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Literature Review Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-data-collection-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Data Collection Planning
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-paper-structure-and-writing-4-6-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Paper Structure and Writing (4-6 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Paper Structure and Writing (4-6 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-choose-paper-type-and-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Choose Paper Type and Format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-standard-academic-paper-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Standard Academic Paper Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Standard Academic Paper Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-150-250-words" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract (150-250 words)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-introduction-1-2-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction (1-2 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-related-work-2-3-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Related Work (2-3 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-microsims-design-framework-2-3-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. MicroSims Design Framework (2-3 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-implementation-and-examples-2-3-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Implementation and Examples (2-3 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-evaluation-3-4-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Evaluation (3-4 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-discussion-1-2-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Discussion (1-2 pages)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-conclusion-and-future-work-1-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Conclusion and Future Work (1 page)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ai-assisted-reference-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 AI-Assisted Reference Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 AI-Assisted Reference Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-ai-tools-for-literature-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using AI Tools for Literature Discovery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-quality-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Quality Criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-tools-for-reference-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Tools for Reference Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-technical-implementation-1-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Technical Implementation (1-2 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Technical Implementation (1-2 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-document-your-microsims-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Document Your MicroSims Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-prepare-supplementary-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Prepare Supplementary Materials
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-manuscript-preparation-1-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Manuscript Preparation (1-2 weeks)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 4: Manuscript Preparation (1-2 weeks)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-latex-setup-for-arxiv" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 LaTeX Setup for arXiv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-figure-and-table-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Figure and Table Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-ai-assisted-writing-and-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 AI-Assisted Writing and Editing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 AI-Assisted Writing and Editing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grammar-and-style-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grammar and Style Checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#content-enhancement-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content Enhancement Prompts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consistency Checking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-5-arxiv-submission-process-1-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: arXiv Submission Process (1 week)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 5: arXiv Submission Process (1 week)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-arxiv-account-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 arXiv Account Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-pre-submission-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Pre-submission Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-submission-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Submission Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Submission Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-common-submission-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Common Submission Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-6-post-submission-strategy-ongoing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 6: Post-Submission Strategy (Ongoing)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 6: Post-Submission Strategy (Ongoing)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-promotion-and-dissemination" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Promotion and Dissemination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-community-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Community Engagement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-future-publication-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Future Publication Strategy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-7-quality-assurance-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 7: Quality Assurance Timeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 7: Quality Assurance Timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-2-research-and-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 1-2: Research and Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3-4-first-draft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 3-4: First Draft
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-6-review-and-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 5-6: Review and Revision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-7-final-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 7: Final Preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-submission-and-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Week 8: Submission and Launch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-tools-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Tools Summary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Tools Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-assistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing Assistance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/paper-steps.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="complete-guide-to-publishing-microsims-paper-on-arxiv">Complete Guide to Publishing MicroSims Paper on arXiv</h1>
+<h2 id="phase-1-pre-writing-planning-2-3-weeks">Phase 1: Pre-Writing Planning (2-3 weeks)</h2>
+<h3 id="11-define-your-research-contribution">1.1 Define Your Research Contribution</h3>
+<ul>
+<li><strong>Identify the novel contribution</strong>: What makes MicroSims unique in educational technology?</li>
+<li><strong>Position against existing work</strong>: How do MicroSims differ from existing educational simulations, interactive textbooks, or learning tools?</li>
+<li><strong>Define your target audience</strong>: Education researchers, computer science educators, HCI researchers, or learning technology developers</li>
+<li><strong>Clarify your research questions</strong>: </li>
+<li>Do MicroSims improve learning outcomes compared to traditional methods?</li>
+<li>What design principles make MicroSims effective?</li>
+<li>How do students engage with MicroSims differently than other tools?</li>
+</ul>
+<h3 id="12-literature-review-strategy">1.2 Literature Review Strategy</h3>
+<ul>
+<li><strong>Use AI tools for initial discovery</strong>:</li>
+<li>Semantic Scholar API for related papers</li>
+<li>Connected Papers for visual literature mapping</li>
+<li>ResearchRabbit for citation networks</li>
+<li>Elicit.org for research question exploration</li>
+<li><strong>Key search terms</strong>: "educational simulations," "interactive learning," "microlearning," "educational technology," "p5.js education," "web-based simulations"</li>
+<li><strong>Target venues to review</strong>: CHI, SIGCSE, Computers &amp; Education, Educational Technology Research, Learning Analytics</li>
+</ul>
+<h3 id="13-data-collection-planning">1.3 Data Collection Planning</h3>
+<ul>
+<li><strong>Quantitative data</strong>: Usage analytics, learning outcomes, completion rates</li>
+<li><strong>Qualitative data</strong>: User interviews, instructor feedback, student surveys</li>
+<li><strong>Technical metrics</strong>: Performance data, accessibility compliance, cross-platform compatibility</li>
+</ul>
+<h2 id="phase-2-paper-structure-and-writing-4-6-weeks">Phase 2: Paper Structure and Writing (4-6 weeks)</h2>
+<h3 id="21-choose-paper-type-and-format">2.1 Choose Paper Type and Format</h3>
+<p><strong>Recommended arXiv categories</strong>:
+- <code>cs.HC</code> (Human-Computer Interaction) - Primary
+- <code>cs.CY</code> (Computers and Society) - Secondary
+- <code>cs.LG</code> (Machine Learning) - If AI-generated content is emphasized</p>
+<p><strong>Paper length</strong>: 8-12 pages for conference format, or 15-25 pages for journal format</p>
+<h3 id="22-standard-academic-paper-structure">2.2 Standard Academic Paper Structure</h3>
+<h4 id="abstract-150-250-words">Abstract (150-250 words)</h4>
+<ul>
+<li><strong>Problem statement</strong>: Current limitations in educational technology</li>
+<li><strong>Solution</strong>: MicroSims as responsive, interactive learning tools</li>
+<li><strong>Methodology</strong>: How you evaluated MicroSims</li>
+<li><strong>Key findings</strong>: Quantified improvements or insights</li>
+<li><strong>Impact</strong>: Broader implications for education</li>
+</ul>
+<h4 id="1-introduction-1-2-pages">1. Introduction (1-2 pages)</h4>
+<ul>
+<li><strong>Hook</strong>: Compelling statistic about online education challenges</li>
+<li><strong>Problem definition</strong>: Specific gaps in current educational tools</li>
+<li><strong>Solution overview</strong>: MicroSims concept and approach</li>
+<li><strong>Contributions</strong>: 3-4 specific contributions your work makes</li>
+<li><strong>Paper organization</strong>: Brief roadmap of remaining sections</li>
+</ul>
+<h4 id="2-related-work-2-3-pages">2. Related Work (2-3 pages)</h4>
+<ul>
+<li><strong>Educational simulations</strong>: Historical context and current state</li>
+<li><strong>Interactive learning tools</strong>: Comparison with existing approaches</li>
+<li><strong>Web-based educational technology</strong>: p5.js and similar frameworks</li>
+<li><strong>Responsive design in education</strong>: Mobile-first learning approaches</li>
+<li><strong>Learning effectiveness studies</strong>: Research on simulation-based learning</li>
+</ul>
+<h4 id="3-microsims-design-framework-2-3-pages">3. MicroSims Design Framework (2-3 pages)</h4>
+<ul>
+<li><strong>Design principles</strong>: Responsive, accessible, standards-based</li>
+<li><strong>Technical architecture</strong>: p5.js, HTML5, JavaScript ecosystem</li>
+<li><strong>Educational pedagogy</strong>: How design supports learning objectives</li>
+<li><strong>Implementation standards</strong>: Your documented rules and guidelines</li>
+</ul>
+<h4 id="4-implementation-and-examples-2-3-pages">4. Implementation and Examples (2-3 pages)</h4>
+<ul>
+<li><strong>Technical details</strong>: Code structure, responsive design patterns</li>
+<li><strong>Example MicroSims</strong>: 3-5 representative examples across domains</li>
+<li><strong>Development workflow</strong>: How educators can create new MicroSims</li>
+<li><strong>Deployment considerations</strong>: Web hosting, performance, accessibility</li>
+</ul>
+<h4 id="5-evaluation-3-4-pages">5. Evaluation (3-4 pages)</h4>
+<ul>
+<li><strong>Study design</strong>: Methodology for evaluating effectiveness</li>
+<li><strong>Participants</strong>: Demographics and selection criteria</li>
+<li><strong>Metrics</strong>: Learning outcomes, engagement, usability</li>
+<li><strong>Results</strong>: Quantitative findings with statistical analysis</li>
+<li><strong>Qualitative insights</strong>: User feedback and observations</li>
+</ul>
+<h4 id="6-discussion-1-2-pages">6. Discussion (1-2 pages)</h4>
+<ul>
+<li><strong>Key findings interpretation</strong>: What the results mean</li>
+<li><strong>Limitations</strong>: Honest assessment of study constraints</li>
+<li><strong>Design implications</strong>: Lessons for future educational tools</li>
+<li><strong>Broader impact</strong>: How MicroSims could transform education</li>
+</ul>
+<h4 id="7-conclusion-and-future-work-1-page">7. Conclusion and Future Work (1 page)</h4>
+<ul>
+<li><strong>Summary of contributions</strong>: Restate key achievements</li>
+<li><strong>Future research directions</strong>: Next steps and open questions</li>
+<li><strong>Call to action</strong>: How others can adopt or extend this work</li>
+</ul>
+<h3 id="23-ai-assisted-reference-generation">2.3 AI-Assisted Reference Generation</h3>
+<h4 id="using-ai-tools-for-literature-discovery">Using AI Tools for Literature Discovery</h4>
+<p><strong>Claude/ChatGPT prompts for reference generation</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>&quot;Find 15-20 recent academic papers (2018-2024) related to [specific topic]. 
+For each paper, provide: full citation, brief summary, and relevance to my research on educational MicroSims.&quot;
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Semantic Scholar queries</strong>:
+- Use their API to search for papers by topic and date range
+- Filter by venue quality and citation count
+- Export BibTeX directly for your reference manager</p>
+<p><strong>Google Scholar with AI assistance</strong>:
+- Use AI to generate sophisticated search queries
+- Ask AI to analyze abstract relevance before downloading full papers
+- Use AI to summarize key papers and identify citation gaps</p>
+<h4 id="reference-quality-criteria">Reference Quality Criteria</h4>
+<ul>
+<li><strong>Recency</strong>: Prioritize papers from last 5 years (80% of references)</li>
+<li><strong>Venue quality</strong>: Top-tier conferences and journals in education/HCI</li>
+<li><strong>Citation count</strong>: Well-cited foundational papers plus recent innovations</li>
+<li><strong>Diversity</strong>: Mix of technical, pedagogical, and evaluation papers</li>
+<li><strong>Geographic diversity</strong>: Include international perspectives</li>
+</ul>
+<h4 id="ai-tools-for-reference-management">AI Tools for Reference Management</h4>
+<ul>
+<li><strong>Zotero + Better BibTeX</strong>: Automated citation formatting</li>
+<li><strong>Mendeley</strong>: Social reference discovery</li>
+<li><strong>ResearchRabbit</strong>: Citation network analysis</li>
+<li><strong>Elicit</strong>: AI-powered paper summarization</li>
+</ul>
+<h2 id="phase-3-technical-implementation-1-2-weeks">Phase 3: Technical Implementation (1-2 weeks)</h2>
+<h3 id="31-document-your-microsims-framework">3.1 Document Your MicroSims Framework</h3>
+<ul>
+<li><strong>Create comprehensive documentation</strong>: API reference, design patterns</li>
+<li><strong>Standardize code examples</strong>: Consistent formatting and commenting</li>
+<li><strong>Generate technical diagrams</strong>: Architecture overview, component relationships</li>
+<li><strong>Performance benchmarks</strong>: Load times, responsiveness metrics</li>
+</ul>
+<h3 id="32-prepare-supplementary-materials">3.2 Prepare Supplementary Materials</h3>
+<ul>
+<li><strong>Code repository</strong>: Clean, well-documented GitHub repository</li>
+<li><strong>Live demos</strong>: Hosted examples that reviewers can interact with</li>
+<li><strong>Video demonstrations</strong>: Screen recordings showing MicroSims in action</li>
+<li><strong>Data and analysis scripts</strong>: Reproducible research materials</li>
+</ul>
+<h2 id="phase-4-manuscript-preparation-1-2-weeks">Phase 4: Manuscript Preparation (1-2 weeks)</h2>
+<h3 id="41-latex-setup-for-arxiv">4.1 LaTeX Setup for arXiv</h3>
+<p><strong>Recommended LaTeX template</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">\documentclass</span><span class="na">[11pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=1in]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>arxiv<span class="nb">}</span> <span class="c">% arXiv-specific formatting</span>
+<span class="k">\usepackage</span><span class="nb">{</span>graphicx, amsmath, amssymb<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>url, hyperref<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>natbib<span class="nb">}</span> <span class="c">% for bibliography</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Essential packages</strong>:
+- <code>arxiv.sty</code>: Official arXiv formatting
+- <code>graphicx</code>: For figures and screenshots
+- <code>listings</code>: For code examples
+- <code>hyperref</code>: For clickable links
+- <code>natbib</code> or <code>biblatex</code>: Citation management</p>
+<h3 id="42-figure-and-table-preparation">4.2 Figure and Table Preparation</h3>
+<ul>
+<li><strong>High-resolution screenshots</strong>: MicroSims interfaces and interactions</li>
+<li><strong>Performance charts</strong>: Loading times, user engagement metrics</li>
+<li><strong>Architecture diagrams</strong>: System overview and component relationships</li>
+<li><strong>User study results</strong>: Statistical charts and graphs</li>
+<li><strong>All figures</strong>: Vector format (PDF/SVG) when possible, minimum 300 DPI</li>
+</ul>
+<h3 id="43-ai-assisted-writing-and-editing">4.3 AI-Assisted Writing and Editing</h3>
+<h4 id="grammar-and-style-checking">Grammar and Style Checking</h4>
+<ul>
+<li><strong>Grammarly Premium</strong>: Advanced grammar and style suggestions</li>
+<li><strong>DeepL Write</strong>: Alternative grammar checking with AI insights</li>
+<li><strong>Claude/ChatGPT</strong>: Section-by-section editing and improvement suggestions</li>
+</ul>
+<h4 id="content-enhancement-prompts">Content Enhancement Prompts</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>&quot;Review this technical section for clarity and suggest improvements for a computer science audience&quot;
+&quot;Strengthen the academic tone of this paragraph while maintaining readability&quot;
+&quot;Suggest 3 alternative ways to phrase this key contribution for maximum impact&quot;
+</code></pre></div></td></tr></table></div>
+<h4 id="consistency-checking">Consistency Checking</h4>
+<ul>
+<li><strong>Terminology</strong>: Consistent use of technical terms throughout</li>
+<li><strong>Citation format</strong>: Uniform citation style (IEEE, ACM, APA)</li>
+<li><strong>Figure references</strong>: All figures properly referenced in text</li>
+<li><strong>Section numbering</strong>: Consistent hierarchical structure</li>
+</ul>
+<h2 id="phase-5-arxiv-submission-process-1-week">Phase 5: arXiv Submission Process (1 week)</h2>
+<h3 id="51-arxiv-account-setup">5.1 arXiv Account Setup</h3>
+<ul>
+<li><strong>Create account</strong>: Register at arxiv.org with institutional email</li>
+<li><strong>Verify affiliation</strong>: May require endorsement for first submission</li>
+<li><strong>Choose categories</strong>: Primary and secondary subject classifications</li>
+<li><strong>Set up ORCID</strong>: Link your researcher identifier</li>
+</ul>
+<h3 id="52-pre-submission-checklist">5.2 Pre-submission Checklist</h3>
+<ul>
+<li><strong>File format</strong>: LaTeX source files or high-quality PDF</li>
+<li><strong>File size</strong>: Under 50MB total (compress figures if needed)</li>
+<li><strong>Bibliography</strong>: All references properly formatted and complete</li>
+<li><strong>Figures</strong>: All figures included and properly referenced</li>
+<li><strong>Supplementary materials</strong>: Links to code repositories and demos</li>
+<li><strong>Contact information</strong>: Current and accessible email address</li>
+</ul>
+<h3 id="53-submission-requirements">5.3 Submission Requirements</h3>
+<h4 id="required-files">Required Files</h4>
+<ul>
+<li><strong>Main manuscript</strong>: <code>.tex</code> file and compiled PDF</li>
+<li><strong>Bibliography</strong>: <code>.bib</code> file with complete references</li>
+<li><strong>Figures</strong>: All image files referenced in the manuscript</li>
+<li><strong>Style files</strong>: Any custom <code>.sty</code> files used</li>
+<li><strong>README</strong>: Optional file explaining compilation process</li>
+</ul>
+<h4 id="metadata-requirements">Metadata Requirements</h4>
+<ul>
+<li><strong>Title</strong>: Clear, descriptive, includes "MicroSims"</li>
+<li><strong>Authors</strong>: Full names and current affiliations</li>
+<li><strong>Abstract</strong>: Compelling 150-250 word summary</li>
+<li><strong>Keywords</strong>: Relevant terms for discoverability</li>
+<li><strong>Categories</strong>: Primary and secondary arXiv classifications</li>
+<li><strong>Comments</strong>: Optional field for additional context</li>
+</ul>
+<h3 id="54-common-submission-issues">5.4 Common Submission Issues</h3>
+<ul>
+<li><strong>Compilation errors</strong>: Test LaTeX compilation multiple times</li>
+<li><strong>Missing references</strong>: Verify all citations have corresponding bibliography entries</li>
+<li><strong>Figure problems</strong>: Ensure all figures compile correctly</li>
+<li><strong>Category selection</strong>: Choose appropriate primary category</li>
+<li><strong>File encoding</strong>: Use UTF-8 encoding for all text files</li>
+</ul>
+<h2 id="phase-6-post-submission-strategy-ongoing">Phase 6: Post-Submission Strategy (Ongoing)</h2>
+<h3 id="61-promotion-and-dissemination">6.1 Promotion and Dissemination</h3>
+<ul>
+<li><strong>Social media</strong>: Twitter/X threads highlighting key contributions</li>
+<li><strong>Academic networks</strong>: Share on ResearchGate, Academia.edu</li>
+<li><strong>Conference presentations</strong>: Submit to relevant education/HCI conferences</li>
+<li><strong>Blog posts</strong>: Write accessible summaries for broader audiences</li>
+<li><strong>Podcast appearances</strong>: Discuss on education technology podcasts</li>
+</ul>
+<h3 id="62-community-engagement">6.2 Community Engagement</h3>
+<ul>
+<li><strong>GitHub repository</strong>: Maintain active open-source project</li>
+<li><strong>Documentation website</strong>: Create comprehensive guides and tutorials</li>
+<li><strong>Educational partnerships</strong>: Collaborate with schools and universities</li>
+<li><strong>Workshop organization</strong>: Host MicroSims development workshops</li>
+</ul>
+<h3 id="63-future-publication-strategy">6.3 Future Publication Strategy</h3>
+<ul>
+<li><strong>Journal submission</strong>: Adapt arXiv preprint for peer-reviewed journals</li>
+<li><strong>Conference presentations</strong>: Present at SIGCSE, CHI, or similar venues</li>
+<li><strong>Special issues</strong>: Look for relevant journal special issues</li>
+<li><strong>Book chapters</strong>: Contribute to educational technology handbooks</li>
+</ul>
+<h2 id="phase-7-quality-assurance-timeline">Phase 7: Quality Assurance Timeline</h2>
+<h3 id="week-1-2-research-and-planning">Week 1-2: Research and Planning</h3>
+<ul>
+<li>Literature review and AI-assisted reference gathering</li>
+<li>Framework documentation and code cleanup</li>
+<li>Study design and data collection</li>
+</ul>
+<h3 id="week-3-4-first-draft">Week 3-4: First Draft</h3>
+<ul>
+<li>Complete manuscript first draft</li>
+<li>Generate all figures and tables</li>
+<li>Initial AI-assisted editing pass</li>
+</ul>
+<h3 id="week-5-6-review-and-revision">Week 5-6: Review and Revision</h3>
+<ul>
+<li>Peer review from colleagues</li>
+<li>AI-assisted content improvement</li>
+<li>Technical accuracy verification</li>
+</ul>
+<h3 id="week-7-final-preparation">Week 7: Final Preparation</h3>
+<ul>
+<li>LaTeX formatting and compilation testing</li>
+<li>Final proofreading and consistency checks</li>
+<li>Submission file preparation</li>
+</ul>
+<h3 id="week-8-submission-and-launch">Week 8: Submission and Launch</h3>
+<ul>
+<li>arXiv submission and approval process</li>
+<li>Promotion and community outreach</li>
+<li>Monitor for feedback and engagement</li>
+</ul>
+<h2 id="ai-tools-summary">AI Tools Summary</h2>
+<h3 id="reference-generation">Reference Generation</h3>
+<ul>
+<li><strong>Semantic Scholar</strong>: Automated paper discovery and BibTeX export</li>
+<li><strong>ResearchRabbit</strong>: Visual citation networks and related work discovery</li>
+<li><strong>Elicit</strong>: AI-powered research question exploration and paper summarization</li>
+</ul>
+<h3 id="writing-assistance">Writing Assistance</h3>
+<ul>
+<li><strong>Claude/ChatGPT</strong>: Content generation, editing, and improvement suggestions</li>
+<li><strong>Grammarly</strong>: Grammar checking and style improvements</li>
+<li><strong>DeepL Write</strong>: Alternative grammar and clarity checking</li>
+</ul>
+<h3 id="technical-tools">Technical Tools</h3>
+<ul>
+<li><strong>GitHub Copilot</strong>: Code documentation and example generation</li>
+<li><strong>Zotero</strong>: Reference management with AI-powered organization</li>
+<li><strong>Overleaf</strong>: Collaborative LaTeX editing with real-time compilation</li>
+</ul>
+<p>This comprehensive approach will help you create a high-quality, well-researched paper that effectively communicates the value and impact of MicroSims to the academic community.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../describing-a-microsim/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MicroSim Metadata">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                MicroSim Metadata
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../references/" class="md-footer__link md-footer__link--next" aria-label="Next: References">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                References
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
