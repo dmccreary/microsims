@@ -28,4 +28,6 @@ Read the sound from the computer microphone and display a chart of the frequency
 
 ## Graph Search
 
-[Graph Search](../sims/graph-search/index.md)
+Show the difference between breath-first search in a graph and depth-first search.
+
+[Graph Search BFS vs. DFS](../sims/bfs-vs-dfs/index.md)
