@@ -26,7 +26,7 @@
     
     
       
-        <title>Microphone Frequency Visualization - Micro Simulations for Education</title>
+        <title>Microphone Frequency Visualization with FFT - Micro Simulations for Education</title>
       
     
     
@@ -70,7 +70,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Microphone Frequency Visualization - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Microphone Frequency Visualization with FFT - Micro Simulations for Education" >
       
         <meta  property="og:description"  content="A MicroSim that shows the frequency spectrum of sound coming in from a microphone using the p5.js fft library." >
       
@@ -86,7 +86,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Microphone Frequency Visualization - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Microphone Frequency Visualization with FFT - Micro Simulations for Education" >
       
         <meta  name="twitter:description"  content="A MicroSim that shows the frequency spectrum of sound coming in from a microphone using the p5.js fft library." >
       
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#microphone-frequency-visualization" class="md-skip">
+        <a href="#microphone-frequency-visualization-with-fft" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Microphone Frequency Visualization
+              Microphone Frequency Visualization with FFT
             
           </span>
         </div>
@@ -218,6 +218,8 @@
         <div class="md-main__inner md-grid">
           
             
+              
+                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -2797,7 +2799,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2865,23 +2869,23 @@
   
 
 
-<h1 id="microphone-frequency-visualization">Microphone Frequency Visualization</h1>
+<h1 id="microphone-frequency-visualization-with-fft">Microphone Frequency Visualization with FFT</h1>
 <iframe src="main.html" height="450px" scrolling="no"></iframe>
 
-<!--
-![Image Name](./image.png){ width="400" }
--->
-
-<p><a class="md-button md-button--primary" href="main.html">Run the MicroSim</a>
-<a href="https://editor.p5js.org/dmccreary/sketches/89df6y1OK">Edit this MicroSim</a></p>
+<p><a class="md-button md-button--primary" href="main.html">Run the Microphone Frequency Visualization with FFT MicroSim Fullscreen</a>
+<a href="https://editor.p5js.org/dmccreary/sketches/89df6y1OK">Edit Microphone Frequency Visualization with FFT MicroSim with the p5.js Editor</a></p>
 <h2 id="sample-iframe">Sample iframe</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/name/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;400&quot;</span>  <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<p>You can add this MicroSim to your course website by adding the following HTML element:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/fft-mic/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;450px&quot;</span>  <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p><a href="https://editor.p5js.org/dmccreary/sketches/ZYGLml9Fs">P5JS Editor </a></p>
 <p>Here is a FFT Microphone Visualizer MicroSim that follows the standard responsive design template. Here are the key features:</p>
 <h2 id="key-features">Key Features</h2>
 <p><strong>Audio Analysis</strong>: Uses p5.js AudioIn and FFT objects to capture and analyze microphone input in real-time, displaying frequency spectrum data as colorful bars.</p>
-<p><strong>Start/Stop Control</strong>: Native button in the control region that allows users to start/stop audio recording without clearing the display - when stopped, the last spectrum remains visible.</p>
+<p><strong>Start/Stop Control</strong>: </p>
+<ol>
+<li>A "Start" button in the control region that allows users to start/stop audio recording without clearing the display - when stopped, the last spectrum remains visible.</li>
+<li>Max Frequency Slider - allows you to set the highest frequency displayed</li>
+</ol>
 <p><strong>Responsive Design</strong>: Follows the standard MicroSim layout with separate drawing and control regions that adapt to different screen sizes.</p>
 <p><strong>Visual Feedback</strong>:</p>
 <ul>
@@ -2920,6 +2924,8 @@
   
 
 
+  
+
 
 
                 
@@ -2941,6 +2947,8 @@
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
