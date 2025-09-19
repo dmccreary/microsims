@@ -1,39 +1,39 @@
 ---
-title: Microphone Frequency Visualization
+title: Microphone Frequency Visualization with FFT
 description: A MicroSim that shows the frequency spectrum of sound coming in from a microphone using the p5.js fft library.
 image: /sims/fft-mic/fft-mic.png
 og:image: /sims/fft-mic/fft-mic.png
 twitter:image: /sims/fft-mic/fft-mic.png
 social:
    cards: false
+hide:
+   toc
 ---
-# Microphone Frequency Visualization
+# Microphone Frequency Visualization with FFT
 
 <iframe src="main.html" height="450px" scrolling="no"></iframe>
 
-<!--
-![Image Name](./image.png){ width="400" }
--->
-
-[Run the MicroSim](main.html){ .md-button .md-button--primary }
-[Edit this MicroSim](https://editor.p5js.org/dmccreary/sketches/89df6y1OK)
+[Run the Microphone Frequency Visualization with FFT MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
+[Edit Microphone Frequency Visualization with FFT MicroSim with the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/89df6y1OK)
 
 ## Sample iframe
 
-```html
-<iframe src="https://dmccreary.github.io/microsims/sims/name/main.html" height="400"  scrolling="no"></iframe>
-```
+You can add this MicroSim to your course website by adding the following HTML element:
 
-[P5JS Editor ](https://editor.p5js.org/dmccreary/sketches/ZYGLml9Fs)
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/fft-mic/main.html" height="450px"  scrolling="no"></iframe>
+```
 
 Here is a FFT Microphone Visualizer MicroSim that follows the standard responsive design template. Here are the key features:
 
-Key Features
-------------
+## Key Features
 
 **Audio Analysis**: Uses p5.js AudioIn and FFT objects to capture and analyze microphone input in real-time, displaying frequency spectrum data as colorful bars.
 
-**Start/Stop Control**: Native button in the control region that allows users to start/stop audio recording without clearing the display - when stopped, the last spectrum remains visible.
+**Start/Stop Control**: 
+
+1. A "Start" button in the control region that allows users to start/stop audio recording without clearing the display - when stopped, the last spectrum remains visible.
+2. Max Frequency Slider - allows you to set the highest frequency displayed
 
 **Responsive Design**: Follows the standard MicroSim layout with separate drawing and control regions that adapt to different screen sizes.
 
@@ -51,8 +51,8 @@ Key Features
 -   Harmonic content in different sounds
 -   Real-time data visualization
 
-Usage Instructions
-------------------
+## Usage Instructions
+
 
 1.  Click "Start" to begin microphone input (browser will request permission)
 2.  Make sounds near the microphone to see the frequency spectrum
