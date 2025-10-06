@@ -113,13 +113,14 @@ Evaluating a simulation or interface by testing it with real users for feedback.
 
 Designing interactive digital products with logical and thought-out behaviors.
 
-### URLlib
+#### URLlib
 
 The Python library we use to generate social cards.
 
 We use urllib3=1.26.6
 
 #### WebGL
+
 We Graphics Language (WebGL) is the name of the standard list of commands for drawing within web browsers.
 
 This glossary aims to provide a foundational understanding for effectively using the p5.js framework in creating high-quality simulations and user interfaces.
