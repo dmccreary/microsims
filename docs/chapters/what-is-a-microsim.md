@@ -7,7 +7,7 @@ MicroSims are characterized by the following key properties:
 ## Key Attributes of a MicroSim
 
 ### Technical Architecture
-MicroSims are implemented as self-contained web applications, typically using JavaScript frameworks such as p5.js, that require no external dependencies or server-side infrastructure. They follow a standardized width responsive design pattern with distinct regions for visualization (drawing area) and user controls (interaction area).  The
+MicroSims are implemented as self-contained web applications, typically using [JavaScript](../glossary.md#javascript) [frameworks](../glossary.md#framework) such as [p5.js](../glossary.md#p5js), that require no external dependencies or [server](../glossary.md#server)-side infrastructure. They follow a standardized width responsive design pattern with distinct regions for visualization (drawing area) and user controls (interaction area).  The
 layout of MicroSims can be expressed in a rules file that is used by generative AI systems.
 
 ### Educational Purpose
@@ -23,8 +23,8 @@ The simulations are engineered for modification and extension by non-technical u
 MicroSims generate structured event streams capturing user interactions, parameter adjustments, and exploration patterns. These data streams can be analyzed to assess learning progress and provide feedback to adaptive educational systems, including intelligent textbooks that employ reinforcement learning to optimize the learning experience.
 
 ### Scalability and Distribution
-Being browser-based and dependency-free, MicroSims can be easily distributed, embedded in various learning management systems, and accessed across different devices and platforms without installation requirements.  Our goal
-is to allow a MicroSim to be placed on any web page using a single HTML `iframe` element.
+Being [browser](../glossary.md#browser)-based and dependency-free, MicroSims can be easily distributed, embedded in various [learning management systems](../glossary.md#lms), and accessed across different devices and platforms without installation requirements.  Our goal
+is to allow a MicroSim to be placed on any web page using a single [HTML](../glossary.md#html) `iframe` element.
 
 ## What MicroSims Are Not
 
@@ -37,11 +37,11 @@ such as "Start" and "Pause" a simulation.  Monitoring who clicks these controls 
 of intelligent textbooks.
 
 ### Technology-Agnostic Implementation
-MicroSims are not bound to any specific JavaScript library or framework. While our implementation examples utilize p5.js for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, D3.js, Three.js, or any other web-based rendering technology that meets the functional requirements.
+MicroSims are not bound to any specific [JavaScript](../glossary.md#javascript) [library](../glossary.md#library) or [framework](../glossary.md#framework). While our implementation examples utilize [p5.js](../glossary.md#p5js) for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, D3.js, Three.js, or any other web-based rendering technology that meets the functional requirements.
 
 ### Not Legacy Standards Compliance
 
-MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  Note that because MicroSims 
+MicroSims do not adhere to traditional e-learning standards such as [SCORM](../glossary.md#scorm) (Sharable Content Object Reference Model), AICC (Aviation Industry Computer-Based Training Committee). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims.  Note that because MicroSims 
 all have interactive controls, they can be designed to easily work with xAPI standards but these standards are not required.  Generative AI can be used to automatically add xAPI calls to the controls area of a MicroSim.
 
 ### Not Comprehensive Simulation Environments
@@ -49,12 +49,12 @@ MicroSims are not intended to replace complex, full-featured simulation platform
 
 ## Metadata Strategy
 
-MicroSims do leverage established metadata standards where appropriate. They incorporate Dublin Core metadata elements for resource description, enabling proper cataloging, discovery, and interoperability within educational repositories and learning management systems.
+MicroSims do leverage established [metadata](../glossary.md#metadata) standards where appropriate. They incorporate [Dublin Core](../glossary.md#dublin-core) [metadata](../glossary.md#metadata) elements for resource description, enabling proper cataloging, discovery, and interoperability within educational [repositories](../glossary.md#repository) and learning management systems.
 
 ### Platform-Specific Applications
 Unlike native mobile applications or desktop software, MicroSims are not tied to specific operating systems or device types. They maintain platform independence through adherence to web standards and responsive design principles.
 
 ### Server-Dependent Systems
-MicroSims do not require server-side processing, databases, or cloud infrastructure for their core functionality. While they may optionally integrate with learning analytics platforms, their primary operation remains entirely client-side.
+MicroSims do not require [server](../glossary.md#server)-side processing, [databases](../glossary.md#database), or cloud infrastructure for their core functionality. While they may optionally integrate with learning analytics platforms, their primary operation remains entirely client-side.
 
 This definition establishes MicroSims as a distinct category of educational technology that bridges the gap between static educational content and complex simulation environments, providing an optimal balance of interactivity, accessibility, and pedagogical effectiveness.

@@ -1,6 +1,6 @@
 # Setting up a System Prompt
 
-With ChatGPT you can set up a single **system prompt** for generating p5.js MicroSims.  The text is
+With ChatGPT you can set up a single **system prompt** for generating [p5.js](../glossary.md#p5js) MicroSims.  The text is
 automatically inserted before your prompt.
 
 ## System Prompte for a 2D p5.js
@@ -8,8 +8,8 @@ automatically inserted before your prompt.
 Here is a sample systems prompt for a 2D simulation.
 
 ```linenums="0"
-1. Generate a single file p5.js sketch for a 2D animation.
-2. Do not generate any html files.
+1. Generate a single file [p5.js](../glossary.md#p5js) sketch for a 2D animation.
+2. Do not generate any [HTML](../glossary.md#html) files.
 3. Set the width and height of the canvas as global variables before the setup.
 4. Use a default text of 16 by placing the textSize(16) in the setup.
 5. Use a background fill of 245 (light gray) for the drawing area.
@@ -21,7 +21,7 @@ Here is a sample systems prompt for a 2D simulation.
 the margin for the lable and value.
 11. Place all the sliders at the bottom of the canvas.
 12. Align the sliders vertically.
-13. Always return the result as a single JavaScript file.
+13. Always return the result as a single [JavaScript](../glossary.md#javascript) file.
 
 Use the following template:
 
@@ -37,8 +37,8 @@ function draw {
 
 ```linenums="0"
 
-1. Generate a single file p5.js sketch for a 3D animation.
-2. Use the ```WEBGL``` as the third parameter of the createCanvas.
+1. Generate a single file [p5.js](../glossary.md#p5js) sketch for a 3D animation.
+2. Use the ```[WebGL](../glossary.md#webgl)``` as the third parameter of the createCanvas.
 
 function setup() {
   createCanvas(710, 400, WEBGL);
