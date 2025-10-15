@@ -11,3 +11,7 @@
 1. [Reddit Processing](https://www.reddit.com/r/processing/)
 1. [Customizing Buttons and Sliders by TuDelft](http://wiki.bk.tudelft.nl/toi-pedia/Processing_Buttons_and_Sliders)
 1. [Processing by TuDelft](http://wiki.bk.tudelft.nl/toi-pedia/Processing)
+
+## Val Lockhart's MicroSims
+
+[Val Lockhart's Sketches on p5.js](https://editor.p5js.org/valockhart/sketches)
