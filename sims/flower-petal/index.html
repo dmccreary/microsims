@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="A MicroSim for designing flowers.">
       
       
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/555-timer/">
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/flower-petal/">
       
       
-        <link rel="prev" href="../ac-circuit/">
+        <link rel="prev" href="../fibonacci-clock/">
       
       
-        <link rel="next" href="../breadboard/">
+        <link rel="next" href="../fft-mic/">
       
       
       <link rel="icon" href="../../img/favicon.ico">
@@ -26,7 +26,7 @@
     
     
       
-        <title>555 Timer - Micro Simulations for Education</title>
+        <title>Flower Petal Designer - Micro Simulations for Education</title>
       
     
     
@@ -70,11 +70,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="555 Timer - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Flower Petal Designer - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="A MicroSim for designing flowers." >
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/sims/555-timer/index.png" >
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/sims/flower-petal/index.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -82,15 +82,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/sims/555-timer/" >
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/sims/flower-petal/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="555 Timer - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Flower Petal Designer - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="A MicroSim for designing flowers." >
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/sims/555-timer/index.png" >
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/sims/flower-petal/index.png" >
       
     
     
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#555-timer" class="md-skip">
+        <a href="#flower-petal-designer" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              555 Timer
+              Flower Petal Designer
             
           </span>
         </div>
@@ -1427,10 +1427,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../flower-petal/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Flower Petal Designer
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1439,6 +1459,188 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample iframe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controls
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometric-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geometric Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Controls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematics-grades-6-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematics (Grades 6-12)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#art-design-grades-4-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Art &amp; Design (Grades 4-12)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computer-science-grades-8-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computer Science (Grades 8-12)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggested-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips-for-best-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Best Results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Notes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1868,30 +2070,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    555 Timer
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../555-timer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1900,53 +2082,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prompt
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Response
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      References
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2841,29 +2976,164 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prompt" class="md-nav__link">
+  <a href="#sample-iframe" class="md-nav__link">
     <span class="md-ellipsis">
-      Prompt
+      Sample iframe
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
+  <a href="#user-guide" class="md-nav__link">
     <span class="md-ellipsis">
-      Response
+      User Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
     <span class="md-ellipsis">
-      References
+      Controls
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Controls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geometric-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geometric Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Controls
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Feedback
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#educational-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematics-grades-6-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematics (Grades 6-12)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#art-design-grades-4-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Art &amp; Design (Grades 4-12)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computer-science-grades-8-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computer Science (Grades 8-12)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suggested-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips-for-best-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Best Results
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#technical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Notes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Concepts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2882,7 +3152,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/microsims/edit/master/docs/sims/555-timer/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/sims/flower-petal/index.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2890,180 +3160,138 @@
   
 
 
-<h1 id="555-timer">555 Timer</h1>
-<figure>
-<p><img alt="" src="555-timer.png" width="400" />
-   </p>
-<figcaption>555 Timer MicroSim</figcaption>
-</figure>
-<p><a class="md-button md-button--primary" href="555-timer.html">Run the 555 Timer MicroSim</a></p>
-<p><a href="https://editor.p5js.org/dmccreary/sketches/mccfRwlmJ">Edit the 555 Timer MicroSim</a></p>
-<p>The 555 timer IC is an integrated circuit used in a variety of timer, delay, pulse generation, and oscillator applications. It is one of the most popular timing ICs due to its flexibility and price.</p>
-<h2 id="prompt">Prompt</h2>
-<div class="highlight"><pre><span></span><code>Create a single file p5.js simulation of a 555 timer in monostable mode.
-Add sliders for resistance and capacitance.
-Make the canvas be 400x250.
-Make the text size be 16.
-Draw a waveform and an LED that flashes.
-Place the sliders at the bottom of the canvas in the bottom 50 pixels.
-Add labels and values to the left of the sliders.  
-</code></pre></div>
-<h2 id="response">Response</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>This code will create an interactive simulation where you can adjust the resistance and capacitance values using sliders and see the effect on the LED flash rate and the waveform displayed. The LED and waveform visually represent the timer&#39;s operation in monostable mode.
+<h1 id="flower-petal-designer">Flower Petal Designer</h1>
+<iframe src="main.html" height="610px" scrolling="no"></iframe>
+
+<!--
+![Image Name](./image.png){ width="400" }
+-->
+
+<p><a class="md-button md-button--primary" href="main.html">Run the MicroSim</a>
+<a href="https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4">Edit this MicroSim</a></p>
+<h2 id="sample-iframe">Sample iframe</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/name/main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;610px&quot;</span>  <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">resistanceSlider</span><span class="p">,</span><span class="w"> </span><span class="nx">capacitanceSlider</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">ledState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">lastTriggerTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">waveform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">450</span><span class="p">;</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">12</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Sliders</span>
-<span class="w">  </span><span class="nx">resistanceSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">resistanceSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">capacitanceSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">capacitanceSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Draw the waveform</span>
-<span class="w">  </span><span class="nx">drawWaveform</span><span class="p">();</span>
-
-<span class="w">  </span><span class="c1">// Update and draw LED</span>
-<span class="w">  </span><span class="nx">updateLED</span><span class="p">();</span>
-<span class="w">  </span><span class="nx">drawLED</span><span class="p">();</span>
-
-<span class="w">  </span><span class="c1">// Draw slider labels and values</span>
-<span class="w">  </span><span class="nx">drawLabelsAndValues</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">drawWaveform</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">noFill</span><span class="p">();</span>
-<span class="w">  </span><span class="nx">beginShape</span><span class="p">();</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">waveform</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">waveform</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">);</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">(</span><span class="nx">waveform</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
-<span class="w">    </span><span class="nx">vertex</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="nx">endShape</span><span class="p">();</span>
-
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">frameCount</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">waveform</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ledState</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">waveform</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">width</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">waveform</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">updateLED</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">millis</span><span class="p">();</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">thresholdTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lastTriggerTime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">resistanceSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">capacitanceSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">currentTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">thresholdTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">ledState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">ledState</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">lastTriggerTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTime</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">drawLED</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="nx">ledState</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">color</span><span class="p">(</span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">color</span><span class="p">(</span><span class="mf">128</span><span class="p">));</span>
-<span class="w">  </span><span class="nx">ellipse</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">drawLabelsAndValues</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Resistance: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">resistanceSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; Ω&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Capacitance: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">capacitanceSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; µF&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// Add this function to handle window resizing</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="references">References</h2>
+<h2 id="user-guide">User Guide</h2>
+<h3 id="overview">Overview</h3>
+<p>The Flower Petal Designer is an interactive MicroSim that allows you to create custom flower designs by adjusting geometric parameters and colors. This educational tool demonstrates the mathematical principles behind creating organic shapes using quadratic Bézier curves and helps students understand how simple geometric transformations can create complex, natural-looking patterns.</p>
+<h3 id="controls">Controls</h3>
+<p>The simulator provides six interactive sliders that control different aspects of your flower design:</p>
+<h4 id="geometric-controls">Geometric Controls</h4>
+<p><strong>Number of Petals (3-20)</strong>
+- Controls how many petals are arranged radially around the flower's center
+- Default: 6 petals
+- Lower values create simpler flowers (like trilliums)
+- Higher values create more complex, daisy-like flowers
+- Each petal is rotated by 360°/n where n is the number of petals</p>
+<p><strong>Petal Length (20-200)</strong>
+- Controls how far the tip of each petal extends from the center
+- Default: 130 pixels
+- Shorter lengths create compact, button-like flowers
+- Longer lengths create elongated, dramatic petals
+- Also affects the size of the center circle (40% of petal length)</p>
+<p><strong>Control Point X (0-150)</strong>
+- Controls the horizontal curviness of the petal edges
+- Default: 40
+- Value of 0 creates straight, triangular petals
+- Higher values create wider, more rounded petals
+- This is the x-coordinate of the quadratic Bézier curve control point</p>
+<p><strong>Control Point Y (0-200)</strong>
+- Controls the vertical depth and shape of the petal curve
+- Default: 75
+- Lower values create shallow curves near the base
+- Higher values create deeper curves extending toward the tip
+- This is the y-coordinate of the quadratic Bézier curve control point</p>
+<h4 id="color-controls">Color Controls</h4>
+<p><strong>Petal Color (Hue: 0-360)</strong>
+- Controls the hue (color) of the flower petals
+- Default: 300° (magenta/purple)
+- Uses HSB color model where 0° = Red, 120° = Green, 240° = Blue
+- Popular flower colors:
+    - Red/Pink: 0-30°
+    - Orange: 30-60°
+    - Yellow: 60-90°
+    - Blue: 180-240°
+    - Purple: 270-330°
+- Saturation: 75%, Brightness: 85% (fixed for vibrant petals)</p>
+<p><strong>Center Color (Hue: 0-360)</strong>
+- Controls the hue of the flower's center circle
+- Default: 60° (yellow)
+- Same hue range as petal color (0-360°)
+- Saturation: 60%, Brightness: 95% (fixed for lighter center)
+- Creates realistic contrast between petals and center</p>
+<h3 id="visual-feedback">Visual Feedback</h3>
+<p>The simulation displays several visual elements to help you understand the geometry:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/555_timer_IC">555 timer IC on Wikipedia</a></li>
-<li><a href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-555-timer">Digikey 555-timer Calculator</a></li>
-<li><a href="https://www.falstad.com/circuit/circuitjs.html">555 Circuit Simulator on Falstad</a> - this allows you to change the resistor and capacitor in a simulator and it will show you the frequency of a signal.</li>
+<li><strong>Control Points</strong>: Small black circles show the position of the Bézier curve control points</li>
+<li><strong>Guide Lines</strong>: Thin black lines connect the center, control points, and petal tips</li>
+<li><strong>Center Circle</strong>: A contrasting center circle that scales with petal length</li>
+<li><strong>Code Display</strong>: At the bottom, see the function call that would generate your current flower design</li>
+</ul>
+<h3 id="how-it-works">How It Works</h3>
+<p>The Flower Petal Designer uses <strong>quadratic Bézier curves</strong> to create each petal:</p>
+<ol>
+<li>Each petal starts at the center (0, 0)</li>
+<li>The curve extends to the petal tip (0, petalLength)</li>
+<li>The control point (ctrlX, ctrlY) determines the curve's shape</li>
+<li>A second curve mirrors back to create a symmetrical petal</li>
+<li>The entire petal shape is rotated around the center for each petal count</li>
+</ol>
+<p><strong>Mathematical Formula:</strong>
+For a flower with n petals, each petal is rotated by an angle of 360°/n degrees using p5.js's <code>rotate()</code> function in DEGREES mode.</p>
+<h3 id="educational-applications">Educational Applications</h3>
+<h4 id="mathematics-grades-6-12">Mathematics (Grades 6-12)</h4>
+<ul>
+<li><strong>Geometry</strong>: Understand rotation, symmetry, and radial patterns</li>
+<li><strong>Trigonometry</strong>: See how angles divide a circle (360°/n)</li>
+<li><strong>Algebra</strong>: Explore coordinate systems and Bézier curve equations</li>
+<li><strong>Functions</strong>: Observe how parameter changes affect outputs</li>
+</ul>
+<h4 id="art-design-grades-4-12">Art &amp; Design (Grades 4-12)</h4>
+<ul>
+<li><strong>Color Theory</strong>: Experiment with the HSB color model</li>
+<li><strong>Pattern Design</strong>: Create repeating radial patterns</li>
+<li><strong>Digital Art</strong>: Understand how computer graphics create organic shapes</li>
+<li><strong>Botanical Drawing</strong>: Study the structure of actual flowers</li>
+</ul>
+<h4 id="computer-science-grades-8-12">Computer Science (Grades 8-12)</h4>
+<ul>
+<li><strong>Parametric Design</strong>: See how parameters control complex shapes</li>
+<li><strong>Graphics Programming</strong>: Understand coordinate transformations</li>
+<li><strong>Functions</strong>: Observe how one function can be called with different parameters</li>
+<li><strong>Iterative Processes</strong>: See how loops create repetition</li>
+</ul>
+<h3 id="suggested-activities">Suggested Activities</h3>
+<ol>
+<li><strong>Flower Species Study</strong>: Try to recreate real flowers (roses, daisies, sunflowers) by adjusting parameters</li>
+<li><strong>Color Harmony</strong>: Explore complementary colors (opposite on color wheel: 180° apart)</li>
+<li><strong>Pattern Analysis</strong>: Keep petal count constant and vary control points to see shape changes</li>
+<li><strong>Code Challenge</strong>: Use the displayed code to recreate your flower in the p5.js editor</li>
+<li><strong>Math Connection</strong>: Calculate the rotation angle for different petal counts (360°/n)</li>
+<li><strong>Design Challenge</strong>: Create the most symmetrical, beautiful, or unusual flower you can</li>
+</ol>
+<h3 id="tips-for-best-results">Tips for Best Results</h3>
+<ul>
+<li><strong>Realistic Flowers</strong>: Use 5-8 petals with moderate control points (30-60)</li>
+<li><strong>Abstract Designs</strong>: Use high petal counts (15-20) with extreme control points</li>
+<li><strong>Contrast</strong>: Choose colors that are at least 60° apart on the color wheel</li>
+<li><strong>Symmetry</strong>: The simulation automatically ensures perfect radial symmetry</li>
+<li><strong>Experimentation</strong>: Try extreme values - you might discover unexpected beautiful patterns!</li>
+</ul>
+<h3 id="technical-notes">Technical Notes</h3>
+<ul>
+<li>The simulation uses p5.js's <code>quadraticVertex()</code> function to create smooth curves</li>
+<li>Colors are generated using HSB (Hue, Saturation, Brightness) color mode for intuitive color selection</li>
+<li>The canvas is fully responsive and will adapt to your screen width</li>
+<li>All geometric calculations are performed in real-time as you adjust sliders</li>
+</ul>
+<h3 id="related-concepts">Related Concepts</h3>
+<ul>
+<li><strong>Bézier Curves</strong>: Mathematical curves used in computer graphics and vector art</li>
+<li><strong>Radial Symmetry</strong>: A type of symmetry found in nature (flowers, starfish, snowflakes)</li>
+<li><strong>HSB Color Model</strong>: An alternative to RGB that's more intuitive for color selection</li>
+<li><strong>Parametric Design</strong>: Using parameters to control the generation of forms</li>
+<li><strong>Rotational Transformations</strong>: Mathematical operations that rotate objects around a point</li>
 </ul>
 
 
@@ -3105,7 +3333,7 @@ Add labels and values to the left of the sliders.
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ac-circuit/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AC Circuit">
+          <a href="../fibonacci-clock/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fibonacci Clock">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3115,20 +3343,20 @@ Add labels and values to the left of the sliders.
                 Previous
               </span>
               <div class="md-ellipsis">
-                AC Circuit
+                Fibonacci Clock
               </div>
             </div>
           </a>
         
         
           
-          <a href="../breadboard/" class="md-footer__link md-footer__link--next" aria-label="Next: Breadboard">
+          <a href="../fft-mic/" class="md-footer__link md-footer__link--next" aria-label="Next: Microphone Frequency Spectrum">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Breadboard
+                Microphone Frequency Spectrum
               </div>
             </div>
             <div class="md-footer__button md-icon">
