@@ -1,6 +1,13 @@
+---
+title: Title
+description: Description.
+image: /sims/name/name.png
+og:image: /sims/name/name.png
+twitter:image: /sims/name/name.png
+social:
+   cards: false
+---
 # MicroSim Template
-
-<iframe src="main.html" height="400"></iframe>
 
 <iframe src="main.html" height="400px" scrolling="no"></iframe>
 

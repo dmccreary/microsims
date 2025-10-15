@@ -1,55 +1,465 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "MicroSim": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "type": "string"
-          },
-          "Description": {
-            "type": "string"
-          },
-          "SubjectArea": {
-            "type": "string"
-          },
-          "Topic": {
-            "type": "string"
-          },
-          "Parameters": {
-            "type": "array",
-            "items": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Educational MicroSim Metadata Schema",
+  "description": "A comprehensive schema for describing Educational MicroSims with Dublin Core metadata and technical specifications",
+  "type": "object",
+  "properties": {
+    "microsim": {
+      "type": "object",
+      "properties": {
+        "dublinCore": {
+          "type": "object",
+          "description": "Dublin Core metadata elements for resource description and discovery",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "The name of the MicroSim"
+            },
+            "creator": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Entity primarily responsible for making the resource (author, developer, AI model)"
+            },
+            "subject": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Topic keywords, subject areas, or classification codes"
+            },
+            "description": {
+              "type": "string",
+              "description": "Account of the resource content and educational purpose"
+            },
+            "publisher": {
+              "type": "string",
+              "description": "Entity responsible for making the resource available"
+            },
+            "contributor": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Entities who contributed to the resource (reviewers, editors, etc.)"
+            },
+            "date": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Date of creation or publication in ISO 8601 format"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["Interactive Simulation", "Educational MicroSim"],
+              "description": "Nature or genre of the resource"
+            },
+            "format": {
+              "type": "string",
+              "enum": ["text/javascript", "application/javascript", "text/html"],
+              "description": "File format or physical medium"
+            },
+            "identifier": {
+              "type": "string",
+              "description": "Unambiguous reference to the resource (DOI, URI, etc.)"
+            },
+            "source": {
+              "type": "string",
+              "description": "Resource from which the MicroSim is derived"
+            },
+            "language": {
+              "type": "string",
+              "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+              "description": "Language of the resource (ISO 639-1 code)"
+            },
+            "relation": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Reference to related resources (curriculum standards, textbooks, etc.)"
+            },
+            "coverage": {
               "type": "object",
               "properties": {
-                "Label": {"type": "string"},
-                "Min": {"type": "number"},
-                "Max": {"type": "number"},
-                "Default": {"type": "number"},
-                "Increment": {"type": "number"}
-              },
-              "required": ["Label", "Min", "Max", "Default", "Increment"]
+                "spatial": {"type": "string", "description": "Geographic coverage"},
+                "temporal": {"type": "string", "description": "Time period coverage"}
+              }
+            },
+            "rights": {
+              "type": "string",
+              "description": "Rights held in and over the resource (license, copyright)"
             }
           },
-          "GradeLevel": {
-            "type": "string"
-          },
-          "LessonPlans": {
-            "type": "array",
-            "items": {
+          "required": ["title", "creator", "subject", "description", "date", "type", "format", "language", "rights"]
+        },
+        "educational": {
+          "type": "object",
+          "description": "Educational metadata specific to learning applications",
+          "properties": {
+            "gradeLevel": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["K", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "Undergraduate", "Graduate", "Adult"]
+              },
+              "description": "Target grade levels or educational stages"
+            },
+            "subjectArea": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["Mathematics", "Science", "Physics", "Chemistry", "Biology", "Computer Science", "Engineering", "Economics", "Finance", "Statistics", "Psychology", "Social Studies", "Language Arts", "Art", "Music", "Health", "Physical Education", "Other"]
+              },
+              "description": "Primary subject areas addressed"
+            },
+            "topic": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Specific topics or concepts covered"
+            },
+            "learningObjectives": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Specific learning objectives or outcomes"
+            },
+            "bloomsTaxonomy": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"]
+              },
+              "description": "Bloom's taxonomy levels addressed"
+            },
+            "prerequisites": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Required prior knowledge or skills"
+            },
+            "duration": {
               "type": "object",
               "properties": {
-                "Title": {"type": "string"},
-                "Description": {"type": "string"}
-                // Add additional properties for lesson plans if needed
+                "typical": {"type": "integer", "description": "Typical interaction time in minutes"},
+                "range": {
+                  "type": "object",
+                  "properties": {
+                    "min": {"type": "integer"},
+                    "max": {"type": "integer"}
+                  }
+                }
+              }
+            },
+            "difficulty": {
+              "type": "string",
+              "enum": ["Beginner", "Intermediate", "Advanced"],
+              "description": "Cognitive difficulty level"
+            },
+            "curriculumStandards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "framework": {"type": "string", "description": "Standards framework (e.g., CCSS, NGSS, ISTE)"},
+                  "identifier": {"type": "string", "description": "Specific standard identifier"},
+                  "description": {"type": "string", "description": "Standard description"}
+                }
+              }
+            }
+          },
+          "required": ["gradeLevel", "subjectArea", "topic", "learningObjectives"]
+        },
+        "technical": {
+          "type": "object",
+          "description": "Technical specifications and requirements",
+          "properties": {
+            "framework": {
+              "type": "string",
+              "enum": ["p5.js", "vanilla-js", "d3.js", "three.js", "other"],
+              "description": "JavaScript framework or library used"
+            },
+            "version": {
+              "type": "string",
+              "description": "Version number of the MicroSim"
+            },
+            "canvasDimensions": {
+              "type": "object",
+              "properties": {
+                "width": {"type": "integer", "description": "Canvas width in pixels"},
+                "height": {"type": "integer", "description": "Canvas height in pixels"},
+                "responsive": {"type": "boolean", "description": "Whether dimensions are responsive"}
               },
-              "required": ["Title", "Description"]
+              "required": ["width", "height", "responsive"]
+            },
+            "regions": {
+              "type": "object",
+              "properties": {
+                "drawHeight": {"type": "integer", "description": "Height of drawing region in pixels"},
+                "controlHeight": {"type": "integer", "description": "Height of control region in pixels"}
+              }
+            },
+            "dependencies": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "External dependencies or libraries required"
+            },
+            "browserCompatibility": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Supported browser versions"
+            },
+            "accessibility": {
+              "type": "object",
+              "properties": {
+                "screenReader": {"type": "boolean", "description": "Screen reader compatible"},
+                "keyboardNavigation": {"type": "boolean", "description": "Keyboard navigation support"},
+                "colorContrast": {"type": "boolean", "description": "Adequate color contrast"},
+                "altText": {"type": "boolean", "description": "Alternative text for visual elements"}
+              }
+            }
+          },
+          "required": ["framework", "canvasDimensions"]
+        },
+        "userInterface": {
+          "type": "object",
+          "description": "User interface elements and controls",
+          "properties": {
+            "controls": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {"type": "string", "description": "Unique identifier for the control"},
+                  "type": {
+                    "type": "string",
+                    "enum": ["slider", "button", "checkbox", "radio", "dropdown", "text-input", "color-picker"],
+                    "description": "Type of UI control"
+                  },
+                  "label": {"type": "string", "description": "Display label for the control"},
+                  "description": {"type": "string", "description": "Purpose and function of the control"},
+                  "position": {
+                    "type": "object",
+                    "properties": {
+                      "x": {"type": "integer"},
+                      "y": {"type": "integer"}
+                    }
+                  },
+                  "properties": {
+                    "type": "object",
+                    "description": "Control-specific properties",
+                    "oneOf": [
+                      {
+                        "properties": {
+                          "min": {"type": "number", "description": "Minimum value for slider"},
+                          "max": {"type": "number", "description": "Maximum value for slider"},
+                          "default": {"type": "number", "description": "Default value"},
+                          "step": {"type": "number", "description": "Step increment"},
+                          "units": {"type": "string", "description": "Units of measurement"}
+                        },
+                        "required": ["min", "max", "default"]
+                      },
+                      {
+                        "properties": {
+                          "text": {"type": "string", "description": "Button text"},
+                          "action": {"type": "string", "description": "Function called when clicked"}
+                        }
+                      },
+                      {
+                        "properties": {
+                          "checked": {"type": "boolean", "description": "Default checked state"},
+                          "value": {"type": "string", "description": "Value when checked"}
+                        }
+                      },
+                      {
+                        "properties": {
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "value": {"type": "string"},
+                                "label": {"type": "string"}
+                              }
+                            }
+                          },
+                          "default": {"type": "string"}
+                        }
+                      }
+                    ]
+                  }
+                },
+                "required": ["id", "type", "label", "properties"]
+              }
+            },
+            "visualElements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": ["chart", "graph", "animation", "diagram", "text-display", "shape", "image"]
+                  },
+                  "description": {"type": "string"},
+                  "interactive": {"type": "boolean", "description": "Whether element responds to user interaction"},
+                  "updateTriggers": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Control IDs that trigger updates to this element"
+                  }
+                }
+              }
+            }
+          },
+          "required": ["controls"]
+        },
+        "simulation": {
+          "type": "object",
+          "description": "Simulation model and behavior specifications",
+          "properties": {
+            "model": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["physics", "mathematical", "statistical", "algorithmic", "financial", "biological", "chemical", "other"]
+                },
+                "description": {"type": "string", "description": "Description of the underlying model"},
+                "equations": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Mathematical equations or formulas used"
+                },
+                "algorithms": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Algorithms or computational methods employed"
+                },
+                "assumptions": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Key assumptions made in the model"
+                },
+                "limitations": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Known limitations of the simulation"
+                }
+              }
+            },
+            "variables": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "type": {
+                    "type": "string",
+                    "enum": ["input", "output", "intermediate", "constant"]
+                  },
+                  "description": {"type": "string"},
+                  "dataType": {
+                    "type": "string",
+                    "enum": ["number", "integer", "boolean", "string", "array", "object"]
+                  },
+                  "units": {"type": "string"},
+                  "range": {
+                    "type": "object",
+                    "properties": {
+                      "min": {"type": "number"},
+                      "max": {"type": "number"}
+                    }
+                  }
+                }
+              }
+            },
+            "scenarios": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "description": {"type": "string"},
+                  "parameters": {"type": "object", "description": "Preset parameter values"}
+                }
+              }
             }
           }
         },
-        "required": ["Name", "Description", "SubjectArea", "Topic", "Parameters", "GradeLevel"]
-      }
-    },
-    "required": ["MicroSim"]
-  }
-  
+        "analytics": {
+          "type": "object",
+          "description": "Learning analytics and data collection specifications",
+          "properties": {
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string", "description": "Event name"},
+                  "description": {"type": "string", "description": "What triggers this event"},
+                  "data": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Data captured with this event"
+                  }
+                }
+              }
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "description": {"type": "string"},
+                  "calculation": {"type": "string", "description": "How the metric is calculated"}
+                }
+              }
+            },
+            "privacy": {
+              "type": "object",
+              "properties": {
+                "piiCollected": {"type": "boolean", "description": "Whether personally identifiable information is collected"},
+                "dataRetention": {"type": "string", "description": "Data retention policy"},
+                "anonymization": {"type": "boolean", "description": "Whether data is anonymized"}
+              }
+            }
+          }
+        },
+        "usage": {
+          "type": "object",
+          "description": "Usage patterns and pedagogical recommendations",
+          "properties": {
+            "recommendedUsage": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["demonstration", "exploration", "guided-practice", "assessment", "homework", "group-activity", "individual-study"]
+              }
+            },
+            "instructionalStrategies": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Recommended teaching strategies"
+            },
+            "assessmentQuestions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "question": {"type": "string"},
+                  "type": {
+                    "type": "string",
+                    "enum": ["multiple-choice", "short-answer", "essay", "observation", "prediction"]
+                  },
+                  "level": {
+                    "type": "string",
+                    "enum": ["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"]
+                  }
+                }
+              }
+            },
+            "extensions": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Suggestions for extending or modifying the simulation"
+            }
+          }
+        }
+      },
+      "required": ["dublinCore", "educational", "technical", "userInterface", "simulation"]
+    }
+  },
+  "required": ["microsim"]
+}
