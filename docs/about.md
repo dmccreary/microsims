@@ -4,9 +4,9 @@ The goal of this website is to provide resources for anyone interested in creati
 for use in education using generative AI.
 
 This site provides both a quick Getting Started guide as well
-as intermediate and advanced examples.  Most of the beginning examples use the p5.js JavaScript animation library.  However, we have
+as intermediate and advanced examples.  Most of the beginning examples use the [p5.js](./glossary.md#p5js) [JavaScript](./glossary.md#javascript) animation [library](./glossary.md#library).  However, we have
 also seen good results using other JavaScript libraries that
-do layout and animations.  Make sure you try the search function in the upper right and also make your web browser window wide to see the full navigation panel on the left.
+do layout and animations.  Make sure you try the search function in the upper right and also make your web [browser](./glossary.md#browser) window wide to see the full navigation panel on the left.
 
 ## History of Processing
 
@@ -14,7 +14,7 @@ do layout and animations.  Make sure you try the search function in the upper ri
 
 ## Background on the Processing Language and P5.js
 
-p5.js is a modern version of the [Processing](https://processing.org/) language.
+[p5.js](./glossary.md#p5js) is a modern version of the [Processing](https://processing.org/) language.
 
 Processing is a flexible software system and a language for learning how to code within the context of animation. It was developed by Casey Reas and Ben Fry, who were then graduate students at the MIT Media Lab. The project began in 2001 and was officially launched in 2003.  Because of its widespread adoption by the open-source community, it is now supported by the [Processing Foundation](https://processingfoundation.org/).
 
@@ -28,7 +28,7 @@ The key ideas behind Processing include:
 
 4. **Open Source and Community Driven:** Processing is open-source, meaning that it's free to use and modify. This has led to a large, active community of users who contribute to its development and share their work, further enriching the tool's capabilities and resources.
 
-5. **Extensibility and Libraries** Processing is not just a language but also an integrated development environment (IDE). It supports extensibility through libraries, allowing users to expand its capabilities. These libraries can be used for a wide range of applications, from computer vision to 3D graphics, contributing to its versatility in creating simulations.
+5. **Extensibility and Libraries** Processing is not just a language but also an integrated development environment ([IDE](./glossary.md#ide)). It supports extensibility through libraries, allowing users to expand its capabilities. These libraries can be used for a wide range of applications, from computer vision to 3D graphics, contributing to its versatility in creating simulations.
 
 6. **Ease of Creating Simulations:** Processing simplifies the process of programming graphical simulations. Its straightforward syntax and rich set of drawing functions allow users to quickly prototype and visualize complex systems. This ease of use in creating interactive graphics and simulations is one of its most appealing aspects for artists, designers, and educators.
 
