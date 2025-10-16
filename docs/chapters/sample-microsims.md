@@ -4,6 +4,15 @@ In this section we demonstrate some sample MicroSims.  We selected
 them to range from simple to more complex and we also used
 different back-end Javascript libraries.
 
+## Bouncing Ball
+
+This is our "Hello World!" program for a MicroSims.  It shows a
+blue ball that bounces around within a `drawingArea`.  A single
+horizontal slider allows you to adjust the speed of the ball.
+Note that the simulation adapts to changes in screen width.
+
+[](../sims/bouncing-ball/index.md)
+
 ## Pythagorean Theorem
 
 Our first Educational MicroSim shows a visualization of the Pythagorean Theorem.
