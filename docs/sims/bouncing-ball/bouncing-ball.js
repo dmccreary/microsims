@@ -1,38 +1,58 @@
 // bouncing ball - version 2
 // with radius added to edge check and drawing region above controls
 
-let width = 500;
-let height = 350;
-let drawHeight = 320; // region for drawing
-r = 20; // radius of the ball
+// global variables for width and height
+let containerWidth; // this values is calculated by container upon init and changed on resize
+// the width of the entire canvas
+let canvasWidth = containerHeight;
+// The top drawing region above the interactive controls
+let drawHeight = 400;
+// control region height
+let controlHeight = 30;
+// The total hight of both the drawing region height + the control region height
+let canvasHeight = drawHeight + controlHeight;
+// let containerHeight = canvasHeight; // fixed height on page determined by MicroSim author
 
-// initial position
-x = 100;
-y = 100;
-speed = 3; // default speed
+// margin around the active plotting region
+let margin = 25;
+let sliderLeftMargin = 90;
+// larger text so students in the back of the room can read the labels
+let defaultTextSize = 16;
+let r = 20; // radius of the ball
+
+// set the initial position of the ball in the middle of the drawing region
+let x = canvasWidth/2;
+let y = drawHeight/2;
+let speed = 3; // default speed
 // direction of motion
-dx = speed;
-dy = speed;
-sliderLeftMargin = 90;
+let dx = speed;
+let dy = speed;
+// global variable for speed slider since the resize function needs to access it
+let speedSlider;
 
 function setup() {
-  
-  const canvas = createCanvas(width, height);
-  canvas.parent('canvas-container');
+  updateCanvasSize() // set the container dimensions
+  const canvas = createCanvas(containerWidth, containerHeight);
+  var mainElement = document.querySelector('main');
+  canvas.parent(mainElement);
 
   textSize(16);
   speedSlider = createSlider(0, 20, speed);
   speedSlider.position(sliderLeftMargin, drawHeight + 15);
-  speedSlider.style('width', width - sliderLeftMargin - 15 + 'px');
+  speedSlider.size(canvasWidth - sliderLeftMargin - margin);
 }
 
 function draw() {
-  // fill drawing area with very light blue
+  // check for window resize
+  updateCanvasSize();
+
+  // fill drawing area with very light blue background
   fill('aliceblue');
   stroke('silver');
   strokeWeight(1);
   rect(0, 0, width, drawHeight);
-  // fill control with white
+
+  // fill control area with a white background
   fill('white');
   rect(0, drawHeight, width, height-drawHeight); 
   // get the new speed from the UI
@@ -57,9 +77,31 @@ function draw() {
     dy = dy * -1;
   }
 
+  // draw the ball
   fill('blue');
   circle(x, y, r*2);
+
+  // draw the speed label
   fill('black');
-  strokeWeight(0);
-  text('Speed: ' + speed, 10, drawHeight+20)
+  noStroke();
+  text('Speed: ' + speed, 10, drawHeight+20);
+  text('Speed: ' + speed, 10, 390)
+}
+
+// this function is called whenever the browser window is resized
+function windowResized() {
+  // Update canvas size when the container resizes
+  updateCanvasSize();
+  resizeCanvas(containerWidth, containerHeight);
+  // reposition and resize the speed slider
+  speedSlider.size(canvasWidth - sliderLeftMargin - margin);
+  redraw();
+}
+
+function updateCanvasSize() {
+  // Get the width of the <main> element
+  const container = document.querySelector('main').getBoundingClientRect();
+  containerWidth = Math.floor(container.width);  // Avoid fractional pixels
+  // set the canvas width to the container width
+  canvasWidth = containerWidth;
 }
