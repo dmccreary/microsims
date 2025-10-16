@@ -1,14 +1,8 @@
 # Bouncing Ball
 
-<!--
-Note that <figure> and <figcaption> don't seem to work in this file.
--->
-<figure markdown>
-![Bouncing Ball](./bouncing-ball.png){ width="400" }
-   <figcaption>Bouncing Ball</figcaption>
-</figure>
+<iframe src="main.html" height="470px" scrolling="no"></iframe>
 
-[Run Bouncing Ball Demo](./bouncing-ball.html){ .md-button .md-button--primary }
+[Run Bouncing Ball Demo](./main.html){ .md-button .md-button--primary }
 
 The bouncing ball is the "Hello World!" of the Processing system.
 It contains the key element that shows the power of the Processing system:

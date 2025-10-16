@@ -1,9 +1,9 @@
 ---
 title: Pythagorean Theorem MicroSim
-description: A MicroSim that visually demonstrates the Pythagorean Theorem by showing how the sum if the squares created by the hypotenus are equal to the so
-image: /sims/name/name.png
-og:image: /sims/name/name.png
-twitter:image: /sims/name/name.png
+description: "A MicroSim that visually demonstrates the Pythagorean Theorem by showing how the sum of the squares of the sides are are equal to square of hypotenuse.
+image: /sims/pythagorean-theorem/pythagorean-theorem.png
+og:image: /sims/pythagorean-theorem/pythagorean-theorem.png
+twitter:image: /sims/pythagorean-theorem/pythagorean-theorem.png
 social:
    cards: false
 ---
@@ -14,6 +14,12 @@ social:
 [Run the Pythagorean Theorem Fullscreen](main.html){ .md-button .md-button--primary }
 <br/>
 [Edit this Pythagorean Theorem Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
+
+Add the following to your website to include this MicroSim in your course:
+
+```html
+<iframe src="http://dmccreary.github.io/microsims/sims/pythagorean-theorem/main.html" height="470px" scrolling="no"></iframe>
+```
 
 
 This MicroSim demonstrates the Pythagorean Theorem, one of the most famous theorems in geometry.  Note that when you adjust the sliders you change the lengths of two shorter
