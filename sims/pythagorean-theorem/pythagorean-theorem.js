@@ -4,7 +4,7 @@ let canvasWidth = 667;
 // The top drawing region above the interactive controls
 let drawHeight = 400;
 // control region height
-let controlHeight = 60;
+let controlHeight = 70;
 // The total height of both the drawing region height + the control region height
 let canvasHeight = drawHeight + controlHeight;
 // margin around the drawing components in the drawing region
@@ -68,6 +68,7 @@ function draw() {
     rect(0, drawHeight, canvasWidth, controlHeight);
 
     // Draw the title in the top center
+    noStroke
     fill('black')
     textSize(24);
     textAlign(CENTER);
@@ -97,7 +98,6 @@ function draw() {
 
     let x2 = x0;
     let y2 = y0 - bLength;
-
 
 
     // Draw the right triangle
