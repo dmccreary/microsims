@@ -4,14 +4,14 @@
 // global variables for width and height
 let containerWidth; // this values is calculated by container upon init and changed on resize
 // the width of the entire canvas
-let canvasWidth = containerHeight;
+let canvasWidth = 400;
 // The top drawing region above the interactive controls
 let drawHeight = 400;
 // control region height
 let controlHeight = 30;
 // The total hight of both the drawing region height + the control region height
 let canvasHeight = drawHeight + controlHeight;
-// let containerHeight = canvasHeight; // fixed height on page determined by MicroSim author
+let containerHeight = canvasHeight; // fixed height on page determined by MicroSim author
 
 // margin around the active plotting region
 let margin = 25;
@@ -38,7 +38,7 @@ function setup() {
 
   textSize(16);
   speedSlider = createSlider(0, 20, speed);
-  speedSlider.position(sliderLeftMargin, drawHeight + 15);
+  speedSlider.position(sliderLeftMargin, drawHeight + 5);
   speedSlider.size(canvasWidth - sliderLeftMargin - margin);
 }
 
@@ -50,11 +50,11 @@ function draw() {
   fill('aliceblue');
   stroke('silver');
   strokeWeight(1);
-  rect(0, 0, width, drawHeight);
+  rect(0, 0, canvasWidth, drawHeight);
 
   // fill control area with a white background
   fill('white');
-  rect(0, drawHeight, width, height-drawHeight); 
+  rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight); 
   // get the new speed from the UI
   speed = speedSlider.value();
 
@@ -85,7 +85,6 @@ function draw() {
   fill('black');
   noStroke();
   text('Speed: ' + speed, 10, drawHeight+20);
-  text('Speed: ' + speed, 10, 390)
 }
 
 // this function is called whenever the browser window is resized

@@ -1,6 +1,6 @@
 # Bouncing Ball
 
-<iframe src="main.html" height="470px" scrolling="no"></iframe>
+<iframe src="main.html" height="430px" scrolling="no"></iframe>
 
 [Run Bouncing Ball Demo](./main.html){ .md-button .md-button--primary }
 
