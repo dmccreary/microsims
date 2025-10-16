@@ -7,8 +7,8 @@ let drawHeight = 400;
 let controlHeight = 60;
 // The total height of both the drawing region height + the control region height
 let canvasHeight = drawHeight + controlHeight;
-// margin around the active plotting region
-let margin = 25;
+// margin around the drawing components in the drawing region
+let margin = 40;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
 
@@ -56,8 +56,9 @@ function setup() {
 }
 
 function draw() {
+
+    // draw the background and borders for both the drawing region and the controls region
     // make the background drawing region a very light blue
-    background('white'); // reset background
     fill('aliceblue');
     // draw a thin light gray outline for the region borders
     stroke('silver');
@@ -66,13 +67,20 @@ function draw() {
     fill('white')
     rect(0, drawHeight, canvasWidth, controlHeight);
 
+    // Draw the title in the top center
+    fill('black')
+    textSize(24);
+    textAlign(CENTER);
+    text("Pythagorean Theorem", canvasWidth/2, margin);
+
+
     // Show the equation c² = a² + b² at the top center
     // note that ² is unicode with a value of : U+00B2
     fill('black');
     noStroke();
     textSize(24); // Increase text size for the title
     textAlign(CENTER); // Center the text
-    text("c² = a² + b²", canvasWidth - 70, 30);
+    text("c² = a² + b²", canvasWidth - 80, margin);
 
     // get the updated slider values
     aLength = aSlider.value();
@@ -90,9 +98,18 @@ function draw() {
     let x2 = x0;
     let y2 = y0 - bLength;
 
+
+
+    // Draw the right triangle
     stroke(0);
     fill('lightgray');
     triangle(x0, y0, x1, y1, x2, y2);
+
+    // Draw the right triangle symbol
+    noFill();
+    stroke('black');
+    strokeWeight(2);
+    rect(x0, y0 - 20, 20, 20);
 
     // If showSquares is true, draw squares on sides a, b, and c
     if (showSquares) {
@@ -141,15 +158,16 @@ function draw() {
     }
 
     // Show the lengths of a, b, and c
+    let yOffset = 50;
     fill(0);
     noStroke();
     textSize(defaultTextSize);
-    text("a: " + nf(aLength, 0, 0), margin, 20);
-    text("b: " + nf(bLength, 0, 0), margin, 40);
-    text("c: " + nf(cLength, 0, 0), margin, 60);
-    text("a²: " + nf(aLength*aLength, 0, 0), margin+100, 20);
-    text("b²: " + nf(bLength*bLength, 0, 0), margin+100, 40);
-    text("c²: " + nf(cLength*cLength, 0, 0), margin+100, 60);
+    text("a: " + nf(aLength, 0, 0), margin, yOffset);
+    text("b: " + nf(bLength, 0, 0), margin, yOffset + 20);
+    text("c: " + nf(cLength, 0, 0), margin, yOffset + 40);
+    text("a²: " + nf(aLength*aLength, 0, 0), margin+100, yOffset);
+    text("b²: " + nf(bLength*bLength, 0, 0), margin+100, yOffset + 20);
+    text("c²: " + nf(cLength*cLength, 0, 0), margin+100, yOffset + 40);
 
     // Label sides on the triangle
     // Label side a

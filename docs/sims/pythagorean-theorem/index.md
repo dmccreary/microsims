@@ -1,28 +1,39 @@
+---
+title: Pythagorean Theorem MicroSim
+description: A MicroSim that visually demonstrates the Pythagorean Theorem by showing how the sum if the squares created by the hypotenus are equal to the so
+image: /sims/name/name.png
+og:image: /sims/name/name.png
+twitter:image: /sims/name/name.png
+social:
+   cards: false
+---
 # Pythagorean Theorem MicroSim
 
-![](pythagorean-theorem.png)
+<iframe src="main.html" height="470px" scrolling="no"></iframe>
 
-[Run the Pythagorean Theorem MicroSim](./pythagorean-theorem.html){ .md-button .md-button--primary }
-[Edit the MicroSim](https://editor.p5js.org/dmccreary/sketches/vmutQF9Qi)
+[Run the Pythagorean Theorem Fullscreen](main.html){ .md-button .md-button--primary }
+<br/>
+[Edit this Pythagorean Theorem Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
 
-[Version 1 of Pythagorean Theorem MicroSim](./v1.html)
 
-This MicroSim demonstrates the Pythagorean Theorem, one of the most famous theorems in geometry.
-Using the ChatGPT o1-preview and a good MicroSim template it was easy for us
-to generate this demo.
+This MicroSim demonstrates the Pythagorean Theorem, one of the most famous theorems in geometry.  Note that when you adjust the sliders you change the lengths of two shorter
+sides of the right triangle.  Note that the sum of the squares of sides `a` and `b` will always
+equal the square of side `c`.
 
 ## Description of the Pythagorean Theorem MicroSim
 
--   **Side Length Sliders**
-    -   Adjust Length of Side `a` (base): *Slider*
-    -   Adjust Length of Side `b` (height): *Slider*
--   **Show Squares Button**
+- **Side Length Sliders**
+    - Adjust Length of Side `a` (base): *Slider*
+    - Adjust Length of Side `b` (height): *Slider*
+- **Show Squares Button**
     -   Toggle display of squares on each side: *Button*
 -   **Calculate Hypotenuse Button**
     -   Computes and displays the length of the hypotenuse `c`: *Button*
 -   **Reset Button**
     -   Resets side lengths to default values: *Button*
-    
+
+
+
 ## Sample Prompt
 
 !!! prompt
