@@ -21,7 +21,7 @@ social:
 ## Sample iframe
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/sims/name/main.html" height="610px"  scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/sims/flower-petal/main.html" height="610px"  scrolling="no"></iframe>
 ```
 
 ## User Guide
