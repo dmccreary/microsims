@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating Microsim</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <main></main>
+    <script>
+        // Canvas dimensions
+        let canvasWidth = 400;                      // Initial width that will be updated responsively
+        let drawHeight = 400;                       // Height of simulation/drawing area
+        let controlHeight = 50;                     // Height of controls region
+        let canvasHeight = drawHeight + controlHeight; // Total canvas height
+        let margin = 25;                            // Margin for visual elements
+        let sliderLeftMargin = 105;                 // Left margin for slider positioning
+        let defaultTextSize = 16;                   // Base text size for readability
+
+        // Global variables for responsive design
+        let containerWidth;                         // Calculated from container upon resize
+        let containerHeight = canvasHeight;         // Usually fixed height on page
+
+        // Star rating variables
+        let ratingSlider;
+        let starSize = 40;
+        let starSpacing = 50;
+        let totalStars = 5;
+
+        function setup() {
+            updateCanvasSize();
+            const canvas = createCanvas(containerWidth, containerHeight);
+            canvas.parent(document.querySelector('main'));
+
+            // Create rating slider
+            ratingSlider = createSlider(1, totalStars, 3);
+            ratingSlider.position(sliderLeftMargin, drawHeight + 10);
+            ratingSlider.size(containerWidth - sliderLeftMargin - 15);
+
+            describe('A star rating system with 5 stars and a slider to control the rating.', LABEL);
+        }
+
+        function draw() {
+            // Draw area
+            fill('aliceblue');
+            stroke('silver');
+            strokeWeight(1);
+            rect(0, 0, canvasWidth, drawHeight);
+            
+            // Controls area
+            fill('white');
+            stroke('silver');
+            strokeWeight(1);
+            rect(0, drawHeight, canvasWidth, controlHeight);
+
+            // Draw title
+            fill('black');
+            noStroke();
+            textSize(24);
+            textAlign(CENTER, TOP);
+            text("Star Rating System", canvasWidth/2, margin);
+
+            // Draw stars
+            drawStars();
+
+            // Draw control labels
+            drawControlLabels();
+        }
+
+        function drawStars() {
+            let startX = (canvasWidth - (totalStars * starSpacing)) / 2;
+            let y = drawHeight / 2;
+
+            for (let i = 0; i < totalStars; i++) {
+                let x = startX + (i * starSpacing);
+                if (i < ratingSlider.value()) {
+                    fill('#ffd700'); // Gold color for active stars
+                } else {
+                    fill('#ddd'); // Gray color for inactive stars
+                }
+                noStroke();
+                textSize(starSize);
+                textAlign(CENTER, CENTER);
+                text('★', x, y);
+            }
+        }
+
+        function drawControlLabels() {
+            fill('black');
+            noStroke();
+            textSize(defaultTextSize);
+            textAlign(LEFT, CENTER);
+            text('Rating: ' + ratingSlider.value() + '/5', 10, drawHeight + 15);
+        }
+
+        function windowResized() {
+            updateCanvasSize();
+            resizeCanvas(containerWidth, containerHeight);
+            redraw();
+            // Resize slider to match new width
+            ratingSlider.size(containerWidth - sliderLeftMargin - 15);
+        }
+
+        function updateCanvasSize() {
+            const container = document.querySelector('main').getBoundingClientRect();
+            containerWidth = Math.floor(container.width);
+            canvasWidth = containerWidth;
+        }
+    </script>
+</body>
+</html> 
