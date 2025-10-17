@@ -1,0 +1,276 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Bouncing Ball Physics Simulation",
+      "creator": ["ChatGPT", "Dan McCreary"],
+      "subject": ["Physics", "Kinematics", "Motion", "Mechanics"],
+      "description": "Interactive simulation demonstrating physics concepts through a bouncing ball with user-controllable parameters including speed and ball size.",
+      "publisher": "MicroSims Educational Platform",
+      "contributor": ["Educational Review Team"],
+      "date": "2024-01-15T10:30:00Z",
+      "type": "Interactive Simulation",
+      "format": "text/javascript",
+      "identifier": "microsim://bouncing-ball-v2",
+      "language": "en-US",
+      "relation": ["https://physics.org/kinematics", "introductory-physics-curriculum"],
+      "coverage": {
+        "spatial": "Global",
+        "temporal": "Contemporary physics education"
+      },
+      "rights": "Creative Commons Attribution 4.0 International"
+    },
+    "search": {
+      "tags": ["physics", "motion", "simulation", "interactive", "p5js", "ball", "velocity", "collision", "boundaries"],
+      "searchKeywords": ["bouncing ball physics", "motion simulation", "kinematics demo", "physics education", "interactive physics"],
+      "visualizationType": ["animation", "simulation"],
+      "interactionLevel": "moderate",
+      "complexity": 3,
+      "relatedConcepts": ["velocity", "acceleration", "collision detection", "coordinate systems", "Newton's laws"],
+      "applicationDomains": ["education", "demonstration", "exploration"]
+    },
+    "educational": {
+      "gradeLevel": ["6", "7", "8", "9", "10"],
+      "subjectArea": ["Physics", "Mathematics", "Science"],
+      "topic": ["Linear Motion", "Velocity", "Collision Detection", "Coordinate Systems"],
+      "learningObjectives": [
+        "Understand the relationship between speed and motion",
+        "Observe collision behavior with boundaries",
+        "Explore parameter effects on motion characteristics",
+        "Develop intuition about velocity and acceleration"
+      ],
+      "bloomsTaxonomy": ["Understand", "Apply", "Analyze"],
+      "prerequisites": ["Basic algebra", "Coordinate systems", "Understanding of speed and distance"],
+      "duration": {
+        "typical": 15,
+        "range": {"min": 5, "max": 30}
+      },
+      "difficulty": "Beginner",
+      "curriculumStandards": [
+        {
+          "framework": "NGSS",
+          "identifier": "MS-PS2-2",
+          "description": "Plan an investigation to provide evidence that the change in an object's motion depends on the sum of forces on the object"
+        }
+      ],
+      "cognitiveLoad": {
+        "intrinsic": "low",
+        "extraneous": "low", 
+        "germane": "moderate"
+      },
+      "scaffolding": {
+        "type": ["guided-discovery", "feedback"],
+        "adaptability": "fixed",
+        "removal": "user-controlled"
+      },
+      "misconceptions": [
+        {
+          "misconception": "Objects naturally slow down without forces",
+          "correction": "Ball maintains constant speed except when hitting boundaries",
+          "evidence": "Observe consistent motion between collisions"
+        }
+      ],
+      "transferSkills": [
+        {
+          "skill": "Parameter manipulation and observation",
+          "domains": ["Scientific inquiry", "Mathematical modeling", "Data analysis"]
+        }
+      ],
+      "learningTheory": ["constructivism", "experiential"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.1.0",
+      "canvasDimensions": {
+        "width": 400,
+        "height": 430,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 400,
+        "controlHeight": 30
+      },
+      "dependencies": ["p5.js@1.4.0"],
+      "browserCompatibility": ["Chrome 80+", "Firefox 75+", "Safari 13+", "Edge 80+"],
+      "performance": {
+        "targetFrameRate": 60,
+        "memoryUsage": "low",
+        "computationalComplexity": "O(1)",
+        "loadTime": 500,
+        "optimizations": ["boundary collision optimization", "minimal DOM updates"]
+      },
+      "deviceRequirements": {
+        "minScreenWidth": 320,
+        "minScreenHeight": 480,
+        "touchSupport": true,
+        "keyboardRequired": false,
+        "mouseRequired": false,
+        "minRAM": "512MB",
+        "networkRequired": false
+      },
+      "dataFlow": {
+        "inputSources": ["user slider input", "mouse clicks"],
+        "dataProcessing": ["position calculation", "collision detection", "boundary checking"],
+        "outputTargets": ["canvas display", "control labels"]
+      },
+      "stateManagement": {
+        "stateType": "local-state",
+        "persistence": false,
+        "synchronization": false
+      },
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "colorContrast": true,
+        "altText": true,
+        "screenReaderScript": "Interactive physics simulation showing a blue ball bouncing within boundaries. Use the speed slider to control ball movement rate.",
+        "keyboardMaps": [
+          {"key": "Tab", "action": "Navigate to speed slider"},
+          {"key": "Arrow keys", "action": "Adjust slider value"},
+          {"key": "Space", "action": "Activate slider"}
+        ],
+        "alternativeInputs": ["keyboard navigation", "voice control"],
+        "sensoryAlternatives": {
+          "visualToAudio": false,
+          "audioToVisual": true,
+          "hapticFeedback": false
+        }
+      }
+    },
+    "userInterface": {
+      "layoutType": "responsive-width",
+      "layoutPattern": "drawing-area-above-controls",
+      "colorScheme": {
+        "drawingArea": "aliceblue",
+        "controlArea": "white",
+        "borders": "silver",
+        "accent": "blue",
+        "text": "black"
+      },
+      "responsiveBreakpoints": [
+        {"width": 320, "description": "Minimum mobile width - controls stack vertically"},
+        {"width": 768, "description": "Tablet width - full horizontal layout"}
+      ],
+      "controls": [
+        {
+          "id": "speedSlider",
+          "type": "slider",
+          "label": "Speed",
+          "description": "Controls the movement speed of the bouncing ball",
+          "group": "motion-controls",
+          "position": {"x": 90, "y": 405, "responsive": true},
+          "size": {"width": 280, "height": 20, "responsive": true},
+          "accessibility": {
+            "ariaLabel": "Ball speed control slider",
+            "tabIndex": 1
+          },
+          "dependencies": [],
+          "affects": ["ball-motion", "speed-display"],
+          "properties": {
+            "min": 0,
+            "max": 20,
+            "default": 3,
+            "step": 1,
+            "units": "pixels per frame",
+            "logarithmic": false,
+            "showValue": true
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "animation",
+          "description": "Bouncing blue ball with collision detection",
+          "interactive": false,
+          "updateTriggers": ["speedSlider"]
+        },
+        {
+          "type": "text-display", 
+          "description": "Speed value display next to slider",
+          "interactive": false,
+          "updateTriggers": ["speedSlider"]
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "physics",
+        "description": "Simple kinematic model with elastic collisions at boundaries",
+        "equations": ["x = x + dx", "y = y + dy", "dx = -dx (on collision)", "dy = -dy (on collision)"],
+        "algorithms": ["Boundary collision detection", "Position update"],
+        "assumptions": ["Perfect elastic collisions", "No friction", "Constant velocity between collisions"],
+        "limitations": ["2D only", "Single object", "Simplified physics"]
+      },
+      "variables": [
+        {"name": "x", "type": "intermediate", "description": "Ball x position", "dataType": "number", "units": "pixels"},
+        {"name": "y", "type": "intermediate", "description": "Ball y position", "dataType": "number", "units": "pixels"}, 
+        {"name": "dx", "type": "intermediate", "description": "X velocity", "dataType": "number", "units": "pixels/frame"},
+        {"name": "dy", "type": "intermediate", "description": "Y velocity", "dataType": "number", "units": "pixels/frame"},
+        {"name": "speed", "type": "input", "description": "Ball movement speed", "dataType": "integer", "range": {"min": 0, "max": 20}},
+        {"name": "r", "type": "constant", "description": "Ball radius", "dataType": "number", "units": "pixels"}
+      ],
+      "scenarios": [
+        {"name": "slow-motion", "description": "Very slow ball movement", "parameters": {"speed": 1}},
+        {"name": "normal-speed", "description": "Standard demonstration speed", "parameters": {"speed": 5}},
+        {"name": "high-speed", "description": "Fast ball movement", "parameters": {"speed": 15}}
+      ]
+    },
+    "analytics": {
+      "events": [
+        {"name": "speed_adjusted", "description": "User moves speed slider", "category": "interaction", "importance": "important", "data": ["new_speed_value", "timestamp"], "xAPIverb": "adjusted"},
+        {"name": "simulation_started", "description": "Simulation begins running", "category": "engagement", "importance": "moderate", "data": ["initial_speed", "timestamp"], "xAPIverb": "experienced"}
+      ],
+      "learningIndicators": [
+        {"indicator": "Multiple speed adjustments", "measurement": "Count of slider interactions", "evidenceType": "direct"},
+        {"indicator": "Time spent observing", "measurement": "Session duration", "evidenceType": "indirect"}
+      ],
+      "engagementMetrics": [
+        {"metric": "interaction_frequency", "calculation": "Slider adjustments per minute", "benchmark": ">2 adjustments per minute indicates active engagement"}
+      ],
+      "progressTracking": {
+        "milestones": [
+          {"milestone": "Initial exploration", "criteria": "First slider adjustment", "evidence": "speed_adjusted event"},
+          {"milestone": "Parameter testing", "criteria": "5+ slider adjustments", "evidence": "Multiple speed_adjusted events"}
+        ],
+        "progressModel": "linear"
+      },
+      "privacy": {
+        "piiCollected": false,
+        "dataRetention": "Session only",
+        "anonymization": true,
+        "consentRequired": false,
+        "dataSecurity": {
+          "encryption": false,
+          "secureTransmission": false,
+          "accessControl": false
+        },
+        "complianceStandards": ["FERPA"]
+      }
+    },
+    "usage": {
+      "recommendedUsage": ["demonstration", "exploration", "guided-practice"],
+      "instructionalStrategies": [
+        "Demonstrate different speeds before student interaction",
+        "Ask students to predict motion at different speeds",
+        "Have students find optimal speed for clear observation"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "What happens to the ball's motion when you set speed to 0?",
+          "type": "prediction",
+          "level": "Understand"
+        },
+        {
+          "question": "How does increasing speed affect your ability to track the ball's path?",
+          "type": "observation",
+          "level": "Analyze"
+        }
+      ],
+      "extensions": [
+        "Add gravity effects",
+        "Include multiple balls",
+        "Add friction or air resistance",
+        "Create trails showing ball paths"
+      ]
+    }
+  }
+}
