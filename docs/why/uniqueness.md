@@ -1,6 +1,6 @@
 # What Makes MicroSims Unique in Educational Technology
 
-<iframe src="../../sims/microsim-uniqueness/main.html" height="480"  scrolling="no"></iframe>
+<iframe src="../../sims/microsim-uniqueness/main.html" height="450"  scrolling="no"></iframe>
 
 
 Educational MicroSims represent a paradigm shift in how interactive educational content is created, distributed, and integrated into learning environments. While many educational technologies exist, MicroSims occupy a unique position at the intersection of simplicity, accessibility, and AI-powered generation.
