@@ -3,7 +3,7 @@
 
 // Canvas dimensions
 let canvasWidth = 400;
-let drawHeight = 400;
+let drawHeight = 370;
 let controlHeight = 80;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
@@ -30,7 +30,7 @@ const tooltips = {
   'ai': 'AI Generation: Created in seconds by language models through standardized patterns.  Extensive libraries of rules and templates guide LLMs to generate highly usable interactive simulations.',
   'simplicity-accessibility': 'Simple & Accessible: Easy to embed and use across all platforms',
   'simplicity-ai': 'Simple & AI-Powered: Standardized patterns enable rapid AI generation',
-  'accessibility-ai': 'Accessible & AI-Generated: AI can generate complex javascripts programs that are universally compatible.  However, these programs are difficult to under content such aa a raw SVG drawing.',
+  'accessibility-ai': 'Accessible & AI-Generated: AI can generate complex javascripts programs that are universally compatible.  However, these  content such aa a raw SVG drawing.',
   'none': 'Click on any region to learn more about what makes MicroSims unique'
 };
 
@@ -106,7 +106,7 @@ function draw() {
   // drawing context for the three circles and labels
   push();
   // move the entier drawing down 20
-  translate(0, 20)
+  translate(0, 30)
   
   // Draw the three ellipses with blend mode for overlapping regions
   push();
