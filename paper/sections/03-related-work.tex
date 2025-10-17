@@ -1,0 +1,38 @@
+\section{Related Work}
+\label{sec:related}
+
+The educational technology landscape has undergone significant transformation over the past decade, with interactive simulations, virtual laboratories, and adaptive learning platforms becoming increasingly prevalent in formal and informal learning environments. This section positions MicroSims within this broader ecosystem, examining how they differentiate from and complement existing technologies.
+
+\subsection{Traditional Educational Simulations}
+
+Traditional educational simulations, such as PhET Interactive Simulations from the University of Colorado \cite{wieman2008phet, phet2023} or NetLogo models from Northwestern University \cite{wilensky1999netlogo}, represent sophisticated educational tools that have proven effective in science and mathematics education. PhET simulations alone receive over 45 million simulation runs annually, with extensive research demonstrating their effectiveness in improving student understanding of physics concepts \cite{adams2008study, finkelstein2005phet}.
+
+However, these platforms are characterized by several limitations that MicroSims explicitly address:
+
+\textbf{Development Resources}: Traditional simulations typically require significant development resources, specialized programming expertise, and ongoing maintenance to ensure compatibility across evolving web technologies. A single PhET simulation can take 6-12 months and hundreds of person-hours to develop \cite{phet2023}. MicroSims employ standardized architectural patterns that enable automated generation through large language models, reducing development time to minutes or hours.
+
+\textbf{Feature Complexity}: Existing simulation platforms often implement comprehensive feature sets that, while powerful, can overwhelm both educators seeking to integrate specific concepts and students encountering cognitive overload. MicroSims adopt a deliberately constrained approach, focusing on specific learning objectives with minimal extraneous functionality. This constraint-based design philosophy aligns with cognitive load theory principles \cite{sweller1988cognitive}, which suggest that learning is optimized when instructional materials minimize irrelevant cognitive processing.
+
+\textbf{Limited Integration}: Traditional educational simulations frequently operate as standalone applications with limited integration capabilities. MicroSims are architected from the ground up for embedding within larger educational ecosystems, including intelligent textbooks, learning management systems, and adaptive learning platforms.
+
+\subsection{Interactive Textbooks and Digital Learning Materials}
+
+The interactive textbook market has evolved considerably, with platforms such as Pearson MyLab, McGraw-Hill Connect, and Wiley WileyPLUS offering multimedia-enhanced learning experiences. However, these platforms typically employ pre-authored interactive elements that cannot be easily modified or extended by individual educators.
+
+MicroSims fundamentally differ by providing a \textit{generative} approach to interactive content creation, where simulations are produced on-demand to address specific pedagogical requirements. Furthermore, commercial interactive textbook platforms operate under proprietary licensing models that limit institutional flexibility and long-term sustainability. MicroSims generate open-source code that institutions can freely modify, redistribute, and maintain independently.
+
+\subsection{Learning Management Systems}
+
+Learning Management Systems (LMS) such as Canvas, Blackboard, and Moodle provide comprehensive platforms for course delivery and student management but rely heavily on external content providers for interactive educational materials \cite{lms2023}. MicroSims complement existing LMS infrastructure by providing a standardized method for generating and deploying interactive content directly within these platforms through iframe embedding. The lightweight architecture of MicroSims ensures compatibility across different LMS implementations without requiring platform-specific adaptations.
+
+\subsection{Virtual Laboratory Platforms}
+
+Virtual laboratory platforms, including Labster and Beyond Labz, offer sophisticated simulation environments for science education but typically require subscription-based access and specialized hardware resources. MicroSims provide an alternative approach that prioritizes accessibility and scalability over comprehensive simulation fidelity. While virtual laboratories excel in providing high-fidelity replications of complex scientific processes, MicroSims focus on isolating and illustrating specific conceptual relationships that support understanding of fundamental principles.
+
+\subsection{AI-Generated Educational Content}
+
+Recent work has explored the use of generative AI for creating educational content, including Khan Academy's Khanmigo \cite{khanacademy2023} and various tutoring systems. However, these systems primarily focus on text-based interactions rather than interactive visual simulations. MicroSims represent a novel approach that leverages AI for generating interactive, visual learning experiences rather than conversational tutoring.
+
+\subsection{Gap Analysis}
+
+Despite the proliferation of educational technologies, a significant gap exists for interactive simulations that are simultaneously: (1) simple enough for AI generation, (2) sophisticated enough for meaningful learning, (3) universally embeddable across platforms, (4) easily customizable by educators, and (5) grounded in empirical research on learning effectiveness. MicroSims are specifically designed to fill this gap, providing a framework that addresses these requirements while maintaining pedagogical rigor and technical accessibility.

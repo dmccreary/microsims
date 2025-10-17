@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+
+% ArXiv-compatible packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Page geometry
+\usepackage[margin=1in]{geometry}
+
+% Code listing settings for JavaScript/p5.js
+\lstset{
+    language=Java,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!5},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={\%*}{*)},
+    morekeywords={function, let, const, var}
+}
+
+% Title and authors
+\title{MicroSims: A Framework for AI-Generated, Scalable Educational Simulations with Universal Embedding and Adaptive Learning Support}
+
+\author{
+    Dan McCreary \\
+    \texttt{dan.mccreary@gmail.com}
+    % Add additional authors and affiliations as needed
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% Abstract
+\input{sections/01-abstract}
+
+% Main content sections
+\input{sections/02-introduction}
+\input{sections/03-related-work}
+\input{sections/04-definition}
+\input{sections/05-design-framework}
+\input{sections/06-architecture}
+\input{sections/07-metadata}
+\input{sections/08-workflow}
+\input{sections/09-effectiveness}
+\input{sections/10-discussion}
+\input{sections/11-conclusion}
+
+% Acknowledgments (optional)
+\section*{Acknowledgments}
+The author would like to thank the open-source p5.js community, the educational technology research community, and the contributors to the PhET Interactive Simulations project whose research has informed this work.
+
+% References
+\bibliographystyle{ieeetr}
+\bibliography{sections/references}
+
+\end{document}
