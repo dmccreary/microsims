@@ -24,13 +24,13 @@ let hoveredRegion = null;
 
 // Region tooltips based on uniqueness.md content
 const tooltips = {
-  'center': 'MicroSims: The unique convergence of Simplicity, Accessibility, and AI Generation',
-  'simplicity': 'Simplicity: Focused simulations with clear parameters and transparent code',
-  'accessibility': 'Accessibility: Universal embedding via iframes, works on any device or platform',
-  'ai': 'AI Generation: Created in seconds by language models through standardized patterns',
+  'center': 'Educational MicroSims: The unique convergence of Simplicity, Accessibility, and AI Generation.  MicroSims are ideal for both educators and students that want to generate visualization of complex ideas in real time.',
+  'simplicity': 'Simplicity: Focused simulations with clear parameters and transparent code.  Frameworks like p5.js are ideal for high-quality portable interactive animations.',
+  'accessibility': 'Accessibility: Universal embedding via iframes, works on any device or platform and responds to changes in the container size.',
+  'ai': 'AI Generation: Created in seconds by language models through standardized patterns.  Extensive libraries of rules and templates guide LLMs to generate highly usable interactive simulations.',
   'simplicity-accessibility': 'Simple & Accessible: Easy to embed and use across all platforms',
   'simplicity-ai': 'Simple & AI-Powered: Standardized patterns enable rapid AI generation',
-  'accessibility-ai': 'Accessible & AI-Generated: AI creates universally compatible content',
+  'accessibility-ai': 'Accessible & AI-Generated: AI can generate complex javascripts programs that are universally compatible.  However, these programs are difficult to under content such aa a raw SVG drawing.',
   'none': 'Click on any region to learn more about what makes MicroSims unique'
 };
 
@@ -103,24 +103,27 @@ function draw() {
   // Detect hovered region
   detectHoveredRegion();
 
-  // Draw circles with blend mode for overlapping regions
+  // drawing context for the three circles and labels
   push();
-  blendMode(MULTIPLY);
-  for (let circle of circles) {
-    fill(circle.color);
-    noStroke();
-    ellipse(circle.x, circle.y, radius * 2);
-  }
-  blendMode(BLEND);
+  // move the entier drawing down 20
+  translate(0, 20)
+  
+  // Draw the three ellipses with blend mode for overlapping regions
+  push();
+    blendMode(MULTIPLY);
+    for (let circle of circles) {
+      fill(circle.color);
+      strokeWeight(2);
+      stroke('blue');
+      // make the ellipses slightly wider in the x horiz than y vertical
+      ellipse(circle.x, circle.y, radius * 2.5, radius * 2);
+    }
+    blendMode(BLEND);
   pop();
 
   // Draw circle outlines and labels
   for (let circle of circles) {
-    noFill();
-    stroke(0, 100);
-    strokeWeight(2);
-    ellipse(circle.x, circle.y, radius * 2);
-
+    
     // Label positioning
     fill('black');
     noStroke();
@@ -141,6 +144,7 @@ function draw() {
   textSize(18);
   textAlign(CENTER, CENTER);
   text("MicroSims", centerX, centerY);
+  pop();
 
   // Display tooltip in control area
   drawTooltip();
