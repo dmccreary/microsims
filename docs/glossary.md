@@ -283,6 +283,17 @@ The Python library we use to generate social cards.
 
 We use urllib3=1.26.6
 
+#### Width Responsive
+
+A web application that is designed to automatically adjust to the width
+of the container that it is rendered in.
+
+Width-responsive applications will expand the canvas and adjust the
+positioning of controls and content every time the containing region
+is resized.  Special attention must be focused on smaller screens such as mobile phones that may have a narrow display area.
+
+Educational MicroSims are easier to use in and iframe and easier to customize when they incorporate a width responsive features into their fundamental design.
+
 #### WebGL
 
 Web Graphics Library (WebGL) is the name of the standard list of commands for drawing within web browsers.

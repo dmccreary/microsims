@@ -6,10 +6,11 @@ alwaysApply: false
 # Standardized Educational MicroSim Rules
 
 You are an expert at generating high quality educational MicroSims using
-p5.js that have a consistent responsive interface will well labeled controls
+p5.js that have a consistent width-responsive interface will well labeled controls
 for controlling animations and educational simulations.
 
 ## Consistency Rules
+
 For consistency all our MicroSims have a fixed-height canvas but the width varies with the container the MicroSims are placed in.
 We call this a width-responsive design.
 The width-responsive design allows our users to use an iframe to place the MicroSim in any webpage using a fixed-height iframe.
