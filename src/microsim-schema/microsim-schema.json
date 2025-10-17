@@ -85,6 +85,55 @@
           },
           "required": ["title", "creator", "subject", "description", "date", "type", "format", "language", "rights"]
         },
+        "search": {
+          "type": "object",
+          "description": "Search and discovery metadata for improved findability",
+          "properties": {
+            "tags": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Searchable keywords and tags beyond subjects"
+            },
+            "searchKeywords": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "SEO-friendly keywords for discovery engines"
+            },
+            "visualizationType": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["animation", "chart", "graph", "diagram", "simulation", "interactive-demo", "data-visualization", "3d-model", "timeline", "network", "map", "dashboard"]
+              },
+              "description": "Types of visualization used in the MicroSim"
+            },
+            "interactionLevel": {
+              "type": "string",
+              "enum": ["passive", "low", "moderate", "high", "very-high"],
+              "description": "Level of user interaction required"
+            },
+            "complexity": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10,
+              "description": "Overall complexity score for filtering (1=simple, 10=very complex)"
+            },
+            "relatedConcepts": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Related concepts for recommendation systems"
+            },
+            "applicationDomains": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["education", "research", "training", "demonstration", "assessment", "exploration", "modeling", "analysis"]
+              },
+              "description": "Primary application domains"
+            }
+          },
+          "required": ["tags", "visualizationType", "interactionLevel", "complexity"]
+        },
         "educational": {
           "type": "object",
           "description": "Educational metadata specific to learning applications",
@@ -156,6 +205,80 @@
                   "description": {"type": "string", "description": "Standard description"}
                 }
               }
+            },
+            "cognitiveLoad": {
+              "type": "object",
+              "properties": {
+                "intrinsic": {"type": "string", "enum": ["low", "moderate", "high"], "description": "Inherent complexity of the material"},
+                "extraneous": {"type": "string", "enum": ["low", "moderate", "high"], "description": "Cognitive load from interface design"},
+                "germane": {"type": "string", "enum": ["low", "moderate", "high"], "description": "Load devoted to processing and construction of schemas"}
+              }
+            },
+            "scaffolding": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": ["guided-discovery", "worked-examples", "hints", "feedback", "progressive-disclosure", "modeling", "coaching"]
+                  }
+                },
+                "adaptability": {"type": "string", "enum": ["fixed", "adaptive", "personalized"], "description": "How scaffolding adapts to student needs"},
+                "removal": {"type": "string", "enum": ["gradual", "abrupt", "user-controlled"], "description": "How scaffolding is removed"}
+              }
+            },
+            "misconceptions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "misconception": {"type": "string", "description": "Common misconception addressed"},
+                  "correction": {"type": "string", "description": "How the simulation addresses this misconception"},
+                  "evidence": {"type": "string", "description": "How students can see evidence against the misconception"}
+                }
+              }
+            },
+            "transferSkills": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "skill": {"type": "string", "description": "Transferable skill developed"},
+                  "domains": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Domains where this skill transfers"
+                  }
+                }
+              }
+            },
+            "assessmentRubric": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "criterion": {"type": "string", "description": "Assessment criterion"},
+                  "levels": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "level": {"type": "string", "description": "Performance level"},
+                        "description": {"type": "string", "description": "Description of performance at this level"}
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "learningTheory": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["constructivism", "behaviorism", "cognitivism", "connectivism", "experiential", "social-learning"]
+              },
+              "description": "Learning theories that inform the design"
             }
           },
           "required": ["gradeLevel", "subjectArea", "topic", "learningObjectives"]
@@ -199,13 +322,91 @@
               "items": {"type": "string"},
               "description": "Supported browser versions"
             },
+            "performance": {
+              "type": "object",
+              "properties": {
+                "targetFrameRate": {"type": "integer", "description": "Target frames per second"},
+                "memoryUsage": {"type": "string", "enum": ["low", "moderate", "high"], "description": "Estimated memory usage"},
+                "computationalComplexity": {"type": "string", "enum": ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n²)", "O(2^n)"], "description": "Big O complexity"},
+                "loadTime": {"type": "integer", "description": "Expected load time in milliseconds"},
+                "optimizations": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Performance optimizations implemented"
+                }
+              }
+            },
+            "deviceRequirements": {
+              "type": "object",
+              "properties": {
+                "minScreenWidth": {"type": "integer", "description": "Minimum screen width in pixels"},
+                "minScreenHeight": {"type": "integer", "description": "Minimum screen height in pixels"},
+                "touchSupport": {"type": "boolean", "description": "Requires touch input support"},
+                "keyboardRequired": {"type": "boolean", "description": "Requires keyboard input"},
+                "mouseRequired": {"type": "boolean", "description": "Requires mouse/pointer input"},
+                "minRAM": {"type": "string", "description": "Minimum RAM requirement"},
+                "networkRequired": {"type": "boolean", "description": "Requires network connection"}
+              }
+            },
+            "dataFlow": {
+              "type": "object",
+              "properties": {
+                "inputSources": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Sources of input data (user, file, API, etc.)"
+                },
+                "dataProcessing": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Data processing steps"
+                },
+                "outputTargets": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Where processed data goes (display, storage, etc.)"
+                }
+              }
+            },
+            "stateManagement": {
+              "type": "object",
+              "properties": {
+                "stateType": {"type": "string", "enum": ["stateless", "local-state", "shared-state", "persistent-state"], "description": "Type of state management"},
+                "persistence": {"type": "boolean", "description": "Whether state persists between sessions"},
+                "synchronization": {"type": "boolean", "description": "Whether state syncs across instances"}
+              }
+            },
             "accessibility": {
               "type": "object",
               "properties": {
                 "screenReader": {"type": "boolean", "description": "Screen reader compatible"},
                 "keyboardNavigation": {"type": "boolean", "description": "Keyboard navigation support"},
                 "colorContrast": {"type": "boolean", "description": "Adequate color contrast"},
-                "altText": {"type": "boolean", "description": "Alternative text for visual elements"}
+                "altText": {"type": "boolean", "description": "Alternative text for visual elements"},
+                "screenReaderScript": {"type": "string", "description": "Detailed screen reader description"},
+                "keyboardMaps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "key": {"type": "string", "description": "Keyboard key or combination"},
+                      "action": {"type": "string", "description": "Action performed"}
+                    }
+                  }
+                },
+                "alternativeInputs": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Alternative input methods supported"
+                },
+                "sensoryAlternatives": {
+                  "type": "object",
+                  "properties": {
+                    "visualToAudio": {"type": "boolean", "description": "Visual information available as audio"},
+                    "audioToVisual": {"type": "boolean", "description": "Audio information available visually"},
+                    "hapticFeedback": {"type": "boolean", "description": "Haptic feedback available"}
+                  }
+                }
               }
             }
           },
@@ -215,6 +416,35 @@
           "type": "object",
           "description": "User interface elements and controls",
           "properties": {
+            "layoutType": {
+              "type": "string",
+              "enum": ["fixed", "responsive-width", "two-column", "multi-panel", "dashboard"],
+              "description": "Overall layout pattern used in the MicroSim"
+            },
+            "layoutPattern": {
+              "type": "string",
+              "description": "Specific layout pattern description (e.g., 'simulation-left-chart-right')"
+            },
+            "colorScheme": {
+              "type": "object",
+              "properties": {
+                "drawingArea": {"type": "string", "description": "Background color of drawing area"},
+                "controlArea": {"type": "string", "description": "Background color of control area"},
+                "borders": {"type": "string", "description": "Border color"},
+                "accent": {"type": "string", "description": "Primary accent color"},
+                "text": {"type": "string", "description": "Primary text color"}
+              }
+            },
+            "responsiveBreakpoints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "width": {"type": "integer", "description": "Breakpoint width in pixels"},
+                  "description": {"type": "string", "description": "What changes at this breakpoint"}
+                }
+              }
+            },
             "controls": {
               "type": "array",
               "items": {
@@ -223,57 +453,113 @@
                   "id": {"type": "string", "description": "Unique identifier for the control"},
                   "type": {
                     "type": "string",
-                    "enum": ["slider", "button", "checkbox", "radio", "dropdown", "text-input", "color-picker"],
+                    "enum": ["slider", "range-slider", "button", "toggle-button", "checkbox", "radio", "dropdown", "multi-select", "text-input", "number-input", "color-picker", "file-upload", "date-picker"],
                     "description": "Type of UI control"
                   },
                   "label": {"type": "string", "description": "Display label for the control"},
                   "description": {"type": "string", "description": "Purpose and function of the control"},
+                  "group": {"type": "string", "description": "Logical grouping of related controls"},
                   "position": {
                     "type": "object",
                     "properties": {
-                      "x": {"type": "integer"},
-                      "y": {"type": "integer"}
+                      "x": {"type": "integer", "description": "X coordinate"},
+                      "y": {"type": "integer", "description": "Y coordinate"},
+                      "responsive": {"type": "boolean", "description": "Whether position adapts to container size"}
                     }
+                  },
+                  "size": {
+                    "type": "object",
+                    "properties": {
+                      "width": {"type": "integer", "description": "Control width in pixels"},
+                      "height": {"type": "integer", "description": "Control height in pixels"},
+                      "responsive": {"type": "boolean", "description": "Whether size adapts to container"}
+                    }
+                  },
+                  "accessibility": {
+                    "type": "object",
+                    "properties": {
+                      "keyboardShortcut": {"type": "string", "description": "Keyboard shortcut for this control"},
+                      "ariaLabel": {"type": "string", "description": "ARIA label for screen readers"},
+                      "tabIndex": {"type": "integer", "description": "Tab order index"}
+                    }
+                  },
+                  "validation": {
+                    "type": "object",
+                    "properties": {
+                      "required": {"type": "boolean", "description": "Whether input is required"},
+                      "pattern": {"type": "string", "description": "Regex pattern for validation"},
+                      "errorMessage": {"type": "string", "description": "Error message to display"}
+                    }
+                  },
+                  "dependencies": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "IDs of controls this depends on"
+                  },
+                  "affects": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "IDs of elements this control affects"
                   },
                   "properties": {
                     "type": "object",
                     "description": "Control-specific properties",
                     "oneOf": [
                       {
+                        "description": "Slider properties",
                         "properties": {
-                          "min": {"type": "number", "description": "Minimum value for slider"},
-                          "max": {"type": "number", "description": "Maximum value for slider"},
+                          "min": {"type": "number", "description": "Minimum value"},
+                          "max": {"type": "number", "description": "Maximum value"},
                           "default": {"type": "number", "description": "Default value"},
                           "step": {"type": "number", "description": "Step increment"},
-                          "units": {"type": "string", "description": "Units of measurement"}
+                          "units": {"type": "string", "description": "Units of measurement"},
+                          "logarithmic": {"type": "boolean", "description": "Whether scale is logarithmic"},
+                          "showValue": {"type": "boolean", "description": "Whether to show current value"}
                         },
                         "required": ["min", "max", "default"]
                       },
                       {
+                        "description": "Button properties",
                         "properties": {
                           "text": {"type": "string", "description": "Button text"},
-                          "action": {"type": "string", "description": "Function called when clicked"}
+                          "action": {"type": "string", "description": "Function called when clicked"},
+                          "toggleable": {"type": "boolean", "description": "Whether button can be toggled"},
+                          "style": {"type": "string", "enum": ["primary", "secondary", "danger", "success"], "description": "Button style variant"}
                         }
                       },
                       {
+                        "description": "Checkbox/Radio properties",
                         "properties": {
                           "checked": {"type": "boolean", "description": "Default checked state"},
-                          "value": {"type": "string", "description": "Value when checked"}
+                          "value": {"type": "string", "description": "Value when checked/selected"}
                         }
                       },
                       {
+                        "description": "Dropdown/Select properties",
                         "properties": {
                           "options": {
                             "type": "array",
                             "items": {
                               "type": "object",
                               "properties": {
-                                "value": {"type": "string"},
-                                "label": {"type": "string"}
-                              }
+                                "value": {"type": "string", "description": "Option value"},
+                                "label": {"type": "string", "description": "Display label"},
+                                "disabled": {"type": "boolean", "description": "Whether option is disabled"}
+                              },
+                              "required": ["value", "label"]
                             }
                           },
-                          "default": {"type": "string"}
+                          "default": {"type": "string", "description": "Default selected value"},
+                          "multiple": {"type": "boolean", "description": "Allow multiple selections"}
+                        }
+                      },
+                      {
+                        "description": "Text/Number input properties",
+                        "properties": {
+                          "placeholder": {"type": "string", "description": "Placeholder text"},
+                          "default": {"type": "string", "description": "Default value"},
+                          "maxLength": {"type": "integer", "description": "Maximum character length"},
+                          "autocomplete": {"type": "boolean", "description": "Enable autocomplete"}
                         }
                       }
                     ]
@@ -388,22 +674,81 @@
                 "properties": {
                   "name": {"type": "string", "description": "Event name"},
                   "description": {"type": "string", "description": "What triggers this event"},
+                  "category": {
+                    "type": "string",
+                    "enum": ["interaction", "navigation", "learning", "performance", "engagement", "error"],
+                    "description": "Category of event"
+                  },
+                  "importance": {
+                    "type": "string",
+                    "enum": ["critical", "important", "moderate", "low"],
+                    "description": "Importance level for learning analytics"
+                  },
                   "data": {
                     "type": "array",
                     "items": {"type": "string"},
                     "description": "Data captured with this event"
-                  }
+                  },
+                  "xAPIverb": {"type": "string", "description": "xAPI verb for this event"}
                 }
               }
             },
-            "metrics": {
+            "learningIndicators": {
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
-                  "name": {"type": "string"},
-                  "description": {"type": "string"},
-                  "calculation": {"type": "string", "description": "How the metric is calculated"}
+                  "indicator": {"type": "string", "description": "Behavioral indicator of learning"},
+                  "measurement": {"type": "string", "description": "How this indicator is measured"},
+                  "evidenceType": {
+                    "type": "string",
+                    "enum": ["direct", "indirect", "formative", "summative"],
+                    "description": "Type of learning evidence"
+                  }
+                }
+              }
+            },
+            "engagementMetrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "metric": {"type": "string", "description": "Engagement metric name"},
+                  "calculation": {"type": "string", "description": "How the metric is calculated"},
+                  "benchmark": {"type": "string", "description": "What constitutes good engagement"}
+                }
+              }
+            },
+            "progressTracking": {
+              "type": "object",
+              "properties": {
+                "milestones": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "milestone": {"type": "string", "description": "Progress milestone"},
+                      "criteria": {"type": "string", "description": "Criteria for reaching milestone"},
+                      "evidence": {"type": "string", "description": "Evidence of milestone achievement"}
+                    }
+                  }
+                },
+                "progressModel": {
+                  "type": "string",
+                  "enum": ["linear", "branching", "adaptive", "competency-based"],
+                  "description": "Model used for tracking progress"
+                }
+              }
+            },
+            "adaptiveElements": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "element": {"type": "string", "description": "Adaptive element"},
+                  "trigger": {"type": "string", "description": "What triggers adaptation"},
+                  "response": {"type": "string", "description": "How the system responds"},
+                  "algorithm": {"type": "string", "description": "Algorithm used for adaptation"}
                 }
               }
             },
@@ -412,7 +757,21 @@
               "properties": {
                 "piiCollected": {"type": "boolean", "description": "Whether personally identifiable information is collected"},
                 "dataRetention": {"type": "string", "description": "Data retention policy"},
-                "anonymization": {"type": "boolean", "description": "Whether data is anonymized"}
+                "anonymization": {"type": "boolean", "description": "Whether data is anonymized"},
+                "consentRequired": {"type": "boolean", "description": "Whether user consent is required"},
+                "dataSecurity": {
+                  "type": "object",
+                  "properties": {
+                    "encryption": {"type": "boolean", "description": "Whether data is encrypted"},
+                    "secureTransmission": {"type": "boolean", "description": "Whether transmission is secure"},
+                    "accessControl": {"type": "boolean", "description": "Whether access is controlled"}
+                  }
+                },
+                "complianceStandards": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Privacy/security standards compliance (FERPA, GDPR, etc.)"
+                }
               }
             }
           }
@@ -458,7 +817,7 @@
           }
         }
       },
-      "required": ["dublinCore", "educational", "technical", "userInterface", "simulation"]
+      "required": ["dublinCore", "search", "educational", "technical", "userInterface", "simulation"]
     }
   },
   "required": ["microsim"]
