@@ -1,38 +1,78 @@
 \section{Design Framework}
 \label{sec:framework}
 
-% TODO: Extract content from docs/chapters/microsim-design.md
-% Key sections to include:
-% - Design principles (responsive architecture, accessibility, standards-based)
-% - Pedagogical foundations
-% - Alignment with Bloom's Taxonomy
-% - Cognitive load management
-% - Adaptive and personalized learning support
-% - Implementation standards and guidelines
-% - Quality assurance protocols
+The Educational MicroSims Design Framework represents a systematic approach to creating lightweight, interactive educational simulations that prioritize accessibility, responsiveness, and pedagogical effectiveness. This framework establishes standardized design principles, technical architecture patterns, and implementation guidelines that enable both human developers and artificial intelligence systems to create consistent, high-quality educational content.
+
+The design framework emerges from extensive analysis of existing educational simulation platforms and identifies key limitations in current approaches, including complex deployment requirements, inconsistent user interfaces, and limited customization capabilities. By establishing a constraint-based design philosophy that prioritizes simplicity and consistency over feature comprehensiveness, the MicroSims framework enables the creation of educational simulations that are both pedagogically effective and technically sustainable.
 
 \subsection{Design Principles}
 
 \subsubsection{Responsive Architecture}
 
+The foundational principle of the MicroSims design framework is responsive adaptability, specifically engineered for educational contexts where content must be accessible across diverse devices and screen configurations. Unlike traditional responsive web design that adapts both horizontal and vertical dimensions, MicroSims employ a constrained responsive model where simulations maintain fixed heights while dynamically adjusting to container width variations. This approach ensures consistent educational experiences across different devices while maintaining the precise spatial relationships necessary for effective data visualization and interactive elements.
+
+The responsive design implementation utilizes container queries rather than viewport-based media queries, enabling MicroSims to adapt to their embedding context rather than the overall device screen. This architectural decision is particularly critical for educational applications where simulations may be embedded within learning management systems, digital textbooks, or other educational platforms with complex layout structures.
+
+Container width adaptation is implemented through a standardized \texttt{updateCanvasSize()} function that recalculates layout parameters based on the detected container dimensions. This function triggers automatic repositioning of user interface elements, rescaling of text sizes within defined bounds, and adjustment of visualization areas to maintain optimal information density.
+
 \subsubsection{Accessibility by Design}
 
+Accessibility considerations are integrated throughout the MicroSims design framework, ensuring that educational simulations remain usable by learners with diverse abilities and assistive technology requirements. The framework mandates the implementation of semantic HTML structures, appropriate ARIA (Accessible Rich Internet Applications) labeling, and keyboard navigation support for all interactive elements. Color schemes are selected to provide sufficient contrast ratios that meet or exceed WCAG 2.1 AA standards, and information is never conveyed through color alone.
+
+The accessibility framework includes specific provisions for screen reader compatibility, with standardized \texttt{describe()} function implementations that provide comprehensive textual descriptions of simulation content and interactions. These descriptions are automatically generated during the setup phase and dynamically updated as simulation states change, ensuring that users relying on assistive technology receive equivalent information to visual users.
+
+Motor accessibility considerations include minimum touch target sizes of 44×44 pixels for mobile interfaces, adequate spacing between interactive elements, and support for alternative input methods. The framework accommodates users who may have difficulty with precise pointer control by implementing forgiving interaction zones and providing alternative interaction methods where appropriate.
+
 \subsubsection{Standards-Based Development}
+
+The MicroSims framework adheres to web standards and best practices, ensuring long-term compatibility and interoperability across different platforms and technologies. All simulations are implemented using standard HTML5, CSS3, and JavaScript technologies without proprietary extensions or vendor-specific features. This standards-based approach ensures that MicroSims remain functional across different web browsers and can be easily maintained as web technologies evolve.
+
+Dublin Core metadata standards are integrated into the framework to support resource discovery and cataloging within educational repositories. Each MicroSim includes standardized metadata elements describing educational objectives, subject matter, difficulty level, and technical requirements. This metadata is structured using JSON Schema specifications that enable automated validation and processing by educational content management systems.
 
 \subsection{Pedagogical Foundations}
 
 \subsubsection{Learning Objectives Alignment}
 
+The pedagogical foundation of the MicroSims framework is rooted in constructivist learning theory, which emphasizes active knowledge construction through hands-on exploration and experimentation. The framework provides structured approaches for aligning simulation design with specific learning objectives, ensuring that interactive elements directly support intended educational outcomes. This alignment is facilitated through systematic learning objective decomposition, where complex concepts are broken into discrete, explorable components.
+
+The framework incorporates Bloom's Taxonomy as an organizational structure for categorizing learning objectives and selecting appropriate interaction patterns. Lower-level objectives (remembering, understanding) are supported through guided exploration interfaces with clear feedback mechanisms. Higher-level objectives (analyzing, evaluating, creating) are addressed through open-ended parameter spaces that enable hypothesis testing and creative exploration. The progression from structured to open-ended interactions supports scaffolded learning experiences.
+
+Assessment integration is embedded within the pedagogical framework through unobtrusive data collection that captures learning indicators without disrupting the exploration process. Interaction patterns, parameter choices, and exploration sequences provide rich data sources for formative assessment.
+
 \subsubsection{Cognitive Load Management}
 
-\subsubsection{Immediate Feedback Mechanisms}
+The framework explicitly addresses cognitive load theory principles through constrained interface design that minimizes extraneous cognitive processing. Visual design elements follow established principles of multimedia learning, with coordinated presentation of textual and visual information that supports rather than competes for cognitive resources. Color coding, spatial organization, and progressive disclosure techniques are systematically employed to manage information complexity.
 
-\subsection{User Experience Guidelines}
+Intrinsic cognitive load is managed through careful selection of simulation complexity relative to learner expertise levels. The framework provides guidelines for determining appropriate parameter ranges, interaction granularity, and feedback frequency that match learner capabilities. Extraneous cognitive load is minimized through consistent interface conventions, predictable interaction patterns, and elimination of decorative elements that do not support learning objectives.
 
-\subsubsection{Interface Clarity}
+Germane cognitive load is optimized through design patterns that encourage schema construction and knowledge transfer. The framework promotes the use of analogies, real-world connections, and cross-simulation consistency that support broader conceptual understanding.
 
-\subsubsection{Control Design}
+\subsubsection{Adaptive Learning Support}
 
-\subsubsection{Visual Hierarchy}
+The framework incorporates provisions for adaptive learning experiences that can adjust to individual student needs and preferences. Standardized data collection protocols capture detailed interaction logs that can inform adaptive algorithms about student understanding, engagement levels, and learning preferences. This data enables intelligent tutoring systems to make informed decisions about content sequencing, difficulty adjustment, and intervention timing.
 
-% Additional content to be extracted from source files
+Personalization features include adjustable complexity levels, alternative representation modes, and customizable interface preferences. The framework supports multiple learning modalities through coordinated visual, auditory, and kinesthetic interaction options. The adaptive framework includes provisions for real-time difficulty adjustment based on student performance indicators.
+
+\subsection{Implementation Standards and Guidelines}
+
+\subsubsection{Code Architecture and Organization}
+
+The implementation standards define a comprehensive code organization structure that promotes consistency, maintainability, and educational transparency. The standardized architecture separates global variables, setup functions, draw loops, interaction handlers, and utility functions into clearly defined sections with consistent naming conventions. This organization enables educators and students to quickly locate and understand different aspects of simulation functionality.
+
+Variable naming follows educational conventions that prioritize clarity over brevity, with descriptive names that indicate both purpose and units where applicable. The framework mandates comprehensive inline documentation that explains both technical implementation details and pedagogical rationale for design decisions.
+
+Function organization follows a hierarchical structure where high-level educational functions call lower-level technical implementation functions. This structure enables educators to focus on pedagogical customization without requiring deep technical expertise in graphics programming or interaction handling.
+
+\subsubsection{User Interface Design Patterns}
+
+The framework defines comprehensive user interface design patterns that ensure consistent user experiences across different MicroSims while accommodating diverse educational content requirements. Standardized control placement positions all interactive elements within a designated control region below the main visualization area, providing predictable interface layouts that reduce cognitive load associated with navigation and control discovery.
+
+Control element styling follows platform conventions while maintaining educational appropriateness and accessibility compliance. Slider controls use consistent visual styling, labeling patterns, and value display formats. Button interfaces employ standardized sizing, color schemes, and feedback mechanisms.
+
+The framework provides specific guidelines for title positioning, with automatic centering at the top of the canvas area using responsive text sizing algorithms. Labels and instructions follow consistent placement patterns relative to associated controls, with adequate spacing for touch interaction and visual clarity.
+
+\subsubsection{AI Integration and Quality Assurance}
+
+The framework is specifically designed to support automated generation by artificial intelligence systems, particularly large language models capable of code synthesis. The standardized patterns and templates provide clear reference implementations that AI systems can modify and adapt for specific educational requirements. This design consideration enables rapid content creation while maintaining quality and consistency standards.
+
+Comprehensive testing protocols ensure that MicroSims meet educational effectiveness and technical reliability standards across diverse deployment environments. Testing procedures include functionality verification across different browsers and devices, accessibility compliance validation, and educational effectiveness assessment through user studies with target learner populations.
