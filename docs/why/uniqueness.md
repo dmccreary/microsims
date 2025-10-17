@@ -2,6 +2,14 @@
 
 Educational MicroSims represent a paradigm shift in how interactive educational content is created, distributed, and integrated into learning environments. While many educational technologies exist, MicroSims occupy a unique position at the intersection of simplicity, accessibility, and AI-powered generation.
 
+<!--
+Please create a new MicroSim called "microsim-uniqueness".  It is an interactive Venn diagram with
+  three circles.  The three circles are called: Simplicity, Accessibility and AI Generation.  At the
+  center of the three circles place the word "MicroSims".  When you hover over each region, have a
+  tooltip desribe that region.  Use the /docs/why/uniqueness.md file as your guide.  Make the MicroSim a
+  p5.js width-resonsive file and follow the rules in the /rules/microsim-rules.md file. 
+  -->
+
 ## The Generative AI Revolution
 
 The most transformative aspect of MicroSims is their compatibility with generative AI systems. Unlike traditional educational software that requires teams of developers, instructional designers, and subject matter experts working for months, MicroSims can be generated in seconds by large language models like GPT-4 or Claude.
