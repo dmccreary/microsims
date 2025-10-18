@@ -1,9 +1,6 @@
 # Sine Wave
 
-<figure markdown>
-   ![Image Name](./sine-wave.png){ width="400" }
-   <figcaption>Sine Wave.</figcaption>
-</figure>
+<iframe src="main.html" height="400px" scrolling="no"></iframe>
 
 [Run the Sine Wave Demo](./sine-wave.html){ .md-button .md-button--primary }
 

@@ -3,10 +3,11 @@
 ## Created Figures
 
 ### 1. Learning Effectiveness Chart ✅
-**File**: `effectiveness-chart.pdf` (55KB), `effectiveness-chart.png` (264KB)
+**File**: `effectiveness-chart.png` (264KB)
 **Section**: 9 (Expected Benefits)
 **Status**: Complete and integrated into paper
 **Figure reference**: `\ref{fig:effectiveness}`
+**Note**: PDF version also generated but not used in paper (PNG preferred)
 
 ### 2. MicroSim Uniqueness Venn Diagram ✅
 **File**: `microsim-uniqueness.png`
@@ -51,7 +52,7 @@ Bar chart comparing learning outcomes between traditional instruction and intera
 ```latex
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/effectiveness-chart.pdf}
+\includegraphics[width=0.95\textwidth]{figures/effectiveness-chart.png}
 \caption{Learning effectiveness of interactive simulations...}
 \label{fig:effectiveness}
 \end{figure}
@@ -107,28 +108,30 @@ Bar chart comparing learning outcomes between traditional instruction and intera
 
 ## Figure Creation Workflow
 
+**IMPORTANT**: All figures must be in PNG format for this paper.
+
 ### For Python/matplotlib figures:
 1. Create script in `figures/create_*.py`
-2. Run script to generate PDF and PNG
-3. Add figure to LaTeX using `\includegraphics`
+2. Run script to generate PNG (300 DPI minimum)
+3. Add figure to LaTeX using `\includegraphics{figures/filename.png}`
 4. Reference in text using `\ref{fig:label}`
 5. Rebuild paper with `./build.sh`
 
 ### For diagram figures:
-1. Create in draw.io/Lucidchart/TikZ
-2. Export as PDF (vector format preferred)
+1. Create in draw.io/Lucidchart/Figma/etc.
+2. Export as PNG at 300 DPI or higher
 3. Place in `figures/` directory
 4. Add to LaTeX document
 5. Rebuild and verify
 
 ### Quality checklist:
 - [ ] Resolution: 300 DPI minimum
-- [ ] Format: PDF (vector) preferred, PNG acceptable
+- [ ] Format: PNG only (required)
 - [ ] Size: Appropriate for page layout (typically 0.6-0.95 \textwidth)
 - [ ] Labels: Clear, readable text at target size
 - [ ] Citations: Data sources noted in caption
 - [ ] Accessibility: High contrast, colorblind-friendly palette
-- [ ] File size: Reasonable (<1MB for PDF, <500KB for PNG)
+- [ ] File size: Reasonable (<1MB for PNG)
 
 ---
 

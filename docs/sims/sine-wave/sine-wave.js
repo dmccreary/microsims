@@ -1,4 +1,4 @@
-// p5.js code to generate a sine wave with amplitude and period controls
+// p5.js code to generate a sine wave with amplitude, frequency and period controls
 
 // sine wave with 3 sliders
 let canvasWidth = 600;
