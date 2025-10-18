@@ -52,7 +52,28 @@ paper/
 
 ## Compilation Instructions
 
-### Local Compilation
+### Local Compilation with Tectonic (Recommended)
+
+Requirements:
+- Tectonic (modern LaTeX compiler)
+
+Installation:
+```bash
+brew install tectonic
+```
+
+Build the PDF:
+```bash
+cd paper
+./build.sh
+```
+
+Clean build artifacts:
+```bash
+./build.sh clean
+```
+
+### Alternative: Traditional LaTeX Compilation
 
 Requirements:
 - LaTeX distribution (TeX Live, MiKTeX, or MacTeX)
