@@ -1,3 +1,6 @@
+// MicroSim: Analog Clock with Manual and Automatic Modes
+// This simulation displays an analog clock that can be set manually using sliders
+// or automatically based on the current system time.
 let canvasWidth = 400;
 let drawHeight = 400;
 let canvasHeight = 490;

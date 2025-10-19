@@ -1,5 +1,6 @@
 
 // Global variables for canvas dimensions
+// Demonstration of the A* pathfinding algorithm with interactive controls
 let canvasWidth = 800;
 let canvasHeight = 600;
 
