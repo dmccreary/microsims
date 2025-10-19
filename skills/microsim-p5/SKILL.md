@@ -173,6 +173,12 @@ showGridCheckbox = createCheckbox('Show Grid', false);
 showGridCheckbox.position(10, drawHeight + 15);
 ```
 
+## Metadata Generation
+
+The MicroSim metadata is stored within the MicroSim folder in a file called `metadata.json`.  The
+structure of this file is governed by a JSON schema file located at /src/microsim-schema/microsim-schema.json.
+
+
 ## Educational Design Principles
 
 ### 1. Focused Scope
