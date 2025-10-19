@@ -1,3 +1,5 @@
+// 555 Timer Simulation using p5.js
+// Users can adjust resistance and capacitance to see the effect on the LED blinking rate
 let resistanceSlider, capacitanceSlider;
 let ledState = false;
 let lastTriggerTime = 0;
