@@ -45,8 +45,8 @@
             },
             "type": {
               "type": "string",
-              "enum": ["Interactive Simulation", "Educational MicroSim"],
-              "description": "Nature or genre of the resource"
+              "enum": ["Interactive Simulation", "Educational MicroSim", "Infographic"],
+              "description": "Nature or genre of the resource including infographics"
             },
             "format": {
               "type": "string",
@@ -83,7 +83,7 @@
               "description": "Rights held in and over the resource (license, copyright)"
             }
           },
-          "required": ["title", "creator", "subject", "description", "date", "type", "format", "language", "rights"]
+          "required": ["title", "creator", "subject", "description", "date", "type", "format", "rights"]
         },
         "search": {
           "type": "object",
@@ -303,7 +303,7 @@
                 "height": {"type": "integer", "description": "Canvas height in pixels"},
                 "responsive": {"type": "boolean", "description": "Whether dimensions are responsive"}
               },
-              "required": ["width", "height", "responsive"]
+              "required": ["height"]
             },
             "regions": {
               "type": "object",
@@ -565,7 +565,7 @@
                     ]
                   }
                 },
-                "required": ["id", "type", "label", "properties"]
+                "required": ["id", "type", "label"]
               }
             },
             "visualElements": {
