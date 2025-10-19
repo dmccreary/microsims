@@ -103,7 +103,7 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "enum": ["animation", "chart", "graph", "diagram", "simulation", "interactive-demo", "data-visualization", "3d-model", "timeline", "network", "map", "dashboard"]
+                "enum": ["animation", "chart", "infographic", "graph", "diagram", "simulation", "interactive-demo", "data-visualization", "3d-model", "timeline", "network", "map", "dashboard"]
               },
               "description": "Types of visualization used in the MicroSim"
             },
@@ -132,7 +132,7 @@
               "description": "Primary application domains"
             }
           },
-          "required": ["tags", "visualizationType", "interactionLevel", "complexity"]
+          "required": ["tags", "visualizationType"]
         },
         "educational": {
           "type": "object",
@@ -302,8 +302,7 @@
                 "width": {"type": "integer", "description": "Canvas width in pixels"},
                 "height": {"type": "integer", "description": "Canvas height in pixels"},
                 "responsive": {"type": "boolean", "description": "Whether dimensions are responsive"}
-              },
-              "required": ["height"]
+              }
             },
             "regions": {
               "type": "object",
