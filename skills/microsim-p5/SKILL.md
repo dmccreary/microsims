@@ -29,7 +29,19 @@ This information will be stored in a file called metadata.json
 
 ### Step 2: MicroSim Implementation
 
-Generate a self-contained, interactive p5.js simulation following the standardized MicroSim architecture.  The program is width responsive.
+Generate a self-contained, interactive p5.js simulation following the standardized MicroSim architecture.  
+The program is width responsive.
+
+#### Folder Structure
+Each MicroSim is contained in a folder within the /docs/sims directory.  The folder name is $MICROSIM_NAME
+
+```
+/docs/sims/$MICROSIM_NAME
+/docs/sims/$MICROSIM_NAME/index.md # main index markdown for each MicroSim containing the iframe and documentation
+/docs/sims/$MICROSIM_NAME/main.html # main HTML5 file containing the p5.js CDN link and importing the p5.js JavaScript
+/docs/sims/$MICROSIM_NAME/$MICROSIM_NAME.js # All the p5.js JavaScript
+/docs/sims/$MICROSIM_NAME/metadata.json # JSON file with Dublin core metadata and description of controls
+```
 
 1. A new folder will be created in the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME
 2. An `index.md` file will be generated in the folder that describes the MicroSim and contains in iframe reference to the `main.html` file
@@ -43,12 +55,12 @@ faceted search engines can find this MicroSim
 
 Every MicroSim must have two regions:
 
-1. top drawing region with a fixed height
-2. controls region below the drawing region that contains buttons and sliders with a fixed height
+1. top drawing region with a fixed height called drawHeight
+2. controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight
 
-The width of the canvas is resized according to the container.
+The width of the canvas is resized according to the container.  It is set initially, but reset in the draw loop.
 
-You cna use this layout pattern:
+You can use this layout pattern:
 
 ```javascript
 // Canvas dimensions - REQUIRED structure
@@ -57,7 +69,7 @@ let drawHeight = 400;                // Drawing/simulation area height
 let controlHeight = 50;              // Controls area height
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;                     // Margin for visual elements
-let sliderLeftMargin = 105;          // Left margin for slider positioning
+let sliderLeftMargin = 105;          // Left margin for slider positioning.  This is the sum of the horizontal size of the largest label and value.
 let defaultTextSize = 16;            // Base text size
 
 function setup() {
@@ -126,19 +138,27 @@ function updateCanvasSize() {
 - Interactive elements: Use high-contrast, colorblind-safe colors
 
 **Typography**:
+- Default title size: 36px
 - Default text size: 16px
-- Control labels: Bold, positioned consistently
+- Control labels: Bold, positioned consistently in the control region
 - Value displays: Show current parameter values
 
 ### Control Patterns
 
-**Sliders** (for continuous parameters):
+**Horizontal Sliders In Control Region** (for continuous parameters):
+
+Sliders are create with min, max, default and step parameters.
+They are then placed below the draw height and X over at the sliderLeftMargin.
+The width of the slider is controlled by the size method and spans the width of the canvas less the sliderLeftMargin - 15;
+
 ```javascript
 speedSlider = createSlider(0, 20, 3, 0.1);
 speedSlider.position(sliderLeftMargin, drawHeight + 15);
 speedSlider.size(canvasWidth - sliderLeftMargin - 15);
 speedSlider.input(resetSimulation);
 ```
+
+All sliders must have their size recalculated if the container width changes.
 
 **Buttons** (for discrete actions):
 ```javascript

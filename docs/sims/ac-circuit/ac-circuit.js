@@ -1,5 +1,6 @@
-// AC circuit and current chart
-
+// Simulation of a simple AC circuit and current chart
+// The left is a simple AC circuit with a resistor
+// The right is a chart showing the current over time
 let canvasWidth;
 let drawHeight = 280;
 let controlHeight = 40;

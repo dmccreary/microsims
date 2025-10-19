@@ -1,3 +1,6 @@
+// MicroSim: Animated Wire Simulation
+// This simulation shows an animated wire with moving dots representing current flow.
+// Users can control the speed and spacing of the dots, and toggle the animation on and off.
 let canvasWidth = 500;
 let canvasHeight = 500;
 
