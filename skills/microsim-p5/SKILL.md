@@ -2,7 +2,7 @@
 name: microsim-p5
 description: Create an educational MicroSim using the p5.js JavaScript library.  Each MicroSim is a directory located in the /docs/sims folder.  It has a main.html file that can be referenced with an iframe.  The main.html file imports the main JavaScript code to run the educational MicroSim.
 ---
-# Educational MicroSim Creation Skill
+# Educational MicroSim Creation Skill for P5.js
 
 ## Overview
 
@@ -27,7 +27,7 @@ Before generating code, articulate the educational purpose:
 
 This information will be stored in a file called metadata.json
 
-### Step 2: MicroSim Implementation
+### Step 2: MicroSim Implementation with p5.js
 
 Generate a self-contained, interactive p5.js simulation following the standardized MicroSim architecture.  
 The program is width responsive.
