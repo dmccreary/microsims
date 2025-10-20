@@ -31,7 +31,7 @@ let dy = speed;
 let speedSlider;
 
 function setup() {
-  updateCanvasSize() // set the container dimensions
+  updateCanvasSize() // set the container dimensions to get the correct container width
   const canvas = createCanvas(containerWidth, containerHeight);
   var mainElement = document.querySelector('main');
   canvas.parent(mainElement);
