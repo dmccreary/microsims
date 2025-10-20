@@ -50,6 +50,8 @@ Each MicroSim is contained in a folder within the /docs/sims directory.  The fol
 /docs/sims/$MICROSIM_NAME/metadata.json # JSON file with Dublin core metadata and description of controls
 ```
 
+This skill contains templates for the `index.md`, `main.html`, `metadata.json` and a `bouncing-ball.js`.
+
 1. A new folder will be created in the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME
 2. An `index.md` file will be generated in the folder that describes the MicroSim and contains in iframe reference to the `main.html` file
 3. A small `main.html` file will contain the title, link to the p5.js library from the CDN and include the MICROSIM_NAME.js file.  The `main.html` file must contain a `main` HTML element within the body.
@@ -226,18 +228,85 @@ The following items must be modified in each main.html file:
 
 1. The pathname to the JavaScript file should be modified to use the name of the JavaScript file in the MicroSim directory.
 2. The title element in the body must be modified for each MicroSim.
+3. The version number in the CDN path should only be changed if there are problems running the code.
 
 Note that for label placement in the control area, we set both the margin and padding to be 0.  We do not use a separate CSS file.  This keeps our code simpler.
 
+### P5.js Version Updates
+
 Note that this template uses the jsdelivr.net CDN to get the main p5.js library.  The version number
-is hard coded in this path.  If bugs are found one suggestion is to verify that this library is
-the current one used in the p5.js editor.
+is hard-coded in this path.  If bugs are found one suggestion is to verify that this library is
+the current one used in the p5.js editor.  The following Python code will return the latest
+version of p5.js.
+
+https://github.com/dmccreary/microsims/blob/main/src/p5-version/p5-version.py
+
+Note that in August of 2026 the default version of p5.js will be 2.x.
+
+## Index.md Generation
+
+A template file `index.md` must be generated for each MicroSim.
+This file contains metadata in yml format before the header 1 title
+
+### Index.md Metadata
+```yml
+---
+title: Bouncing Ball
+description: A MicroSim of a ball bouncing within the drawing region with a control for changing the speed.
+image: /sims/bouncing-ball/bouncing-ball.png
+og:image: /sims/bouncing-ball/bouncing-ball.png
+twitter:image: /sims/bouncing-ball/bouncing-ball.png
+social:
+   cards: false
+---
+```
+
+Here is an example of the content of the index.md file
+
+```markdown
+# Bouncing Ball
+
+<iframe src="main.html" height="432px" scrolling="no"></iframe>
+
+[Run the Bouncing Ball MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit the Bouncing Ball MicroSim with the p5.js editor](https://editor.p5js.org/dmccreary/sketches/icpiK4UjE)
+
+## Description
+
+[Description of the MicroSim]
+
+## Lesson Plan
+
+[Lesson Plan for Using the MicroSim]
+```
+
+In addition, the following sample iframe should be placed before the description.  Make sure to
+enclose the HTML in triple grave accent characters.
+
+You can include this MicroSim on your website using the following `iframe`:
+
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/bouncing-ball/main.html" height="432px" scrolling="no"></iframe>
+```
+
+The bouncing ball is the "Hello World!" of the Educational MicroSims.
+It contains the key elements that shows the power of the width-responsive MicroSims
+graphics with movement and user interaction.  When we design MicroSims, we also
+want clearly-visible user interface elements in the control area that can control
+the running of our simulations.  This version contains a slider to control the speed of the ball's movement.
+
+## Lesson Plan
+
+Both the title and the description should be modified by this SKILL.
+
+These tags are used to create high-quality social media previews when instructors copy the MicroSim links into tools like Zoom chats.  The .png image should be created by a human with the same name as the MicroSim.
+Add are reminder to do this to the user.
 
 ## Metadata Generation
 
 The MicroSim metadata is stored within the MicroSim folder in a file called `metadata.json`.  The
 structure of this file is governed by a JSON schema file located at /src/microsim-schema/microsim-schema.json.
-
 
 ## Educational Design Principles
 
@@ -254,9 +323,11 @@ Code should be readable and well-commented so educators and advanced students ca
 - Assumptions and simplifications made
 
 ### 4. Progressive Complexity
+
 Start with simple defaults that demonstrate the core concept. Allow students to increase complexity through parameter manipulation.
 
 ### 5. Cognitive Load Management
+
 - Minimize extraneous cognitive load: Keep interface clean and uncluttered
 - Optimize germane cognitive load: Focus attention on the educational concept
 - Support intrinsic complexity: Provide scaffolding for difficult concepts
@@ -264,30 +335,35 @@ Start with simple defaults that demonstrate the core concept. Allow students to 
 ## Example Learning Objectives by Domain
 
 ### Physics & Engineering
+
 - Demonstrate relationship between force, mass, and acceleration
 - Visualize wave interference patterns
 - Explore conservation of energy in colliding objects
 - Show effects of gravity on projectile motion
 
 ### Chemistry & Molecular Science
+
 - Visualize molecular bonding and bond angles
 - Demonstrate gas laws (pressure, volume, temperature relationships)
 - Show chemical equilibrium and Le Chatelier's principle
 - Illustrate phase changes at molecular level
 
 ### Biology & Life Sciences
+
 - Model population dynamics and predator-prey relationships
 - Simulate genetic inheritance patterns
 - Demonstrate cell division processes
 - Explore ecosystem energy flow
 
 ### Mathematics & Computer Science
+
 - Explore function transformations (translations, dilations, reflections)
 - Visualize geometric constructions and proofs
 - Demonstrate probability distributions
 - Show algorithmic behavior (sorting, searching, recursion)
 
 ### Systems Thinking
+
 - Model feedback loops and causal relationships
 - Demonstrate stock-and-flow dynamics
 - Show emergent behavior in complex systems
