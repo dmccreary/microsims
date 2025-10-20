@@ -61,12 +61,12 @@ function draw() {
   // get the new speed from the UI
   speed = speedSlider.value();
 
-  // Title
-  fill('black');
-  noStroke();
-  textAlign(CENTER, TOP);
-  textSize(32);
-  text('Bouncing Ball Simulation', canvasWidth/2, margin);
+  // If you want a title, uncomment the following lines
+  // fill('black');
+  // noStroke();
+  // textAlign(CENTER, TOP);
+  // textSize(32);
+  // text('Bouncing Ball Simulation', margin, canvasWidth/2);
   // stroke();
 
   // adjust the x and y directions
@@ -95,9 +95,7 @@ function draw() {
   // draw the label and value for the speed slider
   fill('black');
   noStroke();
-  textAlign(LEFT, CENTER);
-  textSize(defaultTextSize);
-  text('Speed: ' + speed, 10, drawHeight+15);
+  text('Speed: ' + speed, 10, drawHeight+20);
 }
 
 // These two functions must be present for width responsiveness MicroSims

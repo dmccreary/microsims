@@ -18,7 +18,25 @@ function setup() {
 }
 
 function draw() {
-    background(51);
+    // fill drawing area with very light blue background - MicroSim standard style
+    fill('aliceblue');
+    stroke('silver');
+    strokeWeight(1);
+    rect(0, 0, canvasWidth, drawHeight);
+
+    // fill control area with a white background
+    fill('white');
+    rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight); 
+    
+    // get the new speed from the UI
+    speed = speedSlider.value();
+    // uncomment to add a title to the simulation
+    fill('black');
+    noStroke();
+    textAlign(CENTER, TOP);
+    textSize(32);
+    text('Bouncing Ball Simulation', margin, canvasWidth/2);
+    stroke();
     let temp = sliderTemp.value();
     let mol = sliderMol.value();
     fill('white');
