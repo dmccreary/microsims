@@ -8,10 +8,11 @@ description: Create an educational MicroSim using the p5.js JavaScript library. 
 
 This skill guides the creation of Educational MicroSims using the p5.js JavaScript library.  MicroSims are lightweight, interactive educational simulations designed for browser-based learning. MicroSims occupy a unique position at the intersection of **Simplicity** (focused scope, transparent code), **Accessibility** (browser-native, universal embedding), and **AI Generation** (standardized patterns, prompt-compatible design).
 
-This MicroSim is designed to create all the required files for running your MicroSim on your website.
+This MicroSim Skill is designed to create all the required files for running your MicroSim on your website and return a zip file of the content.
 We assume that the website has a folder called /docs/sims that each MicroSim will be placed in.
 The p5.js file is also designed to that it can be tested by pasting the JavaScript directly
 into the p5.js editor site at https://editor.p5js.org/.
+
 
 ## Purpose
 
@@ -520,24 +521,27 @@ Transform abstract data into visual representations students can manipulate.
 ## Deployment Considerations
 
 ### iframe Embedding (Universal Deployment)
-MicroSims are designed to be embedded anywhere with a single HTML line:
+
+MicroSims are designed to be embedded in any web page with a single HTML line:
 
 ```html
-<iframe src="microsim-file.html"
-        width="100%"
-        height="470"
-        frameborder="0"
-        title="Educational MicroSim">
+<iframe src="https://dmccreary.github.io/microsims/sims/bouncing-ball/main.html"
+        height="432"
+        scrolling="no">
 </iframe>
 ```
 
+For the height, it should be the sum of the drawHeight and the controlHeight plus 2.
+
 ### Learning Management System Integration
+
 - Compatible with Canvas, Blackboard, Moodle, Google Classroom
 - No server-side requirements
 - Works in restricted network environments
 - Mobile-friendly for tablets and smartphones
 
 ### xAPI Integration (Optional)
+
 For learning analytics, MicroSims can emit xAPI statements:
 - Button clicks, slider adjustments
 - Time spent on task
@@ -547,6 +551,7 @@ For learning analytics, MicroSims can emit xAPI statements:
 ## Pedagogical Context
 
 ### Research Foundation
+
 Educational simulations demonstrate consistent benefits:
 - 15-25% improvement in conceptual understanding
 - 30-40% reduction in time to mastery
@@ -589,6 +594,7 @@ if (position.y >= height - radius) {
 ```
 
 ### Controls Provided
+
 - Gravity slider (0-2 m/s², default: 0.5)
 - Elasticity slider (0-1, default: 0.7)
 - Start/Pause button
@@ -610,6 +616,35 @@ After initial generation, iteratively improve through prompts like:
 - "Show the current velocity value"
 - "Include a graph showing energy over time"
 - "Add a grid to help students measure distances"
+
+## User Instructions
+
+After you generate a MicroSim with the required files, create a zip file that the user can download.
+Then return the following instruction:
+
+Congratulations!  Your MicroSim zip file has been generated and is ready for testing.  The best way
+to instal this is to run the following commands using the bouncing-ball example:
+
+```sh
+cd /doc/sims
+unzip bouncing-ball.zip
+```
+
+If you are going to test the MicroSim within mkdocs site you can also do the following:
+```sh
+# move the zip file out of the way so it does not get copied to the web site
+mv bouncing-ball.zip /tmp
+# edit the mkdocs.yml file
+open ../../mkdocs.yml
+# test your code locally
+mkdocs serve
+# go to the right link: http://localhost:8000/microsims/sims/bouncing-ball/
+# check in your code with git
+# deploy your new microsim to production!
+mkdocs gh-deploy
+```
+
+Then make sure that the site navigation (mkdocs.yml) file includes the link to this new MicroSim.
 
 ## Conclusion
 
