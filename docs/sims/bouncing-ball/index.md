@@ -1,6 +1,15 @@
+---
+title: Bouncing Ball
+description: A MicroSim of a ball bouncing within the drawing region with a control for changing the speed.
+image: /sims/name/name.png
+og:image: /sims/name/name.png
+twitter:image: /sims/name/name.png
+social:
+   cards: false
+---
 # Bouncing Ball
 
-<iframe src="main.html" height="430px" scrolling="no"></iframe>
+<iframe src="main.html" height="432px" scrolling="no"></iframe>
 
 [Run Bouncing Ball Demo](./main.html){ .md-button .md-button--primary }
 
