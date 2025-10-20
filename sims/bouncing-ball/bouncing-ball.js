@@ -1,13 +1,14 @@
-// bouncing ball - version 2
-// with radius added to edge check and drawing region above controls
+// Bouncing Ball example - use as a template for other sims
+// This simulation shows a ball bouncing around inside a box.
+// The design is width responsive so it adjusts to the width of container as it resizes.
 
 // global variables for width and height
 let containerWidth; // this values is calculated by container upon init and changed on resize
-// the width of the entire canvas
+// the temporary width of the entire canvas
 let canvasWidth = 400;
-// The top drawing region above the interactive controls
+// A fixed top drawing region above the interactive controls
 let drawHeight = 400;
-// control region height
+// control region height - use 30 pixels for each slider
 let controlHeight = 30;
 // The total hight of both the drawing region height + the control region height
 let canvasHeight = drawHeight + controlHeight;
@@ -18,6 +19,8 @@ let margin = 25;
 let sliderLeftMargin = 90;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
+
+// application specific global variables
 let r = 20; // radius of the ball
 
 // set the initial position of the ball in the middle of the drawing region
@@ -46,7 +49,7 @@ function draw() {
   // check for window resize
   updateCanvasSize();
 
-  // fill drawing area with very light blue background
+  // fill drawing area with very light blue background - MicroSim standard style
   fill('aliceblue');
   stroke('silver');
   strokeWeight(1);
@@ -57,6 +60,14 @@ function draw() {
   rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight); 
   // get the new speed from the UI
   speed = speedSlider.value();
+
+  // Title
+  fill('black');
+  noStroke();
+  textAlign(CENTER, TOP);
+  textSize(32);
+  text('Bouncing Ball Simulation', canvasWidth/2, margin);
+  // stroke();
 
   // adjust the x and y directions
   if (dx > 0) dx = speed;
@@ -81,18 +92,21 @@ function draw() {
   fill('blue');
   circle(x, y, r*2);
 
-  // draw the speed label
+  // draw the label and value for the speed slider
   fill('black');
   noStroke();
-  text('Speed: ' + speed, 10, drawHeight+20);
+  textAlign(LEFT, CENTER);
+  textSize(defaultTextSize);
+  text('Speed: ' + speed, 10, drawHeight+15);
 }
 
+// These two functions must be present for width responsiveness MicroSims
 // this function is called whenever the browser window is resized
 function windowResized() {
   // Update canvas size when the container resizes
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
-  // reposition and resize the speed slider
+  // resize the speed slider and any other sliders here
   speedSlider.size(canvasWidth - sliderLeftMargin - margin);
   redraw();
 }
@@ -101,6 +115,6 @@ function updateCanvasSize() {
   // Get the width of the <main> element
   const container = document.querySelector('main').getBoundingClientRect();
   containerWidth = Math.floor(container.width);  // Avoid fractional pixels
-  // set the canvas width to the container width
+  // update the canvas width to be the container width
   canvasWidth = containerWidth;
 }
