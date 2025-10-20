@@ -8,9 +8,16 @@ description: Create an educational MicroSim using the p5.js JavaScript library. 
 
 This skill guides the creation of Educational MicroSims using the p5.js JavaScript library.  MicroSims are lightweight, interactive educational simulations designed for browser-based learning. MicroSims occupy a unique position at the intersection of **Simplicity** (focused scope, transparent code), **Accessibility** (browser-native, universal embedding), and **AI Generation** (standardized patterns, prompt-compatible design).
 
+This MicroSim is designed to create all the required files for running your MicroSim on your website.
+We assume that the website has a folder called /docs/sims that each MicroSim will be placed in.
+The p5.js file is also designed to that it can be tested by pasting the JavaScript directly
+into the p5.js editor site at https://editor.p5js.org/.
+
 ## Purpose
 
 Educational MicroSims transform abstract concepts into visual interactive, manipulable experiences that enable students to learn through exploration and experimentation. Each MicroSim addresses specific learning objectives while maintaining the pedagogical rigor and technical quality necessary for educational deployment.
+
+MicroSims are designed to be referenced by an iframe on an existing website or quickly added to a website or intelligent textbook created with mkdocs.  Because MicroSims have strict rules for controls, they can generate xAPI (eXperience API IEEE 9274.1.1-2023) calls so that interaction events in JSON format can be added to a LRS learning Record Store IEEE 1484.20-2024.
 
 ## Development Process
 
@@ -25,7 +32,7 @@ Before generating code, articulate the educational purpose:
 5. **Prerequisites**: What knowledge must students have before using this?
 6. **Assessment Opportunities**: How can educators verify learning?
 
-This information will be stored in a file called metadata.json
+This information will be stored in a the Dublin Core area of file called metadata.json
 
 ### Step 2: MicroSim Implementation with p5.js
 
@@ -36,7 +43,7 @@ The program is width responsive.
 Each MicroSim is contained in a folder within the /docs/sims directory.  The folder name is $MICROSIM_NAME
 
 ```
-/docs/sims/$MICROSIM_NAME
+/docs/sims/$MICROSIM_NAME # container folder for MicroSim
 /docs/sims/$MICROSIM_NAME/index.md # main index markdown for each MicroSim containing the iframe and documentation
 /docs/sims/$MICROSIM_NAME/main.html # main HTML5 file containing the p5.js CDN link and importing the p5.js JavaScript
 /docs/sims/$MICROSIM_NAME/$MICROSIM_NAME.js # All the p5.js JavaScript
@@ -55,8 +62,8 @@ faceted search engines can find this MicroSim
 
 Every MicroSim must have two regions:
 
-1. top drawing region with a fixed height called drawHeight
-2. controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight
+1. A top drawing region with a fixed height called drawHeight.  No user interface controls are placed in the drawing region.
+2. A user interface controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight.
 
 The width of the canvas is resized according to the container.  It is set initially, but reset in the draw loop.
 
@@ -94,14 +101,18 @@ function draw() {
   // Place the title in the top center of the canvas
   fill('black');
   textSize(36); // larger font for the title
-  textAlign(CENTER, CENTER);
+  textAlign(CENTER, TOP);
   noStroke();
   text('Title of MicroSim', canvasWidth/2, margin);
-  
-  // main drawing code
-  // Control labels and values here
-  // Normal text size for the labels
-  textSize(24);
+  // return default setting to avoid bugs in the main drawing code
+  stroke();
+  textAlign(LEFT, CENTER);
+  textSize(defaultTextSize);
+
+  // main drawing code here
+
+  // Draw control labels and values here in the controls areal
+
 }
 ```
 
@@ -122,8 +133,8 @@ function updateCanvasSize() {
     // Reposition all controls to match new width
     // all horizontal sliders much be resized when the container size changes
     if (typeof speedSlider !== 'undefined') {
-      speedSlider.position(sliderLeftMargin, drawHeight + 15);
-      speedSlider.size(canvasWidth - sliderLeftMargin - 15);
+      // update the size of the slider
+      speedSlider.size(canvasWidth - sliderLeftMargin - margin);
     }
   }
 }
@@ -138,6 +149,10 @@ function updateCanvasSize() {
 - Interactive elements: Use high-contrast, colorblind-safe colors
 
 **Typography**:
+
+Try to avoid using any text smaller than 16pt.  We want the MicroSim text to be
+readable from the back of the classroom.
+
 - Default title size: 36px
 - Default text size: 16px
 - Control labels: Bold, positioned consistently in the control region
@@ -158,6 +173,8 @@ speedSlider.size(canvasWidth - sliderLeftMargin - 15);
 speedSlider.input(resetSimulation);
 ```
 
+Do no use the `style` method to change the width of a slider.  Only use the `size' method.
+
 All sliders must have their size recalculated if the container width changes.
 
 **Buttons** (for discrete actions):
@@ -172,6 +189,49 @@ startButton.mousePressed(toggleSimulation);
 showGridCheckbox = createCheckbox('Show Grid', false);
 showGridCheckbox.position(10, drawHeight + 15);
 ```
+
+## main.html
+
+Our goal is to maintain full compatibility with the p5.js editor.  JavaScript code generated should
+always be paste directly into the p5.js editing tool.  This tool uses a standard main.html file that contains a '<main></main>` element that holds our canvas.  Here is the main.html template that we recommend using:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouncing Ball MicroSim using P5.js 1.11.10</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <!-- Put your script file name here -->
+    <script src="bouncing-ball.js"></script>
+</head>
+<body>
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>
+```
+
+### Customizing the main.html File
+
+The following items must be modified in each main.html file:
+
+1. The pathname to the JavaScript file should be modified to use the name of the JavaScript file in the MicroSim directory.
+2. The title element in the body must be modified for each MicroSim.
+
+Note that for label placement in the control area, we set both the margin and padding to be 0.  We do not use a separate CSS file.  This keeps our code simpler.
+
+Note that this template uses the jsdelivr.net CDN to get the main p5.js library.  The version number
+is hard coded in this path.  If bugs are found one suggestion is to verify that this library is
+the current one used in the p5.js editor.
 
 ## Metadata Generation
 
