@@ -36,8 +36,8 @@ def zip_skill_directory(skill_path, output_path):
 
 def main():
     """Main function to process all skill directories."""
-    # Get the project root directory (parent of src)
-    script_dir = Path(__file__).parent
+    # Get the project root directory (parent of parent of this script in the src/zip-skills folder)
+    script_dir = Path(__file__).parent.parent
     project_root = script_dir.parent
     skills_dir = project_root / 'skills'
 
