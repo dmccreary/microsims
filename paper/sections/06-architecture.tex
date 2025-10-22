@@ -7,6 +7,13 @@ The design decisions underlying the MicroSims architecture emerge from extensive
 
 \subsection{Technology Stack}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/microsim-architecture.png}
+\caption{MicroSims use a standardized web deployment architecture depicted as a series of layers. The foundation is built on HTML-5, JavaScript standards (ECMAScript), ensuring broad compatibility across browsers and devices. Modern browsers such as Chrome ane FireFox can leverage consistent low-level drawing libraries such as WebGL and WebGPU for fast rendering of complex 3D simulations. The p5.js library provides the core drawing and interaction capabilities, while the MicroSims framework extends p5.js with standardized patterns for responsive design, user interface management, and educational data collection. This layered architecture supports seamless embedding within iframe elements, enabling integration with diverse educational platforms while maintaining security and performance.  A MicroSIm can optionally generate xAPI JSON statements to report user interactions to learning record stores for integration with intelligent textbooks and learning analytics systems.  Analysis of student interaction data can be used to adaptively modify the simulation experience using reinforcement learning techniques.}
+\label{fig:architecture}
+\end{figure}
+
 \subsubsection{p5.js Foundation}
 
 The technical architecture of the MicroSims framework is built upon the p5.js creative coding library, selected for its educational transparency, extensive documentation, and gentle learning curve. p5.js provides a comprehensive set of drawing and interaction primitives while maintaining code readability that enables educators and students to understand and modify simulation logic. The framework extends p5.js capabilities with standardized patterns for responsive design, user interface management, and educational data collection.
@@ -17,21 +24,23 @@ The architecture defines a modular structure where core simulation logic is sepa
 
 \subsubsection{MicroSim Rules Files}
 
-A critical component of the MicroSims architecture is the comprehensive rules file system that enables generative AI systems to create consistent, high-quality educational simulations. These rules files codify the design patterns, layout conventions, and implementation standards that ensure uniformity across different AI-generated content while maintaining educational effectiveness.
+A critical component of the MicroSims architecture is the comprehensive rules file system that enables generative AI systems to create consistent, high-quality educational simulations. These rules files codify the design patterns, layout conventions, and implementation standards that ensure uniformity across different AI-generated content while maintaining educational effectiveness.  Modern generative AI systems can utilize these rules files to produce MicroSims that adhere to established pedagogical and technical standards.  Examples of these rules are `skills` files that are mapped to specific content generation tasks.
 
 The rules files define three primary layout types that accommodate different educational simulation requirements. Fixed layouts provide simple positioning for basic demonstrations, responsive width layouts adapt horizontally to container dimensions while maintaining fixed heights, and two-column layouts separate simulation visualization from data analysis components. Each layout type includes specific implementation patterns, variable naming conventions, and responsive behavior specifications.
 
 The standardization extends to user interface design patterns, including consistent control placement, labeling conventions, and interaction feedback mechanisms. All interactive elements follow prescribed positioning relative to the drawing area, with sliders expanding to utilize available width and buttons maintaining consistent spacing and styling. The rules ensure that generated simulations include proper accessibility features, responsive behavior, and educational transparency.
 
+Precise rules files are critical for efficient generation of MicroSims by large language models (LLMs).  By carefully structuring rules files only the relevant rules need to be brought into the context window of the LLM, allowing it to focus on the specific generation task without being overwhelmed by extraneous information.  This targeted approach enhances the quality and consistency of AI-generated simulations while reducing computational overhead.
+
 \subsubsection{HTML5 Canvas and Cross-Platform Compatibility}
 
-The framework leverages HTML5 Canvas capabilities to provide rich interactive experiences while maintaining compatibility across diverse devices and platforms. Canvas-based rendering ensures consistent visual output across different browsers and operating systems, while HTML5 audio and video elements support multimedia integration when pedagogically appropriate. The architecture avoids features that require plugin installation or platform-specific implementations, ensuring universal accessibility.
+The MicroSim framework leverages HTML5 Canvas capabilities to provide rich interactive experiences while maintaining compatibility across diverse devices and platforms. Canvas-based rendering ensures consistent visual output across different browsers and operating systems, while HTML5 audio and video elements support multimedia integration when pedagogically appropriate. The architecture avoids features that require plugin installation or platform-specific implementations, ensuring universal accessibility.
 
 Cross-platform compatibility is validated through systematic testing across major web browsers and mobile platforms. The framework includes performance optimization techniques that ensure smooth operation on lower-powered devices commonly found in educational environments, including older tablets and budget smartphones. Browser compatibility considerations include progressive enhancement strategies where advanced features degrade gracefully on older platforms while maintaining core functionality.
 
 \subsection{Width-Responsive Design Implementation}
 
-Width-responsive design represents the optimal architectural approach for Educational MicroSims, providing essential flexibility without unnecessary complexity. This design philosophy ensures that simulations automatically adjust their horizontal dimensions to match their container while maintaining a fixed height, creating an ideal balance between adaptability and predictability.
+Width-responsive design represents the optimal architectural approach for Educational MicroSims, providing essential flexibility without unnecessary complexity. This design philosophy ensures that simulations automatically adjust their horizontal dimensions to match their container while maintaining a fixed height, creating an ideal balance between adaptability and predictability.  An example of a width-responsive rule is to place the title in the top of the canvas and centered at half the width of the canvas.  Using the proper textAlign setting in p5.js makes this easy to implement.
 
 The width-responsive approach addresses critical educational deployment scenarios. In learning management systems, MicroSims fit within content columns of different widths without horizontal scrolling. On mobile devices, students can interact with simulations on phones and tablets with touch controls remaining accessible regardless of screen width. In classroom projection scenarios, teachers benefit from full utilization of projector width with larger controls and text for back-of-room visibility.
 
