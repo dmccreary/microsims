@@ -12,27 +12,19 @@ and you can adjust the angle an power of the canon that fires the ball.
 
 ## Sample Prompts
 
-```linenums="0"
-Generate a single file p5.js sketch that demonstrates projectile motion.
-Allow the user to set the initial angle and power of a projectile.
-```
+!!! prompt
+  Generate a new P5 MicroSim using the MicroSim-p5 skill that will demonstrate projectile
+  motion.  Create a folder called projectile-motion to store the MicroSim.
+  A canon is in the lower-left corner of the canvas.
+  A "Fire" button is in the control area along with two sliders.
+  One slider controls the angle and the other slider controls the power.
+  When the user presses the Fire button, a small blue ball will exit the canon and fly
+  in the pattern of parabola.
+  A dashed line will trace the trajectory of the canon ball.
+  Pressing the Fire button again will fire a new canon ball, but will not erase the prior paths.
+  A Reset button will erase all the prior paths.
+  Using the default values for the angle and power will have the ball land 3/4 of the way to the right side.
 
-Here is a more precise specification with details on the control placement.
-
-```linenums="0"
-Generate a single file p5.js sketch on an 800x550 canvas.
-The program is a simulation of projecile motion.
-The upper drawing region is 800x500 and is intialized with a light gray rectangle of 245.
-The lower 50 height is for placing the controls on a white background.
-A circle of radius 10 is placed in the lower left corner of the drawing region.
-A "Fire" buttin is below the circle.
-To the right of the fire button are two sliders.
-One slider is for the initial angle at fire time.
-One slider is for the power at fire time.
-Gravity is in the positive y of force 0.05
-When the ball goes outside the drawing region (800x500) the simulation must stop.
-When the simulation stops, place a new ball in the lower left corner of the drawing region.
-```
 
 [Edit this Code Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/KK75id7n4)
 

@@ -1,0 +1,154 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Projectile Motion Simulation",
+      "creator": ["Claude Code", "Dan McCreary"],
+      "subject": ["Physics", "Kinematics", "Classical Mechanics"],
+      "description": "Interactive simulation demonstrating parabolic trajectories of projectiles with adjustable launch angle and power. Features visual cannon, trajectory tracing, and multiple shot comparison.",
+      "date": "2025-10-22",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "language": "en",
+      "rights": "CC BY 4.0"
+    },
+    "educational": {
+      "gradeLevel": "Middle School (6-8), High School (9-12)",
+      "subjectArea": "Physics",
+      "topic": "Projectile Motion, Kinematics, Parabolic Trajectories",
+      "learningObjectives": [
+        "Describe the trajectory of a projectile as parabolic",
+        "Explain how launch angle affects range and maximum height",
+        "Understand independence of horizontal and vertical motion",
+        "Predict optimal angle for maximum range",
+        "Apply velocity component decomposition",
+        "Analyze the effect of initial velocity on projectile motion"
+      ],
+      "bloomsTaxonomyLevels": ["Understand", "Apply", "Analyze", "Evaluate"],
+      "duration": "15-25 minutes",
+      "prerequisites": "Basic understanding of velocity, acceleration, and gravity"
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "1.11.10",
+      "canvasDimensions": {
+        "width": "responsive",
+        "drawHeight": 400,
+        "controlHeight": 100,
+        "totalHeight": 500
+      },
+      "responsive": "Width-responsive, height-fixed",
+      "dependencies": ["p5.js CDN"],
+      "accessibility": ["Screen reader support via describe()", "Keyboard accessible controls"]
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "type": "slider",
+          "name": "angleSlider",
+          "label": "Angle",
+          "min": 0,
+          "max": 90,
+          "default": 45,
+          "step": 1,
+          "unit": "degrees",
+          "description": "Launch angle of the cannon from horizontal"
+        },
+        {
+          "type": "slider",
+          "name": "powerSlider",
+          "label": "Power",
+          "min": 5,
+          "max": 25,
+          "default": 15,
+          "step": 0.5,
+          "description": "Initial velocity/power of the projectile"
+        },
+        {
+          "type": "button",
+          "name": "fireButton",
+          "label": "Fire",
+          "description": "Launch a projectile with current angle and power settings"
+        },
+        {
+          "type": "button",
+          "name": "resetButton",
+          "label": "Reset",
+          "description": "Clear all trajectory traces from the canvas"
+        }
+      ],
+      "displays": [
+        {
+          "type": "visual",
+          "name": "cannon",
+          "description": "Animated cannon that rotates to match the selected angle"
+        },
+        {
+          "type": "visual",
+          "name": "trajectories",
+          "description": "Dashed lines showing parabolic paths of all fired projectiles"
+        },
+        {
+          "type": "text",
+          "name": "angleIndicator",
+          "description": "Numerical display of current angle near cannon barrel"
+        }
+      ]
+    },
+    "simulation": {
+      "modelType": "Physics-based kinematic simulation",
+      "variables": [
+        "angle (launch angle in degrees)",
+        "power (initial velocity magnitude)",
+        "gravity (constant downward acceleration)",
+        "vx (horizontal velocity component)",
+        "vy (vertical velocity component)",
+        "x, y (projectile position)"
+      ],
+      "equations": [
+        "vx = power × cos(angle)",
+        "vy = power × sin(angle)",
+        "x = x₀ + vx × t",
+        "y = y₀ + vy × t + 0.5 × g × t²",
+        "vy_new = vy + g (each frame)"
+      ],
+      "assumptions": [
+        "No air resistance (ideal projectile motion)",
+        "Constant gravitational acceleration",
+        "Point mass projectile (no rotation or size effects)",
+        "Flat, level ground",
+        "2D motion only (no side-to-side wind)",
+        "Instantaneous launch (no barrel friction)"
+      ],
+      "limitations": [
+        "Does not model air resistance or drag",
+        "Ignores Magnus effect (spin-induced curves)",
+        "No terrain variation",
+        "Simplified gravity (no variation with altitude)",
+        "Does not account for Earth's rotation (Coriolis effect)",
+        "2D simulation of a 3D phenomenon"
+      ]
+    },
+    "pedagogicalContext": {
+      "researchBasis": "Classical Mechanics, Newtonian Physics",
+      "commonMisconceptions": [
+        "Heavier objects fall faster (in vacuum, all objects fall at same rate)",
+        "Horizontal motion affects vertical motion (they are independent)",
+        "Projectiles move in a straight line then fall (motion is always curved)",
+        "Maximum range always occurs at 45° (true only without air resistance)"
+      ],
+      "assessmentOpportunities": [
+        "Predict landing distance for given angle and power",
+        "Identify optimal angle for maximum range",
+        "Explain complementary angle phenomenon (30° and 60°)",
+        "Calculate time of flight using physics equations",
+        "Compare simulation results to theoretical calculations"
+      ],
+      "realWorldApplications": [
+        "Sports: basketball shooting, golf, baseball",
+        "Military: artillery trajectory calculations",
+        "Engineering: water fountain design, package delivery drones",
+        "Space: orbital mechanics, rocket trajectories"
+      ]
+    }
+  }
+}
