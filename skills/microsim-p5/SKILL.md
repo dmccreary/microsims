@@ -1,6 +1,6 @@
 ---
 name: microsim-p5
-description: Create an educational MicroSim using the p5.js JavaScript library.  Each MicroSim is a directory located in the /docs/sims folder.  It has a main.html file that can be referenced with an iframe.  The main.html file imports the main JavaScript code to run the educational MicroSim.
+description: Create an interactive educational MicroSim using the p5.js JavaScript library with distinct regions for drawing and interactive controls.  Each MicroSim is a directory located in the /docs/sims folder.  It has a main.html file that references the javascript code and the main.html can be referenced as an iframe from the index.md.  The metadata.json contains Dublin core metadata about the MicroSim.
 ---
 # Educational MicroSim Creation Skill for P5.js
 
@@ -25,15 +25,18 @@ Before generating code, articulate the educational purpose:
 5. **Prerequisites**: What knowledge must students have before using this?
 6. **Assessment Opportunities**: How can educators verify learning?
 
-This information will be stored in a file called metadata.json
+This information will be documented at the end of the index.md file and also stored in a file called metadata.json that is
+validated by a JSON Schema at https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json
 
 ### Step 2: MicroSim Implementation with p5.js
 
 Generate a self-contained, interactive p5.js simulation following the standardized MicroSim architecture.  
-The program is width responsive.
+The program is width responsive and the p5.js javascript file we create should run without changes using the p5.js editor
+for easy testing by the user.
 
 #### Folder Structure
-Each MicroSim is contained in a folder within the /docs/sims directory.  The folder name is $MICROSIM_NAME
+
+Each MicroSim is contained in a folder within the /docs/sims directory.  The folder name is $MICROSIM_NAME and has the following contents:
 
 ```
 /docs/sims/$MICROSIM_NAME
@@ -43,7 +46,9 @@ Each MicroSim is contained in a folder within the /docs/sims directory.  The fol
 /docs/sims/$MICROSIM_NAME/metadata.json # JSON file with Dublin core metadata and description of controls
 ```
 
-1. A new folder will be created in the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME
+The following steps are an example of generating a new MicroSim within a checked out intelligent textbook built with mkdocs.
+
+1. A new folder will be created inside the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME
 2. An `index.md` file will be generated in the folder that describes the MicroSim and contains in iframe reference to the `main.html` file
 3. A small `main.html` file will contain the title, link to the p5.js library from the CDN and include the MICROSIM_NAME.js file.  The `main.html` file must contain a `main` HTML element within the body.
 4. A file called `metadata.json` will be created that conforms to the schema at /src/microsim-schema/microsim-schema.json.  This will contain the Dublin core elements such as title, subject, author, publication date etc.  This file is use so that
@@ -53,14 +58,17 @@ faceted search engines can find this MicroSim
 
 ### Canvas Structure (REQUIRED)
 
+MicroSims are designed to be called by an iframe.  They run in a fixed height region with a variable width.
+
 Every MicroSim must have two regions:
 
-1. top drawing region with a fixed height called drawHeight
-2. controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight
+1. the top drawing region with a fixed height called drawHeight
+2. the controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight
 
-The width of the canvas is resized according to the container.  It is set initially, but reset in the draw loop.
+The width of the canvas is resized according to the container.  It is set initially, but reset in the draw loop
+when the container has changed.
 
-You can use this layout pattern:
+We use this layout pattern:
 
 ```javascript
 // Canvas dimensions - REQUIRED structure
@@ -73,6 +81,7 @@ let sliderLeftMargin = 105;          // Left margin for slider positioning.  Thi
 let defaultTextSize = 16;            // Base text size
 
 function setup() {
+  updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent(document.querySelector('main'));
 
@@ -83,6 +92,7 @@ function setup() {
 }
 
 function draw() {
+  updateCanvasSize();
   // Drawing area (light blue background)
   fill('aliceblue');
   rect(0, 0, width, drawHeight);
