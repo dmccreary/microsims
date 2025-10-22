@@ -1,7 +1,7 @@
 \section{Development Workflow}
 \label{sec:workflow}
 
-The development of Educational MicroSims follows a systematic workflow that leverages existing resources, generative AI, prompt engineering, pre-defined rules and structured metadata to allow non-programmers to create personalized learning experiences. This workflow transforms educational needs into interactive simulations through a sophisticated pipeline that maintains pedagogical rigor while enabling rapid development and deployment at scale.
+The development of Educational MicroSims follows a systematic workflow that leverages existing resources, generative AI, prompt engineering, pre-defined rules such as skills and structured metadata to allow non-programmers to create personalized learning experiences. This workflow transforms educational needs into interactive simulations through a sophisticated pipeline that maintains pedagogical rigor while enabling rapid development and deployment at scale.
 
 The workflow addresses the scalability challenges in educational technology by providing a systematic approach that begins with repository discovery and continues through AI-assisted generation, iterative refinement, comprehensive testing, metadata creation, and intelligent system integration. This process enables educators to create highly targeted simulations that adapt to individual student needs while maintaining technical quality and educational effectiveness.
 
@@ -11,9 +11,9 @@ The AI-assisted generation process represents the core innovation of the MicroSi
 
 \subsubsection{Natural Language Specification}
 
-The development process begins with educators providing natural language descriptions of their educational requirements, which are then systematically converted into technical specifications through structured prompting protocols. This approach enables domain experts to focus on pedagogical considerations while AI systems handle the technical implementation details.
+The development process begins with educators providing natural language descriptions of their educational requirements, which are then systematically converted into technical specifications through structured prompting protocols that include references to rules files and skills. This approach enables domain experts to focus on pedagogical considerations while AI systems handle the technical implementation details.
 
-\textbf{Educational Requirements Specification}: Educators provide structured descriptions that include subject area, grade level, learning objectives, duration requirements, and Bloom's taxonomy levels. For example, a specification might request "a MicroSim for teaching quadratic functions to high school algebra students (grades 9-10) that enables students to explore the relationships between coefficients and parabola characteristics through interactive parameter manipulation."
+\textbf{Educational Requirements Specification}: Educators provide structured descriptions that include subject area, grade level, learning objectives, duration requirements, and Bloom's taxonomy levels. For example, a specification might request "Use the MicroSim skill to create a new MicroSim for teaching quadratic functions to high school algebra students (grades 9-10) that enables students to explore the relationships between coefficients and parabola characteristics through interactive parameter manipulation."
 
 \textbf{Technical Requirements Translation}: The natural language specifications are systematically translated into technical requirements including framework selection (p5.js), responsive design parameters, control interface specifications, and accessibility compliance requirements. This translation process ensures that educational intentions are preserved while meeting technical implementation standards.
 
@@ -23,7 +23,7 @@ The development process begins with educators providing natural language descrip
 
 The code generation process employs established design patterns and template structures that ensure consistency, accessibility, and educational effectiveness across different MicroSims. This pattern-based approach enables reliable generation while maintaining the flexibility necessary for diverse educational applications.
 
-\textbf{Template Selection and Adaptation}: AI systems select appropriate templates based on educational requirements and technical specifications. Templates provide proven interaction patterns, responsive design frameworks, effective control placement, and accessibility considerations that serve as foundations for new simulations.
+\textbf{Template Selection and Adaptation}: MicroSim rules can suggest an appropriate templates based on educational requirements and technical specifications. Templates provide proven interaction patterns, responsive design frameworks, effective control placement, and accessibility considerations that serve as foundations for new simulations.
 
 \textbf{Standardized Architecture Implementation}: Generated code follows the established MicroSim architecture with separated drawing and control regions, standardized variable naming conventions, comprehensive documentation, and consistent user interface patterns. This architectural consistency enables predictable behavior and simplified maintenance across large collections of simulations.
 
@@ -33,7 +33,11 @@ The code generation process employs established design patterns and template str
 
 The development workflow includes systematic iterative refinement cycles that enable continuous improvement through preview testing, feedback collection, and targeted modifications. This iterative approach ensures that generated simulations meet both educational objectives and usability requirements.
 
+In our experience, generative AI programs struggle with precise placement of graphics and user interface controls. Therefore, iterative refinement is essential to achieve the desired quality and functionality.  This placement can be made more precise through careful design of placement rules that also integrate width-responsive design principles.
+
 \textbf{Preview and Testing Integration}: Modern AI-assisted development environments provide real-time preview capabilities that allow educators to test functionality immediately upon generation. This rapid feedback cycle enables quick identification of areas requiring modification or enhancement without extensive technical review processes.
+
+It is our experience that many simple MicroSims can be created in a single iteration of robust rules files are used.  We have seen many examples where even MicroSims of up to 500 lines can be done is a single pass will little to now modification required.  As more controls are added and more complex graphics are used, multiple iterations may be required.
 
 \textbf{Refinement Prompt Engineering}: Educators can request specific modifications through structured refinement prompts that specify control additions, removals, or modifications while maintaining the underlying architectural patterns. These prompts enable precise adjustments without requiring comprehensive regeneration of the entire simulation.
 
