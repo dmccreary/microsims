@@ -8,9 +8,17 @@ description: Create an interactive educational MicroSim using the p5.js JavaScri
 
 This skill guides the creation of Educational MicroSims using the p5.js JavaScript library.  MicroSims are lightweight, interactive educational simulations designed for browser-based learning. MicroSims occupy a unique position at the intersection of **Simplicity** (focused scope, transparent code), **Accessibility** (browser-native, universal embedding), and **AI Generation** (standardized patterns, prompt-compatible design).
 
+This MicroSim Skill is designed to create all the required files for running your MicroSim on your website and return a zip file of the content.
+We assume that the website has a folder called /docs/sims that each MicroSim will be placed in.
+The p5.js file is also designed to that it can be tested by pasting the JavaScript directly
+into the p5.js editor site at https://editor.p5js.org/.
+
+
 ## Purpose
 
 Educational MicroSims transform abstract concepts into visual interactive, manipulable experiences that enable students to learn through exploration and experimentation. Each MicroSim addresses specific learning objectives while maintaining the pedagogical rigor and technical quality necessary for educational deployment.
+
+MicroSims are designed to be referenced by an iframe on an existing website or quickly added to a website or intelligent textbook created with mkdocs.  Because MicroSims have strict rules for controls, they can generate xAPI (eXperience API IEEE 9274.1.1-2023) calls so that interaction events in JSON format can be added to a LRS learning Record Store IEEE 1484.20-2024.
 
 ## Development Process
 
@@ -39,7 +47,7 @@ for easy testing by the user.
 Each MicroSim is contained in a folder within the /docs/sims directory.  The folder name is $MICROSIM_NAME and has the following contents:
 
 ```
-/docs/sims/$MICROSIM_NAME
+/docs/sims/$MICROSIM_NAME # container folder for MicroSim
 /docs/sims/$MICROSIM_NAME/index.md # main index markdown for each MicroSim containing the iframe and documentation
 /docs/sims/$MICROSIM_NAME/main.html # main HTML5 file containing the p5.js CDN link and importing the p5.js JavaScript
 /docs/sims/$MICROSIM_NAME/$MICROSIM_NAME.js # All the p5.js JavaScript
@@ -47,6 +55,7 @@ Each MicroSim is contained in a folder within the /docs/sims directory.  The fol
 ```
 
 The following steps are an example of generating a new MicroSim within a checked out intelligent textbook built with mkdocs.
+This skill contains templates for the `index.md`, `main.html`, `metadata.json` and a `bouncing-ball.js`.
 
 1. A new folder will be created inside the `/docs/sims` area.  The folder name contains only lower case letters and dashes.  This will be the MICROSIM_NAME
 2. An `index.md` file will be generated in the folder that describes the MicroSim and contains in iframe reference to the `main.html` file
@@ -62,8 +71,8 @@ MicroSims are designed to be called by an iframe.  They run in a fixed height re
 
 Every MicroSim must have two regions:
 
-1. the top drawing region with a fixed height called drawHeight
-2. the controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight
+1. A top drawing region with a fixed height called drawHeight.  No user interface controls are placed in the drawing region.
+2. A user interface controls region below the drawing region that contains buttons and sliders with a fixed height called controlHeight.
 
 The width of the canvas is resized according to the container.  It is set initially, but reset in the draw loop
 when the container has changed.
@@ -104,14 +113,18 @@ function draw() {
   // Place the title in the top center of the canvas
   fill('black');
   textSize(36); // larger font for the title
-  textAlign(CENTER, CENTER);
+  textAlign(CENTER, TOP);
   noStroke();
   text('Title of MicroSim', canvasWidth/2, margin);
-  
-  // main drawing code
-  // Control labels and values here
-  // Normal text size for the labels
-  textSize(24);
+  // return default setting to avoid bugs in the main drawing code
+  stroke();
+  textAlign(LEFT, CENTER);
+  textSize(defaultTextSize);
+
+  // main drawing code here
+
+  // Draw control labels and values here in the controls areal
+
 }
 ```
 
@@ -132,8 +145,8 @@ function updateCanvasSize() {
     // Reposition all controls to match new width
     // all horizontal sliders much be resized when the container size changes
     if (typeof speedSlider !== 'undefined') {
-      speedSlider.position(sliderLeftMargin, drawHeight + 15);
-      speedSlider.size(canvasWidth - sliderLeftMargin - 15);
+      // update the size of the slider
+      speedSlider.size(canvasWidth - sliderLeftMargin - margin);
     }
   }
 }
@@ -148,6 +161,10 @@ function updateCanvasSize() {
 - Interactive elements: Use high-contrast, colorblind-safe colors
 
 **Typography**:
+
+Try to avoid using any text smaller than 16pt.  We want the MicroSim text to be
+readable from the back of the classroom.
+
 - Default title size: 36px
 - Default text size: 16px
 - Control labels: Bold, positioned consistently in the control region
@@ -168,6 +185,8 @@ speedSlider.size(canvasWidth - sliderLeftMargin - 15);
 speedSlider.input(resetSimulation);
 ```
 
+Do no use the `style` method to change the width of a slider.  Only use the `size' method.
+
 All sliders must have their size recalculated if the container width changes.
 
 **Buttons** (for discrete actions):
@@ -183,11 +202,121 @@ showGridCheckbox = createCheckbox('Show Grid', false);
 showGridCheckbox.position(10, drawHeight + 15);
 ```
 
+## main.html
+
+Our goal is to maintain full compatibility with the p5.js editor.  JavaScript code generated should
+always be paste directly into the p5.js editing tool.  This tool uses a standard main.html file that contains a '<main></main>` element that holds our canvas.  Here is the main.html template that we recommend using:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bouncing Ball MicroSim using P5.js 1.11.10</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <!-- Put your script file name here -->
+    <script src="bouncing-ball.js"></script>
+</head>
+<body>
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>
+```
+
+### Customizing the main.html File
+
+The following items must be modified in each main.html file:
+
+1. The pathname to the JavaScript file should be modified to use the name of the JavaScript file in the MicroSim directory.
+2. The title element in the body must be modified for each MicroSim.
+3. The version number in the CDN path should only be changed if there are problems running the code.
+
+Note that for label placement in the control area, we set both the margin and padding to be 0.  We do not use a separate CSS file.  This keeps our code simpler.
+
+### P5.js Version Updates
+
+Note that this template uses the jsdelivr.net CDN to get the main p5.js library.  The version number
+is hard-coded in this path.  If bugs are found one suggestion is to verify that this library is
+the current one used in the p5.js editor.  The following Python code will return the latest
+version of p5.js.
+
+https://github.com/dmccreary/microsims/blob/main/src/p5-version/p5-version.py
+
+Note that in August of 2026 the default version of p5.js will be 2.x.
+
+## Index.md Generation
+
+A template file `index.md` must be generated for each MicroSim.
+This file contains metadata in yml format before the header 1 title
+
+### Index.md Metadata
+```yml
+---
+title: Bouncing Ball
+description: A MicroSim of a ball bouncing within the drawing region with a control for changing the speed.
+image: /sims/bouncing-ball/bouncing-ball.png
+og:image: /sims/bouncing-ball/bouncing-ball.png
+twitter:image: /sims/bouncing-ball/bouncing-ball.png
+social:
+   cards: false
+---
+```
+
+Here is an example of the content of the index.md file
+
+```markdown
+# Bouncing Ball
+
+<iframe src="main.html" height="432px" scrolling="no"></iframe>
+
+[Run the Bouncing Ball MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+<br/>
+[Edit the Bouncing Ball MicroSim with the p5.js editor](https://editor.p5js.org/dmccreary/sketches/icpiK4UjE)
+
+## Description
+
+[Description of the MicroSim]
+
+## Lesson Plan
+
+[Lesson Plan for Using the MicroSim]
+```
+
+In addition, the following sample iframe should be placed before the description.  Make sure to
+enclose the HTML in triple grave accent characters.
+
+You can include this MicroSim on your website using the following `iframe`:
+
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/bouncing-ball/main.html" height="432px" scrolling="no"></iframe>
+```
+
+The bouncing ball is the "Hello World!" of the Educational MicroSims.
+It contains the key elements that shows the power of the width-responsive MicroSims
+graphics with movement and user interaction.  When we design MicroSims, we also
+want clearly-visible user interface elements in the control area that can control
+the running of our simulations.  This version contains a slider to control the speed of the ball's movement.
+
+## Lesson Plan
+
+Both the title and the description should be modified by this SKILL.
+
+These tags are used to create high-quality social media previews when instructors copy the MicroSim links into tools like Zoom chats.  The .png image should be created by a human with the same name as the MicroSim.
+Add are reminder to do this to the user.
+
 ## Metadata Generation
 
 The MicroSim metadata is stored within the MicroSim folder in a file called `metadata.json`.  The
 structure of this file is governed by a JSON schema file located at /src/microsim-schema/microsim-schema.json.
-
 
 ## Educational Design Principles
 
@@ -204,9 +333,11 @@ Code should be readable and well-commented so educators and advanced students ca
 - Assumptions and simplifications made
 
 ### 4. Progressive Complexity
+
 Start with simple defaults that demonstrate the core concept. Allow students to increase complexity through parameter manipulation.
 
 ### 5. Cognitive Load Management
+
 - Minimize extraneous cognitive load: Keep interface clean and uncluttered
 - Optimize germane cognitive load: Focus attention on the educational concept
 - Support intrinsic complexity: Provide scaffolding for difficult concepts
@@ -214,30 +345,35 @@ Start with simple defaults that demonstrate the core concept. Allow students to 
 ## Example Learning Objectives by Domain
 
 ### Physics & Engineering
+
 - Demonstrate relationship between force, mass, and acceleration
 - Visualize wave interference patterns
 - Explore conservation of energy in colliding objects
 - Show effects of gravity on projectile motion
 
 ### Chemistry & Molecular Science
+
 - Visualize molecular bonding and bond angles
 - Demonstrate gas laws (pressure, volume, temperature relationships)
 - Show chemical equilibrium and Le Chatelier's principle
 - Illustrate phase changes at molecular level
 
 ### Biology & Life Sciences
+
 - Model population dynamics and predator-prey relationships
 - Simulate genetic inheritance patterns
 - Demonstrate cell division processes
 - Explore ecosystem energy flow
 
 ### Mathematics & Computer Science
+
 - Explore function transformations (translations, dilations, reflections)
 - Visualize geometric constructions and proofs
 - Demonstrate probability distributions
 - Show algorithmic behavior (sorting, searching, recursion)
 
 ### Systems Thinking
+
 - Model feedback loops and causal relationships
 - Demonstrate stock-and-flow dynamics
 - Show emergent behavior in complex systems
@@ -394,24 +530,27 @@ Transform abstract data into visual representations students can manipulate.
 ## Deployment Considerations
 
 ### iframe Embedding (Universal Deployment)
-MicroSims are designed to be embedded anywhere with a single HTML line:
+
+MicroSims are designed to be embedded in any web page with a single HTML line:
 
 ```html
-<iframe src="microsim-file.html"
-        width="100%"
-        height="470"
-        frameborder="0"
-        title="Educational MicroSim">
+<iframe src="https://dmccreary.github.io/microsims/sims/bouncing-ball/main.html"
+        height="432"
+        scrolling="no">
 </iframe>
 ```
 
+For the height, it should be the sum of the drawHeight and the controlHeight plus 2.
+
 ### Learning Management System Integration
+
 - Compatible with Canvas, Blackboard, Moodle, Google Classroom
 - No server-side requirements
 - Works in restricted network environments
 - Mobile-friendly for tablets and smartphones
 
 ### xAPI Integration (Optional)
+
 For learning analytics, MicroSims can emit xAPI statements:
 - Button clicks, slider adjustments
 - Time spent on task
@@ -421,6 +560,7 @@ For learning analytics, MicroSims can emit xAPI statements:
 ## Pedagogical Context
 
 ### Research Foundation
+
 Educational simulations demonstrate consistent benefits:
 - 15-25% improvement in conceptual understanding
 - 30-40% reduction in time to mastery
@@ -463,6 +603,7 @@ if (position.y >= height - radius) {
 ```
 
 ### Controls Provided
+
 - Gravity slider (0-2 m/s², default: 0.5)
 - Elasticity slider (0-1, default: 0.7)
 - Start/Pause button
@@ -484,6 +625,35 @@ After initial generation, iteratively improve through prompts like:
 - "Show the current velocity value"
 - "Include a graph showing energy over time"
 - "Add a grid to help students measure distances"
+
+## User Instructions
+
+After you generate a MicroSim with the required files, create a zip file that the user can download.
+Then return the following instruction:
+
+Congratulations!  Your MicroSim zip file has been generated and is ready for testing.  The best way
+to instal this is to run the following commands using the bouncing-ball example:
+
+```sh
+cd /doc/sims
+unzip bouncing-ball.zip
+```
+
+If you are going to test the MicroSim within mkdocs site you can also do the following:
+```sh
+# move the zip file out of the way so it does not get copied to the web site
+mv bouncing-ball.zip /tmp
+# edit the mkdocs.yml file
+open ../../mkdocs.yml
+# test your code locally
+mkdocs serve
+# go to the right link: http://localhost:8000/microsims/sims/bouncing-ball/
+# check in your code with git
+# deploy your new microsim to production!
+mkdocs gh-deploy
+```
+
+Then make sure that the site navigation (mkdocs.yml) file includes the link to this new MicroSim.
 
 ## Conclusion
 
