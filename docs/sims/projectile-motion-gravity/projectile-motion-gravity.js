@@ -79,7 +79,7 @@ function draw() {
   noStroke();
   textSize(24);
   textAlign(CENTER, TOP);
-  text("Projectile Motion", canvasWidth/2, margin/2);
+  text("Projectile Motion with Variable Gravity", canvasWidth/2, margin/2);
   
   // Reset text properties
   textSize(defaultTextSize);
