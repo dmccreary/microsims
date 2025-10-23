@@ -1,9 +1,9 @@
 ---
 title: Projectile Motion with Gravity
 description: A MicroSim demonstrating the effect of gravity on projectile motion with adjustable gravity control and multiple trajectory visualization.
-image: /sims/projectile-motion/projectile-motion-gravity.png
-og:image: /sims/projectile-motion/projectile-motion-gravity.png
-twitter:image: /sims/projectile-motion/projectile-motion-gravity.png
+image: /sims/projectile-motion-gravity/projectile-motion-gravity.png
+og:image: /sims/projectile-motion-gravity/projectile-motion-gravity.png
+twitter:image: /sims/projectile-motion-gravity/projectile-motion-gravity.png
 social:
    cards: false
 ---
