@@ -6,7 +6,7 @@ let drawHeight = 400;
 let controlHeight = 50;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
-let sliderLeftMargin = 120;
+let sliderLeftMargin = 250;
 let defaultTextSize = 16;
 
 // Global variables for responsive design
@@ -42,7 +42,8 @@ function setup() {
   // Create gravity slider (0 to 2 m/s^2)
   gravitySlider = createSlider(0, 2, 0.5, 0.1);
   gravitySlider.position(sliderLeftMargin, drawHeight + 15);
-  gravitySlider.size(containerWidth - sliderLeftMargin - 15);
+  // Keep room for the trajectories label
+  gravitySlider.size(containerWidth - sliderLeftMargin - 200);
   
   // Create fire button
   fireButton = createButton('Fire');
@@ -51,7 +52,7 @@ function setup() {
   
   // Create reset button
   resetButton = createButton('Reset');
-  resetButton.position(80, drawHeight + 15);
+  resetButton.position(60, drawHeight + 15);
   resetButton.mousePressed(resetSimulation);
   
   describe('Projectile motion simulator showing the effect of gravity on a cannon ball trajectory with adjustable gravity control.', LABEL);
@@ -124,11 +125,11 @@ function draw() {
   fill('black');
   noStroke();
   textAlign(LEFT, CENTER);
-  text(`Gravity: ${gravity.toFixed(1)} m/s²`, 160, drawHeight + 25);
+  text(`Gravity: ${gravity.toFixed(1)} m/s²`, 120, drawHeight + 25);
   
   // Display trajectory count
   textAlign(RIGHT, CENTER);
-  text(`Trajectories: ${projectiles.length}`, canvasWidth - 10, drawHeight + 25);
+  text(`Trajectories: ${projectiles.length}`, canvasWidth - 80, drawHeight + 25);
 }
 
 function drawCannon() {
@@ -231,7 +232,7 @@ function windowResized() {
   redraw();
   
   // Resize the slider to match the new canvasWidth
-  gravitySlider.size(containerWidth - sliderLeftMargin - 15);
+  gravitySlider.size(containerWidth - sliderLeftMargin - 200);
 }
 
 function updateCanvasSize() {
