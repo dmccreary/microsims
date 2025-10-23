@@ -1,0 +1,1274 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/congnitive-load-theory/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Cognitive Load Theory: The Science Behind Effective MicroSim Design - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Cognitive Load Theory: The Science Behind Effective MicroSim Design - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/congnitive-load-theory.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/chapters/congnitive-load-theory/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Cognitive Load Theory: The Science Behind Effective MicroSim Design - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/congnitive-load-theory.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cognitive-load-theory-the-science-behind-effective-microsim-design" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cognitive Load Theory: The Science Behind Effective MicroSim Design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Formal Education Theory Chapters
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Rules
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Sample GenAI Prompts
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-types-of-cognitive-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Three Types of Cognitive Load
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three Types of Cognitive Load">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intrinsic-load-the-essential-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intrinsic Load: The Essential Complexity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extraneous-load-the-unnecessary-friction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extraneous Load: The Unnecessary Friction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#germane-load-the-learning-sweet-spot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Germane Load: The Learning Sweet Spot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-disclosure-the-art-of-revealing-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Progressive Disclosure: The Art of Revealing Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-for-cognitive-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing for Cognitive Efficiency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing for Cognitive Efficiency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-microsim-advantage" class="md-nav__link">
+    <span class="md-ellipsis">
+      The MicroSim Advantage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-implementation-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Implementation Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-neuroscience-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Neuroscience Connection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion-respecting-the-limits-maximizing-the-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion: Respecting the Limits, Maximizing the Potential
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/congnitive-load-theory.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="cognitive-load-theory-the-science-behind-effective-microsim-design">Cognitive Load Theory: The Science Behind Effective MicroSim Design</h1>
+<p>Imagine trying to learn calculus while juggling flaming torches in a noisy construction zone. Sounds impossible, right? That's essentially what happens when educational content overwhelms our brain's limited processing power. Cognitive Load Theory (CLT) explains why some learning experiences click instantly while others leave us feeling mentally exhausted and confused.</p>
+<p>At its core, CLT reveals a fundamental truth: <strong>our working memory can only handle 7±2 pieces of information at once</strong>. This isn't a flaw—it's how our brains evolved to function efficiently. Understanding this limitation is the key to designing MicroSims that teach effectively rather than overwhelm.</p>
+<h2 id="the-three-types-of-cognitive-load">The Three Types of Cognitive Load</h2>
+<p>Think of your brain's working memory like a smartphone's RAM. Just as your phone slows down when too many apps are running, learning suffers when cognitive load exceeds capacity. CLT identifies three distinct types of load competing for this precious mental real estate:</p>
+<h3 id="intrinsic-load-the-essential-complexity">Intrinsic Load: The Essential Complexity</h3>
+<p><strong>Definition</strong>: The mental effort required to understand the core concept itself—the unavoidable complexity inherent in the subject matter.</p>
+<p><strong>The Challenge</strong>: Some topics are naturally complex. You can't make calculus as simple as addition, but you can present it in digestible portions.</p>
+<p><strong>MicroSim Solution: Break complex topics into digestible chunks</strong></p>
+<p>Consider learning how a car engine works. Instead of showing all 10,000 parts at once, effective MicroSims isolate single systems:</p>
+<ul>
+<li><strong>Engine Combustion Cycle</strong>: Focus solely on the four-stroke process (intake, compression, combustion, exhaust)</li>
+<li><strong>Transmission Gearing</strong>: Demonstrate only how gear ratios affect speed and torque</li>
+<li><strong>Cooling System</strong>: Show just coolant flow and heat transfer</li>
+</ul>
+<p>Our <a href="../../sims/maze-solver/">Maze Solver Sketch</a> exemplifies this perfectly.
+It doesn't attempt to teach all pathfinding algorithms simultaneously. Instead, it focuses laser-sharp on breadth-first search, making each step visible and comprehensible. Students build mastery of one algorithm before moving to the next.</p>
+<h3 id="extraneous-load-the-unnecessary-friction">Extraneous Load: The Unnecessary Friction</h3>
+<p><strong>Definition</strong>: Mental effort wasted on poorly designed interfaces, confusing layouts, or irrelevant information—cognitive overhead that doesn't contribute to learning.</p>
+<p><strong>The Problem</strong>: Bad design forces learners to spend mental energy figuring out <em>how</em> to use a tool instead of focusing on <em>what</em> they're supposed to learn.</p>
+<p><strong>MicroSim Solution: Eliminate unnecessary information and confusing layouts</strong></p>
+<p>Imagine two ways to learn about pendulum motion:</p>
+<p><strong>High Extraneous Load</strong>: Controls scattered randomly, inconsistent fonts, no visual hierarchy, confusing button labels like "Modify Temporal Parameters"</p>
+<p><strong>Low Extraneous Load</strong>: Clean layout with controls always in the same location, clear labels like "Speed" and "Gravity," consistent visual design</p>
+<p>Your standardized MicroSim design dramatically reduces extraneous load:</p>
+<ul>
+<li><strong>Predictable layout</strong>: Drawing area (light blue) on top, controls (white) at bottom—every single time</li>
+<li><strong>Consistent interaction patterns</strong>: Sliders always show current values, buttons use standard terminology</li>
+<li><strong>Clear visual hierarchy</strong>: 24pt titles, 16pt labels, logical information flow</li>
+</ul>
+<p>This consistency means students never waste mental energy figuring out how to interact with your simulations. They can focus entirely on the physics, chemistry, or mathematics being demonstrated.</p>
+<h3 id="germane-load-the-learning-sweet-spot">Germane Load: The Learning Sweet Spot</h3>
+<p><strong>Definition</strong>: Productive mental effort that builds understanding, creates connections between concepts, and develops expertise—the "good" cognitive load that makes learning stick.</p>
+<p><strong>The Goal</strong>: Optimize this beneficial load while managing the other two types.</p>
+<p><strong>MicroSim Solution: Support learning through meaningful connections with prior knowledge</strong></p>
+<p>Germane load is where the magic happens. It's the mental work of building schemas—organized knowledge structures that help us understand new information by connecting it to what we already know.</p>
+<p>Effective MicroSims maximize germane load through:</p>
+<p><strong>Real-time Cause-and-Effect Visualization</strong>: Your <strong>tone-generator.js</strong> connects abstract frequency numbers to both visual waveforms and auditory output. Students build multi-modal understanding—they see, hear, and manipulate the relationship between mathematics and sound.</p>
+<p><strong>Interactive Parameter Exploration</strong>: The <strong>current-predictor.js</strong> lets students adjust variables and immediately see how regression lines change. This hands-on manipulation builds intuitive understanding of statistical relationships that pure lecture cannot achieve.</p>
+<p><strong>Progressive Complexity Building</strong>: Students start with simple scenarios and gradually encounter more complex variations, building expertise layer by layer without overwhelming working memory.</p>
+<h2 id="progressive-disclosure-the-art-of-revealing-information">Progressive Disclosure: The Art of Revealing Information</h2>
+<p><strong>Definition</strong>: Presenting information in carefully sequenced stages, revealing complexity only when learners are ready to handle it.</p>
+<p><strong>The Principle</strong>: Show learners exactly what they need to know, when they need to know it—nothing more, nothing less.</p>
+<p>An example of Progressive Disclosure is shown in the <a href="../../sims/pythagorean-theorem/">Pythagorean Theorem MicroSim</a> . The user is first challenged just to see how the sliders change two sides of a right triangle.  Once they master that task, then they can check the option to "Show the Squares" which shows another level of complexity.</p>
+<p><strong>MicroSim Solution: Reveal information incrementally rather than overwhelming learners</strong></p>
+<p>Consider learning the Fast Fourier Transform (FFT)—one of the most important algorithms in signal processing, but notoriously difficult to understand. Traditional approaches show the complete butterfly network diagram all at once, creating immediate cognitive overload.</p>
+<p>Our <a href="../../sims/fft-butterfly/">FFT-butterfly</a> demonstrates masterful progressive disclosure:</p>
+<ol>
+<li><strong>Start State</strong>: Shows just the input data and basic structure</li>
+<li><strong>Step-by-Step Revelation</strong>: Each "Next Step" button reveals one stage of the butterfly network</li>
+<li><strong>Learner Control</strong>: Students control the pace, taking time to understand each stage before proceeding</li>
+<li><strong>Visual Connections</strong>: Each step clearly shows how data flows and transforms</li>
+</ol>
+<p>This approach transforms an overwhelming algorithm into a series of comprehensible steps. Students build understanding incrementally, never facing more complexity than their working memory can handle.</p>
+<p>Other excellent examples in your collection:</p>
+<ul>
+<li><strong>Bloom's Taxonomy Interactive</strong>: Information appears on hover, preventing initial overwhelm while making details available when needed</li>
+<li><strong>Book Generation Workflow</strong>: High-level structure visible first, with detailed descriptions revealed on demand</li>
+</ul>
+<h2 id="designing-for-cognitive-efficiency">Designing for Cognitive Efficiency</h2>
+<h3 id="the-microsim-advantage">The MicroSim Advantage</h3>
+<p>Traditional textbooks often violate CLT principles by presenting everything at once. MicroSims, when properly designed, create optimal cognitive conditions:</p>
+<p><strong>Focused Learning Targets</strong>: Each simulation tackles one specific concept, preventing cognitive fragmentation</p>
+<p><strong>Immediate Feedback</strong>: Changes to parameters instantly update visualizations, supporting rapid schema formation</p>
+<p><strong>Learner Agency</strong>: Students control their exploration pace, managing their own cognitive load</p>
+<p><strong>Multi-Modal Reinforcement</strong>: Visual, auditory, and kinesthetic learning channels work together efficiently</p>
+<h3 id="practical-implementation-guidelines">Practical Implementation Guidelines</h3>
+<p><strong>For Educators Using MicroSims:</strong></p>
+<ol>
+<li><strong>Sequence Strategically</strong>: Start with simpler MicroSims, gradually introducing complexity as students build expertise</li>
+<li><strong>Guide Initial Exploration</strong>: Provide structured activities before allowing free exploration</li>
+<li><strong>Connect Explicitly</strong>: Help students see relationships between different MicroSim concepts</li>
+<li><strong>Monitor Cognitive Load</strong>: Watch for signs of overwhelm and adjust accordingly</li>
+</ol>
+<p><strong>For MicroSim Designers:</strong></p>
+<ol>
+<li><strong>One Concept Per Sim</strong>: Resist the temptation to cram multiple learning objectives into a single simulation</li>
+<li><strong>Standardize Interfaces</strong>: Consistent design patterns reduce extraneous load across your entire collection</li>
+<li><strong>Enable Progressive Exploration</strong>: Build in mechanisms for learners to control complexity revelation</li>
+<li><strong>Test with Real Learners</strong>: Observe where cognitive overload occurs and iterate accordingly</li>
+</ol>
+<h2 id="the-neuroscience-connection">The Neuroscience Connection</h2>
+<p>Recent brain imaging studies confirm CLT's predictions. When cognitive load is properly managed, we see increased activation in learning-related brain regions. When overloaded, the brain shifts resources to stress response systems, actually inhibiting learning.</p>
+<p>Your MicroSims create ideal neurological conditions for learning by:
+- <strong>Reducing stress-inducing confusion</strong> through consistent design
+- <strong>Maximizing engagement</strong> through interactive exploration<br />
+- <strong>Supporting memory formation</strong> through multi-sensory experiences
+- <strong>Building expertise gradually</strong> through progressive complexity</p>
+<h2 id="conclusion-respecting-the-limits-maximizing-the-potential">Conclusion: Respecting the Limits, Maximizing the Potential</h2>
+<p>Cognitive Load Theory isn't about dumbing down education—it's about respecting how human brains actually work. By carefully managing intrinsic load, eliminating extraneous load, optimizing germane load, and using progressive disclosure, MicroSims can make complex subjects not just accessible, but genuinely engaging.</p>
+<p>Your MicroSim collection demonstrates these principles in action. Each simulation is a carefully crafted cognitive experience that turns learning challenges into discovery adventures. When we design with CLT in mind, we don't just teach concepts—we build thinking skills that last a lifetime.</p>
+<p>The next time you encounter a beautifully designed MicroSim that makes a complex topic suddenly "click," you're experiencing Cognitive Load Theory in action. It's not magic—it's science applied with artistry to unlock human learning potential.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
