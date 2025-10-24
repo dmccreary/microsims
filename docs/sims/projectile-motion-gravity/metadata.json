@@ -1,0 +1,427 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Projectile Motion with Gravity MicroSim",
+      "creator": ["Educational MicroSim Generator", "Claude AI Assistant"],
+      "subject": ["Physics", "Mechanics", "Kinematics", "Projectile Motion", "Gravity"],
+      "description": "An interactive simulation demonstrating how gravity affects the parabolic trajectory of projectiles. Students can adjust gravity values and observe multiple trajectories to understand the relationship between gravitational acceleration and projectile motion.",
+      "publisher": "Educational MicroSims Project",
+      "contributor": [],
+      "date": "2025-10-23T00:00:00Z",
+      "type": "Interactive Simulation",
+      "format": "text/javascript",
+      "identifier": "microsim-projectile-motion-gravity-v1.0",
+      "source": "Original educational content",
+      "language": "en",
+      "relation": [
+        "NGSS: MS-PS2-1",
+        "NGSS: MS-PS2-2", 
+        "NGSS: HS-PS2-1",
+        "Common Core Math: HSF-IF.B.4",
+        "Common Core Math: HSF-IF.C.7"
+      ],
+      "coverage": {
+        "spatial": "Global",
+        "temporal": "Contemporary physics education"
+      },
+      "rights": "CC BY 4.0 - Creative Commons Attribution 4.0 International"
+    },
+    "educational": {
+      "gradeLevel": ["6", "7", "8", "9", "10", "11", "12", "Undergraduate"],
+      "subjectArea": ["Physics", "Science", "Mathematics"],
+      "topic": [
+        "Projectile Motion",
+        "Gravity",
+        "Parabolic Trajectories",
+        "Kinematics",
+        "Newton's Laws",
+        "Acceleration"
+      ],
+      "learningObjectives": [
+        "Understand that gravity affects the vertical motion of projectiles",
+        "Apply concepts of parabolic motion to predict trajectory shapes",
+        "Analyze how changes in gravity affect projectile range and height",
+        "Evaluate the relationship between gravitational acceleration and trajectory characteristics",
+        "Compare projectile motion under different gravitational conditions"
+      ],
+      "bloomsTaxonomy": ["Understand", "Apply", "Analyze", "Evaluate"],
+      "prerequisites": [
+        "Basic understanding of gravity as a force",
+        "Familiarity with acceleration concepts",
+        "Understanding that objects can have both horizontal and vertical motion"
+      ],
+      "duration": {
+        "typical": 15,
+        "range": {
+          "min": 5,
+          "max": 40
+        }
+      },
+      "difficulty": "Intermediate",
+      "curriculumStandards": [
+        {
+          "framework": "NGSS",
+          "identifier": "MS-PS2-1",
+          "description": "Apply Newton's Third Law to design a solution to a problem involving the motion of two colliding objects"
+        },
+        {
+          "framework": "NGSS",
+          "identifier": "MS-PS2-2",
+          "description": "Plan an investigation to provide evidence that the change in an object's motion depends on the sum of forces"
+        },
+        {
+          "framework": "NGSS",
+          "identifier": "HS-PS2-1",
+          "description": "Analyze data to support the claim that Newton's second law of motion describes the mathematical relationship"
+        },
+        {
+          "framework": "Common Core Math",
+          "identifier": "HSF-IF.B.4",
+          "description": "Interpret key features of graphs and tables in terms of the quantities"
+        },
+        {
+          "framework": "Common Core Math",
+          "identifier": "HSF-IF.C.7",
+          "description": "Graph functions expressed symbolically and show key features"
+        }
+      ]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "1.0.0",
+      "canvasDimensions": {
+        "width": 500,
+        "height": 450,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 400,
+        "controlHeight": 50
+      },
+      "dependencies": ["p5.js@1.11.10"],
+      "browserCompatibility": [
+        "Chrome 90+",
+        "Firefox 88+",
+        "Safari 14+",
+        "Edge 90+"
+      ],
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": false,
+        "colorContrast": true,
+        "altText": true
+      }
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "id": "fireButton",
+          "type": "button",
+          "label": "Fire",
+          "description": "Launches a new projectile from the cannon",
+          "position": {
+            "x": 10,
+            "y": 415
+          },
+          "properties": {
+            "text": "Fire",
+            "action": "fireProjectile"
+          }
+        },
+        {
+          "id": "resetButton",
+          "type": "button",
+          "label": "Reset",
+          "description": "Clears all projectile trajectories from the screen",
+          "position": {
+            "x": 80,
+            "y": 415
+          },
+          "properties": {
+            "text": "Reset",
+            "action": "resetSimulation"
+          }
+        },
+        {
+          "id": "gravitySlider",
+          "type": "slider",
+          "label": "Gravity",
+          "description": "Adjusts the gravitational acceleration affecting projectile motion",
+          "position": {
+            "x": 120,
+            "y": 415
+          },
+          "properties": {
+            "min": 0,
+            "max": 2,
+            "default": 0.5,
+            "step": 0.1,
+            "units": "m/s²"
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "diagram",
+          "description": "Cannon positioned in lower left corner",
+          "interactive": false,
+          "updateTriggers": []
+        },
+        {
+          "type": "animation",
+          "description": "Projectile trajectories with dashed lines",
+          "interactive": true,
+          "updateTriggers": ["fireButton", "gravitySlider"]
+        },
+        {
+          "type": "text-display",
+          "description": "Current gravity value and trajectory count",
+          "interactive": false,
+          "updateTriggers": ["gravitySlider", "fireButton"]
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "physics",
+        "description": "Classical mechanics model of projectile motion under constant gravitational acceleration. Uses kinematic equations to calculate position based on initial velocity components and gravitational acceleration.",
+        "equations": [
+          "vx = v0 * cos(θ)",
+          "vy = v0 * sin(θ)",
+          "vy_new = vy + g * dt",
+          "x_new = x + vx * dt",
+          "y_new = y + vy * dt"
+        ],
+        "algorithms": [
+          "Euler method for numerical integration of position and velocity",
+          "Dashed line rendering algorithm for trajectory visualization",
+          "Collision detection with ground plane"
+        ],
+        "assumptions": [
+          "No air resistance (vacuum conditions)",
+          "Constant gravitational acceleration throughout trajectory",
+          "Flat, level ground surface",
+          "Point mass projectile (no rotation or spin)",
+          "Fixed launch angle of 45 degrees",
+          "Fixed initial velocity of 15 m/s"
+        ],
+        "limitations": [
+          "Does not model air resistance or drag",
+          "Does not account for Earth's rotation (Coriolis effect)",
+          "Does not model wind effects",
+          "Simplified 2D model (no lateral deviation)",
+          "Does not show energy calculations explicitly",
+          "Ground is perfectly level (no terrain variation)"
+        ]
+      },
+      "variables": [
+        {
+          "name": "gravity",
+          "type": "input",
+          "description": "Gravitational acceleration in m/s²",
+          "dataType": "number",
+          "units": "m/s²",
+          "range": {
+            "min": 0,
+            "max": 2
+          }
+        },
+        {
+          "name": "initialVelocity",
+          "type": "constant",
+          "description": "Initial velocity of projectile",
+          "dataType": "number",
+          "units": "m/s",
+          "range": {
+            "min": 15,
+            "max": 15
+          }
+        },
+        {
+          "name": "cannonAngle",
+          "type": "constant",
+          "description": "Launch angle of cannon",
+          "dataType": "number",
+          "units": "degrees",
+          "range": {
+            "min": 45,
+            "max": 45
+          }
+        },
+        {
+          "name": "projectile.x",
+          "type": "output",
+          "description": "Horizontal position of projectile",
+          "dataType": "number",
+          "units": "pixels"
+        },
+        {
+          "name": "projectile.y",
+          "type": "output",
+          "description": "Vertical position of projectile",
+          "dataType": "number",
+          "units": "pixels"
+        },
+        {
+          "name": "projectile.velocityX",
+          "type": "intermediate",
+          "description": "Horizontal velocity component (constant)",
+          "dataType": "number",
+          "units": "m/s"
+        },
+        {
+          "name": "projectile.velocityY",
+          "type": "intermediate",
+          "description": "Vertical velocity component (changes due to gravity)",
+          "dataType": "number",
+          "units": "m/s"
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Earth Gravity",
+          "description": "Approximate Earth surface gravity (scaled)",
+          "parameters": {
+            "gravity": 1.0
+          }
+        },
+        {
+          "name": "Moon Gravity",
+          "description": "Approximate lunar surface gravity (scaled)",
+          "parameters": {
+            "gravity": 0.2
+          }
+        },
+        {
+          "name": "Mars Gravity",
+          "description": "Approximate Martian surface gravity (scaled)",
+          "parameters": {
+            "gravity": 0.4
+          }
+        },
+        {
+          "name": "Zero Gravity",
+          "description": "No gravitational acceleration (space)",
+          "parameters": {
+            "gravity": 0.0
+          }
+        }
+      ]
+    },
+    "analytics": {
+      "events": [
+        {
+          "name": "projectileFired",
+          "description": "User clicked Fire button to launch projectile",
+          "data": ["timestamp", "currentGravity", "trajectoryCount"]
+        },
+        {
+          "name": "gravityAdjusted",
+          "description": "User moved gravity slider",
+          "data": ["timestamp", "newGravityValue", "previousGravityValue"]
+        },
+        {
+          "name": "simulationReset",
+          "description": "User clicked Reset button to clear trajectories",
+          "data": ["timestamp", "numberOfTrajectoriesCleared"]
+        },
+        {
+          "name": "sessionStart",
+          "description": "User loaded the simulation",
+          "data": ["timestamp", "userAgent", "screenSize"]
+        },
+        {
+          "name": "sessionEnd",
+          "description": "User closed or left the simulation",
+          "data": ["timestamp", "totalDuration", "totalProjectilesFired"]
+        }
+      ],
+      "metrics": [
+        {
+          "name": "engagementTime",
+          "description": "Total time spent interacting with simulation",
+          "calculation": "Sum of time between events"
+        },
+        {
+          "name": "explorationDiversity",
+          "description": "Range of gravity values explored",
+          "calculation": "Standard deviation of gravity values used"
+        },
+        {
+          "name": "trajectoryComparisons",
+          "description": "Number of trajectories visible before reset",
+          "calculation": "Count of projectiles when reset clicked"
+        },
+        {
+          "name": "parameterAdjustmentFrequency",
+          "description": "How often gravity was adjusted per minute",
+          "calculation": "Count of gravityAdjusted events / total minutes"
+        }
+      ],
+      "privacy": {
+        "piiCollected": false,
+        "dataRetention": "Session only, no persistent storage",
+        "anonymization": true
+      }
+    },
+    "usage": {
+      "recommendedUsage": [
+        "demonstration",
+        "exploration",
+        "guided-practice",
+        "group-activity",
+        "individual-study"
+      ],
+      "instructionalStrategies": [
+        "Start with prediction: Have students predict trajectory shape before firing",
+        "Compare extremes: Show minimum and maximum gravity to establish range",
+        "Connect to real world: Compare Earth, Moon, and Mars gravity settings",
+        "Use inquiry questions: 'What stays constant? What changes?'",
+        "Facilitate discussion: Ask students to explain observations to peers",
+        "Progressive complexity: Start with single trajectory, then compare multiple"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "What force causes projectiles to follow a curved path?",
+          "type": "short-answer",
+          "level": "Remember"
+        },
+        {
+          "question": "Explain why the projectile eventually comes back down to the ground.",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "If gravity were doubled, would the projectile travel farther or less far? Explain.",
+          "type": "short-answer",
+          "level": "Apply"
+        },
+        {
+          "question": "Compare the trajectories at 0.5 m/s² and 1.5 m/s². What is the approximate ratio of their horizontal ranges?",
+          "type": "short-answer",
+          "level": "Analyze"
+        },
+        {
+          "question": "In the real world, how would air resistance affect these trajectories? Would it make the simulation more or less accurate?",
+          "type": "essay",
+          "level": "Evaluate"
+        },
+        {
+          "question": "Design an experiment using this simulation to determine the optimal launch angle for maximum range. What would you test?",
+          "type": "essay",
+          "level": "Create"
+        }
+      ],
+      "extensions": [
+        "Add a slider to control launch angle and find optimal angle for maximum range",
+        "Include initial velocity control to explore how speed affects trajectory",
+        "Add air resistance to show real-world effects",
+        "Display numerical data: max height, range, time of flight",
+        "Add energy calculations and graphs (kinetic and potential)",
+        "Create target zones for accuracy challenges",
+        "Model trajectories on different planets with actual gravity values",
+        "Add wind effects that vary over time"
+      ]
+    }
+  }
+}
