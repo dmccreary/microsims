@@ -1,0 +1,2918 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/using-claude-skill-to-generate-microsims/">
+      
+      
+        <link rel="prev" href="../microsim-dev-workflow/">
+      
+      
+        <link rel="next" href="../cognitive-load-theory/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Using Claude Skills to Generate MicroSims - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Using Claude Skills to Generate MicroSims - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/using-claude-skill-to-generate-microsims.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/chapters/using-claude-skill-to-generate-microsims/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Using Claude Skills to Generate MicroSims - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/using-claude-skill-to-generate-microsims.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-the-microsim-p5-skill-with-anthropic-claude" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Claude Skills to Generate MicroSims
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Formal Education Theory Chapters
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Formal Education Theory Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-a-microsim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsims-in-the-ed-tech-landscape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSims in the Ed Tech Landscape
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample-microsims/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample MicroSims
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-dev-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Using Claude Skills to Generate MicroSims
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Using Claude Skills to Generate MicroSims
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Claude Skill?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-skills-work-with-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Skills Work with Agents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Diagram
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-microsim-created-by-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample MicroSim Created by Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-microsim-creates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the MicroSim Creates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-step-by-step-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Step-by-Step Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Step-by-Step Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-microsim-p5-skill-from-the-microsim-github-site-to-your-local-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download the MicroSim p5 Skill from the MicroSim GitHub site to Your Local System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-the-microsim-p5-skill-to-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Upload the MicroSim-p5 Skill to Claude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-reference-the-microsim-p5-skill-in-your-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Reference the MicroSim-p5 Skill in Your Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-testing-the-new-microsim-with-the-p5js-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Testing the New MicroSim with the p5.js Editor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-control-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note on Control Placement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note on Control Placement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-5-share-your-microsim-directly-from-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 Share Your MicroSim Directly from p5.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 Share Your MicroSim Directly from p5.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embed-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embed Iframe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#share-url-for-full-screen-for-execution-but-no-editing-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Share URL for Full Screen for Execution but No Editing (Read Only)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#share-with-full-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Share with Full Editing:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-into-a-textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrating Into a Textbook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-into-web-pages-is-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrating into Web Pages is Easy!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-microsim-package-zip-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate the MicroSim Package Zip File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-dialog-for-package-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Dialog for Package Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Dialog for Package Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-microsim-package-that-claude-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download the MicroSim Package that Claude Created
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unzip-the-microsim-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unzip the MicroSim Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-to-navigation-in-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add to Navigation in mkdocs.yml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-social-media-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Social Media Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-metadata-in-html-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Metadata in HTML Head
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-metadata-in-the-indexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Metadata in the index.md
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-social-media-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the Social Media Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#positive-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive Result!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#og-tags-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      OG Tags Advice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-generates-massive-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Generates Massive Metadata!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-metadata-file-metadatajson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Metadata File (metadata.json)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-view-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To View Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-in-the-metadatajson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is in the metadata.json File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-contents-continued" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Contents (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-contents-continued_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Contents (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-continued" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-continued_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thank-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thank You!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cognitive-load-theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cognitive Load Theory
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../width-responsive-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Width-Responsive Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../describing-a-microsim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroSim Metadata
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paper-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paper Steps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Rules
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-claude-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Claude Skill?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-skills-work-with-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Skills Work with Agents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Diagram
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-microsim-created-by-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample MicroSim Created by Skill
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-microsim-creates" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the MicroSim Creates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-step-by-step-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Step-by-Step Instructions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Step-by-Step Instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-download-the-microsim-p5-skill-from-the-microsim-github-site-to-your-local-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Download the MicroSim p5 Skill from the MicroSim GitHub site to Your Local System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-upload-the-microsim-p5-skill-to-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Upload the MicroSim-p5 Skill to Claude
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-reference-the-microsim-p5-skill-in-your-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Reference the MicroSim-p5 Skill in Your Prompt
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-testing-the-new-microsim-with-the-p5js-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Testing the New MicroSim with the p5.js Editor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note-on-control-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note on Control Placement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Note on Control Placement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-5-share-your-microsim-directly-from-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5 Share Your MicroSim Directly from p5.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 Share Your MicroSim Directly from p5.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embed-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embed Iframe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#share-url-for-full-screen-for-execution-but-no-editing-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Share URL for Full Screen for Execution but No Editing (Read Only)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#share-with-full-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Share with Full Editing:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-into-a-textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrating Into a Textbook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrating-into-web-pages-is-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrating into Web Pages is Easy!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-microsim-package-zip-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate the MicroSim Package Zip File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-dialog-for-package-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Dialog for Package Generation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Dialog for Package Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-the-microsim-package-that-claude-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download the MicroSim Package that Claude Created
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unzip-the-microsim-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unzip the MicroSim Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-to-navigation-in-mkdocsyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add to Navigation in mkdocs.yml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-social-media-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Social Media Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-metadata-in-html-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Metadata in HTML Head
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-metadata-in-the-indexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Metadata in the index.md
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-the-social-media-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the Social Media Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#positive-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positive Result!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#og-tags-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      OG Tags Advice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-generates-massive-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Generates Massive Metadata!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-metadata-file-metadatajson" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Metadata File (metadata.json)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-view-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To View Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-in-the-metadatajson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is in the metadata.json File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-contents-continued" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Contents (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-contents-continued_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Contents (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-continued" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-continued_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata (Continued)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thank-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thank You!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/using-claude-skill-to-generate-microsims.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="using-the-microsim-p5-skill-with-anthropic-claude">Using The MicroSim P5 Skill with Anthropic Claude</h1>
+<p><strong>By Dan McCreary</strong>
+<strong>October 23, 2025</strong></p>
+<h2 id="overview">Overview</h2>
+<p>This comprehensive guide demonstrates how to use Claude Skills to generate high-quality, interactive MicroSims for educational purposes. This tutorial covers:</p>
+<ul>
+<li>What is a Claude Skill?</li>
+<li>Loading the MicroSim-p5 skill into Claude's Capabilities</li>
+<li>Using the Skill to generate a p5.js file</li>
+<li>Testing the p5.js MicroSim with the p5.js editor</li>
+<li>Generating a full MicroSim package</li>
+<li>Installing the package in your intelligent book</li>
+<li>Testing the MicroSim package in your textbook</li>
+<li>Adding a Social Media Preview Image</li>
+</ul>
+<h2 id="what-is-a-claude-skill">What is a Claude Skill?</h2>
+<p><img alt="Anthropic Skills Announcement" src="../images/claude-skill-intro.png" /></p>
+<p>A Claude Skill is a highly detailed set of rules for executing specific tasks. Think of it as a specialized instruction manual that Claude can reference when performing particular types of work.</p>
+<p>Key characteristics of Claude Skills:</p>
+<ul>
+<li><strong>Standardized</strong> by Anthropic in October 2025</li>
+<li><strong>Portable</strong> - Stored in a zip file that can be quickly added to your Anthropic settings</li>
+<li><strong>Easy to use</strong> - Works with both the Claude webpage and the Terminal using Claude Code</li>
+<li><strong>Available</strong> with the Pro ($20/month) plan and other more expensive plans</li>
+</ul>
+<p>For more information, visit: <a href="https://www.anthropic.com/news/skills">https://www.anthropic.com/news/skills</a></p>
+<h2 id="how-skills-work-with-agents">How Skills Work with Agents</h2>
+<p>Building an entire intelligent textbook is a complex process requiring careful planning, the creation of detailed workflows
+with human feedback and the decomposition of workflows into small discrete tasks.<br />
+Once we have a task clearly defined, we need to match it to a set of complex content generation rules.
+We use the name <code>skill</code> as a packaging systems for the rules associated with a given task.</p>
+<p>A description of this workflow is shown below:</p>
+<!-- TOOD: Turn this graphic image into an interactive infographics 
+Infographic Workflow Description.
+Use a width-responsive design.
+## Boxes
+For each box, use rounded corners.
+There are colorful boxes in four columns.
+The Infographc has a single orange "Plan" box in the first column.
+The Infographc has a single gold "Workflow" box in the second column.
+Ihe Infographic has four green "Task" boxes in the third column.
+Ihe Infographic has four blue "Skill" boxes in the fourth column.
+## Connections
+Connections are black arrows with an arrowhead on the right end.
+A single black arrow connects the "Plan" box in the first column to the "Workflow" box in the second column.
+Four arrows connect the single Workflow to the four "Tasks" in the third column.
+Each "Task" in the third column is connected to a "Skill" in the fourth column.
+
+## Hover
+As the user hovers over a box, a tooltip box displays the definition of the box to the upper right of the box.
+## Clickthroughs
+When a user clicks on a box the page moves to the section of this document with that label by added #label to the end of the current URL
+-->
+<p><img alt="How Skills Work" src="../images/skill-workflow.png" /></p>
+<p>Claude uses an intelligent task-matching system for skills:</p>
+<p>While working on tasks, Claude scans available skills to find relevant matches. 
+When one matches, it loads only the minimal information and files needed—keeping Claude fast while accessing specialized expertise.</p>
+<h2 id="workflow-diagram">Workflow Diagram</h2>
+<h3 id="plan">Plan</h3>
+<p>Generative AI have strong planning mode to generate an overall strategy for the MicroSim.  This plan
+uses rules of good instructional design to create a great user experience for students.</p>
+<h3 id="workflows">Workflows</h3>
+<p>Contain many tasks that are all connected in a specific order.  Between tasks there may
+be decision points and iteration to verify correctness.</p>
+<h3 id="task">Task</h3>
+<p>A unit of work that can be matched to a single Skill.</p>
+<h3 id="skill">Skill</h3>
+<p>A set of rules for completing a task.</p>
+<p>This architecture ensures efficient resource usage while maintaining access to specialized knowledge.</p>
+<h2 id="sample-microsim-created-by-skill">Sample MicroSim Created by Skill</h2>
+<p>Here's an example of what the MicroSim-p5 skill can create with a simple prompt.</p>
+<iframe src="../sims/projectile-motion-gravity/main.html" height="452px" scrolling="no"></iframe>
+
+<p>Here is the prompt that was used to create this skill.</p>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+</div>
+<p>Using the MicroSim-p5 skill, create a new MicroSim that demonstrates
+   the effect of gravity on projectile motion.<br />
+   Name the MicroSim "projectile-motion-gravity".
+   A canon is located in the lower left that shoots a ball.
+   The MicroSim has a "Fire" and a "Reset" button and a single range control slider to change the gravity.<br />
+   Each time the user presses "Fire" a parabolic path is drawn with a dashed line.
+   The lines are only erased when the "Reset" button is pressed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Some of the controls were not placed correctly in the control area.  The x coordinate of several controls were
+   edited manually.  The rest of the code was correctly generated.</p>
+<h2 id="what-the-microsim-creates">What the MicroSim Creates</h2>
+<p>When you use the MicroSim-p5 skill, Claude generates a complete package including:</p>
+<ul>
+<li><strong>427-line</strong> width-responsive p5.js application</li>
+<li><strong>121-line</strong> index.md file that includes a user guide and lesson plan</li>
+<li><strong>12-line</strong> main.html driver file</li>
+<li><strong>427-line</strong> metadata.json file for search optimization</li>
+</ul>
+<p>All files follow consistent patterns and best practices for educational simulations.</p>
+<p>Here's the complete list of the steps for using the MicroSim-p5 skill:</p>
+<ol>
+<li><strong>Step 1: Download MicroSim-p5 Skill from the MicroSim GitHub</strong> - This will place the <code>MicroSim-p5.zip</code> file to your local hard drive</li>
+<li><strong>Step 2: Upload the MicroSim-p5 Skill to Claude</strong> - the skill file to your Anthropic Settings Capabilities</li>
+<li><strong>Step 3: Reference the Skill In Your Prompt</strong> - "Using the MicroSim-p5 skill..." to your prompt:</li>
+<li>Example: <em>"Using the MicroSim-p5 skill create a new MicroSim that will show the effect of gravity on projectile motion. Have a slider change the gravity."</em></li>
+<li><strong>Step 4: Download your new MicroSim zip file to your local hard drive</strong> download the zip file that Claude creates</li>
+<li><strong>Step 5: Test the new JavaScript File in the p5 Editor</strong> open the zip file and copy the JavaScript using the p5.js editor</li>
+<li><strong>Step 6: Intall the Package in your textbook</strong> Place the files in the <code>sims</code> folder of your textbook</li>
+<li><strong>Step 7: Create a Social Media Preview</strong></li>
+</ol>
+<p><strong>Note:</strong> <code>Claude Code</code>, the Terminal version of Claude, can also use these skills and automatically install the MicroSim in your book.</p>
+<h2 id="detailed-step-by-step-instructions">Detailed Step-by-Step Instructions</h2>
+<h3 id="step-1-download-the-microsim-p5-skill-from-the-microsim-github-site-to-your-local-system">Step 1: Download the MicroSim p5 Skill from the MicroSim GitHub site to Your Local System</h3>
+<p>To begin, you need to download the MicroSim-p5 skill file:</p>
+<p><strong>Go to:</strong>
+<a href="https://github.com/dmccreary/microsims/blob/main/skills/microsim-p5.zip">https://github.com/dmccreary/microsims/blob/main/skills/microsim-p5.zip</a></p>
+<p>Click the download icon to save the <code>microsim-p5.zip</code> file to your local system.</p>
+<p><img alt="" src="../images/skill-zip-download.png" /></p>
+<h3 id="step-2-upload-the-microsim-p5-skill-to-claude">Step 2: Upload the MicroSim-p5 Skill to Claude</h3>
+<p>Navigate to the Claude Settings Capabilities Menu:</p>
+<p><strong>CLICK HERE:</strong> <a href="http://claude.ai/settings/capabilities">http://claude.ai/settings/capabilities</a></p>
+<p>In the <strong>Skills</strong> area, click the <strong>"Upload skill"</strong> button.</p>
+<p><img alt="Upload Skill" src="../images/upload-skill-to-claude.png" /></p>
+<p>This page allows you to manage all your Claude capabilities, including Skills, Experimental features, and Connectors.</p>
+<p>Once you're on the capabilities page with the Skills section open:</p>
+<ol>
+<li>Locate the upload area for skills</li>
+<li><strong>Drag and drop</strong> the <code>microsim-p5.zip</code> file you downloaded</li>
+</ol>
+<p>The skill will be uploaded and processed automatically.  You will then see a confirmation such as the following:</p>
+<p><img alt="Confirmation" src="../images/skill-upload-confirmation.png" /></p>
+<p>After successful upload, you'll see a confirmation message indicating that the MicroSim-p5 skill has been added to your account.</p>
+<p><img alt="Success Confirmation" src="images/slide-11-img-1.png" /></p>
+<p>The skill is now ready to use in your Claude conversations!</p>
+<h3 id="step-3-reference-the-microsim-p5-skill-in-your-prompt">Step 3: Reference the MicroSim-p5 Skill in Your Prompt</h3>
+<p>Now you can start using the skill. Here's a sample prompt we described above:</p>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+</div>
+<p>Using the MicroSim-p5 skill, create a new MicroSim that demonstrates
+   the effect of gravity on projectile motion.<br />
+   Name the MicroSim "projectile-motion-gravity".
+   A canon is located in the lower left that shoots a ball.
+   The MicroSim has a "Fire" and a "Reset" button and a single range control slider to change the gravity.<br />
+   Each time the user presses "Fire" a parabolic path is drawn with a dashed line.
+   The lines are only erased when the "Reset" button is pressed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Some of the controls were not placed correctly in the control area.  The x coordinate of several controls were
+   edited manually.  The rest of the code was correctly generated.</p>
+<p><strong>Note:</strong> It's important to specify the name of your MicroSim so Claude knows what to call the folder and files.</p>
+<p>Here is a sample response dialog from Claude:</p>
+<p><img alt="Claude MicroSim Creation Dialog" src="../images/creation-dialog-01.png" /></p>
+<p><img alt="Claude MicroSim Creation Dialog" src="../images/creation-dialog-02.png" /></p>
+<p>Claude will respond with a detailed implementation, including:</p>
+<ul>
+<li>Complete p5.js code</li>
+<li>Explanation of the physics</li>
+<li>User guide</li>
+<li>Implementation notes</li>
+</ul>
+<p>The output follows all the conventions and patterns defined in the MicroSim-p5 skill.</p>
+<h3 id="step-4-testing-the-new-microsim-with-the-p5js-editor">Step 4: Testing the New MicroSim with the p5.js Editor</h3>
+<p><img alt="p5.js Editor Testing" src="../images/p5-editor-screen-image.png" /></p>
+<p>Before integrating into your textbook, test the MicroSim using the p5.js online editor:</p>
+<p><strong>Example:</strong> <a href="https://editor.p5js.org/dmccreary/sketches/-aDDLBBD8">https://editor.p5js.org/dmccreary/sketches/-aDDLBBD8</a></p>
+<p><img alt="p5.js Editor Testing Screen Image" src="../images/p5-editor-screen-image.png" /></p>
+<p>The p5.j editor allows you to:
+- Test interactivity
+- Verify responsive behavior
+- Make adjustments in layout before deployment
+- Share directly from the editor</p>
+<h2 id="note-on-control-placement">Note on Control Placement</h2>
+<p><strong>Important Caveat:</strong></p>
+<p>LLMs are not always perfect at the exact placement of UI controls. In this example, Claude made mistakes placing the button and slider controls in the controls area of the MicroSim.</p>
+<p>You may need to manually adjust:
+- X-position of sliders in the control region
+- Button placement
+- Label alignment</p>
+<p><strong>Future Improvement:</strong> Specific rules will be added to the skill to prevent these errors in the next version.</p>
+<h3 id="step-5-share-your-microsim-directly-from-p5js">Step 5 Share Your MicroSim Directly from p5.js</h3>
+<p>Within the p5.js editor there is a <code>File</code> menu in the upper left corner.  After you click on the <code>File</code> menu
+it will then present a drop-down menu with the <code>Share</code> option.  By Clicking that it will open a
+window that allows you to share the new MicroSim after a <code>Save</code> has been done.</p>
+<p><img alt="Share from p5.js" src="../images/p5-editor-share.png" /></p>
+<p>The p5.js editor makes it easy to share your work in three ways:</p>
+<h4 id="embed-iframe">Embed Iframe</h4>
+<p>In this mode, you just add a single <code>iframe</code> to your website.  This is ideal for authors
+that want to embed a MicroSim in a region of their web page.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://editor.p5js.org/dmccreary/full/-aDDLBBD8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="share-url-for-full-screen-for-execution-but-no-editing-read-only">Share URL for Full Screen for Execution but No Editing (Read Only)</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://editor.p5js.org/dmccreary/full/-aDDLBBD8
+</code></pre></div></td></tr></table></div>
+<p>This mode is ideal if you want to provide a link to the MicroSim such as in
+a webpage, email or chat.  In this mode, you can run the MicroSim but
+you can't see or edit the source code.</p>
+<h4 id="share-with-full-editing">Share with Full Editing:</h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>https://editor.p5js.org/dmccreary/sketches/-aDDLBBD8
+</code></pre></div></td></tr></table></div>
+<p>This generates a shareable link to your MicroSim that others can view and remix.</p>
+<hr />
+<h2 id="integrating-into-a-textbook">Integrating Into a Textbook</h2>
+<p><img alt="Textbook Integration" src="images/slide-17.png" /></p>
+<p>The following steps are for integrating your MicroSim into an intelligent textbook:</p>
+<p>Intelligent textbooks put MicroSims "inline" into chapters of online books. They use a specific folder and file structure that facilitates sharing.</p>
+<p>The MicroSim skill generates three additional files for textbook integration:</p>
+<ul>
+<li>Sample <code>main.html</code> file</li>
+<li>Sample <code>index.md</code> containing user guide and lesson plans</li>
+<li>Sample <code>metadata.json</code> to facilitate search in MicroSim search engines</li>
+</ul>
+<p>The main JavaScript file (bouncing-ball.js) can then be modified and versioned as needed.</p>
+<h2 id="integrating-into-web-pages-is-easy">Integrating into Web Pages is Easy!</h2>
+<p>Adding any MicroSim to a web page requires just one line of HTML:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span>
+   <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/main.html&quot;</span>
+   <span class="na">height</span><span class="o">=</span><span class="s">&quot;452px&quot;</span>
+   <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>This <code>iframe</code> element allows you to securely add the file to your webpage.</p>
+<p><strong>Benefits:</strong>
+- Can be added without jeopardizing the security of your site
+- The simulation runs in a secure "sandbox"
+- You do not need to make other changes to your website
+- You can use CSS to style the border of the iframe</p>
+<h2 id="generate-the-microsim-package-zip-file">Generate the MicroSim Package Zip File</h2>
+<p><img alt="Generate Package" src="images/slide-19.png" /></p>
+<p>To get all the supporting files (not just the JavaScript), request a complete package:</p>
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+</div>
+<p>Please generate a complete MicroSim package with all supporting files.</p>
+<p><img alt="Package Generation Dialog" src="images/slide-19-img-1.png" /></p>
+<p>This forces the skill to generate not just the JavaScript, but all the supporting files in a MicroSim package.</p>
+<h2 id="sample-dialog-for-package-generation">Sample Dialog for Package Generation</h2>
+<p><img alt="Sample Dialog" src="images/slide-20.png" /></p>
+<p>Claude will generate the complete package and provide a download link.</p>
+<p><img alt="Download Dialog" src="images/slide-20-img-1.png" /></p>
+<p><strong>CLICK HERE</strong> to download the complete package as a zip file.</p>
+<h3 id="download-the-microsim-package-that-claude-created">Download the MicroSim Package that Claude Created</h3>
+<p>Click the download link to save the MicroSim package to your computer.</p>
+<p><img alt="Download Button" src="images/slide-21-img-1.png" /></p>
+<p>The package will download as <code>projectile-motion.zip</code> (or whatever name you specified).</p>
+<h3 id="unzip-the-microsim-package">Unzip the MicroSim Package</h3>
+<p><img alt="Unzip Package" src="images/slide-22.png" /></p>
+<p>Move and/or rename the extracted files to your textbook directory:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/tmp
+$<span class="w"> </span>mv<span class="w"> </span>projectile-motion<span class="w"> </span><span class="nv">$BOOK</span>/docs/sims/projectile-motion-gravity
+</code></pre></div></td></tr></table></div>
+<p><img alt="Terminal Commands" src="images/slide-22-img-1.png" /></p>
+<p><strong>Note:</strong> Remove the zip file when you're done. The zip file should not be checked into your textbook site.</p>
+<h3 id="add-to-navigation-in-mkdocsyml">Add to Navigation in mkdocs.yml</h3>
+<p><img alt="Add to Navigation" src="images/slide-23.png" /></p>
+<p>Update your MkDocs configuration to include the new MicroSim in the navigation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Projectile Motion With Gravity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sims/projectile-motion-gravity/index.md</span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="mkdocs.yml Edit" src="images/slide-23-img-1.png" /></p>
+<p>Add this line in the <code>nav:</code> section, indented with the other sims.</p>
+<h2 id="optional-social-media-preview">Optional: Social Media Preview</h2>
+<p><img alt="Social Media Preview" src="images/slide-24.png" /></p>
+<p>You can add a social media preview image that will appear when you share the MicroSim link:</p>
+<p>This image will show when you:
+- Copy the link into a chat
+- Share on Messenger, Slack, Discord, or Zoom
+- Reference the MicroSim on Facebook, Twitter, or LinkedIn</p>
+<p><img alt="Preview Image Setup" src="images/slide-24-img-1.png" /></p>
+<p><strong>To enable this feature:</strong>
+1. Take a screen image of the MicroSim
+2. Place it in the MicroSim folder with the same name as the folder:
+   - Example: <code>projectile-motion-gravity.png</code></p>
+<p><strong>Note:</strong> A future version of the skill might render the MicroSim and capture a screen image automatically. However, for now this is a manual step.</p>
+<h2 id="sample-metadata-in-html-head">Sample Metadata in HTML Head</h2>
+<p>The social media preview requires Open Graph (og) metadata in the HTML head element.  All Open Graph elements have the "og:" prefix in their property.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:image&quot;</span>
+      <span class="na">content</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/projectile-motion-gravity.png&quot;</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>This tag tells social media platforms which image to display when sharing your link.</p>
+<h2 id="sample-metadata-in-the-indexmd">Sample Metadata in the index.md</h2>
+<p><img alt="Markdown Metadata" src="images/slide-26.png" /></p>
+<p>The <code>index.md</code> file also includes metadata for the preview image:</p>
+<p><img alt="Metadata Example" src="images/slide-26-img-1.png" /></p>
+<p><strong>Note:</strong> The path names are all relative to the <code>/docs</code> directory. You do not need to put in the full path.</p>
+<hr />
+<h2 id="test-the-social-media-preview">Test the Social Media Preview</h2>
+<p>There are many free websites that will test if the right metadata tags are placed correctly in the HTML header.</p>
+<p><strong>Example:</strong> <a href="https://socialsharepreview.com/">https://socialsharepreview.com/</a></p>
+<p><img alt="Social Share Preview Site" src="images/slide-27-img-1.png" /></p>
+<p><strong>Paste the URL of your MicroSim here</strong> to see how it will appear when shared on social media.</p>
+<hr />
+<h2 id="positive-result">Positive Result!</h2>
+<p><img alt="Test Success" src="images/slide-28.png" /></p>
+<p>When properly configured, your preview will look great:</p>
+<p><img alt="Successful Preview" src="images/slide-28-img-1.png" /></p>
+<p>For further details, you can search for <strong>Open Graph standards</strong> for title, description, and images.</p>
+<hr />
+<h2 id="og-tags-advice">OG Tags Advice</h2>
+<p><img alt="OG Tags Recommendations" src="images/slide-29.png" /></p>
+<p>The social media preview validator will provide feedback:</p>
+<p><img alt="OG Tags Analysis" src="images/slide-29-img-1.png" /></p>
+<p>Common recommendations:
+- Our title and description are fine
+- The ideal ratio for social preview images is <strong>1.91:1</strong> (width to height)
+- Recommended dimensions: <strong>1200 x 628 pixels</strong></p>
+<hr />
+<h2 id="claude-generates-massive-metadata">Claude Generates Massive Metadata!</h2>
+<p><img alt="Metadata Generation" src="images/slide-30.png" /></p>
+<p>Given a robust JSON Schema, Claude will generate fantastic, highly detailed metadata that can be used to analyze and extend a MicroSim.</p>
+<p><img alt="Metadata Schema" src="images/slide-30-img-1.png" /></p>
+<p><strong>Key benefits:</strong>
+- The schema is an exhaustive list of fields that Claude will happily fill in for each MicroSim
+- Metadata is critical for building faceted search tools for MicroSims
+- Enables powerful discovery and categorization</p>
+<p><strong>Schema location:</strong>
+<a href="https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json">https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json</a></p>
+<hr />
+<h2 id="sample-metadata-file-metadatajson">Sample Metadata File (metadata.json)</h2>
+<p><img alt="Sample Metadata" src="images/slide-31.png" /></p>
+<p>Here's what a complete metadata file looks like:</p>
+<p><img alt="metadata.json Screenshot" src="images/slide-31-img-1.png" /></p>
+<p>This file contains comprehensive information about the MicroSim, making it discoverable and useful for educational purposes.</p>
+<hr />
+<h2 id="how-to-view-metadata">How To View Metadata</h2>
+<p><img alt="View Metadata" src="images/slide-32.png" /></p>
+<p>To view the metadata for any MicroSim, simply add <code>/metadata.json</code> to the end of the path:</p>
+<p><strong>Example:</strong>
+<a href="https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/metadata.json">https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/metadata.json</a></p>
+<p><img alt="Metadata in Browser" src="images/slide-32-img-1.png" /></p>
+<hr />
+<h2 id="what-is-in-the-metadatajson-file">What is in the metadata.json File</h2>
+<p><img alt="Metadata Contents Part 1" src="images/slide-33.png" /></p>
+<p>The metadata file includes:</p>
+<p><strong>Dublin Core</strong> (standard library catalog information):
+- Title, creator, subject, description
+- Publisher, date, type, format
+- Language, rights</p>
+<p><strong>Education Standards:</strong>
+- NGSS (Next Generation Science Standards)
+- Common Core Math (e.g., "HSF-IF.B.4")</p>
+<p><strong>License:</strong>
+- CC BY 4.0 - Creative Commons Attribution 4.0 International</p>
+<p><strong>Grade Levels:</strong>
+- Target: 6th to 12th grades</p>
+<p><strong>Subjects:</strong>
+- Physics, Science, Mathematics</p>
+<p><strong>Topics:</strong>
+- Projectile Motion
+- Gravity
+- Parabolic Trajectories
+- Kinematics
+- Newton's Laws
+- Acceleration</p>
+<hr />
+<h2 id="metadata-contents-continued">Metadata Contents (Continued)</h2>
+<p><img alt="Metadata Contents Part 2" src="images/slide-34.png" /></p>
+<p><strong>Learning Objectives:</strong></p>
+<p>The metadata includes detailed, measurable learning objectives:</p>
+<ul>
+<li>Understand that gravity affects the vertical motion of projectiles</li>
+<li>Apply concepts of parabolic motion to predict trajectory shapes</li>
+<li>Analyze how changes in gravity affect projectile range and height</li>
+<li>Evaluate the relationship between gravitational acceleration and trajectory characteristics</li>
+<li>Compare projectile motion under different gravitational conditions</li>
+</ul>
+<hr />
+<h2 id="metadata-contents-continued_1">Metadata Contents (Continued)</h2>
+<p><img alt="Metadata Contents Part 3" src="images/slide-35.png" /></p>
+<p><strong>Additional Fields:</strong></p>
+<p><strong>Prerequisites:</strong>
+- Required prior knowledge</p>
+<p><strong>Duration:</strong>
+- Estimated times (typical, minimum, maximum)</p>
+<p><strong>Difficulty:</strong>
+- Level indicators</p>
+<p><strong>Curriculum Standards:</strong>
+- Framework, ID, description</p>
+<p><strong>Technical Details:</strong>
+- JavaScript library and version
+- Responsive design capabilities
+- Browser compatibility analysis
+- Accessibility features</p>
+<hr />
+<h2 id="metadata-continued">Metadata (Continued)</h2>
+<p><img alt="Metadata Contents Part 4" src="images/slide-36.png" /></p>
+<p><strong>User Interface Details:</strong></p>
+<p><strong>List of UI Controls:</strong>
+- Buttons (Start, Pause, Reset)
+- Sliders (ranges and purposes)</p>
+<p><strong>Visual Elements:</strong>
+- Diagram components
+- Animation features
+- Text elements</p>
+<p><strong>Simulation Types:</strong>
+- Physics simulations
+- Equations used
+- Algorithms implemented</p>
+<p><strong>Model Assumptions:</strong>
+- No friction
+- No wind resistance
+- Vacuum environment
+- Point mass projectile</p>
+<p><strong>Possible Variations:</strong>
+- Initial velocity adjustments
+- Launch angle modifications
+- Projectile type changes</p>
+<p><strong>Scenarios:</strong>
+- Earth gravity (9.8 m/s²)
+- Moon gravity (1.6 m/s²)
+- Mars gravity (3.7 m/s²)
+- Space (0 m/s²)</p>
+<p><strong>Analytics for AI Textbooks:</strong>
+- Events tracked (start, stop, adjust, reset)
+- Metrics (engagement time, number of adjustments)</p>
+<hr />
+<h2 id="metadata-continued_1">Metadata (Continued)</h2>
+<p><img alt="Metadata Contents Part 5" src="images/slide-37.png" /></p>
+<p><strong>Pedagogical Information:</strong></p>
+<p><img alt="Metadata Fields" src="images/slide-37-img-1.png" /></p>
+<p><strong>Recommended Usage:</strong>
+- Demonstrations
+- Exploration activities
+- Guided practice
+- Group activities
+- Individual study</p>
+<p><strong>Instructional Strategies:</strong>
+- Inquiry-based learning
+- Problem-solving approaches
+- Visualization techniques</p>
+<p><strong>Assessment Questions:</strong>
+- Question types
+- Difficulty levels
+- Bloom's taxonomy alignment</p>
+<p><strong>Extensions:</strong>
+- What UI components could be added?
+- How could the simulation be enhanced?
+- Related concepts to explore</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p><img alt="Conclusion Slide" src="images/slide-38.png" /></p>
+<p>Using Claude Skills can make MicroSim generation MUCH easier for non-programmers.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ul>
+<li><strong>Fast Generation:</strong> Some simple MicroSims can be generated in under five minutes</li>
+<li><strong>May Need Tweaking:</strong> The layouts may not be perfect and may require adjustments in the placement of controls</li>
+<li><strong>Rich Metadata:</strong> The skill prompts Claude to generate a large number of precise metadata elements for each MicroSim</li>
+<li><strong>Claude Code Integration:</strong> Claude Code can be used to quickly iterate these designs, though it can be challenging for non-programmers</li>
+<li><strong>Easy Integration:</strong> Using a MicroSim in any web-based textbook is as simple as adding a single line of HTML (iframe)</li>
+</ul>
+<hr />
+<h2 id="thank-you">Thank You!</h2>
+<p><img alt="Thank You Slide" src="images/slide-39.png" /></p>
+<p><strong>Resources:</strong></p>
+<ul>
+<li>
+<p><strong>Feedback, Bugs, Enhancements:</strong>
+  <a href="https://github.com/dmccreary/microsims/issues">https://github.com/dmccreary/microsims/issues</a></p>
+</li>
+<li>
+<p><strong>Questions:</strong> Please connect with me on LinkedIn
+  <a href="https://www.linkedin.com/in/danmccreary/">https://www.linkedin.com/in/danmccreary/</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="additional-resources">Additional Resources</h2>
+<p>For more information about the MicroSims project:</p>
+<ul>
+<li><strong>MicroSim Documentation</strong>: See <code>CLAUDE.md</code> in the project root</li>
+<li><strong>Cursor Rules</strong>: Check <code>.cursor/rules/microsims.mdc</code> for detailed patterns</li>
+<li><strong>Metadata Schema</strong>: <code>src/microsim-schema.json</code></li>
+<li><strong>Example Simulations</strong>: Browse <code>docs/sims/</code> directory</li>
+<li><strong>Gallery</strong>: View all simulations at <code>/sims/gallery.md</code></li>
+<li><strong>MicroSim Skill File</strong>: Download from <code>skills/microsim-p5.zip</code> in the repository</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<ol>
+<li>Download and upload the MicroSim-p5 skill to Claude</li>
+<li>Try generating a simple simulation to test the skill</li>
+<li>Test in the p5.js online editor</li>
+<li>Iterate and refine based on the output</li>
+<li>Generate the complete package</li>
+<li>Validate the generated code and metadata</li>
+<li>Add the new simulation to your textbook</li>
+<li>Share your simulation with educators and students!</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../microsim-dev-workflow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Development Workflow">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Development Workflow
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cognitive-load-theory/" class="md-footer__link md-footer__link--next" aria-label="Next: Cognitive Load Theory">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cognitive Load Theory
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
