@@ -10,7 +10,7 @@ social:
 
 # OODA Loop
 
-<iframe src="main.html" height="622px" scrolling="no"></iframe>
+<iframe src="main.html" height="560px" scrolling="no"></iframe>
 
 [Run the OODA Loop MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
@@ -19,7 +19,7 @@ social:
 You can include this MicroSim on your website using the following `iframe`:
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/sims/ooda/main.html" height="622px" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/sims/ooda/main.html" height="560px" scrolling="no"></iframe>
 ```
 
 ## Description
