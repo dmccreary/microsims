@@ -5,7 +5,7 @@
 
 // Canvas dimensions - REQUIRED structure
 let canvasWidth = 800;              // Initial width (responsive)
-let drawHeight = 500;               // Drawing/simulation area height
+let drawHeight = 430;               // Drawing/simulation area height
 let controlHeight = 120;            // Controls area height
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;                    // Margin for visual elements
@@ -46,11 +46,11 @@ function setup() {
   agent2SpeedSlider.size(canvasWidth - sliderLeftMargin - margin);
 
   startButton = createButton('Start');
-  startButton.position(sliderLeftMargin, drawHeight + 80);
+  startButton.position(sliderLeftMargin, drawHeight + 70);
   startButton.mousePressed(toggleSimulation);
 
   resetButton = createButton('Reset');
-  resetButton.position(sliderLeftMargin + 80, drawHeight + 80);
+  resetButton.position(sliderLeftMargin + 80, drawHeight + 70);
   resetButton.mousePressed(resetSimulation);
 
   describe('Interactive simulation of the OODA Loop (Observe, Orient, Decide, Act) showing two agents progressing through decision cycles at different speeds.', LABEL);
@@ -144,7 +144,7 @@ function drawOODALoop(centerX, centerY, radius, currentAngle, agentColor, agentL
     fill(0);
     noStroke();
     textAlign(CENTER, CENTER);
-    textSize(14);
+    textSize(20);
     text(phases[i], labelX, labelY);
   }
 
