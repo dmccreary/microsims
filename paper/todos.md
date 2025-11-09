@@ -1,0 +1,4 @@
+
+## PRIMM Methodology
+
+The MicroSims framework brings the principles of constructivist learning theory to life by guiding students through a structured, hands-on progression modeled after the PRIMM methodology—Predict, Run, Investigate, Modify, and Make. In each MicroSim, learners begin by predicting what they think will happen in a dynamic simulation, then run the interactive model to observe real outcomes. They investigate relationships between variables, experiment by modifying parameters or code, and finally make their own versions or extensions of the simulation. This cycle promotes active engagement, conceptual understanding, and creative confidence, helping learners move from passive observation to authentic construction of knowledge through experimentation and iteration.
