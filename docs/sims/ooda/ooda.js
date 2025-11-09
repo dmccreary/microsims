@@ -180,12 +180,10 @@ function drawControls() {
   textAlign(LEFT, CENTER);
 
   // Agent 1 Speed label
-  text('Agent 1 Speed:', 10, drawHeight + 25);
-  text(agent1Speed.toFixed(1), sliderLeftMargin + canvasWidth - sliderLeftMargin - margin + 10, drawHeight + 25);
+  text('Agent 1 Speed:' + agent1Speed.toFixed(1), 10, drawHeight + 25);
 
   // Agent 2 Speed label
-  text('Agent 2 Speed:', 10, drawHeight + 55);
-  text(agent2Speed.toFixed(1), sliderLeftMargin + canvasWidth - sliderLeftMargin - margin + 10, drawHeight + 55);
+  text('Agent 2 Speed:' + agent2Speed.toFixed(1), 10, drawHeight + 55);
 
   // Instructions
   textSize(12);
@@ -217,8 +215,8 @@ function updateCanvasSize() {
     canvasWidth = container.offsetWidth;
     // Reposition all controls to match new width
     if (typeof agent1SpeedSlider !== 'undefined') {
-      agent1SpeedSlider.size(canvasWidth - sliderLeftMargin - margin);
-      agent2SpeedSlider.size(canvasWidth - sliderLeftMargin - margin);
+      agent1SpeedSlider.size(canvasWidth - sliderLeftMargin - margin*2);
+      agent2SpeedSlider.size(canvasWidth - sliderLeftMargin - margin*2);
     }
   }
 }
