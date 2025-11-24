@@ -1,3 +1,13 @@
+---
+title: Recursion Tree
+description: An interactive MicroSim demonstrating recursion tree.
+quality_score: 67
+image: /sims/recursion-tree/tree-v1.png
+og:image: /sims/recursion-tree/tree-v1.png
+twitter:image: /sims/recursion-tree/tree-v1.png
+social:
+   cards: false
+---
 # Recursion Tree
 
 <iframe src="main.html" height="470px" scrolling="no"></iframe>

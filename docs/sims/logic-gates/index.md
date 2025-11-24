@@ -1,3 +1,13 @@
+---
+title: Logic Gates
+description: An interactive MicroSim demonstrating logic gates.
+quality_score: 37
+image: /sims/logic-gates/logic-gates.png
+og:image: /sims/logic-gates/logic-gates.png
+twitter:image: /sims/logic-gates/logic-gates.png
+social:
+   cards: false
+---
 # Logic Gates
 
 In this example, we will generate a graphical simulation of Boolean logic gates.

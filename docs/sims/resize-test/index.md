@@ -1,3 +1,10 @@
+---
+title: Resize Demo
+description: This MicroSim teaches us go into full-screen and back.
+quality_score: 42
+social:
+   cards: false
+---
 # Resize Demo
 
 <figure markdown>

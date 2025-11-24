@@ -1,3 +1,13 @@
+---
+title: Rotating Motor
+description: An interactive MicroSim demonstrating rotating motor.
+quality_score: 37
+image: /sims/motor/motor.png
+og:image: /sims/motor/motor.png
+twitter:image: /sims/motor/motor.png
+social:
+   cards: false
+---
 # Rotating Motor
 
 </figure markdown>

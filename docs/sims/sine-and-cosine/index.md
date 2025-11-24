@@ -1,3 +1,10 @@
+---
+title: Sine and Cosine
+description: An interactive MicroSim demonstrating sine and cosine.
+quality_score: 37
+social:
+   cards: false
+---
 # Sine and Cosine
 
 <figure markdown>

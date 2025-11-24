@@ -1,3 +1,10 @@
+---
+title: Bouncing 3D Sphere Demo
+description: An interactive MicroSim demonstrating bouncing 3d sphere demo.
+quality_score: 42
+social:
+   cards: false
+---
 # Bouncing 3D Sphere Demo
 
 You can also use the 3D "WebGL" rendering system that is built into p5.js. 

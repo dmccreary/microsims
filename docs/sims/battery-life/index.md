@@ -1,3 +1,10 @@
+---
+title: Battery Life Calculator
+description: An interactive MicroSim demonstrating battery life calculator.
+quality_score: 37
+social:
+   cards: false
+---
 # Battery Life Calculator
 
 

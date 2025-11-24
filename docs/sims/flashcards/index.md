@@ -1,3 +1,10 @@
+---
+title: Flashcards App
+description: An interactive MicroSim demonstrating flashcards app.
+quality_score: 32
+social:
+   cards: false
+---
 # Flashcards App
 
 [Run the flashcard application](./flashcards.html){ .md-button .md-button--primary }

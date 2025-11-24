@@ -1,3 +1,13 @@
+---
+title: Pulse-Width Modulation
+description: An interactive MicroSim demonstrating pulse-width modulation.
+quality_score: 47
+image: /sims/pwm/pwm.png
+og:image: /sims/pwm/pwm.png
+twitter:image: /sims/pwm/pwm.png
+social:
+   cards: false
+---
 # Pulse-Width Modulation
 
 ![PWM](./pwm.png)

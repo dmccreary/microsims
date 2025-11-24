@@ -1,3 +1,13 @@
+---
+title: Galton Board
+description: An interactive MicroSim demonstrating galton board.
+quality_score: 42
+image: /sims/galton-board/galton-board.png
+og:image: /sims/galton-board/galton-board.png
+twitter:image: /sims/galton-board/galton-board.png
+social:
+   cards: false
+---
 # Galton Board
 ![](./galton-board.png)
 

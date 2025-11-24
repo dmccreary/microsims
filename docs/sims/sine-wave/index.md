@@ -1,3 +1,13 @@
+---
+title: Sine Wave
+description: An interactive MicroSim demonstrating sine wave.
+quality_score: 72
+image: /sims/sine-wave/sine-wave.png
+og:image: /sims/sine-wave/sine-wave.png
+twitter:image: /sims/sine-wave/sine-wave.png
+social:
+   cards: false
+---
 # Sine Wave
 
 <iframe src="main.html" height="400px" scrolling="no"></iframe>

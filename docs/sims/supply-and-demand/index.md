@@ -1,3 +1,13 @@
+---
+title: Supply and Demand
+description: An interactive MicroSim demonstrating supply and demand.
+quality_score: 67
+image: /sims/supply-and-demand/supply-and-demand.png
+og:image: /sims/supply-and-demand/supply-and-demand.png
+twitter:image: /sims/supply-and-demand/supply-and-demand.png
+social:
+   cards: false
+---
 # Supply and Demand
 
 <iframe src="main.html" height="450px" scrolling="no"></iframe>

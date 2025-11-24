@@ -1,3 +1,10 @@
+---
+title: Yin & Yang MicroSim
+description: This MicroSim teaches us how to specify the drawing of a static filled circle.
+quality_score: 67
+social:
+   cards: false
+---
 # Yin & Yang MicroSim
 
 <iframe src="main.html" height="490px" scrolling="no"></iframe>

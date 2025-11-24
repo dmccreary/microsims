@@ -1,3 +1,13 @@
+---
+title: Collision Avoidance Robot
+description: An interactive MicroSim demonstrating collision avoidance robot.
+quality_score: 37
+image: /sims/collision-avoidance-robot/collision-avoidance-robot.png
+og:image: /sims/collision-avoidance-robot/collision-avoidance-robot.png
+twitter:image: /sims/collision-avoidance-robot/collision-avoidance-robot.png
+social:
+   cards: false
+---
 # Collision Avoidance Robot
 
 <figure markdown>

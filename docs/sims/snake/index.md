@@ -1,3 +1,10 @@
+---
+title: Snake MicroSim
+description: An interactive MicroSim demonstrating snake microsim.
+quality_score: 47
+social:
+   cards: false
+---
 # Snake MicroSim
 
 <iframe src="snake.html" height="400"></iframe>

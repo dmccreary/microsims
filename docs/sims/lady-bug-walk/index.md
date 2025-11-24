@@ -1,3 +1,10 @@
+---
+title: Lady Bug Walk
+description: An interactive MicroSim demonstrating lady bug walk.
+quality_score: 62
+social:
+   cards: false
+---
 # Lady Bug Walk
 
 <iframe src="main.html" height="470px" scrolling="no"></iframe>

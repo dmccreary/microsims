@@ -1,3 +1,13 @@
+---
+title: Slope and Intercept
+description: An interactive MicroSim demonstrating slope and intercept.
+quality_score: 37
+image: /sims/slope-and-intercept/slope.png
+og:image: /sims/slope-and-intercept/slope.png
+twitter:image: /sims/slope-and-intercept/slope.png
+social:
+   cards: false
+---
 # Slope and Intercept
 
 [Run the Slope and Intercept MicroSim](./slope.html){ .md-button .md-button--primary }

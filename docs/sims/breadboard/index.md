@@ -1,3 +1,13 @@
+---
+title: MicroSim Template
+description: This MicroSim teaches us how to simulate an LED circuit with a button on a breadboard.
+quality_score: 57
+image: /sims/breadboard/breadboard-horiz.png
+og:image: /sims/breadboard/breadboard-horiz.png
+twitter:image: /sims/breadboard/breadboard-horiz.png
+social:
+   cards: false
+---
 # MicroSim Template
 
 <figure markdown>

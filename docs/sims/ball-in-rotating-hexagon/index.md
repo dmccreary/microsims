@@ -1,3 +1,10 @@
+---
+title: Bouncing Ball in a Rotating Hexagon
+description: An interactive MicroSim demonstrating bouncing ball in a rotating hexagon.
+quality_score: 62
+social:
+   cards: false
+---
 # Bouncing Ball in a Rotating Hexagon
 
 <iframe src="main-v2.html" height="450px" width="400px"></iframe>

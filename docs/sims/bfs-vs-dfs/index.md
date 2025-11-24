@@ -1,3 +1,10 @@
+---
+title: BFS vs DFS
+description: An interactive MicroSim demonstrating bfs vs dfs.
+quality_score: 42
+social:
+   cards: false
+---
 # BFS vs DFS
 
 [Run the BFS vs DFS MicroSim](./main.html)

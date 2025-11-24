@@ -1,3 +1,10 @@
+---
+title: Conway's Game of Life
+description: An interactive MicroSim demonstrating conway's game of life.
+quality_score: 32
+social:
+   cards: false
+---
 # Conway's Game of Life
 
 

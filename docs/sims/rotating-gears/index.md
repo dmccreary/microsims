@@ -1,3 +1,13 @@
+---
+title: Rotating Gears
+description: An interactive MicroSim demonstrating rotating gears.
+quality_score: 47
+image: /sims/rotating-gears/rotating-gears.png
+og:image: /sims/rotating-gears/rotating-gears.png
+twitter:image: /sims/rotating-gears/rotating-gears.png
+social:
+   cards: false
+---
 # Rotating Gears
 
 ![](./rotating-gears.png)

@@ -1,3 +1,10 @@
+---
+title: Fibonacci Clock
+description: An interactive MicroSim demonstrating fibonacci clock.
+quality_score: 62
+social:
+   cards: false
+---
 # Fibonacci Clock
 
 <iframe src="main.html" width="600px" height="600px" scrolling="no"></iframe>

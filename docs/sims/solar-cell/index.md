@@ -1,3 +1,10 @@
+---
+title: Solar Cell Battery Charger MicroSim
+description: An interactive MicroSim demonstrating solar cell battery charger microsim.
+quality_score: 47
+social:
+   cards: false
+---
 # Solar Cell Battery Charger MicroSim
 
 [Run the Solar Cell Battery Charger MicroSim By Claude Anthropic 3.7](https://editor.p5js.org/dmccreary/sketches/ZkNGouD2x)

@@ -1,3 +1,10 @@
+---
+title: NeoPixel Simulation
+description: This MicroSim teaches us how the NeoPixel works to convert a stream of rgb values into color setting for each pixel.
+quality_score: 37
+social:
+   cards: false
+---
 # NeoPixel Simulation
 
 <figure markdown>

@@ -1,3 +1,13 @@
+---
+title: Curve Control PointerEvent
+description: An interactive MicroSim demonstrating curve control pointerevent.
+quality_score: 42
+image: /sims/curve/curve.png
+og:image: /sims/curve/curve.png
+twitter:image: /sims/curve/curve.png
+social:
+   cards: false
+---
 # Curve Control PointerEvent
 
 <figure markdown>

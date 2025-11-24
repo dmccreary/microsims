@@ -1,3 +1,13 @@
+---
+title: Analog Clock
+description: An interactive MicroSim demonstrating analog clock.
+quality_score: 37
+image: /sims/analog-clock/analog-clock.png
+og:image: /sims/analog-clock/analog-clock.png
+twitter:image: /sims/analog-clock/analog-clock.png
+social:
+   cards: false
+---
 # Analog Clock
 
 <figure markdown>

@@ -1,3 +1,10 @@
+---
+title: Resize in iframe
+description: An interactive MicroSim demonstrating resize in iframe.
+quality_score: 47
+social:
+   cards: false
+---
 # Resize in iframe
 
 <iframe src="/microsims/sims/resize-in-iframe/resize-width.html" height="400px" scrolling="no"></iframe>

@@ -1,3 +1,10 @@
+---
+title: Simple Tree
+description: This MicroSim teaches us how to use recursion to draw a tree. We draw a branch, and at the end of each branch, we draw two more branches that are at different angles and are a bit shorter and narro...
+quality_score: 67
+social:
+   cards: false
+---
 # Simple Tree
 
 <iframe src="main.html" height="450px" scrolling="no"></iframe>

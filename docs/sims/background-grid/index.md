@@ -1,3 +1,10 @@
+---
+title: Background Grid Controls
+description: An interactive MicroSim demonstrating background grid controls.
+quality_score: 32
+social:
+   cards: false
+---
 # Background Grid Controls
 
 [Run the Background Grid Control Demo](./background-grid.html){ .md-button .md-button--primary }

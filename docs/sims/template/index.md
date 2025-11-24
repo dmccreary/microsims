@@ -1,6 +1,7 @@
 ---
 title: Title
 description: Description.
+quality_score: 85
 image: /sims/name/name.png
 og:image: /sims/name/name.png
 twitter:image: /sims/name/name.png

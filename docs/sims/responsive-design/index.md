@@ -1,3 +1,10 @@
+---
+title: Responsive Design
+description: An interactive MicroSim demonstrating responsive design.
+quality_score: 62
+social:
+   cards: false
+---
 # Responsive Design
 <iframe src="main.html" height="450px" scrolling="no"></iframe>
 
