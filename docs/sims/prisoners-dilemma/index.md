@@ -1,6 +1,6 @@
 ---
 title: Prisoners Dilemma
-description: ## Sample Prompt
+description: Interactive simulation demonstrating game theory and the classic prisoner's dilemma strategic decision-making scenario.
 quality_score: 37
 social:
    cards: false

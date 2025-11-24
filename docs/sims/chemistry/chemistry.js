@@ -1,7 +1,7 @@
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
-// chemistry demo v1 by ChrisOrban
+// chemistry demo v1 by Chris Orban
 
 // A reference to our box2d world
 var world;
