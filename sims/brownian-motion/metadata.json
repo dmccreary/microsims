@@ -1,126 +1,48 @@
 {
-  "microsim": {
-    "dublinCore": {
-      "title": "Brownian Motion Simulation",
-      "creator": ["Claude Code", "Dan McCreary"],
-      "subject": ["Physics", "Chemistry", "Kinetic Molecular Theory"],
-      "description": "Interactive simulation demonstrating Brownian motion of gas molecules in a chamber with controls for temperature, molecule count, and chamber size. Displays real-time collision frequency.",
-      "date": "2025-10-22",
-      "type": "Interactive Simulation",
-      "format": "text/html",
-      "language": "en",
-      "rights": "CC BY 4.0"
-    },
-    "educational": {
-      "gradeLevel": "High School (9-12), Undergraduate",
-      "subjectArea": "Physics, Chemistry",
-      "topic": "Kinetic Molecular Theory, Gas Laws, Thermodynamics",
-      "learningObjectives": [
-        "Describe the relationship between temperature and molecular motion",
-        "Explain how molecular density affects collision frequency",
-        "Connect microscopic molecular behavior to macroscopic properties",
-        "Understand the random nature of molecular motion in gases",
-        "Apply kinetic molecular theory to explain gas behavior"
-      ],
-      "bloomsTaxonomyLevels": ["Understand", "Apply", "Analyze"],
-      "duration": "15-20 minutes",
-      "prerequisites": "Basic understanding of matter, atoms, and molecules"
-    },
-    "technical": {
-      "framework": "p5.js",
-      "version": "1.11.10",
-      "canvasDimensions": {
-        "width": "responsive",
-        "drawHeight": 400,
-        "controlHeight": 120,
-        "totalHeight": 520
-      },
-      "responsive": "Width-responsive, height-fixed",
-      "dependencies": ["p5.js CDN"],
-      "accessibility": ["Screen reader support via describe()", "Keyboard accessible controls"]
-    },
-    "userInterface": {
-      "controls": [
-        {
-          "type": "slider",
-          "name": "temperatureSlider",
-          "label": "Temperature",
-          "min": 1,
-          "max": 20,
-          "default": 5,
-          "step": 0.5,
-          "description": "Controls the speed/kinetic energy of molecules"
-        },
-        {
-          "type": "slider",
-          "name": "moleculesSlider",
-          "label": "Molecules",
-          "min": 5,
-          "max": 100,
-          "default": 30,
-          "step": 1,
-          "description": "Number of gas molecules in the chamber"
-        },
-        {
-          "type": "slider",
-          "name": "areaSlider",
-          "label": "Chamber Size",
-          "min": 150,
-          "max": 380,
-          "default": 300,
-          "step": 10,
-          "description": "Size of the rectangular chamber (affects density)"
-        }
-      ],
-      "displays": [
-        {
-          "type": "counter",
-          "name": "collisionsPerSecond",
-          "description": "Real-time count of molecular collisions per second"
-        }
-      ]
-    },
-    "simulation": {
-      "modelType": "Physics-based particle simulation",
-      "variables": [
-        "temperature (molecular velocity)",
-        "numMolecules (particle count)",
-        "chamberArea (container size)",
-        "collisionCount (interaction frequency)"
-      ],
-      "equations": [
-        "v = temperature × 0.5 (velocity scaling)",
-        "Elastic collision: v' = -v (wall bounce)",
-        "Particle-particle collision using vector mathematics"
-      ],
-      "assumptions": [
-        "Molecules are represented as circles with uniform radius",
-        "All collisions are perfectly elastic (no energy loss)",
-        "No intermolecular forces (ideal gas behavior)",
-        "2D simulation of a 3D phenomenon",
-        "Constant temperature (no heat transfer)"
-      ],
-      "limitations": [
-        "Does not model intermolecular attractions",
-        "Simplified collision physics",
-        "No quantum effects",
-        "2D only (real gases are 3D)",
-        "Does not account for molecular rotation or vibration"
-      ]
-    },
-    "pedagogicalContext": {
-      "researchBasis": "Kinetic Molecular Theory, Gas Laws",
-      "commonMisconceptions": [
-        "Molecules slow down over time (they maintain constant average speed)",
-        "Molecules move in organized patterns (motion is random)",
-        "Temperature is the same as heat (temperature relates to average KE)"
-      ],
-      "assessmentOpportunities": [
-        "Predict collision frequency changes",
-        "Explain pressure in terms of molecular collisions",
-        "Connect temperature to kinetic energy",
-        "Analyze effects of density on gas behavior"
-      ]
-    }
-  }
+  "title": "Brownian Motion",
+  "description": "Interactive simulation demonstrating Brownian motion - the random movement of gas molecules within a confined chamber. Features controls for temperature, molecule count, and chamber size with real-time collision tracking.",
+  "creator": "Dan McCreary",
+  "date": "2024-07-15",
+  "subject": [
+    "Physics",
+    "Chemistry", 
+    "Brownian Motion",
+    "Kinetic Molecular Theory",
+    "Temperature",
+    "Elastic Collisions",
+    "Gas Laws"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "contributor": [
+    "Claude Code"
+  ],
+  "identifier": "https://dmccreary.github.io/microsims/sims/brownian-motion/",
+  "publisher": "MicroSims Educational Platform",
+  "educationalLevel": "High School, College",
+  "learningResourceType": "simulation",
+  "audience": "Students, Educators",
+  "version": "1.0.0",
+  "bloomLevel": [
+    "Understand",
+    "Apply",
+    "Analyze"
+  ],
+  "concepts": [
+    "Brownian Motion",
+    "Kinetic Molecular Theory",
+    "Temperature-Velocity Relationship",
+    "Elastic Collisions",
+    "Gas Pressure",
+    "Molecular Density",
+    "Ideal Gas Law"
+  ],
+  "prerequisites": [
+    "Basic chemistry",
+    "Understanding of temperature",
+    "Concept of molecular motion"
+  ],
+  "library": "p5.js"
 }
