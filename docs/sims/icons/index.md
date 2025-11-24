@@ -1,6 +1,7 @@
 ---
 title: Icons Demo
 description: A MicroSim demonstrating clickable icons in the control region - Creative Commons license and fullscreen icons.
+quality_score: 90
 image: /sims/icons/icons.png
 og:image: /sims/icons/icons.png
 twitter:image: /sims/icons/icons.png

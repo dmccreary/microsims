@@ -1,6 +1,7 @@
 ---
 title: Projectile Motion
 description: A MicroSim demonstrating parabolic trajectories of projectiles with controls for launch angle and power.
+quality_score: 95
 image: /sims/projectile-motion/projectile-motion.png
 og:image: /sims/projectile-motion/projectile-motion.png
 twitter:image: /sims/projectile-motion/projectile-motion.png
