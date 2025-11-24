@@ -1,5 +1,6 @@
-// Bouncing Ball example - use as a template for other sims
-// This simulation shows a ball bouncing around inside a box.
+// Icons MicroSim - demonstrates clickable icons in control region
+// This simulation shows a ball bouncing around inside a box with
+// clickable Creative Commons and fullscreen icons in the lower right.
 // The design is width responsive so it adjusts to the width of container as it resizes.
 
 // global variables for width and height
@@ -17,6 +18,7 @@ let containerHeight = canvasHeight; // fixed height on page determined by MicroS
 // margin around the active plotting region
 let margin = 25;
 let sliderLeftMargin = 90;
+let sliderRightMargin = 70;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
 
@@ -33,6 +35,12 @@ let dy = speed;
 // global variable for speed slider since the resize function needs to access it
 let speedSlider;
 
+// Icon variables
+let iconSize = 24;
+let iconMargin = 5;
+let ccIconX, ccIconY;  // Creative Commons icon position
+let fsIconX, fsIconY;  // Fullscreen icon position
+
 function setup() {
   updateCanvasSize() // set the container dimensions to get the correct container width
   const canvas = createCanvas(containerWidth, containerHeight);
@@ -42,7 +50,7 @@ function setup() {
   textSize(16);
   speedSlider = createSlider(0, 20, speed);
   speedSlider.position(sliderLeftMargin, drawHeight + 5);
-  speedSlider.size(canvasWidth - sliderLeftMargin - margin);
+  speedSlider.size(canvasWidth - sliderLeftMargin - sliderRightMargin);
 }
 
 function draw() {
@@ -61,12 +69,12 @@ function draw() {
   // get the new speed from the UI
   speed = speedSlider.value();
 
-  // If you want a title, uncomment the following lines
-  // fill('black');
-  // noStroke();
-  // textAlign(CENTER, TOP);
-  // textSize(32);
-  // text('Bouncing Ball Simulation', margin, canvasWidth/2);
+  // Title
+  fill('black');
+  noStroke();
+  textAlign(CENTER, TOP);
+  textSize(32);
+  text('Icons Demo', canvasWidth/2, margin);
   // stroke();
 
   // adjust the x and y directions
@@ -95,7 +103,49 @@ function draw() {
   // draw the label and value for the speed slider
   fill('black');
   noStroke();
-  text('Speed: ' + speed, 10, drawHeight+20);
+  textAlign(LEFT, CENTER);
+  textSize(defaultTextSize);
+  text('Speed: ' + speed, 10, drawHeight+15);
+
+  // Draw icons in lower right corner of control region
+  drawIcons();
+}
+
+function drawIcons() {
+  // Calculate icon positions (right to left)
+  fsIconX = canvasWidth - iconMargin - iconSize/2;
+  fsIconY = drawHeight + controlHeight/2;
+
+  ccIconX = fsIconX - iconSize - iconMargin;
+  ccIconY = fsIconY;
+
+  // Draw Creative Commons icon
+  fill('black');
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(20);
+  text('ⓒ', ccIconX, ccIconY);
+  // Draw Fullscreen icon
+  text('⛶', fsIconX, fsIconY);
+}
+
+function mousePressed() {
+  // Check if Creative Commons icon was clicked
+  let distCC = dist(mouseX, mouseY, ccIconX, ccIconY);
+  if (distCC < iconSize/2) {
+    // Get the base URL (remove '/sims/icons/main.html' from current URL)
+    let baseUrl = window.location.href.split('/sims/')[0];
+    window.open(baseUrl + '/license/', '_blank');
+    return;
+  }
+
+  // Check if Fullscreen icon was clicked
+  let distFS = dist(mouseX, mouseY, fsIconX, fsIconY);
+  if (distFS < iconSize/2) {
+    // Open main.html in a new window/tab (same behavior as the fullscreen button)
+    window.open('main.html', '_blank');
+    return;
+  }
 }
 
 // These two functions must be present for width responsiveness MicroSims
@@ -105,7 +155,7 @@ function windowResized() {
   updateCanvasSize();
   resizeCanvas(containerWidth, containerHeight);
   // resize the speed slider and any other sliders here
-  speedSlider.size(canvasWidth - sliderLeftMargin - margin);
+  speedSlider.size(canvasWidth - sliderLeftMargin - sliderRightMargin);
   redraw();
 }
 
