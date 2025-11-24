@@ -28,16 +28,14 @@ We define an \textit{Educational MicroSim} as a lightweight, standalone interact
 
 MicroSims are implemented as self-contained web applications, typically using JavaScript frameworks such as p5.js, that require no external dependencies or server-side infrastructure. They follow a standardized width-responsive design pattern with distinct regions for visualization (drawing area) and user controls (interaction area). The layout of MicroSims can be expressed in rules files that are used by generative AI systems to ensure consistent implementation patterns across different simulations.
 
+Being browser-based and dependency-free, MicroSims can be easily distributed, embedded in various learning management systems, and accessed across different devices and platforms without installation requirements. The goal is to allow a MicroSim to be placed on any web page using a single HTML \texttt{iframe} element, as illustrated in Figure~\ref{fig:layout}.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/microsim-layout.png}
 \caption{MicroSims use a standardized layout pattern with distinct areas for visualization and user controls. This consistent structure facilitates generative AI creation and modification of MicroSims while ensuring usability across diverse educational contexts.  This layout consistency also allows interactivity to be logged in a standardized way for integration with intelligent textbooks and learning analytics systems.}
 \label{fig:layout}
 \end{figure}
-
-
-
-Being browser-based and dependency-free, MicroSims can be easily distributed, embedded in various learning management systems, and accessed across different devices and platforms without installation requirements. The goal is to allow a MicroSim to be placed on any web page using a single HTML \texttt{iframe} element.
 
 \subsection{Educational Purpose and Learning Objectives}
 
@@ -53,9 +51,9 @@ To clarify the scope and boundaries of Educational MicroSims, it is important to
 
 \textbf{Not Simple Animations}: MicroSims are not simple animations of educational concepts. Although generative AI can create beautiful animations, without some student action required for participation, we cannot use feedback and reinforcement learning in intelligent textbooks. Simulations must at a minimum contain interactive controls such as ``Start'' and ``Pause'' buttons. Monitoring user interactions with these controls is critical for the development of intelligent textbooks.
 
-\textbf{Not Technology-Dependent}: MicroSims are not bound to any specific JavaScript library or framework. While our implementation examples utilize p5.js for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, D3.js, Three.js, or any other web-based rendering technology that meets the functional requirements.
+\textbf{Not Technology-Dependent}: MicroSims are not bound to any specific JavaScript library or framework. While our implementation examples utilize p5.js for its pedagogical clarity and ease of use, the MicroSim concept is library-agnostic and can be implemented using vanilla JavaScript, Mermaid.js, ChartJS, Vis-Network.js, Vis-Timeline.js or any other web-based rendering technology that meets the functional requirements.
 
-\textbf{Not Legacy Standards Compliant}: MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model) or AICC (Aviation Industry Computer-Based Training Committee). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims. However, because MicroSims all have interactive controls, they can be designed to easily work with xAPI standards, and generative AI can be used to automatically add xAPI calls to the controls area.
+\textbf{Not Legacy Standards Compliant}: MicroSims do not adhere to traditional e-learning standards such as SCORM (Sharable Content Object Reference Model) or AICC (Aviation Industry Computer-Based Training Committee). These legacy standards impose architectural constraints and complexity that are incompatible with the lightweight, generative nature of MicroSims. However, because MicroSims all have interactive controls, they can be designed to easily work with xAPI standards \cite{xapi2024}, and generative AI can be used to automatically add xAPI calls to the controls area.
 
 \textbf{Not Comprehensive Simulation Environments}: MicroSims are not intended to replace complex, full-featured simulation platforms or virtual laboratories. They are purposefully constrained in scope to address specific, well-defined learning objectives rather than attempting to model entire systems or domains.
 
