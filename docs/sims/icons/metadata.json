@@ -1,85 +1,95 @@
 {
   "microsim": {
     "dublinCore": {
-      "title": "Bouncing Ball Physics Simulation",
-      "creator": ["ChatGPT", "Dan McCreary"],
-      "subject": ["Physics", "Kinematics", "Motion", "Mechanics"],
-      "description": "Interactive simulation demonstrating physics concepts through a bouncing ball with user-controllable parameters including speed and ball size.",
+      "title": "Icons Demo - Clickable UI Elements",
+      "creator": ["Dan McCreary", "Claude Code"],
+      "subject": ["User Interface Design", "Interaction Design", "Web Development", "Event Handling"],
+      "description": "Demonstrates adding clickable icons to MicroSim control regions. Features Creative Commons license and fullscreen icons in lower right corner. Shows trade-offs between functionality and code size (40 additional lines).",
       "publisher": "MicroSims Educational Platform",
       "contributor": ["Educational Review Team"],
-      "date": "2024-01-15T10:30:00Z",
+      "date": "2024-11-24T00:00:00Z",
       "type": "Interactive Simulation",
       "format": "text/javascript",
-      "identifier": "microsim://bouncing-ball-v2",
+      "identifier": "microsim://icons-demo-v1",
       "language": "en-US",
-      "relation": ["https://physics.org/kinematics", "introductory-physics-curriculum"],
+      "relation": ["microsim://bouncing-ball-v2", "ui-design-patterns", "p5js-interactions"],
       "coverage": {
         "spatial": "Global",
-        "temporal": "Contemporary physics education"
+        "temporal": "Contemporary web development and UI design"
       },
       "rights": "Creative Commons Attribution 4.0 International"
     },
     "search": {
-      "tags": ["physics", "motion", "simulation", "interactive", "p5js", "ball", "velocity", "collision", "boundaries"],
-      "searchKeywords": ["bouncing ball physics", "motion simulation", "kinematics demo", "physics education", "interactive physics"],
-      "visualizationType": ["animation", "simulation"],
-      "interactionLevel": "moderate",
-      "complexity": 3,
-      "relatedConcepts": ["velocity", "acceleration", "collision detection", "coordinate systems", "Newton's laws"],
-      "applicationDomains": ["education", "demonstration", "exploration"]
+      "tags": ["icons", "user-interface", "clickable", "navigation", "fullscreen", "license", "UI-design", "p5js", "event-handling", "distance-detection"],
+      "searchKeywords": ["clickable icons", "UI elements", "navigation icons", "fullscreen button", "license link", "interactive controls", "code size optimization"],
+      "visualizationType": ["animation", "simulation", "interactive-controls"],
+      "interactionLevel": "high",
+      "complexity": 4,
+      "relatedConcepts": ["event handling", "mouse detection", "distance calculation", "UI patterns", "code optimization"],
+      "applicationDomains": ["education", "web development", "UI design", "demonstration"]
     },
     "educational": {
-      "gradeLevel": ["6", "7", "8", "9", "10"],
-      "subjectArea": ["Physics", "Mathematics", "Science"],
-      "topic": ["Linear Motion", "Velocity", "Collision Detection", "Coordinate Systems"],
+      "gradeLevel": ["9", "10", "11", "12", "college"],
+      "subjectArea": ["Computer Science", "Web Development", "User Interface Design", "Software Engineering"],
+      "topic": ["Interactive Elements", "Event Handling", "UI Patterns", "Code Optimization", "Click Detection"],
       "learningObjectives": [
-        "Understand the relationship between speed and motion",
-        "Observe collision behavior with boundaries",
-        "Explore parameter effects on motion characteristics",
-        "Develop intuition about velocity and acceleration"
+        "Understand how to add clickable icons to simulation interfaces",
+        "Learn distance-based click detection using the dist() function",
+        "Implement navigation to external pages from within simulations",
+        "Recognize trade-offs between features and code size",
+        "Apply icon-based UI patterns to enhance user experience"
       ],
-      "bloomsTaxonomy": ["Understand", "Apply", "Analyze"],
-      "prerequisites": ["Basic algebra", "Coordinate systems", "Understanding of speed and distance"],
+      "bloomsTaxonomy": ["Understand", "Apply", "Analyze", "Evaluate"],
+      "prerequisites": ["Basic JavaScript", "p5.js fundamentals", "Understanding of event handlers", "Familiarity with coordinate systems"],
       "duration": {
-        "typical": 15,
-        "range": {"min": 5, "max": 30}
+        "typical": 20,
+        "range": {"min": 10, "max": 40}
       },
-      "difficulty": "Beginner",
+      "difficulty": "Intermediate",
       "curriculumStandards": [
         {
-          "framework": "NGSS",
-          "identifier": "MS-PS2-2",
-          "description": "Plan an investigation to provide evidence that the change in an object's motion depends on the sum of forces on the object"
+          "framework": "CSTA",
+          "identifier": "3A-AP-16",
+          "description": "Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions"
         }
       ],
       "cognitiveLoad": {
-        "intrinsic": "low",
-        "extraneous": "low", 
-        "germane": "moderate"
+        "intrinsic": "moderate",
+        "extraneous": "low",
+        "germane": "high"
       },
       "scaffolding": {
-        "type": ["guided-discovery", "feedback"],
+        "type": ["worked-example", "code-inspection"],
         "adaptability": "fixed",
         "removal": "user-controlled"
       },
       "misconceptions": [
         {
-          "misconception": "Objects naturally slow down without forces",
-          "correction": "Ball maintains constant speed except when hitting boundaries",
-          "evidence": "Observe consistent motion between collisions"
+          "misconception": "Click detection only works with rectangular areas",
+          "correction": "Distance-based detection enables circular clickable regions",
+          "evidence": "Icons use dist() function to create circular click zones"
+        },
+        {
+          "misconception": "Adding features has no cost",
+          "correction": "Each feature adds code complexity and file size",
+          "evidence": "Icons add 40 lines of code - shown explicitly in documentation"
         }
       ],
       "transferSkills": [
         {
-          "skill": "Parameter manipulation and observation",
-          "domains": ["Scientific inquiry", "Mathematical modeling", "Data analysis"]
+          "skill": "Event-driven programming with distance detection",
+          "domains": ["Game development", "Interactive visualizations", "Web applications"]
+        },
+        {
+          "skill": "Code size optimization awareness",
+          "domains": ["Performance optimization", "Mobile development", "Embedded systems"]
         }
       ],
-      "learningTheory": ["constructivism", "experiential"]
+      "learningTheory": ["constructivism", "experiential", "worked-example"]
     },
     "technical": {
       "framework": "p5.js",
-      "version": "2.1.0",
+      "version": "1.11.10",
       "canvasDimensions": {
         "width": 400,
         "height": 430,
@@ -89,28 +99,41 @@
         "drawHeight": 400,
         "controlHeight": 30
       },
-      "dependencies": ["p5.js@1.4.0"],
+      "codeSize": {
+        "totalLines": 168,
+        "baseSimulationLines": 128,
+        "iconFeatureLines": 40,
+        "breakdown": {
+          "iconVariables": 6,
+          "drawIconsCall": 1,
+          "drawIconsFunction": 18,
+          "mousePressedFunction": 19,
+          "comments": 5
+        },
+        "optimizationNote": "Icons can be omitted to reduce file size to 128 lines for minimal MicroSims"
+      },
+      "dependencies": ["p5.js@1.11.10"],
       "browserCompatibility": ["Chrome 80+", "Firefox 75+", "Safari 13+", "Edge 80+"],
       "performance": {
         "targetFrameRate": 60,
         "memoryUsage": "low",
         "computationalComplexity": "O(1)",
-        "loadTime": 500,
-        "optimizations": ["boundary collision optimization", "minimal DOM updates"]
+        "loadTime": 550,
+        "optimizations": ["boundary collision optimization", "minimal DOM updates", "distance calculation only on click"]
       },
       "deviceRequirements": {
         "minScreenWidth": 320,
         "minScreenHeight": 480,
         "touchSupport": true,
         "keyboardRequired": false,
-        "mouseRequired": false,
+        "mouseRequired": true,
         "minRAM": "512MB",
         "networkRequired": false
       },
       "dataFlow": {
-        "inputSources": ["user slider input", "mouse clicks"],
-        "dataProcessing": ["position calculation", "collision detection", "boundary checking"],
-        "outputTargets": ["canvas display", "control labels"]
+        "inputSources": ["user slider input", "mouse clicks on icons"],
+        "dataProcessing": ["position calculation", "collision detection", "boundary checking", "click distance calculation"],
+        "outputTargets": ["canvas display", "control labels", "external page navigation"]
       },
       "stateManagement": {
         "stateType": "local-state",
@@ -119,21 +142,21 @@
       },
       "accessibility": {
         "screenReader": true,
-        "keyboardNavigation": true,
+        "keyboardNavigation": false,
         "colorContrast": true,
         "altText": true,
-        "screenReaderScript": "Interactive physics simulation showing a blue ball bouncing within boundaries. Use the speed slider to control ball movement rate.",
+        "screenReaderScript": "Interactive simulation demonstrating clickable icons. Two icons in lower right: Creative Commons license icon and fullscreen icon. Use mouse to click icons for navigation.",
         "keyboardMaps": [
           {"key": "Tab", "action": "Navigate to speed slider"},
-          {"key": "Arrow keys", "action": "Adjust slider value"},
-          {"key": "Space", "action": "Activate slider"}
+          {"key": "Arrow keys", "action": "Adjust slider value"}
         ],
-        "alternativeInputs": ["keyboard navigation", "voice control"],
+        "alternativeInputs": ["keyboard navigation for slider only"],
         "sensoryAlternatives": {
           "visualToAudio": false,
           "audioToVisual": true,
           "hapticFeedback": false
-        }
+        },
+        "accessibilityNote": "Icon clicks require mouse/touch input - not keyboard accessible. For production, consider adding keyboard alternatives."
       }
     },
     "userInterface": {
@@ -144,11 +167,13 @@
         "controlArea": "white",
         "borders": "silver",
         "accent": "blue",
-        "text": "black"
+        "text": "black",
+        "icons": "black"
       },
       "responsiveBreakpoints": [
-        {"width": 320, "description": "Minimum mobile width - controls stack vertically"},
-        {"width": 768, "description": "Tablet width - full horizontal layout"}
+        {"width": 320, "description": "Minimum mobile width - icons may overlap on very narrow screens"},
+        {"width": 400, "description": "Optimal width - all elements visible with proper spacing"},
+        {"width": 768, "description": "Tablet width - full horizontal layout with generous spacing"}
       ],
       "controls": [
         {
@@ -158,7 +183,7 @@
           "description": "Controls the movement speed of the bouncing ball",
           "group": "motion-controls",
           "position": {"x": 90, "y": 405, "responsive": true},
-          "size": {"width": 280, "height": 20, "responsive": true},
+          "size": {"width": "containerWidth - 90 - 70", "height": 20, "responsive": true},
           "accessibility": {
             "ariaLabel": "Ball speed control slider",
             "tabIndex": 1
@@ -174,6 +199,52 @@
             "logarithmic": false,
             "showValue": true
           }
+        },
+        {
+          "id": "ccIcon",
+          "type": "clickable-icon",
+          "label": "Creative Commons License",
+          "description": "Opens license page in new tab",
+          "group": "navigation-icons",
+          "position": {"x": "canvasWidth - 60", "y": "drawHeight + 15", "responsive": true},
+          "size": {"diameter": 24, "responsive": false},
+          "symbol": "ⓒ",
+          "accessibility": {
+            "ariaLabel": "View Creative Commons license",
+            "tabIndex": -1,
+            "note": "Not keyboard accessible - requires mouse/touch"
+          },
+          "dependencies": [],
+          "affects": ["external-navigation"],
+          "properties": {
+            "action": "window.open(baseUrl + '/license/', '_blank')",
+            "clickDetection": "distance-based",
+            "clickRadius": 12,
+            "fontSize": 20
+          }
+        },
+        {
+          "id": "fsIcon",
+          "type": "clickable-icon",
+          "label": "Fullscreen",
+          "description": "Opens main.html in new tab",
+          "group": "navigation-icons",
+          "position": {"x": "canvasWidth - 30", "y": "drawHeight + 15", "responsive": true},
+          "size": {"diameter": 24, "responsive": false},
+          "symbol": "⛶",
+          "accessibility": {
+            "ariaLabel": "Open in fullscreen",
+            "tabIndex": -1,
+            "note": "Not keyboard accessible - requires mouse/touch"
+          },
+          "dependencies": [],
+          "affects": ["external-navigation"],
+          "properties": {
+            "action": "window.open('main.html', '_blank')",
+            "clickDetection": "distance-based",
+            "clickRadius": 12,
+            "fontSize": 20
+          }
         }
       ],
       "visualElements": [
@@ -184,54 +255,70 @@
           "updateTriggers": ["speedSlider"]
         },
         {
-          "type": "text-display", 
+          "type": "text-display",
           "description": "Speed value display next to slider",
           "interactive": false,
           "updateTriggers": ["speedSlider"]
+        },
+        {
+          "type": "icon-display",
+          "description": "Two clickable icons in lower right corner",
+          "interactive": true,
+          "updateTriggers": ["mouseClick", "windowResize"]
         }
       ]
     },
     "simulation": {
       "model": {
-        "type": "physics",
-        "description": "Simple kinematic model with elastic collisions at boundaries",
-        "equations": ["x = x + dx", "y = y + dy", "dx = -dx (on collision)", "dy = -dy (on collision)"],
-        "algorithms": ["Boundary collision detection", "Position update"],
-        "assumptions": ["Perfect elastic collisions", "No friction", "Constant velocity between collisions"],
-        "limitations": ["2D only", "Single object", "Simplified physics"]
+        "type": "physics-with-ui-demo",
+        "description": "Simple kinematic model with elastic collisions, enhanced with clickable UI icon demonstration",
+        "equations": ["x = x + dx", "y = y + dy", "dx = -dx (on collision)", "dy = -dy (on collision)", "clickDistance = dist(mouseX, mouseY, iconX, iconY)"],
+        "algorithms": ["Boundary collision detection", "Position update", "Distance-based click detection"],
+        "assumptions": ["Perfect elastic collisions", "No friction", "Constant velocity between collisions", "Circular click zones for icons"],
+        "limitations": ["2D only", "Single object", "Simplified physics", "Icons not keyboard accessible"]
       },
       "variables": [
         {"name": "x", "type": "intermediate", "description": "Ball x position", "dataType": "number", "units": "pixels"},
-        {"name": "y", "type": "intermediate", "description": "Ball y position", "dataType": "number", "units": "pixels"}, 
+        {"name": "y", "type": "intermediate", "description": "Ball y position", "dataType": "number", "units": "pixels"},
         {"name": "dx", "type": "intermediate", "description": "X velocity", "dataType": "number", "units": "pixels/frame"},
         {"name": "dy", "type": "intermediate", "description": "Y velocity", "dataType": "number", "units": "pixels/frame"},
         {"name": "speed", "type": "input", "description": "Ball movement speed", "dataType": "integer", "range": {"min": 0, "max": 20}},
-        {"name": "r", "type": "constant", "description": "Ball radius", "dataType": "number", "units": "pixels"}
+        {"name": "r", "type": "constant", "description": "Ball radius", "dataType": "number", "units": "pixels"},
+        {"name": "iconSize", "type": "constant", "description": "Icon diameter", "dataType": "number", "units": "pixels", "value": 24},
+        {"name": "ccIconX", "type": "intermediate", "description": "Creative Commons icon x position", "dataType": "number", "units": "pixels"},
+        {"name": "ccIconY", "type": "intermediate", "description": "Creative Commons icon y position", "dataType": "number", "units": "pixels"},
+        {"name": "fsIconX", "type": "intermediate", "description": "Fullscreen icon x position", "dataType": "number", "units": "pixels"},
+        {"name": "fsIconY", "type": "intermediate", "description": "Fullscreen icon y position", "dataType": "number", "units": "pixels"}
       ],
       "scenarios": [
-        {"name": "slow-motion", "description": "Very slow ball movement", "parameters": {"speed": 1}},
-        {"name": "normal-speed", "description": "Standard demonstration speed", "parameters": {"speed": 5}},
-        {"name": "high-speed", "description": "Fast ball movement", "parameters": {"speed": 15}}
+        {"name": "icon-demonstration", "description": "Primary use case - demonstrating clickable icons", "parameters": {"speed": 3}},
+        {"name": "license-navigation", "description": "User clicks CC icon to view license", "parameters": {"action": "click-cc-icon"}},
+        {"name": "fullscreen-navigation", "description": "User clicks fullscreen icon", "parameters": {"action": "click-fs-icon"}}
       ]
     },
     "analytics": {
       "events": [
-        {"name": "speed_adjusted", "description": "User moves speed slider", "category": "interaction", "importance": "important", "data": ["new_speed_value", "timestamp"], "xAPIverb": "adjusted"},
-        {"name": "simulation_started", "description": "Simulation begins running", "category": "engagement", "importance": "moderate", "data": ["initial_speed", "timestamp"], "xAPIverb": "experienced"}
+        {"name": "speed_adjusted", "description": "User moves speed slider", "category": "interaction", "importance": "moderate", "data": ["new_speed_value", "timestamp"], "xAPIverb": "adjusted"},
+        {"name": "cc_icon_clicked", "description": "User clicks Creative Commons icon", "category": "navigation", "importance": "important", "data": ["timestamp", "destination_url"], "xAPIverb": "navigated"},
+        {"name": "fullscreen_icon_clicked", "description": "User clicks fullscreen icon", "category": "navigation", "importance": "important", "data": ["timestamp"], "xAPIverb": "navigated"},
+        {"name": "simulation_started", "description": "Simulation begins running", "category": "engagement", "importance": "moderate", "data": ["timestamp"], "xAPIverb": "experienced"}
       ],
       "learningIndicators": [
-        {"indicator": "Multiple speed adjustments", "measurement": "Count of slider interactions", "evidenceType": "direct"},
-        {"indicator": "Time spent observing", "measurement": "Session duration", "evidenceType": "indirect"}
+        {"indicator": "Icon interaction", "measurement": "Count of icon clicks", "evidenceType": "direct"},
+        {"indicator": "UI pattern understanding", "measurement": "Successful navigation via icons", "evidenceType": "direct"},
+        {"indicator": "Code inspection", "measurement": "Time viewing source code", "evidenceType": "indirect"}
       ],
       "engagementMetrics": [
-        {"metric": "interaction_frequency", "calculation": "Slider adjustments per minute", "benchmark": ">2 adjustments per minute indicates active engagement"}
+        {"metric": "icon_click_rate", "calculation": "Icon clicks per session", "benchmark": ">1 click indicates feature discovery"},
+        {"metric": "code_inspection_time", "calculation": "Time spent viewing JavaScript source", "benchmark": ">30 seconds indicates learning intent"}
       ],
       "progressTracking": {
         "milestones": [
-          {"milestone": "Initial exploration", "criteria": "First slider adjustment", "evidence": "speed_adjusted event"},
-          {"milestone": "Parameter testing", "criteria": "5+ slider adjustments", "evidence": "Multiple speed_adjusted events"}
+          {"milestone": "Feature discovery", "criteria": "First icon click", "evidence": "cc_icon_clicked or fullscreen_icon_clicked event"},
+          {"milestone": "Pattern understanding", "criteria": "Clicking both icons", "evidence": "Both icon click events"},
+          {"milestone": "Code exploration", "criteria": "Viewing source code", "evidence": "External tracking required"}
         ],
-        "progressModel": "linear"
+        "progressModel": "exploratory"
       },
       "privacy": {
         "piiCollected": false,
@@ -247,29 +334,38 @@
       }
     },
     "usage": {
-      "recommendedUsage": ["demonstration", "exploration", "guided-practice"],
+      "recommendedUsage": ["demonstration", "code-example", "UI-pattern-teaching", "worked-example"],
       "instructionalStrategies": [
-        "Demonstrate different speeds before student interaction",
-        "Ask students to predict motion at different speeds",
-        "Have students find optimal speed for clear observation"
+        "Show students the icon functionality first, then reveal the code",
+        "Discuss trade-offs between features and code complexity",
+        "Have students identify the 40 lines of icon code",
+        "Compare distance-based vs rectangular click detection",
+        "Discuss when to omit icons for simpler MicroSims"
       ],
       "assessmentQuestions": [
         {
-          "question": "What happens to the ball's motion when you set speed to 0?",
-          "type": "prediction",
+          "question": "How does the dist() function enable circular click zones?",
+          "type": "comprehension",
           "level": "Understand"
         },
         {
-          "question": "How does increasing speed affect your ability to track the ball's path?",
-          "type": "observation",
-          "level": "Analyze"
+          "question": "What are the trade-offs of adding 40 lines of code for icon functionality?",
+          "type": "evaluation",
+          "level": "Evaluate"
+        },
+        {
+          "question": "How would you make the icons keyboard accessible?",
+          "type": "application",
+          "level": "Apply"
         }
       ],
       "extensions": [
-        "Add gravity effects",
-        "Include multiple balls",
-        "Add friction or air resistance",
-        "Create trails showing ball paths"
+        "Add keyboard accessibility to icons",
+        "Create hover effects for icons",
+        "Add more navigation icons (help, share, etc.)",
+        "Implement icon tooltips",
+        "Create an icon library for reuse across MicroSims",
+        "Add visual feedback when icons are clicked"
       ]
     }
   }
