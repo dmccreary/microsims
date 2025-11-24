@@ -1,6 +1,7 @@
 ---
 title: OODA Loop
 description: An interactive simulation of the OODA Loop (Observe, Orient, Decide, Act) decision-making cycle, demonstrating how speed through the loop provides competitive advantage.
+quality_score: 95
 image: /sims/ooda/ooda.png
 og:image: /sims/ooda/ooda.png
 twitter:image: /sims/ooda/ooda.png

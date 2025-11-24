@@ -1,6 +1,7 @@
 ---
 title: Brownian Motion
 description: A MicroSim demonstrating gas molecules bouncing in a chamber with controls for temperature, molecule count, and chamber size.
+quality_score: 95
 image: /sims/brownian-motion/brownian-motion.png
 og:image: /sims/brownian-motion/brownian-motion.png
 twitter:image: /sims/brownian-motion/brownian-motion.png
