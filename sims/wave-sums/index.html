@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="Interactive demonstration of wave superposition showing how complex waveforms are created by adding simple sine waves - fundamental to understanding Fourier analysis and signal processing.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/wave-sums/">
       
       
-        <link rel="prev" href="../template/">
+        <link rel="prev" href="../virus/">
       
       
         <link rel="next" href="../yin-yang/">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Wave Sum - Micro Simulations for Education</title>
+        <title>Wave Sums and Fourier Synthesis - Micro Simulations for Education</title>
       
     
     
@@ -70,11 +70,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Wave Sum - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Wave Sums and Fourier Synthesis - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="Interactive demonstration of wave superposition showing how complex waveforms are created by adding simple sine waves - fundamental to understanding Fourier analysis and signal processing." >
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/sims/wave-sums/index.png" >
+        <meta property="og:image" content="https://dmccreary.github.io/microsims/sims/wave-sums/sum-of-waveforms.png">
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -86,11 +86,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Wave Sum - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Wave Sums and Fourier Synthesis - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="Interactive demonstration of wave superposition showing how complex waveforms are created by adding simple sine waves - fundamental to understanding Fourier analysis and signal processing." >
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/sims/wave-sums/index.png" >
+        <meta name="twitter:image" content="https://dmccreary.github.io/microsims/sims/wave-sums/sum-of-waveforms.png">
       
     
     
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wave-sums" class="md-skip">
+        <a href="#wave-sums-and-fourier-synthesis" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Wave Sum
+              Wave Sums and Fourier Synthesis
             
           </span>
         </div>
@@ -499,6 +499,8 @@
         
       
         
+          
+        
       
     
     
@@ -632,6 +634,14 @@
         
       
         
+          
+        
+      
+        
+          
+        
+      
+        
       
         
           
@@ -641,6 +651,8 @@
           
         
       
+        
+          
         
       
         
@@ -1441,27 +1453,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../bouncing-ball/brownian-motion.md" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Brownian Motion v2
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../circle/" class="md-nav__link">
         
   
@@ -1509,6 +1500,27 @@
   
   <span class="md-ellipsis">
     Circuits v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chemistry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chemistry - Kinetic Molecular Theory
   </span>
   
 
@@ -1845,6 +1857,27 @@
   
   <span class="md-ellipsis">
     Gold Star
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../koch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Koch Curve Fractal
   </span>
   
 
@@ -2782,6 +2815,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../virus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virus Spread Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -2790,6 +2844,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -2819,6 +2875,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2827,9 +2885,255 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#wave-sums" class="md-nav__link">
+  <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
-      Wave Sums
+      Description
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-and-mathematics-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physics and Mathematics Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Physics and Mathematics Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wave-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Wave Superposition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fourier-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fourier Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-harmonic-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Harmonic Series
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-constructive-and-destructive-interference" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Constructive and Destructive Interference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classroom-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classroom Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Questions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connections-to-real-world-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connections to Real-World Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connections to Real-World Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#music-and-acoustics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Music and Acoustics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineering-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-and-modifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions and Modifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extensions and Modifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suggested-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Enhancements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Topics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historical-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historical Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standards-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards Alignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits
     </span>
   </a>
   
@@ -3081,6 +3385,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3089,9 +3395,255 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#wave-sums" class="md-nav__link">
+  <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
-      Wave Sums
+      Description
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physics-and-mathematics-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physics and Mathematics Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Physics and Mathematics Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wave-superposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Wave Superposition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fourier-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fourier Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-harmonic-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Harmonic Series
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-constructive-and-destructive-interference" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Constructive and Destructive Interference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Educational Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Educational Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classroom-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classroom Activities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment Questions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connections-to-real-world-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connections to Real-World Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connections to Real-World Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signal-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#music-and-acoustics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Music and Acoustics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineering-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engineering Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Implementation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-and-modifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions and Modifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Extensions and Modifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suggested-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Enhancements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Topics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historical-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historical Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standards-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standards Alignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Credits
     </span>
   </a>
   
@@ -3120,15 +3672,219 @@
   
 
 
-  <h1>Wave Sum</h1>
+<h1 id="wave-sums-and-fourier-synthesis">Wave Sums and Fourier Synthesis</h1>
+<iframe src="main.html" width="100%" height="650px"></iframe>
 
-<h2 id="wave-sums">Wave Sums</h2>
-<p><img alt="" src="sum-of-waveforms.png" width="400" /></p>
-<p>This lab demonstrates calculating the sum of sine waves of different lengths.
-Understanding how to convert waves from spacial domains into frequency
-domains is a key component of signal processing and understanding the FFT
-algorithm for doing Fast-Fourier Transforms.</p>
-<p><a class="md-button md-button--primary" href="wave-sums.html">Wave Sums Demo</a></p>
+<p><a class="md-button md-button--primary" href="main.html">Run the Wave Sums MicroSim Fullscreen</a></p>
+<p>You can include this MicroSim on your website using the following <code>iframe</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/wave-sums/main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;650px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="description">Description</h2>
+<p>This MicroSim demonstrates <strong>wave superposition</strong> and the foundations of <strong>Fourier synthesis</strong> - the process of building complex waveforms from simple sine waves. This fundamental concept underlies signal processing, audio synthesis, image compression (JPEG), wireless communication, and the Fast Fourier Transform (FFT) algorithm.</p>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li><strong>Four Sine Waves</strong>: Frequencies of 1, 2, 3, and 4 times the fundamental</li>
+<li><strong>Interactive Checkboxes</strong>: Select which waves to include in the sum</li>
+<li><strong>Real-Time Synthesis</strong>: See the sum waveform update instantly</li>
+<li><strong>Individual Wave Display</strong>: Each component wave shown in its own box</li>
+<li><strong>Visual Clarity</strong>: White waveforms on light background with clear labels</li>
+<li><strong>Harmonic Series</strong>: Demonstrates the building blocks of complex sounds</li>
+</ul>
+<h3 id="how-it-works">How It Works</h3>
+<p>The simulation displays four sine waves with different frequencies:</p>
+<ol>
+<li><strong>Wave 1</strong>: Frequency = 1 (fundamental frequency)</li>
+<li><strong>Wave 2</strong>: Frequency = 2 (first harmonic/octave)</li>
+<li><strong>Wave 3</strong>: Frequency = 3 (second harmonic)</li>
+<li><strong>Wave 4</strong>: Frequency = 4 (third harmonic)</li>
+</ol>
+<p><strong>Superposition Principle</strong>: When you check boxes to include waves, the simulation:
+1. Calculates the amplitude at each point for selected waves
+2. Adds the values together (sum = wave1 + wave2 + wave3 + wave4)
+3. Displays the resulting waveform at the bottom</p>
+<p><strong>Mathematical Process</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>y(t) = A₁sin(2πf₁t) + A₂sin(2πf₂t) + A₃sin(2πf₃t) + A₄sin(2πf₄t)
+</code></pre></div></td></tr></table></div></p>
+<p>Where:
+- A = amplitude (fixed at 30 pixels)
+- f = frequency (1, 2, 3, or 4)
+- t = time (horizontal position)</p>
+<h2 id="physics-and-mathematics-concepts">Physics and Mathematics Concepts</h2>
+<p>This simulation illustrates fundamental concepts from wave physics and signal processing:</p>
+<h3 id="1-wave-superposition">1. <strong>Wave Superposition</strong></h3>
+<p>When multiple waves occupy the same space, they combine by adding their amplitudes at each point. This is a cornerstone principle in:
+- Acoustics (musical instruments, room acoustics)
+- Optics (interference patterns, holograms)
+- Quantum mechanics (wave function superposition)
+- Electrical engineering (signal mixing, radio transmission)</p>
+<h3 id="2-fourier-analysis">2. <strong>Fourier Analysis</strong></h3>
+<p><strong>Jean-Baptiste Joseph Fourier</strong> (1822) discovered that any periodic waveform can be decomposed into a sum of sine waves. This simulation demonstrates the reverse process - <strong>Fourier synthesis</strong> - building complex waves from simple components.</p>
+<p><strong>Key Insight</strong>: Complex signals (speech, music, images) can be represented as combinations of simple sine waves of different frequencies.</p>
+<h3 id="3-harmonic-series">3. <strong>Harmonic Series</strong></h3>
+<p>The frequencies (1, 2, 3, 4...) form a <strong>harmonic series</strong> - the basis of musical pitch:
+- <strong>Fundamental (f₁)</strong>: Determines the perceived pitch
+- <strong>2nd Harmonic (2f₁)</strong>: One octave higher
+- <strong>3rd Harmonic (3f₁)</strong>: Perfect fifth above the octave
+- <strong>4th Harmonic (4f₁)</strong>: Two octaves higher</p>
+<p>Musical instruments produce rich tones by combining these harmonics in different proportions.</p>
+<h3 id="4-constructive-and-destructive-interference">4. <strong>Constructive and Destructive Interference</strong></h3>
+<p>Watch how waves combine:
+- <strong>Constructive Interference</strong>: When peaks align, the sum is larger
+- <strong>Destructive Interference</strong>: When peaks meet troughs, they cancel out
+- <strong>Complex Patterns</strong>: Different phase relationships create intricate waveforms</p>
+<h2 id="educational-applications">Educational Applications</h2>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p>Students will be able to:</p>
+<ol>
+<li><strong>Understand</strong> the principle of wave superposition through visual demonstration</li>
+<li><strong>Visualize</strong> how complex waveforms emerge from simple sine wave combinations</li>
+<li><strong>Analyze</strong> the relationship between frequency components and resulting waveforms</li>
+<li><strong>Connect</strong> to Fourier analysis and signal processing applications</li>
+<li><strong>Predict</strong> how different wave combinations will interfere</li>
+</ol>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Basic trigonometry: sine function concept</li>
+<li>Understanding of waves: frequency, amplitude, period</li>
+<li>Introduction to periodicity</li>
+<li>Basic algebra: adding functions</li>
+</ul>
+<h3 id="classroom-activities">Classroom Activities</h3>
+<p><strong>Activity 1: Building Waveforms</strong> (10 minutes)
+- Start with only Wave 1 selected (fundamental)
+- Add Wave 2 (octave), observe the change
+- Add Wave 3, then Wave 4
+- <strong>Discussion</strong>: How does each harmonic change the overall shape?</p>
+<p><strong>Activity 2: Interference Patterns</strong> (15 minutes)
+- Select only Waves 1 and 2 (frequencies 1 and 2)
+- Observe where they constructively interfere (peaks align)
+- Observe where they destructively interfere (peaks cancel troughs)
+- Count how many complete cycles appear
+- <strong>Discussion</strong>: What determines where interference occurs?</p>
+<p><strong>Activity 3: Sound Synthesis</strong> (15 minutes)
+- Explain that different instruments have different harmonic content
+- Flute: mostly fundamental (Wave 1 only)
+- Clarinet: odd harmonics (Waves 1 and 3)
+- Violin: rich in all harmonics (all waves)
+- <strong>Discussion</strong>: How do harmonics create timbre?</p>
+<p><strong>Activity 4: Square Wave Approximation</strong> (20 minutes)
+- Select only odd harmonics (Waves 1 and 3)
+- Explain that infinite odd harmonics create a perfect square wave
+- This is the <strong>Fourier series for a square wave</strong>:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>y(t) = (4/π)[sin(t) + sin(3t)/3 + sin(5t)/5 + ...]
+</code></pre></div></td></tr></table></div>
+- <strong>Discussion</strong>: What would happen with more harmonics?</p>
+<h3 id="assessment-questions">Assessment Questions</h3>
+<ol>
+<li><strong>Comprehension</strong>: What is the principle of superposition? Give an example.</li>
+<li><strong>Application</strong>: If you wanted to create a wave with period half that of Wave 1, which wave would you use?</li>
+<li><strong>Analysis</strong>: Why do Waves 1 and 2 together create a repeating pattern?</li>
+<li><strong>Evaluation</strong>: This simulation shows only 4 harmonics. How might the sum change with 10 or 100 harmonics?</li>
+<li><strong>Synthesis</strong>: Design a combination of frequencies to approximate a sawtooth wave.</li>
+</ol>
+<h2 id="connections-to-real-world-applications">Connections to Real-World Applications</h2>
+<h3 id="signal-processing">Signal Processing</h3>
+<p><strong>Fast Fourier Transform (FFT)</strong>:
+- Converts signals from time domain → frequency domain
+- Essential algorithm in digital signal processing
+- Used in audio analysis, compression (MP3), and spectrum analyzers
+- This simulation shows the reverse process (synthesis from frequency components)</p>
+<p><strong>Applications</strong>:
+- <strong>Audio</strong>: MP3 compression, audio effects, synthesizers
+- <strong>Image Processing</strong>: JPEG compression, image filtering, edge detection
+- <strong>Communications</strong>: Cell phones, WiFi, radio modulation
+- <strong>Medical</strong>: MRI imaging, EEG/ECG analysis
+- <strong>Astronomy</strong>: Analyzing light spectra from stars</p>
+<h3 id="music-and-acoustics">Music and Acoustics</h3>
+<p><strong>Musical Instruments</strong>:
+- Each instrument has a unique harmonic signature (timbre)
+- String instruments: strong fundamental + harmonics
+- Brass: rich in all harmonics
+- Flute: mostly fundamental, few harmonics
+- This is why instruments sound different even at the same pitch</p>
+<p><strong>Audio Synthesis</strong>:
+- <strong>Additive Synthesis</strong>: Building sounds by adding sine waves (this simulation!)
+- <strong>Subtractive Synthesis</strong>: Start with rich waveform, filter out frequencies
+- <strong>Electronic Music</strong>: Synthesizers use Fourier principles to create sounds</p>
+<h3 id="engineering-applications">Engineering Applications</h3>
+<p><strong>Electrical Engineering</strong>:
+- Analyzing AC circuits with multiple frequency components
+- Radio transmission: carrier waves + signal modulation
+- Power systems: harmonic distortion analysis</p>
+<p><strong>Mechanical Engineering</strong>:
+- Vibration analysis in structures and machines
+- Modal analysis (natural frequencies of structures)
+- Noise cancellation (destructive interference)</p>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<p><strong>Framework</strong>: p5.js</p>
+<p><strong>Key Algorithms</strong>:
+- Sine wave generation using <code>sin()</code> function with mapped angles
+- Real-time array-based wave addition
+- Checkbox-controlled conditional rendering</p>
+<p><strong>Wave Parameters</strong>:
+- Amplitude: 30 pixels
+- Frequencies: [1, 2, 3, 4] relative units
+- Canvas: 400×600 pixels
+- Each wave box: 360×80 pixels</p>
+<p><strong>Rendering Process</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="nx">For</span><span class="w"> </span><span class="nx">each</span><span class="w"> </span><span class="nx">wave</span><span class="o">:</span><span class="w"> </span><span class="nx">calculate</span><span class="w"> </span><span class="nx">sin</span><span class="p">(</span><span class="mf">2</span><span class="nx">πft</span><span class="p">)</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">each</span><span class="w"> </span><span class="nx">pixel</span>
+<span class="mf">2.</span><span class="w"> </span><span class="nx">Store</span><span class="w"> </span><span class="nx">values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">array</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nx">checkbox</span><span class="w"> </span><span class="nx">selected</span>
+<span class="mf">3.</span><span class="w"> </span><span class="nx">Add</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">selected</span><span class="w"> </span><span class="nx">wave</span><span class="w"> </span><span class="nx">arrays</span><span class="w"> </span><span class="nx">point</span><span class="o">-</span><span class="nx">by</span><span class="o">-</span><span class="nx">point</span>
+<span class="mf">4.</span><span class="w"> </span><span class="nx">Draw</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="nx">waveform</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">bottom</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="extensions-and-modifications">Extensions and Modifications</h2>
+<h3 id="suggested-enhancements">Suggested Enhancements</h3>
+<ol>
+<li><strong>Amplitude Control</strong>: Add sliders to adjust amplitude of each wave</li>
+<li><strong>Phase Control</strong>: Add phase shift sliders to demonstrate phase effects</li>
+<li><strong>More Harmonics</strong>: Extend to 8 or 16 waves for richer waveforms</li>
+<li><strong>Square Wave Builder</strong>: Add harmonics until approximating a square wave</li>
+<li><strong>Audio Playback</strong>: Use Web Audio API to play the synthesized waveform</li>
+<li><strong>Frequency Spectrum</strong>: Add a frequency domain graph (FFT visualization)</li>
+<li><strong>Waveform Library</strong>: Presets for sawtooth, square, triangle waves</li>
+<li><strong>Envelope Control</strong>: Add ADSR (Attack, Decay, Sustain, Release) controls</li>
+<li><strong>Beat Frequencies</strong>: Demonstrate beating with close frequencies (e.g., 1 and 1.1)</li>
+</ol>
+<h3 id="advanced-topics">Advanced Topics</h3>
+<ul>
+<li><strong>Fourier Transform</strong>: Mathematical derivation and computation</li>
+<li><strong>Discrete Fourier Transform (DFT)</strong>: Digital signal processing version</li>
+<li><strong>Fast Fourier Transform (FFT)</strong>: Efficient algorithm (O(n log n))</li>
+<li><strong>Window Functions</strong>: Hanning, Hamming, Blackman windows</li>
+<li><strong>Spectrograms</strong>: Time-frequency representations</li>
+<li><strong>Wavelet Analysis</strong>: Alternative to Fourier analysis</li>
+</ul>
+<h2 id="historical-context">Historical Context</h2>
+<p><strong>Joseph Fourier</strong> (1768-1830): French mathematician who discovered that any periodic function can be represented as a sum of sines and cosines. His work was initially controversial but became foundational to modern mathematics and engineering.</p>
+<p><strong>Impact</strong>: Fourier analysis revolutionized:
+- Mathematics (functional analysis, partial differential equations)
+- Physics (heat transfer, quantum mechanics, wave phenomena)
+- Engineering (signal processing, control systems)
+- Computer Science (algorithms, data compression)</p>
+<h2 id="standards-alignment">Standards Alignment</h2>
+<p><strong>Next Generation Science Standards (NGSS)</strong>:
+- HS-PS4-1: Use mathematical representations to describe waves
+- HS-PS4-3: Evaluate questions about the advantages of digital vs. analog transmission</p>
+<p><strong>Common Core Math</strong>:
+- HSF-TF.B.5: Model periodic phenomena with trigonometric functions
+- HSF-IF.C.7: Graph trigonometric functions showing period, amplitude, and phase shift</p>
+<p><strong>ISTE Standards for Students</strong>:
+- 5c: Break problems into component parts to facilitate problem-solving
+- 5d: Understand how technology enables visualization of abstract concepts</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://www.khanacademy.org/science/electrical-engineering/ee-signals/ee-fourier-series/v/ee-fourier-series-intro">Fourier Series - Khan Academy</a></li>
+<li><a href="https://www.algorithm-archive.org/contents/FFT/FFT.html">The Fast Fourier Transform (FFT)</a> - Algorithm Archive</li>
+<li><a href="https://www.jezzamon.com/fourier/">Fourier Analysis Interactive</a> - Visual explanation</li>
+<li><a href="https://www.acs.psu.edu/drussell/Demos/Fourier-Series/Fourier-Series.html">Sound Synthesis with Harmonics</a> - Penn State Acoustics</li>
+<li><a href="https://jakevdp.github.io/blog/2013/08/28/understanding-the-fft/">Understanding the FFT Algorithm</a> - Jake VanderPlas</li>
+<li><a href="https://www.youtube.com/watch?v=spUNpyF58BY">3Blue1Brown: But what is the Fourier Transform?</a> - Video explanation</li>
+</ol>
+<h2 id="credits">Credits</h2>
+<p>Educational simulation demonstrating wave superposition and Fourier synthesis principles for STEM education.</p>
 
 
 
@@ -3169,7 +3925,7 @@ algorithm for doing Fast-Fourier Transforms.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../template/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Template">
+          <a href="../virus/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Virus Spread Simulation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3179,7 +3935,7 @@ algorithm for doing Fast-Fourier Transforms.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Template
+                Virus Spread Simulation
               </div>
             </div>
           </a>
