@@ -1,6 +1,6 @@
 ---
 title: Analog Circuits
-description: 
+description: Interactive simulations of analog circuits with AC inputs and waveform visualization.
 quality_score: 47
 image: /sims/analog-circuit/input-image.png
 og:image: /sims/analog-circuit/input-image.png
