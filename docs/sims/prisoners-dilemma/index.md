@@ -1,3 +1,10 @@
+---
+title: Prisoners Dilemma
+description: ## Sample Prompt
+quality_score: 37
+social:
+   cards: false
+---
 # Prisoners Dilemma
 
 # MicroSim Template

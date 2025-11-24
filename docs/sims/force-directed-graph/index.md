@@ -1,3 +1,10 @@
+---
+title: Force Directed Graph
+description: An interactive MicroSim demonstrating force directed graph.
+quality_score: 32
+social:
+   cards: false
+---
 # Force Directed Graph
 
 [Forced Directed Graph Demo](./force-directed-graph.html){ .md-button .md-button--primary }

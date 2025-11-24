@@ -1,3 +1,13 @@
+---
+title: Larson Scanner
+description: This MicroSim teaches us how the [Larson Scanner](https://hackaday.com/tag/larson-scanner/) animation works.
+quality_score: 52
+image: /sims/larson-scanner/larson-scanner.png
+og:image: /sims/larson-scanner/larson-scanner.png
+twitter:image: /sims/larson-scanner/larson-scanner.png
+social:
+   cards: false
+---
 # Larson Scanner
 
 ![Image Name](./larson-scanner.png){ width="400" }

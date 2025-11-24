@@ -1,3 +1,13 @@
+---
+title: 555 Timer
+description: An interactive MicroSim demonstrating 555 timer.
+quality_score: 47
+image: /sims/555-timer/555-timer.png
+og:image: /sims/555-timer/555-timer.png
+twitter:image: /sims/555-timer/555-timer.png
+social:
+   cards: false
+---
 # 555 Timer
 
 <figure markdown>

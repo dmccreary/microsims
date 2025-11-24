@@ -1,3 +1,10 @@
+---
+title: Rabbits and Foxes
+description: An interactive MicroSim demonstrating rabbits and foxes.
+quality_score: 32
+social:
+   cards: false
+---
 # Rabbits and Foxes
 
 !!! Note

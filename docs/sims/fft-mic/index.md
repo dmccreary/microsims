@@ -1,6 +1,7 @@
 ---
 title: Microphone Frequency Visualization with FFT
 description: A MicroSim that shows the frequency spectrum of sound coming in from a microphone using the p5.js fft library.
+quality_score: 75
 image: /sims/fft-mic/fft-mic.png
 og:image: /sims/fft-mic/fft-mic.png
 twitter:image: /sims/fft-mic/fft-mic.png

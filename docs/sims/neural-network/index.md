@@ -1,3 +1,10 @@
+---
+title: Neural Network
+description: An interactive MicroSim demonstrating neural network.
+quality_score: 32
+social:
+   cards: false
+---
 # Neural Network
 
 Generate a p5.js file that draws a three layer neural network. 

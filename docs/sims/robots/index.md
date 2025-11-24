@@ -1,3 +1,10 @@
+---
+title: Collision Avoidance Robot
+description: An interactive MicroSim demonstrating collision avoidance robot.
+quality_score: 32
+social:
+   cards: false
+---
 # Collision Avoidance Robot
 
 ## Supporting Simulations

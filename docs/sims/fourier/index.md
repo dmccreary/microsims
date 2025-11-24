@@ -1,3 +1,10 @@
+---
+title: Fourier
+description: An interactive MicroSim demonstrating fourier.
+quality_score: 37
+social:
+   cards: false
+---
 # Fourier
 
 * [Paul Falsted's Javascript-based Fourier Tool](https://www.falstad.com/fourier/)

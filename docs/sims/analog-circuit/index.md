@@ -1,3 +1,13 @@
+---
+title: Analog Circuits
+description: 
+quality_score: 47
+image: /sims/analog-circuit/input-image.png
+og:image: /sims/analog-circuit/input-image.png
+twitter:image: /sims/analog-circuit/input-image.png
+social:
+   cards: false
+---
 # Analog Circuits
 
 ![Image Name](./input-image.png){ width="400" }

@@ -1,3 +1,13 @@
+---
+title: String Harmonics
+description: An interactive MicroSim demonstrating string harmonics.
+quality_score: 42
+image: /sims/string-harmonics/string-harmonics.png
+og:image: /sims/string-harmonics/string-harmonics.png
+twitter:image: /sims/string-harmonics/string-harmonics.png
+social:
+   cards: false
+---
 # String Harmonics
 
 Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).

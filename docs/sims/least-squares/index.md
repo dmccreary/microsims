@@ -1,3 +1,13 @@
+---
+title: Least Squares
+description: An interactive MicroSim demonstrating least squares.
+quality_score: 67
+image: /sims/least-squares/regression-line.png
+og:image: /sims/least-squares/regression-line.png
+twitter:image: /sims/least-squares/regression-line.png
+social:
+   cards: false
+---
 # Least Squares
 
 <iframe src="main.html" height="565px" scrolling="no"></iframe>

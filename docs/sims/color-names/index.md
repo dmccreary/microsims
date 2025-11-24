@@ -1,3 +1,13 @@
+---
+title: Color Names
+description: This MicroSim teaches us the names of the colors and how to see their RGB values.
+quality_score: 47
+image: /sims/color-names/color-names.png
+og:image: /sims/color-names/color-names.png
+twitter:image: /sims/color-names/color-names.png
+social:
+   cards: false
+---
 # Color Names
 
 <figure markdown>

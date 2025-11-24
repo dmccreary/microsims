@@ -1,3 +1,13 @@
+---
+title: Battery Drain
+description: This MicroSim teaches students how batteries work in robots. The student can adjust the speed of the motor. But the more power the motor draws, the faster the battery drains. When the motor is off,...
+quality_score: 52
+image: /sims/battery-drain/battery-drain.png
+og:image: /sims/battery-drain/battery-drain.png
+twitter:image: /sims/battery-drain/battery-drain.png
+social:
+   cards: false
+---
 # Battery Drain
 
 <figure markdown>

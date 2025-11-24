@@ -1,3 +1,13 @@
+---
+title: H-Bridge Circuit
+description: An interactive MicroSim demonstrating h-bridge circuit.
+quality_score: 37
+image: /sims/h-bridge/h-bridge.png
+og:image: /sims/h-bridge/h-bridge.png
+twitter:image: /sims/h-bridge/h-bridge.png
+social:
+   cards: false
+---
 # H-Bridge Circuit
 
 An H-bridge circuit is four switches around a motor in the shape of the letter "H".

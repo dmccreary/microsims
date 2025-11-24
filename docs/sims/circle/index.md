@@ -1,3 +1,13 @@
+---
+title: Circle
+description: An interactive MicroSim demonstrating circle.
+quality_score: 57
+image: /sims/circle/circle.png
+og:image: /sims/circle/circle.png
+twitter:image: /sims/circle/circle.png
+social:
+   cards: false
+---
 # Circle
 
 <iframe src="main.html" height="450px" scrolling="no"></iframe>

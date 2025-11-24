@@ -1,3 +1,10 @@
+---
+title: Particle Fields
+description: This MicroSim teaches us how to display particles and their interactions.
+quality_score: 42
+social:
+   cards: false
+---
 # Particle Fields
 
 <figure markdown>

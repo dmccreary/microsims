@@ -1,3 +1,14 @@
+---
+title: Wave Sums
+description: Interactive demonstration of calculating the sum of sine waves of different lengths for understanding signal processing and FFT algorithms.
+quality_score: 40
+image: /sims/wave-sums/sum-of-waveforms.png
+og:image: /sims/wave-sums/sum-of-waveforms.png
+twitter:image: /sims/wave-sums/sum-of-waveforms.png
+social:
+   cards: false
+---
+
 ## Wave Sums
 
 ![](./sum-of-waveforms.png){ width="400" }

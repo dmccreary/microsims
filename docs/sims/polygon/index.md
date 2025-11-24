@@ -1,3 +1,13 @@
+---
+title: Regular Polygons
+description: An interactive MicroSim demonstrating regular polygons.
+quality_score: 67
+image: /sims/polygon/polygon.png
+og:image: /sims/polygon/polygon.png
+twitter:image: /sims/polygon/polygon.png
+social:
+   cards: false
+---
 # Regular Polygons
 
 <iframe src="./main.html" height="460" scrolling="no"></iframe>

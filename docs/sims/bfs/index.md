@@ -1,3 +1,13 @@
+---
+title: Breath First Graph Search
+description: An interactive MicroSim demonstrating breath first graph search.
+quality_score: 37
+image: /sims/bfs/bfs.png
+og:image: /sims/bfs/bfs.png
+twitter:image: /sims/bfs/bfs.png
+social:
+   cards: false
+---
 # Breath First Graph Search
 
 <figure markdown>

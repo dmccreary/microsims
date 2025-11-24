@@ -1,3 +1,13 @@
+---
+title: Maze Solver
+description: An interactive MicroSim demonstrating maze solver.
+quality_score: 72
+image: /sims/maze-solver/solution-example.png
+og:image: /sims/maze-solver/solution-example.png
+twitter:image: /sims/maze-solver/solution-example.png
+social:
+   cards: false
+---
 # Maze Solver
 
 <iframe src="main.html" width="400px" height="470px" scrolling="no"></iframe>

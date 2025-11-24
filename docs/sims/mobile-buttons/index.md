@@ -1,3 +1,10 @@
+---
+title: Mobile Compatible Buttons
+description: An interactive MicroSim demonstrating mobile compatible buttons.
+quality_score: 32
+social:
+   cards: false
+---
 # Mobile Compatible Buttons
 
 ## Native p5.js Buttons

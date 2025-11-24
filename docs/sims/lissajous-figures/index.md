@@ -1,3 +1,13 @@
+---
+title: Lissajous Figures
+description: An interactive MicroSim demonstrating lissajous figures.
+quality_score: 42
+image: /sims/lissajous-figures/lissajous.png
+og:image: /sims/lissajous-figures/lissajous.png
+twitter:image: /sims/lissajous-figures/lissajous.png
+social:
+   cards: false
+---
 # Lissajous Figures
 
 ![](lissajous.png)

@@ -1,3 +1,10 @@
+---
+title: FFT Butterfly MicroSim
+description: An interactive MicroSim demonstrating fft butterfly microsim.
+quality_score: 62
+social:
+   cards: false
+---
 # FFT Butterfly MicroSim
 
 <iframe src="main.html" height="550" scrolling="no"></iframe>

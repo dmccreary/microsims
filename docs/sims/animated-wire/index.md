@@ -1,3 +1,10 @@
+---
+title: Animated Wire MicroSim
+description: An interactive MicroSim demonstrating animated wire microsim.
+quality_score: 32
+social:
+   cards: false
+---
 # Animated Wire MicroSim
 
 [Run the Animated Wire MicroSim](./animated-wire.html)

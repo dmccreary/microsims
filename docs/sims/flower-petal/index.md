@@ -1,6 +1,7 @@
 ---
 title: Flower Petal Designer
 description: A MicroSim for designing flowers.
+quality_score: 80
 image: /sims/flower-petal/flower-petal.png
 og:image: /sims/name/flower-petal.png
 twitter:image: /sims/name/flower-petal.png

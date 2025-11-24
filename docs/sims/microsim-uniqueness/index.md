@@ -1,6 +1,7 @@
 ---
 title: MicroSim Uniqueness Interactive Venn Diagram
 description: An interactive three-circle Venn diagram demonstrating what makes MicroSims unique at the intersection of Simplicity, Accessibility, and AI Generation.
+quality_score: 85
 image: /sims/microsim-uniqueness/microsim-uniqueness.png
 og:image: /sims/microsim-uniqueness/microsim-uniqueness.png
 twitter:image: /sims/microsim-uniqueness/microsim-uniqueness.png

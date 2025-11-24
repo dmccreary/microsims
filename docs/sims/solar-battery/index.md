@@ -1,6 +1,7 @@
 ---
 title: Solar Battery
 description: Solar Battery charges during the day and discharges at night.
+quality_score: 65
 image: /sims/solar-battery/solar-battery.png
 og:image: /sims/solar-battery/solar-battery.png
 twitter:image: /sims/solar-battery/solar-battery.png

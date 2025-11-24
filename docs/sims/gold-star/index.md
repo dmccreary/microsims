@@ -1,3 +1,13 @@
+---
+title: Gold Star
+description: An interactive MicroSim demonstrating gold star.
+quality_score: 67
+image: /sims/gold-star/gold-star.png
+og:image: /sims/gold-star/gold-star.png
+twitter:image: /sims/gold-star/gold-star.png
+social:
+   cards: false
+---
 # Gold Star
 
 <iframe src="main.html" height="450px" scrolling="no"></iframe>

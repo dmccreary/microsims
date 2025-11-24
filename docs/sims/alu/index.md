@@ -1,3 +1,13 @@
+---
+title: Arithmetic Logic Unit (ALU)
+description: An interactive MicroSim demonstrating arithmetic logic unit (alu).
+quality_score: 42
+image: /sims/alu/alu.png
+og:image: /sims/alu/alu.png
+twitter:image: /sims/alu/alu.png
+social:
+   cards: false
+---
 # Arithmetic Logic Unit (ALU)
 
 <figure markdown>

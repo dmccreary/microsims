@@ -1,3 +1,13 @@
+---
+title: Sierpinski
+description: An interactive MicroSim demonstrating sierpinski.
+quality_score: 37
+image: /sims/sierpinski/serpinski.png
+og:image: /sims/sierpinski/serpinski.png
+twitter:image: /sims/sierpinski/serpinski.png
+social:
+   cards: false
+---
 # Sierpinski
 
 

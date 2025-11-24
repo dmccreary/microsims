@@ -1,3 +1,10 @@
+---
+title: Concept Graph Prompt
+description: An interactive MicroSim demonstrating concept graph prompt.
+quality_score: 42
+social:
+   cards: false
+---
 # Concept Graph Prompt
 
 [Run The Learning Graph MicroSim](./main.html){ .md-button .md-button--primary }

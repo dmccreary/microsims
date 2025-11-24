@@ -1,3 +1,10 @@
+---
+title: Star Rating MicroSim
+description: This MicroSim demonstrates an interactive star rating system with five stars and a slider control. It teaches concepts of: - Interactive UI controls - Responsive design - Visual feedback - User inp...
+quality_score: 72
+social:
+   cards: false
+---
 # Star Rating MicroSim
 
 <iframe src="main.html" height="400"></iframe>

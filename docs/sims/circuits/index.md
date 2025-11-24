@@ -1,3 +1,13 @@
+---
+title: Battery Circuit
+description: An interactive MicroSim demonstrating battery circuit.
+quality_score: 42
+image: /sims/circuits/circuits.png
+og:image: /sims/circuits/circuits.png
+twitter:image: /sims/circuits/circuits.png
+social:
+   cards: false
+---
 # Battery Circuit
 
 <figure markdown>

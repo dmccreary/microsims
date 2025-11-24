@@ -1,3 +1,13 @@
+---
+title: Binary Number
+description: An interactive MicroSim demonstrating binary number.
+quality_score: 52
+image: /sims/binary-number/binary-number.png
+og:image: /sims/binary-number/binary-number.png
+twitter:image: /sims/binary-number/binary-number.png
+social:
+   cards: false
+---
 # Binary Number
 
 A binary number is one where each of the digits can only be a 0 or a 1.  The values

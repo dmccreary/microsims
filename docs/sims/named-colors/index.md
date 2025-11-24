@@ -1,3 +1,13 @@
+---
+title: Named Colors
+description: This MicroSim teaches us how to use a list of 140 named colors to change the fill color of a rectangle.
+quality_score: 42
+image: /sims/named-colors/named-colors.png
+og:image: /sims/named-colors/named-colors.png
+twitter:image: /sims/named-colors/named-colors.png
+social:
+   cards: false
+---
 # Named Colors
 
 <figure markdown>

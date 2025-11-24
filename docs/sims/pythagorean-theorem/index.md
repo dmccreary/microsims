@@ -1,6 +1,7 @@
 ---
 title: Pythagorean Theorem MicroSim
 description: "A MicroSim that visually demonstrates the Pythagorean Theorem by showing how the sum of the squares of the sides are are equal to square of hypotenuse.
+quality_score: 80
 image: /sims/pythagorean-theorem/pythagorean-theorem.png
 og:image: /sims/pythagorean-theorem/pythagorean-theorem.png
 twitter:image: /sims/pythagorean-theorem/pythagorean-theorem.png
