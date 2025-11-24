@@ -1,0 +1,61 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Icons Demo",
+      "creator": ["Dan McCreary", "Claude Code"],
+      "subject": ["User Interface", "Interaction Design", "Web Development"],
+      "description": "Demonstrates clickable icons in the control region for accessing license information and fullscreen mode. Shows how to add UI elements without cluttering the interface.",
+      "date": "2024-11-24T00:00:00Z",
+      "type": "Interactive Simulation",
+      "format": "text/javascript",
+      "language": "en",
+      "rights": "CC BY-NC-SA 4.0 DEED"
+    },
+    "search": {
+      "tags": ["icons", "user-interface", "clickable", "navigation", "fullscreen", "license", "UI-design"],
+      "visualizationType": ["animation", "simulation", "interactive-controls"]
+    },
+    "educational": {
+      "gradeLevel": ["9", "10", "11", "12", "college"],
+      "subjectArea": ["Computer Science", "Web Development", "User Interface Design"],
+      "topic": ["Interactive Elements", "Event Handling", "UI Patterns"],
+      "learningObjectives": [
+        "Understand how to add clickable icons to a MicroSim interface",
+        "Learn distance-based click detection techniques",
+        "Implement navigation to external pages from within a simulation",
+        "Recognize the trade-off between features and code size (40 additional lines)"
+      ]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "codeSize": {
+        "totalLines": 168,
+        "iconFeatureLines": 40,
+        "note": "Icons can be omitted to reduce file size to 128 lines"
+      }
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "id": "speedSlider",
+          "type": "slider",
+          "label": "Speed"
+        },
+        {
+          "id": "ccIcon",
+          "type": "clickable-icon",
+          "label": "Creative Commons License",
+          "symbol": "ⓒ",
+          "action": "Opens license page in new tab"
+        },
+        {
+          "id": "fsIcon",
+          "type": "clickable-icon",
+          "label": "Fullscreen",
+          "symbol": "⛶",
+          "action": "Opens main.html in new tab"
+        }
+      ]
+    }
+  }
+}
