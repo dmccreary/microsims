@@ -1,6 +1,6 @@
 # Micro Simulations for Education
 
-![MicroSim Banner](./img/banner.png)
+![MicroSim Banner](./img/cover.png)
 
 Welcome to the MicroSims for Education website.
 

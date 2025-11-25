@@ -1,8 +1,14 @@
+---
+title: Course Description
+description: A comprehensive course on creating educational MicroSims using generative AI
+quality_score: 98
+---
+
 # Creating Educational MicroSims with Generative AI
 
-**Title:** Creating Educational MicroSims with Generative AI
-**Audience:** Teachers, Educators, and Instructional Designers
-**Course Length:** 14-week undergraduate course
+**Title:** Creating Educational MicroSims with Generative AI<br/>
+**Audience:** Teachers, Educators, and Instructional Designers<br/>
+**Course Length:** 14-week undergraduate course<br/>
 **Credits:** 3 semester hours
 
 ## Prerequisites
