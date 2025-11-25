@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="An introduction to the p5.js library for creating interactive MicroSims">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>3 - Getting Started with p5.js - Micro Simulations for Education</title>
+        <title>Getting Started with p5.js - Micro Simulations for Education</title>
       
     
     
@@ -70,9 +70,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="3 - Getting Started with p5.js - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Getting Started with p5.js - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="An introduction to the p5.js library for creating interactive MicroSims" >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/03-getting-started-with-p5js/index.png" >
       
@@ -86,9 +86,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="3 - Getting Started with p5.js - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Getting Started with p5.js - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="An introduction to the p5.js library for creating interactive MicroSims" >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/03-getting-started-with-p5js/index.png" >
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3 - Getting Started with p5.js
+              Getting Started with p5.js
             
           </span>
         </div>
@@ -649,6 +649,324 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome-to-the-creative-world-of-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welcome to the Creative World of p5.js!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-brief-history-from-processing-to-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Brief History: From Processing to p5.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Brief History: From Processing to p5.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-processing-and-p5js-evolution-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Processing and p5.js Evolution Timeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-processing-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Processing Philosophy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nyu-itp-the-home-of-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      NYU ITP: The Home of p5.js
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-canvas-element-your-digital-sketchpad" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Canvas Element: Your Digital Sketchpad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Canvas Element: Your Digital Sketchpad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-your-first-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Your First Canvas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-pixels-and-the-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Pixels and the Coordinate System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Pixels and the Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-p5js-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      The p5.js Coordinate System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The p5.js Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-p5js-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: p5.js Coordinate System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colors-the-rgb-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colors: The RGB Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Colors: The RGB Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-colors-with-background-and-fill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Colors with background() and fill()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-magic-two-functions-setup-and-draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Magic Two Functions: setup() and draw()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Magic Two Functions: setup() and draw()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-pattern-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Pattern Works
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-global-vs-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables: Global vs. Local
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables: Global vs. Local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-animation-loop-and-frame-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Animation Loop and Frame Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Animation Loop and Frame Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlling-frame-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling Frame Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling Frame Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-animation-loop-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Animation Loop Cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-your-first-complete-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: Your First Complete Sketch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-sound-visualization-with-fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim: Sound Visualization with FFT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim: Sound Visualization with FFT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fft-microphone-audio-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: FFT Microphone Audio Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-3d-animation-fun" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim: 3D Animation Fun
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim: 3D Animation Fun">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-spinning-3d-shapes-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Spinning 3D Shapes MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1714,6 +2032,324 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#welcome-to-the-creative-world-of-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welcome to the Creative World of p5.js!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-brief-history-from-processing-to-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Brief History: From Processing to p5.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A Brief History: From Processing to p5.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-processing-and-p5js-evolution-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Processing and p5.js Evolution Timeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-processing-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Processing Philosophy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nyu-itp-the-home-of-p5js" class="md-nav__link">
+    <span class="md-ellipsis">
+      NYU ITP: The Home of p5.js
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-canvas-element-your-digital-sketchpad" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Canvas Element: Your Digital Sketchpad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Canvas Element: Your Digital Sketchpad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-your-first-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Your First Canvas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-pixels-and-the-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Pixels and the Coordinate System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Pixels and the Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-p5js-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      The p5.js Coordinate System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The p5.js Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-p5js-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: p5.js Coordinate System
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colors-the-rgb-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colors: The RGB Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Colors: The RGB Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-colors-with-background-and-fill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Colors with background() and fill()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-magic-two-functions-setup-and-draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Magic Two Functions: setup() and draw()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Magic Two Functions: setup() and draw()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-this-pattern-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why This Pattern Works
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-global-vs-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables: Global vs. Local
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables: Global vs. Local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-animation-loop-and-frame-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Animation Loop and Frame Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Animation Loop and Frame Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlling-frame-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling Frame Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controlling Frame Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-animation-loop-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Animation Loop Cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-your-first-complete-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: Your First Complete Sketch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-sound-visualization-with-fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim: Sound Visualization with FFT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim: Sound Visualization with FFT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-fft-microphone-audio-visualizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: FFT Microphone Audio Visualizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-3d-animation-fun" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim: 3D Animation Fun
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim: 3D Animation Fun">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-spinning-3d-shapes-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Spinning 3D Shapes MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1765,7 +2401,1082 @@
 <li><a href="../02-web-development-essentials/">Chapter 2: Web Development Essentials</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="welcome-to-the-creative-world-of-p5js">Welcome to the Creative World of p5.js!</h2>
+<p>If you've ever wanted to create art with code, build interactive visualizations, or bring mathematical concepts to life through animation, you're about to discover one of the most delightful tools in the creative coding universe. <strong>p5.js</strong> is a JavaScript library that makes programming accessible, fun, and surprisingly powerful. It transforms the potentially intimidating world of code into a playground where creativity flows as naturally as paint on canvas.</p>
+<p>What makes p5.js special isn't just what it can do—it's <em>who</em> it was designed for. Unlike many programming libraries built by engineers for engineers, p5.js was created specifically to help artists, designers, educators, and beginners learn to code. The result is a remarkably intuitive system where you can create something visual in just a few lines of code.</p>
+<div class="admonition tip">
+<p class="admonition-title">Why p5.js for MicroSims?</p>
+<p>p5.js is perfect for educational simulations because it combines visual immediacy with interactivity. Students can see their code come alive instantly, making abstract concepts tangible and engaging.</p>
+</div>
+<h2 id="a-brief-history-from-processing-to-p5js">A Brief History: From Processing to p5.js</h2>
+<p>Understanding where p5.js comes from helps explain why it's so wonderfully suited for creative coding. The story begins in 2001 at the MIT Media Lab.</p>
+<h4 id="diagram-processing-and-p5js-evolution-timeline">Diagram: Processing and p5.js Evolution Timeline</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Processing and p5.js Evolution Timeline&lt;/summary&gt;
+Type: timeline
+
+Purpose: Show the historical evolution from Processing to p5.js, highlighting key milestones and NYU&#39;s crucial support
+
+Time period: 2001-2025
+
+Orientation: Horizontal with alternating above/below event placement
+
+Events:
+- 2001: Casey Reas and Ben Fry create Processing at MIT Media Lab as a &quot;sketchbook for code&quot;
+- 2003: Processing 1.0 released with Java foundation, designed to teach programming to visual artists
+- 2005: Processing Foundation established as non-profit to promote software literacy
+- 2008: Processing reaches 100,000+ users, adopted in art schools worldwide
+- 2011: Processing 2.0 adds JavaScript mode (Processing.js)
+- 2013: Lauren McCarthy begins p5.js development at NYU ITP (Interactive Telecommunications Program)
+- 2014: p5.js 0.1.0 officially released—a complete reimagining of Processing for the web
+- 2015: NYU ITP becomes primary institutional home for p5.js development and community
+- 2016: p5.js Editor launched, making browser-based creative coding accessible to everyone
+- 2018: p5.js reaches 1 million monthly downloads
+- 2020: p5.js 1.0 released with stable API
+- 2023: p5.js community exceeds 10 million users globally
+- 2024: p5.js 2.0 development begins with WebGL2 enhancements
+
+Color coding:
+- Blue: MIT/Processing Foundation era (2001-2012)
+- Purple: NYU ITP era begins (2013-2015)
+- Green: p5.js growth and maturity (2016-present)
+
+Visual style: Modern timeline with circular milestone nodes connected by flowing lines
+
+Interactive features:
+- Hover over milestones to see detailed descriptions
+- Click to expand with quotes from creators and community impact statistics
+
+Key annotations:
+- At 2013: &quot;NYU ITP provides institutional support, funding, and community building&quot;
+- At 2014: &quot;p5.js makes Processing&#39;s creative philosophy native to the web&quot;
+
+Implementation: vis-timeline JavaScript library
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="the-processing-philosophy">The Processing Philosophy</h3>
+<p>In 2001, Ben Fry and Casey Reas were graduate students at the MIT Media Lab when they created <strong>Processing</strong>—a programming environment designed to teach fundamentals of computer programming within a visual context. Their radical idea was simple yet transformative: <em>programming should be as expressive and immediate as sketching</em>.</p>
+<p>Traditional programming languages at the time required hundreds of lines of code just to draw a simple circle on screen. Processing changed that entirely. Suddenly, artists and designers could express visual ideas in code almost as quickly as they could sketch them on paper.</p>
+<p>The core principles they established continue to guide p5.js today:</p>
+<ul>
+<li><strong>Immediate visual feedback</strong>: See your code's output instantly</li>
+<li><strong>Low barrier to entry</strong>: Create something interesting on day one</li>
+<li><strong>High ceiling</strong>: The same tools can create sophisticated professional work</li>
+<li><strong>Community-driven</strong>: Share, remix, and learn from others</li>
+</ul>
+<h3 id="nyu-itp-the-home-of-p5js">NYU ITP: The Home of p5.js</h3>
+<p>In 2013, something wonderful happened. <strong>Lauren McCarthy</strong>, a faculty member and researcher at <strong>NYU's Interactive Telecommunications Program (ITP)</strong>, began developing what would become p5.js. Her vision was to bring Processing's creative philosophy directly into web browsers using JavaScript.</p>
+<p>NYU ITP has been instrumental in p5.js's success, providing:</p>
+<ul>
+<li><strong>Institutional support</strong> for development and maintenance</li>
+<li><strong>Funding</strong> for community programs and accessibility initiatives</li>
+<li><strong>A home for the community</strong> through workshops, residencies, and events</li>
+<li><strong>Educational resources</strong> including tutorials and curriculum development</li>
+<li><strong>Commitment to diversity and inclusion</strong> in the creative coding community</li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Lauren McCarthy on p5.js</p>
+<p>"p5.js is a community and p5.js is a library. I think the community is just as important as the library."</p>
+</div>
+<p>The NYU community's emphasis on accessibility has shaped p5.js into a tool that welcomes everyone. Features like the <code>describe()</code> function for screen reader accessibility, internationalization efforts, and inclusive documentation all reflect this commitment.</p>
+<h2 id="the-canvas-element-your-digital-sketchpad">The Canvas Element: Your Digital Sketchpad</h2>
+<p>Every p5.js sketch draws on an HTML <strong>canvas element</strong>—a special rectangular region on a web page designed specifically for graphics. Think of it as a digital version of an artist's canvas: a defined space where your creative vision comes to life.</p>
+<table>
+<thead>
+<tr>
+<th>Canvas Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width</td>
+<td>Horizontal size in pixels</td>
+</tr>
+<tr>
+<td>Height</td>
+<td>Vertical size in pixels</td>
+</tr>
+<tr>
+<td>Background</td>
+<td>Base color that clears the canvas</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>The 2D or WebGL drawing context</td>
+</tr>
+</tbody>
+</table>
+<p>The canvas element is part of HTML5 and provides a bitmap drawing surface. Unlike regular HTML elements that contain text and images, the canvas is designed for programmatic drawing—perfect for animations, games, data visualizations, and our MicroSims.</p>
+<h3 id="creating-your-first-canvas">Creating Your First Canvas</h3>
+<p>In p5.js, you create a canvas using the <code>createCanvas()</code> function. This function takes two required parameters: width and height in pixels.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This single line creates a 400×400 pixel canvas—your digital playground for creative coding. The function also returns a canvas object that you can manipulate further, such as positioning it within a specific HTML container.</p>
+<h2 id="understanding-pixels-and-the-coordinate-system">Understanding Pixels and the Coordinate System</h2>
+<p>A <strong>pixel</strong> (short for "picture element") is the smallest addressable point on your canvas. Each pixel has a specific location defined by its coordinates, and every pixel can display a single color at any given moment.</p>
+<h3 id="the-p5js-coordinate-system">The p5.js Coordinate System</h3>
+<p>The p5.js coordinate system might feel a bit unusual at first if you're familiar with standard mathematical graphs. Here's the key difference:</p>
+<ul>
+<li><strong>Origin (0, 0)</strong> is at the <strong>top-left corner</strong> of the canvas</li>
+<li><strong>X values increase</strong> as you move <strong>right</strong></li>
+<li><strong>Y values increase</strong> as you move <strong>down</strong></li>
+</ul>
+<p>This may seem backwards, but it actually matches how computer displays work—screens refresh from top to bottom, and this coordinate system reflects that underlying technology.</p>
+<h4 id="diagram-p5js-coordinate-system">Diagram: p5.js Coordinate System</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;p5.js Coordinate System Visualization&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Help students understand that the p5.js coordinate system has (0,0) at the top-left corner, with Y increasing downward (Bloom: Understand)
+
+Canvas layout:
+- Drawing area: 400x350 pixels with &#39;aliceblue&#39; background
+- Control area: 50 pixels height with &#39;white&#39; background
+
+Visual elements:
+- Grid lines at 50-pixel intervals (light gray)
+- Origin point (0,0) marked with a red circle at top-left
+- X-axis arrow pointing right with &quot;X →&quot; label
+- Y-axis arrow pointing down with &quot;↓ Y&quot; label
+- Interactive point that follows mouse position
+- Coordinate display showing current (x, y) position near the point
+- Corner coordinates labeled: (0,0), (400,0), (0,350), (400,350)
+
+Interactive controls:
+- The point automatically follows the mouse cursor
+- Coordinates update in real-time as mouse moves
+
+Behavior:
+- As user moves mouse, the point follows and displays current coordinates
+- Helps build intuition for how x increases rightward and y increases downward
+
+Color scheme:
+- Grid: light gray (#CCCCCC)
+- Origin: red
+- Interactive point: blue
+- Labels: black
+
+Implementation: p5.js with mouseX/mouseY tracking
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Here's a comparison with traditional mathematical coordinates:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Math Coordinate System</th>
+<th>p5.js Coordinate System</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Origin location</td>
+<td>Center or bottom-left</td>
+<td>Top-left corner</td>
+</tr>
+<tr>
+<td>Y-axis direction</td>
+<td>Increases upward</td>
+<td>Increases downward</td>
+</tr>
+<tr>
+<td>X-axis direction</td>
+<td>Increases rightward</td>
+<td>Increases rightward</td>
+</tr>
+<tr>
+<td>Common use</td>
+<td>Graphing functions</td>
+<td>Screen graphics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="colors-the-rgb-model">Colors: The RGB Model</h2>
+<p>Color in p5.js is specified using the <strong>RGB color model</strong>, which represents colors as combinations of Red, Green, and Blue light. Each color channel accepts a value from 0 (none) to 255 (maximum intensity).</p>
+<p>Common RGB values you'll use frequently:</p>
+<ul>
+<li><strong>Black</strong>: <code>(0, 0, 0)</code> - all channels off</li>
+<li><strong>White</strong>: <code>(255, 255, 255)</code> - all channels at maximum</li>
+<li><strong>Red</strong>: <code>(255, 0, 0)</code> - only red at maximum</li>
+<li><strong>Green</strong>: <code>(0, 255, 0)</code> - only green at maximum</li>
+<li><strong>Blue</strong>: <code>(0, 0, 255)</code> - only blue at maximum</li>
+<li><strong>Yellow</strong>: <code>(255, 255, 0)</code> - red + green</li>
+<li><strong>Cyan</strong>: <code>(0, 255, 255)</code> - green + blue</li>
+<li><strong>Magenta</strong>: <code>(255, 0, 255)</code> - red + blue</li>
+</ul>
+<h3 id="using-colors-with-background-and-fill">Using Colors with background() and fill()</h3>
+<p>The <code>background()</code> function sets the canvas background color, effectively "clearing" the canvas with that color. The <code>fill()</code> function sets the color for shapes drawn afterward.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span><span class="w">  </span><span class="c1">// Alice blue - our standard drawing area color</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span><span class="w">  </span><span class="c1">// Soft red</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span><span class="w">  </span><span class="c1">// Draw a circle at center</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Color Shorthand</p>
+<p>When all three RGB values are the same, you can use a single number: <code>background(220)</code> creates a light gray. You can also add a fourth parameter for transparency (alpha): <code>fill(255, 0, 0, 128)</code> creates a semi-transparent red.</p>
+</div>
+<h2 id="the-magic-two-functions-setup-and-draw">The Magic Two Functions: setup() and draw()</h2>
+<p>Here's where p5.js reveals its elegant simplicity. Every p5.js program is built around just two core functions:</p>
+<ol>
+<li><strong><code>setup()</code></strong> - Runs once when your program starts</li>
+<li><strong><code>draw()</code></strong> - Runs repeatedly in a loop, creating animation</li>
+</ol>
+<p>This pattern is so intuitive that it feels almost natural. You set things up once, then the draw function keeps running, updating your visuals frame by frame. It's like the difference between building a stage (setup) and performing a play on it (draw).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// This code runs ONCE when the program starts</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// This code runs REPEATEDLY (about 60 times per second)</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="why-this-pattern-works">Why This Pattern Works</h3>
+<p>The setup/draw pattern maps beautifully to how animations and simulations actually work:</p>
+<ul>
+<li><strong>Setup</strong>: Initialize your world—create the canvas, set initial positions, load resources</li>
+<li><strong>Draw</strong>: Update your world—move objects, respond to input, render the current state</li>
+</ul>
+<p>This pattern is so fundamental that you'll find variations of it in many other frameworks:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Setup Function</th>
+<th>Draw/Update Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p5.js</td>
+<td><code>setup()</code></td>
+<td><code>draw()</code></td>
+</tr>
+<tr>
+<td>Processing</td>
+<td><code>setup()</code></td>
+<td><code>draw()</code></td>
+</tr>
+<tr>
+<td>Arduino</td>
+<td><code>setup()</code></td>
+<td><code>loop()</code></td>
+</tr>
+<tr>
+<td>Unity</td>
+<td><code>Start()</code></td>
+<td><code>Update()</code></td>
+</tr>
+<tr>
+<td>Pygame</td>
+<td>Initialization code</td>
+<td>Main game loop</td>
+</tr>
+</tbody>
+</table>
+<p>Once you master this pattern in p5.js, you'll recognize it everywhere!</p>
+<h2 id="variables-global-vs-local">Variables: Global vs. Local</h2>
+<p>Variables in p5.js (and JavaScript generally) come in two flavors based on their <strong>scope</strong>—where in your code they can be accessed.</p>
+<h3 id="global-variables">Global Variables</h3>
+<p><strong>Global variables</strong> are declared outside of any function, typically at the top of your sketch. They can be accessed and modified from anywhere in your code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Global variables - accessible everywhere</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ballX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ballY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">ballX</span><span class="p">,</span><span class="w"> </span><span class="nx">ballY</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span><span class="w">  </span><span class="c1">// Can access ballX and ballY here</span>
+<span class="w">  </span><span class="nx">ballX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ballX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Can modify global variables too</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Global variables are essential for MicroSims because they:</p>
+<ul>
+<li>Store state that persists between draw() calls</li>
+<li>Allow values to be shared across multiple functions</li>
+<li>Enable animation by changing values over time</li>
+</ul>
+<h3 id="local-variables">Local Variables</h3>
+<p><strong>Local variables</strong> are declared inside a function and only exist within that function's scope.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">diameter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w">  </span><span class="c1">// Local variable - only exists in draw()</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">diameter</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// This would cause an error:</span>
+<span class="w">  </span><span class="c1">// console.log(diameter);  // &#39;diameter&#39; is not defined here!</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Local variables are useful for temporary calculations that don't need to persist between function calls.</p>
+<table>
+<thead>
+<tr>
+<th>Variable Type</th>
+<th>Declaration Location</th>
+<th>Accessibility</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global</td>
+<td>Outside all functions</td>
+<td>Everywhere in sketch</td>
+<td>Entire program duration</td>
+</tr>
+<tr>
+<td>Local</td>
+<td>Inside a function</td>
+<td>Only within that function</td>
+<td>Duration of function call</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-animation-loop-and-frame-rate">The Animation Loop and Frame Rate</h2>
+<p>The <code>draw()</code> function runs in an <strong>animation loop</strong>—it executes over and over, creating the illusion of movement just like frames in a movie.</p>
+<p>By default, p5.js tries to run <code>draw()</code> approximately <strong>60 times per second</strong>. This rate, called the <strong>frame rate</strong>, determines how smooth your animations appear.</p>
+<h3 id="controlling-frame-rate">Controlling Frame Rate</h3>
+<p>You can adjust the frame rate using the <code>frameRate()</code> function:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">frameRate</span><span class="p">(</span><span class="mf">30</span><span class="p">);</span><span class="w">  </span><span class="c1">// Run draw() 30 times per second instead of 60</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Why would you want to change the frame rate?</p>
+<ul>
+<li><strong>Lower frame rates</strong> (15-30 fps): Better for slower animations, educational purposes, or reducing CPU usage</li>
+<li><strong>Higher frame rates</strong> (60+ fps): Smoother animations, better for games and interactive experiences</li>
+</ul>
+<p>You can also check the current frame rate during execution using the <code>frameRate()</code> function without arguments, and the <code>frameCount</code> variable tells you how many frames have been drawn since the program started.</p>
+<h4 id="diagram-animation-loop-cycle">Diagram: Animation Loop Cycle</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Animation Loop Cycle Diagram&lt;/summary&gt;
+Type: diagram
+
+Purpose: Illustrate how the p5.js animation loop works, showing the continuous cycle of draw() calls (Bloom: Understand)
+
+Components to show:
+- &quot;Program Starts&quot; node
+- &quot;setup() runs once&quot; process box
+- &quot;draw() runs&quot; process box (highlighted as main loop)
+- &quot;Wait for next frame&quot; process
+- &quot;~16.7ms at 60fps&quot; timing annotation
+- Loop arrow returning from &quot;Wait&quot; back to &quot;draw()&quot;
+- &quot;frameCount++&quot; indicator
+
+Flow:
+1. Program Starts → setup() runs once → draw() runs → Wait → draw() runs (loop continues)
+
+Style: Flowchart with rounded rectangles and arrows
+
+Colors:
+- setup() box: blue
+- draw() box: green (highlighted)
+- Arrows: dark gray
+- Timing annotation: purple
+
+Labels:
+- &quot;Runs ONCE&quot; next to setup()
+- &quot;Runs REPEATEDLY&quot; next to draw() with loop indicator
+- Frame timing calculation shown
+
+Implementation: Mermaid.js flowchart or p5.js static diagram
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="putting-it-all-together-your-first-complete-sketch">Putting It All Together: Your First Complete Sketch</h2>
+<p>Let's combine everything we've learned into a complete, working p5.js sketch. This example demonstrates all 14 concepts from this chapter:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Global variables (Concept: Global Variables)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">circleX</span><span class="p">,</span><span class="w"> </span><span class="nx">circleY</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">speedX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">speedY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">diameter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span>
+
+<span class="c1">// Setup function - runs once (Concept: setup() Function)</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Create the canvas element (Concepts: Canvas Element, createCanvas())</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Initialize circle position (using Coordinate System)</span>
+<span class="w">  </span><span class="nx">circleX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// Position in pixels (Concept: Pixels)</span>
+<span class="w">  </span><span class="nx">circleY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Set frame rate (Concept: Frame Rate)</span>
+<span class="w">  </span><span class="nx">frameRate</span><span class="p">(</span><span class="mf">60</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Accessibility description</span>
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;A colorful bouncing circle animation demonstrating p5.js basics&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Draw function - runs repeatedly (Concepts: draw() Function, Animation Loop)</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Clear background with alice blue (Concept: background())</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span><span class="w">  </span><span class="c1">// RGB color (Concept: RGB Color Model)</span>
+
+<span class="w">  </span><span class="c1">// Draw the control area</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span><span class="w">  </span><span class="c1">// White (Concept: fill())</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Update circle position (Animation via global variable modification)</span>
+<span class="w">  </span><span class="nx">circleX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">circleX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speedX</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">circleY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">circleY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speedY</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Bounce off walls (using Coordinate System knowledge)</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">circleX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">diameter</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">circleX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">diameter</span><span class="o">/</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">speedX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">speedX</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">circleY</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">diameter</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">circleY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">diameter</span><span class="o">/</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">speedY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">speedY</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Draw the circle with RGB color</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span><span class="w">  </span><span class="c1">// Soft blue using RGB</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">3</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">circleX</span><span class="p">,</span><span class="w"> </span><span class="nx">circleY</span><span class="p">,</span><span class="w"> </span><span class="nx">diameter</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Display frame count (demonstrates Animation Loop)</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">frameInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Frame: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">frameCount</span><span class="p">;</span><span class="w">  </span><span class="c1">// Local variable (Concept: Local Variables)</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">14</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">frameInfo</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This simple bouncing ball animation demonstrates every concept we've covered. The joy of p5.js is that with just these fundamentals, you can create endless variations and increasingly sophisticated simulations!</p>
+<h2 id="microsim-sound-visualization-with-fft">MicroSim: Sound Visualization with FFT</h2>
+<p>One of p5.js's most exciting features is its <strong>sound library</strong> (p5.sound), which includes a powerful <strong>FFT (Fast Fourier Transform)</strong> analyzer. FFT transforms audio signals into frequency data, letting you visualize sound in real-time.</p>
+<p>The following MicroSim demonstrates how just a few lines of code can create a mesmerizing audio visualization using your microphone:</p>
+<h4 id="diagram-fft-microphone-audio-visualizer">Diagram: FFT Microphone Audio Visualizer</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;FFT Microphone Audio Visualizer MicroSim&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Demonstrate the power of p5.js sound library to analyze and visualize audio frequencies in real-time with minimal code (Bloom: Apply, Analyze)
+
+Canvas layout:
+- Drawing area: 400x350 pixels with dark background for visual contrast
+- Control area: 50 pixels height for start/stop button
+
+Concept demonstration:
+- Shows that complex audio visualization is achievable in approximately 30 lines of code
+- Demonstrates the p5.sound library&#39;s FFT capabilities
+- Illustrates real-time data visualization
+
+Visual elements:
+- Frequency spectrum displayed as vertical bars
+- Bar height corresponds to amplitude at each frequency
+- Color gradient from bass (red/orange) to treble (blue/purple)
+- Smooth animation as bars respond to audio input
+- Background: very dark blue (#0a0a20)
+
+Interactive controls:
+- &quot;Start Microphone&quot; / &quot;Stop&quot; toggle button
+- Button positioned in control area, centered
+
+Core code structure (minimal lines):
+```
+let mic, fft;
+
+function setup() {
+  createCanvas(400, 400);
+  mic = new p5.AudioIn();
+  fft = new p5.FFT();
+  fft.setInput(mic);
+}
+
+function draw() {
+  background(10, 10, 32);
+  let spectrum = fft.analyze();
+  noStroke();
+  for (let i = 0; i &lt; spectrum.length; i++) {
+    let x = map(i, 0, spectrum.length, 0, width);
+    let h = map(spectrum[i], 0, 255, 0, height);
+    let hue = map(i, 0, spectrum.length, 0, 360);
+    fill(hue, 80, 90);  // HSB color mode for rainbow effect
+    rect(x, height - h, width/spectrum.length, h);
+  }
+}
+
+function mousePressed() {
+  mic.start();
+}
+```
+
+Behavior:
+- User clicks button to start microphone access
+- Browser prompts for microphone permission
+- Once granted, bars begin animating to match audio input
+- Speaking, clapping, or playing music creates visual patterns
+- Bass frequencies appear on left, treble on right
+
+Dependencies:
+- p5.js library
+- p5.sound library (additional include required)
+
+Accessibility:
+- Button has clear label indicating state
+- describe() function explains visualization for screen readers
+
+Educational notes:
+- Emphasize how few lines create a sophisticated visualization
+- FFT is used in music apps, voice recognition, and scientific analysis
+- The p5.sound library abstracts complex digital signal processing
+
+Implementation: p5.js with p5.sound library
+Note: Requires HTTPS or localhost for microphone access
+</code></pre></div></td></tr></table></div>
+</details>
+<p>This MicroSim showcases the remarkable power of p5.js—creating a real-time audio visualizer in about 30 lines of code. The <code>p5.FFT</code> object handles all the complex mathematics of frequency analysis, letting you focus on the creative visualization.</p>
+<h2 id="microsim-3d-animation-fun">MicroSim: 3D Animation Fun</h2>
+<p>p5.js isn't limited to 2D graphics! By using <strong>WebGL mode</strong>, you can create stunning 3D graphics right in the browser. Let's explore a playful 3D animation that demonstrates p5.js's versatility:</p>
+<h4 id="diagram-spinning-3d-shapes-microsim">Diagram: Spinning 3D Shapes MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Spinning 3D Shapes MicroSim&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Demonstrate p5.js&#39;s WebGL capabilities for 3D graphics and introduce 3D coordinate concepts (Bloom: Understand, Apply)
+
+Canvas layout:
+- Full canvas: 400x400 pixels in WEBGL mode
+- No separate control area (controls via mouse interaction)
+
+Visual elements:
+- Central rotating torus (donut shape) in primary color
+- Multiple orbiting smaller shapes (spheres, boxes, cones) in complementary colors
+- Subtle ambient lighting and directional light for depth
+- Gradient background transitioning from deep purple to dark blue
+- Stars or particles in background for cosmic feel
+
+3D concepts demonstrated:
+- WEBGL rendering mode
+- rotateX(), rotateY(), rotateZ() functions
+- translate() in 3D space
+- 3D primitives: sphere(), box(), torus(), cone()
+- Lighting: ambientLight(), directionalLight()
+- Camera perspective (automatic in WEBGL)
+
+Interactive features:
+- Mouse X position controls rotation speed
+- Mouse Y position controls lighting intensity
+- Clicking changes color scheme
+- Drag to orbit camera around scene
+
+Animation behavior:
+- Central torus rotates smoothly on Y axis
+- Orbiting shapes follow circular paths at different speeds
+- Each orbiting shape also rotates on its own axis
+- Creates a playful &quot;solar system&quot; or &quot;atom&quot; visual effect
+
+Code structure:
+```
+let angle = 0;
+
+function setup() {
+  createCanvas(400, 400, WEBGL);
+  colorMode(HSB);
+}
+
+function draw() {
+  background(260, 80, 15);  // Deep purple-blue
+
+  // Lighting
+  ambientLight(60);
+  directionalLight(255, 255, 255, 0, 0, -1);
+
+  // Central torus
+  push();
+  rotateY(angle);
+  rotateX(angle * 0.3);
+  fill(180, 70, 90);  // Teal
+  torus(80, 30);
+  pop();
+
+  // Orbiting spheres
+  for (let i = 0; i &lt; 5; i++) {
+    push();
+    rotateY(angle * (i + 1) * 0.2);
+    translate(150, 0, 0);
+    rotateX(angle * 2);
+    fill((i * 60) % 360, 80, 90);
+    sphere(15);
+    pop();
+  }
+
+  angle += 0.02;
+}
+```
+
+Color scheme:
+- HSB color mode for vibrant, easy-to-manipulate colors
+- Rainbow progression for orbiting shapes
+- Complementary colors for visual harmony
+
+Performance notes:
+- WEBGL mode uses GPU acceleration
+- Smooth animation even with multiple 3D shapes
+- Demonstrates p5.js handles 3D as elegantly as 2D
+
+Educational emphasis:
+- Show that 3D is just an extension of 2D concepts
+- Same setup()/draw() pattern works for 3D
+- Encourages experimentation with 3D primitives
+
+Implementation: p5.js with WEBGL mode
+</code></pre></div></td></tr></table></div>
+</details>
+<p>This 3D MicroSim demonstrates that p5.js's elegant simplicity extends into three dimensions. The same <code>setup()</code> and <code>draw()</code> pattern you learned for 2D works identically for 3D—you simply add <code>WEBGL</code> as the third parameter to <code>createCanvas()</code> and suddenly you have access to a whole new dimension of creative possibilities!</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>Let's summarize the essential concepts from this chapter:</p>
+<ol>
+<li>
+<p><strong>p5.js</strong> is a JavaScript library designed to make creative coding accessible and joyful, with roots in the Processing project and strong institutional support from NYU ITP.</p>
+</li>
+<li>
+<p>The <strong>canvas element</strong> is your digital drawing surface, created with <code>createCanvas(width, height)</code>.</p>
+</li>
+<li>
+<p>The <strong>coordinate system</strong> places (0,0) at the top-left corner, with X increasing rightward and Y increasing downward.</p>
+</li>
+<li>
+<p><strong>Pixels</strong> are the smallest addressable points on the canvas, and colors are specified using the <strong>RGB model</strong> (0-255 for each channel).</p>
+</li>
+<li>
+<p>The <strong>setup() function</strong> runs once at program start; the <strong>draw() function</strong> runs repeatedly as an <strong>animation loop</strong>.</p>
+</li>
+<li>
+<p><strong>Global variables</strong> persist across function calls and enable animation; <strong>local variables</strong> exist only within their function.</p>
+</li>
+<li>
+<p>The <strong>frame rate</strong> (default 60 fps) controls how often draw() executes.</p>
+</li>
+<li>
+<p>The <strong>background()</strong> function clears and colors the canvas; <strong>fill()</strong> sets the color for shapes.</p>
+</li>
+<li>
+<p>p5.js includes powerful additional libraries like <strong>p5.sound</strong> for audio visualization.</p>
+</li>
+<li>
+<p><strong>3D graphics</strong> are accessible through WEBGL mode using the same simple patterns.</p>
+</li>
+</ol>
+<details class="question">
+<summary>Quick Check: What's the coordinate of a point at the exact center of a 400×300 canvas?</summary>
+<p>The center would be at <strong>(200, 150)</strong> — half the width and half the height. Remember, we're measuring from the top-left corner!</p>
+</details>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that you understand the fundamentals of p5.js, you're ready to start building your own MicroSims! In the next chapter, we'll explore how to add <strong>interactive controls</strong>—sliders, buttons, and input fields—that let users experiment with simulation parameters.</p>
+<p>The joy of p5.js is that every concept you learn opens up new creative possibilities. With just the tools from this chapter, you could create:</p>
+<ul>
+<li>Bouncing animations with physics</li>
+<li>Color-changing patterns</li>
+<li>Mouse-following visualizations</li>
+<li>Simple particle systems</li>
+<li>Audio-reactive art</li>
+<li>3D explorations</li>
+</ul>
+<p>The canvas is yours. Go create something wonderful!</p>
+<h2 id="references">References</h2>
+<p>For further exploration of p5.js:</p>
+<ul>
+<li><a href="https://p5js.org">p5.js Official Website</a> - Documentation, tutorials, and examples</li>
+<li><a href="https://editor.p5js.org">p5.js Web Editor</a> - Browser-based coding environment</li>
+<li><a href="https://thecodingtrain.com">The Coding Train</a> - Daniel Shiffman's video tutorials</li>
+<li><a href="https://processingfoundation.org">Processing Foundation</a> - The non-profit behind Processing and p5.js</li>
+<li><a href="https://itp.nyu.edu">NYU ITP</a> - Academic home of p5.js development</li>
+</ul>
 
 
 
