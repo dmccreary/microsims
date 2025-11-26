@@ -636,8 +636,6 @@
         
       
         
-          
-        
       
         
           
@@ -723,6 +721,14 @@
           
         
       
+        
+          
+        
+      
+        
+      
+        
+          
         
       
         
@@ -1358,30 +1364,38 @@
 <p>Our paper on MicroSims is now available on the ArXiv server:
 <a href="https://arxiv.org/abs/2511.19864">MicroSims: A Framework for AI-Generated, Scalable Educational Simulations with Universal Embedding and Adaptive Learning Support</a></p>
 </div>
-<p>A MicroSim (or Micro-Simulation) is a simple interactive simulation program that can be quickly generated using generative AI to help teachers explain concepts to students.  MicroSims can be imbedded in <a href="glossary/#intelligent-textbook"></a></p>
-<p>MicroSims can use a framework of rules and best practices and <a href="rules/design-patterns/">20 Design Patterns</a> to turn a brief descriptive text into a shareable learning asset.  MicroSims are unique for three reasons:</p>
+<p>A MicroSim (or Micro-Simulation) is a simple interactive simulation program that can be quickly generated using AI to help teachers explain concepts to students.  MicroSims can be imbedded in <a href="glossary/#intelligent-textbook">Intelligent Textbook</a> or any website that allows you to add an <a href="glossary/#iframe-integration"><code>iframe</code></a> element.</p>
+<p>MicroSims generators use a framework of rules (skills) that turn a brief descriptive text of a simulation into a shareable learning asset.  MicroSims are unique for three reasons:</p>
 <ol>
 <li><strong>AI-Assisted Generation</strong> - Standardized <a href="glossary/#design-pattern">design patterns</a> that enable educators to create custom simulations
   from natural language descriptions</li>
-<li><strong>Universal Embedding</strong> - Iframe-based architecture that works seamlessly across any LMS, interactive
+<li><strong>Universal Embedding</strong> - Iframe-based architecture that works seamlessly across any website, interactive
   textbook, or digital learning platform.  Any web page can include a MicroSim with just a single HTML <code>iframe</code> element</li>
 <li><strong>Transparent, Modifiable Code</strong> - No black boxes. Educators can customize simulations to match specific
   curriculum needs.  With a single click you can be editing a MicroSim in a web-based editor.  A <a href="license/">creative commons license</a>
   allows most teachers to use MicroSims in your classrooms without paying license fees.</li>
 </ol>
-<p>The term <strong>MicroSim</strong> was coined by <a href="https://www.linkedin.com/in/valockhart/">Val Lockhart</a> in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful <a href="glossary/#p5js">p5.js</a> simulations using GPT-4 with little or no training.</p>
+<p>The term <strong>MicroSim</strong> was coined by <a href="https://www.linkedin.com/in/valockhart/">Valerie Lockhart</a> in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could the powerful <a href="glossary/#p5js">p5.js</a> JavaScript library to created simulations with little or no training.
+Valerie has been working since early 2023 to introduce generative AI to schools and classrooms.</p>
 <h2 id="the-microsim-metadata-and-a-microsim-registry">The MicroSim Metadata and a MicroSim Registry</h2>
 <p>One of our goals on this site is to create a library of MicroSims that can be search and a specific can be quickly modified generative AI application.
 However, we also know that users cannot reused what they cannot find.  So therefore we have created a detailed <a href="https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json">JSON Schema</a> for describing a MicroSim.  By providing a link to this
 schema in your prompt you will find tha generative AI tools create high-quality metadata for each MicroSim.  Creating an official
 MicroSim registry with advanced faceted search similar to the Hugging Face model search is on our roadmap.</p>
 <h2 id="how-to-use-this-site">How to Use This Site</h2>
-<p>We provide both a search and navigation system to reach the MicroSims.</p>
-<p>Here are some samples to get you started:</p>
+<p>We provide both a search and navigation system to help you find some MicroSims.</p>
+<p>Here are some sample MicroSims from this site and others to get you started:</p>
 <ul>
 <li><a href="sims/bouncing-ball/">Bouncing Ball</a> - our classic "Hello World" demo to get started</li>
-<li><a href="sims/string-harmonics/">String Harmonics</a> - one version includes the use of sound.</li>
-<li><a href="sims/sphere/">3D Sphere</a> - demonstrates the use of the 3D libraries</li>
+<li><a href="./sims/projectile-motion/">Projectile Motion</a> - simulating firing a ball from a canon</li>
+<li><a href="sims/string-harmonics/">String Harmonics</a> - one version includes the use of sound</li>
+<li><a href="sims/sphere/">3D Sphere</a> - demonstrates the use of the 3D rendering libraries in p5.js</li>
+<li><a href="https://dmccreary.github.io/algebra-1/sims/expression-explorer/">Expression Explorer</a> - allows user to understand various components of equations</li>
+<li><a href="https://dmccreary.github.io/signal-processing/sims/fft-mic/">Spectrum From Microphone</a> - allows a user to talk into their microphone and see the frequency spectrum</li>
+<li><a href="https://dmccreary.github.io/personal-finance/sims/stock-market-returns/">Stock Market Returns</a> - shows a vertical bar chart with hover for US stock market returns over the last 30 years</li>
+<li><a href="https://dmccreary.github.io/signal-processing/sims/euler-formula-explorer/">Euler's Formula</a> - allows the user to see how Euler's formula connects exponential functions with trigonometric functions</li>
+<li><a href="./sims/conway-game-of-life/">Conway's Game of Life</a> - a demonstration of cellular automaton using the famous Conway's Game of Life algorithm</li>
+<li><a href="https://dmccreary.github.io/claude-skills/sims/book-build-workflow/">Book Build Workflow</a> - a Mermaid.js diagram of the steps to build an intelligent textbook with MicroSims using Claude Code Skills</li>
 </ul>
 
 
