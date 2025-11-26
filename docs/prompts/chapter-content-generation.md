@@ -114,3 +114,13 @@ I should also mention that I love MicroSims with a "Quiz Mode", but sometimes th
 push us over the edge of complexity.
 
 ## Chapter 14
+
+Log the chapter 13 session and run the chapter-content-generator skill on chapter 14 @docs/chapters.14-professional-development-and-capstone/index.md
+It is my sincere hope that students are not just isolated "cowboy" (or cowgirl) programmers
+that believe that the only path to success in your career is to work alone.
+My prediction is that the greatest interactive intelligent books full of beautiful MicroSims
+will be created by teams of people working together to build libraries of MicroSims
+that are robust, reusable and are easily customized by both people and intelligent agents.
+This chapter is about how you can work in teams to build project collaboratively with others.
+Remembering to do a 'git pull' before you start writing code is an important habit to build
+even when you are working in isolation.
