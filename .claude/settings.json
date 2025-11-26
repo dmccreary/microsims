@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/track-prompts.sh",
+            "description": "Log user prompts to correlate with skill usage"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/track-skill-start.sh",
+            "description": "Log skill invocation start time and parameters"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/track-skill-end.sh",
+            "description": "Log skill completion time and calculate duration"
+          }
+        ]
+      }
+    ]
+  }
+}
