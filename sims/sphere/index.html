@@ -966,16 +966,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Response
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Response">
+    <nav class="md-nav" aria-label="Sample Prompt">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3507,16 +3498,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-response" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Response
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Response">
+    <nav class="md-nav" aria-label="Sample Prompt">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3720,26 +3702,28 @@
 
 
 <h1 id="bouncing-3d-sphere-demo">Bouncing 3D Sphere Demo</h1>
+<iframe src="main.html" width="100%" height="400px" scrolling="no"></iframe>
+
 <p>You can also use the 3D "WebGL" rendering system that is built into p5.js. 
 <a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a>, short for Web Graphics Library is
 is a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser.
 The p5.js has many high-level 3D shapes such as box, cone, cylinder, ellipsoid, plane, sphere, and torus 
 in the <a href="https://p5js.org/reference/#/p5/WEBGL">WEBGL Library</a>.</p>
-<ul>
-<li><a class="md-button md-button--primary" href="sphere.html">3D Sphere Demo</a></li>
-</ul>
+<p><a class="md-button md-button--primary" href="index.html">Run the 3D Sphere Demo Fullscreen</a></p>
 <h2 id="sample-prompt">Sample Prompt</h2>
-<div class="highlight"><pre><span></span><code>1. Generate a single file p5.js sketch using WEBGL for a 3D animation.
-2. Show a sphere of size 50 that is bouncing around the canvas.
-3. Use the ```WEBGL``` as the third parameter of the createCanvas.
-4. Cover the sphere with a texture that has grid of white and red squares.
-5. Use noStroke() in the texture to not draw the outlines of the grid.
-6. Add a drop shadow under the sphere
-
-function setup() {
+<div class="admonition prompt">
+<p class="admonition-title">Prompt</p>
+</div>
+<ol>
+<li>Generate a single file p5.js sketch using WEBGL for a 3D animation.</li>
+<li>Show a sphere of size 50 that is bouncing around the canvas.</li>
+<li>Use the <code>WEBGL</code> as the third parameter of the createCanvas.</li>
+<li>Cover the sphere with a texture that has grid of white and red squares.</li>
+<li>Use noStroke() in the texture to not draw the outlines of the grid.</li>
+<li>Add a drop shadow under the sphere</li>
+</ol>
+<p>function setup() {
   createCanvas(600, 400, WEBGL);
-</code></pre></div>
-<h2 id="sample-response">Sample Response</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -3800,68 +3784,74 @@ function setup() {
 <span class="normal">58</span>
 <span class="normal">59</span>
 <span class="normal">60</span>
-<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// A bouncing sphere with a red and white grid texture</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">xspeed</span><span class="p">,</span><span class="w"> </span><span class="nx">yspeed</span><span class="p">,</span><span class="w"> </span><span class="nx">zspeed</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">diameter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">diameter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">600</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code>## Sample Response
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">WEBGL</span><span class="p">);</span>
-<span class="w">  </span><span class="c1">// comment this out if running in the example</span>
-<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="s1">&#39;canvas-container&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">xspeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">yspeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.3</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">zspeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.7</span><span class="p">;</span>
-<span class="p">}</span>
+```javascript
+// A bouncing sphere with a red and white grid texture
+let x, y, z;
+let xspeed, yspeed, zspeed;
+let diameter = 50;
+let radius = diameter / 2;
+let canvasWidth = 600;
+let canvasHeight = 400;
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">);</span>
+function setup() {
+  const canvas = createCanvas(canvasWidth, canvasHeight, WEBGL);
+  // comment this out if running in the example
+  canvas.parent(&#39;canvas-container&#39;);
+  x = 0;
+  y = 0;
+  z = 0;
+  xspeed = 2;
+  yspeed = 2.3;
+  zspeed = 1.7;
+}
 
-<span class="w">  </span><span class="c1">// Update the position of the sphere</span>
-<span class="w">  </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">xspeed</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">yspeed</span><span class="p">;</span>
-<span class="w">  </span><span class="nx">z</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">zspeed</span><span class="p">;</span>
+function draw() {
+  background(240);
 
-<span class="w">  </span><span class="c1">// Check for bouncing</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">xspeed</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">yspeed</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">z</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span><span class="mf">200</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">zspeed</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
+  // Update the position of the sphere
+  x += xspeed;
+  y += yspeed;
+  z += zspeed;
 
-<span class="w">  </span><span class="c1">// Draw the sphere with a texture</span>
-<span class="w">  </span><span class="nx">push</span><span class="p">();</span>
-<span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">z</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">texture</span><span class="p">(</span><span class="nx">createGridTexture</span><span class="p">());</span>
-<span class="w">  </span><span class="nx">sphere</span><span class="p">(</span><span class="nx">diameter</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">pop</span><span class="p">();</span>
-<span class="p">}</span>
+  // Check for bouncing
+  if (x &gt; width/2 - radius || x &lt; -width/2 + radius) {
+    xspeed *= -1;
+  }
+  if (y &gt; height/2 - radius || y &lt; -height/2 + radius) {
+    yspeed *= -1;
+  }
+  if (z &gt; 200 - radius || z &lt; -200 + radius) {
+    zspeed *= -1;
+  }
 
-<span class="c1">// create texture pattern of a grid of white and red squares</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">createGridTexture</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">texSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">200</span><span class="p">;</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">texture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createGraphics</span><span class="p">(</span><span class="nx">texSize</span><span class="p">,</span><span class="w"> </span><span class="nx">texSize</span><span class="p">);</span>
-<span class="w">  </span><span class="c1">// I had to add this line by</span>
-<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">texSize</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">texSize</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">texture</span><span class="p">.</span><span class="nx">fill</span><span class="p">((</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">40</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;white&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
-<span class="w">      </span><span class="nx">texture</span><span class="p">.</span><span class="nx">rect</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">texture</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+  // Draw the sphere with a texture
+  push();
+  translate(x, y, z);
+  texture(createGridTexture());
+  sphere(diameter);
+  pop();
+}
+
+// create texture pattern of a grid of white and red squares
+function createGridTexture() {
+  let texSize = 200;
+  let texture = createGraphics(texSize, texSize);
+  // I had to add this line by
+  noStroke();
+  for (let i = 0; i &lt; texSize; i += 20) {
+    for (let j = 0; j &lt; texSize; j += 20) {
+      texture.fill((i + j) % 40 === 0 ? &#39;white&#39; : &#39;red&#39;);
+      texture.rect(i, j, 20, 20);
+    }
+  }
+  return texture;
+}
+</code></pre></div></td></tr></table></div></p>
 <h3 id="what-we-learned">What We Learned</h3>
 <ul>
 <li>P5.js has a robust library of 3D animation tools</li>
