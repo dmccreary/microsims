@@ -1,0 +1,2125 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/rules/design-patterns/">
+      
+      
+        <link rel="prev" href="../microsim-rules/">
+      
+      
+        <link rel="next" href="../cursor/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Design Patterns - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Design Patterns - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/rules/design-patterns.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/rules/design-patterns/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Design Patterns - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/rules/design-patterns.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microsim-design-patterns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Design Patterns
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Rules
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Rules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microsim-rules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Standard MicroSim Rules
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Design Patterns
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Design Patterns
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-two-region-canvas-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Two-Region Canvas Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-width-responsive-layout-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Width-Responsive Layout Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-container-parent-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Container Parent Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-labeled-slider-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Labeled Slider Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-startpause-toggle-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Start/Pause Toggle Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-standard-color-scheme-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Standard Color Scheme Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-centered-title-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Centered Title Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-accessibility-description-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Accessibility Description Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-two-column-layout-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Two-Column Layout Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-delta-time-animation-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Delta Time Animation Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-boundary-reflection-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Boundary Reflection Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-coordinate-transform-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Coordinate Transform Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-standard-variables-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Standard Variables Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-iframe-embedding-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Iframe Embedding Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-code-organization-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Code Organization Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-hover-tooltip-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Hover Tooltip Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-debug-mode-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Debug Mode Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-open-graph-aspect-ratio-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. Open Graph Aspect Ratio Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cursor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cursor Rule Loading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Claude Skills
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-two-region-canvas-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Two-Region Canvas Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-width-responsive-layout-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Width-Responsive Layout Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-container-parent-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Container Parent Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-labeled-slider-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Labeled Slider Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-startpause-toggle-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Start/Pause Toggle Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-standard-color-scheme-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Standard Color Scheme Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-centered-title-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Centered Title Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-accessibility-description-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Accessibility Description Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-two-column-layout-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Two-Column Layout Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-delta-time-animation-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Delta Time Animation Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-boundary-reflection-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Boundary Reflection Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-coordinate-transform-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Coordinate Transform Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-standard-variables-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Standard Variables Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-iframe-embedding-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Iframe Embedding Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-code-organization-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Code Organization Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-hover-tooltip-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Hover Tooltip Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-debug-mode-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Debug Mode Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-open-graph-aspect-ratio-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. Open Graph Aspect Ratio Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/rules/design-patterns.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="microsim-design-patterns">MicroSim Design Patterns</h1>
+<p>This page documents the reusable design patterns used across MicroSims. Each pattern follows ISO 11179 naming conventions with a precise definition and code example.</p>
+<h2 id="1-two-region-canvas-pattern">1. Two-Region Canvas Pattern</h2>
+<p>A canvas layout that divides vertical space into an upper visualization region and a lower control region, enabling clear separation between simulation content and user interface elements.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w">      </span><span class="c1">// Upper visualization region</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w">    </span><span class="c1">// Lower control region</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="2-width-responsive-layout-pattern">2. Width-Responsive Layout Pattern</h2>
+<p>A responsive design approach where canvas width adapts to container dimensions while height remains fixed, enabling consistent embedding across different viewport sizes.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">containerWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">containerHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="3-container-parent-pattern">3. Container Parent Pattern</h2>
+<p>A DOM attachment method that binds the p5.js canvas to a specific HTML element, enabling consistent positioning within page layouts and compatibility with the p5.js editor.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="4-labeled-slider-pattern">4. Labeled Slider Pattern</h2>
+<p>A control layout where each slider displays its label and current value to the left of the control element, providing immediate feedback to users.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Speed: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(),</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="5-startpause-toggle-pattern">5. Start/Pause Toggle Pattern</h2>
+<p>An animation control that alternates between running and paused states using a single button with dynamic labeling.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="6-standard-color-scheme-pattern">6. Standard Color Scheme Pattern</h2>
+<p>A consistent color palette where the drawing region uses 'aliceblue' background with 'silver' borders and the control region uses 'white' background.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
+<span class="nx">stroke</span><span class="p">(</span><span class="s1">&#39;silver&#39;</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="7-centered-title-pattern">7. Centered Title Pattern</h2>
+<p>A text placement convention where the simulation title is centered horizontally at the top of the drawing region in 24pt font.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">textSize</span><span class="p">(</span><span class="mf">24</span><span class="p">);</span>
+<span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">TOP</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Simulation Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="8-accessibility-description-pattern">8. Accessibility Description Pattern</h2>
+<p>An accessibility feature that provides a text description of the simulation for screen readers using the p5.js <code>describe()</code> function.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... canvas setup ...</span>
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Interactive bouncing ball simulation with speed control&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">LABEL</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="9-two-column-layout-pattern">9. Two-Column Layout Pattern</h2>
+<p>A horizontal division of the drawing area into a simulation section (typically 60%) and a chart/graph section (typically 40%) for data visualization.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">simWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.6</span><span class="p">;</span>
+<span class="nx">chartWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span>
+<span class="nx">push</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">simWidth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chartMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">drawChart</span><span class="p">();</span>
+<span class="nx">pop</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="10-delta-time-animation-pattern">10. Delta Time Animation Pattern</h2>
+<p>A timing technique that uses elapsed time between frames to ensure consistent animation speed across devices with different frame rates.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">updateSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">timeScale</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="11-boundary-reflection-pattern">11. Boundary Reflection Pattern</h2>
+<p>A collision detection method that reverses object velocity when it reaches canvas edges, creating contained motion within the drawing region.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">r</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">r</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="12-coordinate-transform-pattern">12. Coordinate Transform Pattern</h2>
+<p>A rendering technique using <code>push()</code>, <code>translate()</code>, and <code>pop()</code> to create local coordinate systems for drawing complex elements or charts.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">push</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">scale</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Flip y-axis for mathematical coordinates</span>
+<span class="w">  </span><span class="nx">drawSineWave</span><span class="p">();</span>
+<span class="nx">pop</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="13-standard-variables-pattern">13. Standard Variables Pattern</h2>
+<p>A set of consistently named global variables that define canvas dimensions, margins, and layout properties across all MicroSims.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">105</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">defaultTextSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="14-iframe-embedding-pattern">14. Iframe Embedding Pattern</h2>
+<p>An HTML integration method where the MicroSim is embedded in web pages using a fixed-height iframe with scrolling disabled.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;450px&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="15-code-organization-pattern">15. Code Organization Pattern</h2>
+<p>A file structure convention where code is ordered: global variables, <code>setup()</code>, <code>draw()</code>, helper functions, then event handlers.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// 1. Global variables</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
+
+<span class="c1">// 2. Setup function</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// 3. Draw function</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// 4. Helper functions</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">drawSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// 5. Event handlers</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="16-hover-tooltip-pattern">16. Hover Tooltip Pattern</h2>
+<p>An interactive feedback mechanism that displays contextual information when the user hovers over specific regions of the visualization.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">drawTooltip</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">hoveredLayer</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">230</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">(</span><span class="nx">tx</span><span class="p">,</span><span class="w"> </span><span class="nx">ty</span><span class="p">,</span><span class="w"> </span><span class="nx">tw</span><span class="p">,</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="nx">tooltipText</span><span class="p">,</span><span class="w"> </span><span class="nx">tx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">ty</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">11</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="17-debug-mode-pattern">17. Debug Mode Pattern</h2>
+<p>A development aid that displays diagnostic information (canvas dimensions, frame rate) when a DEBUG flag is enabled.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">DEBUG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">DEBUG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="sb">`Canvas: </span><span class="si">${</span><span class="nx">canvasWidth</span><span class="si">}</span><span class="sb">x</span><span class="si">${</span><span class="nx">canvasHeight</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="sb">`FPS: </span><span class="si">${</span><span class="nx">floor</span><span class="p">(</span><span class="nx">frameRate</span><span class="p">())</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="18-open-graph-aspect-ratio-pattern">18. Open Graph Aspect Ratio Pattern</h2>
+<p>A canvas sizing approach that uses the 1.91:1 Open Graph standard aspect ratio for optimal social media preview rendering.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">aspectRatio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.91</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">aspectRatio</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li><a href="../microsim-rules/">MicroSim Standard Rules</a></li>
+<li><a href="../cursor/">Cursor Rules File</a></li>
+<li><a href="https://p5js.org/reference/">p5.js Reference</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../microsim-rules/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Standard MicroSim Rules">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Standard MicroSim Rules
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cursor/" class="md-footer__link md-footer__link--next" aria-label="Next: Cursor Rule Loading">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cursor Rule Loading
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
