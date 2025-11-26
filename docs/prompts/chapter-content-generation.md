@@ -76,3 +76,41 @@ comes in.  It serves as a way to map a learning objective to a specific type of 
 ## Chapter 10
 
 Run the chapter-content-generator skill on chapter 10 @docs/chapters/10-charts-diagrams-and-infographics/index.md
+Despite the power of p5.js, there is no "one size fits all" rule in generating MicroSims.
+In this chapter we explore the world of generating interactive charts, diagrams like flowcharts and workflows and
+the general topic of infographics that connect visual components with understanding.
+You will learning how simple charts work and see how the types of data that you want to present will guild your
+chart type.
+
+## Chapter 11
+
+Run the chapter-content-generator skill on chapter 11 @docs/chapters/11-maps-networks-and-timeline-visualizations/index.md
+Here we get into some of the most powerful MicroSims for analyzing both concepts and their relationships.
+We show that manually laying out things like an constantly changing org. Chart is both slow and painful.
+Luckily there are ways to automate the layout of complex structures.  The origin story is how a team at Bell Labs created
+a product called GraphVis back in the 1980s that collected many layout algorithms.  From there many
+different generations of products evolved.  Today many of these layout algorithms are available through the vis-network
+JavaScript library.  Let's explore how they work and how we can bring order to these complex network diagrams to
+build fun and insightful MicroSims.
+
+## Chapter 12
+
+Log the 11 session and Run the chapter-content-generator skill on chapter 12 @docs/chapters/12-metadata-packaging-and-quality/index.md
+Creating the Javascript program and the main.html are the core of the MicroSim.  But to be really useful
+we need to wrap these files up in a pretty and consistent package and tie a bow around it.  How
+can others tell we have used care at creating our MicroSim?  We present a consistent quality
+metric so that our users know what they are getting.   These quality rules also give us hints
+at what we can do to meet and exceed the expectations of our users.
+
+## Chapter 13
+
+Log the 12 session and Run the chapter-content-generator skill on chapter 13 @docs/chapters/13-pedagogy-assessment-and-accessibility/index.md
+You might be wondering if your MicroSim should be clean and simple showing just a single
+slider to control a simulation speed, or should you show off you developer prowess and
+add a dozen sliders to control all aspects of your MicroSim.  Which one will provide the best
+results?  In this chapter we dip into the area of learning how students learn.  This
+will guide you to make the right decisions on how many features your MicroSim should have.
+I should also mention that I love MicroSims with a "Quiz Mode", but sometimes that does
+push us over the edge of complexity.
+
+## Chapter 14
