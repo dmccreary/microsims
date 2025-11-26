@@ -16,7 +16,7 @@ let containerHeight = canvasHeight; // fixed height on page determined by MicroS
 
 // margin around the active plotting region
 let margin = 25;
-let sliderLeftMargin = 90;
+let sliderLeftMargin = 160;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
 
@@ -32,6 +32,9 @@ let dx = speed;
 let dy = speed;
 // global variable for speed slider since the resize function needs to access it
 let speedSlider;
+// Start/Pause button and running state
+let startButton;
+let isRunning = false; // default state is paused
 
 function setup() {
   updateCanvasSize() // set the container dimensions to get the correct container width
@@ -40,9 +43,17 @@ function setup() {
   canvas.parent(mainElement);
 
   textSize(16);
+
+  // Create Start/Pause button
+  startButton = createButton('Start');
+  startButton.position(10, drawHeight + 5);
+  startButton.mousePressed(toggleSimulation);
+
   speedSlider = createSlider(0, 20, speed);
   speedSlider.position(sliderLeftMargin, drawHeight + 5);
   speedSlider.size(canvasWidth - sliderLeftMargin - margin);
+
+  describe('Interactive bouncing ball simulation with speed control and start/pause button', LABEL);
 }
 
 function draw() {
@@ -69,23 +80,26 @@ function draw() {
   text('Bouncing Ball Simulation', canvasWidth/2, margin);
   // stroke();
 
-  // adjust the x and y directions
-  if (dx > 0) dx = speed;
-     else dx = -speed;
-  
-  if (dy > 0) dy = speed;
-     else dy = -speed;
-  
-  // Add the current speed to the position.
-  x += dx;
-  y += dy;
+  // Only update position when running
+  if (isRunning) {
+    // adjust the x and y directions
+    if (dx > 0) dx = speed;
+       else dx = -speed;
 
-  // checks for edges right or left
-  if ((x > width-r) || (x < r)) {
-    dx = dx * -1; // change direction
-  }
-  if ((y > drawHeight - r) || (y < r)) {
-    dy = dy * -1;
+    if (dy > 0) dy = speed;
+       else dy = -speed;
+
+    // Add the current speed to the position.
+    x += dx;
+    y += dy;
+
+    // checks for edges right or left
+    if ((x > width-r) || (x < r)) {
+      dx = dx * -1; // change direction
+    }
+    if ((y > drawHeight - r) || (y < r)) {
+      dy = dy * -1;
+    }
   }
 
   // draw the ball
@@ -97,7 +111,13 @@ function draw() {
   noStroke();
   textAlign(LEFT, CENTER);
   textSize(defaultTextSize);
-  text('Speed: ' + speed, 10, drawHeight+15);
+  text('Speed: ' + speed, 70, drawHeight+15);
+}
+
+// Toggle between running and paused states
+function toggleSimulation() {
+  isRunning = !isRunning;
+  startButton.html(isRunning ? 'Pause' : 'Start');
 }
 
 // These two functions must be present for width responsiveness MicroSims
