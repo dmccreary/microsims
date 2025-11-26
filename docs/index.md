@@ -10,7 +10,7 @@ Welcome to the MicroSims for Education website.
 
 A MicroSim (or Micro-Simulation) is a simple interactive simulation program that can be quickly generated using generative AI to help teachers explain concepts to students.  MicroSims can be imbedded in [](./glossary.md#intelligent-textbook)
 
-MicroSims can use a framework of rules and best practices to turn a brief descriptive text into a shareable learning asset.  MicroSims are unique for three reasons:
+MicroSims can use a framework of rules and best practices and [20 Design Patterns](./rules/design-patterns.md) to turn a brief descriptive text into a shareable learning asset.  MicroSims are unique for three reasons:
 
 1. **AI-Assisted Generation** - Standardized [design patterns](glossary.md#design-pattern) that enable educators to create custom simulations
   from natural language descriptions
@@ -22,23 +22,12 @@ MicroSims can use a framework of rules and best practices to turn a brief descri
 
 The term **MicroSim** was coined by [Val Lockhart](https://www.linkedin.com/in/valockhart/) in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful [p5.js](./glossary.md#p5js) simulations using GPT-4 with little or no training.
 
-## System Prompt Limitations
+## The MicroSim Metadata and a MicroSim Registry
 
-Although you can create a [System Prompt](./setup/02-system-prompt.md) that puts many best practices in the context window of ChatGPT, it is not an ideal solution.
-A better process is building a customized GPT on
-curated examples that have a high-quality interface with good user experience design reviews.  This is one of the objectives
-of this website.
-
-## The MicroSim Registry
-
-One of our goals on this site is to create a library of MicroSims that can be used to fine-tune a generative AI application.  We have found that new [GPTs](https://openai.com/blog/introducing-gpts) will create higher-quality simulations if they are trained with a high-quality training set.  This reflects the fact that although there are tens of thousands of sample [JavaScript](./glossary.md#javascript) animations, many of them are created by first-time programmers.
-
-Although it is easy for a non-programmer to use generative AI to create a new MicroSim, it is more difficult to find high-quality MicroSims that have been peer-reviewed by senior software developers and user experience designers.  These MicroSims have some of the following qualities:
-
-1. Clearly labeled controls with values.  We discourage the use of mouse actions that are unlabeled.
-2. Controls that are placed at the bottom of the simulation.  This encourages [smartboard](./glossary.md#smartboard) use in classrooms.
-3. Controls aligned for visual aesthetics
-4. A machine-readable ([YAML](./glossary.md#yaml)) description of the MicroSim including subject, topic and [UI](./glossary.md#uiux) controls.
+One of our goals on this site is to create a library of MicroSims that can be search and a specific can be quickly modified generative AI application.
+However, we also know that users cannot reused what they cannot find.  So therefore we have created a detailed [JSON Schema](https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json) for describing a MicroSim.  By providing a link to this
+schema in your prompt you will find tha generative AI tools create high-quality metadata for each MicroSim.  Creating an official
+MicroSim registry with advanced faceted search similar to the Hugging Face model search is on our roadmap.
 
 ## How to Use This Site
 
