@@ -3,6 +3,7 @@
 <iframe src="main.html" width="100%" height="500px" scrolling="no" style="border: 1px solid silver;"></iframe>
 
 [Run the A* Algorithm in Full Screen](main.html){ .md-button .md-button--primary }
+[Edit the MicroSim](https://editor.p5js.org/dmccreary/sketches/PoBtTCycX)
 
 ## About This MicroSim
 
