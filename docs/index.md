@@ -4,9 +4,21 @@
 
 Welcome to the MicroSims for Education website.
 
-A MicroSim (or Micro-Simulation) is a simple animation or simulation program that is quickly generated using generative AI to help teachers explain concepts to students.  MicroSims are
-designed to be generated from a brief description of a problem using generative
-AI tools such as ChatGPT.
+!!! Announcement
+    Our paper on MicroSims is now available on the ArXiv server:
+    [MicroSims: A Framework for AI-Generated, Scalable Educational Simulations with Universal Embedding and Adaptive Learning Support](https://arxiv.org/abs/2511.19864)
+
+A MicroSim (or Micro-Simulation) is a simple interactive simulation program that can be quickly generated using generative AI to help teachers explain concepts to students.  MicroSims can be imbedded in [](./glossary.md#intelligent-textbook)
+
+MicroSims can use a framework of rules and best practices to turn a brief descriptive text into a shareable learning asset.  MicroSims are unique for three reasons:
+
+1. **AI-Assisted Generation** - Standardized [design patterns](glossary.md#design-pattern) that enable educators to create custom simulations
+  from natural language descriptions
+2. **Universal Embedding** - Iframe-based architecture that works seamlessly across any LMS, interactive
+  textbook, or digital learning platform.  Any web page can include a MicroSim with just a single HTML `iframe` element
+3. **Transparent, Modifiable Code** - No black boxes. Educators can customize simulations to match specific
+  curriculum needs.  With a single click you can be editing a MicroSim in a web-based editor.  A [creative commons license](license.md)
+  allows most teachers to use MicroSims in your classrooms without paying license fees.
 
 The term **MicroSim** was coined by [Val Lockhart](https://www.linkedin.com/in/valockhart/) in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful [p5.js](./glossary.md#p5js) simulations using GPT-4 with little or no training.
 
