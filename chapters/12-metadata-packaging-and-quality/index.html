@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="Learn standards for documenting, packaging, and validating professional MicroSims">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>12 - Metadata, Packaging, and Quality - Micro Simulations for Education</title>
+        <title>Metadata, Packaging, and Quality - Micro Simulations for Education</title>
       
     
     
@@ -70,9 +70,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="12 - Metadata, Packaging, and Quality - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Metadata, Packaging, and Quality - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="Learn standards for documenting, packaging, and validating professional MicroSims" >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/12-metadata-packaging-and-quality/index.png" >
       
@@ -86,9 +86,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="12 - Metadata, Packaging, and Quality - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Metadata, Packaging, and Quality - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="Learn standards for documenting, packaging, and validating professional MicroSims" >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/12-metadata-packaging-and-quality/index.png" >
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12 - Metadata, Packaging, and Quality
+              Metadata, Packaging, and Quality
             
           </span>
         </div>
@@ -321,6 +321,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -838,6 +842,564 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tying-a-bow-around-your-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tying a Bow Around Your MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-standards-describing-your-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Standards: Describing Your Work
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Standards: Describing Your Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-metadata-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Metadata Matters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dublin-core-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dublin Core Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dublin Core Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dublin-core-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Dublin Core Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-four-essential-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Four: Essential Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#title-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Title Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creator-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creator Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subject-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subject Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      YAML Frontmatter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML Frontmatter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontmatter Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontmatter Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-microsim-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended MicroSim Frontmatter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-schema-for-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema for Validation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Schema for Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-json-schema-provides" class="md-nav__link">
+    <span class="md-ellipsis">
+      What JSON Schema Provides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsim-metadata-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Metadata Schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Packaging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Packaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-package-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Package Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-purposes" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Purposes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexmd-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      index.md File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mainhtml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      main.html File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylecss-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      style.css File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scriptjs-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      script.js File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datajson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      data.json File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadatajson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      metadata.json File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-score-and-the-100-point-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Score and the 100-Point Rubric
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Score and the 100-Point Rubric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-quality-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Quality Scoring?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-100-point-microsim-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 100-Point MicroSim Rubric
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The 100-Point MicroSim Rubric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation-25-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation (25 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-20-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata (20 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-25-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Quality (25 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-experience-20-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Experience (20 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packaging-10-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packaging (10 points)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring Interpretation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring Interpretation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-rubric-scorecard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Quality Rubric Scorecard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Validation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-validation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Validation Script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#social-media-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Media Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#social-image-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Image Preview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Social Image Preview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-preview-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Preview Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview-image-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preview Image Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-graph-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Graph Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Graph Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#essential-open-graph-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Essential Open Graph Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-open-graph-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Open Graph Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-packaging-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Packaging Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complete Packaging Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-indexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full index.md
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1588,6 +2150,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         
   
@@ -1714,6 +2296,564 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tying-a-bow-around-your-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tying a Bow Around Your MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-standards-describing-your-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata Standards: Describing Your Work
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata Standards: Describing Your Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-metadata-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Metadata Matters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dublin-core-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dublin Core Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dublin Core Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dublin-core-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Dublin Core Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-four-essential-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Four: Essential Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#title-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Title Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creator-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creator Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subject-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subject Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description Metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      YAML Frontmatter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="YAML Frontmatter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontmatter Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontmatter-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontmatter Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-microsim-frontmatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended MicroSim Frontmatter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-schema-for-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Schema for Validation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON Schema for Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-json-schema-provides" class="md-nav__link">
+    <span class="md-ellipsis">
+      What JSON Schema Provides
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsim-metadata-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Metadata Schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating Metadata
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-packaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Packaging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Packaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-package-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Package Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-purposes" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Purposes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexmd-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      index.md File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mainhtml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      main.html File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stylecss-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      style.css File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scriptjs-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      script.js File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datajson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      data.json File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadatajson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      metadata.json File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-score-and-the-100-point-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quality Score and the 100-Point Rubric
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Score and the 100-Point Rubric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-quality-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Quality Scoring?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-100-point-microsim-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 100-Point MicroSim Rubric
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The 100-Point MicroSim Rubric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation-25-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation (25 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata-20-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata (20 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-25-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Quality (25 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-experience-20-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Experience (20 points)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packaging-10-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packaging (10 points)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoring Interpretation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring Interpretation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-rubric-scorecard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Quality Rubric Scorecard
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Validation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automated-validation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automated Validation Script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#social-media-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Media Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#social-image-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Social Image Preview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Social Image Preview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-preview-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Preview Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview-image-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preview Image Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-graph-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open Graph Tags
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Open Graph Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#essential-open-graph-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Essential Open Graph Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-open-graph-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing Open Graph Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-packaging-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Packaging Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complete Packaging Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Directory Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-indexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full index.md
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1771,7 +2911,1818 @@
 <li><a href="../06-microsim-architecture-and-layout/">Chapter 6: MicroSim Architecture and Layout</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="tying-a-bow-around-your-microsim">Tying a Bow Around Your MicroSim</h2>
+<p>Creating the JavaScript program and the main.html file are the core of any MicroSim. But to be truly useful—to be shareable, discoverable, and maintainable—we need to wrap these files up in a pretty and consistent package and <strong>tie a bow around it</strong>.</p>
+<p>Think of it this way: you've baked a delicious cake (your MicroSim). Now you need to put it in a proper box, add a label so people know what's inside, and make it presentable enough that others want to open it.</p>
+<p>How can others tell you've used care in creating your MicroSim? How do they know it's worth their time? We present a consistent <strong>quality metric</strong> so that users know exactly what they're getting. These quality rules also serve as hints—a roadmap for what you can do to meet and exceed the expectations of your users.</p>
+<div class="admonition tip">
+<p class="admonition-title">The Professional Touch</p>
+<p>The difference between amateur and professional work isn't just the code—it's the presentation. Well-documented, properly packaged MicroSims signal quality before users even run them.</p>
+</div>
+<h2 id="metadata-standards-describing-your-work">Metadata Standards: Describing Your Work</h2>
+<p><strong>Metadata</strong> is data about data—information that describes your MicroSim so others can find it, understand it, and decide whether to use it. <strong>Metadata standards</strong> provide consistent vocabulary and structure for this description.</p>
+<h3 id="why-metadata-matters">Why Metadata Matters</h3>
+<table>
+<thead>
+<tr>
+<th>Without Metadata</th>
+<th>With Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"What is this?"</td>
+<td>Clear title and description</td>
+</tr>
+<tr>
+<td>"Who made this?"</td>
+<td>Creator attribution</td>
+</tr>
+<tr>
+<td>"Is this relevant?"</td>
+<td>Subject classification</td>
+</tr>
+<tr>
+<td>"When was this updated?"</td>
+<td>Date information</td>
+</tr>
+<tr>
+<td>"Can I reuse this?"</td>
+<td>License and rights</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dublin-core-metadata">Dublin Core Metadata</h2>
+<p><strong>Dublin Core</strong> is the most widely used metadata standard for describing digital resources. Originally developed for library cataloging, it provides 15 core elements that apply perfectly to educational MicroSims.</p>
+<h3 id="the-dublin-core-elements">The Dublin Core Elements</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+<th>MicroSim Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Title</strong></td>
+<td>Name of the resource</td>
+<td>"Bouncing Ball Physics Simulator"</td>
+</tr>
+<tr>
+<td><strong>Creator</strong></td>
+<td>Author or organization</td>
+<td>"Jane Smith", "Physics Department"</td>
+</tr>
+<tr>
+<td><strong>Subject</strong></td>
+<td>Topic or keywords</td>
+<td>"Physics", "Kinematics", "Motion"</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Summary of content</td>
+<td>"Interactive simulation of ball physics with adjustable gravity"</td>
+</tr>
+<tr>
+<td><strong>Publisher</strong></td>
+<td>Entity making it available</td>
+<td>"Central High School"</td>
+</tr>
+<tr>
+<td><strong>Contributor</strong></td>
+<td>Secondary contributors</td>
+<td>"John Doe (testing)", "AI Assistant (code review)"</td>
+</tr>
+<tr>
+<td><strong>Date</strong></td>
+<td>Creation or modification date</td>
+<td>"2024-03-15"</td>
+</tr>
+<tr>
+<td><strong>Type</strong></td>
+<td>Nature of resource</td>
+<td>"InteractiveResource", "Software"</td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>File format</td>
+<td>"text/html", "application/javascript"</td>
+</tr>
+<tr>
+<td><strong>Identifier</strong></td>
+<td>Unique identifier</td>
+<td>"microsim-bouncing-ball-v2"</td>
+</tr>
+<tr>
+<td><strong>Source</strong></td>
+<td>Related resource</td>
+<td>"Based on Khan Academy physics module"</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>Language of content</td>
+<td>"en" (English)</td>
+</tr>
+<tr>
+<td><strong>Relation</strong></td>
+<td>Related resources</td>
+<td>"Part of Physics Simulation Collection"</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>Scope (spatial/temporal)</td>
+<td>"Grade 9-12 Physics curriculum"</td>
+</tr>
+<tr>
+<td><strong>Rights</strong></td>
+<td>Copyright/license</td>
+<td>"CC BY-SA 4.0"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="core-four-essential-metadata">Core Four: Essential Metadata</h3>
+<p>For MicroSims, four elements are essential:</p>
+<h2 id="title-metadata">Title Metadata</h2>
+<p><strong>Title metadata</strong> should be clear, descriptive, and unique:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bouncing</span><span class="nv"> </span><span class="s">Ball</span><span class="nv"> </span><span class="s">Physics</span><span class="nv"> </span><span class="s">Simulator&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Title Best Practices:</strong></p>
+<ul>
+<li>Be specific: "Ohm's Law Calculator" not "Electronics Sim"</li>
+<li>Include the subject area: "Pendulum Motion Visualizer"</li>
+<li>Avoid generic names: "My MicroSim" or "Test 1"</li>
+<li>Keep it concise: 5-10 words maximum</li>
+</ul>
+<h2 id="creator-metadata">Creator Metadata</h2>
+<p><strong>Creator metadata</strong> identifies who made the MicroSim:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">creator</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Jane</span><span class="nv"> </span><span class="s">Smith&quot;</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Primary</span><span class="nv"> </span><span class="s">Author&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Claude</span><span class="nv"> </span><span class="s">AI&quot;</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Code</span><span class="nv"> </span><span class="s">Assistant&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Creator Options:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Example</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single string</td>
+<td><code>"Jane Smith"</code></td>
+<td>Solo creator</td>
+</tr>
+<tr>
+<td>Array of strings</td>
+<td><code>["Jane Smith", "John Doe"]</code></td>
+<td>Multiple creators</td>
+</tr>
+<tr>
+<td>Array of objects</td>
+<td>See above</td>
+<td>When roles matter</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subject-metadata">Subject Metadata</h2>
+<p><strong>Subject metadata</strong> enables discovery through classification:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">subject</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Physics&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Kinematics&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Projectile</span><span class="nv"> </span><span class="s">Motion&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;STEM</span><span class="nv"> </span><span class="s">Education&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Subject Guidelines:</strong></p>
+<ul>
+<li>Use hierarchical terms (broad to specific)</li>
+<li>Include curriculum standards if applicable</li>
+<li>Add keywords users might search for</li>
+<li>Limit to 5-10 relevant terms</li>
+</ul>
+<h2 id="description-metadata">Description Metadata</h2>
+<p><strong>Description metadata</strong> explains what the MicroSim does:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">This interactive simulation demonstrates projectile motion physics.</span>
+<span class="w">  </span><span class="no">Users can adjust initial velocity, launch angle, and gravity to observe</span>
+<span class="w">  </span><span class="no">how these parameters affect trajectory. Includes real-time graphing</span>
+<span class="w">  </span><span class="no">of position, velocity, and acceleration.</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Description Components:</strong></p>
+<ol>
+<li>What it does (one sentence)</li>
+<li>Key features (interactive elements)</li>
+<li>Educational value (what users learn)</li>
+<li>Target audience (optional)</li>
+</ol>
+<h2 id="yaml-frontmatter">YAML Frontmatter</h2>
+<p><strong>YAML frontmatter</strong> places metadata at the top of Markdown files, making it both human-readable and machine-parseable.</p>
+<h3 id="frontmatter-syntax">Frontmatter Syntax</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Projectile</span><span class="nv"> </span><span class="s">Motion</span><span class="nv"> </span><span class="s">Simulator&quot;</span>
+<span class="nt">creator</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Physics</span><span class="nv"> </span><span class="s">Department&quot;</span>
+<span class="nt">subject</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Physics&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Kinematics&quot;</span><span class="p p-Indicator">]</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Interactive</span><span class="nv"> </span><span class="s">projectile</span><span class="nv"> </span><span class="s">motion</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">adjustable</span><span class="nv"> </span><span class="s">parameters&quot;</span>
+<span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-03-15&quot;</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.2.0&quot;</span>
+<span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CC</span><span class="nv"> </span><span class="s">BY-SA</span><span class="nv"> </span><span class="s">4.0&quot;</span>
+<span class="nn">---</span>
+
+<span class="c1"># Projectile Motion Simulator</span>
+
+<span class="l l-Scalar l-Scalar-Plain">Content begins here...</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="frontmatter-rules">Frontmatter Rules</h3>
+<ul>
+<li>Start and end with <code>---</code> (three dashes)</li>
+<li>Use consistent indentation (2 spaces)</li>
+<li>Quote strings with special characters</li>
+<li>Use <code>|</code> for multi-line text</li>
+<li>Arrays can use <code>[]</code> or <code>-</code> bullets</li>
+</ul>
+<h3 id="extended-microsim-frontmatter">Extended MicroSim Frontmatter</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="nt">microsim</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dublinCore</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Projectile</span><span class="nv"> </span><span class="s">Motion</span><span class="nv"> </span><span class="s">Simulator&quot;</span>
+<span class="w">    </span><span class="nt">creator</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Jane</span><span class="nv"> </span><span class="s">Smith&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Claude</span><span class="nv"> </span><span class="s">AI&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">subject</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Physics&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Kinematics&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;Projectile</span><span class="nv"> </span><span class="s">Motion&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Interactive</span><span class="nv"> </span><span class="s">simulation</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">projectile</span><span class="nv"> </span><span class="s">motion</span><span class="nv"> </span><span class="s">physics&quot;</span>
+<span class="w">    </span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-03-15&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;InteractiveResource&quot;</span>
+<span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;text/html&quot;</span>
+<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;en&quot;</span>
+<span class="w">    </span><span class="nt">rights</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CC</span><span class="nv"> </span><span class="s">BY-SA</span><span class="nv"> </span><span class="s">4.0&quot;</span>
+
+<span class="w">  </span><span class="nt">educational</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">gradeLevel</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9-12&quot;</span>
+<span class="w">    </span><span class="nt">bloomLevel</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Apply&quot;</span>
+<span class="w">    </span><span class="nt">learningObjectives</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Calculate</span><span class="nv"> </span><span class="s">projectile</span><span class="nv"> </span><span class="s">trajectory</span><span class="nv"> </span><span class="s">given</span><span class="nv"> </span><span class="s">initial</span><span class="nv"> </span><span class="s">conditions&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Analyze</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">effect</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">gravity</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">motion&quot;</span>
+
+<span class="w">  </span><span class="nt">technical</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">framework</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;p5.js&quot;</span>
+<span class="w">    </span><span class="nt">canvasWidth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+<span class="w">    </span><span class="nt">canvasHeight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">400</span>
+<span class="w">    </span><span class="nt">responsive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nn">---</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="json-schema-for-validation">JSON Schema for Validation</h2>
+<p><strong>JSON Schema</strong> defines the structure and validation rules for metadata. It ensures your metadata is complete and correctly formatted.</p>
+<h3 id="what-json-schema-provides">What JSON Schema Provides</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Structure definition</strong></td>
+<td>Documents required fields</td>
+</tr>
+<tr>
+<td><strong>Type checking</strong></td>
+<td>Ensures correct data types</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Catches errors before publishing</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>Self-describing format</td>
+</tr>
+</tbody>
+</table>
+<h3 id="microsim-metadata-schema">MicroSim Metadata Schema</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MicroSim Metadata Schema&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;dublinCore&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;educational&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;technical&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;dublinCore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;creator&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;subject&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;description&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;minLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;maxLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;oneOf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">}}</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;minItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;minLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;maxLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;educational&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;gradeLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;bloomLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Remember&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Understand&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apply&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Analyze&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Evaluate&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Create&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;technical&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;canvasWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;canvasHeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;minimum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="validating-metadata">Validating Metadata</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Using Ajv (Another JSON Schema Validator)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Ajv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ajv&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ajv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Ajv</span><span class="p">();</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">validate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ajv</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">schema</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">validate</span><span class="p">(</span><span class="nx">metadata</span><span class="p">);</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">valid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Validation errors:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">validate</span><span class="p">.</span><span class="nx">errors</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="microsim-packaging">MicroSim Packaging</h2>
+<p><strong>MicroSim packaging</strong> is the standard directory structure that makes MicroSims portable, maintainable, and consistent.</p>
+<h3 id="standard-package-structure">Standard Package Structure</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>my-microsim/
+├── index.md           # Documentation and frontmatter
+├── main.html          # Standalone HTML version
+├── style.css          # Styles (optional)
+├── script.js          # p5.js sketch
+├── data.json          # Data files (optional)
+├── metadata.json      # Machine-readable metadata
+├── preview.png        # Social media preview image
+└── README.md          # Quick start guide (optional)
+</code></pre></div></td></tr></table></div>
+<h3 id="file-purposes">File Purposes</h3>
+<h2 id="indexmd-file">index.md File</h2>
+<p>The <strong>index.md file</strong> is the primary documentation entry point:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code>---
+<span class="gh"># YAML frontmatter with metadata</span>
+---
+
+<span class="gh"># Projectile Motion Simulator</span>
+
+<span class="gu">## Overview</span>
+
+Brief description of what this MicroSim does...
+
+<span class="gu">## How to Use</span>
+
+<span class="k">1.</span> Adjust the angle slider...
+<span class="k">2.</span> Set initial velocity...
+<span class="k">3.</span> Click &quot;Launch&quot; to fire...
+
+<span class="gu">## Learning Objectives</span>
+
+<span class="k">-</span><span class="w"> </span>Understand how angle affects range
+<span class="k">-</span><span class="w"> </span>Observe the effect of gravity
+<span class="k">-</span><span class="w"> </span>Predict landing position
+
+<span class="gu">## Embedding</span>
+
+Use this iframe code:
+
+\`\`\`html
+&lt;iframe src=&quot;main.html&quot; width=&quot;600&quot; height=&quot;450&quot;&gt;&lt;/iframe&gt;
+\`\`\`
+
+<span class="gu">## Credits</span>
+
+Created by Jane Smith, 2024
+</code></pre></div></td></tr></table></div>
+<h2 id="mainhtml-file">main.html File</h2>
+<p>The <strong>main.html file</strong> is the standalone, runnable version:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Projectile Motion Simulator<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Open Graph tags for social sharing --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:title&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Projectile Motion Simulator&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Interactive physics simulation&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:image&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;preview.png&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;style.css&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+        <span class="cm">&lt;!-- p5.js canvas will be inserted here --&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;script.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="stylecss-file">style.css File</h2>
+<p>The <strong>style.css file</strong> provides consistent styling:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c">/* Reset and base styles */</span>
+<span class="o">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">box-sizing</span><span class="p">:</span><span class="w"> </span><span class="kc">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="w"> </span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Segoe UI&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">Roboto</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f5f5f5</span><span class="p">;</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">min-height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">2</span><span class="kt">px</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Control region styling */</span>
+<span class="p">.</span><span class="nc">controls</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#fafafa</span><span class="p">;</span>
+<span class="w">    </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border-top</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#eee</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">slider-row</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">gap</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">slider-label</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="scriptjs-file">script.js File</h2>
+<p>The <strong>script.js file</strong> contains the p5.js sketch:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Projectile Motion Simulator</span>
+<span class="c1">// Author: Jane Smith</span>
+<span class="c1">// Date: 2024-03-15</span>
+<span class="c1">// License: CC BY-SA 4.0</span>
+
+<span class="c1">// Canvas dimensions</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">600</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+
+<span class="c1">// Physics variables</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">projectile</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">gravity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isLaunched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="c1">// Controls</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">angleSlider</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">velocitySlider</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Create controls</span>
+<span class="w">    </span><span class="nx">angleSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">45</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">angleSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">velocitySlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">velocitySlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">350</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">resetProjectile</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Projectile motion simulator with adjustable angle and velocity&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">LABEL</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Drawing region</span>
+<span class="w">    </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Update and draw projectile</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isLaunched</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">updateProjectile</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">drawProjectile</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Control region</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Labels</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">14</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Angle: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">angleSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;°&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Velocity: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">velocitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(),</span><span class="w"> </span><span class="mf">270</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Additional functions...</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="datajson-file">data.json File</h2>
+<p>The <strong>data.json file</strong> stores configuration or content data:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;presets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Moon Gravity&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;gravity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Simulate lunar conditions&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Earth Gravity&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;gravity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard Earth gravity&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupiter Gravity&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;gravity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;High gravity environment&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;defaultSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;angle&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;velocity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;showTrajectory&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="metadatajson-file">metadata.json File</h2>
+<p>The <strong>metadata.json file</strong> provides machine-readable metadata:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./microsim-schema.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;dublinCore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Projectile Motion Simulator&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Jane Smith&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Physics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Kinematics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Projectile Motion&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Interactive simulation demonstrating projectile motion physics with adjustable launch angle and initial velocity.&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-15&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InteractiveResource&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text/html&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;rights&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC BY-SA 4.0&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;educational&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;gradeLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;9-12&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;subjectArea&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Physics&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;bloomLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Apply&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;learningObjectives&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;Calculate projectile trajectory given initial conditions&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;Analyze the relationship between launch angle and range&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;Predict landing position based on parameters&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;technical&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;p5.js&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.9.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;canvasWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;canvasHeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;responsive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;userInterface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;controls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slider&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Launch Angle&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;degrees&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slider&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Initial Velocity&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;m/s&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Launch&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;start&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="quality-score-and-the-100-point-rubric">Quality Score and the 100-Point Rubric</h2>
+<p>The <strong>quality score</strong> provides an objective measure of MicroSim completeness and professionalism. The <strong>100-point rubric</strong> breaks this into specific, measurable criteria.</p>
+<h3 id="why-quality-scoring">Why Quality Scoring?</h3>
+<ul>
+<li>Provides clear expectations</li>
+<li>Guides improvement efforts</li>
+<li>Enables comparison between MicroSims</li>
+<li>Signals professionalism to users</li>
+</ul>
+<h3 id="the-100-point-microsim-rubric">The 100-Point MicroSim Rubric</h3>
+<h4 id="documentation-25-points">Documentation (25 points)</h4>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Title &amp; Description</strong></td>
+<td>5</td>
+<td>Clear, descriptive title; comprehensive description</td>
+</tr>
+<tr>
+<td><strong>Learning Objectives</strong></td>
+<td>5</td>
+<td>Specific, measurable objectives aligned to Bloom's</td>
+</tr>
+<tr>
+<td><strong>Usage Instructions</strong></td>
+<td>5</td>
+<td>Step-by-step guide for users</td>
+</tr>
+<tr>
+<td><strong>Embedding Guide</strong></td>
+<td>5</td>
+<td>Iframe code and integration instructions</td>
+</tr>
+<tr>
+<td><strong>Credits &amp; License</strong></td>
+<td>5</td>
+<td>Creator attribution; clear license statement</td>
+</tr>
+</tbody>
+</table>
+<h4 id="metadata-20-points">Metadata (20 points)</h4>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dublin Core</strong></td>
+<td>8</td>
+<td>All required fields (title, creator, subject, description)</td>
+</tr>
+<tr>
+<td><strong>Educational Metadata</strong></td>
+<td>6</td>
+<td>Grade level, Bloom level, learning objectives</td>
+</tr>
+<tr>
+<td><strong>Technical Metadata</strong></td>
+<td>6</td>
+<td>Framework, dimensions, dependencies</td>
+</tr>
+</tbody>
+</table>
+<h4 id="code-quality-25-points">Code Quality (25 points)</h4>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Structure</strong></td>
+<td>5</td>
+<td>Follows standard layout (setup, draw, helpers)</td>
+</tr>
+<tr>
+<td><strong>Comments</strong></td>
+<td>5</td>
+<td>Header comment, function documentation</td>
+</tr>
+<tr>
+<td><strong>Naming</strong></td>
+<td>5</td>
+<td>Clear, consistent variable/function names</td>
+</tr>
+<tr>
+<td><strong>Accessibility</strong></td>
+<td>5</td>
+<td>describe() function, keyboard support</td>
+</tr>
+<tr>
+<td><strong>Error Handling</strong></td>
+<td>5</td>
+<td>Graceful handling of edge cases</td>
+</tr>
+</tbody>
+</table>
+<h4 id="user-experience-20-points">User Experience (20 points)</h4>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Responsiveness</strong></td>
+<td>5</td>
+<td>Works at multiple widths (300-1200px)</td>
+</tr>
+<tr>
+<td><strong>Controls</strong></td>
+<td>5</td>
+<td>Intuitive, well-labeled controls</td>
+</tr>
+<tr>
+<td><strong>Visual Design</strong></td>
+<td>5</td>
+<td>Consistent colors, clean layout</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>5</td>
+<td>Smooth animation, no lag</td>
+</tr>
+</tbody>
+</table>
+<h4 id="packaging-10-points">Packaging (10 points)</h4>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>Requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>File Structure</strong></td>
+<td>4</td>
+<td>All required files present</td>
+</tr>
+<tr>
+<td><strong>Preview Image</strong></td>
+<td>3</td>
+<td>1200x630px social preview</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>3</td>
+<td>Passes JSON Schema validation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scoring-interpretation">Scoring Interpretation</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Rating</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>90-100</td>
+<td>Excellent</td>
+<td>Publication-ready, exemplary work</td>
+</tr>
+<tr>
+<td>80-89</td>
+<td>Good</td>
+<td>Minor improvements needed</td>
+</tr>
+<tr>
+<td>70-79</td>
+<td>Acceptable</td>
+<td>Functional but needs polish</td>
+</tr>
+<tr>
+<td>60-69</td>
+<td>Needs Work</td>
+<td>Missing important elements</td>
+</tr>
+<tr>
+<td>Below 60</td>
+<td>Incomplete</td>
+<td>Significant gaps to address</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-quality-rubric-scorecard">Diagram: Quality Rubric Scorecard</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Interactive Quality Rubric Evaluator&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Evaluate MicroSim quality using the 100-point rubric (Bloom: Evaluate)
+
+Canvas layout:
+- Evaluation area: 600x500 pixels
+- Summary area: 80 pixels
+
+Visual elements:
+- Five collapsible sections (one per rubric category)
+- Checkbox/slider for each criterion
+- Running total display
+- Progress bar
+- Rating badge (Excellent/Good/etc.)
+
+Categories:
+1. Documentation (25 pts)
+   - Title &amp; Description (0-5)
+   - Learning Objectives (0-5)
+   - Usage Instructions (0-5)
+   - Embedding Guide (0-5)
+   - Credits &amp; License (0-5)
+
+2. Metadata (20 pts)
+   - Dublin Core (0-8)
+   - Educational (0-6)
+   - Technical (0-6)
+
+3. Code Quality (25 pts)
+   - Structure (0-5)
+   - Comments (0-5)
+   - Naming (0-5)
+   - Accessibility (0-5)
+   - Error Handling (0-5)
+
+4. User Experience (20 pts)
+   - Responsiveness (0-5)
+   - Controls (0-5)
+   - Visual Design (0-5)
+   - Performance (0-5)
+
+5. Packaging (10 pts)
+   - File Structure (0-4)
+   - Preview Image (0-3)
+   - Validation (0-3)
+
+Interactive controls:
+- Sliders for each criterion
+- &quot;Reset All&quot; button
+- &quot;Export Report&quot; button
+- &quot;Load Preset&quot; dropdown
+
+Behavior:
+- Score updates in real-time
+- Progress bar fills as score increases
+- Rating badge changes color based on score
+- Export generates markdown report
+
+Educational emphasis:
+- Teaches evaluation criteria
+- Provides self-assessment tool
+- Generates improvement checklist
+
+Color scheme:
+- Excellent (90+): green
+- Good (80-89): blue
+- Acceptable (70-79): yellow
+- Needs Work (60-69): orange
+- Incomplete (&lt;60): red
+
+Implementation: p5.js with section collapsing
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="microsim-validation">MicroSim Validation</h2>
+<p><strong>MicroSim validation</strong> ensures your package meets all requirements before publishing.</p>
+<h3 id="validation-checklist">Validation Checklist</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gu">## Pre-Publication Validation Checklist</span>
+
+<span class="gu">### Files</span>
+<span class="k">- [ ]</span> index.md exists and has frontmatter
+<span class="k">- [ ]</span> main.html runs standalone in browser
+<span class="k">- [ ]</span> script.js follows coding standards
+<span class="k">- [ ]</span> metadata.json passes schema validation
+<span class="k">- [ ]</span> preview.png is 1200x630 pixels
+
+<span class="gu">### Metadata</span>
+<span class="k">- [ ]</span> Title is descriptive (5-100 characters)
+<span class="k">- [ ]</span> Creator(s) identified
+<span class="k">- [ ]</span> At least 3 subject keywords
+<span class="k">- [ ]</span> Description is 20-500 characters
+<span class="k">- [ ]</span> Date is in YYYY-MM-DD format
+<span class="k">- [ ]</span> License is specified
+
+<span class="gu">### Functionality</span>
+<span class="k">- [ ]</span> MicroSim loads without errors
+<span class="k">- [ ]</span> All controls are functional
+<span class="k">- [ ]</span> Responsive at 400px, 800px, 1200px widths
+<span class="k">- [ ]</span> No console errors or warnings
+<span class="k">- [ ]</span> describe() function provides accessibility label
+
+<span class="gu">### Educational</span>
+<span class="k">- [ ]</span> Learning objectives are specific
+<span class="k">- [ ]</span> Bloom level is appropriate
+<span class="k">- [ ]</span> Grade level is indicated
+<span class="k">- [ ]</span> Usage instructions are clear
+</code></pre></div></td></tr></table></div>
+<h3 id="automated-validation-script">Automated Validation Script</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// validate-microsim.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">Ajv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ajv&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">validateMicrosim</span><span class="p">(</span><span class="nx">directory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">passed</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nx">failed</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nx">score</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Check required files</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">requiredFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;index.md&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;main.html&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;script.js&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata.json&#39;</span><span class="p">];</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">requiredFiles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">filePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">directory</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">filePath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">passed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`✓ </span><span class="si">${</span><span class="nx">file</span><span class="si">}</span><span class="sb"> exists`</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">failed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`✗ </span><span class="si">${</span><span class="nx">file</span><span class="si">}</span><span class="sb"> missing`</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Validate metadata.json against schema</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">metadataPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">directory</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;metadata.json&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="nx">metadataPath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">metadataPath</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="p">));</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./microsim-schema.json&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">ajv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Ajv</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">valid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ajv</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">schema</span><span class="p">,</span><span class="w"> </span><span class="nx">metadata</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">valid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">passed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;✓ metadata.json validates against schema&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">results</span><span class="p">.</span><span class="nx">failed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;✗ metadata.json validation errors:&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">ajv</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">err</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">results</span><span class="p">.</span><span class="nx">failed</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`  - </span><span class="si">${</span><span class="nx">err</span><span class="p">.</span><span class="nx">instancePath</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">results</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">validateMicrosim</span><span class="p">(</span><span class="s1">&#39;./my-microsim&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Validation Results:&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Passed:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">passed</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Failed:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">failed</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Score:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">score</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="social-media-optimization">Social Media Optimization</h2>
+<p>Making your MicroSim shareable on social media requires proper image previews and metadata.</p>
+<h2 id="social-image-preview">Social Image Preview</h2>
+<p>The <strong>social image preview</strong> appears when your MicroSim is shared on Twitter, Facebook, LinkedIn, or other platforms.</p>
+<h3 id="image-requirements">Image Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Size</th>
+<th>Aspect Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Twitter</td>
+<td>1200×675px</td>
+<td>16:9</td>
+</tr>
+<tr>
+<td>Facebook</td>
+<td>1200×630px</td>
+<td>1.91:1</td>
+</tr>
+<tr>
+<td>LinkedIn</td>
+<td>1200×627px</td>
+<td>1.91:1</td>
+</tr>
+<tr>
+<td>Universal</td>
+<td><strong>1200×630px</strong></td>
+<td>1.91:1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="creating-preview-images">Creating Preview Images</h3>
+<ol>
+<li><strong>Screenshot approach:</strong> Capture the MicroSim at an interesting state</li>
+<li><strong>Designed graphic:</strong> Create branded image with title overlay</li>
+<li><strong>Automated:</strong> Generate from canvas using <code>canvas.toDataURL()</code></li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Auto-generate preview image</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">savePreview</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Set up a good visual state</span>
+<span class="w">    </span><span class="nx">resetSimulation</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">runForFrames</span><span class="p">(</span><span class="mf">60</span><span class="p">);</span><span class="w">  </span><span class="c1">// Let it run a bit</span>
+
+<span class="w">    </span><span class="c1">// Save the canvas</span>
+<span class="w">    </span><span class="nx">saveCanvas</span><span class="p">(</span><span class="s1">&#39;preview&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;png&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="preview-image-best-practices">Preview Image Best Practices</h3>
+<ul>
+<li>Show the MicroSim in action (not static state)</li>
+<li>Include the title as text overlay</li>
+<li>Use high contrast for visibility at small sizes</li>
+<li>Avoid text smaller than 24px</li>
+<li>Test at thumbnail size (200×105px)</li>
+</ul>
+<h2 id="open-graph-tags">Open Graph Tags</h2>
+<p><strong>Open Graph tags</strong> tell social platforms how to display your content.</p>
+<h3 id="essential-open-graph-tags">Essential Open Graph Tags</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Basic metadata --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:title&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Projectile Motion Simulator&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Interactive physics simulation with adjustable parameters&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;website&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:url&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;https://example.com/sims/projectile-motion/&quot;</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Image --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:image&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;https://example.com/sims/projectile-motion/preview.png&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:image:width&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;1200&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:image:height&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;630&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&quot;og:image:alt&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Screenshot of projectile motion simulator&quot;</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Twitter-specific --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:card&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;summary_large_image&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:title&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Projectile Motion Simulator&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Interactive physics simulation&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;twitter:image&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;https://example.com/sims/projectile-motion/preview.png&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="testing-open-graph-tags">Testing Open Graph Tags</h3>
+<p>Use these tools to verify your tags work correctly:</p>
+<ul>
+<li><strong>Facebook Sharing Debugger:</strong> developers.facebook.com/tools/debug</li>
+<li><strong>Twitter Card Validator:</strong> cards-dev.twitter.com/validator</li>
+<li><strong>LinkedIn Post Inspector:</strong> linkedin.com/post-inspector</li>
+</ul>
+<h2 id="complete-packaging-example">Complete Packaging Example</h2>
+<p>Here's a complete, properly packaged MicroSim:</p>
+<h3 id="directory-structure">Directory Structure</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>projectile-motion/
+├── index.md
+├── main.html
+├── style.css
+├── script.js
+├── metadata.json
+├── preview.png
+└── README.md
+</code></pre></div></td></tr></table></div>
+<h3 id="full-indexmd">Full index.md</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code>---
+title: &quot;Projectile Motion Simulator&quot;
+description: &quot;Interactive physics simulation demonstrating projectile motion&quot;
+author: &quot;Jane Smith&quot;
+date: &quot;2024-03-15&quot;
+<span class="gu">license: &quot;CC BY-SA 4.0&quot;</span>
+<span class="gu">---</span>
+
+<span class="gh"># Projectile Motion Simulator</span>
+
+An interactive simulation for exploring projectile motion physics.
+
+<span class="gu">## Demo</span>
+
+&lt;iframe src=&quot;main.html&quot; width=&quot;100%&quot; height=&quot;450&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+<span class="gu">## Learning Objectives</span>
+
+After using this simulation, students will be able to:
+
+<span class="k">1.</span> Predict how launch angle affects projectile range
+<span class="k">2.</span> Calculate time of flight given initial velocity
+<span class="k">3.</span> Explain the independence of horizontal and vertical motion
+
+<span class="gu">## How to Use</span>
+
+<span class="k">1.</span> <span class="gs">**Set the angle**</span> using the first slider (15° to 75°)
+<span class="k">2.</span> <span class="gs">**Set the velocity**</span> using the second slider (5 to 20 m/s)
+<span class="k">3.</span> <span class="gs">**Click Launch**</span> to fire the projectile
+<span class="k">4.</span> <span class="gs">**Click Reset**</span> to try different parameters
+
+<span class="gu">## Embedding</span>
+
+Copy this code to embed in your course:
+
+\`\`\`html
+&lt;iframe
+    src=&quot;https://example.com/sims/projectile-motion/main.html&quot;
+    width=&quot;600&quot;
+    height=&quot;450&quot;
+    frameborder=&quot;0&quot;
+    title=&quot;Projectile Motion Simulator&quot;&gt;
+&lt;/iframe&gt;
+\`\`\`
+
+<span class="gu">## Technical Details</span>
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Framework:**</span> p5.js 1.9.0
+<span class="k">-</span><span class="w"> </span><span class="gs">**Canvas Size:**</span> 600×400 pixels (responsive width)
+<span class="k">-</span><span class="w"> </span><span class="gs">**Browser Support:**</span> Chrome, Firefox, Safari, Edge
+
+<span class="gu">## Credits</span>
+
+<span class="k">-</span><span class="w"> </span>Created by Jane Smith
+<span class="k">-</span><span class="w"> </span>Code review by Claude AI
+<span class="k">-</span><span class="w"> </span>Based on standard physics curriculum
+
+<span class="gu">## License</span>
+
+This work is licensed under [<span class="nt">CC BY-SA 4.0</span>](<span class="na">https://creativecommons.org/licenses/by-sa/4.0/</span>).
+</code></pre></div></td></tr></table></div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>You've learned to package MicroSims professionally:</p>
+<ol>
+<li>
+<p><strong>Metadata standards</strong> provide vocabulary for describing educational resources.</p>
+</li>
+<li>
+<p><strong>Dublin Core</strong> offers 15 elements; focus on title, creator, subject, and description.</p>
+</li>
+<li>
+<p><strong>YAML frontmatter</strong> places metadata at the top of Markdown files.</p>
+</li>
+<li>
+<p><strong>JSON Schema</strong> validates metadata structure and completeness.</p>
+</li>
+<li>
+<p><strong>MicroSim packaging</strong> uses a standard directory structure with six core files.</p>
+</li>
+<li>
+<p><strong>index.md</strong> provides human-readable documentation with embedded frontmatter.</p>
+</li>
+<li>
+<p><strong>main.html</strong> is the standalone, runnable version with Open Graph tags.</p>
+</li>
+<li>
+<p><strong>metadata.json</strong> provides machine-readable metadata for automation.</p>
+</li>
+<li>
+<p>The <strong>100-point rubric</strong> evaluates Documentation, Metadata, Code, UX, and Packaging.</p>
+</li>
+<li>
+<p><strong>Quality scores</strong> range from Incomplete (&lt;60) to Excellent (90-100).</p>
+</li>
+<li>
+<p><strong>Validation</strong> ensures all requirements are met before publishing.</p>
+</li>
+<li>
+<p><strong>Social preview images</strong> should be 1200×630px for universal compatibility.</p>
+</li>
+<li>
+<p><strong>Open Graph tags</strong> control how MicroSims appear when shared on social media.</p>
+</li>
+<li>
+<p>Proper packaging signals professionalism and builds user trust.</p>
+</li>
+</ol>
+<details class="question">
+<summary>Challenge: Package and Score</summary>
+<p>Take a MicroSim you've created and package it according to the standards in this chapter. Create all required files, add complete metadata, and generate a preview image. Then use the 100-point rubric to score your work. What areas need improvement?</p>
+</details>
+<h2 id="next-steps">Next Steps</h2>
+<p>You now know how to wrap your MicroSims in professional packaging that signals quality and enables discovery. Your work can be found, understood, and reused by others. In the next chapter, we'll explore <strong>accessibility and internationalization</strong>, ensuring your MicroSims work for all learners regardless of ability or language.</p>
+<p>Remember: the bow on the package matters. Users judge quality by presentation before they ever run your code. Make that first impression count.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.dublincore.org/">Dublin Core Metadata Initiative</a> - Official Dublin Core documentation</li>
+<li><a href="https://json-schema.org/">JSON Schema</a> - Schema specification and validators</li>
+<li><a href="https://ogp.me/">Open Graph Protocol</a> - Open Graph tag reference</li>
+<li><a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards">Twitter Cards</a> - Twitter sharing documentation</li>
+<li><a href="https://creativecommons.org/licenses/">Creative Commons</a> - License options for educational content</li>
+</ul>
 
 
 

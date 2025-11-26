@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="Master interactive controls that put users in command of your MicroSims">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>7 - User Interface Controls and Events - Micro Simulations for Education</title>
+        <title>User Interface Controls and Events - Micro Simulations for Education</title>
       
     
     
@@ -70,9 +70,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="7 - User Interface Controls and Events - Micro Simulations for Education" >
+        <meta  property="og:title"  content="User Interface Controls and Events - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="Master interactive controls that put users in command of your MicroSims" >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/07-user-interface-controls-and-events/index.png" >
       
@@ -86,9 +86,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="7 - User Interface Controls and Events - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="User Interface Controls and Events - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="Master interactive controls that put users in command of your MicroSims" >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/07-user-interface-controls-and-events/index.png" >
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7 - User Interface Controls and Events
+              User Interface Controls and Events
             
           </span>
         </div>
@@ -321,6 +321,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -733,6 +737,615 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taking-control-of-your-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taking Control of Your Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-essential-controls-sliders-and-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Two Essential Controls: Sliders and Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slider-control-the-continuous-commander" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slider Control: The Continuous Commander
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slider Control: The Continuous Commander">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-sliders-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Sliders Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-createslider-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The createSlider() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-slider-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Slider Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slider-styling-and-positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slider Styling and Positioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slider Styling and Positioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-slider-control-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Slider Control Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#button-control-the-discrete-decision-maker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Button Control: The Discrete Decision Maker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Button Control: The Discrete Decision Maker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-buttons-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Buttons Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-createbutton-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The createButton() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Button Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Button Styling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-control-button-family-start-stop-pause-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Control Button Family: Start, Stop, Pause, Reset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Control Button Family: Start, Stop, Pause, Reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pause-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-button-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Button Family
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-handling-the-big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Handling: The Big Picture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-events-point-and-click-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mouse Events: Point and Click Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mouse Events: Point and Click Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-mousepressed-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The mousePressed() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-mousex-and-mousey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using mouseX and mouseY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mousedragged-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The mouseDragged() Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The mouseDragged() Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mouse-event-demo-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mouse Event Demo MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click-detection-is-the-user-clicking-on-something" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Detection: Is the User Clicking on Something?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-events-keys-to-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Events: Keys to Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keyboard Events: Keys to Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-keypressed-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The keyPressed() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-key-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Key Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Shortcuts Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-handlers-the-responders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Handlers: The Responders
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Handlers: The Responders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-event-handler-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Event Handler Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback-event-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback Event Handlers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Callback Event Handlers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-event-handler-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Event Handler Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-interaction-designing-for-humans" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interaction: Designing for Humans
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Interaction: Designing for Humans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interaction-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interaction Design Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providing-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Providing Feedback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-isrunning-state-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The isRunning State Pattern
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The isRunning State Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-isrunning-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic isRunning Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-state-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended State Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-control-start-stop-and-smooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Control: Start, Stop, and Smooth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Animation Control: Start, Stop, and Smooth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-animation-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Animation Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Animation Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-complete-control-panel-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Complete Control Panel MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed-control-from-slow-motion-to-fast-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Control: From Slow Motion to Fast Forward
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Speed Control: From Slow Motion to Fast Forward">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speed-multiplier-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Multiplier Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-independent-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frame-Independent Speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-control-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Control UI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-adjustment-tuning-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Adjustment: Tuning the Simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Adjustment: Tuning the Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-adjustable-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Adjustable Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-parameter-control-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Parameter Control Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Parameter Control Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-parameter-adjustment-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Parameter Adjustment MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-complete-control-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Complete Control System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1588,6 +2201,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         
   
@@ -1714,6 +2347,615 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#taking-control-of-your-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taking Control of Your Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-essential-controls-sliders-and-buttons" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Two Essential Controls: Sliders and Buttons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slider-control-the-continuous-commander" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slider Control: The Continuous Commander
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slider Control: The Continuous Commander">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-sliders-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Sliders Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-createslider-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The createSlider() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-slider-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Slider Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slider-styling-and-positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slider Styling and Positioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slider Styling and Positioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-slider-control-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Slider Control Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#button-control-the-discrete-decision-maker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Button Control: The Discrete Decision Maker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Button Control: The Discrete Decision Maker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-buttons-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Buttons Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-createbutton-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The createButton() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Button Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-styling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Button Styling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-control-button-family-start-stop-pause-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Control Button Family: Start, Stop, Pause, Reset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Control Button Family: Start, Stop, Pause, Reset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pause-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Button
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-button-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Button Family
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-handling-the-big-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Handling: The Big Picture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-events-point-and-click-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mouse Events: Point and Click Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mouse Events: Point and Click Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-mousepressed-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The mousePressed() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-mousex-and-mousey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using mouseX and mouseY
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-mousedragged-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The mouseDragged() Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The mouseDragged() Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mouse-event-demo-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mouse Event Demo MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click-detection-is-the-user-clicking-on-something" class="md-nav__link">
+    <span class="md-ellipsis">
+      Click Detection: Is the User Clicking on Something?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyboard-events-keys-to-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Events: Keys to Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keyboard Events: Keys to Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-keypressed-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The keyPressed() Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-key-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Key Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyboard Shortcuts Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-handlers-the-responders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Handlers: The Responders
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Handlers: The Responders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-event-handler-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Built-in Event Handler Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback-event-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Callback Event Handlers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Callback Event Handlers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-event-handler-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Event Handler Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-interaction-designing-for-humans" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Interaction: Designing for Humans
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Interaction: Designing for Humans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interaction-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interaction Design Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providing-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Providing Feedback
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-isrunning-state-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The isRunning State Pattern
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The isRunning State Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-isrunning-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic isRunning Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-state-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extended State Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation-control-start-stop-and-smooth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation Control: Start, Stop, and Smooth
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Animation Control: Start, Stop, and Smooth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-animation-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Complete Animation Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Complete Animation Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-complete-control-panel-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Complete Control Panel MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed-control-from-slow-motion-to-fast-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Control: From Slow Motion to Fast Forward
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Speed Control: From Slow Motion to Fast Forward">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#speed-multiplier-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Multiplier Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-independent-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frame-Independent Speed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-control-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Speed Control UI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-adjustment-tuning-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Adjustment: Tuning the Simulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Adjustment: Tuning the Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-adjustable-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Adjustable Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-parameter-control-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Parameter Control Panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Parameter Control Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-parameter-adjustment-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Parameter Adjustment MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-complete-control-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Complete Control System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1771,7 +3013,2130 @@
 <li><a href="../06-microsim-architecture-and-layout/">Chapter 6: MicroSim Architecture and Layout</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="taking-control-of-your-controls">Taking Control of Your Controls</h2>
+<p>Welcome to the chapter where you finally take control—literally! A MicroSim without user controls is like a car without a steering wheel: it might go somewhere, but you have no say in where. By the end of this chapter, you'll have <em>complete control</em> over how users <em>control the controls</em> in your simulations.</p>
+<p>Every educational MicroSim needs <strong>user interaction</strong>. Students learn best when they can experiment, adjust parameters, and see immediate results. The controls you add transform passive viewers into active explorers.</p>
+<div class="admonition tip">
+<p class="admonition-title">The Control Principle</p>
+<p>The best controls are ones users don't have to think about. When controls are intuitive and consistent, students focus on the concept—not the interface. Keep your controls under control!</p>
+</div>
+<h2 id="the-two-essential-controls-sliders-and-buttons">The Two Essential Controls: Sliders and Buttons</h2>
+<p>In the world of MicroSims, two controls rule supreme:</p>
+<table>
+<thead>
+<tr>
+<th>Control Type</th>
+<th>Best For</th>
+<th>User Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sliders</strong></td>
+<td>Continuous values (speed, size, angle)</td>
+<td>Drag to adjust</td>
+</tr>
+<tr>
+<td><strong>Buttons</strong></td>
+<td>Discrete actions (start, stop, reset)</td>
+<td>Click to trigger</td>
+</tr>
+</tbody>
+</table>
+<p>Together, sliders and buttons give users complete control over any simulation. Let's master each one.</p>
+<h2 id="slider-control-the-continuous-commander">Slider Control: The Continuous Commander</h2>
+<p>A <strong>slider control</strong> lets users select a value from a continuous range by dragging a handle. Sliders are perfect for parameters that vary smoothly—like speed, gravity, temperature, or any numeric value.</p>
+<h3 id="why-sliders-work">Why Sliders Work</h3>
+<p>Sliders provide:</p>
+<ul>
+<li><strong>Visual feedback</strong>: The handle position shows the current value</li>
+<li><strong>Intuitive interaction</strong>: Drag right for more, left for less</li>
+<li><strong>Bounded input</strong>: Users can't enter invalid values</li>
+<li><strong>Immediate response</strong>: Changes apply as you drag</li>
+</ul>
+<h3 id="the-createslider-function">The createSlider() Function</h3>
+<p>The <code>createSlider()</code> function creates a slider control:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">mySlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span><span class="w"> </span><span class="nx">max</span><span class="p">,</span><span class="w"> </span><span class="k">default</span><span class="p">,</span><span class="w"> </span><span class="nx">step</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>min</code></td>
+<td>Minimum value</td>
+<td>0, 1, -100</td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td>Maximum value</td>
+<td>100, 10, 360</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>Starting value</td>
+<td>50, 5, 0</td>
+</tr>
+<tr>
+<td><code>step</code></td>
+<td>Increment size (optional)</td>
+<td>1, 0.1, 5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complete-slider-example">Complete Slider Example</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Create slider: range 1-10, default 5, step 0.5</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span><span class="w">  </span><span class="c1">// Width in pixels</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Control region</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Get current value</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Display label and value</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">14</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">speed</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Use the value in your simulation</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="slider-styling-and-positioning">Slider Styling and Positioning</h3>
+<p>Sliders need careful positioning in the control region:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Standard slider positioning pattern</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w">  </span><span class="c1">// Space for label</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">repositionSlider</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">60</span><span class="p">);</span><span class="w">  </span><span class="c1">// Leave room for value</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-slider-control-playground">Diagram: Slider Control Playground</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Interactive Slider Playground&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Allow students to experiment with slider parameters (min, max, default, step) and see immediate effects (Bloom: Apply)
+
+Canvas layout:
+- Drawing area: 400x300 pixels
+- Control area: 100 pixels (multiple control rows)
+
+Visual elements:
+- Main display: A circle whose size is controlled by a slider
+- Current value displayed prominently
+- Min/max markers on slider track
+- Step indicators (tick marks when step &gt; 1)
+
+Meta-controls (controls that control the slider!):
+- Input field: &quot;Min value&quot; (changes slider minimum)
+- Input field: &quot;Max value&quot; (changes slider maximum)
+- Input field: &quot;Step size&quot; (changes increment)
+- The main slider updates when meta-controls change
+
+Behavior:
+- Changing min/max rebuilds the slider
+- Step size shows as tick marks
+- Circle size responds to slider value
+- Shows how slider parameters affect behavior
+
+Educational annotations:
+- &quot;Smaller step = finer control&quot; when step &lt; 1
+- &quot;Larger range = coarser control&quot; when range &gt; 100
+- Live code display showing current createSlider() call
+
+Color scheme:
+- Circle: blue with white stroke
+- Slider track: gray
+- Value display: black
+
+Implementation: p5.js with createSlider() and input fields
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="button-control-the-discrete-decision-maker">Button Control: The Discrete Decision Maker</h2>
+<p>A <strong>button control</strong> triggers a specific action when clicked. Unlike sliders that adjust values continuously, buttons execute commands: start, stop, reset, change mode.</p>
+<h3 id="why-buttons-work">Why Buttons Work</h3>
+<p>Buttons provide:</p>
+<ul>
+<li><strong>Clear action</strong>: One click, one result</li>
+<li><strong>Visible state</strong>: Labels tell users what will happen</li>
+<li><strong>Feedback</strong>: Visual response confirms the click</li>
+<li><strong>Simplicity</strong>: No ambiguity about what happens</li>
+</ul>
+<h3 id="the-createbutton-function">The createButton() Function</h3>
+<p>The <code>createButton()</code> function creates a clickable button:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">myButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Label Text&#39;</span><span class="p">);</span>
+<span class="nx">myButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span>
+<span class="nx">myButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">callbackFunction</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="button-example">Button Example</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">startButton</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">startButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Click Me!&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">360</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">handleClick</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">handleClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">counter</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// Increment on each click</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Display click count</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">32</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Clicks: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">counter</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="button-styling">Button Styling</h3>
+<p>Style buttons using the <code>.style()</code> method:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">resetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;14px&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;padding&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;8px 16px&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;background-color&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#4CAF50&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;white&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;border&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;none&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;border-radius&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;4px&#39;</span><span class="p">);</span>
+<span class="nx">resetButton</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;cursor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pointer&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="the-control-button-family-start-stop-pause-reset">The Control Button Family: Start, Stop, Pause, Reset</h2>
+<p>Every animation-based MicroSim needs a family of control buttons. Let's meet the whole crew:</p>
+<h3 id="start-button">Start Button</h3>
+<p>The <strong>start button</strong> begins or resumes the animation:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">startButton</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">startAnimation</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">startAnimation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Running...&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="stop-button">Stop Button</h3>
+<p>The <strong>stop button</strong> halts the animation completely (often resetting to initial state):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">stopButton</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">stopButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Stop&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stopButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">stopAnimation</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">stopAnimation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">resetToInitialState</span><span class="p">();</span><span class="w">  </span><span class="c1">// Also reset</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pause-button">Pause Button</h3>
+<p>The <strong>pause button</strong> freezes the animation without resetting—so users can resume later:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">pauseButton</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">togglePause</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">togglePause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isPaused</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Resume&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="reset-button">Reset Button</h3>
+<p>The <strong>reset button</strong> returns all parameters to their default values:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">resetButton</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">resetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">resetButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">resetSimulation</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">resetSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Reset all variables to initial values</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialX</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialY</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Reset sliders to defaults</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Stop animation</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="the-complete-button-family">The Complete Button Family</h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Action</th>
+<th>State Change</th>
+<th>Label Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Start</strong></td>
+<td>Begin animation</td>
+<td>isRunning → true</td>
+<td>"Start" → "Running"</td>
+</tr>
+<tr>
+<td><strong>Stop</strong></td>
+<td>Halt and reset</td>
+<td>isRunning → false</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><strong>Pause</strong></td>
+<td>Freeze in place</td>
+<td>isPaused toggle</td>
+<td>"Pause" ↔ "Resume"</td>
+</tr>
+<tr>
+<td><strong>Reset</strong></td>
+<td>Restore defaults</td>
+<td>All values reset</td>
+<td>Usually static</td>
+</tr>
+</tbody>
+</table>
+<h2 id="input-handling-the-big-picture">Input Handling: The Big Picture</h2>
+<p><strong>Input handling</strong> is the overall process of detecting and responding to user actions. In p5.js, input comes from three main sources:</p>
+<ol>
+<li><strong>DOM Controls</strong>: Sliders, buttons, text inputs</li>
+<li><strong>Mouse Events</strong>: Clicks, drags, movement</li>
+<li><strong>Keyboard Events</strong>: Key presses and releases</li>
+</ol>
+<p>Each input type uses a different handling pattern:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// DOM Controls: Callback functions</span>
+<span class="nx">slider</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">handleSliderChange</span><span class="p">);</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">handleButtonClick</span><span class="p">);</span>
+
+<span class="c1">// Mouse Events: Built-in p5.js functions</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* handle click */</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseDragged</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* handle drag */</span><span class="w"> </span><span class="p">}</span>
+
+<span class="c1">// Keyboard Events: Built-in p5.js functions</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">keyPressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* handle key */</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="mouse-events-point-and-click-power">Mouse Events: Point and Click Power</h2>
+<p><strong>Mouse events</strong> let users interact directly with the canvas—clicking on objects, dragging elements, and responding to cursor position.</p>
+<h3 id="the-mousepressed-function">The mousePressed() Function</h3>
+<p>The <code>mousePressed()</code> function runs once when the user clicks:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Check if click is in drawing area</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create new object at click position</span>
+<span class="w">    </span><span class="nx">objects</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="nx">mouseX</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="using-mousex-and-mousey">Using mouseX and mouseY</h3>
+<p>p5.js provides real-time cursor position:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mouseX</code></td>
+<td>Current horizontal position</td>
+</tr>
+<tr>
+<td><code>mouseY</code></td>
+<td>Current vertical position</td>
+</tr>
+<tr>
+<td><code>pmouseX</code></td>
+<td>Previous frame's X position</td>
+</tr>
+<tr>
+<td><code>pmouseY</code></td>
+<td>Previous frame's Y position</td>
+</tr>
+<tr>
+<td><code>mouseIsPressed</code></td>
+<td>Boolean: is button held down?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-mousedragged-function">The mouseDragged() Function</h3>
+<p>The <code>mouseDragged()</code> function runs continuously while dragging:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">dragging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">dragObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Check if we clicked on an object</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">objects</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dist</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">,</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">size</span><span class="o">/</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">dragging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">dragObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">obj</span><span class="p">;</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseDragged</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dragging</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">dragObject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">dragObject</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mouseX</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">dragObject</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseReleased</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">dragging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">dragObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-mouse-event-demo-microsim">Diagram: Mouse Event Demo MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Mouse Event Interactive Demo&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Demonstrate mousePressed(), mouseDragged(), and mouseReleased() through interactive drawing (Bloom: Apply, Analyze)
+
+Canvas layout:
+- Drawing area: 400x350 pixels (acts as drawing canvas)
+- Control area: 50 pixels for clear button
+
+Visual elements:
+- Blank canvas that users can draw on
+- Current mouse position displayed
+- Different colors for different actions:
+  - Blue dots on click (mousePressed)
+  - Red line while dragging (mouseDragged)
+  - Green dot on release (mouseReleased)
+- Event log showing recent events
+
+Interactive features:
+- Click anywhere: Blue dot appears
+- Click and drag: Red trail follows cursor
+- Release: Green dot marks end
+- Event type displayed in corner
+
+Controls:
+- Button: &quot;Clear Canvas&quot;
+- Toggle: &quot;Show Event Log&quot;
+
+Behavior:
+- Drawing persists until cleared
+- Event log shows last 5 events
+- Position coordinates update in real-time
+- Clear demonstration of each event type
+
+Educational annotations:
+- &quot;mousePressed() fires once per click&quot;
+- &quot;mouseDragged() fires continuously while dragging&quot;
+- &quot;mouseX, mouseY always available&quot;
+
+Color scheme:
+- Click dots: blue
+- Drag trails: red with alpha
+- Release dots: green
+- Background: white
+
+Implementation: p5.js with mousePressed, mouseDragged, mouseReleased
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="click-detection-is-the-user-clicking-on-something">Click Detection: Is the User Clicking on Something?</h3>
+<p>A common pattern is detecting if a click hit a specific object:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Check if click is on the ball</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dist</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Ball clicked!&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Check if click is on a rectangle</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mouseX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">mouseX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">      </span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">rect</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">.</span><span class="nx">selected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="keyboard-events-keys-to-control">Keyboard Events: Keys to Control</h2>
+<p><strong>Keyboard events</strong> provide an alternative input method, great for quick actions, shortcuts, and game-like interactions.</p>
+<h3 id="the-keypressed-function">The keyPressed() Function</h3>
+<p>The <code>keyPressed()</code> function runs once when a key is pressed:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">keyPressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Spacebar</span>
+<span class="w">    </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span><span class="w">  </span><span class="c1">// Toggle animation</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">resetSimulation</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">keyCode</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">LEFT_ARROW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">moveLeft</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">keyCode</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">RIGHT_ARROW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">moveRight</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="key-variables">Key Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Example Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td>The character pressed</td>
+<td>'a', 'B', '5', ' '</td>
+</tr>
+<tr>
+<td><code>keyCode</code></td>
+<td>Numeric code</td>
+<td>65 (A), 32 (space)</td>
+</tr>
+<tr>
+<td><code>keyIsPressed</code></td>
+<td>Boolean: key held?</td>
+<td>true/false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="special-key-codes">Special Key Codes</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Arrow keys</span>
+<span class="nx">LEFT_ARROW</span><span class="p">,</span><span class="w"> </span><span class="nx">RIGHT_ARROW</span><span class="p">,</span><span class="w"> </span><span class="nx">UP_ARROW</span><span class="p">,</span><span class="w"> </span><span class="nx">DOWN_ARROW</span>
+
+<span class="c1">// Modifier keys</span>
+<span class="nx">SHIFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CONTROL</span><span class="p">,</span><span class="w"> </span><span class="nx">ALT</span>
+
+<span class="c1">// Other special keys</span>
+<span class="nx">ENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">RETURN</span><span class="p">,</span><span class="w"> </span><span class="nx">BACKSPACE</span><span class="p">,</span><span class="w"> </span><span class="nx">DELETE</span><span class="p">,</span><span class="w"> </span><span class="nx">ESCAPE</span><span class="p">,</span><span class="w"> </span><span class="nx">TAB</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="keyboard-shortcuts-table">Keyboard Shortcuts Table</h3>
+<p>Document keyboard shortcuts for users:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Space</code></td>
+<td>Start/Pause animation</td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td>Reset simulation</td>
+</tr>
+<tr>
+<td><code>↑</code> <code>↓</code></td>
+<td>Increase/decrease speed</td>
+</tr>
+<tr>
+<td><code>←</code> <code>→</code></td>
+<td>Adjust parameter</td>
+</tr>
+<tr>
+<td><code>Escape</code></td>
+<td>Stop simulation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="event-handlers-the-responders">Event Handlers: The Responders</h2>
+<p><strong>Event handlers</strong> are functions that respond to specific events. In p5.js, there are two types:</p>
+<ol>
+<li><strong>Built-in handlers</strong>: Predefined function names (mousePressed, keyPressed)</li>
+<li><strong>Callback handlers</strong>: Functions you assign to DOM elements</li>
+</ol>
+<h3 id="built-in-event-handler-functions">Built-in Event Handler Functions</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Mouse handlers</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// Click down</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseReleased</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Click up</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseMoved</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// Mouse movement (no click)</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseDragged</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// Move while clicking</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseWheel</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Scroll wheel</span>
+
+<span class="c1">// Keyboard handlers</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">keyPressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// Key down</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">keyReleased</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">    </span><span class="c1">// Key up</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">keyTyped</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">       </span><span class="c1">// Character typed</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="callback-event-handlers">Callback Event Handlers</h3>
+<p>For DOM elements, you assign callbacks:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Button callback</span>
+<span class="nx">myButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">handleButtonClick</span><span class="p">);</span>
+<span class="nx">myButton</span><span class="p">.</span><span class="nx">mouseOver</span><span class="p">(</span><span class="nx">handleHover</span><span class="p">);</span>
+<span class="nx">myButton</span><span class="p">.</span><span class="nx">mouseOut</span><span class="p">(</span><span class="nx">handleLeave</span><span class="p">);</span>
+
+<span class="c1">// Slider callback</span>
+<span class="nx">mySlider</span><span class="p">.</span><span class="nx">input</span><span class="p">(</span><span class="nx">handleSliderChange</span><span class="p">);</span><span class="w">  </span><span class="c1">// Fires while dragging</span>
+<span class="nx">mySlider</span><span class="p">.</span><span class="nx">changed</span><span class="p">(</span><span class="nx">handleSliderDone</span><span class="p">);</span><span class="w">  </span><span class="c1">// Fires when released</span>
+
+<span class="c1">// The callback functions</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">handleButtonClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Button was clicked!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">handleSliderChange</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Slider value: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-event-handler-flow">Diagram: Event Handler Flow</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Event Handler Flow Diagram&lt;/summary&gt;
+Type: diagram
+
+Purpose: Show how events flow from user action to handler function (Bloom: Understand)
+
+Layout: Left-to-right flow diagram
+
+Components:
+1. User Action (left side):
+   - Mouse click icon
+   - Keyboard icon
+   - Slider icon
+
+2. Event Detection (middle):
+   - &quot;p5.js Event System&quot; box
+   - Arrows showing event routing
+
+3. Event Handlers (right side):
+   - mousePressed() function box
+   - keyPressed() function box
+   - slider.input() callback box
+
+4. Response (far right):
+   - State changes
+   - Visual updates
+   - Animation control
+
+Flow arrows:
+- User clicks → mousePressed() → update state
+- User types → keyPressed() → update state
+- User drags slider → input callback → parameter change
+
+Visual style:
+- Rounded boxes for functions
+- Arrows showing data flow
+- Color coding by event type
+
+Annotations:
+- &quot;Built-in handlers have special names&quot;
+- &quot;Callbacks are assigned to elements&quot;
+- &quot;State changes trigger visual updates in draw()&quot;
+
+Color scheme:
+- Mouse events: blue
+- Keyboard events: green
+- DOM events: orange
+- State/response: purple
+
+Implementation: Mermaid.js or static SVG
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="user-interaction-designing-for-humans">User Interaction: Designing for Humans</h2>
+<p><strong>User interaction</strong> encompasses all the ways users engage with your MicroSim. Good interaction design makes simulations intuitive and enjoyable.</p>
+<h3 id="interaction-design-principles">Interaction Design Principles</h3>
+<ol>
+<li><strong>Immediate feedback</strong>: Every action should produce visible results</li>
+<li><strong>Consistent behavior</strong>: Similar controls should work similarly</li>
+<li><strong>Clear affordances</strong>: Controls should look interactive</li>
+<li><strong>Error prevention</strong>: Make it hard to do the wrong thing</li>
+<li><strong>Forgiving design</strong>: Easy to undo or reset</li>
+</ol>
+<h3 id="providing-feedback">Providing Feedback</h3>
+<p>Users need to know their actions had effect:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Visual feedback for button hover</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isHovering</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cursor</span><span class="p">(</span><span class="nx">HAND</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cursor</span><span class="p">(</span><span class="nx">ARROW</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Visual feedback for slider adjustment</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">speedChanged</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Briefly highlight the affected element</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">fadeAmount</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">fadeAmount</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="the-isrunning-state-pattern">The isRunning State Pattern</h2>
+<p>The <strong>isRunning state</strong> is a boolean variable that controls whether your animation is active. This simple pattern is essential for playable, pauseable simulations.</p>
+<h3 id="basic-isrunning-pattern">Basic isRunning Pattern</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Only update physics when running</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">updatePhysics</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Always draw current state</span>
+<span class="w">  </span><span class="nx">drawVisualization</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">drawControls</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleRunning</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="extended-state-pattern">Extended State Pattern</h3>
+<p>For more complex simulations, use multiple state variables:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isComplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isComplete</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">updateSimulation</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">checkCompletion</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">isComplete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">showResults</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">drawVisualization</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="state-diagram">State Diagram</h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>isRunning</th>
+<th>isPaused</th>
+<th>Animation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stopped</td>
+<td>false</td>
+<td>false</td>
+<td>Static</td>
+</tr>
+<tr>
+<td>Running</td>
+<td>true</td>
+<td>false</td>
+<td>Animating</td>
+</tr>
+<tr>
+<td>Paused</td>
+<td>true</td>
+<td>true</td>
+<td>Frozen</td>
+</tr>
+<tr>
+<td>Complete</td>
+<td>false</td>
+<td>false</td>
+<td>Final state</td>
+</tr>
+</tbody>
+</table>
+<h2 id="animation-control-start-stop-and-smooth">Animation Control: Start, Stop, and Smooth</h2>
+<p><strong>Animation control</strong> manages the flow of your simulation—starting it, stopping it, and controlling its speed.</p>
+<h3 id="the-complete-animation-controller">The Complete Animation Controller</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">startButton</span><span class="p">,</span><span class="w"> </span><span class="nx">pauseButton</span><span class="p">,</span><span class="w"> </span><span class="nx">resetButton</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">450</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">startButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">410</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">toggleStart</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">pauseButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">410</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">togglePause</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">attribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// Disabled until started</span>
+
+<span class="w">  </span><span class="nx">resetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">resetButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">180</span><span class="p">,</span><span class="w"> </span><span class="mf">410</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">resetButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">resetAll</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleStart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Stop&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">attribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">togglePause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isPaused</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Resume&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">resetAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Reset all simulation variables</span>
+<span class="w">  </span><span class="nx">initializeSimulation</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Reset UI</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">attribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">updateSimulation</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">drawSimulation</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">drawControlRegion</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-complete-control-panel-microsim">Diagram: Complete Control Panel MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Animation Control Panel Demo&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Demonstrate the complete start/stop/pause/reset pattern with a simple animation (Bloom: Apply, Analyze)
+
+Canvas layout:
+- Drawing area: 400x350 pixels
+- Control area: 50 pixels for buttons
+
+Visual elements:
+- Bouncing ball animation
+- Current state indicator (Running/Paused/Stopped)
+- Frame counter showing animation progress
+- Button row with all four controls
+
+Buttons:
+- Start/Stop toggle button (changes label based on state)
+- Pause/Resume toggle button (disabled when stopped)
+- Reset button (always enabled)
+- State indicator text
+
+State visualization:
+- Green glow when running
+- Yellow glow when paused
+- Gray when stopped
+- Clear state label
+
+Behavior:
+- Start: Ball begins bouncing
+- Stop: Ball stops and resets to center
+- Pause: Ball freezes in current position
+- Resume: Ball continues from paused position
+- Reset: Ball returns to center, all values reset
+
+Transitions:
+- Stopped → Running (Start)
+- Running → Stopped (Stop)
+- Running → Paused (Pause)
+- Paused → Running (Resume)
+- Any → Stopped (Reset)
+
+Educational emphasis:
+- Clear state visualization
+- Button label changes reflect current state
+- Disabled states prevent invalid actions
+
+Implementation: p5.js with isRunning, isPaused pattern
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="speed-control-from-slow-motion-to-fast-forward">Speed Control: From Slow Motion to Fast Forward</h2>
+<p><strong>Speed control</strong> lets users adjust how fast the simulation runs. This is invaluable for understanding complex dynamics—slow down to see details, speed up to see patterns.</p>
+<h3 id="speed-multiplier-pattern">Speed Multiplier Pattern</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">baseSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0.1x to 3x speed</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">speedMultiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">actualSpeed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">baseSpeed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speedMultiplier</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">actualSpeed</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">actualSpeed</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="frame-independent-speed">Frame-Independent Speed</h3>
+<p>For consistent physics regardless of frame rate:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">lastTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">currentTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">lastTime</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="p">;</span><span class="w">  </span><span class="c1">// Seconds</span>
+<span class="w">  </span><span class="nx">lastTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTime</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">speedMultiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speedMultiplier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span><span class="w">  </span><span class="c1">// Normalize to 60fps</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speedMultiplier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="speed-control-ui">Speed Control UI</h3>
+<p>Label speed controls clearly:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">drawSpeedLabel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">label</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">speed</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Slow Motion (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x)&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">speed</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1.5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Fast Forward (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x)&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Normal Speed (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x)&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">label</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="parameter-adjustment-tuning-the-simulation">Parameter Adjustment: Tuning the Simulation</h2>
+<p><strong>Parameter adjustment</strong> allows users to modify the values that control simulation behavior—gravity, friction, mass, spring constants, and more.</p>
+<h3 id="common-adjustable-parameters">Common Adjustable Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Typical Range</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gravity</td>
+<td>0 - 2</td>
+<td>Physics simulations</td>
+</tr>
+<tr>
+<td>Friction</td>
+<td>0 - 1</td>
+<td>Damping effects</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>0.1 - 10</td>
+<td>Animation speed</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>0.5 - 5</td>
+<td>Weight/inertia</td>
+</tr>
+<tr>
+<td>Spring constant</td>
+<td>0.01 - 0.5</td>
+<td>Oscillation</td>
+</tr>
+<tr>
+<td>Angle</td>
+<td>0 - 360</td>
+<td>Direction</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>1 - 100</td>
+<td>Number of objects</td>
+</tr>
+</tbody>
+</table>
+<h3 id="multi-parameter-control-panel">Multi-Parameter Control Panel</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">,</span><span class="w"> </span><span class="nx">frictionSlider</span><span class="p">,</span><span class="w"> </span><span class="nx">massSlider</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">500</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">120</span><span class="p">,</span><span class="w"> </span><span class="mf">410</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">frictionSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">frictionSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">120</span><span class="p">,</span><span class="w"> </span><span class="mf">435</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">massSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">massSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">120</span><span class="p">,</span><span class="w"> </span><span class="mf">460</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Physics with adjustable parameters</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">gravity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">friction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">frictionSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">massSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">gravity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">mass</span><span class="p">;</span><span class="w">       </span><span class="c1">// Gravity</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">friction</span><span class="p">);</span><span class="w">       </span><span class="c1">// Friction</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">friction</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">drawParameterLabels</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">12</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Gravity:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">420</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Friction:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">445</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Mass:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">470</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">().</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="mf">380</span><span class="p">,</span><span class="w"> </span><span class="mf">420</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">frictionSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">().</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">),</span><span class="w"> </span><span class="mf">380</span><span class="p">,</span><span class="w"> </span><span class="mf">445</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">massSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">().</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="mf">380</span><span class="p">,</span><span class="w"> </span><span class="mf">470</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-parameter-adjustment-microsim">Diagram: Parameter Adjustment MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Physics Parameter Playground&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Allow students to experiment with physics parameters and observe effects on simulation behavior (Bloom: Apply, Analyze, Evaluate)
+
+Canvas layout:
+- Drawing area: 400x300 pixels
+- Control area: 100 pixels (3 rows of sliders)
+
+Visual elements:
+- Ball bouncing in the drawing area
+- Trail showing recent positions
+- Parameter values displayed next to sliders
+- Real-time physics calculations shown
+
+Parameters:
+1. Gravity slider (0 - 2, default 0.5)
+   - 0 = zero gravity (floating)
+   - 2 = heavy gravity (fast fall)
+2. Friction slider (0 - 0.3, default 0.05)
+   - 0 = no friction (perpetual motion)
+   - 0.3 = high friction (quick stop)
+3. Bounciness slider (0 - 1, default 0.8)
+   - 0 = no bounce (absorbs energy)
+   - 1 = perfect bounce (perpetual)
+
+Behavior:
+- Ball responds immediately to parameter changes
+- Trail helps visualize motion patterns
+- Extreme values produce obvious effects
+- Can demonstrate energy conservation/loss
+
+Preset buttons:
+- &quot;Moon&quot; (low gravity, no friction)
+- &quot;Earth&quot; (normal gravity, slight friction)
+- &quot;Mud&quot; (normal gravity, high friction)
+
+Educational annotations:
+- Physics formulas displayed
+- Energy indicator (kinetic + potential)
+- &quot;Energy lost to friction: X%&quot;
+
+Color scheme:
+- Ball: blue
+- Trail: fading blue
+- Energy indicator: green to red gradient
+
+Implementation: p5.js with multiple sliders
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="putting-it-all-together-the-complete-control-system">Putting It All Together: The Complete Control System</h2>
+<p>Here's a complete example combining all the controls we've learned:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Complete Control System Example</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">300</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+
+<span class="c1">// Simulation state</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ball</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="nx">vx</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">vy</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">};</span>
+
+<span class="c1">// Controls</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">startButton</span><span class="p">,</span><span class="w"> </span><span class="nx">pauseButton</span><span class="p">,</span><span class="w"> </span><span class="nx">resetButton</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">,</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Buttons</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">toggleStart</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">pauseButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">togglePause</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">attribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">resetButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">resetButton</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">resetButton</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">resetAll</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Sliders</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">45</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="mf">120</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">280</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">45</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Bouncing ball with complete animation controls&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleStart</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">updateButtonStates</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">togglePause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isPaused</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Resume&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">resetAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">isPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">ball</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="nx">vx</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">vy</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mf">0.3</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">updateButtonStates</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateButtonStates</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Stop&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Pause&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pauseButton</span><span class="p">.</span><span class="nx">attribute</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Drawing region</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Update physics if running</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">gravity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">gravity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Bounce off walls</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">constrain</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.8</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">abs</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Draw ball</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Control region</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Labels</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">12</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">55</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Gravity:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">55</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// State indicator</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">TOP</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">isPaused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;▶ Running&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isPaused</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;⏸ Paused&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;⏹ Stopped&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Keyboard shortcuts</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">keyPressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">togglePause</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">toggleStart</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">resetAll</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Click to reposition ball</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mouseX</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">random</span><span class="p">(</span><span class="o">-</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>You've now mastered the controls that put users in control! Here are the essential insights:</p>
+<ol>
+<li>
+<p><strong>Slider controls</strong> (<code>createSlider()</code>) handle continuous values with min, max, default, and step parameters.</p>
+</li>
+<li>
+<p><strong>Button controls</strong> (<code>createButton()</code>) trigger discrete actions with callback functions.</p>
+</li>
+<li>
+<p>The <strong>control button family</strong> (Start, Stop, Pause, Reset) provides complete animation control.</p>
+</li>
+<li>
+<p><strong>Mouse events</strong> (<code>mousePressed()</code>, <code>mouseDragged()</code>) enable direct canvas interaction.</p>
+</li>
+<li>
+<p><strong>Keyboard events</strong> (<code>keyPressed()</code>) provide shortcuts and alternative input.</p>
+</li>
+<li>
+<p><strong>Event handlers</strong> respond to user actions—both built-in and callback-based.</p>
+</li>
+<li>
+<p><strong>User interaction</strong> design prioritizes feedback, consistency, and forgiveness.</p>
+</li>
+<li>
+<p>The <strong>isRunning state</strong> pattern controls animation with a simple boolean.</p>
+</li>
+<li>
+<p><strong>Animation control</strong> combines state management with button interactions.</p>
+</li>
+<li>
+<p><strong>Speed control</strong> uses multipliers to adjust simulation pace.</p>
+</li>
+<li>
+<p><strong>Parameter adjustment</strong> lets users tune simulation behavior with sliders.</p>
+</li>
+<li>
+<p><strong>Input handling</strong> unifies all input sources into a coherent control system.</p>
+</li>
+</ol>
+<details class="question">
+<summary>Challenge: Add a keyboard shortcut</summary>
+<p>Take one of your existing MicroSims and add keyboard shortcuts for common actions. Use spacebar for start/pause, 'R' for reset, and arrow keys for parameter adjustment. How does this improve the user experience?</p>
+</details>
+<h2 id="next-steps">Next Steps</h2>
+<p>You're now in <em>complete control</em> of user controls! Your MicroSims can respond to sliders, buttons, mouse clicks, and keyboard shortcuts. In the next chapter, we'll explore <strong>physics and motion</strong>—making objects move realistically with gravity, bouncing, and more.</p>
+<p>Remember: good controls should be invisible. When users stop thinking about <em>how</em> to interact and start focusing on <em>what</em> they're learning, you've mastered the art of control.</p>
+<p>Now go forth and <em>take control</em>!</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://p5js.org/reference/#group-DOM">p5.js DOM Reference</a> - Complete DOM control documentation</li>
+<li><a href="https://p5js.org/reference/#group-Events">p5.js Events Reference</a> - Mouse and keyboard events</li>
+<li><a href="https://www.interaction-design.org/literature/topics/ui-design-patterns">UI/UX Design Principles</a> - Interaction design patterns</li>
+<li><a href="https://www.interaction-design.org/literature/topics/fitts-law">Fitts's Law</a> - Button sizing and positioning</li>
+</ul>
 
 
 

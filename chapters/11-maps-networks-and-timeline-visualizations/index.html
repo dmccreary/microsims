@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="Master specialized visualization libraries for geographic, network, and temporal data">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>11 - Maps, Networks, and Timeline Visualizations - Micro Simulations for Education</title>
+        <title>Maps, Networks, and Timeline Visualizations - Micro Simulations for Education</title>
       
     
     
@@ -70,9 +70,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="11 - Maps, Networks, and Timeline Visualizations - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Maps, Networks, and Timeline Visualizations - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="Master specialized visualization libraries for geographic, network, and temporal data" >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/11-maps-networks-and-timeline-visualizations/index.png" >
       
@@ -86,9 +86,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="11 - Maps, Networks, and Timeline Visualizations - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Maps, Networks, and Timeline Visualizations - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="Master specialized visualization libraries for geographic, network, and temporal data" >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/11-maps-networks-and-timeline-visualizations/index.png" >
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11 - Maps, Networks, and Timeline Visualizations
+              Maps, Networks, and Timeline Visualizations
             
           </span>
         </div>
@@ -321,6 +321,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -817,6 +821,612 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-power-of-relationship-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Power of Relationship Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-graphs-visualizing-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Graphs: Visualizing Relationships
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Graphs: Visualizing Relationships">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-a-network-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anatomy of a Network Graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-network-graphs-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Network Graphs Excel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-history-of-graphviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      The History of GraphViz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The History of GraphViz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Timeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphviz-layout-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphViz Layout Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-directed-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Force-Directed Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-directed-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-directed-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Limitations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-vis-network-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      The vis-network Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The vis-network Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vis-network-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      vis-network Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-vis-network-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic vis-network Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-node-coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Node Coloring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Node Coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementing-node-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Node Colors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#org-chart-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Org Chart Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Org Chart Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-org-chart-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Org Chart MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-loop-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Causal Loop Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Causal Loop Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elements-of-causal-loop-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elements of Causal Loop Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-population-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Population Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-with-vis-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building with vis-network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#er-diagram-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER Diagram Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ER Diagram Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#er-diagram-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER Diagram Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vis-network-for-er-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      vis-network for ER Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geographic-maps-with-leafletjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geographic Maps with Leaflet.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geographic Maps with Leaflet.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-leaflet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Leaflet?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmaps-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenMaps Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-leaflet-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Leaflet Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-features-for-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Features for Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Map Features for Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-map-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Map MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Visualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vis-timeline-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vis-Timeline Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vis-Timeline Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-vis-timeline-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Vis-Timeline Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-lists-and-durations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Lists and Durations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-timelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouped Timelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grouped Timelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-historical-timeline-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Historical Timeline MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sequence Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-sequence-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Sequence Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence-diagram-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Diagram Elements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venn-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Venn Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venn Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-venn-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Venn Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specialized-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specialized MicroSims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specialized MicroSims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equation-graphing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equation Graphing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heavyweight-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heavyweight Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Heavyweight Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reactflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      ReactFlow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-heavyweight-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Heavyweight Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heavyweight-vs-lightweight-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heavyweight vs. Lightweight Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-network-microsim-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Network MicroSim Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1588,6 +2198,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         
   
@@ -1714,6 +2344,612 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-power-of-relationship-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Power of Relationship Visualization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-graphs-visualizing-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Graphs: Visualizing Relationships
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Graphs: Visualizing Relationships">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-a-network-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anatomy of a Network Graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-network-graphs-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      When Network Graphs Excel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-history-of-graphviz" class="md-nav__link">
+    <span class="md-ellipsis">
+      The History of GraphViz
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The History of GraphViz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Timeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphviz-layout-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      GraphViz Layout Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#force-directed-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Force-Directed Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-directed-advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Advantages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-directed-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Force-Directed Limitations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-vis-network-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      The vis-network Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The vis-network Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vis-network-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      vis-network Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-vis-network-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic vis-network Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graph-node-coloring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graph Node Coloring
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Node Coloring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementing-node-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Node Colors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#org-chart-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Org Chart Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Org Chart Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-org-chart-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Org Chart MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-loop-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Causal Loop Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Causal Loop Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elements-of-causal-loop-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elements of Causal Loop Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-population-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Population Dynamics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-with-vis-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building with vis-network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#er-diagram-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER Diagram Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ER Diagram Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#er-diagram-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER Diagram Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vis-network-for-er-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      vis-network for ER Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geographic-maps-with-leafletjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geographic Maps with Leaflet.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geographic Maps with Leaflet.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-leaflet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Leaflet?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmaps-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenMaps Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-leaflet-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Leaflet Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-features-for-education" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Features for Education
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Map Features for Education">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-map-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Map MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Visualization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline Visualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timeline-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vis-timeline-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vis-Timeline Library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vis-Timeline Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-vis-timeline-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Vis-Timeline Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-lists-and-durations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Lists and Durations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-timelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouped Timelines
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grouped Timelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-historical-timeline-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Historical Timeline MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sequence Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-sequence-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Sequence Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence-diagram-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence Diagram Elements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venn-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Venn Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venn Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-venn-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Venn Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specialized-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specialized MicroSims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specialized MicroSims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3d-visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3D Visualization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Simulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equation-graphing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equation Graphing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heavyweight-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heavyweight Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Heavyweight Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reactflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      ReactFlow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-heavyweight-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Heavyweight Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heavyweight-vs-lightweight-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heavyweight vs. Lightweight Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-network-microsim-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Network MicroSim Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1780,7 +3016,1644 @@
 <li><a href="../10-charts-diagrams-and-infographics/">Chapter 10: Charts, Diagrams, and Infographics</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="the-power-of-relationship-visualization">The Power of Relationship Visualization</h2>
+<p>Welcome to some of the most powerful MicroSims for analyzing concepts and their relationships. In this chapter, we move beyond simple charts to visualizations that reveal structure, connection, and flow.</p>
+<p>Have you ever tried to manually lay out an organizational chart? Perhaps you've spent hours arranging boxes, drawing lines, only to have the structure change the next week. Then you start over. It's slow. It's painful. And it doesn't scale.</p>
+<p>Fortunately, there are ways to automate the layout of complex structures. The origin story takes us back to Bell Labs in the 1980s, where a team created a product called <strong>GraphViz</strong>—a collection of layout algorithms that could automatically arrange nodes and edges into readable diagrams. From that pioneering work, many generations of products evolved. Today, many of these layout algorithms are available through JavaScript libraries like <strong>vis-network</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">The Layout Algorithm Advantage</p>
+<p>When you let algorithms handle positioning, you can focus on what matters: the relationships. Add a node, remove an edge, reorganize departments—the layout adapts automatically. That's the power we'll harness in this chapter.</p>
+</div>
+<p>Let's explore how these algorithms work and how we can bring order to complex network diagrams to build fun and insightful MicroSims.</p>
+<h2 id="network-graphs-visualizing-relationships">Network Graphs: Visualizing Relationships</h2>
+<p><strong>Network graphs</strong> (also called node-link diagrams) show entities as nodes and relationships as edges connecting them. They're ideal for:</p>
+<ul>
+<li>Organizational hierarchies</li>
+<li>Social networks</li>
+<li>Concept dependencies</li>
+<li>System architectures</li>
+<li>Knowledge graphs</li>
+</ul>
+<h3 id="anatomy-of-a-network-graph">Anatomy of a Network Graph</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nodes</strong></td>
+<td>Entities or concepts</td>
+<td>People, departments, topics</td>
+</tr>
+<tr>
+<td><strong>Edges</strong></td>
+<td>Relationships between nodes</td>
+<td>Reports-to, connects-to, depends-on</td>
+</tr>
+<tr>
+<td><strong>Labels</strong></td>
+<td>Text identifying nodes/edges</td>
+<td>Names, relationship types</td>
+</tr>
+<tr>
+<td><strong>Weights</strong></td>
+<td>Numeric values on edges</td>
+<td>Strength, frequency, cost</td>
+</tr>
+<tr>
+<td><strong>Groups</strong></td>
+<td>Categories for nodes</td>
+<td>Departments, types, levels</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-network-graphs-excel">When Network Graphs Excel</h3>
+<p>Use network graphs when:</p>
+<ul>
+<li>Relationships are as important as entities</li>
+<li>Structure is complex or hierarchical</li>
+<li>Users need to explore connections</li>
+<li>The graph changes over time</li>
+<li>Patterns emerge from connectivity</li>
+</ul>
+<h2 id="the-history-of-graphviz">The History of GraphViz</h2>
+<p>The <strong>history of GraphViz</strong> begins at AT&amp;T Bell Labs in the late 1980s. Researchers faced a common problem: how do you draw a graph with hundreds of nodes so that humans can understand it?</p>
+<h3 id="the-timeline">The Timeline</h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Development</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1988</td>
+<td>Initial GraphViz development at Bell Labs</td>
+</tr>
+<tr>
+<td>1991</td>
+<td>"dot" algorithm for hierarchical layouts</td>
+</tr>
+<tr>
+<td>1993</td>
+<td>"neato" for spring-model layouts</td>
+</tr>
+<tr>
+<td>1997</td>
+<td>Open-source release</td>
+</tr>
+<tr>
+<td>2000s</td>
+<td>Web-based visualization libraries emerge</td>
+</tr>
+<tr>
+<td>2010s</td>
+<td>JavaScript libraries (D3, vis.js) dominate</td>
+</tr>
+<tr>
+<td>2020s</td>
+<td>Modern libraries (vis-network, ReactFlow) mature</td>
+</tr>
+</tbody>
+</table>
+<h3 id="graphviz-layout-algorithms">GraphViz Layout Algorithms</h3>
+<p>GraphViz introduced several <strong>graph layout algorithms</strong> that remain influential:</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Type</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>dot</strong></td>
+<td>Hierarchical</td>
+<td>Org charts, flow diagrams, trees</td>
+</tr>
+<tr>
+<td><strong>neato</strong></td>
+<td>Spring model</td>
+<td>Undirected graphs, clusters</td>
+</tr>
+<tr>
+<td><strong>fdp</strong></td>
+<td>Force-directed</td>
+<td>Large graphs, organic layouts</td>
+</tr>
+<tr>
+<td><strong>twopi</strong></td>
+<td>Radial</td>
+<td>Center-focused hierarchies</td>
+</tr>
+<tr>
+<td><strong>circo</strong></td>
+<td>Circular</td>
+<td>Ring-structured graphs</td>
+</tr>
+</tbody>
+</table>
+<p>These algorithms solved the fundamental problem: given nodes and edges, compute (x, y) positions that make the structure readable.</p>
+<h2 id="force-directed-layout">Force-Directed Layout</h2>
+<p>The <strong>force-directed layout</strong> (also called spring-embedded layout) treats the graph as a physical system:</p>
+<ul>
+<li><strong>Nodes repel</strong> each other like charged particles</li>
+<li><strong>Edges attract</strong> connected nodes like springs</li>
+<li>The system reaches equilibrium when forces balance</li>
+</ul>
+<h3 id="how-it-works">How It Works</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>1. Place nodes randomly
+2. Calculate repulsion between all node pairs
+3. Calculate attraction along edges
+4. Move nodes according to net forces
+5. Repeat until stable (or max iterations)
+</code></pre></div></td></tr></table></div>
+<h3 id="force-directed-advantages">Force-Directed Advantages</h3>
+<ul>
+<li>Produces aesthetically pleasing layouts</li>
+<li>Reveals natural clusters</li>
+<li>No manual positioning required</li>
+<li>Adapts to graph changes</li>
+<li>Works for any graph structure</li>
+</ul>
+<h3 id="force-directed-limitations">Force-Directed Limitations</h3>
+<ul>
+<li>Computationally expensive for large graphs</li>
+<li>May produce different layouts each run</li>
+<li>Can get stuck in local minima</li>
+<li>Doesn't respect hierarchy without constraints</li>
+</ul>
+<h2 id="the-vis-network-library">The vis-network Library</h2>
+<p><strong>vis-network</strong> (part of the vis.js ecosystem) is a JavaScript library that brings GraphViz-style layout algorithms to the browser. It's the primary library we'll use for network graph MicroSims.</p>
+<h3 id="vis-network-features">vis-network Features</h3>
+<ul>
+<li>Multiple layout algorithms (hierarchical, force-directed)</li>
+<li>Interactive manipulation (drag, zoom, click)</li>
+<li>Node and edge styling</li>
+<li>Clustering and grouping</li>
+<li>Physics simulation</li>
+<li>Events and callbacks</li>
+<li>Performance optimization for large graphs</li>
+</ul>
+<h3 id="basic-vis-network-setup">Basic vis-network Setup</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;network&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 600px; height: 400px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vis-network/standalone/umd/vis-network.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// Define nodes</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CEO&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CTO&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CFO&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Developer&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Accountant&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="c1">// Define edges</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="c1">// Create network</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;network&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nodes</span><span class="o">:</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span><span class="w"> </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="p">};</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="layout-options">Layout Options</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">layout</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">hierarchical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">direction</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UD&#39;</span><span class="p">,</span><span class="w">        </span><span class="c1">// Up-Down</span>
+<span class="w">            </span><span class="nx">sortMethod</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;directed&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Follow edge direction</span>
+<span class="w">            </span><span class="nx">levelSeparation</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w">   </span><span class="c1">// Vertical spacing</span>
+<span class="w">            </span><span class="nx">nodeSpacing</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="w">        </span><span class="c1">// Horizontal spacing</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w">  </span><span class="c1">// Disable physics for hierarchical</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="graph-node-coloring">Graph Node Coloring</h2>
+<p><strong>Graph node coloring</strong> uses color to encode additional information about nodes. Common patterns include:</p>
+<table>
+<thead>
+<tr>
+<th>Coloring Strategy</th>
+<th>Information Encoded</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>By group</strong></td>
+<td>Category or type</td>
+<td>Department colors</td>
+</tr>
+<tr>
+<td><strong>By level</strong></td>
+<td>Hierarchy depth</td>
+<td>Darker = higher level</td>
+</tr>
+<tr>
+<td><strong>By metric</strong></td>
+<td>Numerical value</td>
+<td>Red = high risk</td>
+</tr>
+<tr>
+<td><strong>By state</strong></td>
+<td>Current status</td>
+<td>Green = active</td>
+</tr>
+<tr>
+<td><strong>By selection</strong></td>
+<td>User focus</td>
+<td>Highlighted path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="implementing-node-colors">Implementing Node Colors</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CEO&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#e74c3c&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;executive&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CTO&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3498db&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tech&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;CFO&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#2ecc71&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;finance&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Dev&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3498db&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;tech&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Acct&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#2ecc71&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;finance&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="c1">// Or use group-based styling</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">groups</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">executive</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#e74c3c&#39;</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">        </span><span class="nx">tech</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3498db&#39;</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">        </span><span class="nx">finance</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">background</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#2ecc71&#39;</span><span class="w"> </span><span class="p">}}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="org-chart-example">Org Chart Example</h2>
+<p>An <strong>org chart</strong> is a classic application of hierarchical network visualization. Let's build one:</p>
+<h4 id="diagram-interactive-org-chart-microsim">Diagram: Interactive Org Chart MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Dynamic Organization Chart&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Create and manipulate an organizational chart with hierarchical layout (Bloom: Apply, Analyze)
+
+Canvas layout:
+- Network area: 600x400 pixels
+- Control area: 80 pixels
+
+Visual elements:
+- vis-network graph with hierarchical layout
+- Nodes: rounded rectangles with name and title
+- Edges: straight lines with arrow indicating &quot;reports to&quot;
+- Color coding by department
+
+Sample data:
+```
+CEO (Executive)
+├── CTO (Tech) - blue
+│   ├── Lead Developer
+│   ├── DevOps Engineer
+│   └── QA Manager
+├── CFO (Finance) - green
+│   ├── Controller
+│   └── Analyst
+└── COO (Operations) - orange
+    ├── HR Manager
+    └── Facilities
+```
+
+Interactive controls:
+- Button: &quot;Add Employee&quot; (opens dialog)
+- Button: &quot;Remove Selected&quot;
+- Dropdown: &quot;Layout Direction&quot; (UD, DU, LR, RL)
+- Toggle: &quot;Show Titles&quot; (display job titles)
+- Slider: &quot;Spacing&quot; (adjust node separation)
+
+Behavior:
+- Click node to select
+- Double-click to edit
+- Drag to reposition (temporarily)
+- Add employee prompts for name, title, reports-to
+- Layout recalculates automatically on changes
+
+Educational emphasis:
+- Shows hierarchical layout algorithm in action
+- Demonstrates automatic repositioning
+- Highlights relationship visualization
+
+Color scheme:
+- Executive: red
+- Tech: blue
+- Finance: green
+- Operations: orange
+- Edges: gray with arrows
+
+Implementation: vis-network with hierarchical layout
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="causal-loop-diagrams">Causal Loop Diagrams</h2>
+<p><strong>Causal loop diagrams</strong> visualize feedback systems. They show how variables influence each other with positive (+) or negative (-) relationships.</p>
+<h3 id="elements-of-causal-loop-diagrams">Elements of Causal Loop Diagrams</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Variable</strong></td>
+<td>Node</td>
+<td>A quantity that changes</td>
+</tr>
+<tr>
+<td><strong>Positive link</strong></td>
+<td>→ +</td>
+<td>Same direction change</td>
+</tr>
+<tr>
+<td><strong>Negative link</strong></td>
+<td>→ -</td>
+<td>Opposite direction change</td>
+</tr>
+<tr>
+<td><strong>Reinforcing loop</strong></td>
+<td>R</td>
+<td>Amplifying feedback</td>
+</tr>
+<tr>
+<td><strong>Balancing loop</strong></td>
+<td>B</td>
+<td>Stabilizing feedback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example-population-dynamics">Example: Population Dynamics</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Population → (+) Births → (+) Population  [Reinforcing]
+Population → (+) Deaths → (-) Population  [Balancing]
+</code></pre></div></td></tr></table></div>
+<h3 id="building-with-vis-network">Building with vis-network</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Population&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Birth Rate&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Death Rate&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Resources&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="er-diagram-example">ER Diagram Example</h2>
+<p><strong>Entity-Relationship (ER) diagrams</strong> model database schemas. They show entities (tables), attributes (columns), and relationships.</p>
+<h3 id="er-diagram-elements">ER Diagram Elements</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Representation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entity</strong></td>
+<td>Rectangle</td>
+</tr>
+<tr>
+<td><strong>Attribute</strong></td>
+<td>Oval connected to entity</td>
+</tr>
+<tr>
+<td><strong>Relationship</strong></td>
+<td>Diamond between entities</td>
+</tr>
+<tr>
+<td><strong>Cardinality</strong></td>
+<td>1, N, M on edges</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vis-network-for-er-diagrams">vis-network for ER Diagrams</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Student&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3498db&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Course&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;box&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3498db&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Enrolls&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;diamond&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#e74c3c&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;student_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ellipse&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ellipse&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;course_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ellipse&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">shape</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ellipse&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="geographic-maps-with-leafletjs">Geographic Maps with Leaflet.js</h2>
+<p><strong>Geographic maps</strong> visualize location-based data. <strong>Leaflet.js</strong> (also called <strong>Leaflet JS Library</strong>) is a lightweight, open-source library for interactive maps.</p>
+<h3 id="why-leaflet">Why Leaflet?</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lightweight</td>
+<td>~42KB gzipped</td>
+</tr>
+<tr>
+<td>Mobile-friendly</td>
+<td>Touch and gesture support</td>
+</tr>
+<tr>
+<td>Extensible</td>
+<td>Hundreds of plugins</td>
+</tr>
+<tr>
+<td>Free tile sources</td>
+<td>OpenStreetMap, others</td>
+</tr>
+<tr>
+<td>Simple API</td>
+<td>Easy to learn</td>
+</tr>
+</tbody>
+</table>
+<h3 id="openmaps-data">OpenMaps Data</h3>
+<p><strong>OpenMaps data</strong> (primarily OpenStreetMap) provides free map tiles. Unlike Google Maps, there are no API keys or usage limits for basic tiles.</p>
+<h3 id="basic-leaflet-setup">Basic Leaflet Setup</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/leaflet/dist/leaflet.css&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width: 600px; height: 400px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/leaflet/dist/leaflet.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// Create map centered on coordinates</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="mf">51.505</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.09</span><span class="p">],</span><span class="w"> </span><span class="mf">13</span><span class="p">);</span>
+
+<span class="c1">// Add OpenStreetMap tiles</span>
+<span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s1">&#39;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">attribution</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;© OpenStreetMap contributors&#39;</span>
+<span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+
+<span class="c1">// Add a marker</span>
+<span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="mf">51.5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.09</span><span class="p">])</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s1">&#39;Hello from London!&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">openPopup</span><span class="p">();</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="map-features-for-education">Map Features for Education</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Use Case</th>
+<th>Leaflet Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Markers</strong></td>
+<td>Point locations</td>
+<td><code>L.marker()</code></td>
+</tr>
+<tr>
+<td><strong>Polygons</strong></td>
+<td>Regions, boundaries</td>
+<td><code>L.polygon()</code></td>
+</tr>
+<tr>
+<td><strong>Circles</strong></td>
+<td>Range, radius</td>
+<td><code>L.circle()</code></td>
+</tr>
+<tr>
+<td><strong>Polylines</strong></td>
+<td>Routes, paths</td>
+<td><code>L.polyline()</code></td>
+</tr>
+<tr>
+<td><strong>Popups</strong></td>
+<td>Information on click</td>
+<td><code>.bindPopup()</code></td>
+</tr>
+<tr>
+<td><strong>Custom icons</strong></td>
+<td>Category markers</td>
+<td><code>L.icon()</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-interactive-map-microsim">Diagram: Interactive Map MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Historical Events Map&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Explore historical events by location using an interactive map (Bloom: Understand, Analyze)
+
+Canvas layout:
+- Map area: 600x400 pixels
+- Control area: 60 pixels
+
+Visual elements:
+- Leaflet map with OpenStreetMap tiles
+- Custom markers for event types:
+  - Battle: crossed swords icon
+  - Treaty: handshake icon
+  - Discovery: lightbulb icon
+- Popup cards with event details
+
+Sample data (American Revolution):
+- Boston Tea Party (1773): Boston, MA
+- Lexington and Concord (1775): Lexington, MA
+- Declaration of Independence (1776): Philadelphia, PA
+- Valley Forge (1777-78): Valley Forge, PA
+- Yorktown (1781): Yorktown, VA
+
+Interactive controls:
+- Dropdown: &quot;Select Era&quot; (Revolution, Civil War, Modern)
+- Checkbox filters: Battle, Treaty, Discovery
+- Slider: &quot;Year Range&quot; (filter by date)
+- Button: &quot;Fit All&quot; (zoom to show all markers)
+
+Behavior:
+- Click marker: Show popup with event details
+- Changing era: Load different marker set
+- Date slider: Filter visible events
+- Checkboxes: Toggle marker categories
+- Responsive zoom and pan
+
+Educational emphasis:
+- Geographic context for historical events
+- Temporal filtering reveals patterns
+- Click for detailed information
+
+Color scheme:
+- Battle markers: red
+- Treaty markers: blue
+- Discovery markers: yellow
+- Map: standard OpenStreetMap style
+
+Implementation: Leaflet.js with custom markers
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="timeline-visualization">Timeline Visualization</h2>
+<p><strong>Timeline visualization</strong> displays events across time. They're essential for:</p>
+<ul>
+<li>Historical education</li>
+<li>Project planning</li>
+<li>Process documentation</li>
+<li>Biographical content</li>
+<li>Event sequencing</li>
+</ul>
+<h3 id="timeline-components">Timeline Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Axis</strong></td>
+<td>Time scale (dates/years)</td>
+</tr>
+<tr>
+<td><strong>Items</strong></td>
+<td>Events with start (and optional end)</td>
+</tr>
+<tr>
+<td><strong>Groups</strong></td>
+<td>Categories or tracks</td>
+</tr>
+<tr>
+<td><strong>Range</strong></td>
+<td>Items with duration</td>
+</tr>
+<tr>
+<td><strong>Point</strong></td>
+<td>Single-moment events</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vis-timeline-library">Vis-Timeline Library</h2>
+<p><strong>Vis-Timeline</strong> (part of vis.js) creates interactive timelines with minimal code.</p>
+<h3 id="basic-vis-timeline-setup">Basic Vis-Timeline Setup</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vis-timeline/styles/vis-timeline-graph2d.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;timeline&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Event A&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-15&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Event B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-02-20&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Project&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-03-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-03-15&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;timeline&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">timeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Timeline</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="event-lists-and-durations">Event Lists and Durations</h3>
+<p><strong>Event lists</strong> are collections of time-based items. Each event can be:</p>
+<ul>
+<li>A <strong>point</strong> (single moment): <code>{ start: '2024-01-15' }</code></li>
+<li>A <strong>duration/range</strong> (time span): <code>{ start: '2024-01-15', end: '2024-02-20' }</code></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="c1">// Point events</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Meeting&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-15&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;point&#39;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// Duration events</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Sprint 1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-15&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-29&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;range&#39;</span><span class="w"> </span><span class="p">},</span>
+
+<span class="w">    </span><span class="c1">// Background highlighting</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Holiday&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-12-24&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-12-26&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;background&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="grouped-timelines">Grouped Timelines</h3>
+<p>Groups create parallel tracks:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Team A&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Team B&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Team C&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Task 1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-15&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-20&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Task 2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-18&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-25&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">group</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Task 3&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-20&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024-01-30&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">timeline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Timeline</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="p">,</span><span class="w"> </span><span class="nx">groups</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-historical-timeline-microsim">Diagram: Historical Timeline MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Interactive History Timeline&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Explore historical periods and events through an interactive timeline (Bloom: Remember, Understand)
+
+Canvas layout:
+- Timeline area: 700x300 pixels
+- Control area: 60 pixels
+
+Visual elements:
+- vis-timeline with grouped tracks
+- Era backgrounds (color-coded periods)
+- Event markers with icons
+- Hover cards with details
+
+Sample data (Technology History):
+Groups:
+- Computing
+- Internet
+- Mobile
+
+Events:
+- 1946: ENIAC (Computing)
+- 1969: ARPANET (Internet)
+- 1973: First mobile call (Mobile)
+- 1981: IBM PC (Computing)
+- 1991: World Wide Web (Internet)
+- 2007: iPhone (Mobile)
+
+Durations:
+- 1940-1970: Mainframe Era
+- 1970-1990: Personal Computer Era
+- 1990-2010: Internet Era
+- 2010-present: Mobile Era
+
+Interactive controls:
+- Zoom in/out buttons
+- Pan left/right
+- Dropdown: &quot;Focus on Era&quot;
+- Toggle groups visibility
+- Button: &quot;Fit All&quot;
+
+Behavior:
+- Scroll to zoom timeline
+- Drag to pan
+- Click event: Show detail popup
+- Double-click: Zoom to item
+- Era backgrounds show context
+
+Educational emphasis:
+- Temporal relationships visible
+- Era context through backgrounds
+- Details on demand via popups
+
+Color scheme:
+- Computing: blue
+- Internet: green
+- Mobile: orange
+- Era backgrounds: pastel versions
+
+Implementation: vis-timeline with groups and backgrounds
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="sequence-diagrams">Sequence Diagrams</h2>
+<p><strong>Sequence diagrams</strong> show interactions between entities over time. They're ideal for:</p>
+<ul>
+<li>API call flows</li>
+<li>User interactions</li>
+<li>Protocol documentation</li>
+<li>System architecture</li>
+</ul>
+<h3 id="mermaid-sequence-diagrams">Mermaid Sequence Diagrams</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+    participant Database
+
+    User-&gt;&gt;Browser: Click Submit
+    Browser-&gt;&gt;Server: POST /api/data
+    Server-&gt;&gt;Database: INSERT record
+    Database--&gt;&gt;Server: Success
+    Server--&gt;&gt;Browser: 200 OK
+    Browser--&gt;&gt;User: Show confirmation
+</code></pre></div></td></tr></table></div>
+<h3 id="sequence-diagram-elements">Sequence Diagram Elements</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Mermaid Syntax</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Participant</td>
+<td><code>participant A</code></td>
+<td>Entity in diagram</td>
+</tr>
+<tr>
+<td>Sync message</td>
+<td><code>A-&gt;&gt;B: text</code></td>
+<td>Request with reply expected</td>
+</tr>
+<tr>
+<td>Async message</td>
+<td><code>A-)B: text</code></td>
+<td>Fire and forget</td>
+</tr>
+<tr>
+<td>Return</td>
+<td><code>B--&gt;&gt;A: text</code></td>
+<td>Response (dashed)</td>
+</tr>
+<tr>
+<td>Note</td>
+<td><code>Note right of A: text</code></td>
+<td>Annotation</td>
+</tr>
+<tr>
+<td>Loop</td>
+<td><code>loop text...end</code></td>
+<td>Repeated section</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td><code>alt...else...end</code></td>
+<td>Conditional branches</td>
+</tr>
+</tbody>
+</table>
+<h2 id="venn-diagrams">Venn Diagrams</h2>
+<p><strong>Venn diagrams</strong> show set relationships—overlaps, unions, and intersections. They're useful for:</p>
+<ul>
+<li>Comparing concepts</li>
+<li>Showing shared characteristics</li>
+<li>Classification exercises</li>
+<li>Logical relationships</li>
+</ul>
+<h3 id="building-venn-diagrams">Building Venn Diagrams</h3>
+<p>While no major library specializes in Venn diagrams, they can be created with:</p>
+<ul>
+<li><strong>SVG/CSS</strong> for simple static diagrams</li>
+<li><strong>D3.js</strong> for interactive versions</li>
+<li><strong>p5.js</strong> for educational MicroSims</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Simple 2-circle Venn in p5.js</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">background</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Circle A (left)</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">ellipse</span><span class="p">(</span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Circle B (right)</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">ellipse</span><span class="p">(</span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Labels</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Set A&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Set B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;A ∩ B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="specialized-microsims">Specialized MicroSims</h2>
+<p>Beyond standard visualizations, <strong>specialized MicroSims</strong> serve specific educational domains.</p>
+<h3 id="3d-visualization">3D Visualization</h3>
+<p><strong>3D visualization</strong> uses WebGL libraries like Three.js for:</p>
+<ul>
+<li>Molecular structures</li>
+<li>Architectural models</li>
+<li>Geometric concepts</li>
+<li>Physics simulations</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Basic Three.js scene</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="nx">height</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+
+<span class="c1">// Add a cube</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">geometry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">BoxGeometry</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshBasicMaterial</span><span class="p">({</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="mh">0x00ff00</span><span class="w"> </span><span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">cube</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span><span class="w"> </span><span class="nx">material</span><span class="p">);</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cube</span><span class="p">);</span>
+
+<span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">animate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">cube</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">cube</span><span class="p">.</span><span class="nx">rotation</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span><span class="w"> </span><span class="nx">camera</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">animate</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="circuit-simulation">Circuit Simulation</h3>
+<p><strong>Circuit simulation</strong> MicroSims teach electronics:</p>
+<ul>
+<li>Virtual breadboards</li>
+<li>Component libraries (resistors, capacitors, LEDs)</li>
+<li>Real-time voltage/current calculation</li>
+<li>Oscilloscope visualization</li>
+</ul>
+<p>Libraries: <strong>CircuitJS</strong>, <strong>Falstad Circuit Simulator</strong>, custom p5.js</p>
+<h3 id="equation-graphing">Equation Graphing</h3>
+<p><strong>Equation graphing</strong> visualizes mathematical functions:</p>
+<ul>
+<li>Function plotting (y = f(x))</li>
+<li>Parametric curves</li>
+<li>3D surfaces</li>
+<li>Interactive parameter exploration</li>
+</ul>
+<p>Libraries: <strong>Desmos API</strong>, <strong>Plotly.js</strong>, <strong>JSXGraph</strong>, <strong>Function Plot</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Plotly.js function plot</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">y</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nx">Plotly</span><span class="p">.</span><span class="nx">newPlot</span><span class="p">(</span><span class="s1">&#39;graph&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">    </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">mode</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sin(x)&#39;</span>
+<span class="p">}]);</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="heavyweight-libraries">Heavyweight Libraries</h2>
+<p><strong>Heavyweight libraries</strong> are full-featured frameworks for complex applications. They offer more power but require more setup.</p>
+<h3 id="reactflow">ReactFlow</h3>
+<p><strong>ReactFlow</strong> is a React-based library for building node-based interfaces:</p>
+<ul>
+<li>Drag-and-drop node creation</li>
+<li>Custom node types</li>
+<li>Connection handles</li>
+<li>Zoom and pan controls</li>
+<li>Undo/redo support</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">ReactFlow</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;reactflow&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 1&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node 2&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;e1-2&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">Flow</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">ReactFlow</span><span class="w"> </span><span class="na">nodes</span><span class="o">=</span><span class="p">{</span><span class="nx">nodes</span><span class="p">}</span><span class="w"> </span><span class="na">edges</span><span class="o">=</span><span class="p">{</span><span class="nx">edges</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="when-to-use-heavyweight-libraries">When to Use Heavyweight Libraries</h3>
+<table>
+<thead>
+<tr>
+<th>Choose Heavyweight When</th>
+<th>Choose Lightweight When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Building production apps</td>
+<td>Creating educational demos</td>
+</tr>
+<tr>
+<td>Need React/Vue integration</td>
+<td>Standalone HTML pages</td>
+</tr>
+<tr>
+<td>Complex interaction patterns</td>
+<td>Simple visualization</td>
+</tr>
+<tr>
+<td>Professional-grade features</td>
+<td>Quick prototypes</td>
+</tr>
+<tr>
+<td>Long-term maintenance</td>
+<td>One-off MicroSims</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heavyweight-vs-lightweight-comparison">Heavyweight vs. Lightweight Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Type</th>
+<th>Size</th>
+<th>Learning Curve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vis-network</td>
+<td>Lightweight</td>
+<td>~300KB</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>D3.js</td>
+<td>Flexible</td>
+<td>~250KB</td>
+<td>High</td>
+</tr>
+<tr>
+<td>ReactFlow</td>
+<td>Heavyweight</td>
+<td>~150KB + React</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Cytoscape.js</td>
+<td>Heavyweight</td>
+<td>~500KB</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>GoJS</td>
+<td>Commercial</td>
+<td>~1MB</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h2 id="complete-network-microsim-example">Complete Network MicroSim Example</h2>
+<p>Here's a complete vis-network MicroSim with interactive features:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/vis-network/standalone/umd/vis-network.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">#</span><span class="nn">network</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">.</span><span class="nc">controls</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span><span class="w"> </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="mh">#f5f5f5</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;network&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;controls&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;addNode()&quot;</span><span class="p">&gt;</span>Add Node<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;togglePhysics()&quot;</span><span class="p">&gt;</span>Toggle Physics<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;layout&quot;</span> <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;changeLayout()&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;force&quot;</span><span class="p">&gt;</span>Force-Directed<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;hierarchical&quot;</span><span class="p">&gt;</span>Hierarchical<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="c1">// Data</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Concept A&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#e74c3c&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Concept B&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#3498db&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Concept C&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#2ecc71&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Concept D&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#f39c12&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">([</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;relates&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;enables&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;requires&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;supports&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// Options</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">physics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">edges</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">arrows</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;to&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Create network</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;network&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Functions</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">nodeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">addNode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">nodeId</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Node &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">nodeId</span><span class="p">,</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#9b59b6&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="c1">// Connect to random existing node</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">existingIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nodes</span><span class="p">.</span><span class="nx">getIds</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">existingIds</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">existingIds</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">))];</span>
+<span class="w">        </span><span class="nx">edges</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="nx">nodeId</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="nx">randomId</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="nx">nodeId</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">togglePhysics</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">options</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">options</span><span class="p">.</span><span class="nx">physics</span><span class="p">.</span><span class="nx">enabled</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">network</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">changeLayout</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;layout&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">layout</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;hierarchical&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">options</span><span class="p">.</span><span class="nx">layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">hierarchical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">direction</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;UD&#39;</span><span class="w"> </span><span class="p">}};</span>
+<span class="w">            </span><span class="nx">options</span><span class="p">.</span><span class="nx">physics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">options</span><span class="p">.</span><span class="nx">layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">hierarchical</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}};</span>
+<span class="w">            </span><span class="nx">options</span><span class="p">.</span><span class="nx">physics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">network</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>You've learned to create powerful visualizations for relationships, geography, and time:</p>
+<ol>
+<li>
+<p><strong>Network graphs</strong> show entities and relationships as nodes and edges.</p>
+</li>
+<li>
+<p><strong>GraphViz history</strong> established foundational layout algorithms at Bell Labs in the 1980s.</p>
+</li>
+<li>
+<p><strong>Graph layout algorithms</strong> automatically position nodes for readability.</p>
+</li>
+<li>
+<p><strong>Force-directed layout</strong> simulates physics to find balanced arrangements.</p>
+</li>
+<li>
+<p><strong>vis-network</strong> brings professional graph visualization to JavaScript.</p>
+</li>
+<li>
+<p><strong>Graph node coloring</strong> encodes categories, status, or values visually.</p>
+</li>
+<li>
+<p><strong>Org charts</strong> use hierarchical layout for reporting structures.</p>
+</li>
+<li>
+<p><strong>Causal loop diagrams</strong> visualize feedback systems with +/- relationships.</p>
+</li>
+<li>
+<p><strong>ER diagrams</strong> model database schemas with entities and relationships.</p>
+</li>
+<li>
+<p><strong>Leaflet.js</strong> creates interactive <strong>maps</strong> using <strong>OpenMaps data</strong>.</p>
+</li>
+<li>
+<p><strong>Timeline visualization</strong> displays events and <strong>durations</strong> across time.</p>
+</li>
+<li>
+<p><strong>Vis-Timeline</strong> creates interactive timelines with groups and ranges.</p>
+</li>
+<li>
+<p><strong>Sequence diagrams</strong> show interactions between entities over time.</p>
+</li>
+<li>
+<p><strong>Venn diagrams</strong> visualize set relationships and overlaps.</p>
+</li>
+<li>
+<p><strong>Specialized MicroSims</strong> serve domains like <strong>3D visualization</strong>, <strong>circuit simulation</strong>, and <strong>equation graphing</strong>.</p>
+</li>
+<li>
+<p><strong>Heavyweight libraries</strong> like <strong>ReactFlow</strong> offer production-grade features.</p>
+</li>
+<li>
+<p>Choose the right library based on complexity, integration needs, and learning curve.</p>
+</li>
+</ol>
+<details class="question">
+<summary>Challenge: Build a Concept Map</summary>
+<p>Create a vis-network MicroSim that visualizes concepts from a subject you teach. Include at least 10 nodes with labeled relationships. Use color to indicate concept categories and implement both force-directed and hierarchical layouts.</p>
+</details>
+<h2 id="next-steps">Next Steps</h2>
+<p>You now command powerful visualization tools for relationships, locations, and time. You can create org charts that reorganize themselves, maps that reveal geographic patterns, and timelines that make history interactive. In the next chapter, we'll explore <strong>physics and animation</strong>, adding realistic motion and behavior to your MicroSims.</p>
+<p>Remember: the magic of layout algorithms is that they free you from manual positioning. Focus on the relationships, and let vis-network bring order to complexity.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://visjs.github.io/vis-network/docs/network/">vis-network Documentation</a> - Official vis-network docs</li>
+<li><a href="https://leafletjs.com/reference.html">Leaflet.js Documentation</a> - Leaflet API reference</li>
+<li><a href="https://visjs.github.io/vis-timeline/docs/timeline/">vis-timeline Documentation</a> - Timeline component docs</li>
+<li><a href="https://graphviz.org/documentation/">GraphViz Documentation</a> - Original GraphViz project</li>
+<li><a href="https://www.openstreetmap.org/">OpenStreetMap</a> - Free map data source</li>
+<li><a href="https://reactflow.dev/">ReactFlow Documentation</a> - React-based node graphs</li>
+</ul>
 
 
 

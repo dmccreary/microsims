@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="Explore specialized visualization libraries beyond p5.js for charts, diagrams, and infographics">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>10 - Charts, Diagrams, and Infographics - Micro Simulations for Education</title>
+        <title>Charts, Diagrams, and Infographics - Micro Simulations for Education</title>
       
     
     
@@ -70,9 +70,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="10 - Charts, Diagrams, and Infographics - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Charts, Diagrams, and Infographics - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="Explore specialized visualization libraries beyond p5.js for charts, diagrams, and infographics" >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/10-charts-diagrams-and-infographics/index.png" >
       
@@ -86,9 +86,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="10 - Charts, Diagrams, and Infographics - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Charts, Diagrams, and Infographics - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="Explore specialized visualization libraries beyond p5.js for charts, diagrams, and infographics" >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/10-charts-diagrams-and-infographics/index.png" >
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10 - Charts, Diagrams, and Infographics
+              Charts, Diagrams, and Infographics
             
           </span>
         </div>
@@ -321,6 +321,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -796,6 +800,699 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-p5js-no-one-size-fits-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyond p5.js: No One Size Fits All
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-vs-specialized-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      General vs. Specialized Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General vs. Specialized Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Spectrum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-choose-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Choose Each
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p5js-microsim-the-flexible-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      p5.js MicroSim: The Flexible Foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="p5.js MicroSim: The Flexible Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p5js-strengths" class="md-nav__link">
+    <span class="md-ellipsis">
+      p5.js Strengths
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p5js-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      p5.js Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-p5js-is-the-right-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      When p5.js Is the Right Choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaidjs-declarative-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid.js: Declarative Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid.js: Declarative Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-declarative-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Declarative Layout?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagram-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagram Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-flowchart-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Flowchart Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-in-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid in MicroSims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid in MicroSims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mermaid-flowchart-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mermaid Flowchart Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chartjs-data-visualization-made-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js: Data Visualization Made Easy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chart.js: Data Visualization Made Easy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chartjs-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-chartjs-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Chart.js Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-types-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Types Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bar-charts-comparing-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bar Charts: Comparing Categories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bar Charts: Comparing Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-bar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Bar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bar-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bar Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-and-stacked-bar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouped and Stacked Bar Charts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grouped and Stacked Bar Charts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-bar-chart-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Bar Chart MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-charts-trends-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Charts: Trends Over Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Line Charts: Trends Over Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-line-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Line Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-chart-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Chart Variations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pie-charts-parts-of-a-whole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pie Charts: Parts of a Whole
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pie Charts: Parts of a Whole">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-pie-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Pie Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pie-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pie Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doughnut-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doughnut Charts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bubble-charts-three-variables-at-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Charts: Three Variables at Once
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bubble Charts: Three Variables at Once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-bubble-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Bubble Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bubble-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bubble-chart-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Chart Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bubble Chart Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-priority-matrix-bubble-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Priority Matrix Bubble Chart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Chart Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Chart Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scatter-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scatter Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polar-area-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polar Area Charts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-type-to-chart-type-the-selection-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Type to Chart Type: The Selection Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Type to Chart Type: The Selection Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-decision-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Decision Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-type-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Type Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-selection-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Selection Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Selection Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-chart-selection-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Chart Selection Flowchart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tooltips-adding-context-on-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooltips: Adding Context on Demand
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tooltips: Adding Context on Demand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-tooltips-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Tooltips Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chartjs-tooltip-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js Tooltip Customization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltip-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooltip Callbacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-click-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Click Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infographics-visual-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infographics: Visual Understanding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infographics: Visual Understanding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-good-infographics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of Good Infographics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infographic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infographic Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-infographics-as-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Infographics as MicroSims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Infographics as MicroSims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-infographic-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Infographic MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-microsim-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other MicroSim Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other MicroSim Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualization-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-venture-beyond" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Venture Beyond
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-selection-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library Selection Checklist
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example-multi-library-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example: Multi-Library MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1588,6 +2285,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         
   
@@ -1714,6 +2431,699 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#beyond-p5js-no-one-size-fits-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beyond p5.js: No One Size Fits All
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-vs-specialized-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      General vs. Specialized Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General vs. Specialized Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Spectrum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-choose-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Choose Each
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p5js-microsim-the-flexible-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      p5.js MicroSim: The Flexible Foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="p5.js MicroSim: The Flexible Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p5js-strengths" class="md-nav__link">
+    <span class="md-ellipsis">
+      p5.js Strengths
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p5js-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      p5.js Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-p5js-is-the-right-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      When p5.js Is the Right Choice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaidjs-declarative-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid.js: Declarative Diagrams
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid.js: Declarative Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-declarative-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Is Declarative Layout?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagram-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagram Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-flowchart-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Flowchart Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Diagrams
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-in-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid in MicroSims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid in MicroSims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mermaid-flowchart-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Mermaid Flowchart Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chartjs-data-visualization-made-easy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js: Data Visualization Made Easy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chart.js: Data Visualization Made Easy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chartjs-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-chartjs-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Chart.js Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chart-types-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart Types Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bar-charts-comparing-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bar Charts: Comparing Categories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bar Charts: Comparing Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-bar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Bar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bar-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bar Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grouped-and-stacked-bar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grouped and Stacked Bar Charts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grouped and Stacked Bar Charts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-bar-chart-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Bar Chart MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-charts-trends-over-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Charts: Trends Over Time
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Line Charts: Trends Over Time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-line-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Line Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-chart-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Chart Variations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pie-charts-parts-of-a-whole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pie Charts: Parts of a Whole
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pie Charts: Parts of a Whole">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-pie-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Pie Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pie-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pie Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doughnut-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doughnut Charts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bubble-charts-three-variables-at-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Charts: Three Variables at Once
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bubble Charts: Three Variables at Once">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-bubble-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Bubble Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bubble-chart-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Chart Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bubble-chart-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bubble Chart Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bubble Chart Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-priority-matrix-bubble-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Priority Matrix Bubble Chart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Chart Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Chart Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radar-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radar Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scatter-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scatter Charts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polar-area-charts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polar Area Charts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-type-to-chart-type-the-selection-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Type to Chart Type: The Selection Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Type to Chart Type: The Selection Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-decision-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Decision Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-type-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Type Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-selection-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Selection Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Selection Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-chart-selection-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Chart Selection Flowchart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tooltips-adding-context-on-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooltips: Adding Context on Demand
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tooltips: Adding Context on Demand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-tooltips-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Tooltips Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chartjs-tooltip-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chart.js Tooltip Customization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltip-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tooltip Callbacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-click-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Click Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infographics-visual-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infographics: Visual Understanding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infographics: Visual Understanding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-good-infographics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of Good Infographics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infographic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infographic Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-infographics-as-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building Infographics as MicroSims
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building Infographics as MicroSims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-infographic-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Infographic MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-microsim-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other MicroSim Libraries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other MicroSim Libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualization-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-venture-beyond" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Venture Beyond
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-selection-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library Selection Checklist
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example-multi-library-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete Example: Multi-Library MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1774,7 +3184,1755 @@
 <li><a href="../09-blooms-taxonomy-and-learning-objectives/">Chapter 9: Bloom's Taxonomy and Learning Objectives</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="beyond-p5js-no-one-size-fits-all">Beyond p5.js: No One Size Fits All</h2>
+<p>Despite the remarkable power and flexibility of p5.js, there is no "one size fits all" rule in generating MicroSims. Sometimes you need a simple bar chart, not a custom physics simulation. Sometimes a flowchart communicates better than an animated visualization. Sometimes an infographic—a carefully designed visual that connects components with understanding—is exactly what your learning objective demands.</p>
+<p>In this chapter, we explore the world beyond p5.js: specialized JavaScript libraries designed for specific visualization tasks. You'll learn how simple charts work and discover how the type of data you want to present will guide your chart selection. The right tool for the job makes your MicroSims more effective and your development faster.</p>
+<div class="admonition tip">
+<p class="admonition-title">The Right Tool Principle</p>
+<p>Choosing a specialized library over p5.js isn't a compromise—it's smart design. Chart.js creates better charts than hand-coded p5.js. Mermaid.js creates better flowcharts. Use each tool where it excels.</p>
+</div>
+<h2 id="general-vs-specialized-libraries">General vs. Specialized Libraries</h2>
+<p>Understanding when to use <strong>general-purpose</strong> versus <strong>specialized</strong> libraries is a key design decision.</p>
+<h3 id="the-spectrum">The Spectrum</h3>
+<table>
+<thead>
+<tr>
+<th>Library Type</th>
+<th>Examples</th>
+<th>Best For</th>
+<th>Trade-offs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>General-purpose</strong></td>
+<td>p5.js, D3.js</td>
+<td>Custom visualizations, unique interactions</td>
+<td>More code, more control</td>
+</tr>
+<tr>
+<td><strong>Specialized</strong></td>
+<td>Chart.js, Mermaid.js</td>
+<td>Specific chart/diagram types</td>
+<td>Less code, less customization</td>
+</tr>
+<tr>
+<td><strong>Hybrid</strong></td>
+<td>Plotly.js, vis.js</td>
+<td>Charts with custom features</td>
+<td>Balance of both</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-to-choose-each">When to Choose Each</h3>
+<p><strong>Choose p5.js (general-purpose) when:</strong></p>
+<ul>
+<li>Building physics simulations or games</li>
+<li>Need pixel-level control over rendering</li>
+<li>Creating unique, non-standard visualizations</li>
+<li>Combining multiple visualization types</li>
+<li>Real-time animation is critical</li>
+</ul>
+<p><strong>Choose specialized libraries when:</strong></p>
+<ul>
+<li>Creating standard chart types (bar, line, pie)</li>
+<li>Need built-in interactivity (tooltips, zooming)</li>
+<li>Want to minimize development time</li>
+<li>Data updates dynamically</li>
+<li>Consistency with web standards matters</li>
+</ul>
+<h2 id="p5js-microsim-the-flexible-foundation">p5.js MicroSim: The Flexible Foundation</h2>
+<p>A <strong>p5.js MicroSim</strong> remains your most flexible option. With p5.js, you can build virtually any visualization—but you write all the code yourself.</p>
+<h3 id="p5js-strengths">p5.js Strengths</h3>
+<ul>
+<li>Complete control over every pixel</li>
+<li>Built-in animation loop (<code>draw()</code>)</li>
+<li>Canvas-based rendering (fast)</li>
+<li>Large community and examples</li>
+<li>Works standalone or embedded</li>
+</ul>
+<h3 id="p5js-limitations">p5.js Limitations</h3>
+<ul>
+<li>No built-in chart types</li>
+<li>Tooltip handling is manual</li>
+<li>Responsive design requires custom code</li>
+<li>Accessibility requires extra work</li>
+</ul>
+<h3 id="when-p5js-is-the-right-choice">When p5.js Is the Right Choice</h3>
+<p>Use p5.js for MicroSims when you need:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Custom physics simulation</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Apply gravity</span>
+<span class="w">  </span><span class="nx">velocity</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">gravity</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">position</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">velocity</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Bounce off walls</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">velocity</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.8</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Draw ball</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This physics simulation would be difficult to achieve with Chart.js or Mermaid—p5.js is clearly the right tool.</p>
+<h2 id="mermaidjs-declarative-diagrams">Mermaid.js: Declarative Diagrams</h2>
+<p><strong>Mermaid.js</strong> creates diagrams from text descriptions using a <strong>declarative layout</strong> approach. Instead of specifying pixel positions, you describe relationships—and Mermaid figures out how to draw them.</p>
+<h3 id="what-is-declarative-layout">What Is Declarative Layout?</h3>
+<p><strong>Declarative layout</strong> means you describe <em>what</em> you want, not <em>how</em> to draw it. Compare:</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Imperative</strong> (p5.js)</td>
+<td>"Draw box at (100, 50), draw arrow from (150, 75) to (200, 75)..."</td>
+<td>Full control, tedious</td>
+</tr>
+<tr>
+<td><strong>Declarative</strong> (Mermaid)</td>
+<td>"A connects to B, B connects to C"</td>
+<td>Automatic positioning</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mermaid-diagram-types">Mermaid Diagram Types</h3>
+<p>Mermaid supports many diagram types relevant to educational content:</p>
+<table>
+<thead>
+<tr>
+<th>Diagram Type</th>
+<th>Use Case</th>
+<th>Mermaid Syntax Start</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flowchart</strong></td>
+<td>Processes, decisions, algorithms</td>
+<td><code>flowchart TD</code></td>
+</tr>
+<tr>
+<td><strong>Sequence</strong></td>
+<td>Interactions over time</td>
+<td><code>sequenceDiagram</code></td>
+</tr>
+<tr>
+<td><strong>Class</strong></td>
+<td>Object relationships</td>
+<td><code>classDiagram</code></td>
+</tr>
+<tr>
+<td><strong>State</strong></td>
+<td>State machines</td>
+<td><code>stateDiagram-v2</code></td>
+</tr>
+<tr>
+<td><strong>Entity-Relationship</strong></td>
+<td>Database schemas</td>
+<td><code>erDiagram</code></td>
+</tr>
+<tr>
+<td><strong>Gantt</strong></td>
+<td>Project timelines</td>
+<td><code>gantt</code></td>
+</tr>
+<tr>
+<td><strong>Pie</strong></td>
+<td>Simple proportions</td>
+<td><code>pie</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mermaid-flowchart-syntax">Mermaid Flowchart Syntax</h3>
+<p>A <strong>flowchart</strong> shows processes and decisions as connected nodes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>flowchart TD
+    A[Start] --&gt; B{Is it raining?}
+    B --&gt;|Yes| C[Take umbrella]
+    B --&gt;|No| D[Enjoy sunshine]
+    C --&gt; E[Go outside]
+    D --&gt; E
+    E[End]
+</code></pre></div></td></tr></table></div>
+<p><strong>Syntax breakdown:</strong></p>
+<ul>
+<li><code>flowchart TD</code> - Top-down direction (also: LR, BT, RL)</li>
+<li><code>A[Text]</code> - Rectangle node with ID "A"</li>
+<li><code>B{Text}</code> - Diamond (decision) node</li>
+<li><code>A --&gt; B</code> - Arrow connection</li>
+<li><code>B --&gt;|Label| C</code> - Labeled connection</li>
+</ul>
+<h3 id="process-diagrams">Process Diagrams</h3>
+<p><strong>Process diagrams</strong> show sequential steps in a workflow:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>flowchart LR
+    subgraph Input
+        A[Raw Data]
+    end
+    subgraph Processing
+        B[Clean] --&gt; C[Transform] --&gt; D[Analyze]
+    end
+    subgraph Output
+        E[Report]
+    end
+    A --&gt; B
+    D --&gt; E
+</code></pre></div></td></tr></table></div>
+<p>Process diagrams use <code>subgraph</code> to group related steps.</p>
+<h3 id="workflow-diagrams">Workflow Diagrams</h3>
+<p>A <strong>workflow</strong> diagram models business or system processes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>flowchart TD
+    Submit[Submit Request] --&gt; Review{Manager Review}
+    Review --&gt;|Approved| Process[Process Request]
+    Review --&gt;|Rejected| Notify[Notify Requester]
+    Review --&gt;|More Info| Request[Request Details]
+    Request --&gt; Submit
+    Process --&gt; Complete[Mark Complete]
+    Notify --&gt; End[End]
+    Complete --&gt; End
+</code></pre></div></td></tr></table></div>
+<h3 id="mermaid-in-microsims">Mermaid in MicroSims</h3>
+<p>To embed Mermaid in a MicroSim, include the library and use a container:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mermaid&quot;</span><span class="p">&gt;</span>
+flowchart TD
+    A[User Action] --&gt; B[Event Handler]
+    B --&gt; C[Update State]
+    C --&gt; D[Re-render]
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span><span class="nx">startOnLoad</span><span class="o">:</span><span class="kc">true</span><span class="p">});&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-mermaid-flowchart-example">Diagram: Mermaid Flowchart Example</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Algorithm Decision Flowchart&lt;/summary&gt;
+Type: diagram
+
+Purpose: Demonstrate Mermaid.js flowchart capabilities with an algorithm decision tree (Bloom: Understand)
+
+Flowchart content:
+```
+flowchart TD
+    Start[Start: Choose Sort Algorithm]
+    Q1{Data size?}
+    Q2{Nearly sorted?}
+    Q3{Memory constrained?}
+
+    Start --&gt; Q1
+    Q1 --&gt;|Small &lt; 50| Insertion[Insertion Sort]
+    Q1 --&gt;|Medium| Q2
+    Q1 --&gt;|Large &gt; 1000| Q3
+
+    Q2 --&gt;|Yes| Insertion
+    Q2 --&gt;|No| Quick[QuickSort]
+
+    Q3 --&gt;|Yes| Heap[HeapSort]
+    Q3 --&gt;|No| Merge[MergeSort]
+
+    Insertion --&gt; End[End]
+    Quick --&gt; End
+    Heap --&gt; End
+    Merge --&gt; End
+```
+
+Visual style:
+- Decision diamonds in yellow
+- Algorithm boxes in blue
+- Start/End in green
+- Clear arrow labels
+
+Educational annotations:
+- Hover text on each algorithm explaining complexity
+- Brief description of when each is optimal
+
+Implementation: Mermaid.js with custom styling
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="chartjs-data-visualization-made-easy">Chart.js: Data Visualization Made Easy</h2>
+<p><strong>Chart.js</strong> (also called <strong>ChartJS</strong>) is a popular library for creating standard <strong>chart types</strong> with minimal code. It handles rendering, animations, tooltips, and responsiveness automatically.</p>
+<h3 id="chartjs-features">Chart.js Features</h3>
+<ul>
+<li>8+ built-in chart types</li>
+<li>Responsive by default</li>
+<li>Animated transitions</li>
+<li>Interactive tooltips</li>
+<li>Legend management</li>
+<li>Accessible (ARIA labels)</li>
+<li>Small file size (~60KB)</li>
+</ul>
+<h3 id="basic-chartjs-setup">Basic Chart.js Setup</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;myChart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myChart&#39;</span><span class="p">);</span>
+
+<span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Yellow&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Votes&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">19</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yellow&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="chart-types-overview">Chart Types Overview</h3>
+<p>Chart.js supports these <strong>chart types</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Chart Type</th>
+<th>Data Pattern</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bar</strong></td>
+<td>Categories with values</td>
+<td>Comparing discrete items</td>
+</tr>
+<tr>
+<td><strong>Line</strong></td>
+<td>Values over time</td>
+<td>Trends, changes</td>
+</tr>
+<tr>
+<td><strong>Pie/Doughnut</strong></td>
+<td>Parts of a whole</td>
+<td>Proportions, percentages</td>
+</tr>
+<tr>
+<td><strong>Radar</strong></td>
+<td>Multiple dimensions</td>
+<td>Profile comparisons</td>
+</tr>
+<tr>
+<td><strong>Scatter</strong></td>
+<td>X-Y pairs</td>
+<td>Correlations</td>
+</tr>
+<tr>
+<td><strong>Bubble</strong></td>
+<td>X-Y pairs with size</td>
+<td>Three-variable relationships</td>
+</tr>
+<tr>
+<td><strong>Polar Area</strong></td>
+<td>Categories with magnitude</td>
+<td>Cyclical data</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bar-charts-comparing-categories">Bar Charts: Comparing Categories</h2>
+<p><strong>Bar charts</strong> display categorical data with rectangular bars. Bar height (or length) represents the value.</p>
+<h3 id="when-to-use-bar-charts">When to Use Bar Charts</h3>
+<ul>
+<li>Comparing values across categories</li>
+<li>Showing rankings</li>
+<li>Displaying discrete, non-continuous data</li>
+<li>When labels are long (use horizontal bars)</li>
+</ul>
+<h3 id="bar-chart-code">Bar Chart Code</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Physics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chemistry&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Biology&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Math&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Student Scores&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">85</span><span class="p">,</span><span class="w"> </span><span class="mf">72</span><span class="p">,</span><span class="w"> </span><span class="mf">91</span><span class="p">,</span><span class="w"> </span><span class="mf">78</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s1">&#39;rgba(255, 99, 132, 0.7)&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;rgba(54, 162, 235, 0.7)&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;rgba(255, 206, 86, 0.7)&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">&#39;rgba(75, 192, 192, 0.7)&#39;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nx">borderWidth</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">beginAtZero</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="grouped-and-stacked-bar-charts">Grouped and Stacked Bar Charts</h3>
+<p><strong>Grouped bars</strong> compare multiple datasets:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">65</span><span class="p">,</span><span class="w"> </span><span class="mf">59</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">],</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;blue&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2024&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">72</span><span class="p">,</span><span class="w"> </span><span class="mf">68</span><span class="p">,</span><span class="w"> </span><span class="mf">85</span><span class="p">],</span><span class="w"> </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;green&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Stacked bars</strong> show totals and composition:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">stacked</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">stacked</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-interactive-bar-chart-microsim">Diagram: Interactive Bar Chart MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Adjustable Bar Chart Demonstration&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Allow students to modify bar chart data and see immediate visual updates (Bloom: Apply)
+
+Canvas layout:
+- Chart area: 500x300 pixels
+- Control area: 100 pixels
+
+Visual elements:
+- Chart.js bar chart with 5 categories
+- Each bar represents a student score (0-100)
+- Y-axis labeled &quot;Score&quot;
+- X-axis shows subject names
+
+Interactive controls:
+- 5 sliders: One per category (0-100)
+- Toggle: &quot;Horizontal/Vertical&quot; orientation
+- Toggle: &quot;Show Values&quot; (display numbers on bars)
+- Button: &quot;Randomize&quot; (random values)
+
+Behavior:
+- Sliders update chart data in real-time
+- Chart animates smoothly on data change
+- Tooltips show exact values on hover
+- Responsive to container width
+
+Educational emphasis:
+- Shows relationship between data and visual representation
+- Demonstrates bar chart best practices
+- Immediate feedback on changes
+
+Color scheme:
+- Bars: gradient from low (red) to high (green)
+- Background: white
+- Grid: light gray
+
+Implementation: Chart.js with slider controls
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="line-charts-trends-over-time">Line Charts: Trends Over Time</h2>
+<p><strong>Line charts</strong> connect data points with lines, emphasizing trends and changes over continuous scales (usually time).</p>
+<h3 id="when-to-use-line-charts">When to Use Line Charts</h3>
+<ul>
+<li>Showing change over time</li>
+<li>Displaying trends</li>
+<li>Comparing multiple series over same time period</li>
+<li>Highlighting rates of change</li>
+</ul>
+<h3 id="line-chart-code">Line Chart Code</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Feb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Apr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Jun&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Temperature °C&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">24</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgb(75, 192, 192)&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">tension</span><span class="o">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">  </span><span class="c1">// Smooth curves</span>
+<span class="w">            </span><span class="nx">fill</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">responsive</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Monthly Average Temperature&#39;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="line-chart-variations">Line Chart Variations</h3>
+<table>
+<thead>
+<tr>
+<th>Variation</th>
+<th>Setting</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Smooth lines</strong></td>
+<td><code>tension: 0.4</code></td>
+<td>Curved connections</td>
+</tr>
+<tr>
+<td><strong>Area fill</strong></td>
+<td><code>fill: true</code></td>
+<td>Shaded area below line</td>
+</tr>
+<tr>
+<td><strong>Stepped</strong></td>
+<td><code>stepped: true</code></td>
+<td>Stair-step pattern</td>
+</tr>
+<tr>
+<td><strong>No points</strong></td>
+<td><code>pointRadius: 0</code></td>
+<td>Line only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pie-charts-parts-of-a-whole">Pie Charts: Parts of a Whole</h2>
+<p><strong>Pie charts</strong> show proportions as slices of a circle. The entire pie represents 100%.</p>
+<h3 id="when-to-use-pie-charts">When to Use Pie Charts</h3>
+<ul>
+<li>Showing parts of a whole</li>
+<li>When you have 2-7 categories</li>
+<li>When proportions are the message</li>
+<li>For simple, high-level overviews</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Pie Chart Caution</p>
+<p>Humans struggle to compare slice angles. If precise comparison matters, use a bar chart instead. Pie charts work best for showing obvious majorities or rough proportions.</p>
+</div>
+<h3 id="pie-chart-code">Pie Chart Code</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pie&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">// or &#39;doughnut&#39; for ring style</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Rent&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Food&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Transport&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Entertainment&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Savings&#39;</span><span class="p">],</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">35</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s1">&#39;#ff6384&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#36a2eb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#ffce56&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#4bc0c0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#9966ff&#39;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">legend</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottom&#39;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="doughnut-charts">Doughnut Charts</h3>
+<p>A <strong>doughnut chart</strong> is a pie chart with a hole in the center—useful for placing summary statistics:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;doughnut&#39;</span><span class="p">,</span>
+<span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cutout</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;60%&#39;</span><span class="w">  </span><span class="c1">// Size of center hole</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="bubble-charts-three-variables-at-once">Bubble Charts: Three Variables at Once</h2>
+<p><strong>Bubble charts</strong> extend scatter plots by adding a third dimension: bubble size. Each point shows X position, Y position, and magnitude (size).</p>
+<h3 id="when-to-use-bubble-charts">When to Use Bubble Charts</h3>
+<ul>
+<li>Comparing three numerical variables</li>
+<li>Showing clusters and outliers</li>
+<li>Displaying magnitude alongside position</li>
+<li>Creating impact/effort matrices</li>
+</ul>
+<h3 id="bubble-chart-code">Bubble Chart Code</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bubble&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Projects&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">// r = radius</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">40</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgba(255, 99, 132, 0.5)&#39;</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Effort&#39;</span><span class="w"> </span><span class="p">}},</span>
+<span class="w">            </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">display</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Impact&#39;</span><span class="w"> </span><span class="p">}}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="bubble-chart-applications">Bubble Chart Applications</h3>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>X-Axis</th>
+<th>Y-Axis</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project prioritization</td>
+<td>Effort</td>
+<td>Impact</td>
+<td>Cost</td>
+</tr>
+<tr>
+<td>Market analysis</td>
+<td>Price</td>
+<td>Quality</td>
+<td>Market share</td>
+</tr>
+<tr>
+<td>Student performance</td>
+<td>Time spent</td>
+<td>Score</td>
+<td>Engagement</td>
+</tr>
+<tr>
+<td>Risk assessment</td>
+<td>Probability</td>
+<td>Impact</td>
+<td>Cost of mitigation</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-priority-matrix-bubble-chart">Diagram: Priority Matrix Bubble Chart</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Impact/Effort Priority Matrix&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Use bubble chart to visualize project priorities across three dimensions (Bloom: Analyze, Evaluate)
+
+Canvas layout:
+- Chart area: 500x400 pixels
+- Control area: 80 pixels
+
+Visual elements:
+- Bubble chart with quadrant lines at midpoints
+- Quadrant labels:
+  - Top-left: &quot;Quick Wins&quot; (high impact, low effort)
+  - Top-right: &quot;Major Projects&quot; (high impact, high effort)
+  - Bottom-left: &quot;Fill-ins&quot; (low impact, low effort)
+  - Bottom-right: &quot;Thankless Tasks&quot; (low impact, high effort)
+- Project bubbles with names
+
+Sample data:
+- &quot;Website Redesign&quot;: effort=70, impact=80, budget=50K
+- &quot;Email Update&quot;: effort=20, impact=60, budget=5K
+- &quot;New Feature A&quot;: effort=90, impact=90, budget=100K
+- &quot;Bug Fixes&quot;: effort=30, impact=40, budget=10K
+- &quot;Documentation&quot;: effort=40, impact=30, budget=15K
+
+Interactive controls:
+- Button: &quot;Add Project&quot; (opens input dialog)
+- Drag projects to reposition
+- Click project: Show details panel
+- Slider: &quot;Scale bubbles&quot; (adjust size factor)
+
+Behavior:
+- Bubbles draggable to update effort/impact
+- Size reflects budget/importance
+- Color indicates status (green=approved, yellow=pending, red=blocked)
+- Tooltips show all three values
+
+Educational emphasis:
+- Teaches prioritization frameworks
+- Three-variable visualization
+- Decision-making tool
+
+Color scheme:
+- Quadrants: subtle background tints
+- Bubbles: status-based colors with alpha
+- Grid: light gray dashed lines
+
+Implementation: Chart.js bubble chart with drag interaction
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="other-chart-types">Other Chart Types</h2>
+<p>Beyond the core types, Chart.js and other libraries support additional visualizations:</p>
+<h3 id="radar-charts">Radar Charts</h3>
+<p><strong>Radar charts</strong> (spider charts) display multiple variables as axes radiating from a center:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;radar&#39;</span><span class="p">,</span>
+<span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Speed&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Strength&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Intelligence&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Agility&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Endurance&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Character Stats&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">65</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">,</span><span class="w"> </span><span class="mf">70</span><span class="p">,</span><span class="w"> </span><span class="mf">85</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Best for:</strong> Comparing profiles, showing skill assessments, displaying multi-attribute items.</p>
+<h3 id="scatter-charts">Scatter Charts</h3>
+<p><strong>Scatter charts</strong> show correlation between two variables:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span>
+<span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Study Hours vs Score&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">55</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">78</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">92</span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Best for:</strong> Correlation analysis, identifying clusters, regression visualization.</p>
+<h3 id="polar-area-charts">Polar Area Charts</h3>
+<p><strong>Polar area charts</strong> combine pie and bar concepts—each slice has equal angle but variable radius:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;polarArea&#39;</span><span class="p">,</span>
+<span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Mon&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Tue&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Wed&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Thu&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fri&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">11</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Best for:</strong> Cyclical data (days, months), comparing magnitudes across categories.</p>
+<h2 id="data-type-to-chart-type-the-selection-guide">Data Type to Chart Type: The Selection Guide</h2>
+<p>Choosing the right chart type depends on your <strong>data type</strong> and what you want to communicate. This guide maps data patterns to appropriate visualizations.</p>
+<h3 id="the-decision-matrix">The Decision Matrix</h3>
+<table>
+<thead>
+<tr>
+<th>Your Data Pattern</th>
+<th>Best Chart Types</th>
+<th>Avoid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Categories</strong> (discrete items)</td>
+<td>Bar, Pie, Polar Area</td>
+<td>Line, Scatter</td>
+</tr>
+<tr>
+<td><strong>Time series</strong> (values over time)</td>
+<td>Line, Area, Bar</td>
+<td>Pie, Radar</td>
+</tr>
+<tr>
+<td><strong>Parts of whole</strong> (percentages)</td>
+<td>Pie, Doughnut, Stacked Bar</td>
+<td>Line, Scatter</td>
+</tr>
+<tr>
+<td><strong>Correlation</strong> (X-Y relationship)</td>
+<td>Scatter, Bubble</td>
+<td>Pie, Bar</td>
+</tr>
+<tr>
+<td><strong>Distribution</strong> (spread of values)</td>
+<td>Histogram, Box Plot</td>
+<td>Pie</td>
+</tr>
+<tr>
+<td><strong>Comparison</strong> (multiple series)</td>
+<td>Grouped Bar, Multi-line</td>
+<td>Single Pie</td>
+</tr>
+<tr>
+<td><strong>Hierarchy</strong> (nested categories)</td>
+<td>Treemap, Sunburst</td>
+<td>Line, Scatter</td>
+</tr>
+<tr>
+<td><strong>Flow/Process</strong></td>
+<td>Sankey, Flowchart</td>
+<td>Bar, Pie</td>
+</tr>
+<tr>
+<td><strong>Geographic</strong></td>
+<td>Map, Choropleth</td>
+<td>Bar, Line</td>
+</tr>
+<tr>
+<td><strong>Multi-dimensional</strong> (3+ variables)</td>
+<td>Bubble, Radar, Parallel</td>
+<td>Pie, Simple Bar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-type-characteristics">Data Type Characteristics</h3>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Characteristics</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Categorical</strong></td>
+<td>Named groups, no order</td>
+<td>Colors, countries, products</td>
+</tr>
+<tr>
+<td><strong>Ordinal</strong></td>
+<td>Named groups, ordered</td>
+<td>Grades (A,B,C), satisfaction levels</td>
+</tr>
+<tr>
+<td><strong>Continuous</strong></td>
+<td>Numerical, any value</td>
+<td>Temperature, price, time</td>
+</tr>
+<tr>
+<td><strong>Discrete</strong></td>
+<td>Numerical, specific values</td>
+<td>Count of items, year</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quick-selection-questions">Quick Selection Questions</h3>
+<p>Answer these questions to choose your chart:</p>
+<ol>
+<li><strong>Are you comparing categories?</strong> → Bar chart</li>
+<li><strong>Showing change over time?</strong> → Line chart</li>
+<li><strong>Showing parts of a whole?</strong> → Pie (few parts) or Stacked Bar (many parts)</li>
+<li><strong>Showing correlation between variables?</strong> → Scatter or Bubble</li>
+<li><strong>Comparing profiles across dimensions?</strong> → Radar chart</li>
+<li><strong>Showing a process or flow?</strong> → Flowchart (Mermaid)</li>
+</ol>
+<h4 id="diagram-chart-selection-flowchart">Diagram: Chart Selection Flowchart</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Data to Chart Type Selection Guide&lt;/summary&gt;
+Type: diagram
+
+Purpose: Help users select appropriate chart types based on their data and communication goals (Bloom: Apply)
+
+Layout: Top-down decision flowchart
+
+Starting point:
+- &quot;What do you want to show?&quot;
+
+First level decisions:
+- &quot;Comparison&quot; → Branch A
+- &quot;Composition&quot; → Branch B
+- &quot;Distribution&quot; → Branch C
+- &quot;Relationship&quot; → Branch D
+- &quot;Process/Flow&quot; → Branch E
+
+Branch A (Comparison):
+- &quot;How many categories?&quot;
+- Few (≤7) → &quot;Bar Chart&quot;
+- Many (&gt;7) → &quot;Horizontal Bar&quot;
+- Over time? → &quot;Line Chart&quot;
+
+Branch B (Composition):
+- &quot;Static or changing?&quot;
+- Static, few parts → &quot;Pie/Doughnut&quot;
+- Static, many parts → &quot;Stacked Bar&quot;
+- Changing over time → &quot;Stacked Area&quot;
+
+Branch C (Distribution):
+- &quot;One variable?&quot; → &quot;Histogram&quot;
+- &quot;Two variables?&quot; → &quot;Scatter Plot&quot;
+- &quot;Groups to compare?&quot; → &quot;Box Plot&quot;
+
+Branch D (Relationship):
+- &quot;Two variables?&quot; → &quot;Scatter&quot;
+- &quot;Three variables?&quot; → &quot;Bubble&quot;
+- &quot;Many dimensions?&quot; → &quot;Radar/Parallel&quot;
+
+Branch E (Process/Flow):
+- &quot;Sequential steps?&quot; → &quot;Flowchart&quot;
+- &quot;Interactions?&quot; → &quot;Sequence Diagram&quot;
+- &quot;State changes?&quot; → &quot;State Diagram&quot;
+
+Visual style:
+- Color-coded branches
+- Chart icons at terminals
+- Clear decision labels
+
+Annotations:
+- &quot;Most common choice&quot; markers
+- &quot;Advanced&quot; markers for complex types
+
+Implementation: Mermaid.js or custom SVG
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="tooltips-adding-context-on-demand">Tooltips: Adding Context on Demand</h2>
+<p><strong>Tooltips</strong> are small information boxes that appear when users hover over chart elements. They provide details without cluttering the visualization.</p>
+<h3 id="why-tooltips-matter">Why Tooltips Matter</h3>
+<ul>
+<li>Show exact values without label clutter</li>
+<li>Provide additional context</li>
+<li>Enable exploration of dense data</li>
+<li>Improve accessibility</li>
+</ul>
+<h3 id="chartjs-tooltip-customization">Chart.js Tooltip Customization</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;rgba(0, 0, 0, 0.8)&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">titleFont</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">14</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">bodyFont</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">callbacks</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="sb">`Score: </span><span class="si">${</span><span class="nx">context</span><span class="p">.</span><span class="nx">parsed</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb"> points`</span><span class="p">;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">afterLabel</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="sb">`Rank: #</span><span class="si">${</span><span class="nx">context</span><span class="p">.</span><span class="nx">dataIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="tooltip-callbacks">Tooltip Callbacks</h3>
+<table>
+<thead>
+<tr>
+<th>Callback</th>
+<th>When Called</th>
+<th>Use For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>Tooltip title</td>
+<td>Category name</td>
+</tr>
+<tr>
+<td><code>beforeLabel</code></td>
+<td>Before value</td>
+<td>Context info</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>Main value</td>
+<td>Formatted data</td>
+</tr>
+<tr>
+<td><code>afterLabel</code></td>
+<td>After value</td>
+<td>Additional info</td>
+</tr>
+<tr>
+<td><code>footer</code></td>
+<td>Bottom of tooltip</td>
+<td>Calculations, notes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mermaid-click-actions">Mermaid Click Actions</h3>
+<p>Mermaid supports click interactions for nodes:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>flowchart TD
+    A[Click Me] --&gt; B[Another Node]
+    click A callback &quot;Tooltip text for A&quot;
+    click A &quot;https://example.com&quot; &quot;Open documentation&quot;
+</code></pre></div></td></tr></table></div>
+<h2 id="infographics-visual-understanding">Infographics: Visual Understanding</h2>
+<p><strong>Infographics</strong> are designed visuals that combine data, graphics, and text to communicate complex information clearly. Unlike charts (which display data) or diagrams (which show relationships), infographics tell a story.</p>
+<h3 id="characteristics-of-good-infographics">Characteristics of Good Infographics</h3>
+<table>
+<thead>
+<tr>
+<th>Characteristic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Focused message</strong></td>
+<td>One main point or story</td>
+</tr>
+<tr>
+<td><strong>Visual hierarchy</strong></td>
+<td>Important elements stand out</td>
+</tr>
+<tr>
+<td><strong>Minimal text</strong></td>
+<td>Words support visuals, not replace them</td>
+</tr>
+<tr>
+<td><strong>Consistent style</strong></td>
+<td>Unified color palette and typography</td>
+</tr>
+<tr>
+<td><strong>Flow</strong></td>
+<td>Clear reading path through content</td>
+</tr>
+<tr>
+<td><strong>Data integrity</strong></td>
+<td>Accurate, not misleading</td>
+</tr>
+</tbody>
+</table>
+<h3 id="infographic-types">Infographic Types</h3>
+<ol>
+<li><strong>Statistical infographics</strong> - Charts with supporting visuals and annotations</li>
+<li><strong>Informational infographics</strong> - Explanatory content with icons and sections</li>
+<li><strong>Timeline infographics</strong> - Chronological events with visual markers</li>
+<li><strong>Process infographics</strong> - Step-by-step guides with icons</li>
+<li><strong>Comparison infographics</strong> - Side-by-side visual comparisons</li>
+<li><strong>Geographic infographics</strong> - Map-based data visualization</li>
+</ol>
+<h3 id="building-infographics-as-microsims">Building Infographics as MicroSims</h3>
+<p>Infographics can be interactive MicroSims with:</p>
+<ul>
+<li>Hover effects revealing additional data</li>
+<li>Click interactions for drill-down</li>
+<li>Animated transitions between sections</li>
+<li>Responsive layout adaptation</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Infographic with hover zones</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">zones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;First section details...&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">250</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">w</span><span class="o">:</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="nx">h</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Second section details...&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Draw zones</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">zone</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">zones</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fill</span><span class="p">(</span><span class="nx">isHovered</span><span class="p">(</span><span class="nx">zone</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;#e0e0e0&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#f5f5f5&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">rect</span><span class="p">(</span><span class="nx">zone</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">h</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Show tooltip for hovered zone</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">hovered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zones</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">z</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">isHovered</span><span class="p">(</span><span class="nx">z</span><span class="p">));</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">hovered</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">drawTooltip</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">,</span><span class="w"> </span><span class="nx">hovered</span><span class="p">.</span><span class="nx">info</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">isHovered</span><span class="p">(</span><span class="nx">zone</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">mouseX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">mouseX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">w</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">         </span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">zone</span><span class="p">.</span><span class="nx">h</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-interactive-infographic-microsim">Diagram: Interactive Infographic MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Learning Pathway Infographic&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Present educational pathway information as an interactive infographic with hover details (Bloom: Understand)
+
+Canvas layout:
+- Full canvas: 600x500 pixels
+- No separate control region (integrated)
+
+Visual elements:
+- Central pathway graphic (vertical flow)
+- Milestone nodes (circles with icons)
+- Connecting path (curved line)
+- Side panels appearing on hover
+- Progress indicator
+
+Content (MicroSim Learning Path):
+1. &quot;Start Here&quot; - Introduction to concepts
+2. &quot;p5.js Basics&quot; - Core drawing and animation
+3. &quot;Interactivity&quot; - Controls and events
+4. &quot;Visualization&quot; - Charts and diagrams
+5. &quot;Advanced&quot; - Physics, AI integration
+6. &quot;Master&quot; - Create original MicroSims
+
+Interactive features:
+- Hover over node: Side panel slides in with details
+- Click node: Expand to show sub-topics
+- Progress dots show completion status
+- Smooth animations between states
+
+Hover panel content:
+- Milestone name and description
+- Estimated time to complete
+- Prerequisites
+- Key skills gained
+- Related resources (clickable)
+
+Behavior:
+- Only one panel open at a time
+- Panels animate in from side
+- Path highlights from start to hovered node
+- Visual distinction for completed/current/future nodes
+
+Visual design:
+- Modern flat design with subtle shadows
+- Iconography for each milestone
+- Color progression (cool to warm as path advances)
+- Consistent typography
+
+Color scheme:
+- Completed nodes: green
+- Current node: blue (animated pulse)
+- Future nodes: gray
+- Path: gradient from start to end
+- Panels: white with accent color border
+
+Implementation: p5.js with custom animation
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="other-microsim-libraries">Other MicroSim Libraries</h2>
+<p>Beyond p5.js, Chart.js, and Mermaid, several other libraries serve specialized purposes:</p>
+<h3 id="visualization-libraries">Visualization Libraries</h3>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Specialty</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>D3.js</strong></td>
+<td>Custom data visualization</td>
+<td>Complex, unique visualizations</td>
+</tr>
+<tr>
+<td><strong>Three.js</strong></td>
+<td>3D graphics</td>
+<td>3D models, virtual environments</td>
+</tr>
+<tr>
+<td><strong>Plotly.js</strong></td>
+<td>Scientific charts</td>
+<td>Interactive scientific plots</td>
+</tr>
+<tr>
+<td><strong>vis.js</strong></td>
+<td>Networks and timelines</td>
+<td>Graph visualization, scheduling</td>
+</tr>
+<tr>
+<td><strong>Leaflet</strong></td>
+<td>Maps</td>
+<td>Geographic data</td>
+</tr>
+<tr>
+<td><strong>Vega-Lite</strong></td>
+<td>Grammar of graphics</td>
+<td>Specification-based charts</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-to-venture-beyond">When to Venture Beyond</h3>
+<p>Consider other libraries when you need:</p>
+<ul>
+<li><strong>D3.js</strong> - Complete control over data-driven documents</li>
+<li><strong>Three.js</strong> - 3D molecular models, architectural visualization</li>
+<li><strong>Plotly.js</strong> - Publication-quality scientific charts</li>
+<li><strong>vis.js</strong> - Interactive network graphs (like learning graphs)</li>
+<li><strong>Leaflet</strong> - Interactive maps with markers and layers</li>
+</ul>
+<h3 id="library-selection-checklist">Library Selection Checklist</h3>
+<p>Before choosing a library, consider:</p>
+<ul>
+<li>[ ] Does it support my chart/diagram type?</li>
+<li>[ ] Is the file size acceptable for my use case?</li>
+<li>[ ] Does it handle responsiveness?</li>
+<li>[ ] Are tooltips and interactions built in?</li>
+<li>[ ] How steep is the learning curve?</li>
+<li>[ ] Is it actively maintained?</li>
+<li>[ ] Does it work in my target browsers?</li>
+</ul>
+<h2 id="complete-example-multi-library-microsim">Complete Example: Multi-Library MicroSim</h2>
+<p>Here's a MicroSim that combines multiple visualization approaches:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Project Dashboard<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Chart.js for data --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;progressChart&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;400&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;200&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+
+    <span class="cm">&lt;!-- Mermaid for process --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mermaid&quot;</span><span class="p">&gt;</span>
+    flowchart LR
+        Plan --&gt; Design --&gt; Build --&gt; Test --&gt; Deploy
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="c1">// Chart.js initialization</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;progressChart&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Plan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Design&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Build&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Test&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Deploy&#39;</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Completion %&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="mf">45</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">],</span>
+<span class="w">                </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#4CAF50&#39;</span>
+<span class="w">            </span><span class="p">}]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="c1">// Mermaid initialization</span>
+<span class="w">    </span><span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span><span class="w"> </span><span class="nx">startOnLoad</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>You've learned to select and use specialized visualization libraries for educational MicroSims:</p>
+<ol>
+<li>
+<p><strong>p5.js MicroSims</strong> offer maximum flexibility but require more code.</p>
+</li>
+<li>
+<p><strong>General vs. specialized</strong> libraries present trade-offs between control and convenience.</p>
+</li>
+<li>
+<p><strong>Mermaid.js</strong> uses <strong>declarative layout</strong> for diagrams without positioning code.</p>
+</li>
+<li>
+<p><strong>Flowcharts</strong> and <strong>process diagrams</strong> show decisions and sequential steps.</p>
+</li>
+<li>
+<p><strong>Workflow</strong> diagrams model business and system processes.</p>
+</li>
+<li>
+<p><strong>Chart.js (ChartJS)</strong> provides built-in <strong>chart types</strong> with minimal configuration.</p>
+</li>
+<li>
+<p><strong>Bar charts</strong> compare categories; use them for discrete data comparisons.</p>
+</li>
+<li>
+<p><strong>Line charts</strong> show trends over time; use them for continuous data.</p>
+</li>
+<li>
+<p><strong>Pie charts</strong> show parts of a whole; limit to 2-7 clear categories.</p>
+</li>
+<li>
+<p><strong>Bubble charts</strong> display three variables using position and size.</p>
+</li>
+<li>
+<p><strong>Data type to chart type</strong> mapping guides visualization selection.</p>
+</li>
+<li>
+<p><strong>Tooltips</strong> add context on demand without visual clutter.</p>
+</li>
+<li>
+<p><strong>Infographics</strong> combine data, graphics, and text to tell stories.</p>
+</li>
+<li>
+<p>Other libraries (<strong>D3, Three.js, Plotly, vis.js</strong>) serve specialized needs.</p>
+</li>
+<li>
+<p>Choose the right tool for the job—specialized libraries often outperform general-purpose code.</p>
+</li>
+</ol>
+<details class="question">
+<summary>Challenge: Match Data to Visualization</summary>
+<p>You have three datasets: (1) monthly sales figures for a year, (2) market share percentages for 5 competitors, (3) the relationship between advertising spend and revenue. For each dataset, select the most appropriate chart type and explain why. Then identify which library you would use.</p>
+</details>
+<h2 id="next-steps">Next Steps</h2>
+<p>You now have a toolkit of visualization options beyond p5.js. You can create flowcharts with Mermaid, data charts with Chart.js, and know when to reach for specialized libraries. In the next chapter, we'll explore <strong>physics and animation</strong>, learning how to add realistic motion, collisions, and dynamic behavior to your MicroSims.</p>
+<p>Remember: the best visualization is the one that communicates your message clearly. Sometimes that's a custom p5.js animation. Sometimes it's a simple bar chart. Let your data and learning objectives guide the choice.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.chartjs.org/docs/">Chart.js Documentation</a> - Official Chart.js documentation</li>
+<li><a href="https://mermaid.live/">Mermaid.js Live Editor</a> - Interactive Mermaid diagram editor</li>
+<li><a href="https://datavizcatalogue.com/">Data Visualization Catalogue</a> - Comprehensive chart type guide</li>
+<li><a href="https://d3-graph-gallery.com/">D3.js Gallery</a> - D3.js examples and tutorials</li>
+<li><a href="https://www.data-to-viz.com/">From Data to Viz</a> - Decision tree for chart selection</li>
+</ul>
 
 
 

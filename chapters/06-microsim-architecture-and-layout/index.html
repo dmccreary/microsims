@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+        <meta name="description" content="Master the structural patterns and layout techniques that make MicroSims look professional">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>6 - MicroSim Architecture and Layout - Micro Simulations for Education</title>
+        <title>MicroSim Architecture and Layout - Micro Simulations for Education</title>
       
     
     
@@ -70,9 +70,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="6 - MicroSim Architecture and Layout - Micro Simulations for Education" >
+        <meta  property="og:title"  content="MicroSim Architecture and Layout - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  property="og:description"  content="Master the structural patterns and layout techniques that make MicroSims look professional" >
       
         <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/06-microsim-architecture-and-layout/index.png" >
       
@@ -86,9 +86,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="6 - MicroSim Architecture and Layout - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="MicroSim Architecture and Layout - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+        <meta  name="twitter:description"  content="Master the structural patterns and layout techniques that make MicroSims look professional" >
       
         <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/chapters/06-microsim-architecture-and-layout/index.png" >
       
@@ -141,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6 - MicroSim Architecture and Layout
+              MicroSim Architecture and Layout
             
           </span>
         </div>
@@ -321,6 +321,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -712,6 +716,486 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-your-microsims-look-like-a-million-bucks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Your MicroSims Look Like a Million Bucks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-architecture-the-blueprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Architecture: The Blueprint
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Architecture: The Blueprint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-two-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Two Regions?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Two Regions?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroSim Architecture Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-drawing-region-your-visualization-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Drawing Region: Your Visualization Canvas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Drawing Region: Your Visualization Canvas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-the-drawing-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of the Drawing Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawing-region-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drawing Region Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-control-region-command-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Control Region: Command Central
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Control Region: Command Central">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-the-control-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of the Control Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-region-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Region Layout
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canvas-dimension-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canvas Dimension Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Canvas Dimension Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-core-dimension-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Core Dimension Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-standard-variable-declaration-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Variable Declaration Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-named-variables-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Named Variables Matter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-margin-variable-breathing-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Margin Variable: Breathing Room
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Margin Variable: Breathing Room">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-margins-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Margins Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-margins-consistently" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Margins Consistently
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Margins Consistently">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-margin-visualization-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Margin Visualization MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-standard-layout-your-default-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Layout: Your Default Choice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Standard Layout: Your Default Choice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-layout-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Layout Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-standard-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Standard Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-layout-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Layout Template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-column-layout-side-by-side-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Two-Column Layout: Side-by-Side Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Two-Column Layout: Side-by-Side Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-column-layout-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Column Layout Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-two-column-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Two-Column Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-column-layout-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Column Layout Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pushtranslatepop-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Push/Translate/Pop Pattern
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Push/Translate/Pop Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-two-column-layout-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Two-Column Layout Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-layout-predictable-and-stable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed Layout: Predictable and Stable
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixed Layout: Predictable and Stable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-fixed-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of Fixed Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-fixed-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Fixed Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-layout-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed Layout Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsive-layout-adapting-with-grace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Layout: Adapting with Grace
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Responsive Layout: Adapting with Grace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-responsive-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of Responsive Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-responsive-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Responsive Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsive-positioning-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Positioning Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Responsive Positioning Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-responsive-layout-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Responsive Layout Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-sliders-responsive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Sliders Responsive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-comparison-choosing-the-right-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Comparison: Choosing the Right Pattern
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Comparison: Choosing the Right Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision Flowchart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-polished-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Polished MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
     </span>
   </a>
   
@@ -1588,6 +2072,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../glossary/" class="md-nav__link">
         
   
@@ -1714,6 +2218,486 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#making-your-microsims-look-like-a-million-bucks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Your MicroSims Look Like a Million Bucks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-architecture-the-blueprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSim Architecture: The Blueprint
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSim Architecture: The Blueprint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-two-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Two Regions?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Two Regions?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MicroSim Architecture Overview
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-drawing-region-your-visualization-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Drawing Region: Your Visualization Canvas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Drawing Region: Your Visualization Canvas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-the-drawing-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of the Drawing Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawing-region-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Drawing Region Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-control-region-command-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Control Region: Command Central
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Control Region: Command Central">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-the-control-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of the Control Region
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-region-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Region Layout
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canvas-dimension-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canvas Dimension Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Canvas Dimension Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-core-dimension-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Core Dimension Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-standard-variable-declaration-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Variable Declaration Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-named-variables-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Named Variables Matter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-margin-variable-breathing-room" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Margin Variable: Breathing Room
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Margin Variable: Breathing Room">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-margins-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Margins Matter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-margins-consistently" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Margins Consistently
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using Margins Consistently">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-margin-visualization-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Margin Visualization MicroSim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-standard-layout-your-default-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Standard Layout: Your Default Choice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Standard Layout: Your Default Choice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-layout-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Layout Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-standard-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Standard Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-layout-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Layout Template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-column-layout-side-by-side-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Two-Column Layout: Side-by-Side Power
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Two-Column Layout: Side-by-Side Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-column-layout-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Column Layout Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-two-column-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Two-Column Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-column-layout-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two-Column Layout Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pushtranslatepop-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Push/Translate/Pop Pattern
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Push/Translate/Pop Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-two-column-layout-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Two-Column Layout Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-layout-predictable-and-stable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed Layout: Predictable and Stable
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixed Layout: Predictable and Stable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-fixed-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of Fixed Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-fixed-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use Fixed Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-layout-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixed Layout Implementation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsive-layout-adapting-with-grace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Layout: Adapting with Grace
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Responsive Layout: Adapting with Grace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#characteristics-of-responsive-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Characteristics of Responsive Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-responsive-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Responsive Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsive-positioning-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsive Positioning Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Responsive Positioning Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-responsive-layout-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Responsive Layout Playground
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-sliders-responsive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Making Sliders Responsive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-comparison-choosing-the-right-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout Comparison: Choosing the Right Pattern
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Comparison: Choosing the Right Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision Flowchart
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together-the-polished-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Putting It All Together: The Polished MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1763,7 +2747,1521 @@
 <li><a href="../04-drawing-animation-and-color/">Chapter 4: Drawing, Animation, and Color</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<h2 id="making-your-microsims-look-like-a-million-bucks">Making Your MicroSims Look Like a Million Bucks</h2>
+<p>You've learned to write code that works. Now it's time to make it <em>shine</em>.</p>
+<p>Sometimes, to truly impress your students and colleagues, you need to add some <strong>spit and polish</strong> to your MicroSims. A simulation that looks professional—with clean layouts, consistent spacing, and thoughtful organization—commands attention and respect. It says, "This was crafted with care."</p>
+<p>This chapter walks you through the <strong>architecture of a MicroSim</strong> and all the <strong>layout tricks</strong> that separate amateur-looking simulations from professional-quality educational tools. When you finish, your MicroSims won't just work—they'll look like a million bucks.</p>
+<div class="admonition tip">
+<p class="admonition-title">First Impressions Matter</p>
+<p>Students make judgments about educational quality in seconds. A polished, well-organized MicroSim signals credibility and professionalism before a single interaction occurs.</p>
+</div>
+<h2 id="microsim-architecture-the-blueprint">MicroSim Architecture: The Blueprint</h2>
+<p><strong>MicroSim architecture</strong> refers to the structural organization of your simulation—how the different parts are arranged and how they work together. Just as a building has a floor plan that organizes rooms, a MicroSim has an architecture that organizes visual and interactive elements.</p>
+<p>The standard MicroSim architecture divides the canvas into two distinct regions:</p>
+<ol>
+<li><strong>Drawing Region</strong>: Where the simulation visualization lives</li>
+<li><strong>Control Region</strong>: Where sliders, buttons, and labels reside</li>
+</ol>
+<p>This separation isn't arbitrary—it's based on user interface principles that make simulations intuitive and learnable.</p>
+<h3 id="why-two-regions">Why Two Regions?</h3>
+<table>
+<thead>
+<tr>
+<th>Design Principle</th>
+<th>How Two Regions Help</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Visual hierarchy</strong></td>
+<td>Clear separation between content and controls</td>
+</tr>
+<tr>
+<td><strong>Consistent expectations</strong></td>
+<td>Users always know where to find controls</td>
+</tr>
+<tr>
+<td><strong>Clean aesthetics</strong></td>
+<td>Prevents cluttered, confusing layouts</td>
+</tr>
+<tr>
+<td><strong>Responsive design</strong></td>
+<td>Each region can adapt independently</td>
+</tr>
+<tr>
+<td><strong>Accessibility</strong></td>
+<td>Screen readers can navigate predictable structure</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-microsim-architecture-overview">Diagram: MicroSim Architecture Overview</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;MicroSim Architecture Diagram&lt;/summary&gt;
+Type: diagram
+
+Purpose: Show the standard two-region MicroSim architecture with labeled dimensions (Bloom: Remember, Understand)
+
+Canvas size: 400x450 pixels total
+
+Components to show:
+- Full canvas outline with label &quot;canvasHeight = 450&quot;
+- Width dimension with label &quot;canvasWidth = 400&quot;
+- Drawing region (top):
+  - Background: alice blue (#F0F8FF)
+  - Height label: &quot;drawHeight = 400&quot;
+  - Contains sample visualization (bouncing ball with trajectory)
+  - Margin lines shown as dashed (25px from edges)
+  - Label: &quot;Drawing Region&quot;
+- Control region (bottom):
+  - Background: white (#FFFFFF)
+  - Height label: &quot;controlHeight = 50&quot;
+  - Contains sample slider and label
+  - Dividing line between regions (silver)
+  - Label: &quot;Control Region&quot;
+- Margin annotations:
+  - Arrows showing 25px margins on left, right, top
+  - Label: &quot;margin = 25&quot;
+
+Visual style:
+- Clean, technical diagram style
+- Dimension lines with arrows
+- Dashed lines for margins
+- Color-coded regions
+
+Annotations:
+- &quot;Visualization goes here&quot; in drawing region
+- &quot;User controls here&quot; in control region
+- Formula: &quot;canvasHeight = drawHeight + controlHeight&quot;
+
+Color scheme:
+- Drawing region: alice blue (#F0F8FF)
+- Control region: white (#FFFFFF)
+- Dimension lines: dark gray (#333)
+- Margin lines: dashed light gray
+
+Implementation: Static diagram or simple p5.js visualization
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="the-drawing-region-your-visualization-canvas">The Drawing Region: Your Visualization Canvas</h2>
+<p>The <strong>drawing region</strong> is the primary visual area where your simulation's main content appears. This is where balls bounce, pendulums swing, graphs plot, and physics happens.</p>
+<h3 id="characteristics-of-the-drawing-region">Characteristics of the Drawing Region</h3>
+<ul>
+<li>Occupies the <strong>upper portion</strong> of the canvas</li>
+<li>Uses a consistent <strong>background color</strong> (typically alice blue: <code>rgb(240, 248, 255)</code>)</li>
+<li>Contains all <strong>animated or interactive visualizations</strong></li>
+<li>Respects <strong>margins</strong> to prevent elements from touching edges</li>
+<li>Height is defined by the <code>drawHeight</code> variable</li>
+</ul>
+<h3 id="drawing-region-best-practices">Drawing Region Best Practices</h3>
+<ol>
+<li><strong>Keep it focused</strong>: One main visualization, not multiple competing elements</li>
+<li><strong>Respect boundaries</strong>: Elements should stay within margin boundaries</li>
+<li><strong>Use the full space</strong>: Don't leave large empty areas unused</li>
+<li><strong>Consistent background</strong>: Alice blue provides gentle contrast without distraction</li>
+<li><strong>Clear visual hierarchy</strong>: Most important elements should be most prominent</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Drawing region setup</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Clear drawing region with alice blue</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Your visualization code goes here</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="the-control-region-command-central">The Control Region: Command Central</h2>
+<p>The <strong>control region</strong> is the dedicated area for user interface elements—sliders, buttons, labels, and value displays. Separating controls from the visualization prevents clutter and creates a predictable user experience.</p>
+<h3 id="characteristics-of-the-control-region">Characteristics of the Control Region</h3>
+<ul>
+<li>Located at the <strong>bottom</strong> of the canvas</li>
+<li>Uses a <strong>white background</strong> for clean contrast</li>
+<li>Contains <strong>sliders</strong>, <strong>buttons</strong>, and <strong>text labels</strong></li>
+<li>Height is defined by the <code>controlHeight</code> variable (typically 50-100 pixels)</li>
+<li>Has a subtle <strong>dividing line</strong> separating it from the drawing region</li>
+</ul>
+<h3 id="control-region-layout">Control Region Layout</h3>
+<p>A well-organized control region follows this pattern:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>|  Label: |===========O===========| Value  |
+</code></pre></div></td></tr></table></div>
+<p>Where:
+- <strong>Label</strong> appears to the left of the slider
+- <strong>Slider</strong> occupies the middle space
+- <strong>Value</strong> displays to the right (updates dynamically)</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Control region setup</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Draw control region background</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Dividing line</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Label</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">14</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Value display</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">().</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="canvas-dimension-variables">Canvas Dimension Variables</h2>
+<p>Professional MicroSims use <strong>named variables</strong> for all dimensions rather than magic numbers. This makes code readable, maintainable, and easy to modify.</p>
+<h3 id="the-core-dimension-variables">The Core Dimension Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Purpose</th>
+<th>Typical Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>canvasWidth</code></td>
+<td>Total canvas width</td>
+<td>400-800 pixels</td>
+</tr>
+<tr>
+<td><code>canvasHeight</code></td>
+<td>Total canvas height</td>
+<td>Calculated: drawHeight + controlHeight</td>
+</tr>
+<tr>
+<td><code>drawHeight</code></td>
+<td>Height of visualization area</td>
+<td>300-500 pixels</td>
+</tr>
+<tr>
+<td><code>controlHeight</code></td>
+<td>Height of control area</td>
+<td>50-100 pixels</td>
+</tr>
+<tr>
+<td><code>margin</code></td>
+<td>Spacing from edges</td>
+<td>20-30 pixels</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-standard-variable-declaration-block">The Standard Variable Declaration Block</h3>
+<p>Every MicroSim should begin with this pattern:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Canvas dimensions</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+
+<span class="c1">// Slider positioning</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">defaultTextSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="why-named-variables-matter">Why Named Variables Matter</h3>
+<p>Consider the difference:</p>
+<p><strong>Without named variables (hard to read):</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">425</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>With named variables (clear intent):</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+<span class="nx">circle</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div></p>
+<p>The second version tells a story: the rectangle is the control region, the circle is centered in the drawing area, and the text is positioned in the control region.</p>
+<h2 id="the-margin-variable-breathing-room">The Margin Variable: Breathing Room</h2>
+<p>The <strong>margin variable</strong> defines the spacing between content and canvas edges. Margins create visual breathing room that makes simulations feel polished rather than cramped.</p>
+<h3 id="why-margins-matter">Why Margins Matter</h3>
+<table>
+<thead>
+<tr>
+<th>Without Margins</th>
+<th>With Margins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elements touch edges</td>
+<td>Clean visual boundaries</td>
+</tr>
+<tr>
+<td>Feels cramped</td>
+<td>Feels spacious</td>
+</tr>
+<tr>
+<td>Text may be cut off</td>
+<td>All content visible</td>
+</tr>
+<tr>
+<td>Amateur appearance</td>
+<td>Professional appearance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="using-margins-consistently">Using Margins Consistently</h3>
+<p>Apply margins to:</p>
+<ul>
+<li><strong>Title positioning</strong>: <code>text(title, canvasWidth/2, margin)</code></li>
+<li><strong>Shape boundaries</strong>: <code>if (x &lt; margin || x &gt; canvasWidth - margin)</code></li>
+<li><strong>Label placement</strong>: <code>text(label, margin, y)</code></li>
+<li><strong>Drawing constraints</strong>: Keep visualizations within margin boundaries</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Title with margin from top</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">TOP</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Bouncing Ball Simulation&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Ball constrained by margins</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ballX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">ballRadius</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">ballX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">ballRadius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">velocityX</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Bounce off margin boundaries</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-margin-visualization-microsim">Diagram: Margin Visualization MicroSim</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Interactive Margin Visualization&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Help students visualize how margins create visual boundaries and affect element positioning (Bloom: Understand, Apply)
+
+Canvas layout:
+- Drawing area: 400x350 pixels
+- Control area: 50 pixels
+
+Visual elements:
+- Canvas outline (dark gray)
+- Margin boundary rectangle (dashed red line, inset by margin value)
+- Sample elements positioned at margin boundaries:
+  - Title text at top margin
+  - Shapes bouncing within margin boundaries
+  - Labels positioned at left margin
+- Dimension annotations showing margin distances
+- &quot;Safe zone&quot; label in center
+- &quot;Margin zone&quot; labels in edge areas
+
+Interactive controls:
+- Slider: &quot;Margin Size&quot; (0-50 pixels, default 25)
+- As slider changes, margin boundary updates in real-time
+- Sample elements reposition to respect new margins
+
+Behavior:
+- Changing margin slider updates dashed boundary line
+- Bouncing shape adjusts its boundaries
+- Shows how larger margins create more breathing room
+- Demonstrates margin = 0 vs margin = 50 difference
+
+Color scheme:
+- Drawing area: alice blue
+- Margin boundary: dashed red
+- Safe zone: light green tint
+- Edge zones: light red tint
+
+Implementation: p5.js with slider control
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="the-standard-layout-your-default-choice">The Standard Layout: Your Default Choice</h2>
+<p>The <strong>standard layout</strong> is the go-to pattern for most MicroSims. It features a single drawing region above a control region, with all elements arranged vertically.</p>
+<h3 id="standard-layout-structure">Standard Layout Structure</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>┌─────────────────────────────────┐
+│                                 │
+│        Drawing Region           │
+│     (Visualization Area)        │
+│                                 │
+│         drawHeight              │
+│                                 │
+├─────────────────────────────────┤
+│  Label: ════════O════════ Value │
+│        Control Region           │
+│         controlHeight           │
+└─────────────────────────────────┘
+</code></pre></div></td></tr></table></div>
+<h3 id="when-to-use-standard-layout">When to Use Standard Layout</h3>
+<ul>
+<li>Single visualization without secondary displays</li>
+<li>Simple simulations with 1-3 controls</li>
+<li>Narrow container widths (&lt; 500px)</li>
+<li>Mobile-friendly designs</li>
+<li>Quick prototypes</li>
+</ul>
+<h3 id="standard-layout-template">Standard Layout Template</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Standard Layout Template</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Create slider in control region</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Standard layout MicroSim with visualization and controls&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Drawing region</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Control region</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Dividing line</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Control label</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">14</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Value display</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(),</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Your visualization here...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="the-two-column-layout-side-by-side-power">The Two-Column Layout: Side-by-Side Power</h2>
+<p>The <strong>two-column layout</strong> splits the drawing region into two side-by-side areas. This is perfect for simulations that need to show two related views simultaneously—like a main visualization paired with a graph or a comparison view.</p>
+<h3 id="two-column-layout-structure">Two-Column Layout Structure</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>┌────────────────┬────────────────┐
+│                │                │
+│    Left        │     Right      │
+│   Column       │    Column      │
+│ (Simulation)   │   (Graph)      │
+│                │                │
+├────────────────┴────────────────┤
+│  Label: ════════O════════ Value │
+│         Control Region          │
+└─────────────────────────────────┘
+</code></pre></div></td></tr></table></div>
+<h3 id="when-to-use-two-column-layout">When to Use Two-Column Layout</h3>
+<ul>
+<li>Visualization with accompanying graph/chart</li>
+<li>Before/after comparisons</li>
+<li>Dual simulations for comparison</li>
+<li>Main view with data panel</li>
+<li>Animation with parameter display</li>
+</ul>
+<h3 id="two-column-layout-template">Two-Column Layout Template</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Two-Column Layout Template</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">600</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+
+<span class="c1">// Column dimensions</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">leftColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">rightColumnWidth</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Calculate column widths</span>
+<span class="w">  </span><span class="nx">leftColumnWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">rightColumnWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Two-column layout with simulation and graph&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Left column - Simulation</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">leftColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Right column - Graph (slightly different tint)</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="nx">leftColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">rightColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Column divider</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="nx">leftColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">leftColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Control region</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Use push/translate/pop for each column</span>
+<span class="w">  </span><span class="nx">push</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">drawSimulation</span><span class="p">();</span><span class="w">  </span><span class="c1">// Draw in left column coordinates</span>
+<span class="w">  </span><span class="nx">pop</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">push</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">leftColumnWidth</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">drawGraph</span><span class="p">();</span><span class="w">  </span><span class="c1">// Draw in right column coordinates</span>
+<span class="w">  </span><span class="nx">pop</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="the-pushtranslatepop-pattern">The Push/Translate/Pop Pattern</h3>
+<p>For two-column layouts, use <code>push()</code>, <code>translate()</code>, and <code>pop()</code> to work in local coordinates:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">drawGraph</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Now (0,0) is the top-left of the right column</span>
+<span class="w">  </span><span class="c1">// All drawing happens relative to this origin</span>
+
+<span class="w">  </span><span class="c1">// Draw axes</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">rightColumnWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Plot data</span>
+<span class="w">  </span><span class="c1">// coordinates are relative to column, not canvas</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-two-column-layout-comparison">Diagram: Two-Column Layout Comparison</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Two-Column Layout Interactive Demo&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Demonstrate how two-column layouts work with synchronized visualizations (Bloom: Understand, Apply)
+
+Canvas layout:
+- Total width: 600 pixels
+- Draw height: 350 pixels
+- Control height: 50 pixels
+
+Visual elements:
+Left column (300px wide):
+- Bouncing ball simulation
+- Ball moves within left column boundaries
+- Background: alice blue
+
+Right column (300px wide):
+- Real-time graph showing ball&#39;s Y position over time
+- X-axis: time (scrolling)
+- Y-axis: vertical position
+- Line graph updating each frame
+- Background: slightly different blue tint
+
+Divider:
+- 1px silver line between columns
+
+Interactive controls:
+- Slider: &quot;Gravity&quot; (affects ball in left column, shows in graph on right)
+- Slider: &quot;Ball Size&quot;
+
+Behavior:
+- Ball bounces in left column
+- Graph in right column plots ball&#39;s Y position over time
+- Changing gravity affects both visualizations
+- Demonstrates data flow between columns
+
+Educational emphasis:
+- Shows how columns can display related information
+- Demonstrates push/translate/pop coordinate system
+- Shows real-time data visualization
+
+Implementation: p5.js with push/translate/pop pattern
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="fixed-layout-predictable-and-stable">Fixed Layout: Predictable and Stable</h2>
+<p>A <strong>fixed layout</strong> maintains constant dimensions regardless of the browser window or container size. The canvas is always the same width and height, providing a completely predictable visual experience.</p>
+<h3 id="characteristics-of-fixed-layout">Characteristics of Fixed Layout</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Fixed Layout Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canvas size</td>
+<td>Always the same (e.g., 400x450)</td>
+</tr>
+<tr>
+<td>Responsiveness</td>
+<td>None—doesn't adapt to container</td>
+</tr>
+<tr>
+<td>Predictability</td>
+<td>Complete—elements never move</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Precise positioning, print layouts</td>
+</tr>
+<tr>
+<td>Drawbacks</td>
+<td>May not fit all containers</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-to-use-fixed-layout">When to Use Fixed Layout</h3>
+<ul>
+<li>When precise pixel positioning is critical</li>
+<li>For simulations embedded in fixed-width containers</li>
+<li>When responsive adaptation would break the visualization</li>
+<li>For print or PDF export</li>
+<li>For consistent screenshots and documentation</li>
+</ul>
+<h3 id="fixed-layout-implementation">Fixed Layout Implementation</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fixed Layout - No responsive functions needed</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w">  </span><span class="c1">// Always 400 pixels</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span><span class="w">  </span><span class="c1">// Fixed size</span>
+<span class="w">  </span><span class="c1">// No windowResized() function</span>
+<span class="w">  </span><span class="c1">// No updateCanvasSize() function</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Layout never changes</span>
+<span class="w">  </span><span class="c1">// All positions are constant</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="responsive-layout-adapting-with-grace">Responsive Layout: Adapting with Grace</h2>
+<p>A <strong>responsive layout</strong> adjusts to the available container width, making your MicroSim work beautifully on any screen size—from narrow mobile devices to wide desktop monitors.</p>
+<h3 id="characteristics-of-responsive-layout">Characteristics of Responsive Layout</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Responsive Layout Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canvas width</td>
+<td>Adapts to container width</td>
+</tr>
+<tr>
+<td>Canvas height</td>
+<td>Usually fixed (drawHeight + controlHeight)</td>
+</tr>
+<tr>
+<td>Elements</td>
+<td>Reposition relative to width</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Web embedding, intelligent textbooks</td>
+</tr>
+<tr>
+<td>Requires</td>
+<td>windowResized() and updateCanvasSize()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-responsive-pattern">The Responsive Pattern</h3>
+<p>Responsive layouts require three key elements:</p>
+<ol>
+<li><strong>Initial size detection</strong> in <code>setup()</code></li>
+<li><strong>windowResized()</strong> function to detect changes</li>
+<li><strong>updateCanvasSize()</strong> function to recalculate dimensions</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Responsive Layout Template</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w">  </span><span class="c1">// Initial/minimum width</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span><span class="w">   </span><span class="c1">// Fixed height</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span><span class="w">  </span><span class="c1">// Get initial container width</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Responsive MicroSim that adapts to container width&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">repositionControls</span><span class="p">();</span><span class="w">  </span><span class="c1">// Reposition sliders, buttons</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Get container width, with minimum</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="nx">container</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="p">);</span><span class="w">  </span><span class="c1">// Minimum 300px</span>
+<span class="w">  </span><span class="c1">// canvasHeight stays fixed</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">repositionControls</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Update slider positions and sizes</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">150</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Use canvasWidth for all horizontal positioning</span>
+<span class="w">  </span><span class="c1">// Elements automatically adapt when width changes</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="responsive-positioning-strategies">Responsive Positioning Strategies</h3>
+<p><strong>Relative positioning</strong> (adapts to width):
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">centerX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">rightEdge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">thirdPoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Percentage-based sizing</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">elementWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span><span class="w">  </span><span class="c1">// 80% of width</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Anchored positioning</strong>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Anchor to right edge</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span><span class="w">  </span><span class="c1">// Always 100px from right</span>
+
+<span class="c1">// Anchor to center</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w">    </span><span class="c1">// Always centered</span>
+</code></pre></div></td></tr></table></div></p>
+<h4 id="diagram-responsive-layout-playground">Diagram: Responsive Layout Playground</h4>
+<details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;Responsive Layout Playground MicroSim&lt;/summary&gt;
+Type: microsim
+
+Learning objective: Allow students to experiment with responsive layouts by simulating different container widths (Bloom: Apply, Analyze)
+
+Canvas layout:
+- Simulated container that can resize
+- MicroSim inside that adapts to container
+- External controls to change container width
+
+Visual elements:
+- Outer frame showing &quot;browser window&quot; or &quot;container&quot;
+- Inner MicroSim demonstrating responsive behavior
+- Width indicator showing current width in pixels
+- Annotations showing how elements reposition
+- Comparison: Fixed vs Responsive side-by-side
+
+Sample MicroSim inside:
+- Centered title (always centered regardless of width)
+- Bouncing ball (adjusts bounds to new width)
+- Slider (expands/contracts with width)
+- Labels (anchor positions demonstrated)
+
+Interactive controls:
+- Slider: &quot;Container Width&quot; (300-800 pixels)
+- Button: &quot;Mobile (350px)&quot;
+- Button: &quot;Tablet (600px)&quot;
+- Button: &quot;Desktop (800px)&quot;
+- Toggle: &quot;Show positioning guides&quot;
+
+Behavior:
+- Changing width slider resizes the simulated container
+- Inner MicroSim calls windowResized() and adapts
+- Shows elements repositioning in real-time
+- Guides show anchor points and relative positions
+
+Educational annotations:
+- &quot;centerX = width/2&quot; label following center point
+- &quot;rightEdge = width - margin&quot; label at right
+- &quot;Slider stretches with width&quot; annotation
+
+Color scheme:
+- Container frame: dark gray
+- Resize handle: blue
+- Position guides: red dashed lines
+- Annotations: green
+
+Implementation: p5.js with simulated resize behavior
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="making-sliders-responsive">Making Sliders Responsive</h3>
+<p>Sliders need special attention in responsive layouts:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">repositionSlider</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">repositionSlider</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span><span class="w">  </span><span class="c1">// Adaptive width</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">repositionSlider</span><span class="p">();</span><span class="w">  </span><span class="c1">// Resize slider too!</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="layout-comparison-choosing-the-right-pattern">Layout Comparison: Choosing the Right Pattern</h2>
+<p>Here's a quick reference for selecting the appropriate layout:</p>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Best For</th>
+<th>Container Width</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standard</strong></td>
+<td>Simple simulations</td>
+<td>Any</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>Two-Column</strong></td>
+<td>Visualization + graph</td>
+<td>Wide (500px+)</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><strong>Fixed</strong></td>
+<td>Precise positioning</td>
+<td>Fixed containers</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>Responsive</strong></td>
+<td>Web embedding</td>
+<td>Variable</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h3 id="decision-flowchart">Decision Flowchart</h3>
+<ol>
+<li><strong>Is precise pixel positioning critical?</strong> → Use Fixed Layout</li>
+<li><strong>Do you need two simultaneous views?</strong> → Use Two-Column Layout</li>
+<li><strong>Will this be embedded in various containers?</strong> → Use Responsive Layout</li>
+<li><strong>None of the above?</strong> → Use Standard Layout</li>
+</ol>
+<h2 id="putting-it-all-together-the-polished-microsim">Putting It All Together: The Polished MicroSim</h2>
+<p>Here's a complete example demonstrating professional layout practices:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Professional MicroSim Template</span>
+<span class="c1">// Demonstrates: architecture, regions, dimensions, responsive layout</span>
+
+<span class="c1">// Canvas dimensions</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">350</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">75</span><span class="p">;</span><span class="w">  </span><span class="c1">// Extra height for two rows of controls</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+
+<span class="c1">// Simulation variables</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ball</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">175</span><span class="p">,</span><span class="w"> </span><span class="nx">vx</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">vy</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">};</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">,</span><span class="w"> </span><span class="nx">sizeSlider</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Create controls</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">sizeSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">repositionControls</span><span class="p">();</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Bouncing ball with speed and size controls, responsive layout&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">max</span><span class="p">(</span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="nx">container</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">repositionControls</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">repositionControls</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sliderWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">60</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">12</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">sliderWidth</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">sizeSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">42</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">sizeSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">sliderWidth</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// === DRAWING REGION ===</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">240</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span><span class="w">  </span><span class="c1">// Alice blue</span>
+
+<span class="w">  </span><span class="c1">// Update physics</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Bounce off margins</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sizeSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vx</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">constrain</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">vy</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">constrain</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">radius</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">radius</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Draw ball</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">150</span><span class="p">,</span><span class="w"> </span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">50</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">ball</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">ball</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">sizeSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
+
+<span class="w">  </span><span class="c1">// === CONTROL REGION ===</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">255</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Divider</span>
+<span class="w">  </span><span class="nx">stroke</span><span class="p">(</span><span class="mf">220</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">line</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Labels and values</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="mf">60</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">14</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Speed control</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Speed:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">().</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">25</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Size control</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">LEFT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Size:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">55</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">RIGHT</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">sizeSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;px&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">55</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>You now have the knowledge to make your MicroSims look like a million bucks:</p>
+<ol>
+<li>
+<p><strong>MicroSim Architecture</strong> divides the canvas into a drawing region and control region for clarity.</p>
+</li>
+<li>
+<p>The <strong>Drawing Region</strong> hosts your visualization with a consistent alice blue background.</p>
+</li>
+<li>
+<p>The <strong>Control Region</strong> provides a clean white space for sliders, buttons, and labels.</p>
+</li>
+<li>
+<p>Use <strong>named dimension variables</strong> (<code>canvasWidth</code>, <code>drawHeight</code>, <code>controlHeight</code>, <code>canvasHeight</code>) for readable, maintainable code.</p>
+</li>
+<li>
+<p>The <strong>margin variable</strong> creates breathing room that separates amateur layouts from professional ones.</p>
+</li>
+<li>
+<p>The <strong>Standard Layout</strong> is your default—simple, clean, effective.</p>
+</li>
+<li>
+<p>Use <strong>Two-Column Layout</strong> when you need side-by-side visualization and data display.</p>
+</li>
+<li>
+<p><strong>Fixed Layout</strong> offers complete predictability at the cost of adaptability.</p>
+</li>
+<li>
+<p><strong>Responsive Layout</strong> adapts gracefully to any container width using <code>windowResized()</code> and <code>updateCanvasSize()</code>.</p>
+</li>
+<li>
+<p>The <strong>push/translate/pop</strong> pattern enables working in local coordinates for multi-column layouts.</p>
+</li>
+<li>
+<p><strong>Sliders must be repositioned</strong> when the canvas resizes—don't forget <code>repositionControls()</code>!</p>
+</li>
+<li>
+<p>Professional polish comes from <strong>consistent spacing</strong>, <strong>proper alignment</strong>, and <strong>attention to detail</strong>.</p>
+</li>
+</ol>
+<details class="question">
+<summary>Challenge: Identify the layout type</summary>
+<p>Look at three MicroSims on the gallery page. For each one, identify whether it uses Standard, Two-Column, Fixed, or Responsive layout. What clues helped you determine the layout type?</p>
+</details>
+<h2 id="next-steps">Next Steps</h2>
+<p>Your MicroSims now have professional architecture and layout. In the next chapter, we'll add <strong>interactive controls</strong>—sliders, buttons, and more—that bring your simulations to life and let users explore parameters hands-on.</p>
+<p>Remember: the difference between good and great is in the details. Take time to polish your layouts, and your simulations will command the respect they deserve.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://p5js.org/reference/#/p5/createCanvas">p5.js Canvas Reference</a> - Canvas creation and sizing</li>
+<li><a href="https://web.dev/responsive-web-design-basics/">Responsive Web Design Principles</a> - Foundation for responsive layouts</li>
+<li><a href="https://www.interaction-design.org/literature/topics/visual-design">Visual Design Principles</a> - Spacing, alignment, hierarchy</li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/">MkDocs Material Layout</a> - Container widths for textbook embedding</li>
+</ul>
 
 
 
