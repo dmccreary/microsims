@@ -301,18 +301,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#system-prompt-limitations" class="md-nav__link">
+  <a href="#the-microsim-metadata-and-a-microsim-registry" class="md-nav__link">
     <span class="md-ellipsis">
-      System Prompt Limitations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-microsim-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      The MicroSim Registry
+      The MicroSim Metadata and a MicroSim Registry
     </span>
   </a>
   
@@ -1315,18 +1306,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#system-prompt-limitations" class="md-nav__link">
+  <a href="#the-microsim-metadata-and-a-microsim-registry" class="md-nav__link">
     <span class="md-ellipsis">
-      System Prompt Limitations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-microsim-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      The MicroSim Registry
+      The MicroSim Metadata and a MicroSim Registry
     </span>
   </a>
   
@@ -1373,7 +1355,7 @@
 <a href="https://arxiv.org/abs/2511.19864">MicroSims: A Framework for AI-Generated, Scalable Educational Simulations with Universal Embedding and Adaptive Learning Support</a></p>
 </div>
 <p>A MicroSim (or Micro-Simulation) is a simple interactive simulation program that can be quickly generated using generative AI to help teachers explain concepts to students.  MicroSims can be imbedded in <a href="glossary/#intelligent-textbook"></a></p>
-<p>MicroSims can use a framework of rules and best practices to turn a brief descriptive text into a shareable learning asset.  MicroSims are unique for three reasons:</p>
+<p>MicroSims can use a framework of rules and best practices and <a href="rules/design-patterns/">20 Design Patterns</a> to turn a brief descriptive text into a shareable learning asset.  MicroSims are unique for three reasons:</p>
 <ol>
 <li><strong>AI-Assisted Generation</strong> - Standardized <a href="glossary/#design-pattern">design patterns</a> that enable educators to create custom simulations
   from natural language descriptions</li>
@@ -1384,20 +1366,11 @@
   allows most teachers to use MicroSims in your classrooms without paying license fees.</li>
 </ol>
 <p>The term <strong>MicroSim</strong> was coined by <a href="https://www.linkedin.com/in/valockhart/">Val Lockhart</a> in the summer of 2023 while she was working with generative AI.  She found that both teachers and students could generate useful <a href="glossary/#p5js">p5.js</a> simulations using GPT-4 with little or no training.</p>
-<h2 id="system-prompt-limitations">System Prompt Limitations</h2>
-<p>Although you can create a <a href="setup/02-system-prompt/">System Prompt</a> that puts many best practices in the context window of ChatGPT, it is not an ideal solution.
-A better process is building a customized GPT on
-curated examples that have a high-quality interface with good user experience design reviews.  This is one of the objectives
-of this website.</p>
-<h2 id="the-microsim-registry">The MicroSim Registry</h2>
-<p>One of our goals on this site is to create a library of MicroSims that can be used to fine-tune a generative AI application.  We have found that new <a href="https://openai.com/blog/introducing-gpts">GPTs</a> will create higher-quality simulations if they are trained with a high-quality training set.  This reflects the fact that although there are tens of thousands of sample <a href="glossary/#javascript">JavaScript</a> animations, many of them are created by first-time programmers.</p>
-<p>Although it is easy for a non-programmer to use generative AI to create a new MicroSim, it is more difficult to find high-quality MicroSims that have been peer-reviewed by senior software developers and user experience designers.  These MicroSims have some of the following qualities:</p>
-<ol>
-<li>Clearly labeled controls with values.  We discourage the use of mouse actions that are unlabeled.</li>
-<li>Controls that are placed at the bottom of the simulation.  This encourages <a href="glossary/#smartboard">smartboard</a> use in classrooms.</li>
-<li>Controls aligned for visual aesthetics</li>
-<li>A machine-readable (<a href="glossary/#yaml">YAML</a>) description of the MicroSim including subject, topic and <a href="glossary/#uiux">UI</a> controls.</li>
-</ol>
+<h2 id="the-microsim-metadata-and-a-microsim-registry">The MicroSim Metadata and a MicroSim Registry</h2>
+<p>One of our goals on this site is to create a library of MicroSims that can be search and a specific can be quickly modified generative AI application.
+However, we also know that users cannot reused what they cannot find.  So therefore we have created a detailed <a href="https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json">JSON Schema</a> for describing a MicroSim.  By providing a link to this
+schema in your prompt you will find tha generative AI tools create high-quality metadata for each MicroSim.  Creating an official
+MicroSim registry with advanced faceted search similar to the Hugging Face model search is on our roadmap.</p>
 <h2 id="how-to-use-this-site">How to Use This Site</h2>
 <p>We provide both a search and navigation system to reach the MicroSims.</p>
 <p>Here are some samples to get you started:</p>

@@ -646,9 +646,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-two-region-canvas-pattern" class="md-nav__link">
+  <a href="#1-separation-of-drawing-and-control-regions-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Two-Region Canvas Pattern
+      1. Separation of Drawing and Control Regions Pattern
     </span>
   </a>
   
@@ -664,18 +664,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-container-parent-pattern" class="md-nav__link">
+  <a href="#3-main-container-parent-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Container Parent Pattern
+      3. Main Container Parent Pattern
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-labeled-slider-pattern" class="md-nav__link">
+  <a href="#4-labeled-value-slider-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Labeled Slider Pattern
+      4. Labeled Value Slider Pattern
     </span>
   </a>
   
@@ -802,6 +802,24 @@
   <a href="#18-open-graph-aspect-ratio-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       18. Open Graph Aspect Ratio Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-standard-directory-structure-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      19. Standard Directory Structure Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-metadata-json-schema-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      20. Metadata JSON Schema Pattern
     </span>
   </a>
   
@@ -1562,9 +1580,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-two-region-canvas-pattern" class="md-nav__link">
+  <a href="#1-separation-of-drawing-and-control-regions-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Two-Region Canvas Pattern
+      1. Separation of Drawing and Control Regions Pattern
     </span>
   </a>
   
@@ -1580,18 +1598,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-container-parent-pattern" class="md-nav__link">
+  <a href="#3-main-container-parent-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Container Parent Pattern
+      3. Main Container Parent Pattern
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-labeled-slider-pattern" class="md-nav__link">
+  <a href="#4-labeled-value-slider-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Labeled Slider Pattern
+      4. Labeled Value Slider Pattern
     </span>
   </a>
   
@@ -1724,6 +1742,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#19-standard-directory-structure-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      19. Standard Directory Structure Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-metadata-json-schema-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      20. Metadata JSON Schema Pattern
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       References
@@ -1757,8 +1793,9 @@
 
 <h1 id="microsim-design-patterns">MicroSim Design Patterns</h1>
 <p>This page documents the reusable design patterns used across MicroSims. Each pattern follows ISO 11179 naming conventions with a precise definition and code example.</p>
-<h2 id="1-two-region-canvas-pattern">1. Two-Region Canvas Pattern</h2>
-<p>A canvas layout that divides vertical space into an upper visualization region and a lower control region, enabling clear separation between simulation content and user interface elements.</p>
+<h2 id="1-separation-of-drawing-and-control-regions-pattern">1. Separation of Drawing and Control Regions Pattern</h2>
+<p>A canvas layout that divides vertical space into an upper visualization region and a lower control region, 
+enabling clear separation between simulation content and user interface elements.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1766,7 +1803,6 @@
 <span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w">    </span><span class="c1">// Lower control region</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="2-width-responsive-layout-pattern">2. Width-Responsive Layout Pattern</h2>
 <p>A responsive design approach where canvas width adapts to container dimensions while height remains fixed, enabling consistent embedding across different viewport sizes.</p>
 <p><strong>Example:</strong>
@@ -1780,23 +1816,30 @@
 <span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
-<h2 id="3-container-parent-pattern">3. Container Parent Pattern</h2>
-<p>A DOM attachment method that binds the p5.js canvas to a specific HTML element, enabling consistent positioning within page layouts and compatibility with the p5.js editor.</p>
+<h2 id="3-main-container-parent-pattern">3. Main Container Parent Pattern</h2>
+<p>A DOM attachment method that binds the p5.js canvas to the <code>main</code> HTML element.
+This pattern enables consistent positioning within page layouts and compatibility with the p5.js editor.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
 <span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
-<h2 id="4-labeled-slider-pattern">4. Labeled Slider Pattern</h2>
-<p>A control layout where each slider displays its label and current value to the left of the control element, providing immediate feedback to users.</p>
+<h2 id="4-labeled-value-slider-pattern">4. Labeled Value Slider Pattern</h2>
+<p>A control layout where each slider displays its label and current value to the left of the control element, 
+providing immediate feedback to users.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
 <span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Speed: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(),</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<p>This pattern requires the AI to estimate the width of the label-value pairs and to place the sliders
+to the right of the widest label value pairs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>There are ways to precisely measure the right edge of label-value pairs in the controls region
+  and place this x-position value in the console.  This value can be read by an agent and used
+  to recalculate the sliderLeftMargin variable.  This process is beyond the scope of many AI processes.</p>
 <h2 id="5-startpause-toggle-pattern">5. Start/Pause Toggle Pattern</h2>
 <p>An animation control that alternates between running and paused states using a single button with dynamic labeling.</p>
 <p><strong>Example:</strong>
@@ -1810,7 +1853,6 @@
 <span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Pause&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="6-standard-color-scheme-pattern">6. Standard Color Scheme Pattern</h2>
 <p>A consistent color palette where the drawing region uses 'aliceblue' background with 'silver' borders and the control region uses 'white' background.</p>
 <p><strong>Example:</strong>
@@ -1819,14 +1861,20 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// make the background of the drawing region light blue</span>
+<span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">);</span>
+<span class="c1">// draw a light gray border around both the drawing region and the control region</span>
 <span class="nx">stroke</span><span class="p">(</span><span class="s1">&#39;silver&#39;</span><span class="p">);</span>
 <span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
-
+<span class="c1">// make the background of the control region white</span>
 <span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">);</span>
 <span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<p>This color scheme give all MicroSims a consistent look and feel.  When a student sees the light blue
+background in an intelligent textbook page it is a clue that they can interact with the MicroSim using
+the controls and the region is not only a static drawing.</p>
 <h2 id="7-centered-title-pattern">7. Centered Title Pattern</h2>
 <p>A text placement convention where the simulation title is centered horizontally at the top of the drawing region in 24pt font.</p>
 <p><strong>Example:</strong>
@@ -1836,7 +1884,13 @@
 <span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">TOP</span><span class="p">);</span>
 <span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Simulation Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<p>The exception to this is when the MicroSim uses a X-Y grid and the vertical axis label is at the top-center
+of the drawing region.  In this case the title is drawn AFTER the gridlines and axis labels and placed
+to the left.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// center the title to the left to avoid covering the vertical axis</span>
+<span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Simulation Title&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="o">*</span><span class="mf">.3</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="8-accessibility-description-pattern">8. Accessibility Description Pattern</h2>
 <p>An accessibility feature that provides a text description of the simulation for screen readers using the p5.js <code>describe()</code> function.</p>
 <p><strong>Example:</strong>
@@ -1848,23 +1902,22 @@
 <span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;Interactive bouncing ball simulation with speed control&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">LABEL</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="9-two-column-layout-pattern">9. Two-Column Layout Pattern</h2>
-<p>A horizontal division of the drawing area into a simulation section (typically 60%) and a chart/graph section (typically 40%) for data visualization.</p>
+<p>A horizontal division of the drawing area into a simulation section (typically the left 50%) and a chart/graph section (typically the right 50%) for data visualization.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">simWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.6</span><span class="p">;</span>
-<span class="nx">chartWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">simWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+<span class="nx">chartWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">containerWidth</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
 <span class="nx">push</span><span class="p">();</span>
 <span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">simWidth</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">chartMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">drawChart</span><span class="p">();</span>
 <span class="nx">pop</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<p>This pattern is only used when a chart is being drawn to show changes in the value of a simulation state.</p>
 <h2 id="10-delta-time-animation-pattern">10. Delta Time Animation Pattern</h2>
 <p>A timing technique that uses elapsed time between frames to ensure consistent animation speed across devices with different frame rates.</p>
 <p><strong>Example:</strong>
@@ -1874,7 +1927,6 @@
 <span class="w">  </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">timeScale</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="11-boundary-reflection-pattern">11. Boundary Reflection Pattern</h2>
 <p>A collision detection method that reverses object velocity when it reaches canvas edges, creating contained motion within the drawing region.</p>
 <p><strong>Example:</strong>
@@ -1890,21 +1942,25 @@
 <span class="w">  </span><span class="nx">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="12-coordinate-transform-pattern">12. Coordinate Transform Pattern</h2>
-<p>A rendering technique using <code>push()</code>, <code>translate()</code>, and <code>pop()</code> to create local coordinate systems for drawing complex elements or charts.</p>
+<p>A rendering technique using <code>push()</code>, <code>translate()</code>, and <code>pop()</code> to create local coordinate systems for drawing groups of complex elements or charts.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">push</span><span class="p">();</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">push</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// move all the items in the drawing group to the center of the drawing region</span>
 <span class="w">  </span><span class="nx">translate</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="o">/</span><span class="mf">2</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">scale</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Flip y-axis for mathematical coordinates</span>
+<span class="w">  </span><span class="nx">scale</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Flip y-axis for mathematical coordinates where (0,0) is in the lower left</span>
 <span class="w">  </span><span class="nx">drawSineWave</span><span class="p">();</span>
 <span class="nx">pop</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>The transform pattern is not needed for single items such as the title.</p>
 <h2 id="13-standard-variables-pattern">13. Standard Variables Pattern</h2>
 <p>A set of consistently named global variables that define canvas dimensions, margins, and layout properties across all MicroSims.</p>
 <p><strong>Example:</strong>
@@ -1913,20 +1969,23 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w"> </span><span class="c1">// this will change based on the container width on resize</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">105</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">defaultTextSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="14-iframe-embedding-pattern">14. Iframe Embedding Pattern</h2>
 <p>An HTML integration method where the MicroSim is embedded in web pages using a fixed-height iframe with scrolling disabled.</p>
 <p><strong>Example:</strong>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;main.html&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;450px&quot;</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">&quot;no&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Do not forget to include the no scrolling attribute.  Making the iframe scrollable is confusing to users
+  when the textbook content is also scrolling.</p>
 <h2 id="15-code-organization-pattern">15. Code Organization Pattern</h2>
 <p>A file structure convention where code is ordered: global variables, <code>setup()</code>, <code>draw()</code>, helper functions, then event handlers.</p>
 <p><strong>Example:</strong>
@@ -1962,7 +2021,10 @@
 <span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 <span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>windowResized() is required on all MicroSims in order to be width-responsive.</p>
 <h2 id="16-hover-tooltip-pattern">16. Hover Tooltip Pattern</h2>
 <p>An interactive feedback mechanism that displays contextual information when the user hovers over specific regions of the visualization.</p>
 <p><strong>Example:</strong>
@@ -1982,7 +2044,6 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="17-debug-mode-pattern">17. Debug Mode Pattern</h2>
 <p>A development aid that displays diagnostic information (canvas dimensions, frame rate) when a DEBUG flag is enabled.</p>
 <p><strong>Example:</strong>
@@ -2000,7 +2061,6 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
 <h2 id="18-open-graph-aspect-ratio-pattern">18. Open Graph Aspect Ratio Pattern</h2>
 <p>A canvas sizing approach that uses the 1.91:1 Open Graph standard aspect ratio for optimal social media preview rendering.</p>
 <p><strong>Example:</strong>
@@ -2008,7 +2068,253 @@
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">aspectRatio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.91</span><span class="p">;</span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">aspectRatio</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div></p>
-<hr />
+<h2 id="19-standard-directory-structure-pattern">19. Standard Directory Structure Pattern</h2>
+<p>A file organization convention where each MicroSim resides in its own directory containing a consistent set of files with standardized names.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/sims/bouncing-ball/
+├── index.md           # Documentation with YAML frontmatter
+├── main.html          # HTML wrapper that loads the sketch
+├── bouncing-ball.js   # p5.js sketch (named after directory)
+├── bouncing-ball.png  # Preview image for social sharing
+├── metadata.json      # Dublin Core metadata for discovery
+└── style.css          # Optional custom styles
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Required Files:</strong></p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.md</code></td>
+<td>MkDocs documentation page with title, description, iframe embed, and lesson plan</td>
+</tr>
+<tr>
+<td><code>main.html</code></td>
+<td>Minimal HTML wrapper that includes p5.js CDN and loads the sketch</td>
+</tr>
+<tr>
+<td><code>{sim-name}.js</code></td>
+<td>The p5.js sketch file, named to match the directory</td>
+</tr>
+<tr>
+<td><code>{sim-name}.png</code></td>
+<td>Preview screenshot (recommended 1200x630px for Open Graph)</td>
+</tr>
+<tr>
+<td><code>metadata.json</code></td>
+<td>Dublin Core metadata including creator, subject, educational level</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optional Files:</strong></p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>style.css</code></td>
+<td>Custom CSS overrides for the HTML wrapper</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>.js</code> and <code>.png</code> files must match the directory name exactly. This enables automated gallery generation and consistent linking.</p>
+</div>
+<h2 id="20-metadata-json-schema-pattern">20. Metadata JSON Schema Pattern</h2>
+<p>A structured metadata file that describes a MicroSim using Dublin Core standards and educational specifications, validated against a formal JSON schema for consistency and discoverability.</p>
+<p><strong>Schema Location:</strong> <a href="https://github.com/dmccreary/microsims/blob/main/src/microsim-schema/microsim-schema.json">microsim-schema.json</a></p>
+<p><strong>Example:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;microsim&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;dublinCore&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bouncing Ball Simulation&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;creator&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Claude AI&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Dan McCreary&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Physics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Kinematics&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Interactive simulation demonstrating velocity and collision&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-01-15&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Educational MicroSim&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text/javascript&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;rights&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC BY-NC-SA 4.0&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;search&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;physics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;motion&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;animation&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;visualizationType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;animation&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;simulation&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;educational&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;gradeLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;9&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;subjectArea&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Physics&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Science&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;topic&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;velocity&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;collision detection&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;learningObjectives&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;Understand how velocity affects motion&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;Observe elastic collision behavior&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;bloomsTaxonomy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Understand&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Apply&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Beginner&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;technical&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;framework&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;p5.js&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;canvasDimensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;responsive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;regions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;drawHeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;controlHeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;userInterface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;layoutType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;responsive-width&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;controls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;speedSlider&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slider&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Speed&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Required Sections:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dublinCore</code></td>
+<td>Resource identification (title, creator, subject, description, date, type, format, rights)</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Discovery metadata (tags, visualizationType)</td>
+</tr>
+<tr>
+<td><code>educational</code></td>
+<td>Learning context (gradeLevel, subjectArea, topic, learningObjectives)</td>
+</tr>
+<tr>
+<td><code>technical</code></td>
+<td>Implementation details (framework, canvasDimensions)</td>
+</tr>
+<tr>
+<td><code>userInterface</code></td>
+<td>Control specifications (controls array)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optional Sections:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>simulation</code></td>
+<td>Model specifications, equations, variables</td>
+</tr>
+<tr>
+<td><code>analytics</code></td>
+<td>Learning analytics events and tracking</td>
+</tr>
+<tr>
+<td><code>usage</code></td>
+<td>Pedagogical recommendations and assessment questions</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Validation</p>
+<p>Use the validation script to check your metadata:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>python<span class="w"> </span>src/validate-yaml-file.py<span class="w"> </span>docs/sims/<span class="o">{</span>sim-name<span class="o">}</span>/metadata.json
+</code></pre></div></td></tr></table></div></p>
+</div>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="../microsim-rules/">MicroSim Standard Rules</a></li>
