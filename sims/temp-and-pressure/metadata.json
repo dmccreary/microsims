@@ -1,0 +1,145 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Temperature and Pressure",
+      "creator": ["Claude Code", "Dan McCreary"],
+      "subject": ["Physics", "Chemistry", "Thermodynamics", "Kinetic Molecular Theory"],
+      "description": "Interactive simulation demonstrating the relationship between temperature, molecular motion, and gas pressure with visual ice/fire indicators and dual temperature scale support.",
+      "date": "2025-11-26",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "language": "en",
+      "rights": "CC BY 4.0"
+    },
+    "educational": {
+      "gradeLevel": "9-12",
+      "subjectArea": "Physical Science",
+      "topic": "Kinetic Molecular Theory and Gas Laws",
+      "learningObjectives": [
+        "Explain the relationship between temperature and molecular kinetic energy",
+        "Understand how increased molecular motion leads to higher pressure",
+        "Observe the effects of temperature on molecular speed",
+        "Connect microscopic molecular behavior to macroscopic properties",
+        "Recognize the significance of 0°C as a phase transition point"
+      ],
+      "bloomsTaxonomy": ["Understanding", "Applying", "Analyzing"],
+      "duration": "10-15 minutes",
+      "prerequisites": [
+        "Basic understanding of atoms and molecules",
+        "Familiarity with temperature concept",
+        "Introduction to states of matter"
+      ]
+    },
+    "technical": {
+      "framework": "p5.js 1.11.10",
+      "canvasDimensions": "400×480 (initial, width-responsive)",
+      "responsive": "Width-responsive",
+      "dependencies": ["p5.js CDN"],
+      "accessibility": ["describe() function for screen readers", "High contrast colors", "Keyboard-accessible controls"]
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "type": "slider",
+          "name": "temperatureSlider",
+          "label": "Temperature",
+          "range": {
+            "min": -50,
+            "max": 100,
+            "default": 20,
+            "step": 1,
+            "unit": "°C or °F"
+          },
+          "purpose": "Adjust the temperature of the gas, affecting molecular speed and collision frequency"
+        },
+        {
+          "type": "button",
+          "name": "startButton",
+          "label": "Start Simulation / Pause Simulation",
+          "purpose": "Toggle simulation running state to pause and examine molecular positions"
+        },
+        {
+          "type": "radio",
+          "name": "temperatureScale",
+          "label": "Temperature Scale",
+          "options": ["Celsius", "Fahrenheit"],
+          "default": "Celsius",
+          "purpose": "Switch between Celsius and Fahrenheit temperature scales"
+        }
+      ],
+      "displays": [
+        {
+          "name": "Wall Hits/sec",
+          "location": "Upper right",
+          "purpose": "Shows collision frequency as a direct indicator of gas pressure"
+        },
+        {
+          "name": "Ice/Fire Region",
+          "location": "Above control area (50px high)",
+          "purpose": "Visual indicator showing ice cubes below 0°C and flames above 0°C"
+        },
+        {
+          "name": "Atom Colors",
+          "location": "Chamber area",
+          "purpose": "Atoms change from blue (cold) to red (hot) based on temperature"
+        }
+      ]
+    },
+    "simulation": {
+      "modelType": "Molecular dynamics - kinetic theory of gases",
+      "variables": [
+        {
+          "name": "temperature",
+          "description": "Temperature in Celsius (internally), affects molecular speed",
+          "range": "-50°C to 100°C"
+        },
+        {
+          "name": "numAtoms",
+          "description": "Number of gas atoms in chamber (fixed)",
+          "value": 100
+        },
+        {
+          "name": "collisionsPerSecond",
+          "description": "Number of wall collisions per second (pressure indicator)",
+          "range": "Variable based on temperature"
+        },
+        {
+          "name": "chamberArea",
+          "description": "Size of the gas chamber (fixed)",
+          "value": "300px"
+        }
+      ],
+      "equations": [
+        {
+          "name": "Velocity-Temperature Relationship",
+          "formula": "speed = map(temperature, -50, 100, 0.5, 15)",
+          "description": "Molecular speed increases linearly with temperature"
+        },
+        {
+          "name": "Temperature Conversion",
+          "formula": "°F = °C × 9/5 + 32",
+          "description": "Conversion between Celsius and Fahrenheit"
+        },
+        {
+          "name": "Kinetic Energy",
+          "formula": "KE ∝ T (proportional)",
+          "description": "Kinetic energy is proportional to absolute temperature"
+        }
+      ],
+      "assumptions": [
+        "Elastic collisions with walls (no energy loss)",
+        "No inter-molecular collisions modeled (simplified)",
+        "2D simulation of 3D phenomenon",
+        "Linear relationship between temperature and speed for educational clarity",
+        "Constant chamber volume"
+      ],
+      "limitations": [
+        "Does not model inter-molecular attractions (van der Waals forces)",
+        "Simplified pressure calculation (wall hits only, not force)",
+        "No modeling of phase changes beyond visual indicator",
+        "2D representation of 3D molecular motion",
+        "Does not account for relativistic effects at extreme speeds"
+      ]
+    }
+  }
+}
