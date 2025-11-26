@@ -14,7 +14,7 @@ social:
 <iframe src="main.html" height="482px" width="100%" scrolling="no"></iframe>
 
 [Run the Temperature and Pressure MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
-
+[Edit the  Temperature and Pressure MicroSim on the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/Gsu_F8JoK)
 ## Description
 
 This MicroSim demonstrates the **relationship between temperature, molecular motion, and gas pressure**. As temperature increases, atoms move faster and collide with container walls more frequently, resulting in higher pressure. The simulation includes a unique visual ice/fire indicator that shows the phase transition at 0°C.
