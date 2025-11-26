@@ -51,9 +51,7 @@ function setup() {
   celsiusRadio.option('Fahrenheit', 'F');
   celsiusRadio.position(canvasWidth - 140, drawHeight + 40);
   celsiusRadio.style('color', 'black');
-  celsiusRadio.changed(updateTemperatureScale);
-  // Set default selection to Celsius
-  celsiusRadio.value('C');
+  celsiusRadio.selected('Celsius');  // Select by option name
 
   // Initialize atoms
   initializeAtoms();
@@ -64,16 +62,9 @@ function setup() {
 function draw() {
   updateCanvasSize();
 
-  // Sync isFahrenheit with radio button state
+  // Sync isFahrenheit with radio button state using p5.js API
   let radioValue = celsiusRadio.value();
-
-  // If radio has no value yet, set it to Celsius
-  if (!radioValue) {
-    celsiusRadio.value('C');
-    radioValue = 'C';
-  }
-
-  let shouldBeFahrenheit = (radioValue === 'F');
+  let shouldBeFahrenheit = (radioValue === 'Fahrenheit');  // Compare to name, not value!
 
   // If the radio button changed, update the slider
   if (shouldBeFahrenheit !== isFahrenheit) {
@@ -266,7 +257,10 @@ function fahrenheitToCelsius(f) {
 }
 
 function updateTemperatureScale() {
-  if (!isFahrenheit && celsiusRadio.value() === 'F') {
+  // Check which radio button is selected using p5.js API
+  let selectedValue = celsiusRadio.value();
+
+  if (!isFahrenheit && selectedValue === 'Fahrenheit') {
     // Switching from Celsius to Fahrenheit
     let currentTempC = temperatureSlider.value();
     isFahrenheit = true;
@@ -275,7 +269,7 @@ function updateTemperatureScale() {
     temperatureSlider = createSlider(-58, 212, tempF, 1);  // -50°C to 100°C in Fahrenheit
     temperatureSlider.position(sliderLeftMargin, drawHeight + 15);
     temperatureSlider.size(canvasWidth - sliderLeftMargin - 15);
-  } else if (isFahrenheit && celsiusRadio.value() === 'C') {
+  } else if (isFahrenheit && selectedValue === 'Celsius') {
     // Switching from Fahrenheit to Celsius
     let currentTempF = temperatureSlider.value();
     isFahrenheit = false;
