@@ -7,23 +7,25 @@ social:
 ---
 # Bouncing 3D Sphere Demo
 
+<iframe src="main.html" width="100%" height="400px" scrolling="no"></iframe>
+
 You can also use the 3D "WebGL" rendering system that is built into p5.js. 
 [WebGL](https://en.wikipedia.org/wiki/WebGL), short for Web Graphics Library is
 is a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser.
 The p5.js has many high-level 3D shapes such as box, cone, cylinder, ellipsoid, plane, sphere, and torus 
 in the [WEBGL Library](https://p5js.org/reference/#/p5/WEBGL).
 
-* [3D Sphere Demo](sphere.html){ .md-button .md-button--primary }
+[Run the 3D Sphere Demo Fullscreen](index.html){ .md-button .md-button--primary }
 
 ## Sample Prompt
 
-```linenums="0"
-1. Generate a single file p5.js sketch using WEBGL for a 3D animation.
-2. Show a sphere of size 50 that is bouncing around the canvas.
-3. Use the ```WEBGL``` as the third parameter of the createCanvas.
-4. Cover the sphere with a texture that has grid of white and red squares.
-5. Use noStroke() in the texture to not draw the outlines of the grid.
-6. Add a drop shadow under the sphere
+!!! prompt
+  1. Generate a single file p5.js sketch using WEBGL for a 3D animation.
+  2. Show a sphere of size 50 that is bouncing around the canvas.
+  3. Use the ```WEBGL``` as the third parameter of the createCanvas.
+  4. Cover the sphere with a texture that has grid of white and red squares.
+  5. Use noStroke() in the texture to not draw the outlines of the grid.
+  6. Add a drop shadow under the sphere
 
 function setup() {
   createCanvas(600, 400, WEBGL);

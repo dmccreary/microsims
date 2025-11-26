@@ -3,7 +3,7 @@ let x, y, z;
 let xspeed, yspeed, zspeed;
 let diameter = 50;
 let radius = diameter / 2;
-let canvasWidth = 600;
+let canvasWidth = 660;
 let canvasHeight = 400;
 
 function setup() {
@@ -19,7 +19,7 @@ function setup() {
 }
   
 function draw() {
-  background(240);
+  background('aliceblue');
 
   // Update the position of the sphere
   x += xspeed;
