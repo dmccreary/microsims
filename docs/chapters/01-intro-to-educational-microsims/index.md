@@ -315,10 +315,12 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
 - Develop intuition about how systems behave
 
 #### Diagram: AI-Assisted MicroSim Creation Workflow
+<iframe src="../../sims/microsim-creation-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
 
 <details markdown="1">
     <summary>AI-Assisted MicroSim Creation Workflow</summary>
     Type: workflow
+    Name: microsim-creation-workflow
 
     Bloom Taxonomy: Understand
 
@@ -351,23 +353,23 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
        Color: Orange
 
     6. Decision: "Meets Learning Objective?"
-       Hover text: "Does this MicroSim effectively teach the intended concept?"
+       Hover text: "Does this MicroSim effectively teach the intended concept? Yes/No"
        Color: Yellow
 
-    6a. Process: "Refine with AI" (if No)
+    7. Process: "Refine with AI" (if No)
         Hover text: "Describe what needs to change—AI helps iterate"
         Color: Purple
         Arrow loops back to "Test in p5.js Editor"
 
-    7. Process: "Add to Course Materials" (if Yes)
+    8. Process: "Add to Course Materials" (if Yes)
        Hover text: "Embed in textbook, LMS, or website"
        Color: Blue
 
-    8. Process: "Gather Student Feedback"
+    9. Process: "Gather Student Feedback"
        Hover text: "Watch how students use it, note improvements"
        Color: Orange
 
-    9. End: "Effective Learning Tool"
+    10. End: "Effective Learning Tool"
        Hover text: "Students are learning through interaction!"
        Color: Green (end)
 
@@ -382,7 +384,7 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
     - Orange: Testing/feedback
     - Yellow: Decision points
 
-    Implementation: Mermaid.js flowchart or custom SVG
+    Implementation: mermaid-generator skill
 </details>
 
 ### The Vision: Libraries for All Humanity
