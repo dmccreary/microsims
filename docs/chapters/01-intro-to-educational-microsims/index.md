@@ -414,40 +414,63 @@ This same library serves a teacher in Lagos, a homeschooling parent in Montana, 
 
 #### Diagram: MicroSim Library Ecosystem
 
+<iframe src="../../sims/microsim-library-ecosystem/main.html" height="750px" scrolling="no" ></iframe>
+[Run the MicroSim Library Ecosystem Fullscreen](../../sims/microsim-library-ecosystem/main.html)
+[View the MicroSim Documentation](../../sims/microsim-library-ecosystem/index.md)
+
 <details markdown="1">
     <summary>MicroSim Library Ecosystem</summary>
     Type: infographic
+    Name: microsim-library-ecosystem
 
     Bloom Taxonomy: Understand
 
-    Learning Objective: Visualize how MicroSim libraries create a global ecosystem of educational content sharing
+    Learning Objective: Visualize how MicroSim libraries create a global ecosystem of educational content sharing and the role of social networks to rank MicroSim popularity
 
-    Purpose: Show the virtuous cycle of creation, sharing, and improvement
+    Purpose: Show the virtuous cycle of creation, sharing, and improvement using a causal loop diagram
 
-    Layout: Circular hub-and-spoke diagram with three interconnected cycles
+    Layout: Circular hub-and-spoke diagram with new clusters of nodes appearing when Next Button is pressed showing three interconnected cycles.  Bottom control regions has control button for Start/Pause and Next/Previous Step
 
-    Central hub: "Global MicroSim Library"
-    - Icon: Database with search symbol
-    - Labels: "Searchable by subject, grade, objective"
-    - Pulsing glow effect suggesting activity
+    ## Step 1 - Central MicroSim Search hub cluster: Cluster Label: "Global MicroSim Libraries"
+    - Icon: Large Gold Database icon with search symbol at center of drawing region
+    - Icon: smaller database administrator
+    - Icon: - metadata quality robot
+    - Caption - "Visionary Education leaders and foundations use AI to Create faceted search on rich MicroSim metadata"
+    - Labels: "Searchable by subject, grade, objective, quality"
+    - Animation: Pulsing glow around cluster effect suggesting activity
 
-    Cycle 1 - Creation (Left, Blue):
+    ## Step 2 - New MicroSim Creation
+    - Color New Blue Teacher cluster of icons 
+    - New Microsim appears to the right of the Central Microsim Search Hub
     - Teacher identifies need → Designs with AI → Tests and refines → Contributes to library
-    - Icons: lightbulb, robot, checkmark, upload
-    - Caption: "Educators worldwide contribute"
+    - Icons in network cluster: teacher, lightbulb, robot, checkmark, upload, metadata.json
+    - Caption: "Educators worldwide contribute MicroSims to library using easy-to-used Microsim package upload zip file"
 
-    Cycle 2 - Discovery (Top, Green):
-    - Learning objective → Search library → Preview options → Embed in course
+    ## Step 3 - Teacher Search
+    - Positioning (cluster of icons appears at the top above the Central Microsim Search Hub cluster):
+    - Cluster color theme: Green
+    - Learning objective → Search library → Preview options → Sort by Popularity/Quality → Embed in course
     - Icons: target, magnifying glass, eye, puzzle piece
-    - Caption: "Find the perfect MicroSim instantly"
+    - Caption: "Find the perfect MicroSim instantly.  Each download is logged to show what MicroSims are the most popular."
 
-    Cycle 3 - Improvement (Right, Gold):
+    ## Step 4 - Gather Field Usage Effectiveness Statistics:
+    - Cluster Color Theme: Purple
+    - Cluster Positioning: Left of Central Microsim Search Hub cluster
     - Student usage → Analytics data → Identify enhancements → AI-assisted updates
-    - Icons: users, chart, wrench, sparkle
+    - Icons: student, teachers, dashboard, chart, wrench, sparkle
     - Caption: "Continuous improvement from real use"
+
+    ## Step 5 - Upload Improvements to Library
+    - Cluster Color Theme: Pink
+    - Positioning: Below Central Microsim Search Hub 
+    - Refinements to MicroSim are made based on field statistics
+    - Score improvement impact is stored with MicroSim metadata
+    - Icons: student, dashboard, teacher, robot
+    - Caption "AI suggests that improvements be shared with others based on real-world usage"
 
     Statistics around hub (animated counters):
     - "1,000+ simulations" (growing)
+    - Top most effective MicroSim at improving attention and text scores
     - "50+ subjects covered"
     - "Used in 100+ countries"
     - "Zero cost to educators"
@@ -455,21 +478,23 @@ This same library serves a teacher in Lagos, a homeschooling parent in Montana, 
     Connecting lines between cycles showing:
     - Improved simulations feed back to library
     - Popular simulations inspire new creations
+    - Quality metrics from dashboards encourage improvements
     - Student feedback guides new development
 
-    Color scheme:
-    - Hub: Deep blue (#1E3A5F)
-    - Creation cycle: Blue gradient
-    - Discovery cycle: Green gradient
-    - Improvement cycle: Gold gradient
-    - Connecting lines: White with glow
+    Color Cluster scheme summary:
+    - Central Hub: Gold
+    - Creation cluster: Blue
+    - Search cluster: Green
+    - Field Usage Statistics: Purple
+    - Improvement cluster: Pink
+    - Connecting lines: orange with glow
 
     Interactive elements:
     - Hover over cycle to highlight path
     - Click hub to see category breakdown
     - Animated arrows showing flow direction
 
-    Implementation: HTML/CSS/SVG with JavaScript interactions or p5.js
+    Implementation: [microsim-vis-network](https://github.com/dmccreary/claude-skills/tree/main/skills/vis-network) skill
 </details>
 
 ## The MicroSim Network Effect
