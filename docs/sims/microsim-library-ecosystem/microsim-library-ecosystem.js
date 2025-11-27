@@ -291,8 +291,9 @@ function getNetworkOptions() {
         interaction: {
             hover: true,
             tooltipDelay: 200,
-            zoomView: true,
-            dragView: true
+            zoomView: false,
+            dragView: false,
+            navigationButtons: true
         }
     };
 }
