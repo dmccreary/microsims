@@ -1,0 +1,113 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Global Impact of MicroSims",
+      "creator": ["Claude AI", "Dan McCreary"],
+      "subject": ["Education", "Data Visualization", "Open Educational Resources", "Global Education"],
+      "description": "Interactive infographic map visualizing how MicroSims are transforming education worldwide, showing the spread of educational simulations and intelligent textbooks across continents through animated connection paths and interactive nodes.",
+      "date": "2025-01-27",
+      "type": "InteractiveResource",
+      "format": "text/html",
+      "language": "en",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "coverage": "Global"
+    },
+    "educational": {
+      "gradeLevel": ["6-8", "9-12", "Higher Education", "Professional Development"],
+      "subjectArea": ["Education Technology", "Geography", "Data Visualization"],
+      "topic": "Open Educational Resources Distribution",
+      "learningObjectives": [
+        "Understand the global scale of open educational resource distribution",
+        "Identify key hubs and regions involved in MicroSim development",
+        "Explain how knowledge flows from creators through libraries to students",
+        "Appreciate the role of peer sharing in educational networks"
+      ],
+      "bloomsTaxonomy": "Understand",
+      "difficultyLevel": "Very Hard"
+    },
+    "technical": {
+      "framework": "Leaflet.js",
+      "version": "1.9.4",
+      "canvasDimensions": {
+        "width": "100%",
+        "height": 600
+      },
+      "dependencies": [
+        "Leaflet 1.9.4",
+        "CartoDB Dark Tiles"
+      ],
+      "additionalLibraries": []
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "type": "button",
+          "label": "Play/Pause",
+          "description": "Start or stop the animation of network growth"
+        },
+        {
+          "type": "slider",
+          "label": "Time Progress",
+          "minValue": 0,
+          "maxValue": 100,
+          "step": 1,
+          "defaultValue": 0,
+          "description": "Manually control the time progression to see network evolution"
+        }
+      ],
+      "interactions": [
+        "Hover over nodes to see location details",
+        "Click markers for popup information",
+        "Zoom and pan to explore regions",
+        "Watch animated connection paths"
+      ]
+    },
+    "simulation": {
+      "modelType": "Network Visualization",
+      "variables": [
+        {
+          "name": "time",
+          "description": "Progress through the visualization timeline",
+          "range": [0, 100]
+        },
+        {
+          "name": "connections",
+          "description": "Number of active knowledge connections",
+          "range": [0, 200]
+        },
+        {
+          "name": "microsimCount",
+          "description": "Total MicroSims created",
+          "range": [0, 150]
+        }
+      ],
+      "visualElements": [
+        "World map background (CartoDB Dark)",
+        "Animated SVG curved connection paths",
+        "Glowing marker nodes with custom icons",
+        "Statistics panel with live counters",
+        "Legend for node and connection types",
+        "Progressive callout messages"
+      ]
+    },
+    "mapSpecific": {
+      "mapType": "infographic",
+      "centerLat": 20,
+      "centerLng": 0,
+      "zoomLevel": 2,
+      "markerCount": 50,
+      "connectionCount": 200,
+      "hubs": ["Minneapolis", "CMU Pittsburgh", "Cairo"],
+      "regionsRepresented": [
+        "North America",
+        "Europe",
+        "Asia",
+        "Africa",
+        "South America",
+        "Oceania",
+        "Middle East"
+      ]
+    },
+    "status": "in development"
+  }
+}
