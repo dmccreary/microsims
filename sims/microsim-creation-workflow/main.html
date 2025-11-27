@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Assisted MicroSim Creation Workflow</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .mermaid {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+        }
+        .mermaid svg {
+            max-width: 100%;
+            max-height: 100vh;
+        }
+        #tooltip {
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            max-width: 280px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        #tooltip.visible {
+            opacity: 1;
+        }
+        .node {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+flowchart TD
+    Start("Identify Learning Objective"):::startNode
+    Describe["Describe the Visualization"]:::teacherNode
+    WritePrompt["Write AI Prompt"]:::teacherNode
+    Generate["Generate Initial Code"]:::aiNode
+    Test["Test in p5.js Editor"]:::testNode
+    Decision{"Meets Learning Objective?"}:::decisionNode
+    Refine["Refine with AI"]:::aiNode
+    AddCourse["Add to Course Materials"]:::teacherNode
+    Feedback["Gather Student Feedback"]:::testNode
+    End("Effective Learning Tool"):::endNode
+
+    Start --> Describe
+    Describe --> WritePrompt
+    WritePrompt --> Generate
+    Generate --> Test
+    Test --> Decision
+    Decision -->|No| Refine
+    Refine --> Test
+    Decision -->|Yes| AddCourse
+    AddCourse --> Feedback
+    Feedback --> End
+
+    classDef startNode fill:#22c55e,stroke:#166534,stroke-width:2px,color:#fff,font-size:16px
+    classDef endNode fill:#22c55e,stroke:#166534,stroke-width:2px,color:#fff,font-size:16px
+    classDef teacherNode fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff,font-size:16px
+    classDef aiNode fill:#a855f7,stroke:#7c3aed,stroke-width:2px,color:#fff,font-size:16px
+    classDef testNode fill:#f97316,stroke:#c2410c,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#eab308,stroke:#a16207,stroke-width:2px,color:#333,font-size:16px
+
+    linkStyle default stroke:#999,stroke-width:2px,font-size:16px
+    </div>
+    <div id="tooltip"></div>
+    <script>
+        const tooltips = {
+            'Start': 'What specific concept should students understand? Be precise!',
+            'Describe': 'What should students see? What should they manipulate?',
+            'WritePrompt': 'Describe the MicroSim: layout, controls, behavior, appearance',
+            'Generate': 'AI produces working p5.js code based on your description',
+            'Test': 'Run the code immediately - does it work as expected?',
+            'Decision': 'Does this MicroSim effectively teach the intended concept?',
+            'Refine': 'Describe what needs to change - AI helps iterate',
+            'AddCourse': 'Embed in textbook, LMS, or website',
+            'Feedback': 'Watch how students use it, note improvements',
+            'End': 'Students are learning through interaction!'
+        };
+
+        const tooltip = document.getElementById('tooltip');
+
+        function setupTooltips() {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach(node => {
+                const nodeId = node.id.replace('flowchart-', '').split('-')[0];
+                if (tooltips[nodeId]) {
+                    node.addEventListener('mouseenter', (e) => {
+                        tooltip.textContent = tooltips[nodeId];
+                        tooltip.classList.add('visible');
+                    });
+                    node.addEventListener('mousemove', (e) => {
+                        const x = e.pageX + 15;
+                        const y = e.pageY + 15;
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        const maxX = window.innerWidth - tooltipRect.width - 20;
+                        const maxY = window.innerHeight - tooltipRect.height - 20;
+                        tooltip.style.left = Math.min(x, maxX) + 'px';
+                        tooltip.style.top = Math.min(y, maxY) + 'px';
+                    });
+                    node.addEventListener('mouseleave', () => {
+                        tooltip.classList.remove('visible');
+                    });
+                }
+            });
+        }
+
+        // Wait for Mermaid to render, then setup tooltips
+        setTimeout(setupTooltips, 500);
+    </script>
+</body>
+</html>
