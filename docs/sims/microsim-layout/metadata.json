@@ -1,0 +1,82 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "MicroSim Layout Architecture",
+      "creator": ["Claude AI", "Dan McCreary"],
+      "subject": ["Educational Technology", "Software Architecture", "User Interface Design"],
+      "description": "An interactive diagram showing the standard two-region MicroSim architecture with labeled dimensions, demonstrating the separation between Drawing Region and Control Region.",
+      "date": "2025-01-26",
+      "type": "Interactive Diagram",
+      "format": "text/html",
+      "language": "en",
+      "rights": "MIT License"
+    },
+    "educational": {
+      "gradeLevel": "High School, Undergraduate",
+      "subjectArea": "Computer Science",
+      "topic": "Software Design Patterns",
+      "learningObjectives": [
+        "Remember the standard canvas dimension variables used in MicroSims",
+        "Understand the purpose of separating drawing and control regions",
+        "Apply this layout pattern when creating new MicroSims"
+      ],
+      "bloomsTaxonomyLevels": ["Remember", "Understand"],
+      "duration": "5-10 minutes",
+      "prerequisites": ["Basic understanding of HTML canvas", "Familiarity with p5.js"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "1.11.10",
+      "canvasDimensions": {
+        "width": 400,
+        "height": 450,
+        "drawHeight": 400,
+        "controlHeight": 50
+      },
+      "responsive": "Width-responsive",
+      "dependencies": ["p5.js CDN"],
+      "accessibility": {
+        "screenReaderSupport": true,
+        "describeFunction": true
+      }
+    },
+    "userInterface": {
+      "controls": [],
+      "parameters": []
+    },
+    "simulation": {
+      "modelType": "Static diagram with animated example",
+      "variables": [
+        {
+          "name": "canvasWidth",
+          "description": "Total width of canvas (responsive)",
+          "defaultValue": 400
+        },
+        {
+          "name": "drawHeight",
+          "description": "Height of drawing region",
+          "defaultValue": 400
+        },
+        {
+          "name": "controlHeight",
+          "description": "Height of control region",
+          "defaultValue": 50
+        },
+        {
+          "name": "margin",
+          "description": "Margin from edges",
+          "defaultValue": 25
+        }
+      ],
+      "assumptions": [
+        "Standard MicroSim layout uses two distinct regions",
+        "Drawing region background is alice blue",
+        "Control region background is white"
+      ],
+      "limitations": [
+        "This is a reference diagram, not a functional simulation",
+        "The bouncing ball is for illustration purposes only"
+      ]
+    }
+  }
+}

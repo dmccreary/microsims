@@ -145,6 +145,9 @@ Research consistently shows that **interactive learning** produces dramatically 
 
 #### Diagram: Learning Modality Effectiveness Chart
 
+<iframe src="../../sims/learning-modality-effectiveness/main.html" width="100%" height="520" scrolling="no"></iframe>
+
+
 <details markdown="1">
     <summary>Learning Modality Effectiveness Chart</summary>
     Type: chart
@@ -237,6 +240,12 @@ This embedding capability enables the vision of vast, searchable MicroSim librar
 
 #### Diagram: MicroSim Anatomy
 
+The following shows the layout of a MicroSim with the drawing region on the top
+and the control region at the bottom.
+
+<iframe src="../../sims/microsim-layout/main.html" height="452px" width="100%" scrolling="no"></iframe>
+[Run the MicroSim Layout MicroSim Fullscreen](../../sims/microsim-layout/){ .md-button .md-button--primary }<br/>
+[Edit the MicroSim on the P5.js editor](https://editor.p5js.org/dmccreary/sketches/yWAZVJsJi)
 <details markdown="1">
     <summary>MicroSim Anatomy</summary>
     Type: diagram
@@ -260,9 +269,9 @@ This embedding capability enables the vision of vast, searchable MicroSim librar
     - Button controls (Start, Pause, Reset)
 
     Layout specifications:
-    - Total canvas: 400px wide (responsive) × 450px tall
-    - Drawing region: 400px × 400px, aliceblue background
-    - Control region: 400px × 50px, white background with silver border
+    - Total canvas: 100% wide (responsive) × 450px tall
+    - Drawing region: 100% × 400px, aliceblue background
+    - Control region: 100% × 50px, white background with silver border
 
     Annotations with leader lines:
     - "Drawing Region (aliceblue)" pointing to main area
@@ -280,7 +289,7 @@ This embedding capability enables the vision of vast, searchable MicroSim librar
 
     Style: Modern technical diagram with rounded corners and subtle shadows
 
-    Implementation: Static SVG or simple p5.js illustration
+    Implementation: Anthropic Claude Skill microsim-p5
 </details>
 
 ## The AI-Driven Revolution
@@ -323,10 +332,13 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
 - Develop intuition about how systems behave
 
 #### Diagram: AI-Assisted MicroSim Creation Workflow
+<iframe src="../../sims/microsim-creation-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+[Run the AI-Assisted MicroSim Creation Workflow Fullscreen](../../sims/microsim-creation-workflow/main.html)
 
 <details markdown="1">
     <summary>AI-Assisted MicroSim Creation Workflow</summary>
     Type: workflow
+    Name: microsim-creation-workflow
 
     Bloom Taxonomy: Understand
 
@@ -359,23 +371,23 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
        Color: Orange
 
     6. Decision: "Meets Learning Objective?"
-       Hover text: "Does this MicroSim effectively teach the intended concept?"
+       Hover text: "Does this MicroSim effectively teach the intended concept? Yes/No"
        Color: Yellow
 
-    6a. Process: "Refine with AI" (if No)
+    7. Process: "Refine with AI" (if No)
         Hover text: "Describe what needs to change—AI helps iterate"
         Color: Purple
         Arrow loops back to "Test in p5.js Editor"
 
-    7. Process: "Add to Course Materials" (if Yes)
+    8. Process: "Add to Course Materials" (if Yes)
        Hover text: "Embed in textbook, LMS, or website"
        Color: Blue
 
-    8. Process: "Gather Student Feedback"
+    9. Process: "Gather Student Feedback"
        Hover text: "Watch how students use it, note improvements"
        Color: Orange
 
-    9. End: "Effective Learning Tool"
+    10. End: "Effective Learning Tool"
        Hover text: "Students are learning through interaction!"
        Color: Green (end)
 
@@ -390,7 +402,7 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
     - Orange: Testing/feedback
     - Yellow: Decision points
 
-    Implementation: Mermaid.js flowchart or custom SVG
+    Implementation: mermaid-generator skill
 </details>
 
 ### The Vision: Libraries for All Humanity
