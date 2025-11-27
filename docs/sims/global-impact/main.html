@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Impact of MicroSims</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <!-- Title overlay -->
+        <div id="title-overlay">
+            <h1>MicroSim Global Impact</h1>
+            <p>Transforming Education Worldwide</p>
+        </div>
+
+        <!-- Map container -->
+        <div id="map"></div>
+
+        <!-- SVG overlay for animated connections -->
+        <svg id="connections-layer"></svg>
+
+        <!-- Statistics panel -->
+        <div id="stats-panel">
+            <div class="stat-item">
+                <span class="stat-number" id="sim-count">0</span>
+                <span class="stat-label">MicroSims Created</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="connection-count">0</span>
+                <span class="stat-label">Knowledge Connections</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="country-count">0</span>
+                <span class="stat-label">Countries Reached</span>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div id="legend">
+            <h3>Legend</h3>
+            <div class="legend-item">
+                <span class="icon microsim-icon"></span>
+                <span>MicroSim</span>
+            </div>
+            <div class="legend-item">
+                <span class="icon book-icon"></span>
+                <span>Intelligent Book</span>
+            </div>
+            <div class="legend-item">
+                <span class="icon library-icon"></span>
+                <span>MicroSim Library</span>
+            </div>
+            <div class="legend-item">
+                <span class="icon teacher-icon"></span>
+                <span>Teacher</span>
+            </div>
+            <div class="legend-item">
+                <span class="icon school-icon"></span>
+                <span>School</span>
+            </div>
+            <div class="legend-item">
+                <span class="icon student-icon"></span>
+                <span>Student</span>
+            </div>
+            <hr>
+            <div class="legend-item">
+                <span class="line-sample blue-line"></span>
+                <span>MicroSim to Library</span>
+            </div>
+            <div class="legend-item">
+                <span class="line-sample purple-line"></span>
+                <span>Book to Library</span>
+            </div>
+            <div class="legend-item">
+                <span class="line-sample green-line"></span>
+                <span>Library to Student</span>
+            </div>
+            <div class="legend-item">
+                <span class="line-sample gold-line"></span>
+                <span>Peer Sharing</span>
+            </div>
+        </div>
+
+        <!-- Info callouts -->
+        <div id="callouts">
+            <div class="callout" id="callout1">100+ simulations and growing</div>
+            <div class="callout" id="callout2">Every subject, every grade level</div>
+            <div class="callout" id="callout3">Minutes to create, years of impact</div>
+            <div class="callout" id="callout4">Free for all educators</div>
+        </div>
+
+        <!-- Hover info panel -->
+        <div id="hover-info" class="hidden">
+            <h4 id="hover-title"></h4>
+            <p id="hover-description"></p>
+            <div id="hover-stats"></div>
+        </div>
+
+        <!-- Controls -->
+        <div id="controls">
+            <button id="play-pause-btn">
+                <span id="play-icon">&#9658;</span>
+                <span id="pause-icon" class="hidden">&#10074;&#10074;</span>
+            </button>
+            <div id="slider-container">
+                <label for="time-slider">Time Progress:</label>
+                <input type="range" id="time-slider" min="0" max="100" value="0">
+                <span id="time-label">Year 1</span>
+            </div>
+            <div id="growth-counter">
+                <span>Growing every day: </span>
+                <span id="dynamic-count">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Main script -->
+    <script src="script.js"></script>
+</body>
+</html>

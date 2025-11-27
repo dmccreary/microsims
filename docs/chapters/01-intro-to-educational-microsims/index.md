@@ -34,8 +34,6 @@ This chapter covers the following 14 concepts from the learning graph:
 
 This chapter assumes only the prerequisites listed in the [course description](../../course-description.md). No prior chapters need to be completed.
 
----
-
 ## A Revolution in Learning is Here
 
 We stand at the dawn of an extraordinary transformation in education. Across every classroom on Planet Earth—from bustling urban schools to remote rural learning centers—a revolution is unfolding that will forever change how teachers teach and students learn. This revolution has a name: **MicroSims**.
@@ -46,53 +44,69 @@ The combination of generative AI, accessible web technologies, and decades of le
 
 #### Diagram: Global MicroSim Revolution
 
+<iframe src="../../sims/global-impact/main.html" width="100%" height="650" frameborder="0" scrolling="no"></iframe>
+
+[View Fullscreen](../../sims/global-impact/main.html){:target="_blank"}
+
 <details markdown="1">
     <summary>Global MicroSim Revolution</summary>
-    Type: infographic
+Type: infographic map
+Status: in development
 
-    Purpose: Visualize how MicroSims are transforming education worldwide, connecting teachers and students across the globe
+Purpose: Visualize how MicroSims are transforming education worldwide, connecting teachers and students across the globe
 
-    Bloom Taxonomy: Understand
+Difficulty Rating: Very Hard
+Name: 'global-impact'
 
-    Learning Objective: Help readers grasp the scale and impact of the MicroSim revolution in education
+Bloom Taxonomy: Understand
 
-    Layout: World map with interconnected nodes showing education transformation
+Learning Objective: Help readers grasp the scale and impact of the MicroSim revolution in education on all of planet Earth
 
-    Visual elements:
-    - World map as background (simplified, stylized)
-    - Glowing nodes at major educational centers across continents
-    - Animated connection lines between nodes showing knowledge sharing
-    - Central hub labeled "MicroSim Libraries"
-    - Icons representing teachers (book + person) and students (graduation cap)
-    - Counter showing "Growing every day" with dynamic number
+Layout: World map with interconnected nodes showing the exponential growth of free microsims and intelligent textbooks with time
 
-    Flow visualization:
-    - Teachers creating MicroSims (blue arrows flowing to library)
-    - Students accessing MicroSims (green arrows flowing from library)
-    - Peer sharing between institutions (gold connecting lines)
+Visual elements:
+- World map as background (simplified, stylized)
+- Slider at the bottom for manual time
+- Start/Pause Animation that show the growth from a few lines to so many lines that the lines cover the entire map
+- Glowing nodes at major educational centers and individual schools in rural Africa, Afghanistan and India
+- Icons for microsim (blue ball icon), intelligent books (letter i on a purple book), library (library building), teachers (person), schools (schoolhouse) and students (icon of child)
+- Legend for icon types
+- Focus on creating animations of curved arrows that represent knowledge spreading across continents between diverse organizations
+- Animated connection lines between nodes showing knowledge sharing
+- Central hubs in Minneapolis MN, CMU in Pittsburgh and Cairo Egypt labeled "MicroSim Libraries"
+- Counter showing "Growing every day" with dynamic number
+- As the user moves the slider the number of links grows exponentially
+- Icons should only be placed over land, not water
 
-    Statistics callouts:
-    - "100+ simulations and growing"
-    - "Every subject, every grade level"
-    - "Minutes to create, years of impact"
-    - "Free for all educators"
+Flow visualization (arrow types):
+- Teachers creating Books and MicroSims (blue Microsim arrows flowing to library,  purple books flowing to a library)
+- Students accessing MicroSims (green arrows flowing from library)
+- Peer sharing between schools and libraries (gold connecting lines)
 
-    Color scheme:
-    - Deep blue for ocean/background
-    - Bright gold for active connections
-    - Green for student pathways
-    - Blue for teacher contributions
-    - White glow for active nodes
+Statistics callouts:
+- "100+ simulations and growing"
+- "Every subject, every grade level"
+- "Minutes to create, years of impact"
+- "Free for all educators"
 
-    Interactive elements:
-    - Hover over region to see local statistics
-    - Click node to see example MicroSims from that area
-    - Animation shows real-time "creation" of new connections
+Color scheme:
+- Deep blue for ocean/background
+- Bright gold for active connections
+- Green for student pathways
+- Blue for teacher contributions
+- White glow for active nodes
 
-    Implementation: HTML/CSS/SVG with JavaScript animations, or p5.js canvas
+Interactive elements:
+- Hover over region to see local statistics
+- Click node to see example MicroSims names from that area
+- Animation shows real-time "creation" of new connections
+
+Implementation: map-generator skill
 </details>
 
 ## What is a MicroSim?
+
+<iframe src="../../sims/microsim-uniqueness/main.html" height="435" scrolling="no"></iframe>
 
 A **MicroSim** (Micro Simulation) is a small, focused, interactive **web-based simulation** designed to help learners understand a specific concept. Unlike comprehensive simulation software that attempts to model entire complex systems, MicroSims embrace purposeful simplicity, targeting one learning objective at a time with clarity and precision.
 
