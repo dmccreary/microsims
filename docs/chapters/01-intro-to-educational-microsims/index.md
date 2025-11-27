@@ -223,6 +223,12 @@ This embedding capability enables the vision of vast, searchable MicroSim librar
 
 #### Diagram: MicroSim Anatomy
 
+The following shows the layout of a MicroSim with the drawing region on the top
+and the control region at the bottom.
+
+<iframe src="../../sims/microsim-layout/main.html" height="452px" width="100%" scrolling="no"></iframe>
+[Run the MicroSim Layout MicroSim Fullscreen](../../sims/microsim-layout/){ .md-button .md-button--primary }<br/>
+[Edit the MicroSim on the P5.js editor](https://editor.p5js.org/dmccreary/sketches/yWAZVJsJi)
 <details markdown="1">
     <summary>MicroSim Anatomy</summary>
     Type: diagram
@@ -246,9 +252,9 @@ This embedding capability enables the vision of vast, searchable MicroSim librar
     - Button controls (Start, Pause, Reset)
 
     Layout specifications:
-    - Total canvas: 400px wide (responsive) × 450px tall
-    - Drawing region: 400px × 400px, aliceblue background
-    - Control region: 400px × 50px, white background with silver border
+    - Total canvas: 100% wide (responsive) × 450px tall
+    - Drawing region: 100% × 400px, aliceblue background
+    - Control region: 100% × 50px, white background with silver border
 
     Annotations with leader lines:
     - "Drawing Region (aliceblue)" pointing to main area
@@ -266,7 +272,7 @@ This embedding capability enables the vision of vast, searchable MicroSim librar
 
     Style: Modern technical diagram with rounded corners and subtle shadows
 
-    Implementation: Static SVG or simple p5.js illustration
+    Implementation: Anthropic Claude Skill microsim-p5
 </details>
 
 ## The AI-Driven Revolution
