@@ -40,7 +40,8 @@ function initializeNetwork() {
         interaction: {
             selectConnectedEdges: false,
             zoomView: false,
-            dragView: false
+            dragView: false,
+            navigationButtons: true
         },
         nodes: {
             shape: 'box',
@@ -315,75 +316,6 @@ function checkMenuParameter() {
     // Default to hidden menus for iframe embedding
     if (menu !== 'true') {
         document.body.classList.add('menu-hidden');
-    }
-}
-
-// Zoom and Pan control functions
-function zoomIn() {
-    if (network) {
-        const scale = network.getScale();
-        network.moveTo({
-            scale: scale * 1.3,
-            animation: { duration: 300, easingFunction: 'easeInOutQuad' }
-        });
-    }
-}
-
-function zoomOut() {
-    if (network) {
-        const scale = network.getScale();
-        network.moveTo({
-            scale: scale / 1.3,
-            animation: { duration: 300, easingFunction: 'easeInOutQuad' }
-        });
-    }
-}
-
-function fitToView() {
-    if (network) {
-        network.fit({
-            animation: { duration: 500, easingFunction: 'easeInOutQuad' }
-        });
-    }
-}
-
-function panLeft() {
-    if (network) {
-        const pos = network.getViewPosition();
-        network.moveTo({
-            position: { x: pos.x - 50, y: pos.y },
-            animation: { duration: 200, easingFunction: 'easeInOutQuad' }
-        });
-    }
-}
-
-function panRight() {
-    if (network) {
-        const pos = network.getViewPosition();
-        network.moveTo({
-            position: { x: pos.x + 50, y: pos.y },
-            animation: { duration: 200, easingFunction: 'easeInOutQuad' }
-        });
-    }
-}
-
-function panUp() {
-    if (network) {
-        const pos = network.getViewPosition();
-        network.moveTo({
-            position: { x: pos.x, y: pos.y - 50 },
-            animation: { duration: 200, easingFunction: 'easeInOutQuad' }
-        });
-    }
-}
-
-function panDown() {
-    if (network) {
-        const pos = network.getViewPosition();
-        network.moveTo({
-            position: { x: pos.x, y: pos.y + 50 },
-            animation: { duration: 200, easingFunction: 'easeInOutQuad' }
-        });
     }
 }
 
