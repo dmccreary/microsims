@@ -131,6 +131,9 @@ Research consistently shows that **interactive learning** produces dramatically 
 
 #### Diagram: Learning Modality Effectiveness Chart
 
+<iframe src="../../sims/learning-modality-effectiveness/main.html" width="100%" height="520" scrolling="no"></iframe>
+
+
 <details markdown="1">
     <summary>Learning Modality Effectiveness Chart</summary>
     Type: chart
@@ -316,6 +319,7 @@ This AI-driven approach creates a virtuous cycle that benefits everyone involved
 
 #### Diagram: AI-Assisted MicroSim Creation Workflow
 <iframe src="../../sims/microsim-creation-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+[Run the AI-Assisted MicroSim Creation Workflow Fullscreen](../../sims/microsim-creation-workflow/main.html)
 
 <details markdown="1">
     <summary>AI-Assisted MicroSim Creation Workflow</summary>
