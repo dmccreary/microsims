@@ -15,3 +15,13 @@
 ## Val Lockhart's MicroSims
 
 [Val Lockhart's Sketches on p5.js](https://editor.p5js.org/valockhart/sketches)
+
+## Veritasim Simulations
+
+- [Barabasi-Albert Preferential Attachment Simulator](https://www.veritasium.com/simulation1)
+- [Network Disease Spread](https://www.veritasium.com/simulation2)
+- [Sandpile Avalanche Simulation](https://www.veritasium.com/simulation3)
+- [Ising model (magnetism)](https://www.veritasium.com/simulation4)
+- [Forest fires](https://www.veritasium.com/simulation5)
+- [Wealth Simulation](https://www.veritasium.com/simulation6)
+- [Power Law References](https://docs.google.com/document/d/182bjrapzAIbnrBu0BaBgfO2oEnef4KAfuIOTOZ9d58I/edit?tab=t.0)
