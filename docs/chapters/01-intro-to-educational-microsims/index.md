@@ -147,7 +147,6 @@ Research consistently shows that **interactive learning** produces dramatically 
 
 <iframe src="../../sims/learning-modality-effectiveness/main.html" width="100%" height="520" scrolling="no"></iframe>
 
-
 <details markdown="1">
     <summary>Learning Modality Effectiveness Chart</summary>
     Type: chart
@@ -472,6 +471,21 @@ This same library serves a teacher in Lagos, a homeschooling parent in Montana, 
 
     Implementation: HTML/CSS/SVG with JavaScript interactions or p5.js
 </details>
+
+## The MicroSim Network Effect
+
+How will MicroSims become popular around the world?
+We can understand how MicroSims will grow using a Causal Loop Diagram
+that explains MicroSim using the network effect.  To keep
+things simple, we will only include nodes for MicroSims, Intelligent Textbooks and Teacher Awareness.
+
+#### Diagram: Causal Loop Diagram Showing MicroSim Growth
+
+<iframe src="../../sims/microsim-growth/main.html" width="100%" height="500" scrolling="no"></iframe>
+[Run the MicroSim Network Effect Microsim](../../sims/microsim-growth/main.html)
+[View the Lesson Plan for Understanding this Causal Loop Diagram](../../sims/microsim-growth/index.md)
+
+Note that this diagram was created by the [Causal Loop MicroSim Generator](https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/#causal-loop-diagram-generator)
 
 ## Programming Fundamentals for MicroSims
 
