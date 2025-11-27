@@ -1637,6 +1637,8 @@
       
         
       
+        
+      
     
     
     
@@ -2831,6 +2833,8 @@ Implementation: Anthropic Claude Skill microsim-p5
 <li>Develop intuition about how systems behave</li>
 </ul>
 <h4 id="diagram-ai-assisted-microsim-creation-workflow">Diagram: AI-Assisted MicroSim Creation Workflow</h4>
+<iframe src="../../sims/microsim-creation-workflow/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2897,8 +2901,10 @@ Implementation: Anthropic Claude Skill microsim-p5
 <span class="normal">63</span>
 <span class="normal">64</span>
 <span class="normal">65</span>
-<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;AI-Assisted MicroSim Creation Workflow&lt;/summary&gt;
+<span class="normal">66</span>
+<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code>&lt;summary&gt;AI-Assisted MicroSim Creation Workflow&lt;/summary&gt;
 Type: workflow
+Name: microsim-creation-workflow
 
 Bloom Taxonomy: Understand
 
@@ -2931,23 +2937,23 @@ Steps:
    Color: Orange
 
 6. Decision: &quot;Meets Learning Objective?&quot;
-   Hover text: &quot;Does this MicroSim effectively teach the intended concept?&quot;
+   Hover text: &quot;Does this MicroSim effectively teach the intended concept? Yes/No&quot;
    Color: Yellow
 
-6a. Process: &quot;Refine with AI&quot; (if No)
+7. Process: &quot;Refine with AI&quot; (if No)
     Hover text: &quot;Describe what needs to change—AI helps iterate&quot;
     Color: Purple
     Arrow loops back to &quot;Test in p5.js Editor&quot;
 
-7. Process: &quot;Add to Course Materials&quot; (if Yes)
+8. Process: &quot;Add to Course Materials&quot; (if Yes)
    Hover text: &quot;Embed in textbook, LMS, or website&quot;
    Color: Blue
 
-8. Process: &quot;Gather Student Feedback&quot;
+9. Process: &quot;Gather Student Feedback&quot;
    Hover text: &quot;Watch how students use it, note improvements&quot;
    Color: Orange
 
-9. End: &quot;Effective Learning Tool&quot;
+10. End: &quot;Effective Learning Tool&quot;
    Hover text: &quot;Students are learning through interaction!&quot;
    Color: Green (end)
 
@@ -2962,7 +2968,7 @@ Color coding legend:
 - Orange: Testing/feedback
 - Yellow: Decision points
 
-Implementation: Mermaid.js flowchart or custom SVG
+Implementation: mermaid-generator skill
 </code></pre></div></td></tr></table></div>
 </details>
 <h3 id="the-vision-libraries-for-all-humanity">The Vision: Libraries for All Humanity</h3>
