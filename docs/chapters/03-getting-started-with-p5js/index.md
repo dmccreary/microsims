@@ -172,6 +172,10 @@ This may seem backwards, but it actually matches how computer displays work—sc
 
 #### Diagram: p5.js Coordinate System
 
+<iframe src="../../sims/p5-coordinate-system/main.html" width="100%" height="402px" scrolling="no"></iframe>
+
+[View the p5.js Coordinate System Fullscreen](../../sims/p5-coordinate-system/main.html)
+
 <details markdown="1">
     <summary>p5.js Coordinate System Visualization</summary>
     Type: microsim
@@ -179,7 +183,7 @@ This may seem backwards, but it actually matches how computer displays work—sc
     Learning objective: Help students understand that the p5.js coordinate system has (0,0) at the top-left corner, with Y increasing downward (Bloom: Understand)
 
     Canvas layout:
-    - Drawing area: 400x350 pixels with 'aliceblue' background
+    - Drawing area: width 100% of container and 350 pixels high and 100% with 'aliceblue' background
     - Control area: 50 pixels height with 'white' background
 
     Visual elements:
