@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projecting AI Task Completion to 2030</title>
+    <meta name="description" content="Interactive visualization showing exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and projected horizons based on 7-month doubling time">
+    <meta name="author" content="Dan McCreary">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dmccreary.github.io/tracking-ai-course/sims/projecting-ai/main.html">
+    <meta property="og:title" content="Projecting AI Task Completion to 2030">
+    <meta property="og:description" content="Interactive visualization showing exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and projected horizons based on 7-month doubling time">
+    <meta property="og:image" content="https://dmccreary.github.io/tracking-ai-course/sims/projecting-ai/projecting-ai.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dmccreary.github.io/tracking-ai-course/sims/projecting-ai/main.html">
+    <meta property="twitter:title" content="Projecting AI Task Completion to 2030">
+    <meta property="twitter:description" content="Interactive visualization showing exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and projected horizons based on 7-month doubling time">
+    <meta property="twitter:image" content="https://dmccreary.github.io/tracking-ai-course/sims/projecting-ai/projecting-ai.png">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Projecting AI Task Completion to 2030</h1>
+        <p class="subtitle">How long will AI models work on tasks? Exponential trend shows 7-month doubling time (METR.org)</p>
+
+        <div class="chart-container">
+            <canvas id="taskChart"></canvas>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Scale:</label>
+                <div class="btn-group">
+                    <button id="btnLinear" onclick="setScale('linear')">Linear</button>
+                    <button id="btnLog" class="active" onclick="setScale('logarithmic')">Log</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Success Probability:</label>
+                <div class="btn-group">
+                    <button id="btn50" class="active" onclick="setProbability('50')">50%</button>
+                    <button id="btn80" onclick="setProbability('80')">80%</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Trend Line:</label>
+                <div class="btn-group">
+                    <button id="btnTrend" class="active" onclick="toggleTrendline()">Show/Hide</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href=".">Return to Documentation</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
