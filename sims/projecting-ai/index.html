@@ -1,0 +1,1979 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interactive visualization showing exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and projected horizons based on 7-month doubling time">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/projecting-ai/">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Projecting AI Task Completion to 2030 - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Projecting AI Task Completion to 2030 - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Interactive visualization showing exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and projected horizons based on 7-month doubling time" >
+      
+        <meta property="og:image" content="https://dmccreary.github.io/microsims/sims/projecting-ai/projecting-ai.png">
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/sims/projecting-ai/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Projecting AI Task Completion to 2030 - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Interactive visualization showing exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and projected horizons based on 7-month doubling time" >
+      
+        <meta name="twitter:image" content="https://dmccreary.github.io/microsims/sims/projecting-ai/projecting-ai.png">
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#projecting-ai-task-completion-to-2030" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Projecting AI Task Completion to 2030
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Rules
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faqs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Insights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exponential-growth-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exponential Growth Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-projection-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the Projection Means
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-axis-horizontal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Axis (Horizontal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scale-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scale Toggle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-probability-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Probability Toggle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trend-line-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trend Line Toggle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hover-tooltips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hover Tooltips
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-coding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color Coding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Projection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the Projection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-7-month-doubling-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      The 7-Month Doubling Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-the-trend-line-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the Trend Line Works
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-and-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations and Caveats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontier-models-green" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frontier Models (Green)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-frontier-models-gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Frontier Models (Gray)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategic-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategic Planning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#education-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Education &amp; Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#research-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research &amp; Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifying-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifying the Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjusting-the-trend-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adjusting the Trend Line
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-the-time-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extending the Time Range
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpretation Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpretation Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading the Chart
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-different-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Different Views
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-success-probabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing Success Probabilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Implications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-World Implications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-these-time-horizons-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What These Time Horizons Mean
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions-to-consider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions to Consider
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      About This MicroSim
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/sims/projecting-ai/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="projecting-ai-task-completion-to-2030">Projecting AI Task Completion to 2030</h1>
+<p>An interactive visualization showing the exponential growth of AI task completion capabilities from 2019 to 2030, with time on the horizontal axis and task completion horizons projected into the future.</p>
+<iframe src="./main.html" width="100%" height="550"></iframe>
+
+<p><a class="md-button md-button--primary" href="main.html">Run the MicroSim Fullscreen</a></p>
+<p>To use this interactive chart on any website simply copy this line of HTML into your web page:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/tracking-ai-course/sims/projecting-ai/main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;588&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div></p>
+<p>This MicroSim extends the analysis from <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR.org's research</a> by projecting AI capabilities forward to 2030 based on the observed exponential growth pattern.</p>
+<h2 id="overview">Overview</h2>
+<p>This MicroSim visualizes <strong>how AI task completion capabilities are projected to evolve over time</strong>, showing:</p>
+<ul>
+<li><strong>Historical data</strong> from 2019-2025 showing actual AI model performance</li>
+<li><strong>Time on the horizontal axis</strong> (year) for easy temporal understanding</li>
+<li><strong>Task completion horizons on the vertical axis</strong> (in minutes/hours/days)</li>
+<li><strong>Exponential trend line</strong> projecting capabilities to 2030 based on 7-month doubling time</li>
+</ul>
+<p>The visualization demonstrates that AI's ability to complete longer tasks is growing exponentially, with capabilities roughly doubling every 7 months according to METR's research.</p>
+<h2 id="key-insights">Key Insights</h2>
+<h3 id="exponential-growth-pattern">Exponential Growth Pattern</h3>
+<p>The data reveals a clear exponential trend with a <strong>doubling time of approximately 7 months</strong>. This means:
+- Every 7 months, AI models can reliably complete tasks twice as long
+- By 2030, if this trend continues, models could work on tasks lasting days or weeks
+- This growth rate is faster than many other technology trends</p>
+<h3 id="what-the-projection-means">What the Projection Means</h3>
+<p>If the 7-month doubling time continues:
+- <strong>2026</strong>: Models could reliably work on tasks lasting 10-20+ hours
+- <strong>2028</strong>: Tasks lasting multiple days become feasible
+- <strong>2030</strong>: Week-long autonomous task completion may be possible</p>
+<p><strong>Important caveat</strong>: Exponential trends don't continue forever. Physical limits, diminishing returns, or fundamental barriers could slow this growth.</p>
+<h2 id="interactive-features">Interactive Features</h2>
+<h3 id="time-axis-horizontal">Time Axis (Horizontal)</h3>
+<ul>
+<li><strong>X-axis shows years</strong> from 2019 to 2030</li>
+<li>Actual model data points are shown as colored dots</li>
+<li>Easy to see the temporal progression of AI capabilities</li>
+</ul>
+<h3 id="scale-toggle">Scale Toggle</h3>
+<ul>
+<li><strong>Linear Scale</strong>: Shows absolute differences in capabilities</li>
+<li><strong>Log Scale</strong>: Better visualizes the exponential growth pattern and makes it easier to compare models across the full range</li>
+</ul>
+<h3 id="success-probability-toggle">Success Probability Toggle</h3>
+<ul>
+<li><strong>50% Success</strong>: Time horizon where a model has 50% chance of completing a task</li>
+<li><strong>80% Success</strong>: More conservative metric requiring 80% success probability (typically shorter horizons)</li>
+</ul>
+<h3 id="trend-line-toggle">Trend Line Toggle</h3>
+<ul>
+<li><strong>Show/Hide</strong> the exponential trend line</li>
+<li>Trend line extends to 2030 based on the 7-month doubling time</li>
+<li>Helps visualize where AI capabilities might be heading</li>
+</ul>
+<h3 id="hover-tooltips">Hover Tooltips</h3>
+<p>Hover over any data point to see:
+- Model name
+- Time horizon in minutes, hours, and days
+- Release date
+- Success probability level</p>
+<h3 id="color-coding">Color Coding</h3>
+<ul>
+<li><strong>Green points</strong>: Frontier models (state-of-the-art)</li>
+<li><strong>Gray points</strong>: Non-frontier models</li>
+<li><strong>Blue dashed line</strong>: Exponential trend projection</li>
+</ul>
+<h2 id="understanding-the-projection">Understanding the Projection</h2>
+<h3 id="the-7-month-doubling-time">The 7-Month Doubling Time</h3>
+<p>Based on METR's analysis, AI task completion capabilities have been doubling approximately every 7 months. This is calculated from:
+- Historical model performance from 2019-2025
+- Consistent pattern across different model families
+- Both 50% and 80% success probability metrics</p>
+<h3 id="how-the-trend-line-works">How the Trend Line Works</h3>
+<p>The projection uses an exponential formula:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Future Capability = Current Capability × 2^(months_elapsed / 7)
+</code></pre></div></td></tr></table></div></p>
+<p>For example, starting from GPT-5's 8,239 minutes (137 hours) at 50% success:
+- <strong>7 months later (March 2026)</strong>: ~16,500 minutes (275 hours / 11.5 days)
+- <strong>14 months later (October 2026)</strong>: ~33,000 minutes (550 hours / 23 days)
+- <strong>By 2030</strong>: Potentially 100,000+ minutes (1,700+ hours / 70+ days)</p>
+<h3 id="limitations-and-caveats">Limitations and Caveats</h3>
+<p><strong>This is a projection, not a prediction.</strong> Several factors could slow or stop this trend:</p>
+<ol>
+<li><strong>Fundamental limits</strong>: Tasks requiring real-world feedback may hit physical time constraints</li>
+<li><strong>Diminishing returns</strong>: As tasks get longer, new bottlenecks may emerge</li>
+<li><strong>Measurement challenges</strong>: Defining and measuring very long tasks becomes harder</li>
+<li><strong>Economic factors</strong>: The cost of running models for days/weeks may be prohibitive</li>
+<li><strong>Reliability requirements</strong>: Longer tasks may require entirely new approaches to ensure robustness</li>
+</ol>
+<h2 id="model-data">Model Data</h2>
+<h3 id="frontier-models-green">Frontier Models (Green)</h3>
+<p>The most capable models at their time of release:
+- <strong>GPT-5</strong>: 8,239 min / 137 hrs (50%) — Latest projected frontier model
+- <strong>Grok-4</strong>: 6,605 min / 110 hrs (50%)
+- <strong>o3</strong>: 5,531 min / 92 hrs (50%)
+- <strong>Claude 3.7 Sonnet</strong>: 3,254 min / 54 hrs (50%)
+- Earlier models: o1-elicited, Claude 3.5 variants, GPT-4 family, GPT-3.5, GPT-2</p>
+<h3 id="non-frontier-models-gray">Non-Frontier Models (Gray)</h3>
+<p>Other capable models:
+- <strong>Claude Sonnet 4.5</strong>: 6,798 min / 113 hrs (50%)
+- <strong>Claude 4.1 Opus</strong>: 6,330 min / 106 hrs (50%)
+- Plus DeepSeek, Gemini, Qwen, and other model families</p>
+<h2 id="use-cases">Use Cases</h2>
+<p>This visualization is valuable for:</p>
+<h3 id="strategic-planning">Strategic Planning</h3>
+<ul>
+<li><strong>Technology roadmapping</strong>: Understand when AI might handle multi-day tasks</li>
+<li><strong>Resource allocation</strong>: Plan for infrastructure to support longer-running AI agents</li>
+<li><strong>Capability planning</strong>: Anticipate what tasks AI could automate in coming years</li>
+</ul>
+<h3 id="education-communication">Education &amp; Communication</h3>
+<ul>
+<li><strong>Illustrating exponential growth</strong>: Clear visual of how quickly AI capabilities are advancing</li>
+<li><strong>Setting expectations</strong>: Help stakeholders understand the pace of AI development</li>
+<li><strong>Trend analysis</strong>: Compare AI progress to other technological trends</li>
+</ul>
+<h3 id="research-analysis">Research &amp; Analysis</h3>
+<ul>
+<li><strong>Identifying patterns</strong>: Spot deviations from the exponential trend</li>
+<li><strong>Model comparison</strong>: See how different model families stack up over time</li>
+<li><strong>Future scenarios</strong>: Explore implications of continued exponential growth</li>
+</ul>
+<h2 id="customization-guide">Customization Guide</h2>
+<h3 id="modifying-the-data">Modifying the Data</h3>
+<p>To update with new models, edit the <code>modelData</code> object in <code>script.js</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">modelData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">frontier</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Model Name&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">horizon50</span><span class="o">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">  </span><span class="c1">// 50% success time in minutes</span>
+<span class="w">            </span><span class="nx">horizon80</span><span class="o">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">   </span><span class="c1">// 80% success time in minutes</span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2025-MM-DD&#39;</span><span class="w"> </span><span class="c1">// Release date (YYYY-MM-DD format)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="adjusting-the-trend-line">Adjusting the Trend Line</h3>
+<p>To change the doubling time assumption, modify <code>doublingTimeMonths</code> in <code>script.js</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">doublingTimeMonths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7</span><span class="p">;</span><span class="w">  </span><span class="c1">// Change this value</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="extending-the-time-range">Extending the Time Range</h3>
+<p>To project beyond 2030, update the <code>endDate</code> in the <code>calculateTrendLine()</code> function:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2035-12-31&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">// Extend to 2035</span>
+</code></pre></div></td></tr></table></div>
+<p>And update the X-axis maximum:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2035-12-31&#39;</span><span class="p">).</span><span class="nx">getTime</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Library</strong>: Chart.js 4.4.0 with date-fns adapter for time series</li>
+<li><strong>Chart Type</strong>: Scatter plot with optional trend line overlay</li>
+<li><strong>Data Points</strong>: 30 AI models from 2019-2025</li>
+<li><strong>Projection</strong>: Exponential trend to 2030 based on 7-month doubling time</li>
+<li><strong>Time Range</strong>: 2019-2030 (12 years)</li>
+<li><strong>Data Source</strong>: <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR Research (March 2025)</a></li>
+<li><strong>Interactive Controls</strong>: Scale toggle (linear/log), Success probability (50%/80%), Trend line (show/hide)</li>
+<li><strong>Browser Compatibility</strong>: All modern browsers supporting Chart.js and ES6</li>
+<li><strong>Responsive</strong>: Adapts to container width with mobile optimizations</li>
+</ul>
+<h2 id="interpretation-guide">Interpretation Guide</h2>
+<h3 id="reading-the-chart">Reading the Chart</h3>
+<ol>
+<li><strong>X-axis (Horizontal)</strong>: Shows time progression from 2019 to 2030</li>
+<li><strong>Y-axis (Vertical)</strong>: Task completion time horizon (minutes/hours/days)</li>
+<li><strong>Actual data points</strong>: Show real model performance (2019-2025)</li>
+<li><strong>Dashed trend line</strong>: Projects future capabilities based on historical growth</li>
+<li><strong>Higher on chart</strong>: Models can work on longer tasks</li>
+</ol>
+<h3 id="using-different-views">Using Different Views</h3>
+<p><strong>Linear scale</strong> is best for:
+- Understanding absolute capability differences
+- Seeing the scale of recent improvements
+- Comparing models released close together in time</p>
+<p><strong>Log scale</strong> is best for:
+- Visualizing the exponential growth pattern
+- Comparing models across the full time range
+- Identifying consistent doubling patterns</p>
+<h3 id="comparing-success-probabilities">Comparing Success Probabilities</h3>
+<ul>
+<li><strong>50% horizon</strong>: More optimistic, shows what's theoretically possible</li>
+<li><strong>80% horizon</strong>: More conservative, shows reliable capability</li>
+<li>The gap between them indicates model consistency/reliability</li>
+</ul>
+<h2 id="real-world-implications">Real-World Implications</h2>
+<h3 id="what-these-time-horizons-mean">What These Time Horizons Mean</h3>
+<p><strong>Current capabilities (2025)</strong>:
+- 100-500 minutes: Complex analysis, report generation, multi-step research
+- 1,000-2,000 minutes (16-33 hours): Overnight project work, extensive code development
+- 8,000+ minutes (130+ hours / 5+ days): Multi-day research projects, complex system design</p>
+<p><strong>Projected capabilities (2030)</strong>:
+- If trends continue: 50,000-100,000+ minutes (35-70+ days)
+- Potential applications: Month-long research initiatives, complex product development, extensive autonomous projects
+- New challenges: Reliability, cost, real-world interaction needs</p>
+<h3 id="questions-to-consider">Questions to Consider</h3>
+<ol>
+<li><strong>Will the trend continue?</strong> What might cause it to slow or stop?</li>
+<li><strong>What bottlenecks emerge</strong> as tasks stretch to days or weeks?</li>
+<li><strong>How do we measure success</strong> for such extended tasks?</li>
+<li><strong>What safeguards are needed</strong> for AI working autonomously for weeks?</li>
+<li><strong>What economic value</strong> comes from AI handling month-long tasks?</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR: Measuring AI Ability to Complete Long Tasks (March 2025)</a></li>
+<li><a href="https://www.chartjs.org/docs/latest/">Chart.js Documentation</a></li>
+<li><a href="https://www.chartjs.org/docs/latest/axes/cartesian/time.html">Chart.js Time Series</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Moore%27s_law">Exponential Growth and Moore's Law</a></li>
+</ul>
+<h2 id="about-this-microsim">About This MicroSim</h2>
+<p>This MicroSim reimagines METR's task completion horizon chart with a temporal perspective, making it easy to see how AI capabilities have evolved and where they might be heading. By placing time on the horizontal axis and extending the exponential trend to 2030, it helps viewers understand both the historical trajectory and potential future of AI task completion capabilities.</p>
+<p>The 7-month doubling time, if sustained, would represent one of the fastest capability growth rates in any technology domain. Understanding this trajectory is crucial for strategic planning, risk assessment, and opportunity identification in an AI-enabled future.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
