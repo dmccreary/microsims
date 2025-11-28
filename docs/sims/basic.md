@@ -4,7 +4,6 @@ Although we have over 100 MicroSims to demonstrate, we've selected these basic e
 
 These examples progress from simple animations to more complex visualizations, demonstrating different features and use cases.
 
----
 
 ## Core Examples
 
@@ -18,7 +17,6 @@ Our simplest example demonstrates the essential elements of a width-responsive M
 
 **Key Features:** Animation, slider control, responsive design, start/pause button
 
----
 
 ### Temperature and Pressure
 
@@ -30,7 +28,6 @@ This MicroSim demonstrates the relationship between temperature, molecular motio
 
 **Key Features:** Particle simulation, temperature slider (-50°C to 100°C), Celsius/Fahrenheit toggle, real-time pressure measurement, color-coded atoms
 
----
 
 ### Sine Wave
 
@@ -42,7 +39,6 @@ A static sine wave displayed on a Cartesian coordinate grid with three sliders c
 
 **Key Features:** Multiple sliders, coordinate system, mathematical visualization
 
----
 
 ## Specialized Features
 
@@ -56,7 +52,6 @@ Demonstrates string harmonics with an animated vibrating string. When "Enable So
 
 **Key Features:** Sound generation, checkbox control, oscillator, frequency visualization
 
----
 
 ### Microphone Example: FFT Frequency Visualization
 
@@ -68,7 +63,6 @@ Captures microphone input and displays a real-time frequency spectrum using Fast
 
 **Key Features:** Microphone input, FFT analysis, frequency spectrum, start/stop control
 
----
 
 ## Visualization Types
 
@@ -82,7 +76,6 @@ A horizontal bar chart visualizing knowledge retention rates across different le
 
 **Key Features:** Chart.js integration, hover tooltips, animated bar growth, annotations
 
----
 
 ### Map Example: Global Impact
 
@@ -94,7 +87,6 @@ An animated infographic map showing how MicroSims spread globally, connecting te
 
 **Key Features:** Leaflet.js map, animated connections, time slider, statistics panel, zoom/pan
 
----
 
 ### Causal Loop Diagram: MicroSim Growth
 
@@ -105,8 +97,6 @@ An interactive causal loop diagram showing reinforcing feedback loops in the Mic
 [View MicroSim Growth](./microsim-growth/index.md){ .md-button .md-button--primary }
 
 **Key Features:** vis-network library, interactive nodes/edges, feedback loop indicators
-
----
 
 ## Process Documentation
 
@@ -120,8 +110,6 @@ An interactive workflow diagram illustrating the complete process teachers follo
 
 **Key Features:** Mermaid.js flowchart, color-coded steps, decision points
 
----
-
 ## Additional Notable Examples
 
 ### Fractal Tree
@@ -132,7 +120,6 @@ An interactive fractal tree demonstrating recursion and self-similarity. Adjust 
 
 [View Fractal Tree](./fractal-tree/index.md){ .md-button .md-button--primary }
 
----
 
 ### Conway's Game of Life
 

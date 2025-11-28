@@ -14,7 +14,7 @@ social:
 -->
 
 [Run the Fractal Tree MicroSim](./html.html){ .md-button .md-button--primary }
-[Edit the Fractile Tree MicroSim](https://editor.p5js.org/dmccreary/sketches/dJq4nTXE4)
+[Edit the Fractile Tree MicroSim](https://editor.p5js.org/dmccreary/sketches/KdfxazZcu)
 
 ## Sample iframe
 
