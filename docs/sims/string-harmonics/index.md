@@ -12,11 +12,11 @@ social:
 
 Contributed by [Shawn McBurnie](https://www.linkedin.com/in/shawnmcburnie/).
 
-![String Harmonics](./string-harmonics.png){ .md-button .md-button--primary }
+<iframe src="./main.html" width="820" height="220" scrolling="no" style="overflow: hidden;"></iframe>
 
-[String Harmonics Demo No Sound](./string-harmonics.html){ .md-button .md-button--primary }
+Check the "Enable Sound" checkbox to hear the string harmonics.
 
-[String Harmonics Demo With Sound](./string-harmonics-osc.html){ .md-button .md-button--primary }
+[Run String Harmonics in Fullscreen](./main.html){ .md-button .md-button--primary }
 
 ## Sample Prompt
 
