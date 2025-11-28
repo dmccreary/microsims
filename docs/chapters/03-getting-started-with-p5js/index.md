@@ -55,6 +55,9 @@ Understanding where p5.js comes from helps explain why it's so wonderfully suite
 
 #### Diagram: Processing and p5.js Evolution Timeline
 
+<iframe src="../../sims/p5-timeline/main.html" width="100%" height="700px" scrolling="no"></iframe>
+[View the P5 Timeline Fullscreen](../../sims/p5-timeline/main.html)
+
 <details markdown="1">
     <summary>Processing and p5.js Evolution Timeline</summary>
     Type: timeline
