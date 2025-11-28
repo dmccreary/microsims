@@ -10,12 +10,13 @@ An interactive timeline tracing the evolution of creative coding tools from Desi
 
 ## Overview
 
-This timeline visualizes the key events and milestones that led to the creation of p5.js, including:
+This timeline visualizes 29 key events and milestones that led to the creation of p5.js, including:
 
-- **Processing & p5.js**: The core libraries and their releases
-- **Web Standards**: HTML5, Canvas, WebGL, and related browser technologies
-- **Related Projects**: Arduino, Processing.js, jQuery, and other influential tools
-- **Organizations & Education**: MIT Media Lab, Processing Foundation, and key research groups
+- **Processing**: The Java-based library and Processing.js (7 events)
+- **p5.js**: The modern JavaScript creative coding library (5 events)
+- **Web Standards**: HTML5, Canvas, WebGL, Web Audio, WebRTC, and getUserMedia (10 events)
+- **Related Projects**: Arduino, Flash, and other influential tools (3 events)
+- **Organizations & Education**: MIT Media Lab, Processing Foundation, and key research groups (4 events)
 
 ## Key People
 
@@ -61,6 +62,17 @@ The development of HTML5, particularly the Canvas API, enabled rich graphics in 
 
 Lauren McCarthy created p5.js as a fresh interpretation designed specifically for the modern web, with native JavaScript integration and HTML5 features. Version 1.0 was released in 2020 after seven years of development.
 
+### Multimedia Standards (2012-2021)
+
+The standardization of browser multimedia APIs enabled p5.js's rich audio and video capabilities:
+
+| Date | Standard | Impact on p5.js |
+|------|----------|-----------------|
+| August 2012 | getUserMedia in Chrome 21 | First browser support for webcam/microphone access |
+| May 2016 | Media Capture API (W3C CR) | Standardized camera and microphone access |
+| January 2021 | WebRTC 1.0 (W3C Rec) | Real-time peer-to-peer audio/video communication |
+| June 2021 | Web Audio API (W3C Rec) | Powers p5.sound library for audio synthesis and analysis |
+
 ## Data Sources
 
 - [Processing Foundation](https://processingfoundation.org/)
@@ -69,6 +81,9 @@ Lauren McCarthy created p5.js as a fresh interpretation designed specifically fo
 - [A Modern Prometheus - Processing History](https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85)
 - [Processing.js 2008-2018](https://blog.humphd.org/processing-js-2008/)
 - [Design By Numbers - MIT Media Lab](https://dbn.media.mit.edu/)
+- [Web Audio API W3C Recommendation](https://www.w3.org/news/2021/web-audio-api-is-a-w3c-recommendation/)
+- [WebRTC 1.0 W3C Recommendation](https://www.w3.org/news/2021/webrtc-1-0-is-a-w3c-recommendation/)
+- [Media Capture and Streams Specification](https://www.w3.org/TR/mediacapture-streams/)
 
 ## Technical Details
 
