@@ -5,6 +5,7 @@ let canvasWidth = 800;
 let drawHeight = 160;
 let controlHeight = 40;
 let canvasHeight = drawHeight + controlHeight;
+let sliderLeftMargin = 130;
 
 let amplitude = 70;
 let stringLength;
@@ -15,24 +16,46 @@ let soundCheckbox;
 let soundEnabled = false;
 
 function setup() {
+  updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('canvas-container');
   textSize(16);
-  stringLength = canvasWidth - 40; // Leave some space at both ends for anchoring
 
   // Create a slider for the multiplier
   multiplierSlider = createSlider(1, 16, 1, .1);
-  multiplierSlider.position(130, drawHeight + 12);
-  multiplierSlider.style('width', canvasWidth - 280 + 'px')
 
   // Create checkbox for enabling sound
   soundCheckbox = createCheckbox('Enable Sound', false);
-  soundCheckbox.position(canvasWidth - 130, drawHeight + 8);
   soundCheckbox.changed(toggleSound);
 
   // Initialize the sine wave oscillator
   osc = new p5.Oscillator('sine');
   osc.amp(0.3); // Set amplitude (volume) of the sound
+
+  updateControlPositions();
+}
+
+function updateCanvasSize() {
+  const container = document.getElementById('canvas-container');
+  if (container) {
+    canvasWidth = container.offsetWidth;
+  }
+  stringLength = canvasWidth - 40; // Leave some space at both ends for anchoring
+}
+
+function updateControlPositions() {
+  // Position slider
+  multiplierSlider.position(sliderLeftMargin, drawHeight + 12);
+  multiplierSlider.style('width', (canvasWidth - sliderLeftMargin - 150) + 'px');
+
+  // Position checkbox
+  soundCheckbox.position(canvasWidth - 130, drawHeight + 8);
+}
+
+function windowResized() {
+  updateCanvasSize();
+  resizeCanvas(canvasWidth, canvasHeight);
+  updateControlPositions();
 }
 
 function toggleSound() {
