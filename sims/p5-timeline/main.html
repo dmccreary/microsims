@@ -6,263 +6,7 @@
     <title>History of p5.js and Creative Coding</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.7.3/vis-timeline-graph2d.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2.2em;
-            color: #ed225d;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .filter-controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .filter-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .filter-btn.active {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .filter-btn.all {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .filter-btn.processing {
-            background: linear-gradient(135deg, #ed225d 0%, #c91848 100%);
-            color: white;
-        }
-
-        .filter-btn.web-standards {
-            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
-            color: #333;
-        }
-
-        .filter-btn.related-projects {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            color: white;
-        }
-
-        .filter-btn.organizations {
-            background: linear-gradient(135deg, #4568dc 0%, #b06ab3 100%);
-            color: white;
-        }
-
-        #timeline {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .info-panel {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .info-panel {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .legend {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .legend h3 {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        .legend-label {
-            font-size: 14px;
-            color: #555;
-        }
-
-        .event-details {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            min-height: 200px;
-        }
-
-        .event-details h3 {
-            margin-bottom: 15px;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .event-details .placeholder {
-            color: #888;
-            font-style: italic;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .event-content {
-            display: none;
-        }
-
-        .event-content.visible {
-            display: block;
-        }
-
-        .event-headline {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .event-date {
-            font-size: 0.95em;
-            color: #ed225d;
-            margin-bottom: 15px;
-            font-weight: 500;
-        }
-
-        .event-description {
-            font-size: 1em;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .event-notes {
-            font-size: 0.9em;
-            color: #777;
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 3px solid #ed225d;
-        }
-
-        .event-category {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            font-weight: 500;
-            margin-top: 10px;
-        }
-
-        /* vis-timeline custom styles */
-        .vis-item {
-            border-radius: 4px;
-            border: none;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .vis-item.vis-selected {
-            border: 2px solid #333;
-        }
-
-        .vis-time-axis .vis-text {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .vis-panel.vis-center {
-            border: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9em;
-            margin-top: 20px;
-        }
-
-        footer a {
-            color: #ed225d;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -273,7 +17,8 @@
 
         <div class="filter-controls">
             <button class="filter-btn all active" onclick="filterCategory('all')">All Events</button>
-            <button class="filter-btn processing" onclick="filterCategory('Processing & p5.js')">Processing & p5.js</button>
+            <button class="filter-btn processing" onclick="filterCategory('Processing')">Processing</button>
+            <button class="filter-btn p5js" onclick="filterCategory('p5.js')">p5.js</button>
             <button class="filter-btn web-standards" onclick="filterCategory('Web Standards')">Web Standards</button>
             <button class="filter-btn related-projects" onclick="filterCategory('Related Projects')">Related Projects</button>
             <button class="filter-btn organizations" onclick="filterCategory('Organizations & Education')">Organizations & Education</button>
@@ -281,37 +26,15 @@
 
         <div id="timeline"></div>
 
-        <div class="info-panel">
-            <div class="legend">
-                <h3>Legend</h3>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: linear-gradient(135deg, #ed225d 0%, #c91848 100%);"></div>
-                    <span class="legend-label">Processing & p5.js</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);"></div>
-                    <span class="legend-label">Web Standards</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"></div>
-                    <span class="legend-label">Related Projects</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: linear-gradient(135deg, #4568dc 0%, #b06ab3 100%);"></div>
-                    <span class="legend-label">Organizations & Education</span>
-                </div>
-            </div>
-
-            <div class="event-details">
-                <h3>Event Details</h3>
-                <p class="placeholder">Click on an event in the timeline to see more details</p>
-                <div class="event-content" id="eventContent">
-                    <div class="event-headline" id="eventHeadline"></div>
-                    <div class="event-date" id="eventDate"></div>
-                    <div class="event-description" id="eventDescription"></div>
-                    <div class="event-notes" id="eventNotes"></div>
-                    <span class="event-category" id="eventCategory"></span>
-                </div>
+        <div class="event-details">
+            <h3>Event Details</h3>
+            <p class="placeholder">Click on an event in the timeline to see more details</p>
+            <div class="event-content" id="eventContent">
+                <div class="event-headline" id="eventHeadline"></div>
+                <div class="event-date" id="eventDate"></div>
+                <div class="event-description" id="eventDescription"></div>
+                <div class="event-notes" id="eventNotes"></div>
+                <span class="event-category" id="eventCategory"></span>
             </div>
         </div>
 
@@ -324,14 +47,16 @@
     <script>
         // Category colors
         const categoryColors = {
-            'Processing & p5.js': '#ed225d',
+            'Processing': '#1e3a8a',
+            'p5.js': '#ed225d',
             'Web Standards': '#f7971e',
             'Related Projects': '#11998e',
             'Organizations & Education': '#6a5acd'
         };
 
         const categoryGradients = {
-            'Processing & p5.js': 'linear-gradient(135deg, #ed225d 0%, #c91848 100%)',
+            'Processing': 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+            'p5.js': 'linear-gradient(135deg, #ed225d 0%, #c91848 100%)',
             'Web Standards': 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)',
             'Related Projects': 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
             'Organizations & Education': 'linear-gradient(135deg, #4568dc 0%, #b06ab3 100%)'
@@ -349,27 +74,31 @@
                 {"start_date": {"year": "1985", "month": "9", "display_date": "September 1985"}, "text": {"headline": "MIT Media Lab Founded", "text": "The MIT Media Laboratory was founded by Nicholas Negroponte and Jerome Wiesner. It would become the birthplace of Processing and influence generations of creative coders and computational artists."}, "group": "Organizations & Education", "notes": "The Media Lab has been home to numerous innovations in human-computer interaction and creative technology."},
                 {"start_date": {"year": "1995", "month": "5", "display_date": "May 1995"}, "text": {"headline": "JavaScript Created", "text": "Brendan Eich created JavaScript (originally called Mocha, then LiveScript) at Netscape in just 10 days. This scripting language would eventually become the foundation for p5.js and modern web-based creative coding."}, "group": "Web Standards", "notes": "JavaScript was initially designed for simple form validation and basic interactivity in web browsers."},
                 {"start_date": {"year": "1996", "month": "1", "display_date": "1996"}, "text": {"headline": "Aesthetics and Computation Group Started", "text": "John Maeda founded the Aesthetics and Computation Group (ACG) at the MIT Media Lab. This research group would nurture the creators of Processing and establish the foundations of computational design education."}, "group": "Organizations & Education", "notes": "Ben Fry and Casey Reas were both graduate students in this group when they created Processing."},
-                {"start_date": {"year": "1999", "month": "1", "display_date": "1999"}, "text": {"headline": "Design By Numbers Published", "text": "John Maeda published 'Design By Numbers' through MIT Press, introducing the DBN programming language designed to teach visual programming to artists and designers. Ben Fry contributed to DBN versions 2 and 3."}, "group": "Processing & p5.js", "notes": "DBN was the direct predecessor to Processing, sharing many of the same educational goals and design principles."},
-                {"start_date": {"year": "2001", "month": "8", "day": "9", "display_date": "August 9, 2001"}, "text": {"headline": "Processing First Released", "text": "Casey Reas and Ben Fry released the first version of Processing while graduate students at MIT Media Lab. Built on Java, Processing was designed to serve as a software sketchbook and teach programming within a visual context."}, "group": "Processing & p5.js", "notes": "Processing used the domain proce55ing.net initially (hence 'p5'), as processing.net was unavailable."},
-                {"start_date": {"year": "2004", "month": "1", "display_date": "2004"}, "text": {"headline": "Processing Gets processing.org Domain", "text": "Casey Reas and Ben Fry acquired the processing.org domain and moved the project from proce55ing.net. The abbreviated 'p5' name persisted in the community and would later inspire the p5.js name."}, "group": "Processing & p5.js", "notes": "The domain change marked Processing's maturation as a serious educational and creative tool."},
+                {"start_date": {"year": "1999", "month": "1", "display_date": "1999"}, "text": {"headline": "Design By Numbers Published", "text": "John Maeda published 'Design By Numbers' through MIT Press, introducing the DBN programming language designed to teach visual programming to artists and designers. Ben Fry contributed to DBN versions 2 and 3."}, "group": "Processing", "notes": "DBN was the direct predecessor to Processing, sharing many of the same educational goals and design principles."},
+                {"start_date": {"year": "2001", "month": "8", "day": "9", "display_date": "August 9, 2001"}, "text": {"headline": "Processing First Released", "text": "Casey Reas and Ben Fry released the first version of Processing while graduate students at MIT Media Lab. Built on Java, Processing was designed to serve as a software sketchbook and teach programming within a visual context."}, "group": "Processing", "notes": "Processing used the domain proce55ing.net initially (hence 'p5'), as processing.net was unavailable."},
+                {"start_date": {"year": "2004", "month": "1", "display_date": "2004"}, "text": {"headline": "Processing Gets processing.org Domain", "text": "Casey Reas and Ben Fry acquired the processing.org domain and moved the project from proce55ing.net. The abbreviated 'p5' name persisted in the community and would later inspire the p5.js name."}, "group": "Processing", "notes": "The domain change marked Processing's maturation as a serious educational and creative tool."},
                 {"start_date": {"year": "2004", "month": "6", "display_date": "June 2004"}, "text": {"headline": "HTML5 Work Begins at WHATWG", "text": "The Web Hypertext Application Technology Working Group (WHATWG) was formed and began work on HTML5, including the Canvas element that would eventually enable browser-based creative coding without plugins."}, "group": "Web Standards", "notes": "WHATWG was formed by Apple, Mozilla, and Opera in response to W3C's focus on XHTML 2.0."},
-                {"start_date": {"year": "2005", "month": "1", "display_date": "2005"}, "text": {"headline": "Processing Wins Golden Nica", "text": "Processing won a Golden Nica award from the prestigious Prix Ars Electronica in the Net Vision category, recognizing its significant contribution to digital art and creative technology."}, "group": "Processing & p5.js", "notes": "The Prix Ars Electronica is one of the most prestigious awards in electronic and interactive art."},
+                {"start_date": {"year": "2005", "month": "1", "display_date": "2005"}, "text": {"headline": "Processing Wins Golden Nica", "text": "Processing won a Golden Nica award from the prestigious Prix Ars Electronica in the Net Vision category, recognizing its significant contribution to digital art and creative technology."}, "group": "Processing", "notes": "The Prix Ars Electronica is one of the most prestigious awards in electronic and interactive art."},
                 {"start_date": {"year": "2005", "month": "10", "display_date": "October 2005"}, "text": {"headline": "Arduino Released", "text": "The Arduino microcontroller platform was released, heavily influenced by Processing's design philosophy and IDE. Arduino brought the same accessible approach to physical computing that Processing brought to software."}, "group": "Related Projects", "notes": "Arduino's IDE was directly based on the Processing Development Environment, sharing the same simple interface."},
                 {"start_date": {"year": "2006", "month": "8", "day": "26", "display_date": "August 26, 2006"}, "text": {"headline": "jQuery Released", "text": "John Resig released jQuery 1.0, which would revolutionize JavaScript development and make DOM manipulation accessible. Resig would later create Processing.js, the first JavaScript port of Processing."}, "group": "Web Standards", "notes": "jQuery made JavaScript programming more accessible, similar to how Processing made Java accessible."},
                 {"start_date": {"year": "2008", "month": "1", "display_date": "January 2008"}, "text": {"headline": "HTML5 First Public Draft", "text": "The W3C published the first public working draft of HTML5, including the Canvas API specification. This would eventually enable rich graphics and animations directly in the browser without Flash."}, "group": "Web Standards", "notes": "The Canvas element was originally developed by Apple for Safari and the Dashboard widget engine."},
-                {"start_date": {"year": "2008", "month": "5", "day": "9", "display_date": "May 9, 2008"}, "text": {"headline": "Processing.js Released", "text": "John Resig released Processing.js, a JavaScript port of Processing that used HTML5 Canvas. He had worked on it for 7 months and released it on his birthday as a 'reverse birthday present' to developers."}, "group": "Related Projects", "notes": "Processing.js was described as 'a first step towards JavaScript being a rival to Flash for online graphics content.'"},
-                {"start_date": {"year": "2010", "month": "4", "day": "29", "display_date": "April 29, 2010"}, "text": {"headline": "Steve Jobs 'Thoughts on Flash'", "text": "Apple CEO Steve Jobs published his open letter 'Thoughts on Flash' explaining why iOS devices would not support Flash. This accelerated the adoption of HTML5 Canvas and open web standards for graphics and animation."}, "group": "Web Standards", "notes": "This letter was a pivotal moment in the shift from Flash to HTML5 Canvas for web graphics."},
+                {"start_date": {"year": "2008", "month": "5", "day": "9", "display_date": "May 9, 2008"}, "text": {"headline": "Processing.js Released", "text": "John Resig released Processing.js, a JavaScript port of Processing that used HTML5 Canvas. He had worked on it for 7 months and released it on his birthday as a 'reverse birthday present' to developers."}, "group": "Processing", "notes": "Processing.js was described as 'a first step towards JavaScript being a rival to Flash for online graphics content.'"},
+                {"start_date": {"year": "2010", "month": "4", "day": "29", "display_date": "April 29, 2010"}, "text": {"headline": "Steve Jobs 'Thoughts on Flash'", "text": "Apple CEO Steve Jobs published his open letter 'Thoughts on Flash' explaining why iOS devices would not support Flash. This accelerated the adoption of HTML5 Canvas and open web standards for graphics and animation."}, "group": "Related Projects", "notes": "This letter was a pivotal moment in the shift from Flash to HTML5 Canvas for web graphics."},
                 {"start_date": {"year": "2011", "month": "3", "display_date": "March 2011"}, "text": {"headline": "WebGL 1.0 Released", "text": "The Khronos Group released WebGL 1.0, bringing hardware-accelerated 3D graphics to web browsers without plugins. This would later enable p5.js WEBGL mode for 3D sketches."}, "group": "Web Standards", "notes": "WebGL is based on OpenGL ES 2.0 and provides a JavaScript API for rendering 3D graphics in HTML5 Canvas."},
                 {"start_date": {"year": "2012", "month": "1", "display_date": "2012"}, "text": {"headline": "Processing Foundation Established", "text": "The Processing Foundation was established as a 501(c)(3) nonprofit organization. Daniel Shiffman joined Casey Reas and Ben Fry as a third project lead, supporting the community and expanding educational efforts."}, "group": "Organizations & Education", "notes": "The Foundation supports Processing, p5.js, and related projects while promoting software literacy."},
-                {"start_date": {"year": "2013", "month": "1", "display_date": "2013"}, "text": {"headline": "p5.js Created", "text": "Lauren McCarthy created p5.js as a new interpretation of Processing for the modern web. Unlike Processing.js (a direct port), p5.js was designed from the ground up for JavaScript and HTML5 integration."}, "group": "Processing & p5.js", "notes": "p5.js was designed to be native to JavaScript and work seamlessly with HTML5 features like video, audio, and DOM elements."},
-                {"start_date": {"year": "2014", "month": "1", "display_date": "2014"}, "text": {"headline": "p5.js First Public Release", "text": "p5.js had its first public release, making it available to the broader creative coding community. The library emphasized accessibility, inclusivity, and ease of use for artists, designers, and beginners."}, "group": "Processing & p5.js", "notes": "p5.js quickly gained adoption in educational settings and creative coding communities worldwide."},
+                {"start_date": {"year": "2012", "month": "8", "day": "1", "display_date": "August 1, 2012"}, "text": {"headline": "Chrome 21 Adds getUserMedia", "text": "Google Chrome 21 became the first major browser to support the getUserMedia API, enabling web applications to access webcams and microphones without plugins. This was a critical step toward WebRTC and browser-based multimedia."}, "group": "Web Standards", "notes": "getUserMedia eliminated the need for Flash or Silverlight plugins to access camera and microphone in web browsers."},
+                {"start_date": {"year": "2013", "month": "1", "display_date": "2013"}, "text": {"headline": "p5.js Created", "text": "Lauren McCarthy created p5.js as a new interpretation of Processing for the modern web. Unlike Processing.js (a direct port), p5.js was designed from the ground up for JavaScript and HTML5 integration."}, "group": "p5.js", "notes": "p5.js was designed to be native to JavaScript and work seamlessly with HTML5 features like video, audio, and DOM elements."},
+                {"start_date": {"year": "2014", "month": "1", "display_date": "2014"}, "text": {"headline": "p5.js First Public Release", "text": "p5.js had its first public release, making it available to the broader creative coding community. The library emphasized accessibility, inclusivity, and ease of use for artists, designers, and beginners."}, "group": "p5.js", "notes": "p5.js quickly gained adoption in educational settings and creative coding communities worldwide."},
                 {"start_date": {"year": "2014", "month": "10", "day": "28", "display_date": "October 28, 2014"}, "text": {"headline": "HTML5 Becomes W3C Recommendation", "text": "HTML5 was officially published as a W3C Recommendation, marking its status as a stable, mature web standard. This solidified Canvas and other APIs as the future of web graphics."}, "group": "Web Standards", "notes": "The finalization of HTML5 provided a stable foundation for creative coding libraries like p5.js."},
-                {"start_date": {"year": "2015", "month": "10", "display_date": "October 2015"}, "text": {"headline": "'Getting Started with p5.js' Published", "text": "The book 'Getting Started with p5.js' was published by Make: Media, authored by Lauren McCarthy, Casey Reas, and Ben Fry. It provided an accessible introduction to creative coding with p5.js."}, "group": "Processing & p5.js", "notes": "The book brought together the creators of Processing and p5.js to support the new library's educational mission."},
-                {"start_date": {"year": "2018", "month": "12", "display_date": "December 2018"}, "text": {"headline": "Processing.js Deprecated", "text": "Processing.js was officially deprecated after 10 years of service. The community transitioned to p5.js, which had become the preferred JavaScript solution for Processing-style creative coding."}, "group": "Related Projects", "notes": "Processing.js had ported over 100,000 sketches from Java to JavaScript during its decade of operation."},
-                {"start_date": {"year": "2020", "month": "2", "display_date": "February 2020"}, "text": {"headline": "p5.js 1.0 Released", "text": "After nearly 7 years of development, p5.js 1.0 was officially released. The milestone version included the Friendly Error System (FES), internationalization support, merged DOM library, and comprehensive unit tests."}, "group": "Processing & p5.js", "notes": "Kate Hollenbach led the roadmap effort that guided the project to its 1.0 release."},
-                {"start_date": {"year": "2020", "month": "12", "day": "10", "display_date": "December 10, 2020"}, "text": {"headline": "Adobe Flash End of Life", "text": "Adobe Flash Player reached its official end of life, marking the complete transition to HTML5 Canvas and WebGL for web-based graphics and animation."}, "group": "Web Standards", "notes": "Flash's demise validated the open web standards approach that p5.js and similar libraries had embraced."},
-                {"start_date": {"year": "2021", "month": "8", "day": "9", "display_date": "August 9, 2021"}, "text": {"headline": "Processing 20th Anniversary", "text": "Processing celebrated its 20th anniversary since the first software release. Over two decades, it had promoted software literacy within the visual arts and visual literacy within technology."}, "group": "Processing & p5.js", "notes": "The anniversary marked two decades of impact on creative coding education and digital art."},
-                {"start_date": {"year": "2024", "month": "1", "display_date": "2024"}, "text": {"headline": "p5.js 2.0 Development Begins", "text": "Development work began on p5.js 2.0, promising modernized architecture, improved performance, and new features while maintaining the library's commitment to accessibility and ease of use."}, "group": "Processing & p5.js", "notes": "p5.js 2.0 aims to bring the library into a new era while preserving backward compatibility through addons."}
+                {"start_date": {"year": "2015", "month": "10", "display_date": "October 2015"}, "text": {"headline": "'Getting Started with p5.js' Published", "text": "The book 'Getting Started with p5.js' was published by Make: Media, authored by Lauren McCarthy, Casey Reas, and Ben Fry. It provided an accessible introduction to creative coding with p5.js."}, "group": "p5.js", "notes": "The book brought together the creators of Processing and p5.js to support the new library's educational mission."},
+                {"start_date": {"year": "2016", "month": "5", "display_date": "May 2016"}, "text": {"headline": "Media Capture API Reaches W3C Candidate Recommendation", "text": "The Media Capture and Streams specification (getUserMedia API) reached W3C Candidate Recommendation status. This API defines how web applications access cameras and microphones, enabling p5.js sound and video input features."}, "group": "Web Standards", "notes": "This specification standardized MediaStreamTracks and getUserMedia(), providing a stable foundation for browser-based audio/video capture."},
+                {"start_date": {"year": "2018", "month": "12", "display_date": "December 2018"}, "text": {"headline": "Processing.js Deprecated", "text": "Processing.js was officially deprecated after 10 years of service. The community transitioned to p5.js, which had become the preferred JavaScript solution for Processing-style creative coding."}, "group": "Processing", "notes": "Processing.js had ported over 100,000 sketches from Java to JavaScript during its decade of operation."},
+                {"start_date": {"year": "2020", "month": "2", "display_date": "February 2020"}, "text": {"headline": "p5.js 1.0 Released", "text": "After nearly 7 years of development, p5.js 1.0 was officially released. The milestone version included the Friendly Error System (FES), internationalization support, merged DOM library, and comprehensive unit tests."}, "group": "p5.js", "notes": "Kate Hollenbach led the roadmap effort that guided the project to its 1.0 release."},
+                {"start_date": {"year": "2020", "month": "12", "day": "10", "display_date": "December 10, 2020"}, "text": {"headline": "Adobe Flash End of Life", "text": "Adobe Flash Player reached its official end of life, marking the complete transition to HTML5 Canvas and WebGL for web-based graphics and animation."}, "group": "Related Projects", "notes": "Flash's demise validated the open web standards approach that p5.js and similar libraries had embraced."},
+                {"start_date": {"year": "2021", "month": "1", "day": "26", "display_date": "January 26, 2021"}, "text": {"headline": "WebRTC 1.0 Becomes W3C Recommendation", "text": "WebRTC 1.0 was published as a W3C Recommendation and IETF standard, enabling real-time audio and video communication directly in web browsers. This standardized peer-to-peer media streaming for the web."}, "group": "Web Standards", "notes": "WebRTC transformed web communications, especially during the pandemic, enabling video conferencing without plugins."},
+                {"start_date": {"year": "2021", "month": "6", "day": "17", "display_date": "June 17, 2021"}, "text": {"headline": "Web Audio API Becomes W3C Recommendation", "text": "The Web Audio API was published as a W3C Recommendation after 11 years of development. This high-level JavaScript API enables creating, shaping, and processing audio directly in web browsers."}, "group": "Web Standards", "notes": "Web Audio API powers p5.js sound features, enabling music creation, sound effects, and audio visualization in creative coding."},
+                {"start_date": {"year": "2021", "month": "8", "day": "9", "display_date": "August 9, 2021"}, "text": {"headline": "Processing 20th Anniversary", "text": "Processing celebrated its 20th anniversary since the first software release. Over two decades, it had promoted software literacy within the visual arts and visual literacy within technology."}, "group": "Processing", "notes": "The anniversary marked two decades of impact on creative coding education and digital art."},
+                {"start_date": {"year": "2024", "month": "1", "display_date": "2024"}, "text": {"headline": "p5.js 2.0 Development Begins", "text": "Development work began on p5.js 2.0, promising modernized architecture, improved performance, and new features while maintaining the library's commitment to accessibility and ease of use."}, "group": "p5.js", "notes": "p5.js 2.0 aims to bring the library into a new era while preserving backward compatibility through addons."}
             ]
         };
 
@@ -402,10 +131,10 @@
             // Timeline options
             const options = {
                 width: '100%',
-                height: '500px',
+                height: '350px',
                 margin: {
-                    item: 20,
-                    axis: 40
+                    item: 10,
+                    axis: 25
                 },
                 orientation: 'top',
                 zoomMin: 1000 * 60 * 60 * 24 * 365 * 5,  // 5 years
