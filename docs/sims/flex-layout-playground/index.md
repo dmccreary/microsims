@@ -10,7 +10,7 @@ social:
 
 # Flex Layout Playground
 
-<iframe src="main.html" height="462px" width="100%" scrolling="no"></iframe>
+<iframe src="main.html" height="472px" width="100%" scrolling="no"></iframe>
 
 [Run the Flex Layout Playground MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
