@@ -13,6 +13,7 @@ social:
 <iframe src="main.html" height="472px" width="100%" scrolling="no"></iframe>
 
 [Run the Flex Layout Playground MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
+[Edit the Flex Layout Playground MicroSim with the P5.js Editor](https://editor.p5js.org/dmccreary/sketches/5FrNeeAkP)
 
 ## About This MicroSim
 

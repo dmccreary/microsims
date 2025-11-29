@@ -14,7 +14,7 @@ social:
 
 [Run the CSS Box Model MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 <br/>
-[Edit the CSS Box Model MicroSim in the p5.js Editor](https://editor.p5js.org/)
+[Edit the CSS Box Model MicroSim in the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/dQzTn6YSn)
 
 ## About This MicroSim
 
