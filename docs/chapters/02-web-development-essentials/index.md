@@ -250,9 +250,14 @@ Every HTML element is a rectangular box with four layers that affect spacing. Th
 
 #### Diagram: CSS Box Model Interactive
 
+<iframe src="../../sims/css-box-model/main.html" height="502px" width="100%" scrolling="no" style="border: none; overflow: hidden;"></iframe>
+
+[Run the CSS Box Model MicroSim Fullscreen](../../sims/css-box-model/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
     <summary>CSS Box Model Interactive</summary>
     Type: microsim
+    Status: done
 
     Bloom Taxonomy: Understand
 
@@ -384,9 +389,9 @@ CSS positioning is where vocabulary becomes absolutely critical. There are sever
 
     Learning Objective: Allow learners to experiment with flexbox properties and see immediate visual results, building intuition for layout vocabulary
 
-    Canvas layout (600x500px):
-    - Drawing region (600x350px): Visual demonstration of flexbox container with items
-    - Control region (600x150px): Dropdowns and controls
+    Canvas layout 500px high width responsive:
+    - Drawing region 350px high: Visual demonstration of flexbox container with items
+    - Control region 150px high: Dropdowns and controls
 
     Visual elements in drawing region:
     - A container rectangle (the flex container) with visible border

@@ -1,0 +1,114 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Flex Layout Playground",
+      "creator": ["Claude AI", "Dan McCreary"],
+      "subject": ["Web Development", "CSS", "Flexbox", "Layout"],
+      "description": "An interactive MicroSim for experimenting with CSS flexbox properties and seeing immediate visual results to build intuition for layout vocabulary.",
+      "date": "2025-11-28",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "language": "en",
+      "rights": "CC BY 4.0"
+    },
+    "educational": {
+      "gradeLevel": "High School (9-12)",
+      "subjectArea": "Computer Science",
+      "topic": "CSS Flexbox Layout",
+      "learningObjectives": [
+        "Identify how flex-direction controls the main axis orientation",
+        "Predict how justify-content distributes items along the main axis",
+        "Explain the difference between align-items options",
+        "Apply appropriate flexbox properties to achieve desired layouts",
+        "Translate visual layouts into CSS code"
+      ],
+      "bloomsTaxonomyLevel": "Apply",
+      "duration": "15-20 minutes",
+      "prerequisites": ["Basic HTML understanding", "Familiarity with CSS syntax"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "canvasDimensions": "responsive x 500",
+      "responsive": "Width-responsive",
+      "dependencies": ["p5.js 1.11.10"],
+      "accessibility": ["describe() function for screen readers", "High contrast colors"]
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "type": "dropdown",
+          "name": "directionSelect",
+          "label": "Direction",
+          "options": ["row", "row-reverse", "column", "column-reverse"],
+          "default": "row",
+          "description": "Sets flex-direction property"
+        },
+        {
+          "type": "dropdown",
+          "name": "justifySelect",
+          "label": "Justify",
+          "options": ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"],
+          "default": "flex-start",
+          "description": "Sets justify-content property"
+        },
+        {
+          "type": "dropdown",
+          "name": "alignSelect",
+          "label": "Align",
+          "options": ["flex-start", "flex-end", "center", "stretch", "baseline"],
+          "default": "stretch",
+          "description": "Sets align-items property"
+        },
+        {
+          "type": "checkbox",
+          "name": "wrapCheckbox",
+          "label": "Wrap",
+          "default": false,
+          "description": "Toggles flex-wrap between wrap and nowrap"
+        },
+        {
+          "type": "slider",
+          "name": "gapSlider",
+          "label": "Gap",
+          "min": 0,
+          "max": 30,
+          "default": 10,
+          "step": 1,
+          "unit": "px",
+          "description": "Sets gap between flex items"
+        },
+        {
+          "type": "button",
+          "name": "addButton",
+          "label": "Add Item",
+          "description": "Adds a new flex item (max 6)"
+        },
+        {
+          "type": "button",
+          "name": "removeButton",
+          "label": "Remove",
+          "description": "Removes the last flex item (min 1)"
+        },
+        {
+          "type": "button",
+          "name": "copyButton",
+          "label": "Copy CSS",
+          "description": "Copies generated CSS to clipboard"
+        }
+      ]
+    },
+    "simulation": {
+      "modelType": "Visual demonstration",
+      "variables": [
+        "flexDirection",
+        "justifyContent",
+        "alignItems",
+        "flexWrap",
+        "gap",
+        "numItems"
+      ],
+      "assumptions": "Simplified flexbox behavior for educational purposes",
+      "limitations": "Does not demonstrate all flexbox properties (e.g., flex-grow, flex-shrink, flex-basis, align-content)"
+    }
+  }
+}
