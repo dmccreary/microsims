@@ -31,27 +31,27 @@ let hoveredLayer = null;
 function setup() {
   updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
-  canvas.parent(document.querySelector('main'));
+  var mainElement = document.querySelector('main');
+  canvas.parent(mainElement);
 
   // Create sliders
   let sliderY = drawHeight + 15;
   let sliderSpacing = 25;
 
   marginSlider = createSlider(0, 50, 20, 1);
-  marginSlider.position(sliderLeftMargin, sliderY);
-  marginSlider.size(canvasWidth - sliderLeftMargin - margin);
+  marginSlider.style('width', (canvasWidth - sliderLeftMargin - margin) + 'px');
 
   borderSlider = createSlider(0, 20, 3, 1);
-  borderSlider.position(sliderLeftMargin, sliderY + sliderSpacing);
-  borderSlider.size(canvasWidth - sliderLeftMargin - margin);
+  borderSlider.style('width', (canvasWidth - sliderLeftMargin - margin) + 'px');
 
   paddingSlider = createSlider(0, 50, 15, 1);
-  paddingSlider.position(sliderLeftMargin, sliderY + sliderSpacing * 2);
-  paddingSlider.size(canvasWidth - sliderLeftMargin - margin);
+  paddingSlider.style('width', (canvasWidth - sliderLeftMargin - margin) + 'px');
 
   contentSlider = createSlider(50, 200, 120, 1);
-  contentSlider.position(sliderLeftMargin, sliderY + sliderSpacing * 3);
-  contentSlider.size(canvasWidth - sliderLeftMargin - margin);
+  contentSlider.style('width', (canvasWidth - sliderLeftMargin - margin) + 'px');
+
+  // Position sliders below canvas
+  repositionSliders();
 
   describe('Interactive CSS Box Model visualization showing how margin, border, padding, and content determine element size', LABEL);
 }
@@ -377,19 +377,40 @@ function drawTooltip() {
 function windowResized() {
   updateCanvasSize();
   resizeCanvas(canvasWidth, canvasHeight);
+  repositionSliders();
 }
 
 function updateCanvasSize() {
   const container = document.querySelector('main');
   if (container) {
-    canvasWidth = min(container.offsetWidth, 550);
+    canvasWidth = container.offsetWidth;
 
     // Resize sliders
     if (typeof marginSlider !== 'undefined') {
-      marginSlider.size(canvasWidth - sliderLeftMargin - margin);
-      borderSlider.size(canvasWidth - sliderLeftMargin - margin);
-      paddingSlider.size(canvasWidth - sliderLeftMargin - margin);
-      contentSlider.size(canvasWidth - sliderLeftMargin - margin);
+      let sliderWidth = canvasWidth - sliderLeftMargin - margin;
+      marginSlider.style('width', sliderWidth + 'px');
+      borderSlider.style('width', sliderWidth + 'px');
+      paddingSlider.style('width', sliderWidth + 'px');
+      contentSlider.style('width', sliderWidth + 'px');
     }
   }
+}
+
+function repositionSliders() {
+  // Get the canvas position
+  const canvas = document.querySelector('main canvas');
+  if (!canvas) return;
+
+  const canvasRect = canvas.getBoundingClientRect();
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
+
+  let sliderY = canvasRect.top + scrollTop + drawHeight + 15;
+  let sliderX = canvasRect.left + scrollLeft + sliderLeftMargin;
+  let sliderSpacing = 25;
+
+  marginSlider.position(sliderX, sliderY);
+  borderSlider.position(sliderX, sliderY + sliderSpacing);
+  paddingSlider.position(sliderX, sliderY + sliderSpacing * 2);
+  contentSlider.position(sliderX, sliderY + sliderSpacing * 3);
 }
