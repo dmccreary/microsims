@@ -379,11 +379,16 @@ CSS positioning is where vocabulary becomes absolutely critical. There are sever
 | Stack vertically | "display flex, flex-direction column" |
 | Add space between items | "gap 15px" or "add gap between flex items" |
 
-#### Diagram: Flexbox Layout Playground
+#### Diagram: Flex Layout Playground
+
+<iframe src="../../sims/flex-layout-playground/main.html" height="472px" width="100%" scrolling="no" style="border: none; overflow: hidden;"></iframe>
+
+[Run the Flex Layout Playground MicroSim Fullscreen](../../sims/flex-layout-playground/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
     <summary>Flexbox Layout Playground</summary>
     Type: microsim
+    Status: done
 
     Bloom Taxonomy: Apply
 
