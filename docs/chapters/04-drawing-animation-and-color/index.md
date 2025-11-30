@@ -10,7 +10,7 @@ version: 0.03
 
 ## Summary
 
-This chapter expands your p5.js skills with drawing primitives, text rendering, and color theory. You will learn to use stroke() for outlines, rect() for rectangles, ellipse() for circles and ovals, and line() for connecting points. The chapter covers text display with text(), textSize(), and textAlign() functions, and explores shape rendering techniques. You will also develop a deeper understanding of color theory and how to apply it effectively in your simulations.
+This chapter expands your p5.js skills with drawing primitives, text rendering, and color theory. You will learn to use `stroke()` for outlines, `rect()` for rectangles, `ellipse()` for circles and ovals, and `line()` for connecting points. The chapter covers text display with `text()`, `textSize()`, and `textAlign()` functions, and explores shape rendering techniques. You will also develop a deeper understanding of color theory and how to apply it effectively in your simulations.
 
 ## Concepts Covered
 
@@ -43,6 +43,22 @@ In p5.js, everything you see on the canvas is built from simple building blocks 
 
 !!! tip "The Joy of Color"
     Color isn't just decoration—it's communication. The right colors can highlight important data, guide attention, create mood, and make learning more engaging. This chapter gives you complete control over the rainbow!
+
+To get us started, try moving the slider in the MicroSim below.  Note that as you move the slider the
+color swatch chances and it will show you three numbers.  These are the red, green and blue color values
+that make up the current color.
+
+#### Drawing: Rainbow Color Picker
+
+<iframe src="../../sims/rainbow-color-picker/main.html" height="122px" width="100%" scrolling="no"></iframe>
+[Run the Rainbow Color Picker Fullscreen](../../sims/rainbow-color-picker/main.html)
+<details>
+Use the microsim-py skill to create a new microsim that displays a horizontal band of all the colors in 
+the rainbow starting with red on the left.  Add a slider in the control region that allows the user to 
+change the color of a color swatch to the left in the control region.  Display the R,G,B values to the 
+right of the swatch and to the left of the slider.  Draw a thin black rectangle outline in the rainbow 
+over the current color. 
+</details>
 
 ## Drawing Primitives: Your Visual Vocabulary
 
@@ -104,11 +120,21 @@ Adding a fifth parameter creates rounded corners—perfect for modern, friendly-
 
 ```javascript
 rect(x, y, width, height, radius);        // All corners same radius
+```
+
+You can even control the roundness of each individual corner by adding for numbers after the height!
+
+```javascript
 rect(x, y, width, height, tl, tr, br, bl); // Individual corner radii
 ```
 
+At Apple computer, Steve Jobs was famous for his instance that boxes on the Macintosh user interface
+had the ability to have smooth rounded corners.  Research has proven that users prefer rounded
+corners to sharp corners.  We encourage you to use this feature for ascetically pleasing designs.
+
 !!! info "Rectangle Mode"
-    By default, `rect()` uses the top-left corner as the reference point. You can change this with `rectMode(CENTER)` to draw rectangles from their center—useful for centering shapes easily.
+    By default, `rect()` uses the top-left corner as the reference point. You can change this with `rectMode(CENTER)` to draw rectangles from their center—useful for centering shapes easily.  Just be warned, if you make this
+    change the rest of the `rect()` is your drawing will also do this until you change it back to the `rectMode(CORNER)` default value.
 
 ## Ellipses with ellipse()
 
@@ -139,31 +165,41 @@ ellipse(200, 150, 100, 100);  // Circle using ellipse
 circle(200, 150, 100);         // Circle using circle() - diameter is 100
 ```
 
-### Colorful Ellipse Examples
+Using `circle()` makes your code a little easier to read, so it is preferred. 
+
+### Colorful Circle Examples
+
+Here is an example of drawing file colored circles on a black background
 
 ```javascript
+// draw five colored circles on a black background
+let yPos = 75;
+let radius = 60;
 function setup() {
-  createCanvas(400, 300);
-  background(20, 20, 40);  // Dark background for color pop
+  createCanvas(400, 150);
+  background('black');  // Dark background for color pop
   noStroke();
 
   // Rainbow circles
-  fill(255, 0, 0);      // Red
-  circle(80, 150, 60);
+  // add 60 to the x position of each new circle
+  fill('red');
+  circle(80, yPos, radius);
 
-  fill(255, 127, 0);    // Orange
-  circle(140, 150, 60);
+  fill('orange');
+  circle(140, yPos, radius);
 
-  fill(255, 255, 0);    // Yellow
-  circle(200, 150, 60);
+  fill('yellow');
+  circle(200, yPos, radius);
 
-  fill(0, 255, 0);      // Green
-  circle(260, 150, 60);
+  fill('green');
+  circle(260, yPos, radius);
 
-  fill(0, 0, 255);      // Blue
-  circle(320, 150, 60);
+  fill('blue');
+  circle(320, yPos, radius);
 }
 ```
+![](five-circles.png)
+[Edit this drawing using the p5.js editor](https://editor.p5js.org/dmccreary/sketches/h62r4bFxA)
 
 ## Lines with line()
 
@@ -416,20 +452,34 @@ Now we arrive at the heart of this colorful chapter: **color theory**. Understan
 
 The color wheel is a circular arrangement of colors showing relationships between primary, secondary, and tertiary colors.
 
-#### Diagram: Interactive Color Wheel
+### Named Colors
 
+In addition to setting a color with an RGB or HSB value, P5.js also allow you to
+set the color using named colors.
+
+#### Drawing: Named Colors
+
+<iframe src="../../sims/color-wheel-with-named-colors" width="100%" height="600" scrolling="no"><iframe>
+
+### Color Harmonies
+
+#### Diagram: Interactive Color Wheel Harmonies
+
+<iframe src="../../sims/color-wheel/main.html" height="652px" width="100%" scrolling="no"></iframe>
+[Run the Color Wheel Fullscreen](../../sims/color-wheel/main.html)
 <details markdown="1">
     <summary>Interactive Color Wheel Explorer</summary>
     Type: microsim
+    Status: Done
 
     Learning objective: Help students understand color relationships (complementary, analogous, triadic) through interactive exploration (Bloom: Understand, Analyze)
 
     Canvas layout:
-    - Drawing area: 400x350 pixels with dark gray background
+    - Drawing area: 600 pixels high with aliceblue background
     - Control area: 50 pixels for mode selection
 
     Visual elements:
-    - Large color wheel (300px diameter) in center
+    - Large color wheel (500px diameter) in center
     - 12 color segments representing primary, secondary, tertiary colors
     - Interactive selector dot that moves around wheel
     - Display of selected color's RGB values
@@ -474,8 +524,6 @@ The color wheel is a circular arrangement of colors showing relationships betwee
 
     Implementation: p5.js with HSB color mode for easy angle-based color selection
 </details>
-
-### Color Harmonies
 
 Color harmonies are combinations of colors that are aesthetically pleasing. Here are the most useful harmonies for MicroSim design:
 

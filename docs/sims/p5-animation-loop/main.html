@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js Animation Loop Cycle</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+flowchart TD
+    Start("Program Starts"):::startNode
+    Setup["setup() runs once"]:::setupNode
+    Draw["draw() runs"]:::drawNode
+    Wait["Wait for next frame"]:::waitNode
+    FrameCount["frameCount++"]:::processNode
+
+    Start --> Setup
+    Setup --> Draw
+    Draw --> Wait
+    Wait -->|"~16.7ms at 60fps"| FrameCount
+    FrameCount --> Draw
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef setupNode fill:#4a90d9,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef drawNode fill:#48bb78,stroke:#333,stroke-width:3px,color:#fff,font-size:16px
+    classDef waitNode fill:#9f7aea,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef processNode fill:#ed8936,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+
+    linkStyle default stroke:#666,stroke-width:2px,font-size:16px
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

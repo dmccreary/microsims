@@ -1,0 +1,67 @@
+/* p5.js Animation Loop Diagram Stylesheet */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding-left: 20px;
+}
+
+.mermaid {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.mermaid .node text,
+.mermaid .edgeLabel text {
+    font-size: 16px !important;
+}
+
+.mermaid .node {
+    cursor: pointer;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    max-width: 250px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tooltip.visible {
+    opacity: 1;
+}
+
+/* Arrow points left (tooltip appears to the right of node) */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    margin-top: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent;
+}

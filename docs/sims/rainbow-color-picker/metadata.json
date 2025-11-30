@@ -1,0 +1,71 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Rainbow Color Picker",
+      "creator": ["Claude AI", "Dan McCreary"],
+      "subject": ["Computer Graphics", "Color Theory", "Digital Art"],
+      "description": "An interactive simulation displaying a horizontal rainbow band with a slider to select colors. Shows a color swatch and RGB values for the selected hue.",
+      "date": "2025-11-29",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "language": "en",
+      "rights": "CC BY 4.0"
+    },
+    "educational": {
+      "gradeLevel": "Middle School (6-8), High School (9-12)",
+      "subjectArea": "Computer Science, Art, Physics",
+      "topic": "Color Models, RGB, HSB, Visible Spectrum",
+      "learningObjectives": [
+        "Understand the visible light spectrum and its representation as a rainbow",
+        "Learn the relationship between HSB and RGB color models",
+        "Identify RGB values for primary and secondary colors",
+        "Explore how colors transition smoothly in digital representations"
+      ],
+      "bloomsTaxonomy": ["Remember", "Understand", "Apply", "Analyze"],
+      "duration": "5-10 minutes",
+      "prerequisites": ["Basic understanding of colors", "Familiarity with sliders"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "canvasDimensions": "400x350 (responsive width)",
+      "responsive": "Width-responsive",
+      "dependencies": ["p5.js CDN"],
+      "accessibility": ["describe() function for screen readers", "High contrast colors"]
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "type": "slider",
+          "name": "colorSlider",
+          "label": "Color Selection",
+          "min": 0,
+          "max": 360,
+          "default": 0,
+          "step": 1,
+          "description": "Select a hue value from 0 to 360 degrees"
+        }
+      ]
+    },
+    "simulation": {
+      "modelType": "Color visualization",
+      "variables": [
+        {
+          "name": "selectedHue",
+          "description": "Current hue value (0-360)",
+          "range": "0-360"
+        }
+      ],
+      "equations": [
+        "RGB = HSB_to_RGB(hue, 100%, 100%)"
+      ],
+      "assumptions": [
+        "Full saturation and brightness for pure spectral colors",
+        "Linear mapping of hue to horizontal position"
+      ],
+      "limitations": [
+        "Does not show variations in saturation or brightness",
+        "Digital rainbow differs from natural continuous spectrum"
+      ]
+    }
+  }
+}
