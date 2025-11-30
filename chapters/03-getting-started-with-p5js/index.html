@@ -1657,6 +1657,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2095,6 +2101,15 @@
   <a href="#creating-your-first-canvas" class="md-nav__link">
     <span class="md-ellipsis">
       Creating Your First Canvas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-it-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Out
     </span>
   </a>
   
@@ -2557,6 +2572,29 @@ Implementation: vis-timeline JavaScript library
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>This single line creates a 400×400 pixel canvas—your digital playground for creative coding. The function also returns a canvas object that you can manipulate further, such as positioning it within a specific HTML container.</p>
+<h3 id="try-it-out">Try It Out</h3>
+<p>This tutorial is designed to work with the beautiful web-based p5.js text editor.  To
+try out any example, just click on the "copy to clipboard" icon in the upper right corner
+of any code example.  The just paste your code into the editor and select the "Play Sketch" 
+button to test your code.  Try running the program below:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// draw a blue circle at (200, 200) with a radius of 50</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="understanding-pixels-and-the-coordinate-system">Understanding Pixels and the Coordinate System</h2>
 <p>A <strong>pixel</strong> (short for "picture element") is the smallest addressable point on your canvas. Each pixel has a specific location defined by its coordinates, and every pixel can display a single color at any given moment.</p>
 <h3 id="the-p5js-coordinate-system">The p5.js Coordinate System</h3>
@@ -2776,6 +2814,11 @@ Implementation: p5.js with mouseX/mouseY tracking
 <td>Initialization code</td>
 <td>Main game loop</td>
 </tr>
+<tr>
+<td>MicroPython</td>
+<td>Initialization code</td>
+<td><code>main()</code></td>
+</tr>
 </tbody>
 </table>
 <p>Once you master this pattern in p5.js, you'll recognize it everywhere!</p>
@@ -2886,6 +2929,8 @@ Implementation: p5.js with mouseX/mouseY tracking
 </ul>
 <p>You can also check the current frame rate during execution using the <code>frameRate()</code> function without arguments, and the <code>frameCount</code> variable tells you how many frames have been drawn since the program started.</p>
 <h4 id="diagram-animation-loop-cycle">Diagram: Animation Loop Cycle</h4>
+<iframe src="../../sims/p5-animation-loop/main.html" width="100%" height="550px" scrolling="no"></iframe>
+<p>Hover over each item to see the description.</p>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -2952,7 +2997,7 @@ Implementation: Mermaid.js flowchart or p5.js static diagram
 </details>
 <h2 id="putting-it-all-together-your-first-complete-sketch">Putting It All Together: Your First Complete Sketch</h2>
 <p>Let's combine everything we've learned into a complete, working p5.js sketch. This example demonstrates all 14 concepts from this chapter:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -3074,11 +3119,19 @@ Implementation: Mermaid.js flowchart or p5.js static diagram
 <span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="nx">frameInfo</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">30</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+<a href="https://editor.p5js.org/dmccreary/sketches/vWPFIH0Nw">Run the Bouncing Ball Visualization using the p5.js editor</a></p>
 <p>This simple bouncing ball animation demonstrates every concept we've covered. The joy of p5.js is that with just these fundamentals, you can create endless variations and increasingly sophisticated simulations!</p>
 <h2 id="microsim-sound-visualization-with-fft">MicroSim: Sound Visualization with FFT</h2>
 <p>One of p5.js's most exciting features is its <strong>sound library</strong> (p5.sound), which includes a powerful <strong>FFT (Fast Fourier Transform)</strong> analyzer. FFT transforms audio signals into frequency data, letting you visualize sound in real-time.</p>
 <p>The following MicroSim demonstrates how just a few lines of code can create a mesmerizing audio visualization using your microphone:</p>
 <h4 id="diagram-fft-microphone-audio-visualizer">Diagram: FFT Microphone Audio Visualizer</h4>
+<iframe src="../../sims/fft-mic/main.html" height="450px" scrolling="no"></iframe>
+
+<p><a href="https://editor.p5js.org/dmccreary/sketches/hNfcbk7uS">Run FFT Microphone Audio Visualizer in under 30 lines in the p5.js Editor.</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>You must click in the canvas to run the p5.js version that runs in under 30 lines of code.</p>
 <details>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
