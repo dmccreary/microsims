@@ -1,0 +1,74 @@
+{
+  "microsim": {
+    "dublinCore": {
+      "title": "Color Wheel Harmonies",
+      "creator": ["Claude AI", "Dan McCreary"],
+      "subject": ["Art", "Design", "Color Theory"],
+      "description": "An interactive MicroSim for exploring color relationships including complementary, analogous, triadic, and split-complementary color harmonies through an interactive color wheel.",
+      "date": "2025-11-29",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "language": "en",
+      "rights": "CC BY 4.0"
+    },
+    "educational": {
+      "gradeLevel": "Middle School (6-8) to High School (9-12)",
+      "subjectArea": "Art and Design",
+      "topic": "Color Theory and Color Harmonies",
+      "learningObjectives": [
+        "Identify the 12 colors on a traditional color wheel",
+        "Understand how color relationships are determined by angular distance",
+        "Analyze why certain color combinations feel harmonious or tense",
+        "Apply color harmony principles to design choices",
+        "Compare the visual effects of different harmony modes"
+      ],
+      "bloomsTaxonomyLevel": ["Understand", "Analyze"],
+      "duration": "15-20 minutes",
+      "prerequisites": ["Basic understanding of primary and secondary colors", "Familiarity with the concept of hue"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "canvasDimensions": "responsive x 650",
+      "responsive": "Width-responsive",
+      "dependencies": ["p5.js 1.11.10"],
+      "accessibility": ["describe() function for screen readers", "High contrast color markers"]
+    },
+    "userInterface": {
+      "controls": [
+        {
+          "type": "dropdown",
+          "name": "harmonySelect",
+          "label": "Harmony Mode",
+          "options": ["Complementary", "Analogous", "Triadic", "Split-Complementary"],
+          "default": "Complementary",
+          "description": "Selects which color harmony relationship to display"
+        },
+        {
+          "type": "interaction",
+          "name": "wheelClick",
+          "description": "Click on the color wheel to select a base color"
+        },
+        {
+          "type": "interaction",
+          "name": "wheelDrag",
+          "description": "Drag around the wheel to change selection smoothly"
+        }
+      ]
+    },
+    "simulation": {
+      "modelType": "Visual demonstration",
+      "variables": [
+        "selectedAngle",
+        "harmonyMode"
+      ],
+      "equations": [
+        "Complementary: opposite = (selected + 180) % 360",
+        "Analogous: neighbors = selected ± 30",
+        "Triadic: thirds = selected + 120, selected + 240",
+        "Split-Complementary: splits = selected + 150, selected + 210"
+      ],
+      "assumptions": "Uses HSB color model with 360 degree hue wheel",
+      "limitations": "Does not account for perceptual color differences or pigment-based color mixing"
+    }
+  }
+}

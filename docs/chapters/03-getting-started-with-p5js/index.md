@@ -156,6 +156,25 @@ function setup() {
 
 This single line creates a 400×400 pixel canvas—your digital playground for creative coding. The function also returns a canvas object that you can manipulate further, such as positioning it within a specific HTML container.
 
+### Try It Out
+
+This tutorial is designed to work with the beautiful web-based p5.js text editor.  To
+try out any example, just click on the "copy to clipboard" icon in the upper right corner
+of any code example.  The just paste your code into the editor and select the "Play Sketch" 
+button to test your code.  Try running the program below:
+
+```javascript
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  // draw a blue circle at (200, 200) with a radius of 50
+  fill('blue')
+  circle(200, 200, 50);
+}
+```
+
 ## Understanding Pixels and the Coordinate System
 
 A **pixel** (short for "picture element") is the smallest addressable point on your canvas. Each pixel has a specific location defined by its coordinates, and every pixel can display a single color at any given moment.
@@ -293,6 +312,7 @@ This pattern is so fundamental that you'll find variations of it in many other f
 | Arduino | `setup()` | `loop()` |
 | Unity | `Start()` | `Update()` |
 | Pygame | Initialization code | Main game loop |
+| MicroPython | Initialization code | `main()` |
 
 Once you master this pattern in p5.js, you'll recognize it everywhere!
 
@@ -378,6 +398,8 @@ You can also check the current frame rate during execution using the `frameRate(
 
 #### Diagram: Animation Loop Cycle
 
+<iframe src="../../sims/p5-animation-loop/main.html" width="100%" height="550px" scrolling="no"></iframe>
+Hover over each item to see the description.
 <details markdown="1">
     <summary>Animation Loop Cycle Diagram</summary>
     Type: diagram
@@ -479,6 +501,7 @@ function draw() {
   text(frameInfo, 10, drawHeight + 30);
 }
 ```
+[Run the Bouncing Ball Visualization using the p5.js editor](https://editor.p5js.org/dmccreary/sketches/vWPFIH0Nw)
 
 This simple bouncing ball animation demonstrates every concept we've covered. The joy of p5.js is that with just these fundamentals, you can create endless variations and increasingly sophisticated simulations!
 
@@ -489,6 +512,13 @@ One of p5.js's most exciting features is its **sound library** (p5.sound), which
 The following MicroSim demonstrates how just a few lines of code can create a mesmerizing audio visualization using your microphone:
 
 #### Diagram: FFT Microphone Audio Visualizer
+
+<iframe src="../../sims/fft-mic/main.html" height="450px" scrolling="no"></iframe>
+
+[Run FFT Microphone Audio Visualizer in under 30 lines in the p5.js Editor.](https://editor.p5js.org/dmccreary/sketches/hNfcbk7uS)
+
+!!! note
+   You must click in the canvas to run the p5.js version that runs in under 30 lines of code.
 
 <details markdown="1">
     <summary>FFT Microphone Audio Visualizer MicroSim</summary>
