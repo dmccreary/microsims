@@ -59,6 +59,8 @@ Every MicroSim you create, and indeed every webpage you have ever visited, is bu
 When something goes wrong in your MicroSim, identifying which technology controls the problematic aspect helps you ask better questions. A slider in the wrong position? That is likely CSS or JavaScript canvas coordinates. Text not appearing? Could be HTML structure or JavaScript drawing commands. Animation too fast? Definitely JavaScript. This mental model of "which language handles what" is surprisingly powerful.
 
 #### Diagram: The Three Languages Working Together
+![Venn Diagram HTML CSS JS](venn-html-css-js.jpg)
+<!-- Created by Google Nano Bannana -->
 
 <details markdown="1">
     <summary>The Three Languages Working Together</summary>
