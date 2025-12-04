@@ -1,3 +1,12 @@
+---
+title: MicroSims for Education
+description: An intelligent textbook full of resources that teach you how to create and manage MicroSims for your classrooms.
+image: /img/cover.png
+og:image: /img/cover.png
+hide:
+  toc
+---
+
 # Micro Simulations for Education
 
 ![MicroSim Banner](./img/cover.png)
