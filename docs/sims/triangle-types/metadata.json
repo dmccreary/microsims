@@ -1,0 +1,195 @@
+{
+  "dublinCore": {
+    "title": "Triangle Type Explorer",
+    "creator": "Claude Code with Dan McCreary MicroSim Framework",
+    "subject": "Geometry, Triangle Classification",
+    "description": "An interactive MicroSim that allows students to explore triangle types by dragging vertices. Real-time classification by side lengths (Equilateral, Isosceles, Scalene) and angles (Acute, Right, Obtuse).",
+    "date": "2025-11-15",
+    "type": "Interactive Simulation",
+    "format": "text/html",
+    "language": "en",
+    "rights": "CC BY-NC-SA 4.0"
+  },
+  "educational": {
+    "gradeLevel": [
+      "Grade 6-8 (Middle School)",
+      "Grade 9-12 (High School)"
+    ],
+    "subjectArea": "Mathematics",
+    "topic": "Triangle Classification",
+    "learningObjectives": [
+      "Identify the three types of triangles based on side lengths (Equilateral, Isosceles, Scalene)",
+      "Recognize the three types of triangles based on angles (Acute, Right, Obtuse)",
+      "Understand the relationship between side lengths and triangle classification",
+      "Explore how changing vertex positions affects triangle properties",
+      "Apply classification knowledge to categorize triangles based on their characteristics"
+    ],
+    "bloomsTaxonomy": [
+      "Remember - Recall definitions of triangle types",
+      "Understand - Explain properties of different triangle types",
+      "Apply - Classify triangles based on measurements",
+      "Analyze - Determine how side lengths affect angles"
+    ],
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Understanding of basic geometry concepts (points, lines, triangles)",
+      "Familiarity with angle measurement in degrees",
+      "Basic understanding of congruence"
+    ],
+    "standards": [
+      "CCSS.MATH.CONTENT.7.G.A.2 - Draw triangles with given measurements",
+      "CCSS.MATH.CONTENT.HSG.CO.B.8 - Understand congruence in terms of rigid motions",
+      "CCSS.MATH.CONTENT.HSG.SRT.A.1 - Understand similarity in terms of similarity transformations"
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.11.1",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 510
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js (v1.11.1 from CDN)"
+    ],
+    "accessibility": [
+      "Keyboard support for vertex movement",
+      "Screen reader descriptions",
+      "High contrast colors",
+      "Large text (16pt minimum)"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "Interactive Vertices",
+        "description": "Three draggable red circles (A, B, C) that define the triangle vertices",
+        "interaction": "Click and drag to move vertices to any position",
+        "purpose": "Primary mechanism for exploring different triangle types"
+      }
+    ],
+    "displays": [
+      {
+        "name": "Triangle Classification Label",
+        "description": "Large text showing combined classification (e.g., 'Isosceles Right')",
+        "location": "Top center of canvas",
+        "textSize": "28px"
+      },
+      {
+        "name": "Side Lengths",
+        "description": "Displays measured distances between vertices",
+        "location": "Upper left of canvas",
+        "format": "Sides: a.a, b.b, c.c"
+      },
+      {
+        "name": "Angle Measures",
+        "description": "Displays calculated angles at each vertex",
+        "location": "Upper left of canvas, below side lengths",
+        "format": "Angles: A.a°, B.b°, C.c°"
+      },
+      {
+        "name": "Instructions",
+        "description": "Guidance text for user interaction",
+        "location": "Control area",
+        "textSize": "12px"
+      }
+    ]
+  },
+  "simulationModel": {
+    "type": "Geometric and Interactive Visualization",
+    "variables": [
+      {
+        "name": "Vertex A",
+        "description": "Position (x, y) of the first triangle vertex"
+      },
+      {
+        "name": "Vertex B",
+        "description": "Position (x, y) of the second triangle vertex"
+      },
+      {
+        "name": "Vertex C",
+        "description": "Position (x, y) of the third triangle vertex"
+      },
+      {
+        "name": "Side a",
+        "description": "Length of side opposite vertex A (BC)"
+      },
+      {
+        "name": "Side b",
+        "description": "Length of side opposite vertex B (AC)"
+      },
+      {
+        "name": "Side c",
+        "description": "Length of side opposite vertex C (AB)"
+      },
+      {
+        "name": "Angle A",
+        "description": "Angle at vertex A (in degrees)"
+      },
+      {
+        "name": "Angle B",
+        "description": "Angle at vertex B (in degrees)"
+      },
+      {
+        "name": "Angle C",
+        "description": "Angle at vertex C (in degrees)"
+      }
+    ],
+    "equations": [
+      {
+        "name": "Distance Formula",
+        "formula": "distance = √((x₂ - x₁)² + (y₂ - y₁)²)",
+        "purpose": "Calculate side lengths"
+      },
+      {
+        "name": "Law of Cosines",
+        "formula": "cos(A) = (b² + c² - a²) / (2bc)",
+        "purpose": "Calculate angles from side lengths"
+      }
+    ],
+    "assumptions": [
+      "Triangles are always valid (cannot become degenerate)",
+      "Measurements are rounded to one decimal place for display",
+      "Tolerance of 2 pixels used to determine if sides are 'equal'",
+      "Tolerance of 5 degrees used to determine if angle is 'right'"
+    ],
+    "limitations": [
+      "Does not prevent extremely distorted triangles",
+      "Does not show construction steps (purely exploratory)",
+      "Assumes Euclidean geometry (flat 2D space)"
+    ]
+  },
+  "pedagogicalNotes": {
+    "bestPractices": [
+      "Use as an exploration tool before formal instruction on triangle types",
+      "Have students predict triangle type before dragging vertices",
+      "Ask students to create specific triangle types within time limits",
+      "Use for homework practice and self-assessment",
+      "Connect to real-world examples of triangle types in structures"
+    ],
+    "assessmentOpportunities": [
+      "Can students identify triangle types from visual display?",
+      "Can students create specific triangle types on demand?",
+      "Do students understand relationships between sides and angles?",
+      "Can students explain why certain combinations are impossible (e.g., Equilateral Right)?"
+    ],
+    "commonMisconceptions": [
+      "Confusing side-based classification with angle-based classification",
+      "Thinking all right triangles are isosceles",
+      "Believing obtuse triangles cannot be isosceles",
+      "Not understanding that angles must sum to 180°"
+    ],
+    "extensions": [
+      "Calculate and display perimeter and area",
+      "Explore Triangle Inequality Theorem",
+      "Investigate special triangles (30-60-90, 45-45-90)",
+      "Connect to trigonometric ratios (sin, cos, tan)"
+    ]
+  },
+  "deployment": {
+    "iframeEmbed": "<iframe src=\"https://iowerx.github.io/intro-to-trig/sims/triangle-type-explorer/main.html\" height=\"512\" scrolling=\"no\"></iframe>",
+    "p5jsEditorLink": "https://editor.p5js.org/",
+    "notes": "Can be embedded in any website or learning management system. Code is fully compatible with p5.js editor for easy modification."
+  }
+}
