@@ -21,7 +21,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[A* Graph Search Algorithm](./a-star/index.md)**
 
-    ![A* Search](./thumbnails/a-star.png)
+    ![A* Search](./a-star/a-star.png)
     Visualization of the A* pathfinding algorithm on a grid.
 
 - **[AC Circuit MicroSim](./ac-circuit/index.md)**
@@ -31,7 +31,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[AI Benchmarks Timeline](./ai-benchmarks-timeline/index.md)**
 
-    ![AI Benchmarks](./thumbnails/ai-benchmarks-timeline.png)
+    ![AI Benchmarks](./ai-benchmarks-timeline/ai-benchmarks-timeline.png)
     Timeline of AI benchmark achievements and milestones.
 
 - **[Arithmetic Logic Unit (ALU)](./alu/index.md)**
@@ -51,17 +51,17 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Animated Wire MicroSim](./animated-wire/index.md)**
 
-    ![Animated Wire](./thumbnails/animated-wire.png)
+    ![Animated Wire](./animated-wire/animated-wire.png)
     Animated visualization of electrical current flow in a wire.
 
 - **[Background Grid Controls](./background-grid/index.md)**
 
-    ![Background Grid](./thumbnails/background-grid.png)
+    ![Background Grid](./background-grid/background-grid.png)
     Customizable background grid for MicroSim layouts.
 
 - **[Bouncing Ball in a Rotating Hexagon](./ball-in-rotating-hexagon/index.md)**
 
-    ![Ball in Hexagon](./thumbnails/ball-in-rotating-hexagon.png)
+    ![Ball in Hexagon](./ball-in-rotating-hexagon/ball-in-rotating-hexagon.png)
     Physics simulation of a ball bouncing inside a rotating hexagon.
 
 - **[Bathtub MicroSim](./bathtub/index.md)**
@@ -76,7 +76,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Battery Life Calculator](./battery-life/index.md)**
 
-    ![Battery Life](./thumbnails/battery-life.png)
+    ![Battery Life](./battery-life/battery-life.png)
     Calculate battery life based on capacity and current draw.
 
 - **[Breadth First Graph Search](./bfs/index.md)**
@@ -86,7 +86,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[BFS vs DFS](./bfs-vs-dfs/index.md)**
 
-    ![BFS vs DFS](./thumbnails/bfs-vs-dfs.png)
+    ![BFS vs DFS](./bfs-vs-dfs/bfs-vs-dfs.png)
     Side-by-side comparison of breadth-first and depth-first search.
 
 - **[Binary Number](./binary-number/index.md)**
@@ -96,7 +96,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Book Build Workflow](./book-gen-workflow/index.md)**
 
-    ![Book Workflow](./thumbnails/book-gen-workflow.png)
+    ![Book Workflow](./book-gen-workflow/book-gen-workflow.png)
     Workflow diagram for intelligent textbook generation.
 
 - **[Bouncing Ball](./bouncing-ball/index.md)**
@@ -111,12 +111,12 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Brownian Motion](./brownian-motion/index.md)**
 
-    ![Brownian Motion](./thumbnails/brownian-motion.png)
+    ![Brownian Motion](./brownian-motion/brownian-motion.png)
     Simulation of random particle movement.
 
 - **[Kinetic Molecular Theory](./chemistry/index.md)**
 
-    ![Chemistry](./thumbnails/chemistry.png)
+    ![Chemistry](./chemistry/chemistry.png)
     Visualization of molecular motion and kinetic theory.
 
 - **[Circle](./circle/index.md)**
@@ -141,17 +141,17 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Color Wheel Harmonies](./color-wheel/index.md)**
 
-    ![Color Wheel](./thumbnails/color-wheel.png)
+    ![Color Wheel](./color-wheel/color-wheel.png)
     Interactive color wheel with harmony rules.
 
 - **[Color Wheel with Named Colors](./color-wheel-with-named-colors/index.md)**
 
-    ![Color Wheel Named](./thumbnails/color-wheel-with-named-colors.png)
+    ![Color Wheel Named](./color-wheel-with-named-colors/color-wheel-with-named-colors.png)
     Color wheel featuring CSS named colors.
 
 - **[Conway's Game of Life](./conway-game-of-life/index.md)**
 
-    ![Game of Life](./thumbnails/conway-game-of-life.png)
+    ![Game of Life](./conway-game-of-life/conway-game-of-life.png)
     Classic cellular automaton simulation.
 
 - **[CSS Box Model Interactive](./css-box-model/index.md)**
@@ -166,32 +166,32 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Data Element Mapper MicroSim](./data-element-mapper/index.md)**
 
-    ![Data Mapper](./thumbnails/data-element-mapper.png)
+    ![Data Mapper](./data-element-mapper/data-element-mapper.png)
     Visual data element mapping tool.
 
 - **[FFT Butterfly MicroSim](./fft-butterfly/index.md)**
 
-    ![FFT Butterfly](./thumbnails/fft-butterfly.png)
+    ![FFT Butterfly](./fft-butterfly/fft-butterfly.png)
     Visualization of FFT butterfly computation pattern.
 
 - **[Microphone Frequency Visualization with FFT](./fft-mic/index.md)**
 
-    ![FFT Mic](./thumbnails/fft-mic.png)
+    ![FFT Mic](./fft-mic/fft-mic.png)
     Real-time audio frequency analysis using FFT.
 
 - **[FFT Microphone V2](./fft-mic-v2/index.md)**
 
-    ![FFT Mic V2](./thumbnails/fft-mic-v2.png)
+    ![FFT Mic V2](./fft-mic-v2/fft-mic-v2.png)
     Enhanced microphone frequency visualization.
 
 - **[Fibonacci Clock](./fibonacci-clock/index.md)**
 
-    ![Fibonacci Clock](./thumbnails/fibonacci-clock.png)
+    ![Fibonacci Clock](./fibonacci-clock/fibonacci-clock.png)
     Clock display using Fibonacci sequence encoding.
 
 - **[Flashcards App](./flashcards/index.md)**
 
-    ![Flashcards](./thumbnails/flashcards.png)
+    ![Flashcards](./flashcards/flashcards.png)
     Interactive flashcard study application.
 
 - **[Flex Layout Playground](./flex-layout-playground/index.md)**
@@ -206,17 +206,17 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Force Directed Graph](./force-directed-graph/index.md)**
 
-    ![Force Graph](./thumbnails/force-directed-graph.png)
+    ![Force Graph](./force-directed-graph/force-directed-graph.png)
     Interactive force-directed graph visualization.
 
 - **[Fourier](./fourier/index.md)**
 
-    ![Fourier](./thumbnails/fourier.png)
+    ![Fourier](./fourier/fourier.png)
     Fourier series and transform visualization.
 
 - **[Fractal Tree MicroSim](./fractal-tree/index.md)**
 
-    ![Fractal Tree](./thumbnails/fractal-tree.png)
+    ![Fractal Tree](./fractal-tree/fractal-tree.png)
     Recursive fractal tree generator.
 
 - **[Galton Board](./galton-board/index.md)**
@@ -226,7 +226,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Global Impact of MicroSims](./global-impact/index.md)**
 
-    ![Global Impact](./thumbnails/global-impact.png)
+    ![Global Impact](./global-impact/global-impact.png)
     Visualization of MicroSims educational reach.
 
 - **[Gold Star](./gold-star/index.md)**
@@ -236,7 +236,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Learning Graph Viewer](./graph-viewer/index.md)**
 
-    ![Graph Viewer](./thumbnails/graph-viewer.png)
+    ![Graph Viewer](./graph-viewer/graph-viewer.png)
     Interactive concept dependency graph explorer.
 
 - **[H-Bridge Circuit](./h-bridge/index.md)**
@@ -246,12 +246,12 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Koch Curve Fractal](./koch/index.md)**
 
-    ![Koch Curve](./thumbnails/koch.png)
+    ![Koch Curve](./koch/koch.png)
     Interactive Koch snowflake fractal generator.
 
 - **[Lady Bug Walk](./lady-bug-walk/index.md)**
 
-    ![Lady Bug](./thumbnails/lady-bug-walk.png)
+    ![Lady Bug](./lady-bug-walk/lady-bug-walk.png)
     Random walk simulation with a ladybug.
 
 - **[Larson Scanner](./larson-scanner/index.md)**
@@ -261,12 +261,12 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Concept Graph Prompt](./learning-graph/index.md)**
 
-    ![Learning Graph](./thumbnails/learning-graph.png)
+    ![Learning Graph](./learning-graph/learning-graph.png)
     Prompt engineering for learning graph generation.
 
 - **[Learning Modality Effectiveness](./learning-modality-effectiveness/index.md)**
 
-    ![Learning Modality](./thumbnails/learning-modality-effectiveness.png)
+    ![Learning Modality](./learning-modality-effectiveness/learning-modality-effectiveness.png)
     Comparison of different learning modalities.
 
 - **[Least Squares](./least-squares/index.md)**
@@ -286,7 +286,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Maze Generator](./maze-gen/index.md)**
 
-    ![Maze Gen](./thumbnails/maze-gen.png)
+    ![Maze Gen](./maze-gen/maze-gen.png)
     Procedural maze generation algorithms.
 
 - **[Maze Solver](./maze-solver/index.md)**
@@ -296,32 +296,32 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[AI-Assisted MicroSim Creation Workflow](./microsim-creation-workflow/index.md)**
 
-    ![MicroSim Workflow](./thumbnails/microsim-creation-workflow.png)
+    ![MicroSim Workflow](./microsim-creation-workflow/microsim-creation-workflow.png)
     Workflow for creating MicroSims with AI assistance.
 
 - **[MicroSim Growth Network Effect](./microsim-growth/index.md)**
 
-    ![MicroSim Growth](./thumbnails/microsim-growth.png)
+    ![MicroSim Growth](./microsim-growth/microsim-growth.png)
     Visualization of MicroSim adoption growth.
 
 - **[MicroSim Layout Architecture](./microsim-layout/index.md)**
 
-    ![MicroSim Layout](./thumbnails/microsim-layout.png)
+    ![MicroSim Layout](./microsim-layout/microsim-layout.png)
     Standard MicroSim layout patterns and architecture.
 
 - **[MicroSim Library Ecosystem](./microsim-library-ecosystem/index.md)**
 
-    ![Library Ecosystem](./thumbnails/microsim-library-ecosystem.png)
+    ![Library Ecosystem](./microsim-library-ecosystem/microsim-library-ecosystem.png)
     Overview of JavaScript libraries used in MicroSims.
 
 - **[MicroSim Uniqueness Interactive Venn Diagram](./microsim-uniqueness/index.md)**
 
-    ![MicroSim Uniqueness](./thumbnails/microsim-uniqueness.png)
+    ![MicroSim Uniqueness](./microsim-uniqueness/microsim-uniqueness.png)
     Venn diagram showing what makes MicroSims unique.
 
 - **[Mobile Compatible Buttons](./mobile-buttons/index.md)**
 
-    ![Mobile Buttons](./thumbnails/mobile-buttons.png)
+    ![Mobile Buttons](./mobile-buttons/mobile-buttons.png)
     Touch-friendly button patterns for mobile devices.
 
 - **[Rotating Motor](./motor/index.md)**
@@ -336,42 +336,42 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[NeoPixel Simulation](./neopixel/index.md)**
 
-    ![NeoPixel](./thumbnails/neopixel.png)
+    ![NeoPixel](./neopixel/neopixel.png)
     Addressable LED strip simulation.
 
 - **[Neural Network](./neural-network/index.md)**
 
-    ![Neural Network](./thumbnails/neural-network.png)
+    ![Neural Network](./neural-network/neural-network.png)
     Interactive neural network visualization.
 
 - **[OODA Loop](./ooda/index.md)**
 
-    ![OODA Loop](./thumbnails/ooda.png)
+    ![OODA Loop](./ooda/ooda.png)
     Observe-Orient-Decide-Act decision cycle diagram.
 
 - **[p5.js Animation Loop Cycle](./p5-animation-loop/index.md)**
 
-    ![p5 Animation](./thumbnails/p5-animation-loop.png)
+    ![p5 Animation](./p5-animation-loop/p5-animation-loop.png)
     Visualization of the p5.js draw loop.
 
 - **[p5.js Coordinate System](./p5-coordinate-system/index.md)**
 
-    ![p5 Coordinates](./thumbnails/p5-coordinate-system.png)
+    ![p5 Coordinates](./p5-coordinate-system/p5-coordinate-system.png)
     Interactive p5.js coordinate system explorer.
 
 - **[History of p5.js and Creative Coding](./p5-timeline/index.md)**
 
-    ![p5 Timeline](./thumbnails/p5-timeline.png)
+    ![p5 Timeline](./p5-timeline/p5-timeline.png)
     Timeline of p5.js and creative coding evolution.
 
 - **[Particle Fields](./particle-fields/index.md)**
 
-    ![Particle Fields](./thumbnails/particle-fields.png)
+    ![Particle Fields](./particle-fields/particle-fields.png)
     Interactive particle system with field effects.
 
 - **[Pendulum](./pendulum/index.md)**
 
-    ![Pendulum](./thumbnails/pendulum.png)
+    ![Pendulum](./pendulum/pendulum.png)
     Simple pendulum physics simulation.
 
 - **[Regular Polygons](./polygon/index.md)**
@@ -381,12 +381,12 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Prisoners Dilemma](./prisoners-dilemma/index.md)**
 
-    ![Prisoners Dilemma](./thumbnails/prisoners-dilemma.png)
+    ![Prisoners Dilemma](./prisoners-dilemma/prisoners-dilemma.png)
     Game theory simulation of the prisoner's dilemma.
 
 - **[Projectile Motion](./projectile-motion/index.md)**
 
-    ![Projectile Motion](./thumbnails/projectile-motion.png)
+    ![Projectile Motion](./projectile-motion/projectile-motion.png)
     Basic projectile motion physics.
 
 - **[Projectile Motion with Gravity](./projectile-motion-gravity/index.md)**
@@ -406,17 +406,17 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Pythagorean Theorem MicroSim](./pythagorean-theorem/index.md)**
 
-    ![Pythagorean](./thumbnails/pythagorean-theorem.png)
+    ![Pythagorean](./pythagorean-theorem/pythagorean-theorem.png)
     Visual proof of the Pythagorean theorem.
 
 - **[Rabbits and Foxes](./rabbits-and-foxes/index.md)**
 
-    ![Rabbits Foxes](./thumbnails/rabbits-and-foxes.png)
+    ![Rabbits Foxes](./rabbits-and-foxes/rabbits-and-foxes.png)
     Predator-prey population dynamics simulation.
 
 - **[Rainbow Color Picker](./rainbow-color-picker/index.md)**
 
-    ![Rainbow Picker](./thumbnails/rainbow-color-picker.png)
+    ![Rainbow Picker](./rainbow-color-picker/rainbow-color-picker.png)
     Colorful rainbow-based color selection tool.
 
 - **[Recursion Tree](./recursion-tree/index.md)**
@@ -426,22 +426,22 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Resize in iframe](./resize-in-iframe/index.md)**
 
-    ![Resize iframe](./thumbnails/resize-in-iframe.png)
+    ![Resize iframe](./resize-in-iframe/resize-in-iframe.png)
     Demonstration of responsive resizing in iframes.
 
 - **[Resize Demo](./resize-test/index.md)**
 
-    ![Resize Test](./thumbnails/resize-test.png)
+    ![Resize Test](./resize-test/resize-test.png)
     Canvas resize behavior demonstration.
 
 - **[Responsive Design](./responsive-design/index.md)**
 
-    ![Responsive](./thumbnails/responsive-design.png)
+    ![Responsive](./responsive-design/responsive-design.png)
     Responsive design patterns for MicroSims.
 
 - **[Collision Avoidance Robot](./robots/index.md)**
 
-    ![Robots](./thumbnails/robots.png)
+    ![Robots](./robots/robots.png)
     Multiple robot collision avoidance simulation.
 
 - **[Rotating Gears](./rotating-gears/index.md)**
@@ -461,12 +461,12 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Simple Tree](./simple-tree/index.md)**
 
-    ![Simple Tree](./thumbnails/simple-tree.png)
+    ![Simple Tree](./simple-tree/simple-tree.png)
     Basic recursive tree drawing.
 
 - **[Sine and Cosine](./sine-and-cosine/index.md)**
 
-    ![Sine Cosine](./thumbnails/sine-and-cosine.png)
+    ![Sine Cosine](./sine-and-cosine/sine-and-cosine.png)
     Interactive sine and cosine wave visualization.
 
 - **[Sine Wave](./sine-wave/index.md)**
@@ -481,32 +481,32 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Snake MicroSim](./snake/index.md)**
 
-    ![Snake](./thumbnails/snake.png)
+    ![Snake](./snake/snake.png)
     Classic snake game implementation.
 
 - **[Solar Battery](./solar-battery/index.md)**
 
-    ![Solar Battery](./thumbnails/solar-battery.png)
+    ![Solar Battery](./solar-battery/solar-battery.png)
     Solar panel and battery charging simulation.
 
 - **[Solar Cell Battery Charger MicroSim](./solar-cell/index.md)**
 
-    ![Solar Cell](./thumbnails/solar-cell.png)
+    ![Solar Cell](./solar-cell/solar-cell.png)
     Detailed solar cell charging system.
 
 - **[Bouncing 3D Sphere Demo](./sphere/index.md)**
 
-    ![Sphere](./thumbnails/sphere.png)
+    ![Sphere](./sphere/sphere.png)
     3D bouncing sphere with WebGL.
 
 - **[Spinning 3D Shapes](./spinning-3d-shapes/index.md)**
 
-    ![3D Shapes](./thumbnails/spinning-3d-shapes.png)
+    ![3D Shapes](./spinning-3d-shapes/spinning-3d-shapes.png)
     Rotating 3D geometric shapes.
 
 - **[Star Rating MicroSim](./star-rating/index.md)**
 
-    ![Star Rating](./thumbnails/star-rating.png)
+    ![Star Rating](./star-rating/star-rating.png)
     Interactive star rating component.
 
 - **[String Harmonics](./string-harmonics/index.md)**
@@ -521,22 +521,22 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Temperature and Pressure](./temp-and-pressure/index.md)**
 
-    ![Temp Pressure](./thumbnails/temp-and-pressure.png)
+    ![Temp Pressure](./temp-and-pressure/temp-and-pressure.png)
     Gas law temperature and pressure relationship.
 
 - **[MicroSim Template](./template/index.md)**
 
-    ![Template](./thumbnails/template.png)
+    ![Template](./template/template.png)
     Starter template for creating new MicroSims.
 
 - **[Three Web Languages](./three-web-languages/index.md)**
 
-    ![Three Web Languages](./thumbnails/three-web-languages.png)
+    ![Three Web Languages](./three-web-languages/three-web-languages.png)
     Overview of HTML, CSS, and JavaScript.
 
 - **[Virus Spread Simulation](./virus/index.md)**
 
-    ![Virus](./thumbnails/virus.png)
+    ![Virus](./virus/virus.png)
     Epidemic spread simulation model.
 
 - **[Wave Sums and Fourier Synthesis](./wave-sums/index.md)**
@@ -546,7 +546,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Yin & Yang MicroSim](./yin-yang/index.md)**
 
-    ![Yin Yang](./thumbnails/yin-yang.png)
+    ![Yin Yang](./yin-yang/yin-yang.png)
     Interactive yin-yang symbol generator.
 
 </div>
