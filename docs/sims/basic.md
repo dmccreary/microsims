@@ -12,11 +12,10 @@ These examples progress from simple animations to more complex visualizations, d
 **The "Hello World!" of MicroSims**
 
 Our simplest example demonstrates the essential elements of a width-responsive MicroSim: animated graphics with user interaction. A ball bounces within the drawing region while a slider in the control area adjusts the speed.
-
-[View Bouncing Ball](./bouncing-ball/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/bouncing-ball/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the Bouncing Ball MicroSim Page](./bouncing-ball/index.md)
 
 **Key Features:** Animation, slider control, responsive design, start/pause button
-
 
 ### Temperature and Pressure
 
@@ -24,10 +23,10 @@ Our simplest example demonstrates the essential elements of a width-responsive M
 
 This MicroSim demonstrates the relationship between temperature, molecular motion, and gas pressure. As temperature increases, atoms move faster and collide with container walls more frequently. Features a unique ice/fire visual indicator showing phase transitions at 0°C.
 
-[View Temperature and Pressure](./temp-and-pressure/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/temp-and-pressure/main.html" width="100%" height="482px" scrolling="no"></iframe>
+[Go to the Temperature and Pressure MicroSim Page](./temp-and-pressure/index.md){ .md-button .md-button--primary }
 
 **Key Features:** Particle simulation, temperature slider (-50°C to 100°C), Celsius/Fahrenheit toggle, real-time pressure measurement, color-coded atoms
-
 
 ### Sine Wave
 
@@ -35,10 +34,10 @@ This MicroSim demonstrates the relationship between temperature, molecular motio
 
 A static sine wave displayed on a Cartesian coordinate grid with three sliders controlling amplitude, period, and phase. Students can explore how each parameter affects the wave shape.
 
-[View Sine Wave](./sine-wave/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/sine-wave/main.html" width="100%" height="482px" scrolling="no"></iframe>
+[Go to the Sine Wave MicroSim Page](./sine-wave/index.md)
 
 **Key Features:** Multiple sliders, coordinate system, mathematical visualization
-
 
 ## Specialized Features
 
@@ -48,7 +47,8 @@ A static sine wave displayed on a Cartesian coordinate grid with three sliders c
 
 Demonstrates string harmonics with an animated vibrating string. When "Enable Sound" is checked, an oscillator plays a tone that matches the visual frequency. Adjust the frequency slider to hear and see harmonics from 1 to 16.
 
-[View String Harmonics](./string-harmonics/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/string-harmonics/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the String Harmonics MicroSim Page](./string-harmonics/index.md)
 
 **Key Features:** Sound generation, checkbox control, oscillator, frequency visualization
 
@@ -59,7 +59,8 @@ Demonstrates string harmonics with an animated vibrating string. When "Enable So
 
 Captures microphone input and displays a real-time frequency spectrum using Fast Fourier Transform (FFT). Color-coded bars show low frequencies (blue) to high frequencies (red), with peak frequency detection.
 
-[View FFT Microphone](./fft-mic/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/fft-mic/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the FFT Microphone MicroSim Page](./fft-mic/index.md)
 
 **Key Features:** Microphone input, FFT analysis, frequency spectrum, start/stop control
 
@@ -72,7 +73,8 @@ Captures microphone input and displays a real-time frequency spectrum using Fast
 
 A horizontal bar chart visualizing knowledge retention rates across different learning modalities. Demonstrates why interactive simulations produce superior learning outcomes compared to passive methods like reading or watching videos.
 
-[View Learning Modality Effectiveness](./learning-modality-effectiveness/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/learning-modality-effectiveness/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the Learning Modality Effectiveness MicroSim Page](./learning-modality-effectiveness/index.md)
 
 **Key Features:** Chart.js integration, hover tooltips, animated bar growth, annotations
 
@@ -83,7 +85,8 @@ A horizontal bar chart visualizing knowledge retention rates across different le
 
 An animated infographic map showing how MicroSims spread globally, connecting teachers and students through open educational resources. Watch knowledge flow from creators to libraries to schools worldwide.
 
-[View Global Impact](./global-impact/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/global-impact/main.html" width="100%" height="550px" scrolling="no"></iframe>
+[Go to the Global Impact MicroSim Page](./global-impact/index.md)
 
 **Key Features:** Leaflet.js map, animated connections, time slider, statistics panel, zoom/pan
 
@@ -94,7 +97,8 @@ An animated infographic map showing how MicroSims spread globally, connecting te
 
 An interactive causal loop diagram showing reinforcing feedback loops in the MicroSim ecosystem. Click on nodes and edges to explore how MicroSims, Intelligent Textbooks, and Teacher Awareness create a virtuous cycle of growth.
 
-[View MicroSim Growth](./microsim-growth/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/microsim-growth/main.html" width="100%" height="550px" scrolling="no"></iframe>
+[Go to the MicroSim Growth MicroSim Page](./microsim-growth/index.md)
 
 **Key Features:** vis-network library, interactive nodes/edges, feedback loop indicators
 
@@ -106,7 +110,8 @@ An interactive causal loop diagram showing reinforcing feedback loops in the Mic
 
 An interactive workflow diagram illustrating the complete process teachers follow when creating MicroSims with AI assistance. Shows how learning objectives transform into working simulations in minutes rather than months.
 
-[View MicroSim Creation Workflow](./microsim-creation-workflow/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/microsim-creation-workflow/main.html" width="100%" height="650px" scrolling="no"></iframe>
+[Go to the MicroSim Creation Workflow MicroSim Page](./microsim-creation-workflow/index.md)
 
 **Key Features:** Mermaid.js flowchart, color-coded steps, decision points
 
@@ -118,7 +123,10 @@ An interactive workflow diagram illustrating the complete process teachers follo
 
 An interactive fractal tree demonstrating recursion and self-similarity. Adjust branch angles and depth to create different tree patterns.
 
-[View Fractal Tree](./fractal-tree/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/fractal-tree/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the Fractal Tree MicroSim Page](./fractal-tree/index.md)
+
+**Key Features:** Recursive graphics, adjustable branch angles and depth
 
 
 ### Conway's Game of Life
@@ -127,7 +135,10 @@ An interactive fractal tree demonstrating recursion and self-similarity. Adjust 
 
 The classic cellular automaton demonstrating emergent behavior from simple rules. Watch patterns evolve, stabilize, or oscillate based on initial configurations.
 
-[View Conway's Game of Life](./conway-game-of-life/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/conway-game-of-life/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the Conway's Game of Life MicroSim Page](./conway-game-of-life/index.md)
+
+**Key Features:** Cellular automata, emergent behavior, pattern evolution
 
 ### Neural Network
 
@@ -135,7 +146,10 @@ The classic cellular automaton demonstrating emergent behavior from simple rules
 
 Visual representation of a neural network showing nodes, layers, and connections. Helps students understand the basic architecture of AI systems.
 
-[View Neural Network](./neural-network/index.md){ .md-button .md-button--primary }
+<iframe src="/microsims/sims/neural-network/neural-network.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the Neural Network MicroSim Page](./neural-network/index.md)
+
+**Key Features:** Neural network architecture, nodes, layers, connections
 
 
 ## Summary Table
