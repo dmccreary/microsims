@@ -6,10 +6,13 @@ og:image: /img/cover.png
 hide:
   toc
 ---
+<style>
+.md-content__inner h1 {display: none !important;}
+</style>
 
 # Micro Simulations for Education
 
-![MicroSim Banner](./img/cover.png)
+![MicroSim Banner](./img/cover.png){ width="500px" }
 
 Welcome to the MicroSims for Education website.
 
