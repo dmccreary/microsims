@@ -52,7 +52,6 @@ Demonstrates string harmonics with an animated vibrating string. When "Enable So
 
 **Key Features:** Sound generation, checkbox control, oscillator, frequency visualization
 
-
 ### Microphone Example: FFT Frequency Visualization
 
 **Audio input with real-time analysis**
