@@ -4,7 +4,7 @@ description: An interactive MicroSim that estimates how long a battery will last
 ---
 # Battery Life Calculator
 
-<iframe src="main.html" width="100%" height="330px" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="290px" scrolling="no"></iframe>
 
 [Run the Battery Life Calculator MicroSim](main.html){ .md-button .md-button--primary }
 

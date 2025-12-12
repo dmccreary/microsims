@@ -2,7 +2,7 @@
 // Width-responsive version
 
 let canvasWidth = 450;
-let drawHeight = 250;
+let drawHeight = 210;
 let controlHeight = 80;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 20;
