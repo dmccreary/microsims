@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US State Quality of Life Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="state-data.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: aliceblue;
+        }
+        h2 {
+            text-align: center;
+            margin: 8px 0 4px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        #map {
+            width: 100%;
+            height: 420px;
+        }
+        .info {
+            padding: 8px 12px;
+            font-size: 13px;
+            background: white;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            max-width: 320px;
+        }
+        .info h4 {
+            margin: 0 0 8px;
+            color: #333;
+            font-size: 16px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 4px;
+        }
+        .info .grade {
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 11px;
+        }
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        .metric-name {
+            color: #555;
+            flex: 1;
+        }
+        .metric-value {
+            font-weight: 600;
+            text-align: right;
+            min-width: 80px;
+        }
+        .metric-status {
+            width: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .better { color: #2e8b2e; }
+        .worse { color: #c62828; }
+        .legend-container {
+            background: rgba(255,255,255,0.95);
+            padding: 8px 12px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        .legend-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .legend-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            color: #555;
+        }
+        .legend-item i {
+            width: 16px;
+            height: 12px;
+            margin-right: 4px;
+            display: inline-block;
+            border-radius: 2px;
+        }
+        .hover-instruction {
+            text-align: center;
+            font-size: 11px;
+            color: #888;
+            padding: 4px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h2>US State Quality of Life Index</h2>
+    <div class="subtitle">Based on 8 key metrics compared to national averages</div>
+    <div id="map"></div>
+    <div class="legend-container">
+        <div class="legend-title">Metrics Better Than National Average</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background:#1a5e1a"></i>8/8 Best</div>
+            <div class="legend-item"><i style="background:#2e8b2e"></i>7/8</div>
+            <div class="legend-item"><i style="background:#4CAF50"></i>6/8</div>
+            <div class="legend-item"><i style="background:#8BC34A"></i>5/8</div>
+            <div class="legend-item"><i style="background:#FFC107"></i>4/8 Avg</div>
+            <div class="legend-item"><i style="background:#FF9800"></i>3/8</div>
+            <div class="legend-item"><i style="background:#FF5722"></i>2/8</div>
+            <div class="legend-item"><i style="background:#E53935"></i>1/8</div>
+            <div class="legend-item"><i style="background:#8B0000"></i>0/8 Worst</div>
+        </div>
+    </div>
+    <div class="hover-instruction">Hover over a state to see detailed metrics</div>
+
+    <script>
+        // High-quality US States GeoJSON from PublicaMundi
+        const GEOJSON_URL = 'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json';
+
+        let geojson; // Global reference for resetStyle
+
+        // Initialize map centered on US
+        const map = L.map('map', {
+            zoomControl: true,
+            scrollWheelZoom: true
+        }).setView([39.5, -98.5], 4);
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Info control for state details
+        const info = L.control({ position: 'topright' });
+
+        info.onAdd = function(map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+
+        info.update = function(stateName) {
+            if (!stateName || !stateData[stateName]) {
+                this._div.innerHTML = '<h4>US State Quality of Life</h4>' +
+                    '<p style="color:#666;font-size:12px;">Hover over a state for details</p>';
+                return;
+            }
+
+            const state = stateData[stateName];
+            const metrics = state.metrics;
+
+            let html = `<h4>${stateName} (${state.abbr})</h4>`;
+            html += `<div class="grade" style="background:${state.color};color:white;">${state.grade}</div>`;
+            html += `<div style="font-size:11px;margin-bottom:8px;color:#666;">${state.betterCount} metrics better, ${state.worseCount} worse than national avg</div>`;
+
+            // Add each metric
+            const metricKeys = ['personalIncome', 'povertyRate', 'educationAttainment', 'lifeExpectancy',
+                               'infantMortality', 'violentCrime', 'medianHomePrice', 'foodInsecurity'];
+
+            metricKeys.forEach(key => {
+                const m = metrics[key];
+                const desc = metricDescriptions[key];
+                const isBetter = state.comparison[key];
+                const statusClass = isBetter ? 'better' : 'worse';
+                const statusSymbol = isBetter ? '+' : '-';
+
+                let displayValue;
+                if (key === 'personalIncome' || key === 'medianHomePrice') {
+                    displayValue = formatCurrency(m.value);
+                } else if (key === 'violentCrime') {
+                    displayValue = formatNumber(m.value) + '/100k';
+                } else if (key === 'infantMortality') {
+                    displayValue = m.value.toFixed(1) + '/1k';
+                } else {
+                    displayValue = m.value.toFixed(1) + '%';
+                }
+
+                html += `<div class="metric-row">
+                    <span class="metric-name">${desc.name} <span style="color:#888;">(#${m.rank})</span></span>
+                    <span class="metric-value">${displayValue}</span>
+                    <span class="metric-status ${statusClass}">${statusSymbol}</span>
+                </div>`;
+            });
+
+            this._div.innerHTML = html;
+        };
+
+        info.addTo(map);
+
+        // Style function for GeoJSON
+        function style(feature) {
+            const stateName = feature.properties.name;
+            const state = stateData[stateName];
+            return {
+                fillColor: state ? state.color : '#ccc',
+                weight: 1,
+                opacity: 1,
+                color: 'white',
+                fillOpacity: 0.7
+            };
+        }
+
+        // Highlight style on hover
+        function highlightFeature(e) {
+            const layer = e.target;
+            layer.setStyle({
+                weight: 3,
+                color: '#333',
+                fillOpacity: 0.9
+            });
+            layer.bringToFront();
+
+            // Get the center longitude of the state to position info box
+            const bounds = layer.getBounds();
+            const centerLng = bounds.getCenter().lng;
+
+            // If state is east of -100 longitude, put info on left; otherwise right
+            if (centerLng > -100) {
+                info.setPosition('topleft');
+            } else {
+                info.setPosition('topright');
+            }
+
+            info.update(layer.feature.properties.name);
+        }
+
+        // Reset style on mouseout
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+            info.update();
+        }
+
+        // Zoom to state on click
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+
+        // Add event listeners to each feature
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+        // Fetch and add GeoJSON layer
+        fetch(GEOJSON_URL)
+            .then(response => response.json())
+            .then(data => {
+                geojson = L.geoJSON(data, {
+                    style: style,
+                    onEachFeature: onEachFeature
+                }).addTo(map);
+            })
+            .catch(error => {
+                console.error('Error loading GeoJSON:', error);
+                document.getElementById('map').innerHTML =
+                    '<div style="padding:20px;text-align:center;color:#c62828;">Error loading map data. Please refresh the page.</div>';
+            });
+    </script>
+</body>
+</html>
