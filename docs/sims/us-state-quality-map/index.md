@@ -9,9 +9,15 @@ og:image: /sims/us-state-quality-map/us-state-quality-map.png
 
 An interactive choropleth map showing how each US state performs across 8 key quality of life metrics compared to national averages.
 
-<iframe src="main.html" width="100%" height="560" style="border:none; border-radius: 5px;"></iframe>
+<iframe src="main.html" width="100%" height="560"></iframe>
 
 [View Fullscreen](main.html){:target="_blank"}
+
+To put this map in our course, add this element into your webpage:
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/us-state-quality-map/main.html" width="100%" height="560" ></iframe>
+
+```
 
 ## How the Grading Works
 
