@@ -1,109 +1,145 @@
 // Supply and Demand Curve MicroSim
 // Students move the price slider to see how the quantity sold changes based on the demand curve.
-// This example uses a simple linear demand curve 
+// This example uses a simple linear demand curve
 // where the quantity sold an inversely proportional to the price.
-// The layout is fixed and will not resize.
+
+// Canvas dimensions - responsive width
 let canvasWidth = 400;
 let drawHeight = 400;
-let canvasHeight = 450;
+let controlHeight = 50;
+let canvasHeight = drawHeight + controlHeight;
 let sliderLeftMargin = 120;
-let margin = 30; // side around the plot
+let margin = 30;
 let priceSlider;
 let demandCurve;
 let maxPrice = 200;
 let maxQuantity = 200;
 let price = 100;
 let quantity = 100;
-let labelValueMargin = 140
+let labelValueMargin = 140;
+
+// Plot area dimensions (will be updated for responsive)
+let plotWidth;
+let plotHeight;
 
 function setup() {
+  updateCanvasSize();
   const canvas = createCanvas(canvasWidth, canvasHeight);
   var mainElement = document.querySelector('main');
   canvas.parent(mainElement);
 
   textSize(16);
-  
+
   // Create a slider element for price adjustment
   priceSlider = createSlider(0, maxPrice, price);
-  priceSlider.position(labelValueMargin, drawHeight + 5);
-  priceSlider.size(canvasWidth - labelValueMargin - 20);
-  
+  priceSlider.position(labelValueMargin, drawHeight + 15);
+  priceSlider.size(canvasWidth - labelValueMargin - 170);
+
   // Define the demand curve as a function
   demandCurve = (p) => maxQuantity - p;
+
+  describe('Interactive supply and demand curve showing price vs quantity relationship', LABEL);
 }
 
 function draw() {
+  // Calculate plot dimensions
+  plotWidth = canvasWidth - 2 * margin;
+  plotHeight = drawHeight - 2 * margin;
+
   // Draw light gray outlines of the draw and controls regions
   stroke('silver');
   strokeWeight(1);
   // make the background drawing very light blue
   fill('aliceblue');
-  rect(0, 0, canvasWidth, canvasWidth);
+  rect(0, 0, canvasWidth, drawHeight);
   // make the background of the controls white
   fill('white')
-  rect(0, drawHeight, canvasWidth, canvasHeight-drawHeight);
+  rect(0, drawHeight, canvasWidth, controlHeight);
 
-  
   // Update quantity based on the current value of the price slider
   price = priceSlider.value();
   quantity = demandCurve(price);
-  
+
   // Draw the axes
   stroke(0);
   strokeWeight(1);
   // Vertical Y-axis
-  line(margin, margin, margin, drawHeight - margin); 
-  
+  line(margin, margin, margin, drawHeight - margin);
+
   // Horizontal X axis
   line(margin, drawHeight - margin, canvasWidth - margin, drawHeight - margin);
   strokeWeight(0);
-  
+
   textSize(18);
   fill('black')
   text('Price', 10, 20); // Y-axis label
   text('Quantity Sold', canvasWidth - margin - 110, drawHeight - 10); // X-axis label
-  
-  // Draw the demand curve
+
+  // Draw the demand curve (diagonal line from top-left to bottom-right of plot area)
   stroke(255, 0, 0);
   strokeWeight(3);
-  line(margin, margin, drawHeight - margin, drawHeight - margin);
-  
+  line(margin, margin, canvasWidth - margin, drawHeight - margin);
+
   // Draw a point on the demand curve based on current price and quantity
   fill(0, 0, 255);
   noStroke();
-  x = map(quantity, 0, maxQuantity, margin, drawHeight - margin)
-  y = map(price, 0, maxPrice, width - margin, margin)
-  circle(x,y,10);
-  
+  let x = map(quantity, 0, maxQuantity, margin, canvasWidth - margin);
+  let y = map(price, 0, maxPrice, drawHeight - margin, margin);
+  circle(x, y, 10);
+
+  // Draw guide lines from axes to point
   stroke('silver');
-  line(margin, y, x, y)
-  line(x, y, x, drawHeight - margin)
-  
+  line(margin, y, x, y);
+  line(x, y, x, drawHeight - margin);
+
+  // Draw points on axes
   fill(0);
   noStroke();
-  circle(
-    margin, 
-    map(price, 0, maxPrice, width - margin, margin), 10);
-  
-  circle(
-    map(quantity, 0, maxQuantity, margin, drawHeight - margin), 
-    drawHeight - margin, 10);
-  
-  // Text annotations
+  circle(margin, y, 10);
+  circle(x, drawHeight - margin, 10);
+
+  // Title
   noStroke();
   fill(0);
   textSize(16);
-  // title
-  text("Supply and Demand Curve", 120, 30);
-  text(`Input Price: ${price}`, 10, height - 30);
-  text(`Quantity Sold: ${quantity}`, 10, height - 10);
-  textSize(12);
-  
-  // instructions
-  let keyMargin = 180;
-  text(`Adjust price by moving the slider.`,     keyMargin, margin + 20);
-  text(`Note that as the input (price) changes`, keyMargin, margin + 40);
-  text(`    the quantity sold also changes.`,    keyMargin, margin + 60);
-  text(`At high prices a low quantity is sold.`, keyMargin, margin + 80);
-  text(`At low prices a high quantity is sold.`, keyMargin, margin + 100);
+  text("Supply and Demand Curve", canvasWidth / 2 - 100, 30);
+
+  // Price and quantity labels in control area
+  text(`Price: ${price}`, 10, drawHeight + 30);
+
+  // Instructions (only show if canvas is wide enough)
+  if (canvasWidth > 350) {
+    textSize(12);
+    let keyMargin = canvasWidth / 2;
+    text(`Adjust price by moving the slider.`, keyMargin, margin + 20);
+    text(`Note that as the input (price) changes`, keyMargin, margin + 40);
+    text(`    the quantity sold also changes.`, keyMargin, margin + 60);
+    text(`At high prices a low quantity is sold.`, keyMargin, margin + 80);
+    text(`At low prices a high quantity is sold.`, keyMargin, margin + 100);
+  }
+
+  // Show quantity sold
+  textSize(14);
+  text(`Quantity Sold: ${quantity}`, canvasWidth - 150, drawHeight + 30);
+}
+
+function windowResized() {
+  updateCanvasSize();
+  resizeCanvas(canvasWidth, canvasHeight);
+
+  // Update slider position and size
+  priceSlider.position(labelValueMargin, drawHeight + 15);
+  priceSlider.size(canvasWidth - labelValueMargin - 170);
+
+  redraw();
+}
+
+function updateCanvasSize() {
+  // Get container width for responsive design
+  let container = document.querySelector('main');
+  if (container) {
+    canvasWidth = container.offsetWidth;
+  }
+  // Keep height fixed
+  canvasHeight = drawHeight + controlHeight;
 }
