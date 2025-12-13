@@ -9,9 +9,15 @@ og:image: /sims/us-state-quality-map/us-state-quality-map.png
 
 An interactive choropleth map showing how each US state performs across 8 key quality of life metrics compared to national averages.
 
-<iframe src="main.html" width="100%" height="560" style="border:none; border-radius: 5px;"></iframe>
+<iframe src="main.html" width="100%" height="560"></iframe>
 
 [View Fullscreen](main.html){:target="_blank"}
+
+To put this map in your course, add this element into your webpage:
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/us-state-quality-map/main.html" width="100%" height="560" ></iframe>
+
+```
 
 ## How the Grading Works
 
@@ -34,50 +40,50 @@ Each state is evaluated on 8 metrics and compared to the national average. The c
 ### Economic Metrics
 
 1. **Personal Income (Cost-of-Living Adjusted)**
-   - Per capita personal income adjusted for regional price parities
-   - Higher values indicate greater purchasing power
-   - National Average: $55,000
+      - Per capita personal income adjusted for regional price parities
+      - Higher values indicate greater purchasing power
+      - National Average: $55,000
 
 2. **Poverty Rate (Regionally Adjusted)**
-   - Percentage of population below poverty line
-   - Adjusted using Supplemental Poverty Measure for regional cost differences
-   - National Average: 11.5%
+      - Percentage of population below poverty line
+      - Adjusted using Supplemental Poverty Measure for regional cost differences
+      - National Average: 11.5%
 
 ### Education
 
 3. **Education Attainment**
-   - Percentage of adults 25+ with bachelor's degree or higher
-   - Higher values indicate better educational outcomes
-   - National Average: 33.0%
+      - Percentage of adults 25+ with bachelor's degree or higher
+      - Higher values indicate better educational outcomes
+      - National Average: 33.0%
 
 ### Health Metrics
 
 4. **Life Expectancy**
-   - Average life expectancy at birth in years
-   - Higher values indicate better overall health outcomes
-   - National Average: 77.5 years
+      - Average life expectancy at birth in years
+      - Higher values indicate better overall health outcomes
+      - National Average: 77.5 years
 
 5. **Infant Mortality Rate**
-   - Deaths per 1,000 live births
-   - Lower values indicate better maternal and infant healthcare
-   - National Average: 5.5 per 1,000
+      - Deaths per 1,000 live births
+      - Lower values indicate better maternal and infant healthcare
+      - National Average: 5.5 per 1,000
 
 ### Safety & Affordability
 
 6. **Violent Crime Rate**
-   - Violent crimes (murder, rape, robbery, aggravated assault) per 100,000 population
-   - Lower values indicate safer communities
-   - National Average: 380 per 100,000
+      - Violent crimes (murder, rape, robbery, aggravated assault) per 100,000 population
+      - Lower values indicate safer communities
+      - National Average: 380 per 100,000
 
 7. **Median Home Price**
-   - Median listing price for homes in the state
-   - Lower values indicate more affordable housing
-   - National Average: $350,000
+      - Median listing price for homes in the state
+      - Lower values indicate more affordable housing
+      - National Average: $350,000
 
 8. **Food Insecurity Rate**
-   - Percentage of households experiencing food insecurity
-   - Lower values indicate better food access and economic stability
-   - National Average: 10.5%
+      - Percentage of households experiencing food insecurity
+      - Lower values indicate better food access and economic stability
+      - National Average: 10.5%
 
 ## Interactive Features
 
