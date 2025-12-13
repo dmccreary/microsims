@@ -1,3 +1,9 @@
+---
+title: US State Quality of Life Index Map
+description: Interactive choropleth map grading all 50 US states on 8 quality of life metrics including income, education, health, crime, and housing costs.
+image: state-data.png
+---
+
 # US State Quality of Life Index Map
 
 An interactive choropleth map showing how each US state performs across 8 key quality of life metrics compared to national averages.
