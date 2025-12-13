@@ -6,7 +6,6 @@
     <title>US State Quality of Life Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="state-data.js"></script>
     <style>
         * {
             margin: 0;
@@ -143,24 +142,77 @@
     <div class="hover-instruction">Hover over a state to see detailed metrics</div>
 
     <script>
-        // High-quality US States GeoJSON from PublicaMundi
+        // Data URLs
         const GEOJSON_URL = 'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json';
+        const DATA_URL = 'data.json';
 
-        let geojson; // Global reference for resetStyle
+        // Global variables
+        let geojson;
+        let stateData = {};
+        let nationalAverages = {};
+        let higherIsBetter = {};
+        let metricDescriptions = {};
 
-        // Initialize map centered on US
-        const map = L.map('map', {
-            zoomControl: true,
-            scrollWheelZoom: true
-        }).setView([39.5, -98.5], 4);
+        // Grade color scale
+        const gradeColors = {
+            8: "#1a5e1a", 7: "#2e8b2e", 6: "#4CAF50", 5: "#8BC34A",
+            4: "#FFC107", 3: "#FF9800", 2: "#FF5722", 1: "#E53935", 0: "#8B0000"
+        };
 
-        // Add tile layer
+        const gradeLabels = {
+            8: "Excellent (8/8)", 7: "Very Good (7/8)", 6: "Good (6/8)", 5: "Above Average (5/8)",
+            4: "Average (4/8)", 3: "Below Average (3/8)", 2: "Poor (2/8)", 1: "Very Poor (1/8)", 0: "Worst (0/8)"
+        };
+
+        // Utility functions
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+        }
+
+        function formatNumber(value) {
+            return new Intl.NumberFormat('en-US').format(value);
+        }
+
+        function calculateBetterThanAverage(state) {
+            let betterCount = 0;
+            const comparison = {};
+            for (const metric in state.metrics) {
+                const value = state.metrics[metric].value;
+                const avg = nationalAverages[metric];
+                const better = higherIsBetter[metric];
+                const isBetter = better ? value > avg : value < avg;
+                if (isBetter) betterCount++;
+                comparison[metric] = isBetter;
+            }
+            return { betterCount, worseCount: 8 - betterCount, comparison };
+        }
+
+        function processStateData(data) {
+            nationalAverages = data.nationalAverages;
+            higherIsBetter = data.higherIsBetter;
+            metricDescriptions = data.metricDescriptions;
+            stateData = data.states;
+
+            // Calculate grades for each state
+            for (const stateName in stateData) {
+                const result = calculateBetterThanAverage(stateData[stateName]);
+                stateData[stateName].betterCount = result.betterCount;
+                stateData[stateName].worseCount = result.worseCount;
+                stateData[stateName].comparison = result.comparison;
+                stateData[stateName].grade = gradeLabels[result.betterCount];
+                stateData[stateName].color = gradeColors[result.betterCount];
+            }
+        }
+
+        // Initialize map
+        const map = L.map('map', { zoomControl: true, scrollWheelZoom: true }).setView([39.5, -98.5], 4);
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
             maxZoom: 19
         }).addTo(map);
 
-        // Info control for state details
+        // Info control
         const info = L.control({ position: 'topright' });
 
         info.onAdd = function(map) {
@@ -183,7 +235,6 @@
             html += `<div class="grade" style="background:${state.color};color:white;">${state.grade}</div>`;
             html += `<div style="font-size:11px;margin-bottom:8px;color:#666;">${state.betterCount} metrics better, ${state.worseCount} worse than national avg</div>`;
 
-            // Add each metric
             const metricKeys = ['personalIncome', 'povertyRate', 'educationAttainment', 'lifeExpectancy',
                                'infantMortality', 'violentCrime', 'medianHomePrice', 'foodInsecurity'];
 
@@ -217,7 +268,7 @@
 
         info.addTo(map);
 
-        // Style function for GeoJSON
+        // GeoJSON styling and interaction
         function style(feature) {
             const stateName = feature.properties.name;
             const state = stateData[stateName];
@@ -230,42 +281,26 @@
             };
         }
 
-        // Highlight style on hover
         function highlightFeature(e) {
             const layer = e.target;
-            layer.setStyle({
-                weight: 3,
-                color: '#333',
-                fillOpacity: 0.9
-            });
+            layer.setStyle({ weight: 3, color: '#333', fillOpacity: 0.9 });
             layer.bringToFront();
 
-            // Get the center longitude of the state to position info box
             const bounds = layer.getBounds();
             const centerLng = bounds.getCenter().lng;
-
-            // If state is east of -100 longitude, put info on left; otherwise right
-            if (centerLng > -100) {
-                info.setPosition('topleft');
-            } else {
-                info.setPosition('topright');
-            }
-
+            info.setPosition(centerLng > -100 ? 'topleft' : 'topright');
             info.update(layer.feature.properties.name);
         }
 
-        // Reset style on mouseout
         function resetHighlight(e) {
             geojson.resetStyle(e.target);
             info.update();
         }
 
-        // Zoom to state on click
         function zoomToFeature(e) {
             map.fitBounds(e.target.getBounds());
         }
 
-        // Add event listeners to each feature
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature,
@@ -274,20 +309,23 @@
             });
         }
 
-        // Fetch and add GeoJSON layer
-        fetch(GEOJSON_URL)
-            .then(response => response.json())
-            .then(data => {
-                geojson = L.geoJSON(data, {
-                    style: style,
-                    onEachFeature: onEachFeature
-                }).addTo(map);
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON:', error);
-                document.getElementById('map').innerHTML =
-                    '<div style="padding:20px;text-align:center;color:#c62828;">Error loading map data. Please refresh the page.</div>';
-            });
+        // Load data and initialize map
+        Promise.all([
+            fetch(DATA_URL).then(r => r.json()),
+            fetch(GEOJSON_URL).then(r => r.json())
+        ])
+        .then(([data, geoData]) => {
+            processStateData(data);
+            geojson = L.geoJSON(geoData, {
+                style: style,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+            document.getElementById('map').innerHTML =
+                '<div style="padding:20px;text-align:center;color:#c62828;">Error loading map data. Please refresh the page.</div>';
+        });
     </script>
 </body>
 </html>
