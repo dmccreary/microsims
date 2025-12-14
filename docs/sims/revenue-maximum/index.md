@@ -226,6 +226,9 @@ Calculate:
 !!! warning "Important Distinction"
     **Revenue maximization is NOT the same as profit maximization!** This MicroSim teaches revenue concepts, but businesses ultimately care about profit—what remains after costs are subtracted.
 
+!!! tip "Next Steps"
+    Ready to explore profit maximization? Continue to the [Profit Maximum MicroSim](../profit-maximum/index.md) to see how production costs change the optimal pricing decision.
+
 ### Why Revenue ≠ Profit
 
 | Metric | Formula | What It Measures |
