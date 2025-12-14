@@ -13,7 +13,7 @@ social:
 
 Copy this line into your web page:
 ```html
-<iframe src="https://dmccreary.github.io/microsims/sims/neural-network/main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/sims/neural-network/main.html" width="100%" height="480px" scrolling="no"></iframe>
 ```
 
 [Run the Neural Network MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
