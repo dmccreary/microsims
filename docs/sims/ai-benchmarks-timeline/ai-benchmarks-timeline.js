@@ -3,7 +3,7 @@
 // Canvas dimensions
 let canvasWidth = 800;
 let drawHeight = 400;
-let controlHeight = 70;
+let controlHeight = 60;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
 let defaultTextSize = 16;
@@ -90,15 +90,16 @@ function draw() {
   // Draw legend for benchmark categories
   drawLegend();
   
+  let controlRegionLabelY = drawHeight + 15;
   // Draw control labels
   fill('black');
   noStroke();
   textSize(defaultTextSize);
   textAlign(LEFT, CENTER);
   text("Visualization Scale:", margin, drawHeight + 35);
-  text("Linear", margin + 140, drawHeight + 50);
+  text("Linear", margin + 140, controlRegionLabelY);
   textAlign(RIGHT, CENTER);
-  text("Logarithmic", containerWidth - 180, drawHeight + 50);
+  text("Logarithmic", containerWidth - 140, controlRegionLabelY);
   
   // Draw timeline
   drawTimeline();
