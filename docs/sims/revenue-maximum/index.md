@@ -250,86 +250,86 @@ But at Price = $120, we sell 80 units:
 
 ### Proposed MicroSim: Profit Maximization
 
-A natural extension of this MicroSim would add cost curves to demonstrate true profit optimization. Here's a detailed specification:
+A natural extension of this MicroSim would add production costs to demonstrate true profit optimization. The key design principle: **keep the familiar two-panel structure** to reduce cognitive load and enable direct visual comparison.
 
-#### Three-Panel Design
+#### Two-Panel Design (Recommended)
 
 ```
-┌─────────────────┬─────────────────┬─────────────────┐
-│  DEMAND CURVE   │  COST CURVES    │  PROFIT CURVE   │
-│                 │                 │                 │
-│   Price         │   Cost          │   Profit        │
-│     │╲          │      ╱ MC       │       ∩         │
-│     │ ╲         │     ╱           │      ╱ ╲        │
-│     │  ╲        │  ──────── ATC   │     ╱   ╲       │
-│     │   ╲       │                 │    ╱     ╲      │
-│     └────────   │   └──────────   │   └───────────  │
-│       Quantity  │     Quantity    │      Price      │
-└─────────────────┴─────────────────┴─────────────────┘
-                    Controls
-  [Price Slider]  [Marginal Cost Slider]  [Fixed Cost Slider]
+┌───────────────────────┬───────────────────────┐
+│    DEMAND CURVE       │   REVENUE vs PROFIT   │
+│                       │                       │
+│   Price               │   $                   │
+│     │╲                │         ∩ Revenue     │
+│     │ ╲               │        ╱ ╲  (blue)    │
+│     │  ╲  Profit      │       ╱   ╲           │
+│     │   ╲ Rectangle   │   ∩  ╱     ╲          │
+│     │    ╲ (green)    │  ╱ ╲╱ Profit (green)  │
+│     └─────────────    │  └────────────────    │
+│        Quantity       │        Price          │
+└───────────────────────┴───────────────────────┘
+              Controls
+   [Price]  [Marginal Cost]  [Toggle Revenue Curve]
 ```
+
+#### Why Two Panels Instead of Three?
+
+From an instructional design perspective:
+
+1. **Reduced cognitive load**: Students track two visualizations, not three
+2. **Direct comparison**: Overlaying revenue and profit curves on the same axes makes the key insight immediately visible—the peaks occur at *different* prices
+3. **Familiar structure**: Matches the Revenue Maximum MicroSim, so students spend less time orienting and more time learning
+4. **Better responsiveness**: Works well on mobile devices and classroom projectors
+
+!!! tip "Design Principle"
+    The core learning objective is simple: *profit-maximizing price ≠ revenue-maximizing price*. The UI should be equally simple. Save cost curve analysis (MC, ATC, AVC) for a separate, more advanced MicroSim.
 
 #### Panel Descriptions
 
 **Left Panel: Demand Curve with Profit Rectangle**
 
-- Same as current MicroSim
-- Shaded area now shows PROFIT (not revenue)
-- Profit rectangle = (Price - Average Cost) × Quantity
-- Color coding: Green for profit, Red for loss
+- Same demand curve as Revenue Maximum MicroSim
+- Shaded area now shows **PROFIT**, not revenue
+- Profit rectangle = (Price - Marginal Cost) × Quantity
+- **Green** when profit > 0, **Red** when operating at a loss
+- Horizontal dashed line shows the marginal cost level
 
-**Center Panel: Cost Curves**
+**Right Panel: Revenue and Profit Curves (Overlaid)**
 
-- **Marginal Cost (MC)**: Cost to produce one additional unit
-- **Average Total Cost (ATC)**: Total cost divided by quantity
-- **Average Variable Cost (AVC)**: Variable costs per unit
-- Shows the relationship between production level and costs
-- Highlights where MC intersects demand (profit-maximizing point)
-
-**Right Panel: Profit Curve**
-
-- Profit = Revenue - Total Cost
-- Shows profit at each price point
-- Maximum occurs where Marginal Revenue = Marginal Cost
-- Displays break-even points (where profit = 0)
+- **Blue curve**: Revenue (same parabola as Revenue Maximum)
+- **Green curve**: Profit (shifted down and right)
+- **Blue vertical line**: Revenue-maximizing price (always at P = 100)
+- **Green vertical line**: Profit-maximizing price (shifts based on marginal cost)
+- Students can visually see the gap between the two optimal prices
 
 #### Interactive Controls
 
 | Control | Range | Purpose |
 |---------|-------|---------|
 | **Price Slider** | $0 - $200 | Set selling price |
-| **Marginal Cost Slider** | $0 - $100 | Adjust per-unit production cost |
-| **Fixed Cost Slider** | $0 - $5000 | Set overhead costs (rent, equipment) |
+| **Marginal Cost Slider** | $0 - $80 | Adjust per-unit production cost |
+| **Show Revenue Curve** | Toggle | Compare profit curve to revenue curve |
 
 #### Key Learning Moments
 
-1. **Break-even Analysis**: Find the prices where profit = 0
-2. **Profit vs Revenue**: See that maximum profit occurs at a DIFFERENT price than maximum revenue
-3. **Cost Impact**: Watch how changing marginal cost shifts the optimal price
-4. **Fixed Cost Effect**: Fixed costs shift the profit curve down but don't change the optimal price
-5. **Loss Region**: Visualize when the business operates at a loss (red shading)
+1. **The Gap**: When MC = $30, revenue peaks at P = 100, but profit peaks at P = 115
+2. **Why the Shift**: Higher costs mean you need higher prices to maintain margins
+3. **Break-even Points**: Two prices where profit = 0 (too low or too high)
+4. **Loss Region**: Red shading when price is below marginal cost
+5. **Special Case**: When MC = 0, both curves peak at the same price
 
 #### Mathematical Foundation
 
 **Profit Function:**
 
-$$\pi(P) = P \cdot Q(P) - C(Q)$$
+$$\pi(P) = P \cdot Q(P) - MC \cdot Q(P) = (P - MC) \cdot Q(P)$$
 
-Where:
+With our demand function $Q(P) = 200 - P$:
 
-- $\pi$ = Profit
-- $P$ = Price
-- $Q(P) = 200 - P$ (demand function)
-- $C(Q) = FC + MC \cdot Q$ (cost function)
+$$\pi(P) = (P - MC)(200 - P)$$
 
-**Expanded:**
+$$\pi(P) = 200P - P^2 - 200 \cdot MC + MC \cdot P$$
 
-$$\pi(P) = P(200-P) - FC - MC(200-P)$$
-
-$$\pi(P) = 200P - P^2 - FC - 200 \cdot MC + MC \cdot P$$
-
-$$\pi(P) = -P^2 + (200 + MC)P - FC - 200 \cdot MC$$
+$$\pi(P) = -P^2 + (200 + MC)P - 200 \cdot MC$$
 
 **Optimal Price (using calculus):**
 
@@ -337,24 +337,23 @@ $$\frac{d\pi}{dP} = -2P + 200 + MC = 0$$
 
 $$P^* = \frac{200 + MC}{2} = 100 + \frac{MC}{2}$$
 
-Notice: When MC = 0, optimal price = 100 (same as revenue maximization). When MC > 0, optimal price is HIGHER than 100.
+| Marginal Cost | Revenue-Max Price | Profit-Max Price | Difference |
+|---------------|-------------------|------------------|------------|
+| $0 | $100 | $100 | $0 |
+| $20 | $100 | $110 | $10 |
+| $40 | $100 | $120 | $20 |
+| $60 | $100 | $130 | $30 |
 
-#### Visual Features
-
-- **Color-coded regions**: Green = profit, Red = loss
-- **Animated transitions**: Smooth updates as sliders move
-- **Comparison mode**: Toggle to overlay revenue curve on profit curve
-- **Tooltips**: Hover over any point to see exact values
-- **Formula display**: Show current profit calculation in real-time
+**Key insight**: The profit-maximizing price is always $100 + \frac{MC}{2}$, which is higher than the revenue-maximizing price whenever production has a cost.
 
 #### Classroom Applications
 
-1. **What-if scenarios**: "What happens to profit if our supplier raises prices?"
-2. **Competitive analysis**: "If a competitor lowers prices, should we match them?"
-3. **Scale decisions**: "Should we produce more units at a lower margin?"
-4. **Break-even planning**: "How many units must we sell to cover fixed costs?"
+1. **What-if scenarios**: "What happens to optimal price if our supplier raises costs by $10?"
+2. **Visual proof**: "Why doesn't the highest price give the most profit?"
+3. **Break-even planning**: "At what prices do we just cover our costs?"
+4. **Comparison exercise**: Toggle the revenue curve on/off to see the relationship
 
-This Profit Maximization MicroSim would serve as the natural "Part 2" to the Revenue Maximum MicroSim, completing the economic picture of business decision-making.
+This Profit Maximization MicroSim would serve as the natural "Part 2" to the Revenue Maximum MicroSim, completing the economic picture of business decision-making while maintaining a simple, learnable interface.
 
 ## References
 
