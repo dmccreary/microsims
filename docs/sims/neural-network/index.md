@@ -1,106 +1,85 @@
 ---
-title: Neural Network
-description: An interactive MicroSim demonstrating neural network.
-quality_score: 32
+title: Neural Network Structure
+description: An interactive MicroSim demonstrating neural network architecture and counting model parameters.
+image: neural-network.png
+quality_score: 90
 social:
-   cards: false
+    cards: false
 ---
-# Neural Network
 
-Generate a p5.js file that draws a three layer neural network. 
-The input is on the left.  The output is on the right.
-The layer on the left should be labeled "Input".
-add slider controls that change the number of layers and the number of neurons in a layer
+# Neural Network Structure
 
-[Link to Chat Transcript](https://chat.openai.com/share/10acccc0-b4b0-4232-8ae6-9e5a77195dcb)
+<iframe src="main.html" width="100%" height="500px"></iframe>
 
-[Link to Demo](./neural-network.html){ .md-button .md-button--primary }
-
-```js
-// Demo of parameters in neural networks
-let width = 800;
-let height = 400;
-let numLayersSlider;
-let numNeuronsSlider;
-let parameterCount = 0;
-let labelValueWidth = 240;
-
-let numLayers = 3;  // Default number of layers (including Input and Output)
-let numNeurons = 4; // Default number of neurons in each layer
-
-function setup() {
-  const canvas = createCanvas(width, height);
-  canvas.parent('canvas-container');
-  
-  numLayersSlider = createSlider(2, 7, 3);
-  numLayersSlider.position(labelValueWidth, height - 50);
-  numLayersSlider.style('width', width - labelValueWidth - 20 + 'px')
-  numLayersSlider.input(updateNetwork);
-  
-  
-  numNeuronsSlider = createSlider(2, 10, 4);
-  numNeuronsSlider.position(labelValueWidth, height - 25);
-  numNeuronsSlider.input(updateNetwork);
-  
-  updateNetwork();
-}
-
-function updateNetwork() {
-  background(240);
-  
-  numLayers = numLayersSlider.value();
-  numNeurons = numNeuronsSlider.value();
-  
-  let layerPositions = Array.from({length: numLayers}, (_, i) => map(i, 0, numLayers - 1, 0.2, 0.8) * width);
-  
-  parameterCount = 0;
-  
-  for (let i = 0; i < layerPositions.length; i++) {
-    let label = "Hidden";
-    if (i === 0) label = "Input";
-    else if (i === layerPositions.length - 1) label = "Output";
-    
-    drawNodes(layerPositions[i], height / 2, numNeurons, label);
-  }
-  
-  for (let i = 0; i < layerPositions.length - 1; i++) {
-    connectLayers(layerPositions[i], height / 2, numNeurons, layerPositions[i + 1], height / 2, numNeurons);
-    parameterCount += numNeurons * numNeurons; // Adding weights
-  }
-  
-  parameterCount += (numLayers - 1) * numNeurons; // Adding biases
-  
-  // Show labels and parameter count
-  textSize(16);
-  // textAlign(LEFT, CENTER);
-  text('Number of Layers: ' + numLayers, 70, numLayersSlider.y);
-  text('Number of Neurons/Layer: ' + numNeurons, 70 * 1.5, numNeuronsSlider.y);
-  
-  textAlign(CENTER, CENTER);
-  text('Total Parameter Count: ' + parameterCount, width / 2, height - 20);
-}
-
-function drawNodes(x, y, numNodes, label) {
-  let gap = 40;
-  let startY = y - ((numNodes - 1) * gap) / 2;
-  for (let i = 0; i < numNodes; i++) {
-    ellipse(x, startY + i * gap, 20, 20);
-  }
-  textSize(16);
-  textAlign(CENTER, CENTER);
-  text(label, x, y + ((numNodes + 1) * gap) / 2);
-}
-
-function connectLayers(x1, y1, numNodes1, x2, y2, numNodes2) {
-  let gap1 = 40;
-  let gap2 = 40;
-  let startY1 = y1 - ((numNodes1 - 1) * gap1) / 2;
-  let startY2 = y2 - ((numNodes2 - 1) * gap2) / 2;
-  for (let i = 0; i < numNodes1; i++) {
-    for (let j = 0; j < numNodes2; j++) {
-      line(x1, startY1 + i * gap1, x2, startY2 + j * gap2);
-    }
-  }
-}
-
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/neural-network/main.html" width="100%" height="500px"></iframe>
 ```
+
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+
+## About This MicroSim
+
+This interactive simulation demonstrates the structure of a fully connected (dense) neural network and helps you understand how to count the number of parameters in a model. Parameters include:
+
+- **Weights**: The connections between neurons in adjacent layers
+- **Biases**: One bias term for each neuron in hidden and output layers
+
+### How to Use
+
+1. **Layers Slider**: Adjust the number of layers in the network (2-7 layers including input and output)
+2. **Neurons/Layer Slider**: Change the number of neurons per layer (2-10 neurons)
+3. Watch the **Total Parameters** count update as you modify the network
+
+### Parameter Calculation
+
+For a fully connected network with uniform layer sizes:
+
+- **Weights** = neurons × neurons × (layers - 1)
+- **Biases** = neurons × (layers - 1)
+- **Total Parameters** = weights + biases
+
+For example, with 3 layers and 4 neurons per layer:
+
+- Weights = 4 × 4 × 2 = 32
+- Biases = 4 × 2 = 8
+- Total = 40 parameters
+
+## Lesson Plan
+
+### Learning Objectives
+
+1. Understand the basic structure of a feedforward neural network
+2. Identify the components: input layer, hidden layers, output layer
+3. Calculate the number of parameters in a neural network
+4. Explain the relationship between network size and parameter count
+
+### Target Audience
+
+- High school students (grades 10-12)
+- College introductory AI/ML courses
+- Self-learners exploring neural network fundamentals
+
+### Prerequisites
+
+- Basic algebra (multiplication, addition)
+- Understanding of functions and inputs/outputs
+- Familiarity with graphs and network diagrams
+
+### Activities
+
+1. **Exploration**: Start with the default settings and note the parameter count
+2. **Prediction**: Before moving sliders, predict how parameter count will change
+3. **Pattern Discovery**: Find the mathematical relationship between layers, neurons, and parameters
+4. **Real-World Connection**: Discuss how modern networks like GPT have billions of parameters
+
+### Discussion Questions
+
+1. Why do larger networks have more parameters?
+2. What are the trade-offs of having more parameters?
+3. How does this simple model compare to real neural networks?
+
+## References
+
+1. [3Blue1Brown - Neural Networks](https://www.3blue1brown.com/topics/neural-networks) - Visual explanations of neural network concepts
+2. [Neural Network Playground](https://playground.tensorflow.org/) - TensorFlow's interactive neural network visualization
+3. [Deep Learning Book - Goodfellow et al.](https://www.deeplearningbook.org/) - Comprehensive deep learning textbook
