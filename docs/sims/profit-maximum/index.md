@@ -127,6 +127,19 @@ By the end of this lesson, students will be able to:
 4. Area = $60 × 100 = $6,000 (profit)
 5. Now set Price = $120 (the profit-max). What happens to the rectangle?
 
+#### Activity 3b: Watching Profit Change in Real Time
+
+**Dynamic exploration of the profit rectangle**:
+
+Keep your eyes on the green rectangle in the left panel as you slowly drag the Price slider. The area of this rectangle *is* the profit—height times width, margin times quantity.
+
+1. Set MC = $30 and start with Price = $50
+2. Slowly drag the Price slider upward while watching the green rectangle
+3. Notice how the rectangle gets **taller** (higher margin) but **narrower** (fewer sales)
+4. Find the "sweet spot" where the rectangle has maximum area
+5. **Key observation**: The rectangle is tallest at high prices but has zero width. It's widest at low prices but has zero height. Maximum area occurs somewhere in between.
+6. Verify that maximum area occurs at the profit-maximizing price shown by the green vertical line on the right panel
+
 #### Activity 4: Finding Break-Even Points
 
 **Investigation**:
