@@ -10,9 +10,10 @@ social:
 ---
 # Revenue Maximum
 
-<iframe src="main.html" height="470px" scrolling="no"></iframe>
+<iframe src="main.html" height="450px" scrolling="no"></iframe>
 
 [Run the Revenue Maximum MicroSim Fullscreen](./main.html){.md-button .md-button--primary}
+<br/>
 [Edit the Revenue Maximum MicroSim Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/atfbM4MTM)
 
 ## About This Simulation
