@@ -9,13 +9,16 @@ social:
 
 # Neural Network Structure
 
-<iframe src="main.html" width="100%" height="500px" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="480px" scrolling="no"></iframe>
 
+Copy this line into your web page:
 ```html
 <iframe src="https://dmccreary.github.io/microsims/sims/neural-network/main.html" width="100%" height="500px" scrolling="no"></iframe>
 ```
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+[Run the Neural Network MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
+
+[Edit the Neural Network MicroSim Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/AS-mwQwuj)
 
 ## About This MicroSim
 
@@ -43,6 +46,10 @@ For example, with 3 layers and 4 neurons per layer:
 - Weights = 4 × 4 × 2 = 32
 - Biases = 4 × 2 = 8
 - Total = 40 parameters
+
+!!! Note
+    There are no weights or biases associated with the Input layer.  These nodes are only placed in
+    the diagram to illustrate the concept of a input layer.
 
 ## Lesson Plan
 
