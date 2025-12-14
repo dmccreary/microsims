@@ -7,7 +7,7 @@ let drawHeight = 400;
 let controlHeight = 80;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 20;
-let sliderLeftMargin = 180;
+let sliderLeftMargin = 140;
 
 // Sliders
 let numLayersSlider;
@@ -16,22 +16,26 @@ let numNeuronsSlider;
 // Network parameters
 let numLayers = 3;
 let numNeurons = 4;
+let weightCount = 0;
+let biasCount = 0;
 let parameterCount = 0;
 
 function setup() {
     updateCanvasSize();
     const canvas = createCanvas(canvasWidth, canvasHeight);
-    canvas.parent('canvas-container');
+    var mainElement = document.querySelector('main');
+    canvas.parent(mainElement);
 
     describe('Interactive neural network visualization showing layers, neurons, and parameter count', LABEL);
 
     // Create sliders
-    numLayersSlider = createSlider(2, 7, 3);
+    numLayersSlider = createSlider(2, 8, 3);
     numLayersSlider.position(sliderLeftMargin, drawHeight + 15);
     numLayersSlider.size(canvasWidth - sliderLeftMargin - 15);
     numLayersSlider.input(draw);
 
-    numNeuronsSlider = createSlider(2, 10, 4);
+    // A max of 8 neurons per layer to keep drawing manageable
+    numNeuronsSlider = createSlider(2, 8, 4);
     numNeuronsSlider.position(sliderLeftMargin, drawHeight + 45);
     numNeuronsSlider.size(canvasWidth - sliderLeftMargin - 15);
     numNeuronsSlider.input(draw);
@@ -41,12 +45,12 @@ function draw() {
     // Drawing area with aliceblue background
     fill('aliceblue');
     stroke('silver');
+    // draw a thin gray border around both the drawing and control areas
     strokeWeight(1);
     rect(0, 0, canvasWidth, drawHeight);
 
     // Control area with white background
     fill('white');
-    noStroke();
     rect(0, drawHeight, canvasWidth, controlHeight);
 
     // Draw title
@@ -73,44 +77,52 @@ function draw() {
         layerPositions.push(map(i, 0, numLayers - 1, 0.15, 0.85) * canvasWidth);
     }
 
-    // Reset parameter count
-    parameterCount = 0;
+    // Calculate parameter counts
+    weightCount = numNeurons * numNeurons * (numLayers - 1);
+    biasCount = (numLayers - 1) * numNeurons;
+    parameterCount = weightCount + biasCount;
 
-    // Draw connections first (so they appear behind nodes)
-    stroke(150);
-    strokeWeight(1);
-    for (let i = 0; i < layerPositions.length - 1; i++) {
-        connectLayers(layerPositions[i], drawHeight / 2 + 20, numNeurons,
-                      layerPositions[i + 1], drawHeight / 2 + 20, numNeurons);
-        parameterCount += numNeurons * numNeurons; // weights
-    }
+    // Draw network - use the push/translate/pop to move the whole drawing up a bit
+    push();
+    translate(0, -30);
+        // Draw connections first (so they appear behind nodes)
+        stroke(150);
+        strokeWeight(1);
+        for (let i = 0; i < layerPositions.length - 1; i++) {
+            connectLayers(layerPositions[i], drawHeight / 2 + 20, numNeurons,
+                        layerPositions[i + 1], drawHeight / 2 + 20, numNeurons);
+        }
 
-    // Add biases
-    parameterCount += (numLayers - 1) * numNeurons;
+        // Draw nodes
+        for (let i = 0; i < layerPositions.length; i++) {
+            let label = "Hidden";
+            if (i === 0) label = "Input";
+            else if (i === layerPositions.length - 1) label = "Output";
 
-    // Draw nodes
-    for (let i = 0; i < layerPositions.length; i++) {
-        let label = "Hidden";
-        if (i === 0) label = "Input";
-        else if (i === layerPositions.length - 1) label = "Output";
+            drawNodes(layerPositions[i], drawHeight / 2 + 20, numNeurons, label);
+        }
+    pop();
 
-        drawNodes(layerPositions[i], drawHeight / 2 + 20, numNeurons, label);
-    }
+    // Draw parameter counts at bottom of drawing area
+    textSize(14);
+    textStyle(NORMAL);
+    textAlign(CENTER, CENTER);
+    fill('black');
+    text('Weights: ' + weightCount, canvasWidth / 2 - 80, drawHeight - 40);
+    text('Biases: ' + biasCount, canvasWidth / 2 + 80, drawHeight - 40);
 
-    // Draw parameter count
     fill('navy');
     textSize(16);
     textStyle(BOLD);
-    textAlign(CENTER, CENTER);
-    text('Total Parameters: ' + parameterCount, canvasWidth / 2, drawHeight - 20);
+    text('Total Parameters: ' + parameterCount, canvasWidth / 2, drawHeight - 18);
 
     // Draw slider labels
     fill('black');
     textStyle(NORMAL);
     textSize(14);
-    textAlign(LEFT, CENTER);
-    text('Layers: ' + numLayers, margin, drawHeight + 27);
-    text('Neurons/Layer: ' + numNeurons, margin, drawHeight + 57);
+    textAlign(RIGHT, CENTER);
+    text('Layers: ' + numLayers, sliderLeftMargin - margin*.5, drawHeight + 27);
+    text('Neurons/Layer: ' + numNeurons, sliderLeftMargin - margin*.5, drawHeight + 57);
 
     noLoop();
 }
@@ -118,6 +130,7 @@ function draw() {
 function drawNodes(x, y, numNodes, label) {
     let gap = 35;
     let startY = y - ((numNodes - 1) * gap) / 2;
+
 
     // Draw nodes
     for (let i = 0; i < numNodes; i++) {
@@ -133,6 +146,7 @@ function drawNodes(x, y, numNodes, label) {
     textSize(12);
     textAlign(CENTER, TOP);
     text(label, x, startY + (numNodes - 1) * gap + 20);
+
 }
 
 function connectLayers(x1, y1, numNodes1, x2, y2, numNodes2) {
@@ -162,9 +176,9 @@ function windowResized() {
 }
 
 function updateCanvasSize() {
-    const container = document.querySelector('main') || document.querySelector('#canvas-container');
-    if (container) {
-        canvasWidth = Math.min(container.offsetWidth - 20, 600);
-        canvasWidth = Math.max(canvasWidth, 350);
-    }
+    // Get the width of the <main> element
+    const container = document.querySelector('main').getBoundingClientRect();
+    containerWidth = Math.floor(container.width);  // Avoid fractional pixels
+    // set the canvas width to the container width
+    canvasWidth = containerWidth;
 }

@@ -9,10 +9,10 @@ social:
 
 # Neural Network Structure
 
-<iframe src="main.html" width="100%" height="500px"></iframe>
+<iframe src="main.html" width="100%" height="500px" scrolling="no"></iframe>
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/sims/neural-network/main.html" width="100%" height="500px"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/sims/neural-network/main.html" width="100%" height="500px" scrolling="no"></iframe>
 ```
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
