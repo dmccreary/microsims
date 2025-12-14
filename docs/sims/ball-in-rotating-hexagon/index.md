@@ -2,6 +2,8 @@
 title: Bouncing Ball in a Rotating Hexagon
 description: An interactive p5.js simulation demonstrating physics concepts including gravity, momentum, friction, and collision detection with rotating boundaries.
 quality_score: 90
+image: /sims/ball-in-rotating-hexagon/ball-in-rotating-hexagon.png
+og:image: /sims/ball-in-rotating-hexagon/ball-in-rotating-hexagon.png
 social:
    cards: false
 ---
