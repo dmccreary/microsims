@@ -7,7 +7,7 @@ social:
 ---
 # Bouncing Ball in a Rotating Hexagon
 
-<iframe src="main.html" width="100%" height="440px" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="438px" scrolling="no"></iframe>
 
 [Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 [Edit in the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/b9cXAHp6A){ .md-button .md-button--primary }
