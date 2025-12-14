@@ -1,8 +1,9 @@
 ---
 title: Profit Maximum
 description: An interactive MicroSim demonstrating why profit-maximizing price differs from revenue-maximizing price when production costs are considered.
-image: profit-maximum.png
-quality_score: 92
+image: /sims/profit-maximum/profit-maximum.png
+og:image: /sims/profit-maximum/profit-maximum.png
+quality_score: 95
 social:
     cards: false
 ---
