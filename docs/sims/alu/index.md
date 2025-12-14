@@ -1,7 +1,7 @@
 ---
 title: Arithmetic Logic Unit (ALU)
-description: An interactive MicroSim demonstrating arithmetic logic unit (alu).
-quality_score: 42
+description: Interactive simulation demonstrating how an ALU performs arithmetic and logical operations on binary data.
+quality_score: 95
 image: /sims/alu/alu.png
 og:image: /sims/alu/alu.png
 twitter:image: /sims/alu/alu.png
@@ -10,149 +10,25 @@ social:
 ---
 # Arithmetic Logic Unit (ALU)
 
-<figure markdown>
-![ALU](alu.png)
-   <figcaption>Arithmetic Logic Unit</figcaption>
-</figure>
-[Demo](alu.html){ .md-button .md-button--primary }
+<iframe src="main.html" width="100%" height="350px" scrolling="no"></iframe>
 
-!!! Note
-  This microsim is a work-in-progress.  The ALU works in some cases but has bugs
-  and the layout is not optimized.
+[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
 
-Prompt:
+Copy this iframe to embed on your website:
 
-```linenums="0"
-Create a single file ps.js sketch on a 400x400 canvas.
-The sketch is a simulation of an Arithmetic Logic Unit (ALU).
-Place a title "Arithmetic Logic Unit" on the top center of the canvas of text size 16.
-The inputs are two registers: A and B.
-Place the labels for the registers to the left of text inputs.
-Place the input registers so the align vertically.
-Place buttons for the operations below the registers.
-The operation are: ADD, SUBTRACT, AND, OR, XOR.
-Display the value of the output below the operations.
-Label the output value "Output" in blue text.
-Create an input toggle button to display all values in either binary or decimal.
-Make the default value be decimal.
+```html
+<iframe src="https://dmccreary.github.io/microsims/sims/alu/main.html" width="100%" height="350px"></iframe>
 ```
 
+## Description
 
+This interactive MicroSim demonstrates how an Arithmetic Logic Unit (ALU) works, which is the fundamental computational component in all CPUs. The ALU performs both arithmetic operations (ADD, SUBTRACT) and logical bitwise operations (AND, OR, XOR) on two input registers.
 
-```js
-let inputA;
-let inputB;
-let outputP;
-let binDecToggle;
-let isBinary = false;
+**How to Use:**
 
-function setup() {
-  createCanvas(400, 400);
-  background(220);
-  textAlign(CENTER, CENTER);
-
-  // Title
-  textSize(16);
-  text("Arithmetic Logic Unit", width/2, 20);
-
-  // Register A
-  text("Register A:", 60, 60);
-  inputA = createInput('201');
-  inputA.position(110, 50);
-
-  // Register B
-  text("Register B:", 60, 100);
-  inputB = createInput('100');
-  inputB.position(110, 90);
-
-  // Operations
-  let addBtn = createButton('ADD');
-  addBtn.position(20, 140);
-  addBtn.mousePressed(() => performOperation("ADD"));
-
-  let subBtn = createButton('SUBTRACT');
-  subBtn.position(70, 140);
-  subBtn.mousePressed(() => performOperation("SUBTRACT"));
-
-  let andBtn = createButton('AND');
-  andBtn.position(165, 140);
-  andBtn.mousePressed(() => performOperation("AND"));
-
-  let orBtn = createButton('OR');
-  orBtn.position(220, 140);
-  orBtn.mousePressed(() => performOperation("OR"));
-
-  let xorBtn = createButton('XOR');
-  xorBtn.position(265, 140);
-  xorBtn.mousePressed(() => performOperation("XOR"));
-
-  // Output label
-  fill('blue');
-  text("Output:", 60, 200);
-
-  // Output display
-  outputP = createP("0");
-  outputP.position(110, 175);
-
-  // Binary/Decimal toggle button
-  binDecToggle = createButton('Toggle Binary/Decimal');
-  binDecToggle.position(100, 220);
-  binDecToggle.mousePressed(toggleBinDec);
-}
-
-function draw() {
-  // nothing
-}
-
-function performOperation(operation) {
-  let a = int(inputA.value());
-  let b = int(inputB.value());
-
-  let result;
-
-  switch (operation) {
-    case "ADD":
-      result = a + b;
-      break;
-    case "SUBTRACT":
-      result = a - b;
-      break;
-    case "AND":
-      result = a & b;
-      break;
-    case "OR":
-      result = a | b;
-      break;
-    case "XOR":
-      result = a ^ b;
-      break;
-  }
-
-// Convert decimal number to binary
-function dec_bin(decNum) {
-  if (decNum === 0) return "0";
-
-  let binary = "";
-  while (decNum > 0) {
-    binary = (decNum % 2) + binary;
-    decNum = Math.floor(decNum / 2);
-  }
-  return binary;
-}
-
-  if (isBinary) {
-    outputP.html(dec_bin(result));
-  } else {
-    outputP.html(result.toString());
-  }
-}
-
-function toggleBinDec() {
-  isBinary = !isBinary;
-
-  performOperation("ADD"); // Refresh the value on toggle
-}
-```
+1. Enter integer values in Register A and Register B input fields
+2. Click an operation button (ADD, SUBTRACT, AND, OR, XOR) to see the result
+3. Use the "Toggle Binary/Decimal" button to switch between decimal and binary output display
 
 ## Challenges
 
@@ -164,6 +40,36 @@ result of the arithmetic such as if there were overflows.
     2. Add a sign flag to indicate the number is non-negative
     3. Add a carry flag to indicate that the result fits in 16 bits
     4. Add an overflow flag to indicate that the sum of two numbers is also positive
+
+## Lesson Plan
+
+**Learning Objectives:**
+
+- Understand the role of the ALU as the computational core of a CPU
+- Perform arithmetic operations (addition, subtraction) on binary numbers
+- Apply bitwise logical operations (AND, OR, XOR) and understand their uses
+- Convert between decimal and binary number representations
+
+**Target Audience:** High school and introductory college computer science students
+
+**Prerequisites:**
+
+- Understanding of binary number system
+- Basic arithmetic operations
+- Introduction to Boolean logic gates
+
+**Activities:**
+
+1. **Exploration (10 min):** Have students experiment with different input values and observe the results of each operation
+2. **Binary Toggle (10 min):** Use the binary/decimal toggle to see how operations work at the bit level
+3. **Predict and Verify (15 min):** Students predict the output before clicking, then verify their predictions
+4. **Bitwise Operations (15 min):** Focus on AND, OR, XOR operations - discuss their applications in masking, flags, and data manipulation
+
+**Assessment:**
+
+- Calculate the result of 25 AND 17 by hand, then verify with the simulator
+- Explain why XOR is useful for toggling specific bits
+- Describe a real-world use case for each bitwise operation
 
 ## References
 
