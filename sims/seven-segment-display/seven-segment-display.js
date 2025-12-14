@@ -28,15 +28,15 @@ let segmentMapping = [
   [1, 1, 1, 1, 0, 1, 1]  // 9
 ];
 
-// Segment colors
+// Segment colors (darker shades)
 let segmentColors = [
-  [255, 0, 0],      // a - top (red)
-  [255, 170, 0],    // b - upper right (orange)
-  [255, 255, 0],    // c - lower right (yellow)
-  [0, 255, 0],      // d - bottom (green)
-  [0, 0, 255],      // e - lower left (blue)
-  [200, 0, 200],    // f - upper left (purple)
-  [245, 180, 200]   // g - middle (pink)
+  [180, 0, 0],      // a - top (dark red)
+  [180, 100, 0],    // b - upper right (dark orange)
+  [160, 140, 0],    // c - lower right (dark yellow/gold)
+  [0, 140, 0],      // d - bottom (dark green)
+  [0, 0, 180],      // e - lower left (dark blue)
+  [140, 0, 140],    // f - upper left (dark purple)
+  [180, 80, 120]    // g - middle (dark pink)
 ];
 
 // Segment descriptions
@@ -155,11 +155,61 @@ function drawSegmentList(digit, x, y) {
   textSize(defaultTextSize);
 }
 
+// Draw a horizontal hexagonal segment (pointed ends left and right)
+function drawHorizontalSegment(cx, cy, length, width, isOn, colorArr) {
+  let halfW = width / 2;
+  let pointOffset = width / 2; // How far the point extends
+
+  if (isOn) {
+    noStroke();
+    fill(colorArr[0], colorArr[1], colorArr[2]);
+  } else {
+    noFill();
+    stroke(200);
+    strokeWeight(1);
+  }
+
+  beginShape();
+  vertex(cx - length - pointOffset, cy);           // Left point
+  vertex(cx - length, cy - halfW);                 // Upper-left
+  vertex(cx + length, cy - halfW);                 // Upper-right
+  vertex(cx + length + pointOffset, cy);           // Right point
+  vertex(cx + length, cy + halfW);                 // Lower-right
+  vertex(cx - length, cy + halfW);                 // Lower-left
+  endShape(CLOSE);
+}
+
+// Draw a vertical hexagonal segment (pointed ends top and bottom)
+function drawVerticalSegment(cx, cy, length, width, isOn, colorArr) {
+  let halfW = width / 2;
+  let halfL = length / 2;
+  let pointOffset = width / 2; // How far the point extends
+
+  if (isOn) {
+    noStroke();
+    fill(colorArr[0], colorArr[1], colorArr[2]);
+  } else {
+    noFill();
+    stroke(200);
+    strokeWeight(1);
+  }
+
+  beginShape();
+  vertex(cx, cy - halfL - pointOffset);            // Top point
+  vertex(cx + halfW, cy - halfL);                  // Upper-right
+  vertex(cx + halfW, cy + halfL);                  // Lower-right
+  vertex(cx, cy + halfL + pointOffset);            // Bottom point
+  vertex(cx - halfW, cy + halfL);                  // Lower-left
+  vertex(cx - halfW, cy - halfL);                  // Upper-left
+  endShape(CLOSE);
+}
+
 // Draw a digit at position (x, y) with given size
 function drawDigit(digit, x, y, size) {
   let segmentOn = segmentMapping[digit];
-  let segmentWidth = size / 4;
-  let segmentLength = size * 0.6;
+  let segmentWidth = size / 5;
+  let hSegmentLength = size * 0.5;  // Half-length for horizontal segments
+  let vSegmentLength = size * 0.85; // Length for vertical segments
 
   // Horizontal segments (a=0, d=3, g=6)
   let horizontal = [0, 3, 6];
@@ -169,70 +219,51 @@ function drawDigit(digit, x, y, size) {
     if (i == 3) yOffset = size;       // bottom
     if (i == 6) yOffset = 0;          // middle
 
-    if (segmentOn[i]) {
-      // Draw filled segment
-      noStroke();
-      fill(segmentColors[i][0], segmentColors[i][1], segmentColors[i][2]);
-      rect(x - segmentLength, y + yOffset - segmentWidth/2, segmentLength * 2, segmentWidth, 3);
-    } else {
-      // Draw thin outline only
-      noFill();
-      stroke(200);
-      strokeWeight(1);
-      rect(x - segmentLength, y + yOffset - segmentWidth/2, segmentLength * 2, segmentWidth, 3);
-    }
+    drawHorizontalSegment(x, y + yOffset, hSegmentLength, segmentWidth,
+                          segmentOn[i], segmentColors[i]);
   }
 
   // Vertical segments (b=1, c=2, e=4, f=5)
   let vertical = [1, 2, 4, 5];
   for (let i of vertical) {
-    let startY, xOffset;
+    let centerY, xOffset;
 
-    if (i == 1 || i == 5) { startY = y - size; }      // upper
-    if (i == 2 || i == 4) { startY = y; }              // lower
-    if (i == 4 || i == 5) { xOffset = -size * 0.7; }  // left
-    if (i == 1 || i == 2) { xOffset = size * 0.7; }   // right
+    if (i == 1 || i == 5) { centerY = y - size / 2; }  // upper
+    if (i == 2 || i == 4) { centerY = y + size / 2; }  // lower
+    if (i == 4 || i == 5) { xOffset = -size * 0.65; }  // left
+    if (i == 1 || i == 2) { xOffset = size * 0.65; }   // right
 
-    if (segmentOn[i]) {
-      // Draw filled segment
-      noStroke();
-      fill(segmentColors[i][0], segmentColors[i][1], segmentColors[i][2]);
-      rect(x + xOffset - segmentWidth/2, startY, segmentWidth, size, 3);
-    } else {
-      // Draw thin outline only
-      noFill();
-      stroke(200);
-      strokeWeight(1);
-      rect(x + xOffset - segmentWidth/2, startY, segmentWidth, size, 3);
-    }
+    drawVerticalSegment(x + xOffset, centerY, vSegmentLength, segmentWidth,
+                        segmentOn[i], segmentColors[i]);
   }
 }
 
-// Draw segment labels (a-g) over each segment
+// Draw segment labels (a-g) centered on each segment
 function drawSegmentLabels(x, y, size) {
   noStroke();
-  fill(120); // light gray for labels
+  fill(255); // white text
   textAlign(CENTER, CENTER);
-  textSize(14);
+  let labelSize = max(10, size / 6); // Scale font with segment size, minimum 10
+  textSize(labelSize);
   textStyle(BOLD);
 
-  // a - top horizontal
-  text('a', x, y - size - 15);
+  // a - top horizontal (centered on segment)
+  text('a', x, y - size);
 
-  // b - upper right vertical
-  text('b', x + size * 0.7 + 15, y - size / 2);
+  // b - upper right vertical (centered on segment)
+  text('b', x + size * 0.65, y - size / 2);
 
-  // c - lower right vertical
-  text('c', x + size * 0.7 + 15, y + size / 2);
+  // c - lower right vertical (centered on segment)
+  text('c', x + size * 0.65, y + size / 2);
 
-  // d - bottom horizontal
-  text('d', x, y + size + 15);
+  // d - bottom horizontal (centered on segment)
+  text('d', x, y + size);
 
-  // e - lower left vertical
-  text('e', x - size * 0.7 - 15, y + size / 2);
+  // e - lower left vertical (centered on segment)
+  text('e', x - size * 0.65, y + size / 2);
 
-  // f - upper left vertical
-  text('f', x - size * 0.7 - 15, y - size / 2);
+  // f - upper left vertical (centered on segment)
+  text('f', x - size * 0.65, y - size / 2);
 
   // g - middle horizontal (centered on segment)
   text('g', x, y);

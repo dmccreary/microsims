@@ -76,5 +76,4 @@ function updateCanvasSize() {
     // Get the exact dimensions of the container
     const container = document.querySelector('main').getBoundingClientRect();
     containerWidth = Math.floor(container.width);  // Avoid fractional pixels
->>>>>>> fca05a3e66c92aa31c23acb1d85d21069fd37346
 }
