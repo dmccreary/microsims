@@ -70,7 +70,6 @@ function updateSimulationDimensions() {
 }
 
 
-
 function constrainBallToHexagon() {
   // Reset ball position if it's too far from center after resize
   let distFromCenter = dist(ball.pos.x, ball.pos.y, center.x, center.y);
