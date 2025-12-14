@@ -16,7 +16,8 @@ social:
 <iframe src="https://dmccreary.github.io/microsims/sims/profit-maximum/main.html" width="100%" height="492px" scrolling="no"></iframe>
 ```
 
-[Run Profit Maximum Fullscreen](main.html){ .md-button .md-button--primary }
+[Run Profit Maximum MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
+[Edit the Profit Maximum MicroSim Using the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/kZGOmPLrM)
 
 ## About This MicroSim
 
