@@ -4,6 +4,22 @@ Although we have over 100 MicroSims to demonstrate, we've selected these basic e
 
 These examples progress from simple animations to more complex visualizations, demonstrating different features and use cases.
 
+## Summary Table
+
+| MicroSim | Primary Feature | Library |
+|----------|-----------------|---------|
+| [Bouncing Ball](#bouncing-ball) | Animation + Controls | p5.js |
+| [Temperature & Pressure](#temperature-and-pressure) | Particle Physics | p5.js |
+| [Sine Wave](#sine-wave) | Math Visualization | p5.js |
+| [String Harmonics](#sound-example-string-harmonics) | Sound Output | p5.js + p5.sound |
+| [FFT Microphone](#microphone-example-fft-frequency-visualization) | Audio Input | p5.js + p5.sound |
+| [Learning Modality](#chart-example-learning-modality-effectiveness) | Bar Chart | Chart.js |
+| [Global Impact](#map-example-global-impact) | Interactive Map | Leaflet.js |
+| [MicroSim Growth](#causal-loop-diagram-microsim-growth) | Causal Loop Diagram | vis-network |
+| [Creation Workflow](#workflow-example-microsim-creation) | Flowchart | Mermaid.js |
+| [Fractal Tree](#fractal-tree) | Recursive Graphics | p5.js |
+| [Conway's Game of Life](#conways-game-of-life) | Cellular Automata | p5.js |
+| [Neural Network](#neural-network) | ML Architecture | p5.js |
 
 ## Core Examples
 
@@ -63,14 +79,15 @@ Captures microphone input and displays a real-time frequency spectrum using Fast
 
 **Key Features:** Microphone input, FFT analysis, frequency spectrum, start/stop control
 
-
 ## Visualization Types
 
 ### Chart Example: Learning Modality Effectiveness
 
 **Interactive bar chart with Chart.js**
 
-A horizontal bar chart visualizing knowledge retention rates across different learning modalities. Demonstrates why interactive simulations produce superior learning outcomes compared to passive methods like reading or watching videos.
+A horizontal bar chart visualizing knowledge retention rates across different learning modalities. Demonstrates why interactive simulations produce superior learning outcomes compared to passive methods like reading or watching videos.  Note that you can hover over each bar to have the MicroSim display an explanation of each modality.
+In order to be classified as an educational MicroSim there **MUST** be some interactivity with the user.
+Hovertext is a good example since we can log hovertext events to predict understanding.
 
 <iframe src="/microsims/sims/learning-modality-effectiveness/main.html" width="100%" height="470px" scrolling="no"></iframe>
 [Go to the Learning Modality Effectiveness MicroSim Page](./learning-modality-effectiveness/index.md)
@@ -144,27 +161,12 @@ The classic cellular automaton demonstrating emergent behavior from simple rules
 
 **Machine learning visualization**
 
-Visual representation of a neural network showing nodes, layers, and connections. Helps students understand the basic architecture of AI systems.
+Visual representation of a neural network showing nodes, layers, and connections. Helps students understand the basic architecture of a deep neural network including weights and biases and to be able to understand how model parameters are counted.
 
-<iframe src="/microsims/sims/neural-network/neural-network.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="/microsims/sims/neural-network/main.html" width="100%" height="480px" scrolling="no"></iframe>
 [Go to the Neural Network MicroSim Page](./neural-network/index.md)
 
 **Key Features:** Neural network architecture, nodes, layers, connections
-
-
-## Summary Table
-
-| MicroSim | Primary Feature | Library |
-|----------|-----------------|---------|
-| Bouncing Ball | Animation + Controls | p5.js |
-| Temperature & Pressure | Particle Physics | p5.js |
-| Sine Wave | Math Visualization | p5.js |
-| String Harmonics | Sound Output | p5.js + p5.sound |
-| FFT Microphone | Audio Input | p5.js + p5.sound |
-| Learning Modality | Bar Chart | Chart.js |
-| Global Impact | Interactive Map | Leaflet.js |
-| MicroSim Growth | Causal Loop Diagram | vis-network |
-| Creation Workflow | Flowchart | Mermaid.js |
 
 ## Next Steps
 
