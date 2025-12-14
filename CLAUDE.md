@@ -171,3 +171,4 @@ The `.cursor/rules/microsims.mdc` file contains comprehensive coding standards i
 - Math rendering via MathJax (use `$$` for equations)
 - Markdown extensions: admonition, superfences, pymdownx
 - Custom CSS: `docs/css/extra.css`, JS: `docs/js/extra.js`
+- remember that even static diagrams like mermaid charts can have hovertext that can be logged for future activity logs through the xAPI interfaces

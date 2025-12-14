@@ -2,7 +2,7 @@
 
 This interactive infographic map visualizes how MicroSims are transforming education worldwide, connecting teachers and students across the globe through free, open educational resources.
 
-<iframe src="main.html" width="100%" height="650" frameborder="0" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 
 [View Fullscreen](main.html){:target="_blank"}
 

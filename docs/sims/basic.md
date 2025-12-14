@@ -47,7 +47,7 @@ A static sine wave displayed on a Cartesian coordinate grid with three sliders c
 
 Demonstrates string harmonics with an animated vibrating string. When "Enable Sound" is checked, an oscillator plays a tone that matches the visual frequency. Adjust the frequency slider to hear and see harmonics from 1 to 16.
 
-<iframe src="/microsims/sims/string-harmonics/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="/microsims/sims/string-harmonics/main.html" width="100%" height="200px" scrolling="no"></iframe>
 [Go to the String Harmonics MicroSim Page](./string-harmonics/index.md)
 
 **Key Features:** Sound generation, checkbox control, oscillator, frequency visualization
@@ -72,7 +72,7 @@ Captures microphone input and displays a real-time frequency spectrum using Fast
 
 A horizontal bar chart visualizing knowledge retention rates across different learning modalities. Demonstrates why interactive simulations produce superior learning outcomes compared to passive methods like reading or watching videos.
 
-<iframe src="/microsims/sims/learning-modality-effectiveness/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="/microsims/sims/learning-modality-effectiveness/main.html" width="100%" height="470px" scrolling="no"></iframe>
 [Go to the Learning Modality Effectiveness MicroSim Page](./learning-modality-effectiveness/index.md)
 
 **Key Features:** Chart.js integration, hover tooltips, animated bar growth, annotations
@@ -84,17 +84,16 @@ A horizontal bar chart visualizing knowledge retention rates across different le
 
 An animated infographic map showing how MicroSims spread globally, connecting teachers and students through open educational resources. Watch knowledge flow from creators to libraries to schools worldwide.
 
-<iframe src="/microsims/sims/global-impact/main.html" width="100%" height="550px" scrolling="no"></iframe>
+<iframe src="/microsims/sims/global-impact/main.html" width="100%" height="600px" scrolling="no"></iframe>
 [Go to the Global Impact MicroSim Page](./global-impact/index.md)
 
 **Key Features:** Leaflet.js map, animated connections, time slider, statistics panel, zoom/pan
-
 
 ### Causal Loop Diagram: MicroSim Growth
 
 **Systems thinking visualization with vis-network**
 
-An interactive causal loop diagram showing reinforcing feedback loops in the MicroSim ecosystem. Click on nodes and edges to explore how MicroSims, Intelligent Textbooks, and Teacher Awareness create a virtuous cycle of growth.
+An interactive causal loop diagram showing reinforcing feedback loops in the MicroSim and intelligent textbook ecosystem. Hover over the nodes and edges to explore how MicroSims, Intelligent Textbooks, and Teacher Awareness create a virtuous cycle of growth.
 
 <iframe src="/microsims/sims/microsim-growth/main.html" width="100%" height="550px" scrolling="no"></iframe>
 [Go to the MicroSim Growth MicroSim Page](./microsim-growth/index.md)
@@ -108,6 +107,9 @@ An interactive causal loop diagram showing reinforcing feedback loops in the Mic
 **Mermaid flowchart diagram**
 
 An interactive workflow diagram illustrating the complete process teachers follow when creating MicroSims with AI assistance. Shows how learning objectives transform into working simulations in minutes rather than months.
+Note that every element in the Mermaid diagram has a hovertext that appears when a user hovers
+over the item.  Hover tooltips are **REQUIRED** feature of all static diagrams like Mermaid so that we
+can add code to log interactive events with the xAPI interface that can be monitored for recommending future actions by students.
 
 <iframe src="/microsims/sims/microsim-creation-workflow/main.html" width="100%" height="650px" scrolling="no"></iframe>
 [Go to the MicroSim Creation Workflow MicroSim Page](./microsim-creation-workflow/index.md)
@@ -120,13 +122,12 @@ An interactive workflow diagram illustrating the complete process teachers follo
 
 **Recursive graphics and mathematical beauty**
 
-An interactive fractal tree demonstrating recursion and self-similarity. Adjust branch angles and depth to create different tree patterns.
+An interactive fractal tree demonstrating recursion and self-similarity. Adjust branch angles and depth to create different tree patterns.  Note that these simple interactive MicroSims help students visualize complex concepts like recursion and fractals.
 
-<iframe src="/microsims/sims/fractal-tree/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="/microsims/sims/fractal-tree/main.html" width="100%" height="574px" scrolling="no"></iframe>
 [Go to the Fractal Tree MicroSim Page](./fractal-tree/index.md)
 
-**Key Features:** Recursive graphics, adjustable branch angles and depth
-
+**Key Features:** Simple p5.js, Recursive graphics, adjustable branch angles and depth
 
 ### Conway's Game of Life
 

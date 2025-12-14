@@ -45,6 +45,7 @@
             color: #fff;
             padding: 8px 12px;
             border-radius: 6px;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
             max-width: 280px;
             pointer-events: none;
@@ -138,7 +139,24 @@ flowchart TD
         }
 
         // Wait for Mermaid to render, then setup tooltips
-        setTimeout(setupTooltips, 500);
+        // Use MutationObserver for reliable detection instead of fixed timeout
+        function waitForMermaid() {
+            const mermaidDiv = document.querySelector('.mermaid');
+            const svg = mermaidDiv.querySelector('svg');
+            if (svg && document.querySelectorAll('.node').length > 0) {
+                setupTooltips();
+            } else {
+                // Check again after a short delay
+                setTimeout(waitForMermaid, 100);
+            }
+        }
+
+        // Start checking after initial load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => setTimeout(waitForMermaid, 100));
+        } else {
+            setTimeout(waitForMermaid, 100);
+        }
     </script>
 </body>
 </html>
