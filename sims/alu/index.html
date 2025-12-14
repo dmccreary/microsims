@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An interactive MicroSim demonstrating arithmetic logic unit (alu).">
+        <meta name="description" content="Interactive simulation demonstrating how an ALU performs arithmetic and logical operations on binary data.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://dmccreary.github.io/microsims/sims/alu/">
       
       
-        <link rel="prev" href="../ac-circuit/">
+        <link rel="prev" href="../ai-benchmarks-timeline/">
       
       
         <link rel="next" href="../analog-circuit/">
@@ -72,7 +72,7 @@
       
         <meta  property="og:title"  content="Arithmetic Logic Unit (ALU) - Micro Simulations for Education" >
       
-        <meta  property="og:description"  content="An interactive MicroSim demonstrating arithmetic logic unit (alu)." >
+        <meta  property="og:description"  content="Interactive simulation demonstrating how an ALU performs arithmetic and logical operations on binary data." >
       
         <meta property="og:image" content="https://dmccreary.github.io/microsims/sims/alu/alu.png">
       
@@ -88,7 +88,7 @@
       
         <meta  name="twitter:title"  content="Arithmetic Logic Unit (ALU) - Micro Simulations for Education" >
       
-        <meta  name="twitter:description"  content="An interactive MicroSim demonstrating arithmetic logic unit (alu)." >
+        <meta  name="twitter:description"  content="Interactive simulation demonstrating how an ALU performs arithmetic and logical operations on binary data." >
       
         <meta name="twitter:image" content="https://dmccreary.github.io/microsims/sims/alu/alu.png">
       
@@ -579,6 +579,10 @@
       
         
       
+        
+      
+        
+          
         
       
         
@@ -1283,6 +1287,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-benchmarks-timeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI Benchmarks Timeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1332,9 +1357,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#challenges" class="md-nav__link">
     <span class="md-ellipsis">
       Challenges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
     </span>
   </a>
   
@@ -3817,9 +3860,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#challenges" class="md-nav__link">
     <span class="md-ellipsis">
       Challenges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lesson-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson Plan
     </span>
   </a>
   
@@ -3858,255 +3919,20 @@
 
 
 <h1 id="arithmetic-logic-unit-alu">Arithmetic Logic Unit (ALU)</h1>
-<figure>
-<p><img alt="ALU" src="alu.png" />
-   </p>
-<figcaption>Arithmetic Logic Unit</figcaption>
-</figure>
-<p><a class="md-button md-button--primary" href="alu.html">Demo</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>This microsim is a work-in-progress.  The ALU works in some cases but has bugs
-  and the layout is not optimized.</p>
-<p>Prompt:</p>
-<div class="highlight"><pre><span></span><code>Create a single file ps.js sketch on a 400x400 canvas.
-The sketch is a simulation of an Arithmetic Logic Unit (ALU).
-Place a title &quot;Arithmetic Logic Unit&quot; on the top center of the canvas of text size 16.
-The inputs are two registers: A and B.
-Place the labels for the registers to the left of text inputs.
-Place the input registers so the align vertically.
-Place buttons for the operations below the registers.
-The operation are: ADD, SUBTRACT, AND, OR, XOR.
-Display the value of the output below the operations.
-Label the output value &quot;Output&quot; in blue text.
-Create an input toggle button to display all values in either binary or decimal.
-Make the default value be decimal.
-</code></pre></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">inputA</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">inputB</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">outputP</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">binDecToggle</span><span class="p">;</span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">isBinary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<iframe src="main.html" width="100%" height="350px" scrolling="no"></iframe>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="mf">220</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">textAlign</span><span class="p">(</span><span class="nx">CENTER</span><span class="p">,</span><span class="w"> </span><span class="nx">CENTER</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Title</span>
-<span class="w">  </span><span class="nx">textSize</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Arithmetic Logic Unit&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">/</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Register A</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Register A:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">inputA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createInput</span><span class="p">(</span><span class="s1">&#39;201&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">inputA</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">110</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Register B</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Register B:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">inputB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createInput</span><span class="p">(</span><span class="s1">&#39;100&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">inputB</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">110</span><span class="p">,</span><span class="w"> </span><span class="mf">90</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Operations</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">addBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;ADD&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">addBtn</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">140</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">addBtn</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">performOperation</span><span class="p">(</span><span class="s2">&quot;ADD&quot;</span><span class="p">));</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">subBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;SUBTRACT&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">subBtn</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">70</span><span class="p">,</span><span class="w"> </span><span class="mf">140</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">subBtn</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">performOperation</span><span class="p">(</span><span class="s2">&quot;SUBTRACT&quot;</span><span class="p">));</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">andBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;AND&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">andBtn</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">165</span><span class="p">,</span><span class="w"> </span><span class="mf">140</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">andBtn</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">performOperation</span><span class="p">(</span><span class="s2">&quot;AND&quot;</span><span class="p">));</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">orBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;OR&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">orBtn</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">220</span><span class="p">,</span><span class="w"> </span><span class="mf">140</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">orBtn</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">performOperation</span><span class="p">(</span><span class="s2">&quot;OR&quot;</span><span class="p">));</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">xorBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;XOR&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">xorBtn</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">265</span><span class="p">,</span><span class="w"> </span><span class="mf">140</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">xorBtn</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">performOperation</span><span class="p">(</span><span class="s2">&quot;XOR&quot;</span><span class="p">));</span>
-
-<span class="w">  </span><span class="c1">// Output label</span>
-<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;Output:&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Output display</span>
-<span class="w">  </span><span class="nx">outputP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createP</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">outputP</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">110</span><span class="p">,</span><span class="w"> </span><span class="mf">175</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Binary/Decimal toggle button</span>
-<span class="w">  </span><span class="nx">binDecToggle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">&#39;Toggle Binary/Decimal&#39;</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">binDecToggle</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">220</span><span class="p">);</span>
-<span class="w">  </span><span class="nx">binDecToggle</span><span class="p">.</span><span class="nx">mousePressed</span><span class="p">(</span><span class="nx">toggleBinDec</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="c1">// nothing</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">performOperation</span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">int</span><span class="p">(</span><span class="nx">inputA</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">int</span><span class="p">(</span><span class="nx">inputB</span><span class="p">.</span><span class="nx">value</span><span class="p">());</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span>
-
-<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">operation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;ADD&quot;</span><span class="o">:</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;SUBTRACT&quot;</span><span class="o">:</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;AND&quot;</span><span class="o">:</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;OR&quot;</span><span class="o">:</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;XOR&quot;</span><span class="o">:</span>
-<span class="w">      </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
-<span class="w">      </span><span class="k">break</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="c1">// Convert decimal number to binary</span>
-<span class="kd">function</span><span class="w"> </span><span class="nx">dec_bin</span><span class="p">(</span><span class="nx">decNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">decNum</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">;</span>
-
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">decNum</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">binary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">decNum</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">binary</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">decNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">decNum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">binary</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isBinary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">outputP</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">dec_bin</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">outputP</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">toggleBinDec</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">isBinary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isBinary</span><span class="p">;</span>
-
-<span class="w">  </span><span class="nx">performOperation</span><span class="p">(</span><span class="s2">&quot;ADD&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Refresh the value on toggle</span>
-<span class="p">}</span>
+<p><a class="md-button md-button--primary" href="main.html">Run MicroSim in Fullscreen</a></p>
+<p>Copy this iframe to embed on your website:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://dmccreary.github.io/microsims/sims/alu/main.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;350px&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="description">Description</h2>
+<p>This interactive MicroSim demonstrates how an Arithmetic Logic Unit (ALU) works, which is the fundamental computational component in all CPUs. The ALU performs both arithmetic operations (ADD, SUBTRACT) and logical bitwise operations (AND, OR, XOR) on two input registers.</p>
+<p><strong>How to Use:</strong></p>
+<ol>
+<li>Enter integer values in Register A and Register B input fields</li>
+<li>Click an operation button (ADD, SUBTRACT, AND, OR, XOR) to see the result</li>
+<li>Use the "Toggle Binary/Decimal" button to switch between decimal and binary output display</li>
+</ol>
 <h2 id="challenges">Challenges</h2>
 <p>Real ALUs also keep track of several bits if information about the
 result of the arithmetic such as if there were overflows.</p>
@@ -4119,6 +3945,34 @@ result of the arithmetic such as if there were overflows.</p>
 <li>Add an overflow flag to indicate that the sum of two numbers is also positive</li>
 </ol>
 </div>
+<h2 id="lesson-plan">Lesson Plan</h2>
+<p><strong>Learning Objectives:</strong></p>
+<ul>
+<li>Understand the role of the ALU as the computational core of a CPU</li>
+<li>Perform arithmetic operations (addition, subtraction) on binary numbers</li>
+<li>Apply bitwise logical operations (AND, OR, XOR) and understand their uses</li>
+<li>Convert between decimal and binary number representations</li>
+</ul>
+<p><strong>Target Audience:</strong> High school and introductory college computer science students</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>Understanding of binary number system</li>
+<li>Basic arithmetic operations</li>
+<li>Introduction to Boolean logic gates</li>
+</ul>
+<p><strong>Activities:</strong></p>
+<ol>
+<li><strong>Exploration (10 min):</strong> Have students experiment with different input values and observe the results of each operation</li>
+<li><strong>Binary Toggle (10 min):</strong> Use the binary/decimal toggle to see how operations work at the bit level</li>
+<li><strong>Predict and Verify (15 min):</strong> Students predict the output before clicking, then verify their predictions</li>
+<li><strong>Bitwise Operations (15 min):</strong> Focus on AND, OR, XOR operations - discuss their applications in masking, flags, and data manipulation</li>
+</ol>
+<p><strong>Assessment:</strong></p>
+<ul>
+<li>Calculate the result of 25 AND 17 by hand, then verify with the simulator</li>
+<li>Explain why XOR is useful for toggling specific bits</li>
+<li>Describe a real-world use case for each bitwise operation</li>
+</ul>
 <h2 id="references">References</h2>
 <p>I love this small simulator from CircuitVerse:</p>
 <p><a href="https://circuitverse.org/simulator/51702">Four Bit ALU on CircuitVerse</a> - This
@@ -4174,7 +4028,7 @@ This would be of interest if (RA,RB) represent signed integers (-32768..+32767).
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ac-circuit/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AC Circuit">
+          <a href="../ai-benchmarks-timeline/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AI Benchmarks Timeline">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4184,7 +4038,7 @@ This would be of interest if (RA,RB) represent signed integers (-32768..+32767).
                 Previous
               </span>
               <div class="md-ellipsis">
-                AC Circuit
+                AI Benchmarks Timeline
               </div>
             </div>
           </a>
