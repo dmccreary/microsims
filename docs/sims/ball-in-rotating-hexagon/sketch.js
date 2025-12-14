@@ -1,7 +1,7 @@
 // Canvas dimensions - responsive width
 let canvasWidth = 600;
 let drawHeight = 400;
-let controlHeight = 30;
+let controlHeight = 35;
 let canvasHeight = drawHeight + controlHeight;
 let margin = 25;
 let buttonWidth = 60;
@@ -34,7 +34,7 @@ function setup() {
   startPauseButton.parent(mainElement);
 
   // Create the rotation speed slider
-  rotationSlider = createSlider(-0.1, 0.1, 0.01, 0.001);
+  rotationSlider = createSlider(0, 0.1, 0.02, 0.001);
   rotationSlider.position(sliderLeftMargin + 10, drawHeight + controlHeight / 2 - 10);
   rotationSlider.size(canvasWidth - sliderLeftMargin - 30);
   rotationSlider.parent(mainElement);
@@ -63,31 +63,13 @@ function updateCanvasSize() {
 }
 
 function updateSimulationDimensions() {
-  // Center the hexagon in the draw area
-  center = createVector(canvasWidth / 2, drawHeight / 2);
+  // Center the hexagon in the draw area add 10 for the title space
+  center = createVector(canvasWidth / 2, drawHeight / 2 + 10);
   // Scale hexagon to fit the smaller dimension
   hexRadius = min(canvasWidth / 2, drawHeight / 2) - margin;
 }
 
-function windowResized() {
-  updateCanvasSize();
-  resizeCanvas(canvasWidth, canvasHeight);
 
-  // Update button position
-  startPauseButton.position(10, drawHeight + controlHeight / 2 - 12);
-
-  // Update slider size and position
-  rotationSlider.position(sliderLeftMargin + 10, drawHeight + controlHeight / 2 - 10);
-  rotationSlider.size(canvasWidth - sliderLeftMargin - 30);
-
-  // Update simulation dimensions to keep hexagon centered
-  updateSimulationDimensions();
-
-  // Keep ball within bounds if it went outside after resize
-  if (ball) {
-    constrainBallToHexagon();
-  }
-}
 
 function constrainBallToHexagon() {
   // Reset ball position if it's too far from center after resize
@@ -104,7 +86,8 @@ function draw() {
   hexAngularVelocity = rotationSlider.value();
 
   // --- Drawing Area (Top Region) ---
-  noStroke();
+  strokeWeight(1);
+  stroke('silver');
   fill('aliceblue');
   rect(0, 0, canvasWidth, drawHeight);
 
@@ -112,10 +95,13 @@ function draw() {
   fill('white');
   rect(0, drawHeight, canvasWidth, controlHeight);
 
-  // Draw separator line
-  stroke('silver');
-  strokeWeight(1);
-  line(0, drawHeight, canvasWidth, drawHeight);
+  // Title
+  fill('black');
+  noStroke();
+  textSize(20);
+  textAlign(CENTER, TOP);
+  text('Ball in Rotating Hexagon', canvasWidth / 2, 10);
+
 
   // Only update physics when running
   if (isRunning) {
@@ -150,7 +136,7 @@ function draw() {
   noStroke();
   textSize(defaultTextSize);
   textAlign(LEFT, CENTER);
-  text('Speed:', buttonWidth + 20, drawHeight + controlHeight / 2);
+  text('Speed:', buttonWidth + 30, drawHeight + controlHeight / 2);
 }
 
 /* =========================
@@ -297,4 +283,24 @@ function getWallVelocity(P) {
   // v = omega x r = omega * (-r.y, r.x)
   let vel = createVector(-hexAngularVelocity * r.y, hexAngularVelocity * r.x);
   return vel;
+}
+
+function windowResized() {
+  updateCanvasSize();
+  resizeCanvas(canvasWidth, canvasHeight);
+
+  // Update button position
+  startPauseButton.position(10, drawHeight + controlHeight / 2 - 12);
+
+  // Update slider size and position
+  rotationSlider.position(sliderLeftMargin + 10, drawHeight + controlHeight / 2 - 10);
+  rotationSlider.size(canvasWidth - sliderLeftMargin - 30);
+
+  // Update simulation dimensions to keep hexagon centered
+  updateSimulationDimensions();
+
+  // Keep ball within bounds if it went outside after resize
+  if (ball) {
+    constrainBallToHexagon();
+  }
 }
