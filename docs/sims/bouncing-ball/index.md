@@ -1,7 +1,7 @@
 ---
 title: Bouncing Ball
 description: A MicroSim of a ball bouncing within the drawing region with a control for changing the speed.
-quality_score: 90
+quality_score: 95
 image: /sims/bouncing-ball/bouncing-ball.png
 og:image: /sims/bouncing-ball/bouncing-ball.png
 twitter:image: /sims/bouncing-ball/bouncing-ball.png

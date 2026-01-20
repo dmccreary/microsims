@@ -1,5 +1,5 @@
 // Bouncing Ball example - use as a template for other sims
-// This simulation shows a ball bouncing around inside a box.
+// This simulation shows a ball bouncing around inside a drawing region.
 // The design is width responsive so it adjusts to the width of container as it resizes.
 
 // global variables for width and height
@@ -7,7 +7,9 @@ let containerWidth; // this values is calculated by container upon init and chan
 // the temporary width of the entire canvas
 let canvasWidth = 400;
 // A fixed top drawing region above the interactive controls
+// Do not place any controls such as buttons or sliders in the drawing region
 let drawHeight = 400;
+// The control region has all the user interface controls (buttons, sliders with labels and values)
 // control region height - use 30 pixels for each slider
 let controlHeight = 30;
 // The total hight of both the drawing region height + the control region height
@@ -16,6 +18,7 @@ let containerHeight = canvasHeight; // fixed height on page determined by MicroS
 
 // margin around the active plotting region
 let margin = 25;
+// the left margin of the slider to provide room for the labels and values
 let sliderLeftMargin = 160;
 // larger text so students in the back of the room can read the labels
 let defaultTextSize = 16;
@@ -107,10 +110,13 @@ function draw() {
   circle(x, y, r*2);
 
   // draw the label and value for the speed slider
+  // use text align RIGHT if you have many rows of sliders
   fill('black');
+  // Always put a noStroke() before any text - no exceptions
   noStroke();
   textAlign(LEFT, CENTER);
   textSize(defaultTextSize);
+  // Note that the label and values are both in a single text - do not separate
   text('Speed: ' + speed, 70, drawHeight+15);
 }
 
