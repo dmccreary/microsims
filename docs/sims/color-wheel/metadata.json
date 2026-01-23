@@ -2,8 +2,15 @@
   "microsim": {
     "dublinCore": {
       "title": "Color Wheel Harmonies",
-      "creator": ["Claude AI", "Dan McCreary"],
-      "subject": ["Art", "Design", "Color Theory"],
+      "creator": [
+        "Claude AI",
+        "Dan McCreary"
+      ],
+      "subject": [
+        "Art",
+        "Design",
+        "Color Theory"
+      ],
       "description": "An interactive MicroSim for exploring color relationships including complementary, analogous, triadic, and split-complementary color harmonies through an interactive color wheel.",
       "date": "2025-11-29",
       "type": "Interactive Simulation",
@@ -22,16 +29,27 @@
         "Apply color harmony principles to design choices",
         "Compare the visual effects of different harmony modes"
       ],
-      "bloomsTaxonomyLevel": ["Understand", "Analyze"],
+      "bloomsTaxonomyLevel": [
+        "Understand",
+        "Analyze"
+      ],
       "duration": "15-20 minutes",
-      "prerequisites": ["Basic understanding of primary and secondary colors", "Familiarity with the concept of hue"]
+      "prerequisites": [
+        "Basic understanding of primary and secondary colors",
+        "Familiarity with the concept of hue"
+      ]
     },
     "technical": {
       "framework": "p5.js",
       "canvasDimensions": "responsive x 650",
       "responsive": "Width-responsive",
-      "dependencies": ["p5.js 1.11.10"],
-      "accessibility": ["describe() function for screen readers", "High contrast color markers"]
+      "dependencies": [
+        "p5.js 1.11.10"
+      ],
+      "accessibility": [
+        "describe() function for screen readers",
+        "High contrast color markers"
+      ]
     },
     "userInterface": {
       "controls": [
@@ -39,7 +57,12 @@
           "type": "dropdown",
           "name": "harmonySelect",
           "label": "Harmony Mode",
-          "options": ["Complementary", "Analogous", "Triadic", "Split-Complementary"],
+          "options": [
+            "Complementary",
+            "Analogous",
+            "Triadic",
+            "Split-Complementary"
+          ],
           "default": "Complementary",
           "description": "Selects which color harmony relationship to display"
         },
@@ -63,12 +86,31 @@
       ],
       "equations": [
         "Complementary: opposite = (selected + 180) % 360",
-        "Analogous: neighbors = selected ± 30",
+        "Analogous: neighbors = selected \u00b1 30",
         "Triadic: thirds = selected + 120, selected + 240",
         "Split-Complementary: splits = selected + 150, selected + 210"
       ],
       "assumptions": "Uses HSB color model with 360 degree hue wheel",
       "limitations": "Does not account for perceptual color differences or pigment-based color mixing"
     }
-  }
+  },
+  "visualizationType": [
+    "animation",
+    "interactive-demo",
+    "map",
+    "network"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of this concept",
+    "Explore this concept through interactive visualization",
+    "Apply knowledge of this concept to solve problems",
+    "Experiment with parameters to observe their effects on this concept"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Create"
+  ]
 }

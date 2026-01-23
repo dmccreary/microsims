@@ -2,8 +2,16 @@
   "microsim": {
     "dublinCore": {
       "title": "Temperature and Pressure",
-      "creator": ["Claude Code", "Dan McCreary"],
-      "subject": ["Physics", "Chemistry", "Thermodynamics", "Kinetic Molecular Theory"],
+      "creator": [
+        "Claude Code",
+        "Dan McCreary"
+      ],
+      "subject": [
+        "Physics",
+        "Chemistry",
+        "Thermodynamics",
+        "Kinetic Molecular Theory"
+      ],
       "description": "Interactive simulation demonstrating the relationship between temperature, molecular motion, and gas pressure with visual ice/fire indicators and dual temperature scale support.",
       "date": "2025-11-26",
       "type": "Interactive Simulation",
@@ -20,9 +28,13 @@
         "Understand how increased molecular motion leads to higher pressure",
         "Observe the effects of temperature on molecular speed",
         "Connect microscopic molecular behavior to macroscopic properties",
-        "Recognize the significance of 0°C as a phase transition point"
+        "Recognize the significance of 0\u00b0C as a phase transition point"
       ],
-      "bloomsTaxonomy": ["Understanding", "Applying", "Analyzing"],
+      "bloomsTaxonomy": [
+        "Understanding",
+        "Applying",
+        "Analyzing"
+      ],
       "duration": "10-15 minutes",
       "prerequisites": [
         "Basic understanding of atoms and molecules",
@@ -32,10 +44,16 @@
     },
     "technical": {
       "framework": "p5.js 1.11.10",
-      "canvasDimensions": "400×480 (initial, width-responsive)",
+      "canvasDimensions": "400\u00d7480 (initial, width-responsive)",
       "responsive": "Width-responsive",
-      "dependencies": ["p5.js CDN"],
-      "accessibility": ["describe() function for screen readers", "High contrast colors", "Keyboard-accessible controls"]
+      "dependencies": [
+        "p5.js CDN"
+      ],
+      "accessibility": [
+        "describe() function for screen readers",
+        "High contrast colors",
+        "Keyboard-accessible controls"
+      ]
     },
     "userInterface": {
       "controls": [
@@ -48,7 +66,7 @@
             "max": 100,
             "default": 20,
             "step": 1,
-            "unit": "°C or °F"
+            "unit": "\u00b0C or \u00b0F"
           },
           "purpose": "Adjust the temperature of the gas, affecting molecular speed and collision frequency"
         },
@@ -63,7 +81,10 @@
           "type": "radio",
           "name": "temperatureScale",
           "label": "Temperature Scale",
-          "options": ["Celsius", "Fahrenheit"],
+          "options": [
+            "Celsius",
+            "Fahrenheit"
+          ],
           "default": "Celsius",
           "purpose": "Switch between Celsius and Fahrenheit temperature scales"
         }
@@ -77,7 +98,7 @@
         {
           "name": "Ice/Fire Region",
           "location": "Above control area (50px high)",
-          "purpose": "Visual indicator showing ice cubes below 0°C and flames above 0°C"
+          "purpose": "Visual indicator showing ice cubes below 0\u00b0C and flames above 0\u00b0C"
         },
         {
           "name": "Atom Colors",
@@ -92,7 +113,7 @@
         {
           "name": "temperature",
           "description": "Temperature in Celsius (internally), affects molecular speed",
-          "range": "-50°C to 100°C"
+          "range": "-50\u00b0C to 100\u00b0C"
         },
         {
           "name": "numAtoms",
@@ -118,12 +139,12 @@
         },
         {
           "name": "Temperature Conversion",
-          "formula": "°F = °C × 9/5 + 32",
+          "formula": "\u00b0F = \u00b0C \u00d7 9/5 + 32",
           "description": "Conversion between Celsius and Fahrenheit"
         },
         {
           "name": "Kinetic Energy",
-          "formula": "KE ∝ T (proportional)",
+          "formula": "KE \u221d T (proportional)",
           "description": "Kinetic energy is proportional to absolute temperature"
         }
       ],
@@ -142,5 +163,27 @@
         "Does not account for relativistic effects at extreme speeds"
       ]
     }
-  }
+  },
+  "visualizationType": [
+    "animation",
+    "graph",
+    "interactive-demo",
+    "map",
+    "network",
+    "simulation"
+  ],
+  "learningObjectives": [
+    "Understand the key concepts of this concept",
+    "Explore this concept through interactive visualization",
+    "Apply knowledge of this concept to solve problems",
+    "Experiment with parameters to observe their effects on this concept"
+  ],
+  "bloomsTaxonomy": [
+    "Remember",
+    "Understand",
+    "Apply",
+    "Analyze",
+    "Evaluate",
+    "Create"
+  ]
 }
