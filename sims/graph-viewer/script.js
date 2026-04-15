@@ -55,23 +55,34 @@ function updateStatistics() {
 // Function to toggle groups
 function toggleGroup(groupName) {
   const visible = document.getElementById(`group${groupName}`).checked;
-  nodes.update(
-    nodes.get({ filter: node => node.group === groupName })
-         .map(node => ({ id: node.id, hidden: !visible }))
-  );
+  nodes.forEach(node => {
+    if (node.group === groupName) {
+      nodes.update({id: node.id, hidden: !visible});
+    }
+  });
   updateStatistics();
 }
 
 // Function to check all groups
 function checkAllGroups() {
-  document.querySelectorAll('input[id^="group"]').forEach(cb => { cb.checked = true; });
-  nodes.update(nodes.get().map(node => ({ id: node.id, hidden: false })));
+  const checkboxes = document.querySelectorAll('input[id^="group"]');
+  checkboxes.forEach(checkbox => {
+    if (!checkbox.checked) {
+      checkbox.checked = true;
+      toggleGroup(checkbox.id.replace('group', ''));
+    }
+  });
 }
 
 // Function to uncheck all groups
 function uncheckAllGroups() {
-  document.querySelectorAll('input[id^="group"]').forEach(cb => { cb.checked = false; });
-  nodes.update(nodes.get().map(node => ({ id: node.id, hidden: true })));
+  const checkboxes = document.querySelectorAll('input[id^="group"]');
+  checkboxes.forEach(checkbox => {
+    if (checkbox.checked) {
+      checkbox.checked = false;
+      toggleGroup(checkbox.id.replace('group', ''));
+    }
+  });
 }
 
 // Helper function to get readable color name
