@@ -12,9 +12,13 @@
         <meta name="author" content="Dan McCreary">
       
       
-        <link rel="canonical" href="https://dmccreary.github.io/microsims/shared-microsims-linking-strategy/">
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/shared-microsims-linking-guide/">
       
       
+        <link rel="prev" href="../learning-graph/chapter-metrics/">
+      
+      
+        <link rel="next" href="../submission-guidelines/">
       
       
       <link rel="icon" href="../img/favicon.ico">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Shared MicroSims Linking Strategy - Micro Simulations for Education</title>
+        <title>Shared MicroSims Linking Guide - Micro Simulations for Education</title>
       
     
     
@@ -66,11 +70,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Shared MicroSims Linking Strategy - Micro Simulations for Education" >
+        <meta  property="og:title"  content="Shared MicroSims Linking Guide - Micro Simulations for Education" >
       
         <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
       
-        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/shared-microsims-linking-strategy.png" >
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/shared-microsims-linking-guide.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -78,15 +82,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/shared-microsims-linking-strategy/" >
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/shared-microsims-linking-guide/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Shared MicroSims Linking Strategy - Micro Simulations for Education" >
+        <meta  name="twitter:title"  content="Shared MicroSims Linking Guide - Micro Simulations for Education" >
       
         <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
       
-        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/shared-microsims-linking-strategy.png" >
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/shared-microsims-linking-guide.png" >
       
     
     
@@ -137,7 +141,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shared MicroSims Linking Strategy
+              Shared MicroSims Linking Guide
             
           </span>
         </div>
@@ -1163,10 +1167,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../shared-microsims-linking-guide.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shared MicroSims Linking Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1175,6 +1199,191 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      TL;DR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-change-was-made" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this change was made
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      The architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-links-for-a-shared-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to update links for a shared MicroSim
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to update links for a shared MicroSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-a-references-in-book-content-the-common-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern A — references in book content (the common case)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-b-the-microsim-gallery-docssimsindexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern B — the MicroSim gallery (docs/sims/index.md)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-c-sibling-links-from-a-kept-book-specific-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern C — sibling links from a kept book-specific page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-d-back-links-from-a-shared-sim-into-book-content-the-depth-gotcha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern D — back-links from a shared sim into book content (the depth gotcha)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cld-viewer-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      cld-viewer specifics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsims-impacted-by-this-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSims impacted by this change
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSims impacted by this change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moved-into-shared-microsims-27-sims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moved into shared-microsims (27 sims)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-the-pattern-d-back-link-depth-fix-4-sims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required the Pattern D back-link depth fix (4 sims)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-shared-left-as-book-specific-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      NOT shared — left as book-specific directories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharing-a-new-microsim-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sharing a NEW MicroSim (checklist)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintainer-update-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintainer update workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-ci-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone &amp; CI notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consuming-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consuming textbooks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1525,7 +1734,7 @@
                   
 
   
-    <a href="https://github.com/dmccreary/microsims/edit/master/docs/shared-microsims-linking-strategy.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/shared-microsims-linking-guide.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1896,6 +2105,44 @@ changes never reach a published site unexpectedly.</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../learning-graph/chapter-metrics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter Metrics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter Metrics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../submission-guidelines/" class="md-footer__link md-footer__link--next" aria-label="Next: Submission Guidelines">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Submission Guidelines
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
