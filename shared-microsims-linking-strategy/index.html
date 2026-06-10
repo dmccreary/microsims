@@ -1,0 +1,1913 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/shared-microsims-linking-strategy/">
+      
+      
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Shared MicroSims Linking Strategy - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Shared MicroSims Linking Strategy - Micro Simulations for Education" >
+      
+        <meta  property="og:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  property="og:image"  content="https://dmccreary.github.io/microsims/assets/images/social/shared-microsims-linking-strategy.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://dmccreary.github.io/microsims/shared-microsims-linking-strategy/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Shared MicroSims Linking Strategy - Micro Simulations for Education" >
+      
+        <meta  name="twitter:description"  content="Resources for teaching classes on MicroSims using generative AI p5.js." >
+      
+        <meta  name="twitter:image"  content="https://dmccreary.github.io/microsims/assets/images/social/shared-microsims-linking-strategy.png" >
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shared-microsims-linking-strategy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shared MicroSims Linking Strategy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-description/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Course Description
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../why/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Why MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../chapters/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../setup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../rules/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Rules
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../sims/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    MicroSims
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../prompts/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Sample GenAI Prompts
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../learning-graph/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Learning Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../submission-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission Guidelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How We Built This Site
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creative Commons License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      TL;DR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-change-was-made" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this change was made
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      The architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-update-links-for-a-shared-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to update links for a shared MicroSim
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to update links for a shared MicroSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pattern-a-references-in-book-content-the-common-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern A — references in book content (the common case)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-b-the-microsim-gallery-docssimsindexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern B — the MicroSim gallery (docs/sims/index.md)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-c-sibling-links-from-a-kept-book-specific-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern C — sibling links from a kept book-specific page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-d-back-links-from-a-shared-sim-into-book-content-the-depth-gotcha" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern D — back-links from a shared sim into book content (the depth gotcha)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cld-viewer-specifics" class="md-nav__link">
+    <span class="md-ellipsis">
+      cld-viewer specifics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsims-impacted-by-this-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSims impacted by this change
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSims impacted by this change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moved-into-shared-microsims-27-sims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Moved into shared-microsims (27 sims)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-the-pattern-d-back-link-depth-fix-4-sims" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required the Pattern D back-link depth fix (4 sims)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-shared-left-as-book-specific-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      NOT shared — left as book-specific directories
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sharing-a-new-microsim-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sharing a NEW MicroSim (checklist)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintainer-update-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintainer update workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-ci-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone &amp; CI notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consuming-textbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consuming textbooks
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/shared-microsims-linking-strategy.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="shared-microsims-linking-strategy">Shared MicroSims Linking Strategy</h1>
+<p>This guide explains how MicroSims that are <strong>shared across more than one
+intelligent textbook</strong> are stored, mounted, and linked — and exactly how links
+must be updated when a MicroSim becomes shared. Read this before moving a
+MicroSim into the shared library or before editing links to one.</p>
+<div class="admonition note">
+<p class="admonition-title">Two repositories, don't confuse them</p>
+<ul>
+<li><strong><a href="https://github.com/dmccreary/microsims"><code>microsims</code></a></strong> (this site) — the
+  broad public library of 110+ general-purpose educational MicroSims.</li>
+<li><strong><a href="https://github.com/dmccreary/shared-microsims"><code>shared-microsims</code></a></strong> — a
+  small, <strong>flat</strong> repository holding only the MicroSims that are shared
+  between specific AI/strategy textbooks. It is consumed by those books as a
+  <strong>git submodule</strong>. This guide is about <code>shared-microsims</code>.</li>
+</ul>
+</div>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>Shared MicroSims live once, in <code>dmccreary/shared-microsims</code> (flat: one dir per
+  sim at the repo root).</li>
+<li>Each textbook mounts that repo as a git <strong>submodule at <code>docs/sims/shared/</code></strong>.</li>
+<li>Inside a book, a shared sim is therefore referenced as <strong><code>sims/shared/&lt;name&gt;/</code></strong>
+  (it used to be <code>sims/&lt;name&gt;/</code>).</li>
+<li>Because shared sims now sit <strong>one directory deeper</strong>, any link a shared sim
+  makes <em>back up into a book's own pages</em> needs <strong>one extra <code>../</code></strong>.</li>
+</ul>
+<hr />
+<h2 id="why-this-change-was-made">Why this change was made</h2>
+<p>Several textbooks embed the <strong>same</strong> MicroSims (the idea funnel, Moore's Law,
+the CLD viewer, etc.). Historically each book kept its <strong>own copy</strong> under
+<code>docs/sims/&lt;name&gt;/</code>. That caused the classic problem:</p>
+<blockquote>
+<p>Fix a bug or improve a sim in one book, and every other copy silently goes
+stale. There is no single source of truth, and the copies drift apart.</p>
+</blockquote>
+<p>We evaluated three ways to fix this:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Copy</strong> sims into each book (status quo)</td>
+<td>❌ Drift — N copies, no source of truth.</td>
+</tr>
+<tr>
+<td><strong>Cross-site iframe</strong> to another book's published sim URL</td>
+<td>❌ Runtime coupling — a book breaks if the host site renames/removes a sim or goes private; breaks local <code>mkdocs serve</code>; no version pinning.</td>
+</tr>
+<tr>
+<td><strong>Git submodule of a central repo</strong></td>
+<td>✅ Single source of truth, each book pins its own version, deploys fully self-contained (the built <code>gh-pages</code> branch has plain files, no runtime dependency).</td>
+</tr>
+</tbody>
+</table>
+<p>We also rejected submoduling <strong>this <code>microsims</code> repo</strong> directly: git cannot
+submodule a <em>subdirectory</em>, and <code>microsims</code> keeps its sims at <code>docs/sims/</code>, so a
+book would have ended up with the ugly nested path
+<code>docs/sims/shared/docs/sims/&lt;name&gt;/</code> plus ~160 MB of unrelated history and 110+
+unrelated sims built into it. A <strong>dedicated flat repo</strong> (<code>shared-microsims</code>)
+mounts cleanly at <code>docs/sims/shared/&lt;name&gt;/</code> with no baggage.</p>
+<p>We deliberately <strong>did not</strong> preserve the old <code>sims/&lt;name&gt;/</code> URLs — the change
+date the URLs moved to <code>sims/shared/&lt;name&gt;/</code> was 2026-06-10, and link stability
+for the old paths was not required.</p>
+<hr />
+<h2 id="the-architecture">The architecture</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>shared-microsims/            ← the central repo (flat)
+├── shared-libs/             ← libraries used by several sims (diagram.js, style.css)
+├── templates/               ← starter template for new sims
+├── idea-funnel/
+├── cld-viewer/
+│   └── examples/*.json      ← CLD data files loaded via ?file=
+└── … one directory per sim
+
+&lt;book&gt;/                      ← e.g. tracking-ai-course, ai-strategy-for-education
+└── docs/
+    └── sims/
+        ├── shared/          ← git submodule → dmccreary/shared-microsims
+        │   ├── idea-funnel/
+        │   └── …
+        ├── learning-graph/  ← BOOK-SPECIFIC, stays a normal directory
+        └── index.md         ← MicroSim gallery
+</code></pre></div></td></tr></table></div>
+<p>A shared sim is served from a book at <code>/&lt;book&gt;/sims/shared/&lt;name&gt;/</code>.</p>
+<hr />
+<h2 id="how-to-update-links-for-a-shared-microsim">How to update links for a shared MicroSim</h2>
+<p>When a MicroSim moves from <code>docs/sims/&lt;name&gt;/</code> to the submodule at
+<code>docs/sims/shared/&lt;name&gt;/</code>, <strong>every reference to it gains a <code>shared/</code> segment</strong>,
+and <strong>links the sim makes back into the book gain one <code>../</code></strong>. There are five
+patterns. The first three are in the <em>book</em>; the last two are in the <em>sim</em> (and
+therefore live in the <code>shared-microsims</code> repo).</p>
+<h3 id="pattern-a-references-in-book-content-the-common-case">Pattern A — references in book content (the common case)</h3>
+<p>Anything that contains the path segment <code>sims/&lt;name&gt;/</code> — chapter prose, iframes,
+<code>mkdocs.yml</code> nav, slides, <code>slide-viewer.html</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gd">- sims/idea-funnel/main.html</span>
+<span class="gi">+ sims/shared/idea-funnel/main.html</span>
+
+<span class="gd">- ../../sims/cld-viewer/examples/winner-takes-all-cld.json</span>
+<span class="gi">+ ../../sims/shared/cld-viewer/examples/winner-takes-all-cld.json</span>
+</code></pre></div></td></tr></table></div>
+<p>This single rule (<code>sims/&lt;name&gt;/</code> → <code>sims/shared/&lt;name&gt;/</code>) covers every prefix
+form: <code>../../sims/</code>, <code>./sims/</code>, <code>/sims/</code>, <code>docs/sims/</code>, and bare <code>sims/</code>.</p>
+<h3 id="pattern-b-the-microsim-gallery-docssimsindexmd">Pattern B — the MicroSim gallery (<code>docs/sims/index.md</code>)</h3>
+<p>The gallery uses <strong>bare relative</strong> links to its siblings (<code>./&lt;name&gt;/</code>), with no
+<code>sims/</code> segment:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gd">- [Idea Funnel](./idea-funnel/index.md)</span>
+<span class="gi">+ [Idea Funnel](./shared/idea-funnel/index.md)</span>
+<span class="gd">- ![Idea Funnel](./idea-funnel/idea-funnel.png)</span>
+<span class="gi">+ ![Idea Funnel](./shared/idea-funnel/idea-funnel.png)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pattern-c-sibling-links-from-a-kept-book-specific-page">Pattern C — sibling links from a <em>kept</em> book-specific page</h3>
+<p>A page that stays under <code>docs/sims/</code> (e.g. the <code>learning-graph</code> MicroSim Quality
+Report) links to sibling sims with <code>../&lt;name&gt;/</code>. Those siblings moved into
+<code>shared/</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gd">- [AI Causes](../ai-causes/index.md)</span>
+<span class="gi">+ [AI Causes](../shared/ai-causes/index.md)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pattern-d-back-links-from-a-shared-sim-into-book-content-the-depth-gotcha">Pattern D — back-links <em>from a shared sim</em> into book content (the depth gotcha)</h3>
+<p>This is the one that's easy to miss. A shared sim's <code>index.md</code> lives at
+<code>docs/sims/shared/&lt;name&gt;/</code> — <strong>one level deeper</strong> than before. Any link it makes
+up to a book's root content (<code>articles/…</code>, <code>glossary.md</code>) needs <strong>one more <code>../</code></strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span> &lt;!-- inside e.g. cld-viewer/index.md --&gt;
+<span class="gd">- [Winner Takes All article](../../articles/winner-takes-all.md)</span>
+<span class="gi">+ [Winner Takes All article](../../../articles/winner-takes-all.md)</span>
+<span class="gd">- [glossary](../../glossary.md#frozen-in-time)</span>
+<span class="gi">+ [glossary](../../../glossary.md#frozen-in-time)</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Back-links into book-specific pages are a content smell</p>
+<p>A shared sim should not assume a <em>specific</em> book's pages exist. The
+<code>../../../articles/winner-takes-all.md</code> links above resolve in
+<code>tracking-ai-course</code> but <strong>will break in any other book</strong> that adopts the sim
+without that article. When a second book adopts one of these sims, either add
+the target page to that book or <strong>remove/genericize the back-link</strong> in
+<code>shared-microsims</code>.</p>
+</div>
+<h3 id="cld-viewer-specifics">cld-viewer specifics</h3>
+<p><code>cld-viewer</code> is the richest case. In addition to Patterns A–D:</p>
+<ul>
+<li><strong><code>?file=</code> query params</strong> are preserved through the rewrite:
+  <code>sims/shared/cld-viewer/main.html?file=ai-flywheel-cld&amp;menu=true</code>.
+  (MkDocs may emit a benign "target not found" warning for query-string links to
+  a static <code>main.html</code>; the file is present in the build and works at runtime.)</li>
+<li><strong>Example CLD data</strong> lives at <code>cld-viewer/examples/*.json</code> inside the submodule
+  and is referenced as <code>sims/shared/cld-viewer/examples/&lt;name&gt;-cld.json</code>.</li>
+<li><strong>GitHub source links</strong> inside <code>cld-viewer/index.md</code> were retargeted from the
+  old book repo to the shared repo, e.g.
+  <code>https://github.com/dmccreary/shared-microsims/tree/main/cld-viewer/examples</code>.</li>
+</ul>
+<hr />
+<h2 id="microsims-impacted-by-this-change">MicroSims impacted by this change</h2>
+<h3 id="moved-into-shared-microsims-27-sims">Moved into <code>shared-microsims</code> (27 sims)</h3>
+<p>These were relocated from <code>tracking-ai-course/docs/sims/&lt;name&gt;/</code> to
+<code>shared-microsims/&lt;name&gt;/</code> and are now mounted in consuming books at
+<code>docs/sims/shared/&lt;name&gt;/</code>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ai-benchmarks-timeline</td>
+<td>ai-causes</td>
+<td>ai-cmm</td>
+<td>ai-doubling-rate</td>
+</tr>
+<tr>
+<td>ai-flywheel</td>
+<td>ai-pace-accelerating</td>
+<td>ai-task-horizons</td>
+<td>autoregressive</td>
+</tr>
+<tr>
+<td>blooms-taxonomy</td>
+<td>book-gen-workflow</td>
+<td>book-levels</td>
+<td>cld-viewer</td>
+</tr>
+<tr>
+<td>eight-ai-forces</td>
+<td>four-futures</td>
+<td>hype-cycle</td>
+<td>idea-funnel</td>
+</tr>
+<tr>
+<td>lm-arena-timeline</td>
+<td>mmlu-timeline</td>
+<td>moores-law</td>
+<td>porters-five-forces</td>
+</tr>
+<tr>
+<td>power-wall</td>
+<td>projecting-ai</td>
+<td>swot</td>
+<td>technology-adoption</td>
+</tr>
+<tr>
+<td>timeline</td>
+<td>tokenizer</td>
+<td>winner-takes-all-cld</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Plus two shared <strong>helper</strong> directories: <code>shared-libs/</code> (used via
+<code>../shared-libs/diagram.js</code> and <code>../shared-libs/style.css</code>) and <code>templates/</code>.</p>
+<h3 id="required-the-pattern-d-back-link-depth-fix-4-sims">Required the Pattern D back-link depth fix (4 sims)</h3>
+<p>These contained <code>../../</code> links into book content that were bumped to <code>../../../</code>:</p>
+<ul>
+<li><strong><code>cld-viewer</code></strong> → <code>articles/winner-takes-all.md</code></li>
+<li><strong><code>eight-ai-forces</code></strong> → <code>articles/winner-takes-all.md</code></li>
+<li><strong><code>timeline</code></strong> → <code>glossary.md#frozen-in-time</code></li>
+<li><strong><code>winner-takes-all-cld</code></strong> → <code>articles/winner-takes-all.md</code></li>
+</ul>
+<h3 id="not-shared-left-as-book-specific-directories">NOT shared — left as book-specific directories</h3>
+<p>These stay under each book's own <code>docs/sims/</code> and were <strong>not</strong> moved (they read
+each book's own data and are not reusable):</p>
+<ul>
+<li><strong><code>learning-graph</code></strong> — in <code>tracking-ai-course</code> (reads <code>tracking-ai*.json</code>)</li>
+<li><strong><code>graph-viewer</code></strong> — in <code>ai-strategy-for-education</code></li>
+</ul>
+<hr />
+<h2 id="sharing-a-new-microsim-checklist">Sharing a NEW MicroSim (checklist)</h2>
+<ol>
+<li>Build/generate the sim. Keep any shared-library reference as
+   <code>../shared-libs/diagram.js</code> (never an absolute path).</li>
+<li>Add the sim directory to the <strong><code>shared-microsims</code></strong> repo root; commit + push.</li>
+<li>In each consuming book, pull the update (below) and reference it as
+   <code>sims/shared/&lt;name&gt;/</code> (Pattern A) and in the gallery as <code>./shared/&lt;name&gt;/</code>
+   (Pattern B).</li>
+<li>If the sim links back to book content, use <code>../../../</code> (Pattern D) — and
+   prefer <strong>not</strong> to hard-link into one book's pages at all.</li>
+</ol>
+<h2 id="maintainer-update-workflow">Maintainer update workflow</h2>
+<p>Edit a shared sim <strong>in the <code>shared-microsims</code> repo</strong>, never inside a book's
+<code>docs/sims/shared/</code> (that leaves the submodule on a detached HEAD):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 1. fix it upstream</span>
+<span class="nb">cd</span><span class="w"> </span>~/Documents/ws/shared-microsims
+<span class="c1">#   …edit…; git commit -am &quot;…&quot;; git push</span>
+
+<span class="c1"># 2. pull into each book, on your schedule</span>
+<span class="nb">cd</span><span class="w"> </span>~/Documents/ws/&lt;book&gt;/docs/sims/shared
+git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull
+<span class="nb">cd</span><span class="w"> </span>../../..
+git<span class="w"> </span>add<span class="w"> </span>docs/sims/shared<span class="w">        </span><span class="c1"># record the new pinned commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update shared MicroSims&quot;</span>
+mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div></td></tr></table></div>
+<p>Each book stays pinned to a specific commit until you do this, so shared-sim
+changes never reach a published site unexpectedly.</p>
+<h2 id="clone-ci-notes">Clone &amp; CI notes</h2>
+<ul>
+<li>Clone a consuming book with <code>git clone --recurse-submodules</code>, or run
+  <code>git submodule update --init docs/sims/shared</code> afterward — otherwise
+  <code>docs/sims/shared/</code> is empty and the sims 404.</li>
+<li>In GitHub Actions, set <code>actions/checkout</code> with <code>submodules: recursive</code>.</li>
+<li><code>mkdocs gh-deploy</code> builds from the working tree, so the submodule must be
+  checked out first; the deployed <code>gh-pages</code> branch then contains plain files
+  with no runtime submodule dependency.</li>
+</ul>
+<h2 id="consuming-textbooks">Consuming textbooks</h2>
+<table>
+<thead>
+<tr>
+<th>Textbook</th>
+<th>Submodule path</th>
+<th>Live site</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tracking-ai-course</code></td>
+<td><code>docs/sims/shared/</code></td>
+<td><a href="https://dmccreary.github.io/tracking-ai-course/">https://dmccreary.github.io/tracking-ai-course/</a></td>
+</tr>
+<tr>
+<td><code>ai-strategy-for-education</code></td>
+<td><code>docs/sims/shared/</code></td>
+<td><a href="https://dmccreary.github.io/ai-strategy-for-education/">https://dmccreary.github.io/ai-strategy-for-education/</a></td>
+</tr>
+</tbody>
+</table>
+<p>Add a row whenever a new book starts consuming shared MicroSims.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
