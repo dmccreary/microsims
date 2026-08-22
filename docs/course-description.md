@@ -125,7 +125,7 @@ Each MicroSim directory contains the following files:
 We have created a 100-point quality score for each MicroSim.
 
 See the microsim-standardization skill file:
-[https://github.com/dmccreary/claude-skills/tree/main/skills/microsim-standardization](https://github.com/dmccreary/claude-skills/tree/main/skills/microsim-standardization)
+[https://github.com/dmccreary/ibook-skills/tree/main/skills/microsim-standardization](https://github.com/dmccreary/ibook-skills/tree/main/skills/microsim-standardization)
 
 The score for each MicroSim is stored in the YAML metadata:
 

@@ -495,7 +495,7 @@ This same library serves a teacher in Lagos, a homeschooling parent in Montana, 
     - Click hub to see category breakdown
     - Animated arrows showing flow direction
 
-    Implementation: [microsim-vis-network](https://github.com/dmccreary/claude-skills/tree/main/skills/vis-network) skill
+    Implementation: [microsim-vis-network](https://github.com/dmccreary/ibook-skills/tree/main/skills/vis-network) skill
 </details>
 
 ## The MicroSim Network Effect
@@ -511,7 +511,7 @@ things simple, we will only include nodes for MicroSims, Intelligent Textbooks a
 [Run the MicroSim Network Effect Microsim](../../sims/microsim-growth/main.html)
 [View the Lesson Plan for Understanding this Causal Loop Diagram](../../sims/microsim-growth/index.md)
 
-Note that this diagram was created by the [Causal Loop MicroSim Generator](https://dmccreary.github.io/claude-skills/skill-descriptions/microsims/#causal-loop-diagram-generator)
+Note that this diagram was created by the [Causal Loop MicroSim Generator](https://dmccreary.github.io/ibook-skills/skill-descriptions/microsims/#causal-loop-diagram-generator)
 
 ## Programming Fundamentals for MicroSims
 

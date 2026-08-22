@@ -57,4 +57,4 @@ Here are some sample MicroSims from this site and others to get you started:
 * [Stock Market Returns](https://dmccreary.github.io/personal-finance/sims/stock-market-returns/) - shows a vertical bar chart with hover for US stock market returns over the last 30 years
 * [Euler's Formula](https://dmccreary.github.io/signal-processing/sims/euler-formula-explorer/) - allows the user to see how Euler's formula connects exponential functions with trigonometric functions
 * [Conway's Game of Life](./sims/conway-game-of-life/) - a demonstration of cellular automaton using the famous Conway's Game of Life algorithm
-* [Book Build Workflow](https://dmccreary.github.io/claude-skills/sims/book-build-workflow/) - a Mermaid.js diagram of the steps to build an intelligent textbook with MicroSims using Claude Code Skills
+* [Book Build Workflow](https://dmccreary.github.io/ibook-skills/sims/book-build-workflow/) - a Mermaid.js diagram of the steps to build an intelligent textbook with MicroSims using Claude Code Skills
