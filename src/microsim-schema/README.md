@@ -4,9 +4,15 @@ This directory contains the comprehensive JSON Schema for Educational MicroSims 
 
 ## Files
 
-- `microsim-schema.json` - Complete JSON Schema definition
-- `example-bouncing-ball.json` - Comprehensive example metadata
+- `microsim-schema.json` - Complete JSON Schema definition (draft-07)
+- `example-bouncing-ball.json` - Comprehensive example metadata (validates against the schema)
+- `validate.py` - Command-line validator for metadata.json files
+- `microsim-schema-v1.json` - Legacy v1 schema, kept for reference only
 - `README.md` - This documentation file
+
+A copy of `microsim-schema.json` ships with the intelligent-textbook skills at
+`skills/microsim-utils/assets/microsim-schema.json` in the
+[ibook-skills](https://github.com/dmccreary/ibook-skills) repo. Keep the two files identical.
 
 ## Schema Overview
 
@@ -14,14 +20,14 @@ The enhanced schema provides comprehensive metadata for Educational MicroSims ac
 
 ### Core Sections
 
-1. **Dublin Core** - Standard resource description metadata
-2. **Search & Discovery** - Enhanced findability and categorization
-3. **Educational** - Pedagogical metadata and learning design
-4. **Technical** - Architecture, performance, and compatibility
-5. **User Interface** - Controls, layout, and interaction design
-6. **Simulation** - Model specifications and variables
-7. **Analytics** - Learning analytics and data collection
-8. **Usage** - Pedagogical recommendations and assessment
+1. **Dublin Core** - Standard resource description metadata (required)
+2. **Search & Discovery** - Enhanced findability and categorization (required)
+3. **Educational** - Pedagogical metadata and learning design (required)
+4. **Technical** - Architecture, performance, and compatibility (required)
+5. **User Interface** - Controls, layout, and interaction design (required)
+6. **Simulation** - Model specifications and variables (optional)
+7. **Analytics** - Learning analytics and data collection (optional)
+8. **Usage** - Pedagogical recommendations and assessment (optional)
 
 ## Key Enhancements
 
@@ -72,12 +78,28 @@ The enhanced schema provides comprehensive metadata for Educational MicroSims ac
 ## Usage Instructions
 
 ### Validating Metadata
-Use the provided JSON Schema to validate MicroSim metadata:
+Use `validate.py` to check one or more metadata.json files against the schema.
+It uses the `jsonschema` package with draft-07 rules and format checking.
+`rfc3339-validator` is needed to check `date-time` values; without it they are
+silently accepted, and the script prints a warning.
 
 ```bash
-# Using a JSON Schema validator
-ajv validate -s microsim-schema.json -d your-microsim-metadata.json
+pip install jsonschema rfc3339-validator
+python src/microsim-schema/validate.py docs/sims/bouncing-ball/metadata.json
 ```
+
+Each file prints `OK` or `FAIL` followed by one line per error, giving the JSON
+path and the problem. The script exits with status 0 when every file is valid,
+1 when any file is invalid, and 2 when a file or the schema can't be loaded.
+Use `--schema` to validate against a different schema file.
+
+Note that the whole document must be wrapped in a top-level `microsim` object,
+as in `example-bouncing-ball.json`.
+
+### Dates
+`dublinCore.date` accepts either an ISO 8601 date (`2026-09-29`) or a full
+RFC 3339 date-time (`2026-09-29T00:00:00Z`). The skill documentation recommends
+the `YYYY-MM-DD` form.
 
 ### Required Fields
 The schema requires these top-level sections:
@@ -86,9 +108,9 @@ The schema requires these top-level sections:
 - `educational` - Learning objectives and pedagogy
 - `technical` - Technical specifications
 - `userInterface` - Interface and control documentation
-- `simulation` - Model and variable specifications
 
 ### Optional Sections
+- `simulation` - Model and variable specifications
 - `analytics` - Learning analytics specifications
 - `usage` - Pedagogical recommendations
 
@@ -129,12 +151,21 @@ The schema provides detailed control specifications:
 - `color-picker`, `file-upload`, `date-picker` - Specialized inputs
 
 ### Control Properties
-Each control includes:
+Each control requires `id`, `type` and `label`, and may include:
 - Position and size (with responsive behavior)
 - Accessibility features (keyboard shortcuts, ARIA labels)
 - Validation rules and constraints
 - Dependencies and effects on other elements
-- Control-specific properties (min/max for sliders, options for dropdowns)
+- Control-specific `properties`, checked according to the control's `type`:
+
+| Control `type` | `properties` fields |
+|----------------|---------------------|
+| `slider` | `min`, `max`, `default` (all required numbers), `step`, `units`, `logarithmic`, `showValue` |
+| `button`, `toggle-button` | `text`, `action`, `toggleable`, `style` (`primary`, `secondary`, `danger`, `success`) |
+| `checkbox`, `radio` | `checked`, `value` |
+| `dropdown`, `multi-select` | `options` (list of `{value, label, disabled}`), `default` (string or list of strings), `multiple` |
+| `text-input`, `number-input` | `placeholder`, `default` (string or number), `maxLength`, `autocomplete` |
+| `range-slider`, `color-picker`, `file-upload`, `date-picker` | any object (not yet specified) |
 
 ## Educational Integration
 
