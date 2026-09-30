@@ -1,301 +1,144 @@
 ---
-title: Course Description
-description: A comprehensive course on creating educational MicroSims using generative AI
+title: Course Description for MicroSims 2.0
+description: A detailed course description for MicroSims 2.0 - designing, generating, checking, instrumenting and evaluating AI-generated interactive MicroSims whose xAPI event streams predict concept mastery - including overview, topics covered and learning objectives in the format of the 2001 Bloom Taxonomy
 quality_score: 98
 ---
 
-# Creating Educational MicroSims with Generative AI
+# MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI
 
-**Title:** Creating Educational MicroSims with Generative AI<br/>
-**Audience:** Teachers, Educators, and Instructional Designers<br/>
-**Course Length:** 14-week undergraduate course<br/>
-**Credits:** 3 semester hours
+**Title:** MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI<br/>
+**Audience:** Teachers, educators, instructional designers, learning-technology developers, and learning-analytics practitioners (college undergraduate and professional development)<br/>
+**Course Length:** 16-week course<br/>
+**Credits:** 3 semester hours<br/>
+**Version:** 2.0. The original book (MicroSims 1.0) is preserved at the git tag `v1.0`.
 
 ## Prerequisites
 
-Some knowledge of programming is helpful. Students should be familiar with basic concepts such as variables, control flow, loops, and debugging techniques. Although many MicroSims are written in JavaScript, knowledge of Python or another similar programming language is adequate. No prior experience with generative AI tools is required.
+Some familiarity with programming is helpful: variables, control flow, loops and debugging. Although most MicroSims are written in JavaScript, knowledge of Python or a similar language is adequate. Students should be comfortable using a web browser, a text editor and a command line at a basic level. No prior experience with generative AI tools, xAPI, learning analytics or statistics is required. The course introduces each as needed.
 
 ## Course Overview
 
-This 14-week course teaches students how to use generative AI to create educational interactive web-based simulations (MicroSims) designed to help learners master concepts. While generative AI programs can easily create simple animations, these animations are often ineffective for teaching concepts without careful pedagogical design. This course takes students step-by-step through the process of designing and implementing MicroSims that support meaningful learning outcomes.
+A MicroSim is a small, AI-generated, iframe-embeddable, width-responsive, *instrumented* interactive learning object. Since the first version of this course, the practice of making MicroSims has changed. MicroSims are no longer only p5.js animations. They now include charts, plots, diagrams, networks, timelines, maps, image overlays, comparison posters, runnable code labs and more. They are chosen by matching a learning objective to an interaction pattern, generated in batches from specifications by AI skills, checked by automated layout and quality tools, found again through metadata search, and instrumented with xAPI so that every interaction becomes evidence about what a student knows.
 
-Students will learn to leverage AI tools such as ChatGPT, Claude, and other large language models to generate, refine, and debug simulation code. The course emphasizes both technical skills and pedagogical principles, ensuring that resulting simulations are educationally effective, accessible, and engaging.
+This last point is the core of the course. **The central question is how well the xAPI event stream from a MicroSim predicts whether a student has mastered a concept.** Every topic in the course is taught with this question in mind: which interactions count as evidence, how a design choice raises or lowers the diagnostic value of an interaction, how events are linked to concepts in a learning graph, how compact and full event streams differ in what they preserve, and how to measure the fidelity of the resulting prediction. The course is honest about the limits of this claim. It separates what has been measured from what is designed or hoped for, and it teaches students to evaluate prediction quality rather than assume it.
+
+Students learn to use AI skills and agents to generate and refine simulation code, but they also learn the pedagogy behind good MicroSims: matching Bloom's Taxonomy level to interaction, cognitive load, accessibility and Universal Design for Learning. They learn the engineering behind reliable ones: width-responsive layout, iframe height management, Playwright-based checks, a 100-point quality score, and vision-based layout review.
 
 ## Course Introduction
 
-The course begins with the classic bouncing-ball MicroSim written in p5.js. Students use AI to generate the initial code and then perform a detailed walkthrough of the program's major sections: global variables, the `setup()` function, and the `draw()` function. Students then add interactive controls to allow users to start, stop, and pause the simulation, as well as adjust parameters like speed.
+The course begins with what a MicroSim is and why it matters for an intelligent textbook, using a tour of showcase MicroSims (for example a fully animated H-Bridge circuit). Students then take a MicroSim apart (its HTML wrapper, JavaScript, documentation page and metadata) and learn how to state a measurable learning objective for each concept, because a concept must be defined before a student's mastery of it can be predicted.
 
-Building on this foundation, students explore more complex simulations such as projectile motion by introducing variables for angle and power. The course establishes a standard MicroSim layout consisting of a drawing region and a control region, providing a consistent user experience across all simulations. Students are then encouraged to explore the generation of simulations on their own using tools such as ChatGPT, Claude, or other LLM tools.
+Students then learn to choose a MicroSim type. A routing rubric maps a learning objective, and the kind of content behind it, to one of more than a dozen generator types. An instructional design checkpoint asks whether the learner predicts before seeing the answer and what animation adds. Students generate single MicroSims with AI skills and study each type family in turn.
 
-## From Learning Objective to MicroSim
+The second half of the course turns to engineering and evidence: responsive design, automated quality assurance, batch generation from specifications, metadata and reuse search, xAPI instrumentation, and two strategies for storing and analyzing the events: the full Learning Record Store (LRS) built for scale, and LRS-Lite, a serverless compact design. The course closes with evaluation of predictive fidelity, a capstone portfolio, and a look at the future of MicroSims.
 
-We then take a look at the problem of how to generate the right MicroSim for a specific learning objective. We create a scenario where an AI agent is building a customized textbook for a class, a project, or an individual student. After it generates a learning graph and partitions the graph into chapters, it is time to generate the content. As content is being generated there are opportunities for the agent to insert diagrams, charts, and even small in-line simulations to help a student with a learning objective. But how do we design a MicroSim for the many types of learning objectives? This is where we turn to methods of classifying learning objectives into categories. These categories will give us insights into what MicroSim to use.
+## Topics Covered
 
-### Bloom's 2001 Taxonomy
+1. **What a MicroSim is**: definition, role in intelligent textbooks, and the difference between MicroSims 1.0 and 2.0
+2. **Anatomy of a MicroSim**: `main.html`, JavaScript, `index.md`, `metadata.json`, iframe embedding, pinned libraries and the draw and control layout
+3. **Learning objectives and Bloom's 2001 Taxonomy**, and the instructional design checkpoint
+4. **Choosing a MicroSim type**: the type catalog, routing rubric and objective-to-type mapping
+5. **Generating MicroSims with AI skills**: prompt and specification design
+6. **p5.js MicroSims**: animation, physics and showcase-quality techniques
+7. **Charts, plots and tables**: Chart.js, Plotly, bubble charts and comparison tables
+8. **Diagrams, networks and systems**: Mermaid, vis-network, Venn and causal-loop diagrams
+9. **Timelines and maps**: vis-timeline and Leaflet
+10. **Image overlays, grids and comparison posters**, including fact-verified posters
+11. **Runnable labs and other specialized types**: Docker Python labs, concept-classifier sorting quizzes and celebration effects
+12. **Width-responsive design and iframe heights**
+13. **Quality assurance and automated layout review**: Playwright, the quality score and vision review
+14. **Batch generation from specifications**: spec extraction, scaffolding, status lifecycle and resumable runs
+15. **Metadata, search and reuse**: Dublin Core and search metadata, and reuse-before-build
+16. **Instrumenting MicroSims with xAPI**: verbs, evidence classes, the producer contract and concept mapping
+17. **The full LRS**: architecture for scale, ingestion, storage, dashboards and Bayesian knowledge tracing
+18. **LRS-Lite**: the serverless, compact strategy, and choosing between Full and Lite
+19. **Pedagogy, accessibility and evaluation**, including how to measure the predictive fidelity of an event stream
+20. **Capstone**: building an instrumented MicroSim portfolio
+21. **The future of MicroSims**: near-term directions and the long-term prospect of AI-generated MicroSims that are both engaging and better predictors of mastery
 
-We first cover the most common way to classify learning objectives. For this we use the 2001 Bloom taxonomy. We go into a quick background of how the original Bloom taxonomy was created and how it was refined in 2001. The six categories of learning objectives are:
+## Topics Not Covered
 
-- **L1: Remember** (recall facts) - bottom level of a pyramid
-- **L2: Understand** (explain concepts)
-- **L3: Apply** (use knowledge to solve a problem)
-- **L4: Analyze** (examine relationships, connect concepts)
-- **L5: Evaluate** (judge value)
-- **L6: Create** (design new solutions) - top level of a pyramid
+- Writing a general-purpose programming course. JavaScript is taught only as needed for MicroSims.
+- Training or fine-tuning large language models. The course uses existing AI tools and skills.
+- Building a commercial learning management system (LMS) or a complete SCORM/cmi5 authoring tool. The course uses xAPI and mentions other standards only for comparison.
+- Deep statistical or machine-learning theory beyond what is needed for knowledge tracing and evaluation of predictions.
+- Three-dimensional, VR or game-engine simulations.
+- Administering a school district's identity, roster and compliance systems in production. The course covers the design and the privacy principles, not the legal advice.
+- Claims of proven learning gains. The course teaches how to evaluate learning and prediction, not to assume them.
 
-What we find is that when objectives are at a specific level, the types of MicroSims we use are different from the MicroSims we use at other levels. For example, getting students to recall facts (L1) might use a flash-card game with rewards and repetition based on reinforcement learning theory. On the other hand, a Create-level objective might involve the user constructing a small model and checking that the model follows the concepts learned in the course.
+## Learning Outcomes
 
-Once we select a learning objective we can classify it in one of the levels of Bloom's taxonomy. That then guides us on the types of interactive simulations that would be the most effective.
-
-## Objective MicroSim Skill Matching
-
-Although there are many types of MicroSims, in practice we will only need about a dozen types for a typical high-school course such as algebra, geometry, physics, or history. Here is a list of the general MicroSim types we will be using in this course:
-
-- A Processing Level 5 or p5.js MicroSim - the most flexible
-- A process diagram, workflow, or flowchart using the Mermaid.js library
-- A chart such as a bar chart, pie chart, line chart, etc. using Chart.js
-- A timeline of events
-- A geographic map
-- A network graph diagram or a causal loop diagram
-- Graphing an equation
-
-Our role is to generate a clear description of a learning objective and match it to one of these MicroSims.
-
-## Specialized MicroSims
-
-There are specific courses that also need specific types of MicroSims:
-
-- A chemistry or biology course needs tools for visualizing chemical bonds and molecules in three dimensions
-- A circuits course needs to be able to simulate the flow of electrons in wires and electrical circuits
-- A geology course needs to view both maps as well as layer diagrams of the earth's crust
-
-Many of these specialized MicroSims need specialized JavaScript libraries. We will be demonstrating examples of these MicroSims in this course.
-
-## Managing MicroSim Metadata
-
-One of the key ways that generative AI can be successful at creating new MicroSims is if it has a large library of working MicroSims that are already classified based on subject, Bloom level, and JavaScript library used. Generative AI can often begin with a working MicroSim and make small modifications such as adding a new slider control or removing controls. The key to this process is to have a precise and standardized way to describe each MicroSim. A database of MicroSims can then be put into a faceted search system where only MicroSims that meet specific criteria can be returned as search results. We use the phrase "you can't reuse what you can't find" as a way to focus on good metadata and search.
-
-## Challenges with Generating Layouts
-
-One of the largest challenges in using generative AI is to appreciate the fact that LLMs don't have a world model of a user interface. They are designed to predict the next token of text. They can't "see" a user interface layout and move components around to avoid overlaps of buttons, labels, values, titles, and drawings.
-
-## Challenges of iframe Styling
-
-By default, many examples of drawing tools decorate their drawings with fancy borders with rounded corners and gradient shading margins. Although this is pleasing in a stand-alone MicroSim, it is not appropriate when you place the MicroSim on a white page of an intelligent textbook. We need to be aggressive at building precise rules in skill files to make sure that only the required elements are used in creating a focused MicroSim with minimal external distractions.
-
-## Responsive Design
-
-MicroSims are designed to be placed directly in a textbook page or a full screen display. Adapting MicroSims to respond to changes in container width takes special care when elements are placed on a canvas. Instead of absolute coordinate positions, relative sizes are used. For example, instead of placing a title at `(x=200, y=50)` we would place the title at `(x=canvasWidth/2, y=margin)` to keep the title centered at the top of the MicroSim.
-
-## Grouping Elements
-
-In order to make it easy for AI tools (and humans) to move groups of drawing elements around together, we often design our MicroSims using `push()`, `translate()`, and `pop()` functions. This allows many elements to be moved together just by adding x and y offsets to the `translate()` function.
-
-## The Interaction Mandate
-
-By definition, all MicroSims are interactive. They are never static drawings or free-running animations. They require the user to interact, even if this is only a short hover over an item or starting and stopping an animation. This is critical for us to be able to monitor user behavior and create customized learning paths to understand what actions will help a student learn.
-
-We look at tools for monitoring user behavior from basic site analytics like GitHub Pages to highly detailed logging of mouse movement, hover events, and user clicking on controls like buttons and sliders. Our goal is to design MicroSims that provide easy-to-implement hooks for monitoring user behavior. We also look at JavaScript functions for sending xAPI event streams to remote learning record stores (LRS) systems.
-
-It is out-of-scope of this course to discuss the privacy and security concerns of storing student records other than to say that this data is highly regulated by government agencies in both the US and the EU.
-
-## Accessibility Standards
-
-To make our MicroSims accessible to a wide audience we use best practices such as using the `describe()` function to describe what each MicroSim does. This additional data is used by screen readers to help users with vision impairment.
-
-## MicroSim Packaging
-
-Each MicroSim directory contains the following files:
-
-1. **index.md** - metadata, iframe, documentation, and lesson plan
-2. **main.html** - small HTML holder for iframe sourcing
-3. **style.css** - used to ensure a minimalistic iframe style is preferred
-4. **script.js** - must be runnable directly in the p5.js editor
-5. **data.json** - any data that can be easily manipulated by a genAI tool
-6. **metadata.json** - metadata on the MicroSim
-
-## MicroSim Metadata Standards
-
-- Dublin Core
-- Additional Metadata for Supporting Search
-- Learning Objective Metadata
-- The MicroSim JSON Schema
-
-## Testing and Quality
-
-We have created a 100-point quality score for each MicroSim.
-
-See the microsim-standardization skill file:
-[https://github.com/dmccreary/ibook-skills/tree/main/skills/microsim-standardization](https://github.com/dmccreary/ibook-skills/tree/main/skills/microsim-standardization)
-
-The score for each MicroSim is stored in the YAML metadata:
-
-```yaml
----
-title: My MicroSim
-description: A short description of the MicroSim
-quality_score: 85
----
-```
-
-## Social Image Previews
-
-```yaml
----
-title: My MicroSim
-description: A short description of the MicroSim
-image: /sims/name/name.png
-og:image: /sims/name/name.png
-quality_score: 85
----
-```
-
-## Pedagogical Topics
-
-### Cognitive Load Theory
-
-How to design MicroSims that minimize extraneous cognitive load.
-
-### Universal Design for Learning (UDL)
-
-Multiple means of engagement, representation, and expression.
-
-### Scaffolding Strategies
-
-How much guidance vs. open exploration to provide.
-
-### Assessment Integration
-
-Designing formative assessments within MicroSims. Adding a Quiz Mode to MicroSims.
-
-### PRIMM Methodology
-
-The Predict-Run-Investigate-Modify-Make framework for teaching programming concepts.
-
-## Bloom Taxonomy Strategies
+After this course, students will be able to demonstrate the following competencies.
 
 ### Remember
 
-- Flash card MicroSim
-- Sorter MicroSim
-
-### Create
-
-- Model Editor
-
-## AI and Prompt Engineering Topics
-
-### Rules Files and Skills Development
-
-How to create effective rules files for AI systems.
-
-### Iterative Refinement Techniques
-
-Specific strategies for debugging and refining AI-generated code:
-
-- Using Claude Code
-- Using p5.js previews
-- Using `mkdocs serve` to preview
-- Tricks for autosaving VS Code on change in focus
-
-### Prompt Engineering Best Practices
-
-Writing effective prompts for different types of MicroSims:
-
-- Building a new MicroSim from scratch
-- Making a copy of a MicroSim
-- Examples of prompts that use skills
-
-!!! quote
-    Use the map-generator skill to create a map of Africa
-
-## Integration Topics
-
-### iframe Integration
-
-- How to embed MicroSims in any web page
-- How to embed a MicroSim in an MkDocs markdown page
-- How to embed a MicroSim in an HTML slide deck
-
-## Professional Topics
-
-### Licensing and Copyright
-
-- Creative Commons licensing, attribution requirements
-- Adding the fullscreen and copyright links to each MicroSim
-
-### Collaboration Workflows
-
-Working in teams, peer review processes.
-
-### User Testing and Feedback
-
-How to conduct usability studies with actual students.
-
-### Educational Equity Considerations
-
-Designing for low-bandwidth environments and older devices.
-
-## Learning Objectives
-
-Upon successful completion of this course, students will be able to:
-
-### Remember
-
-- Identify the core components of a p5.js sketch: `setup()`, `draw()`, and global variables
-- List the elements of the standard MicroSim layout (drawing region, control region)
-- Recall Dublin Core metadata fields used for educational resource documentation
-- Name the six levels of Bloom's 2001 Taxonomy
+- Define a MicroSim and list its files (`main.html`, the JavaScript file, `index.md`, `metadata.json`)
+- Name the six levels of Bloom's 2001 Taxonomy and the verbs associated with each
+- List the MicroSim types in the catalog and the library that each type uses
+- Recall the three xAPI verbs used by MicroSims (`answered`, `experienced`, `interacted`) and the required fields for each
+- Identify the six xAPI evidence classes and the thresholds below which an interaction is not evidence
+- State the four parameters of a Bayesian knowledge tracing model (initial knowledge, learning, guess and slip)
 
 ### Understand
 
-- Explain how generative AI tools can accelerate simulation development
-- Describe the pedagogical principles that make simulations effective for learning
-- Interpret p5.js code structure and execution flow
-- Summarize best practices for accessible and responsive design
-- Discuss how Bloom's Taxonomy levels guide MicroSim selection
+- Explain why an interactive MicroSim can teach more effectively than a static diagram, and when it cannot
+- Describe how a learning objective's Bloom level guides the choice of interaction pattern
+- Explain why one concept identifier per statement and the order of answer attempts matter for mastery estimation
+- Describe how width-responsive design, iframe heights and control visibility affect both learning and data quality
+- Summarize the differences between the full LRS and LRS-Lite in what each stores, what each preserves, and what each costs
+- Explain what prediction fidelity means and why hover-only or very short interactions are excluded as evidence
 
 ### Apply
 
-- Use generative AI to produce functional p5.js simulation code
-- Implement standard MicroSim layout patterns with drawing and control regions
-- Create interactive controls (sliders, buttons) that modify simulation parameters
-- Apply responsive design techniques to ensure simulations work across screen sizes
-- Match learning objectives to appropriate MicroSim types
+- Use an AI skill to generate a MicroSim of the type recommended by the routing rubric
+- Write a specification block that a batch pipeline can turn into a working MicroSim
+- Run the validation, height-sync, Playwright and layout-review tools and correct the defects they report
+- Add xAPI instrumentation to an existing MicroSim and map each interaction to a concept in a learning graph
+- Configure a book's identity and policy (Compact or Full) for xAPI
+- Search the MicroSim index for an existing example and reuse or adapt it rather than building a new one
 
 ### Analyze
 
-- Compare different prompting strategies for generating simulation code
-- Differentiate between effective and ineffective educational simulations
-- Debug AI-generated code by identifying logical and syntactical errors
-- Examine how simulation parameters affect learning outcomes
-- Categorize MicroSims by Bloom's Taxonomy level and subject area
+- Break a learning objective into concepts and decide which MicroSim interactions provide evidence for each
+- Compare candidate MicroSim types for the same objective on diagnostic value, cognitive load and effort
+- Diagnose layout, height and responsiveness defects from screenshots and test output
+- Examine an xAPI event stream and separate real evidence from noise (accidental clicks, idle time and guessing)
+- Contrast what a Compact summary and a Full stream each reveal about the same student session
+- Trace how a change in a MicroSim's design changes the sequence of events that a knowledge-tracing model receives
 
 ### Evaluate
 
-- Assess the educational effectiveness of a MicroSim against stated learning objectives
-- Critique AI-generated code for efficiency, readability, and best practices
-- Judge the accessibility and usability of interactive simulations
-- Appraise the appropriateness of simulations for specific grade levels and subjects
-- Apply the 100-point quality score rubric to evaluate MicroSims
+- Judge a MicroSim against the quality score and against its stated learning objective
+- Critique a MicroSim's instrumentation for missing, redundant or misleading evidence
+- Assess the predictive fidelity of an event stream by comparing predicted mastery with held-out assessment results (correlation, calibration and discrimination)
+- Evaluate the trade-offs between the full LRS and LRS-Lite for a given school, class size, budget and privacy requirement
+- Appraise the privacy and equity risks of collecting learner data, and decide what a MicroSim should not record
+- Distinguish claims that have been measured from those that are only designed or hoped for
 
 ### Create
 
-- Design original MicroSims that address specific learning objectives
-- Construct comprehensive metadata documentation for simulations
-- Develop iterative prompts that guide AI toward producing high-quality code
-- Produce a portfolio of educational simulations demonstrating mastery of course concepts
-- Author effective rules files and skills for AI-assisted development
+- Design an original MicroSim that pairs an interaction pattern with a measurable learning objective and a plan for the evidence it will produce
+- Produce a batch of MicroSims from specifications that pass the quality gate and the automated layout checks
+- Construct complete metadata and an xAPI configuration for a portfolio of MicroSims
+- Build a capstone portfolio of instrumented MicroSims and report on how well its event stream predicts mastery of its target concepts
+- Propose a design for a future AI-generated MicroSim that is both engaging and a better predictor of mastery, and state how the claim would be tested
 
 ## Assessment Methods
 
-- Weekly coding assignments (40%)
-- Midterm project: Multi-component simulation (20%)
-- Capstone project: Original educational MicroSim with documentation (30%)
-- Class participation and peer reviews (10%)
+- Weekly assignments: generating, checking and instrumenting MicroSims (35%)
+- Midterm project: a set of MicroSims of at least three different types, generated from specifications, passing the quality gate (20%)
+- Evaluation report: measuring the predictive fidelity of an event stream (15%)
+- Capstone project: an instrumented MicroSim portfolio with documentation and a mastery-prediction analysis (25%)
+- Class participation and peer reviews (5%)
 
 ## Required Materials
 
-- Access to a generative AI tool (ChatGPT, Claude, or equivalent)
-- Modern web browser with developer tools
-- Text editor or integrated development environment
-- GitHub account for version control and deployment
+- Access to a generative AI tool or agent that can run skills (for example Claude Code)
+- A modern web browser with developer tools
+- A text editor or integrated development environment, and a command line
+- A GitHub account for version control and deployment
+- Python 3 and Node.js for the quality and instrumentation tools (Playwright is installed as needed)
+
+## Why This Course Matters
+
+Interactive simulations are among the most effective ways to teach abstract ideas, but they have been too expensive to build for most teachers. AI now makes them cheap to produce, which creates a new problem: it is easy to generate many MicroSims and hard to know which ones work. Instrumentation answers that question. A MicroSim that emits well-designed events can tell a teacher, an author or an adaptive textbook whether a student has mastered a concept, and which of the book's own MicroSims are doing the teaching. This course prepares educators and developers to build that capability responsibly, with attention to quality, accessibility, equity and privacy.
