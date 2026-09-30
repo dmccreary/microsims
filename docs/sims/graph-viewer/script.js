@@ -1,15 +1,25 @@
-// Global variables
-var nodes, edges, network;
+// Learning Graph Viewer Script
+// Loads and displays an interactive learning graph using vis-network
+
+let network = null;
+let allNodes = [];
+let allEdges = [];
+let groups = {};
+let visibleGroups = new Set();
+
+// Precomputed once at load — never change after that
+let nodesWithDeps = new Set(); // set of node IDs that have outgoing edges
+let groupCounts = {};          // { groupId: count } for legend labels
 
 // CIS (Concept Impact Score) node-sizing configuration.
 // Nodes use the 'box' shape, which vis-network auto-sizes to fit its label
 // text -- the built-in nodes.scaling/value mechanism has NO visible effect
 // on box-shaped nodes (verified empirically), so importance is instead
 // conveyed by scaling font size and margin directly per node. Values are
-// log-normalized (not raw CIS) because CIS is heavy-tailed: roughly half of
-// a typical concept graph sits at the minimum CIS value of 1, and a linear
-// scale would make that entire lower half indistinguishable while one or
-// two hub concepts dominate the range.
+// log-normalized (not raw CIS) because CIS is heavy-tailed: on a typical
+// ~200-concept graph, roughly half of all concepts sit at the minimum CIS
+// value of 1, and a linear scale would make that entire lower half
+// indistinguishable while one or two hub concepts dominate the range.
 const CIS_FONT_MIN = 12;
 const CIS_FONT_MAX = 22;
 const CIS_MARGIN_MIN = 4;
@@ -18,318 +28,383 @@ const CIS_MARGIN_MAX = 10;
 // Returns a 0..1 normalized importance score for a raw CIS value, given the
 // maximum CIS across the whole graph.
 function cisNormalized(cis, maxCis) {
-  if (!maxCis || maxCis <= 1) return 0;
-  return Math.log(cis + 1) / Math.log(maxCis + 1);
+    if (!maxCis || maxCis <= 1) return 0;
+    return Math.log(cis + 1) / Math.log(maxCis + 1);
 }
 
-// ========== UTILITY FUNCTIONS ==========
+// Load the learning graph data
+async function loadGraph() {
+    try {
+        const response = await fetch('../../learning-graph/learning-graph.json');
+        const data = await response.json();
 
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  const sidebarContainer = document.getElementById("sidebar-container");
-  const toggleButton = document.getElementById("toggle-button");
+        allNodes = data.nodes || [];
+        groups = data.groups || {};
 
-  if (sidebar.style.display === "none") {
-    sidebar.style.display = "block";
-    sidebarContainer.style.minWidth = "250px";
-    toggleButton.innerHTML = "&#9776;";
-  } else {
-    sidebar.style.display = "none";
-    sidebarContainer.style.minWidth = "auto";
-    toggleButton.innerHTML = "&#8594;";
-  }
-}
+        // Assign explicit integer IDs to every edge at load time.
+        allEdges = (data.edges || []).map((edge, i) => ({
+            ...edge,
+            id: edge.id !== undefined ? edge.id : i
+        }));
 
-// Function to update statistics
-function updateStatistics() {
-  var allNodes = nodes.get();
-  var allEdges = edges.get();
+        // Initialize all groups as visible
+        Object.keys(groups).forEach(g => visibleGroups.add(g));
 
-  // Filter visible nodes
-  var visibleNodes = allNodes.filter(node => !node.hidden);
+        // Precompute values that never change after load
+        nodesWithDeps = new Set(allEdges.map(e => e.from));
+        groupCounts = {};
+        allNodes.forEach(n => {
+            groupCounts[n.group] = (groupCounts[n.group] || 0) + 1;
+        });
 
-  // Filter visible edges (both connected nodes must be visible)
-  var visibleEdges = allEdges.filter(edge => {
-    var fromNode = nodes.get(edge.from);
-    var toNode = nodes.get(edge.to);
-    return (!fromNode.hidden && !toNode.hidden);
-  });
+        // Size each node's font/margin by its Concept Impact Score, if present.
+        // Older learning-graph.json files without a 'cis' field render at a
+        // uniform size (cisNormalized returns 0 for undefined/1 values, so
+        // every node lands at CIS_FONT_MIN -- no error, just no size variation).
+        const maxCis = Math.max(1, ...allNodes.map(n => n.cis || 1));
+        allNodes.forEach(n => {
+            const t = cisNormalized(n.cis || 1, maxCis);
+            n.font = { ...(n.font || {}), size: Math.round(CIS_FONT_MIN + t * (CIS_FONT_MAX - CIS_FONT_MIN)) };
+            n.margin = Math.round(CIS_MARGIN_MIN + t * (CIS_MARGIN_MAX - CIS_MARGIN_MIN));
+        });
 
-  var nodeCount = visibleNodes.length;
-  var edgeCount = visibleEdges.length;
+        initializeNetwork();
+        buildLegend();
+        updateStats();
+        setupSearch();
+        setupControls();
 
-  // Find orphan nodes (nodes with no visible edges)
-  var connectedNodeIds = new Set();
-  visibleEdges.forEach(edge => {
-    connectedNodeIds.add(edge.from);
-    connectedNodeIds.add(edge.to);
-  });
-  var orphanNodes = visibleNodes.filter(node => !connectedNodeIds.has(node.id));
-  var orphanCount = orphanNodes.length;
-
-  // Update the HTML elements with the statistics
-  document.getElementById('nodeCount').textContent = nodeCount;
-  document.getElementById('edgeCount').textContent = edgeCount;
-  document.getElementById('orphanCount').textContent = orphanCount;
-}
-
-// Function to toggle groups
-function toggleGroup(groupName) {
-  const visible = document.getElementById(`group${groupName}`).checked;
-  nodes.update(
-    nodes.get({ filter: node => node.group === groupName })
-         .map(node => ({ id: node.id, hidden: !visible }))
-  );
-  updateStatistics();
-}
-
-// Function to check all groups
-function checkAllGroups() {
-  document.querySelectorAll('input[id^="group"]').forEach(cb => { cb.checked = true; });
-  nodes.update(nodes.get().map(node => ({ id: node.id, hidden: false })));
-}
-
-// Function to uncheck all groups
-function uncheckAllGroups() {
-  document.querySelectorAll('input[id^="group"]').forEach(cb => { cb.checked = false; });
-  nodes.update(nodes.get().map(node => ({ id: node.id, hidden: true })));
-}
-
-// Helper function to get readable color name
-function getColorName(color) {
-  const colorNames = {
-    'red': 'Red',
-    'orange': 'Orange',
-    'gold': 'Gold',
-    'green': 'Green',
-    'blue': 'Blue',
-    'indigo': 'Indigo',
-    'violet': 'Violet',
-    'gray': 'Gray',
-    'brown': 'Brown',
-    'teal': 'Teal',
-    'cyan': 'Cyan',
-    // Hex code mappings for custom taxonomies
-    '#FF6B6B': 'Coral Red',
-    '#4ECDC4': 'Turquoise',
-    '#45B7D1': 'Sky Blue',
-    '#96CEB4': 'Sage Green',
-    '#FFEAA7': 'Soft Yellow',
-    '#DDA15E': 'Bronze',
-    '#BC6C25': 'Brown',
-    '#9B59B6': 'Purple',
-    '#E17055': 'Terracotta',
-    '#74B9FF': 'Light Blue',
-    '#A29BFE': 'Periwinkle',
-    '#FD79A8': 'Pink'
-  };
-  return colorNames[color.toLowerCase()] || colorNames[color] || color;
-}
-
-// Helper function to determine if text should be white or black
-function getTextColorForBackground(backgroundColor) {
-  // Colors that need white text (named colors)
-  const darkColors = ['red', 'green', 'blue', 'indigo', 'violet', 'gray', 'brown', 'cyan'];
-
-  // Hex codes that need white text (dark backgrounds)
-  const darkHexColors = ['#FF6B6B', '#9B59B6', '#E17055', '#BC6C25'];
-
-  return darkColors.includes(backgroundColor.toLowerCase()) || darkHexColors.includes(backgroundColor) ? 'white' : 'black';
-}
-
-// Function to generate legend table from groups data
-function generateLegend(groups) {
-  const legendTable = document.getElementById('legend-table');
-  legendTable.innerHTML = ''; // Clear existing content
-
-  // Iterate through groups and create table rows
-  for (const [groupName, groupStyle] of Object.entries(groups)) {
-    const row = document.createElement('tr');
-
-    // Create checkbox cell
-    const checkboxCell = document.createElement('td');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = `group${groupName}`;
-    checkbox.checked = true;
-    checkbox.onchange = function() { toggleGroup(groupName); };
-
-    // Get the label from the classifierName in the groups of the learning-graph.json file
-    const label = document.createTextNode(' ' + (groupStyle.classifierName || groupName));
-    checkboxCell.appendChild(checkbox);
-    checkboxCell.appendChild(label);
-
-    // Create color indicator cell
-    const colorCell = document.createElement('td');
-    colorCell.className = 'color-indicator';
-    const bgColor = groupStyle.color;
-    const textColor = getTextColorForBackground(bgColor);
-    colorCell.style.backgroundColor = bgColor;
-    colorCell.style.color = textColor;
-    colorCell.textContent = getColorName(bgColor);
-
-    row.appendChild(checkboxCell);
-    row.appendChild(colorCell);
-    legendTable.appendChild(row);
-  }
-}
-
-// Function to set metadata (title and description)
-function setMetadata(metadata) {
-  if (metadata && metadata.title) {
-    const titleElement = document.getElementById('graph-title');
-    if (titleElement) {
-      titleElement.textContent = metadata.title;
+    } catch (error) {
+        console.error('Error loading learning graph:', error);
+        document.getElementById('network').innerHTML =
+            '<p style="color: red; padding: 20px;">Error loading learning graph. Make sure learning-graph.json exists at ../../learning-graph/learning-graph.json</p>';
     }
-
-    // Update document title as well
-    if (metadata.title) {
-      document.title = metadata.title + ' - Learning Graph Viewer';
-    }
-  }
 }
 
-// ========== INITIALIZATION ==========
+// Initialize the vis-network visualization
+function initializeNetwork() {
+    const container = document.getElementById('network');
 
-function initializeNetwork(graphData) {
-  // Set metadata (title, description)
-  if (graphData.metadata) {
-    setMetadata(graphData.metadata);
-  }
+    // Create nodes DataSet - colors are handled by the groups option
+    const nodes = new vis.DataSet(allNodes);
 
-  // Generate legend from groups data
-  if (graphData.groups) {
-    generateLegend(graphData.groups);
-  }
+    // Create edges DataSet — use allEdges which already have explicit IDs
+    const edges = new vis.DataSet(allEdges.map(edge => ({
+        ...edge,
+        arrows: 'to',
+        color: { color: '#888', opacity: 0.6 }
+    })));
 
-  // Size each node's font/margin by its Concept Impact Score, if present.
-  // Older learning-graph.json files without a 'cis' field render at a
-  // uniform size (cisNormalized returns 0 for undefined/1 values, so every
-  // node lands at CIS_FONT_MIN -- no error, just no size variation).
-  const maxCis = Math.max(1, ...graphData.nodes.map(n => n.cis || 1));
-  graphData.nodes.forEach(n => {
-    const t = cisNormalized(n.cis || 1, maxCis);
-    n.font = { ...(n.font || {}), size: Math.round(CIS_FONT_MIN + t * (CIS_FONT_MAX - CIS_FONT_MIN)) };
-    n.margin = Math.round(CIS_MARGIN_MIN + t * (CIS_MARGIN_MAX - CIS_MARGIN_MIN));
-  });
+    const data = { nodes, edges };
 
-  // Create DataSets from loaded data
-  nodes = new vis.DataSet(graphData.nodes);
-  edges = new vis.DataSet(graphData.edges);
-
-  // Create a network
-  var container = document.getElementById('mynetwork');
-
-  // Provide the data in the vis format
-  var data = {
-    nodes: nodes,
-    edges: edges
-  };
-
-  var options = {
-    groups: graphData.groups || {},  // Apply group-based styling
-    edges: {
-      arrows: {
-        to: { enabled: true, type: 'arrow', color: 'black', scaleFactor: 1 }
-      },
-      color: {
-        color: 'black',
-        inherit: false
-      },
-      width: 2,
-      smooth: { type: 'continuous' }
-    },
-    physics: {
-      solver: 'forceAtlas2Based',
-      forceAtlas2Based: {
-        springLength: 100
-      }
-    }
-  };
-
-  network = new vis.Network(container, data, options);
-
-  // Initialize search functionality
-  initializeSearch();
-
-  // Update statistics after network is initialized
-  updateStatistics();
-}
-
-function initializeSearch() {
-  var searchInput = document.getElementById('search-input');
-  var searchResults = document.getElementById('search-results');
-  var searchContainer = document.getElementById('search-container');
-
-  searchInput.addEventListener('input', function() {
-    var query = this.value.toLowerCase();
-    if (query === '') {
-      searchResults.style.display = 'none';
-      searchResults.innerHTML = '';
-      return;
-    }
-
-    // Only search visible nodes
-    var matches = nodes.get({
-      filter: function (item) {
-        return !item.hidden && item.label.toLowerCase().includes(query);
-      }
+    // Build vis-network groups configuration from JSON groups
+    const visGroups = {};
+    Object.entries(groups).forEach(([groupId, groupInfo]) => {
+        visGroups[groupId] = {
+            color: {
+                background: groupInfo.color || 'lightgray',
+                border: groupInfo.color || 'lightgray',
+                highlight: {
+                    background: groupInfo.color || 'lightgray',
+                    border: '#333'
+                },
+                hover: {
+                    background: groupInfo.color || 'lightgray',
+                    border: '#666'
+                }
+            },
+            font: {
+                color: groupInfo.font?.color || 'black'
+            }
+        };
     });
 
-    if (matches.length > 0) {
-      searchResults.innerHTML = '';
-      matches.forEach(function(item) {
-        var div = document.createElement('div');
-        div.textContent = item.label + ' (' + item.group + ')';
-        div.dataset.id = item.id;
-        div.addEventListener('click', function() {
-          var nodeId = parseInt(this.dataset.id);
-          network.focus(nodeId, {
-            animation: {
-              duration: 500,
-              easingFunction: 'easeInOutQuad'
+    const options = {
+        groups: visGroups,
+        layout: {
+            randomSeed: 42,
+            improvedLayout: true
+        },
+        physics: {
+            enabled: true,
+            solver: 'forceAtlas2Based',
+            forceAtlas2Based: {
+                gravitationalConstant: -50,
+                centralGravity: 0.01,
+                springLength: 100,
+                springConstant: 0.08,
+                damping: 0.4,
+                avoidOverlap: 0.5
             },
-            scale: 1.5
-          });
-          network.selectNodes([nodeId]);
-          searchResults.style.display = 'none';
-          searchResults.innerHTML = '';
-          searchInput.value = '';
-        });
-        searchResults.appendChild(div);
-      });
-      searchResults.style.display = 'block';
-    } else {
-      searchResults.innerHTML = '<div style="color: gray; padding: 8px;">No matches found</div>';
-      searchResults.style.display = 'block';
-    }
-  });
+            stabilization: {
+                enabled: true,
+                iterations: 1000,
+                updateInterval: 25
+            }
+        },
+        nodes: {
+            shape: 'box',
+            margin: 4,
+            font: {
+                size: 14,
+                face: 'Arial'
+            },
+            borderWidth: 2,
+            shadow: true
+        },
+        edges: {
+            smooth: {
+                type: 'cubicBezier',
+                forceDirection: 'horizontal',
+                roundness: 0.4
+            },
+            width: 1.5
+        },
+        interaction: {
+            hover: true,
+            tooltipDelay: 200,
+            zoomView: true,
+            dragView: true
+        }
+    };
 
-  // Close the dropdown when clicking outside
-  document.addEventListener('click', function(event) {
-    if (!searchContainer.contains(event.target)) {
-      searchResults.style.display = 'none';
-      searchResults.innerHTML = '';
-    }
-  });
+    network = new vis.Network(container, data, options);
+
+    // Remove the loading message once the initial layout is computed.
+    network.once('stabilizationIterationsDone', () => {
+        const msg = document.getElementById('loading-message');
+        if (msg) msg.remove();
+    });
+
+    // Turn off physics after 5 seconds to stop spinning
+    setTimeout(() => {
+        network.setOptions({ physics: { enabled: false } });
+    }, 5000);
+
+    // Re-enable physics when user starts dragging a node
+    network.on('dragStart', function(params) {
+        if (params.nodes.length > 0) {
+            network.setOptions({ physics: { enabled: true } });
+        }
+    });
+
+    // Turn off physics when user releases the node
+    network.on('dragEnd', function(params) {
+        if (params.nodes.length > 0) {
+            setTimeout(() => {
+                network.setOptions({ physics: { enabled: false } });
+            }, 1000);
+        }
+    });
+
+    // Handle node selection
+    network.on('selectNode', function(params) {
+        if (params.nodes.length > 0) {
+            highlightNode(params.nodes[0]);
+        }
+    });
 }
 
-// ========== LOAD DATA AND START APPLICATION ==========
+// Build the category legend
+function buildLegend() {
+    const legendContainer = document.getElementById('legend');
+    legendContainer.innerHTML = '';
 
-// Load the graph data from JSON file by going up to the learning-graph directory and reading the learning-graph.json file
-// Adjust the path as necessary based on your directory structure
-fetch('../../learning-graph/learning-graph.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to load ../../learning-graph/learning-graph.json');
+    Object.entries(groups).forEach(([groupId, groupInfo]) => {
+        const count = groupCounts[groupId] || 0;
+
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `group-${groupId}`;
+        checkbox.checked = true;
+        checkbox.addEventListener('change', () => toggleGroup(groupId, checkbox.checked));
+
+        const colorBox = document.createElement('span');
+        colorBox.className = 'color-box';
+        colorBox.style.backgroundColor = groupInfo.color || 'lightgray';
+
+        const label = document.createElement('label');
+        label.htmlFor = `group-${groupId}`;
+        label.textContent = `${groupInfo.classifierName || groupId} (${count})`;
+
+        item.appendChild(checkbox);
+        item.appendChild(colorBox);
+        item.appendChild(label);
+        legendContainer.appendChild(item);
+    });
+}
+
+// Toggle visibility of a category group
+function toggleGroup(groupId, visible) {
+    if (visible) {
+        visibleGroups.add(groupId);
+    } else {
+        visibleGroups.delete(groupId);
     }
-    return response.json();
-  })
-  .then(graphData => {
-    initializeNetwork(graphData);
-  })
-  .catch(error => {
-    console.error('Error loading graph data:', error);
-    document.getElementById('mynetwork').innerHTML =
-      '<div style="padding: 20px; color: red;">Error loading graph data. Please check the console for details.</div>';
-  });
+    updateVisibility();
+}
+
+// Update node and edge visibility based on selected groups
+function updateVisibility() {
+    const visibleNodeIds = new Set(
+        allNodes.filter(n => visibleGroups.has(n.group)).map(n => n.id)
+    );
+
+    const nodes = network.body.data.nodes;
+    const edges = network.body.data.edges;
+
+    // Batch update nodes — single DataSet.update() call triggers one redraw
+    nodes.update(allNodes.map(node => ({
+        id: node.id,
+        hidden: !visibleGroups.has(node.group)
+    })));
+
+    // Batch update edges
+    edges.update(allEdges.map(edge => ({
+        id: edge.id,
+        hidden: !(visibleNodeIds.has(edge.from) && visibleNodeIds.has(edge.to))
+    })));
+
+    updateStats(visibleNodeIds);
+}
+
+// Update statistics display
+function updateStats(visibleNodeIds) {
+    if (!visibleNodeIds) {
+        visibleNodeIds = new Set(
+            allNodes.filter(n => visibleGroups.has(n.group)).map(n => n.id)
+        );
+    }
+
+    const visibleEdgeCount = allEdges.filter(
+        e => visibleNodeIds.has(e.from) && visibleNodeIds.has(e.to)
+    ).length;
+
+    const foundationalCount = allNodes.filter(
+        n => !nodesWithDeps.has(n.id) && visibleGroups.has(n.group)
+    ).length;
+
+    document.getElementById('visible-nodes').textContent = visibleNodeIds.size;
+    document.getElementById('visible-edges').textContent = visibleEdgeCount;
+    document.getElementById('foundational-nodes').textContent = foundationalCount;
+}
+
+// Setup search functionality
+function setupSearch() {
+    const searchInput = document.getElementById('search');
+    const resultsContainer = document.getElementById('search-results');
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        resultsContainer.innerHTML = '';
+
+        if (query.length < 2) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+
+        const matches = allNodes.filter(n =>
+            n.label.toLowerCase().includes(query)
+        ).slice(0, 10);
+
+        if (matches.length === 0) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+
+        matches.forEach(node => {
+            const item = document.createElement('div');
+            item.className = 'search-result-item';
+
+            const groupInfo = groups[node.group] || {};
+            item.innerHTML = `
+                <span class="result-label">${node.label}</span>
+                <span class="result-category" style="background-color: ${groupInfo.color || 'lightgray'}">
+                    ${groupInfo.classifierName || node.group}
+                </span>
+            `;
+
+            item.addEventListener('click', () => {
+                selectNode(node.id);
+                searchInput.value = node.label;
+                resultsContainer.style.display = 'none';
+            });
+
+            resultsContainer.appendChild(item);
+        });
+
+        resultsContainer.style.display = 'block';
+    });
+
+    // Hide results when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+            resultsContainer.style.display = 'none';
+        }
+    });
+}
+
+// Select and focus on a node
+function selectNode(nodeId) {
+    network.selectNodes([nodeId]);
+    network.focus(nodeId, {
+        scale: 1.2,
+        animation: {
+            duration: 500,
+            easingFunction: 'easeInOutQuad'
+        }
+    });
+    highlightNode(nodeId);
+}
+
+// Highlight a node and its connections
+function highlightNode(nodeId) {
+    const connectedNodes = network.getConnectedNodes(nodeId);
+    const connectedSet = new Set([nodeId, ...connectedNodes]);
+
+    const nodes = network.body.data.nodes;
+    nodes.update(allNodes.map(node => ({
+        id: node.id,
+        opacity: connectedSet.has(node.id) ? 1 : 0.3
+    })));
+
+    // Reset opacity after a delay — batched for performance
+    setTimeout(() => {
+        nodes.update(allNodes.map(node => ({ id: node.id, opacity: 1 })));
+    }, 3000);
+}
+
+// Setup control buttons
+function setupControls() {
+    // Toggle sidebar
+    document.getElementById('toggle-sidebar').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('sidebar-content');
+        sidebar.classList.toggle('collapsed');
+        content.style.display = sidebar.classList.contains('collapsed') ? 'none' : 'block';
+    });
+
+    // Check all groups
+    document.getElementById('check-all').addEventListener('click', function() {
+        Object.keys(groups).forEach(groupId => {
+            visibleGroups.add(groupId);
+            document.getElementById(`group-${groupId}`).checked = true;
+        });
+        updateVisibility();
+    });
+
+    // Uncheck all groups
+    document.getElementById('uncheck-all').addEventListener('click', function() {
+        Object.keys(groups).forEach(groupId => {
+            visibleGroups.delete(groupId);
+            document.getElementById(`group-${groupId}`).checked = false;
+        });
+        updateVisibility();
+    });
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', loadGraph);

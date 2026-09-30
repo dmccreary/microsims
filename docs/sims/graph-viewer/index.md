@@ -1,70 +1,35 @@
 # Learning Graph Viewer
 
-[Run the Learning Graph Viewer](main.html){ .md-button .md-button--primary }
-
-This viewer reads a learning graph data from [../../learning-graph/learning-graph.json](../../learning-graph/learning-graph.json):
-
-1. **Search Functionality** - Quick node lookup with autocomplete
-2. **Taxonomy Legend Controls** - Filter nodes by category/taxonomy
+This interactive viewer allows you to explore the learning graph for this course.
 
 ## Features
 
-### Search
-- Type-ahead search for node names
-- Displays matching results in a dropdown
-- Shows node group/category in results
-- Clicking a result focuses and highlights the node on the graph
-- Only searches visible nodes (respects taxonomy filters)
+- **Search**: Type in the search box to find specific concepts
+- **Category Filtering**: Use checkboxes to show/hide concept categories
+- **Interactive Navigation**: Click and drag to explore, scroll to zoom
+- **Statistics**: View real-time counts of visible nodes and edges
 
-### Taxonomy Legend with Checkboxes
-- Sidebar legend with all node categories
-- Toggle visibility of entire node groups
-- Color-coded categories matching the graph
-- "Check All" and "Uncheck All" buttons for bulk operations
-- Collapsible sidebar to maximize graph viewing area
+## Using the Viewer
 
-### Graph Statistics
-Real-time statistics that update as you filter:
-- **Nodes**: Count of visible nodes
-- **Edges**: Count of visible edges (both endpoints must be visible)
-- **Orphans**: Nodes with no connections (this is an indication that the learning graph needs editing)
+1. **Search for Concepts**: Start typing in the search box to find concepts. Click on a result to focus on that node.
 
-## Sample Graph Demo
+2. **Filter by Category**: Use the category checkboxes in the sidebar to show or hide groups of related concepts. Use "Check All" or "Uncheck All" for bulk operations.
 
-The demo includes a Graph Theory learning graph with 10 taxonomy categories:
+3. **Navigate the Graph**:
+   - Drag to pan around the graph
+   - Scroll to zoom in and out
+   - Click on a node to select it and highlight its connections
 
-- **Foundation** (Red) - Core concepts in red boxes that should be pinned to the left
-- **Types** (Orange) - Graph types
-- **Representations** (Gold) - Data structures
-- **Algorithms** (Green) - Basic algorithms
-- **Paths** (Blue) - Shortest path algorithms
-- **Flow** (Indigo) - Network flow algorithms
-- **Advanced** (Violet) - Advanced topics
-- **Metrics** (Gray) - Centrality measures
-- **Spectral** (Brown) - Spectral theory
-- **ML & Networks** (Teal) - Machine learning
+4. **View Statistics**: The sidebar shows counts of visible nodes, edges, and foundational concepts.
 
-## Usage Tips
+## Graph Structure
 
-1. **Hide a category** - Uncheck a category in the sidebar to hide all nodes in that group
-2. **Search within visible nodes** - Use search to quickly find specific concepts among visible nodes
-3. **Focus on a topic** - Uncheck all categories, then check only the ones you want to study
-4. **Collapse sidebar** - Click the menu button (☰) to hide the sidebar and expand the graph view
-5. **Find orphans** - Check the statistics to see if any nodes lack connections
+- **Foundational Concepts** (left side): Prerequisites with no dependencies
+- **Advanced Concepts** (right side): Topics that build on multiple prerequisites
+- **Edges**: Arrows point from a concept to its prerequisites
 
-## Implementation Notes
+## Launch the Viewer
 
-This viewer follows the standard vis.js architectural patterns:
+[Open Learning Graph Viewer](./main.html){ .md-button .md-button--primary }
 
-- Uses `vis.DataSet` for nodes and edges
-- Implements node `hidden` property for filtering
-- Combines separate search and legend features
-- Updates statistics dynamically based on visibility
-- Maintains consistent styling across features
-
-## Use Cases
-
-- **Course planning** - Filter by topic area to design lesson sequences
-- **Concept exploration** - Search for specific concepts and see their dependencies
-- **Gap analysis** - Use orphan count to identify disconnected concepts
-- **Progressive learning** - Start with foundation concepts, gradually enable advanced topics
+<iframe src="./main.html" width="100%" height="600px" frameborder="0"></iframe>
