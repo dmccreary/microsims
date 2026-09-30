@@ -168,6 +168,18 @@ Each chapter keeps the `index.md` plus `quiz.md` pattern. The chapter count (21)
 - **H. Skills Installation and Paths.**
 - **This plan** stays here after the work is done, as a record.
 
+### 4.2a Nav status icons (must be covered)
+
+The new `mkdocs.yml` must describe and configure the **status icon shown next to each MicroSim in the nav bar**, and the book must explain it. This repo's current `mkdocs.yml` has no status configuration at all. The working pattern is in `~/projects/learning-record-store`:
+
+- **Per-page value.** Each sim's `index.md` front matter sets `status: scaffold | built | implemented | instrumented | approved`.
+- **The legend.** An `extra.status` block in `mkdocs.yml` gives each value its hover text (for example "Instrumented — the MicroSim emits xAPI events; add `?xapi=teaching` to the URL to see them").
+- **The icons.** Community Material renders each status as an empty span painted by a CSS `mask-image`, driven by `--md-status--<name>` custom properties in `docs/css/extra.css`. **Do not** add `theme.icon.status`: it is Insiders-only, is silently ignored on community Material, and gives no build warning (the icons fall back to a generic "i" circle). The colors come from the `:after` background-color, not `color`.
+- **Automation.** `add-xapi-events-to-microsim/scripts/sync-status.py --apply` sets `instrumented` on any sim that carries xAPI handling and, if the book lacks them, installs `assets/status-instrumented.css` and the `extra.status` entries. It leaves sign-off values such as `approved` alone.
+- **Relationship to the batch lifecycle.** The nav status (`scaffold` to `approved`) is the reader-facing view. It should be aligned with the pipeline's `sim-status.json` lifecycle (`specified → scaffolded → implemented → validated → deployed`). The plan needs a defined mapping (for example `scaffolded` to `scaffold`, `implemented` to `implemented`, `validated` to `built` or `approved` by score, and instrumentation to `instrumented`) and a decision on who sets `approved`.
+
+Where it is covered: the Phase 2 skeleton (`mkdocs.yml`, `extra.css` and a status legend), **Chapter 2** (anatomy: the `status` front-matter key), **Chapter 13** (QA: status is set from validation results), **Chapter 16** (`instrumented` and `sync-status.py`), **Appendix E** (the script reference), and **How We Built This Site**. A short legend page for readers should explain what each icon means.
+
 ### 4.3 Site pages to write (all fresh)
 
 `index.md`, `about.md`, `course-description.md` (which drives the learning graph), `why/*`, `faq.md`, `glossary.md`, `references.md`, `how-we-built-this-site.md`, and the `rules/` pages. The `rules/ibook-skills` nav entry should be fixed or replaced.
@@ -238,7 +250,7 @@ The prebuilt PDFs `MicroSims-v0.02.pdf` through `microsims-v0.06.pdf` also stay 
 |---|---|---|
 | **0. Archive and prep** | Tag v1.0 (done and pushed), run the validator over the v1.0 sims for the harvest pool, and settle the open questions in §2.4 | The `v1.0` tag (done), a baseline report |
 | **1. Foundations** | New course description, new learning graph (concepts, taxonomy, dependencies), and a confirmed chapter map | Course description, learning graph, chapter map |
-| **2. Skeleton** | New `mkdocs.yml`, an empty site with all chapters and appendices stubbed, and the spec blocks per chapter | A building skeleton |
+| **2. Skeleton** | New `mkdocs.yml` (including the `extra.status` legend and the `--md-status--*` CSS for the nav status icons, §4.2a), an empty site with all chapters and appendices stubbed, and the spec blocks per chapter | A building skeleton |
 | **3. Foundation chapters** | Chapters 1–5 and Appendices A and B | The concepts and the routing story |
 | **4. Type chapters** | Chapters 6–11 | One chapter per type family, each with specs and sims |
 | **5. Engineering chapters** | Chapters 12–18 and Appendices C–E | QA, batch, reuse, xAPI, the full LRS and LRS-Lite |
@@ -317,4 +329,5 @@ The decision is made: **complete rewrite in this repository, on `main`, with v1.
 1. Add the plan to `mkdocs.yml` (an "Appendices" nav section; it is not there yet).
 2. Phase 1: a new course description and learning graph. The learning graph should treat mastery-prediction fidelity as a first-class concern (concepts for evidence, BKT, calibration, and so on), and confirm or reshape the 21-chapter map.
 3. Phase 2: the skeleton (new nav, stubbed chapters, and spec blocks), in one commit on `main`. Commit and push only; no deploy until release.
-4. Work through the upgrade checklist in `TODO.md` as chapter specs adopt sims.
+4. Cover the nav status icons (§4.2a) in the skeleton and in the chapters listed there.
+5. Work through the upgrade checklist in `TODO.md` as chapter specs adopt sims.
