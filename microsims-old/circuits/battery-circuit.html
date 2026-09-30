@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Battery Circuit</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <!-- Put your script file name here -->
+    <script src="./battery-circuit.js"></script>
+</head>
+<body>
+    <!-- Put the following lines in your setup() function
+    const canvas = createCanvas(400, 400);
+    canvas.parent('canvas-container');
+    -->
+    <div id="canvas-container"></div>
+    <p>
+    Generate a single file p5.js sketch on a 400x400 canvas that simulates an LED electrical circuit.
+    The circuit has had the following elements connected in series.<br/><br/>
+
+    <ol>
+        <li>A battery on the left with the positive end at the top.</li>
+        <li>A wire from the battery to a switch</li>
+        <li>An on/off switch at the top connecting the battery to a 220K ohm resistor with a wire.</li>
+        <li>The 220-ohm resistor on the top right with a wire to an LED.</li>
+        <li>An LED and a light bulb on the bottom right that is red when the circuit is on
+    and black when the circuit is open.</li>
+        <li>A wire connecting the bottom of the LED to the negative side of the battery.</li>
+    </ol>
+
+    Place a button at the bottom of the canvas that will toggle the switch on and off.<br/>
+
+    Draw symbols for a battery, switch, resistor and LED.<br/>
+
+    Use the following function to draw the wires:<br/>
+
+</p>
+
+<pre>
+// Function for drawing an animated wire
+function drawAnimatedWire(x1, y1, x2, y2, speed1, state) {
+    if (state) {
+        let distance = dist(x1, y1, x2, y2);
+        let circlePos = map((millis() * speed1) % distance, 0, distance, 0, 1);
+
+        // lerp generates the percent between two values
+        let x = lerp(x1, x2, circlePos);
+        let y = lerp(y1, y2, circlePos);
+
+        stroke(0);
+        strokeWeight(lineWidth)
+        line(x1, y1, x2, y2); // Draw the wire
+
+        fill(255, 0, 0);
+        noStroke();
+        circle(x, y, 10); // Draw the moving circle (electron)
+    } else {
+        stroke(0);
+        strokeWeight(lineWidth)
+        line(x1, y1, x2, y2); // Draw the wire
+    }
+}
+</pre>
+   
+</body>
+</html>

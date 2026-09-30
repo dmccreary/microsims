@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroSim Library Ecosystem</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFD700;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #network-container {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(180deg, #0d1b2a 0%, #1b263b 100%);
+            border-radius: 10px;
+            border: 2px solid #415a77;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        #caption {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 0.95em;
+            line-height: 1.4;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #play-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        #play-btn:hover:not(:disabled) {
+            background: #45a049;
+        }
+
+        #play-btn.active {
+            background: #f44336;
+        }
+
+        #prev-btn, #next-btn {
+            background: #2196F3;
+            color: white;
+        }
+
+        #prev-btn:hover:not(:disabled), #next-btn:hover:not(:disabled) {
+            background: #1976D2;
+        }
+
+        #reset-btn {
+            background: #9C27B0;
+            color: white;
+        }
+
+        #reset-btn:hover {
+            background: #7B1FA2;
+        }
+
+        #step-indicator {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: opacity 0.5s ease;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 5px 15px;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #ccc;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85em;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+
+        .legend-central { background: #FFD700; }
+        .legend-creation { background: #4A90D9; }
+        .legend-search { background: #4CAF50; }
+        .legend-usage { background: #9C27B0; }
+        .legend-improvement { background: #E91E63; }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.2em;
+            }
+
+            #network-container {
+                height: 350px;
+            }
+
+            button {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .stat-value {
+                font-size: 1.4em;
+            }
+
+            #caption {
+                font-size: 0.85em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MicroSim Library Ecosystem</h1>
+
+        <div id="network-container"></div>
+
+        <div id="caption">
+            Click "Next" to explore how MicroSim libraries create a global ecosystem of educational content sharing.
+        </div>
+
+        <div class="controls">
+            <button id="play-btn" onclick="toggleAnimation()">Play</button>
+            <button id="prev-btn" onclick="prevStep()">&#9664; Previous</button>
+            <span id="step-indicator">Step 1 of 5</span>
+            <button id="next-btn" onclick="nextStep()">Next &#9654;</button>
+            <button id="reset-btn" onclick="resetVisualization()">Reset</button>
+        </div>
+
+        <div id="stats">
+            <div class="stat-item">
+                <div class="stat-value"><span id="sim-count">0</span>+</div>
+                <div class="stat-label">Simulations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value"><span id="subject-count">0</span>+</div>
+                <div class="stat-label">Subjects Covered</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value"><span id="country-count">0</span>+</div>
+                <div class="stat-label">Countries Using</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">$0</div>
+                <div class="stat-label">Cost to Educators</div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color legend-central"></div>
+                <span>Central Hub</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-creation"></div>
+                <span>Creation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-search"></div>
+                <span>Search</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-usage"></div>
+                <span>Field Usage</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-improvement"></div>
+                <span>Improvement</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="microsim-library-ecosystem.js"></script>
+</body>
+</html>
