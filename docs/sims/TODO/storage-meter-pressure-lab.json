@@ -1,0 +1,15 @@
+{
+  "sim_id": "storage-meter-pressure-lab",
+  "diagram_name": "Storage Meter Pressure Lab",
+  "chapter_number": 22,
+  "chapter_title": "\"LRS-Lite: Compact Summaries and Browser Storage\"",
+  "chapter_dir": "22-lrs-lite-compact-summaries-and-browser-storage",
+  "chapter_rel_dir": "chapters/22-lrs-lite-compact-summaries-and-browser-storage",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Predict",
+  "learning_objective": "the learner will predict which pressure level a given storage state triggers and which data the library discards first.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** storage-meter-pressure-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Apply, predict): the learner will predict which pressure level a given storage state triggers and which data the library discards first.\n\nControls:\n\n- Slider: local database size (0 to 10 MB, default 0.34 MB).\n- Slider: days since last backup (0 to 30, default 2).\n- Slider: age of oldest unsynced event in hours (0 to 72, default 0).\n- Toggle: emission mode, Summary or Full, which sets a per-day growth rate for an optional \"advance 10 days\" button.\n- Button: \"Keep my record on this device\", which simulates a persistence request with a Granted or Denied outcome chosen from a dropdown (Firefox prompt, Chrome silent grant, Chrome silent denial).\n- Button: \"Advance 10 days\" and \"Reset\".\n\nVisuals: a meter bar with percentage, status word and a synced line as in the design sketch; a stack of slices (summaries, unsealed events, this device's segments, mirrored segments) that shrinks in the order the level prescribes; a level badge (Normal, Offer, Reclaim, Protect).\n\nInteraction: before revealing the level, the learner picks a predicted level from four buttons and receives feedback that explains the rule that fired. Hovering a slice explains whether it may be pruned.\n\nResponsive design: bar and slices scale to the container width, with controls wrapping beneath on narrow screens; redraw on window resize.\n\nImplementation: p5.js with DOM controls."
+}

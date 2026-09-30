@@ -1,0 +1,15 @@
+{
+  "sim_id": "fidelity-accuracy-base-rate-lab",
+  "diagram_name": "Accuracy Versus Base Rate Lab",
+  "chapter_number": 19,
+  "chapter_title": "Evaluating the Predictive Fidelity of the xAPI Stream",
+  "chapter_dir": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "chapter_rel_dir": "chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "library": "Chart.js",
+  "bloom_level": "Evaluate (L5)",
+  "bloom_verb": "judge",
+  "learning_objective": "Learners will judge whether a reported accuracy demonstrates predictive value by comparing it with the always-predict-the-majority baseline as the base rate changes.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** fidelity-accuracy-base-rate-lab<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nBloom Level: Evaluate (L5)\nBloom Verb: judge\n\nLearning objective: Learners will judge whether a reported accuracy demonstrates predictive value by comparing it with the always-predict-the-majority baseline as the base rate changes.\n\nLayout: A grouped bar chart with two bars, \"Model accuracy\" and \"Baseline accuracy\", above a row of controls. A caption under the chart states the lift in percentage points.\n\nControls: A slider for the base rate of correct answers (0.10 to 0.90, step 0.01, default 0.635); a slider for model signal strength (0.0 meaning no information, 1.0 meaning the synthetic model above, default 1.0); a \"Simulate 200 learners\" button that draws a fresh synthetic cohort.\n\nData: Each press of the button draws a cohort with the chosen base rate, generates model forecasts whose informativeness scales with the signal slider, and computes both accuracies. All values are synthetic and the chart title says so.\n\nInteractions: Hovering a bar shows its exact value and how many of the 200 learners it classified correctly. When the signal slider is at zero and the base rate is far from 0.5, the model bar equals or falls below the baseline bar and a message reads \"This accuracy carries no evidence.\"\n\nResponsive design: The chart resizes with its container and the controls stack vertically below tablet width.\n\nImplementation: Chart.js bar chart with DOM sliders; cohort generation in a small seeded JavaScript function."
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Function Plot Slider Lab using Plotly</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="controls">
+            <label class="ctl">Function
+                <select id="fn-select" aria-label="Function">
+                    <option value="sin">sin(x)</option>
+                    <option value="cos">cos(x)</option>
+                    <option value="square">x²</option>
+                    <option value="gauss">e^(−x²)</option>
+                </select>
+            </label>
+            <label class="ctl">Target y
+                <input type="number" id="target-input" value="0.5" step="0.1" aria-label="Target y value">
+            </label>
+            <button type="button" id="match-btn">Show matches</button>
+            <button type="button" id="clear-btn" class="secondary">Clear</button>
+        </div>
+        <div class="slider-row">
+            <label for="x-slider" class="slider-label">x</label>
+            <input type="range" id="x-slider" min="-6.28" max="6.28" step="0.01" value="0"
+                   aria-label="x position of the marker" aria-valuetext="x = 0.00">
+            <span class="slider-ends">−6.28 to 6.28</span>
+        </div>
+        <div class="readout" id="readout" aria-live="polite"></div>
+        <div id="plot"></div>
+        <div class="matches" id="matches" aria-live="polite"></div>
+    </main>
+    <script src="function-plot-slider-lab.js"></script>
+</body>
+</html>

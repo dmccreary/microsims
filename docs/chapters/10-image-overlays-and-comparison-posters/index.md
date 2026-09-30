@@ -136,6 +136,10 @@ The following specification lets learners see how a data file becomes an interac
 
 #### Diagram: Callout Overlay Anatomy Explorer
 
+<iframe src="../../sims/callout-overlay-anatomy-explorer/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Callout Overlay Anatomy Explorer MicroSim Fullscreen](../../sims/callout-overlay-anatomy-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Callout Overlay Anatomy Explorer</summary>
 Type: infographic
@@ -232,6 +236,10 @@ The next specification tests whether a learner can spot prompt text that would b
 
 #### Diagram: Prompt Text Rule Checker
 
+<iframe src="../../sims/prompt-text-rule-checker/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Prompt Text Rule Checker MicroSim Fullscreen](../../sims/prompt-text-rule-checker/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Prompt Text Rule Checker</summary>
 Type: microsim
@@ -269,6 +277,10 @@ Here is a **worked example** using the STEM Robots kit-comparison poster. Its zo
 Calculation is easy to practice, so the next specification lets learners drag a rectangle and see the numbers.
 
 #### Diagram: Percentage Zone Calibrator
+
+<iframe src="../../sims/percentage-zone-calibrator/main.html" width="100%" height="537px" scrolling="no"></iframe>
+
+[Run the Percentage Zone Calibrator MicroSim Fullscreen](../../sims/percentage-zone-calibrator/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Percentage Zone Calibrator</summary>
@@ -353,6 +365,10 @@ The next diagram brings the poster, its zones and its two modes together.
 
 #### Diagram: Comparison Poster Explorer
 
+<iframe src="../../sims/comparison-poster-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Comparison Poster Explorer MicroSim Fullscreen](../../sims/comparison-poster-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Comparison Poster Explorer</summary>
 Type: infographic
@@ -426,6 +442,10 @@ The last structural detail is height. An iframe has a fixed height, but an overl
 The final specification lets learners audit a poster folder.
 
 #### Diagram: Poster Folder Explorer
+
+<iframe src="../../sims/poster-folder-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Poster Folder Explorer MicroSim Fullscreen](../../sims/poster-folder-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Poster Folder Explorer</summary>

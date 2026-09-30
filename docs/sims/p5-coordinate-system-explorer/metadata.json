@@ -1,0 +1,74 @@
+{
+  "title": "Coordinate System Explorer",
+  "description": "A labeled p5.js pixel grid with a live mouseX and mouseY readout, clickable markers, and challenges that ask for a point at a given height on a meter scale, after which the sim draws the correct point and shows the map() call, including the y flip, with the numbers filled in.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["p5.js", "Coordinate Systems", "map() Function", "Screen Coordinates"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/p5-coordinate-system-explorer/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 515,
+  "chapter": "06-p5js-microsims",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Computer Science",
+    "topic": "The p5.js coordinate system and the y flip with map()",
+    "learningObjectives": [
+      "The learner will calculate the pixel coordinates of a target point, including the y flip used when plotting a value, and confirm the result by placing a marker."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "The Coordinate System section of Chapter 6",
+      "The map() function: map(value, fromLow, fromHigh, toLow, toHigh)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 515},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": false}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "button", "label": "Challenge", "action": "Pose a new target: a height in whole meters on the dashed line x = N"},
+      {"type": "button", "label": "Clear markers", "action": "Remove all markers and the current challenge"},
+      {"type": "checkbox", "label": "Show origin and axes directions", "default": true},
+      {"type": "slider", "label": "Scale maximum (m)", "min": 5, "max": 20, "default": 10, "step": 1}
+    ],
+    "canvasInteractions": ["Pointer readout of mouseX and mouseY", "Click to place a marker or answer a challenge"]
+  },
+  "simulation": {
+    "modelType": "Coordinate mapping",
+    "variables": ["mouseX", "mouseY", "heightMeters", "scaleMax", "drawHeight"],
+    "equations": ["y = map(heightMeters, 0, scaleMax, drawHeight, 0) = drawHeight - heightMeters / scaleMax * drawHeight"],
+    "assumptions": ["drawHeight is 400 pixels", "A click within 12 pixels of the target counts as correct"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Calculate, then confirm by clicking, with worked feedback showing the filled-in map() call",
+    "keyQuestions": [
+      "Where is (0, 0) on a p5.js canvas?",
+      "Which way does y grow?",
+      "Why are the last two arguments of map() written drawHeight, 0 and not 0, drawHeight?"
+    ],
+    "commonMisconceptions": [
+      "y grows upward as on a mathematics graph",
+      "map(h, 0, max, 0, drawHeight) plots a height correctly",
+      "The origin is at the center of the canvas"
+    ],
+    "assessmentOpportunities": [
+      "Challenges correct out of challenges attempted",
+      "Written map() call for a new scale and height"
+    ]
+  }
+}

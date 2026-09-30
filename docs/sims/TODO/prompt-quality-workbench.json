@@ -1,0 +1,15 @@
+{
+  "sim_id": "prompt-quality-workbench",
+  "diagram_name": "Prompt Quality Workbench",
+  "chapter_number": 5,
+  "chapter_title": "Generating MicroSims with AI Skills",
+  "chapter_dir": "05-generating-microsims-with-ai-skills",
+  "chapter_rel_dir": "chapters/05-generating-microsims-with-ai-skills",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Critique",
+  "learning_objective": "The learner will critique a prompt by identifying which decisions it leaves to the model and which failure modes those open decisions make more likely.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** prompt-quality-workbench<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: critique): The learner will critique a prompt by identifying which decisions it leaves to the model and which failure modes those open decisions make more likely.\n\nLayout: the drawing region shows a prompt built from six togglable clauses stacked as cards: names the skill, points to the specification, pins the library version, limits the output files, states the layout, and gives a tie-breaking rule. Beside them is a panel titled \"Decisions left to the model\".\n\nControls: six checkboxes, one per clause, a button \"Reset\", and a dropdown \"Scenario\" with three requests of different difficulty.\n\nInteractions: toggling a clause updates the assembled prompt text and the panel. The panel lists each decision the model must now make itself, for example \"which library version\" when the pin clause is off. Beside each open decision the panel names the failure mode from this chapter it makes more likely, such as library version drift. This is a teaching heuristic, and the panel says so in a footnote. Hovering a card shows an example of the clause.\n\nData: the clauses, open decisions and linked failure modes are stored in a JSON file in the sim folder.\n\nResponsive design: the canvas width follows the container width on every window resize, the panel moves below the cards under 600 pixels, and checkboxes wrap to a second row at 400 pixels wide.\n\nImplementation: p5.js with createCheckbox, createSelect and createButton controls positioned relative to drawHeight, and a describe() call."
+}

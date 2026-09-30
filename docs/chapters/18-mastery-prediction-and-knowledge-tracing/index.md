@@ -98,6 +98,10 @@ Before the diagram below, three terms need defining. A **stage** is one step in 
 
 #### Diagram: From Interaction to Mastery Prediction
 
+<iframe src="../../sims/evidence-stream-to-prediction-pipeline/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the From Interaction to Mastery Prediction MicroSim Fullscreen](../../sims/evidence-stream-to-prediction-pipeline/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>From Interaction to Mastery Prediction</summary>
 Type: infographic
@@ -216,6 +220,10 @@ Read the second row. One wrong answer pulls the estimate from 0.71 to 0.35, so t
 
 #### Diagram: BKT Parameter Lab
 
+<iframe src="../../sims/bkt-parameter-lab/main.html" width="100%" height="772px" scrolling="no"></iframe>
+
+[Run the BKT Parameter Lab MicroSim Fullscreen](../../sims/bkt-parameter-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>BKT Parameter Lab</summary>
 Type: microsim
@@ -265,6 +273,10 @@ The producer contract leaves one question open: whether retries within one prese
 
 #### Diagram: Attempt Order Swap Lab
 
+<iframe src="../../sims/attempt-order-swap-lab/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Attempt Order Swap Lab MicroSim Fullscreen](../../sims/attempt-order-swap-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Attempt Order Swap Lab</summary>
 Type: microsim
@@ -313,6 +325,10 @@ The Learning Record Store's design specifies the second direction as a report, n
 A short illustrative chain shows the idea. Suppose the graph says Rates depends on Ratios, and Ratios depends on Fractions. A learner's Rates estimate is low, their Ratios estimate is low and their Fractions estimate is high. The gap analysis would point at Ratios as the first unmastered concept in the chain, since Fractions is already mastered, and that is where reteaching should begin.
 
 #### Diagram: Prerequisite Propagation Explorer
+
+<iframe src="../../sims/prerequisite-propagation-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Prerequisite Propagation Explorer MicroSim Fullscreen](../../sims/prerequisite-propagation-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Prerequisite Propagation Explorer</summary>

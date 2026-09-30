@@ -1,0 +1,15 @@
+{
+  "sim_id": "accessibility-check-walkthrough",
+  "diagram_name": "Accessibility Check Walkthrough",
+  "chapter_number": 24,
+  "chapter_title": "Pedagogy, Accessibility and Ethics",
+  "chapter_dir": "24-pedagogy-accessibility-and-ethics",
+  "chapter_rel_dir": "chapters/24-pedagogy-accessibility-and-ethics",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Judge",
+  "learning_objective": "The learner will judge whether a mock MicroSim passes each of four accessibility checks and justify each verdict with the defect they found.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** accessibility-check-walkthrough<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: judge): The learner will judge whether a mock MicroSim passes each of four accessibility checks and justify each verdict with the defect they found.\n\nLayout: a drawing region above a control region. The drawing region shows a small mock simulation (a ball and two controls). A checklist panel on the right lists the four checks: keyboard-only completion, visible focus, text alternative, and no color-only meaning.\n\nData: three mock variants selected from a dropdown. Variant A has a pointer-only canvas control, variant B has a hidden focus indicator, and variant C passes all four checks. The defects are built into the mock and are not real product findings.\n\nControls:\n\n- Dropdown \"Mock variant\" with the three variants\n- Toggle \"Keyboard only\" that disables pointer input on the mock and lights the focus ring when the learner presses Tab\n- Toggle \"Show description\" that displays the text a screen reader would read\n- Four pass/fail buttons, one per check, and a \"Reveal answers\" button\n\nBehavior: after the learner records verdicts, the sim compares them with the built-in defects and explains each mismatch in one sentence.\n\nResponsive design: the canvas width follows the container width on every window resize, the checklist moves below the mock under 600 pixels, and every control is reachable by keyboard.\n\nImplementation: p5.js with createSelect, createCheckbox and createButton controls. Include a describe() call for accessibility."
+}

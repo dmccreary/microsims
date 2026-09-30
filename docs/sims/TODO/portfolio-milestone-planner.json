@@ -1,0 +1,15 @@
+{
+  "sim_id": "portfolio-milestone-planner",
+  "diagram_name": "Portfolio Milestone Planner",
+  "chapter_number": 25,
+  "chapter_title": "\"Capstone: Building an Instrumented MicroSim Portfolio\"",
+  "chapter_dir": "25-capstone-building-an-instrumented-microsim-portfolio",
+  "chapter_rel_dir": "chapters/25-capstone-building-an-instrumented-microsim-portfolio",
+  "library": "p5.js",
+  "bloom_level": "Create",
+  "bloom_verb": "Design",
+  "learning_objective": "The learner will design a week-by-week schedule for their own portfolio and identify which milestone gates put the schedule at risk.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** portfolio-milestone-planner<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Create; verb: design): The learner will design a week-by-week schedule for their own portfolio and identify which milestone gates put the schedule at risk.\n\nLayout: a drawing region above a control region. The drawing region shows eight week columns and seven milestone bars from the chapter's milestone table, each bar clickable. The control region is white and holds the sliders and buttons.\n\nControls:\n\n- Slider \"Number of MicroSims\" from 3 to 8, default 5\n- Slider \"Test participants\" from 1 to 8, default 3\n- Slider \"Weeks available\" from 6 to 12, default 8\n- Button \"Reset to suggested schedule\"\n\nBehavior: changing a slider stretches or shrinks the bars for generation, testing and instrumentation, and bars that no longer fit turn amber with a one-sentence warning. Clicking a bar opens a panel listing its deliverable and the gate it must pass. The bar values are illustrative estimates for planning and are not measured effort data, and the sim says so.\n\nResponsive design: the canvas width follows the container width on every window resize, and week labels rotate or abbreviate at narrow widths.\n\nImplementation: p5.js with createSlider and createButton controls, and a describe() call summarizing the current schedule."
+}

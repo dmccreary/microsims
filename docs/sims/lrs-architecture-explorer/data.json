@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "title": "Full LRS Architecture Explorer",
+    "statusSource": "LRS repository TODO.md dated 2026-09-26",
+    "lastUpdated": "2026-09-30",
+    "note": "Edit the status fields here when the repository status changes; the diagram reads everything from this file."
+  },
+  "planes": [
+    {
+      "id": "ingestion",
+      "label": "Ingestion",
+      "y": 0,
+      "hint": "Ingestion accepts statements and puts them on a durable queue."
+    },
+    {
+      "id": "processing",
+      "label": "Processing",
+      "y": 115,
+      "hint": "Processing validates, enriches and pseudonymizes statements, and runs the compression that produces summaries."
+    },
+    {
+      "id": "storage",
+      "label": "Storage",
+      "y": 230,
+      "hint": "Storage holds the log, the graph and the identity vault."
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "y": 345,
+      "hint": "Analytics runs the queries behind every report."
+    },
+    {
+      "id": "presentation",
+      "label": "Presentation",
+      "y": 460,
+      "hint": "Presentation renders dashboards and admin screens."
+    }
+  ],
+  "statuses": {
+    "built": {
+      "label": "Built",
+      "meaning": "code exists in the companion repository and has been run"
+    },
+    "partial": {
+      "label": "Files exist",
+      "meaning": "infrastructure and schema files exist, but the workers that feed them do not"
+    },
+    "designed": {
+      "label": "Designed",
+      "meaning": "in the design document, no code yet"
+    },
+    "context": {
+      "label": "Outside the LRS",
+      "meaning": "system context, not an LRS component"
+    }
+  },
+  "nodes": [
+    {
+      "id": "textbooks",
+      "label": "Textbooks\n(MicroSims)",
+      "plane": null,
+      "status": "context",
+      "x": -490,
+      "y": 0,
+      "role": "Intelligent textbooks whose MicroSims and pages produce xAPI statements; they sit outside the LRS.",
+      "dependencies": [
+        "The gateway's POST /xapi/statements endpoint",
+        "A bearer token that maps to the district"
+      ],
+      "statusNote": "Emitters that POST statements to the gateway are not built: the Chapter 17 runtime has a transport seam and no network call."
+    },
+    {
+      "id": "gateway",
+      "label": "Gateway",
+      "plane": "ingestion",
+      "status": "built",
+      "x": -250,
+      "y": 0,
+      "role": "The HTTP front door: authenticates the token, validates each statement against the producer contract, assigns ids and stored_at, queues the batch, and replies only after the queue acknowledges.",
+      "dependencies": [
+        "The event stream (its only hard dependency; it may not import a ClickHouse, Neo4j or Redis client)"
+      ],
+      "statusNote": "Built, verified against a live Redpanda, with 28 contract tests reported."
+    },
+    {
+      "id": "stream",
+      "label": "Event stream\n(Redpanda / Kafka)",
+      "plane": "ingestion",
+      "status": "partial",
+      "x": -20,
+      "y": 0,
+      "role": "An ordered, durable log of statements, keyed by district and learner so each learner's statements keep their order; slow consumers can catch up or replay.",
+      "dependencies": [
+        "A Kafka-protocol broker: Redpanda in development, Kafka in production"
+      ],
+      "statusNote": "Topic bootstrap built as files; the development bootstrap creates the raw topic with 6 partitions instead of the design's 48. No processor consumes it yet."
+    },
+    {
+      "id": "identity",
+      "label": "Identity service",
+      "plane": "processing",
+      "status": "designed",
+      "x": -270,
+      "y": 115,
+      "role": "The only component allowed to reach the vault; it gives the processor each district's salt so the learner's identity becomes an opaque student_key (HMAC-SHA256).",
+      "dependencies": [
+        "The vault"
+      ],
+      "statusNote": "Designed, not built. Until it exists, the processor must not invent a salt."
+    },
+    {
+      "id": "processors",
+      "label": "Processors",
+      "plane": "processing",
+      "status": "designed",
+      "x": -60,
+      "y": 115,
+      "role": "Workers that read the raw topic in batches, pseudonymize the actor, resolve activities, enrich, update mastery, write one insert to ClickHouse, then commit the offset.",
+      "dependencies": [
+        "The event stream",
+        "The identity service (per-district salt)",
+        "ClickHouse"
+      ],
+      "statusNote": "Designed, not built; the TODO file calls it the critical path."
+    },
+    {
+      "id": "summarizer",
+      "label": "Summarizer",
+      "plane": "processing",
+      "status": "designed",
+      "x": 150,
+      "y": 115,
+      "role": "Reads changed summary rows from ClickHouse about every 60 seconds and writes absolute values to Neo4j summary vertices: recompute absolutes, never increment.",
+      "dependencies": [
+        "ClickHouse",
+        "Neo4j"
+      ],
+      "statusNote": "Designed, not built."
+    },
+    {
+      "id": "reconciler",
+      "label": "Reconciler",
+      "plane": "processing",
+      "status": "designed",
+      "x": 350,
+      "y": 115,
+      "role": "Matches never-before-seen textbooks and activities, recorded as provisional stubs, to published metadata in the graph.",
+      "dependencies": [
+        "Reconcile tasks from the processors (lrs.reconcile topic)",
+        "Neo4j"
+      ],
+      "statusNote": "Designed, not built."
+    },
+    {
+      "id": "vault",
+      "label": "Vault\n(PostgreSQL)",
+      "plane": "storage",
+      "status": "designed",
+      "x": -270,
+      "y": 230,
+      "role": "A separate PostgreSQL instance holding real roster identities, their keys and the per-district salts.",
+      "dependencies": [
+        "None inside the LRS; only the identity service may reach it"
+      ],
+      "statusNote": "Designed, not built."
+    },
+    {
+      "id": "clickhouse",
+      "label": "ClickHouse\n(statement log)",
+      "plane": "storage",
+      "status": "partial",
+      "x": -60,
+      "y": 230,
+      "role": "The system of record: every statement at full fidelity, ordered by district, learner and time, partitioned by month and deduplicated by statement id.",
+      "dependencies": [
+        "The processor that writes to it"
+      ],
+      "statusNote": "DDL files built; applying them is manual. When last inspected the statement table held zero rows."
+    },
+    {
+      "id": "neo4j",
+      "label": "Neo4j\n(graph)",
+      "plane": "storage",
+      "status": "partial",
+      "x": 260,
+      "y": 230,
+      "role": "Holds structure (tenancy tree, textbook contents, concept prerequisites) and compact summary vertices, one per grain; it has no statement vertices.",
+      "dependencies": [
+        "The summarizer and the reconciler that write to it"
+      ],
+      "statusNote": "Constraint file built and applied by hand; a demo seeder writes summary vertices marked seeded."
+    },
+    {
+      "id": "api",
+      "label": "Analytics API",
+      "plane": "analytics",
+      "status": "designed",
+      "x": 100,
+      "y": 345,
+      "role": "Runs the queries behind every report: aggregates from the ClickHouse log, summaries and structure from the Neo4j graph, with role-based access.",
+      "dependencies": [
+        "ClickHouse",
+        "Neo4j"
+      ],
+      "statusNote": "Designed, not built."
+    },
+    {
+      "id": "dashboards",
+      "label": "Dashboards",
+      "plane": "presentation",
+      "status": "designed",
+      "x": 100,
+      "y": 460,
+      "role": "Dashboards and admin screens for instructors, administrators and authors.",
+      "dependencies": [
+        "The analytics API"
+      ],
+      "statusNote": "Prototype Dash apps run over a seeded graph with synthetic data; production dashboards are designed, not built."
+    }
+  ],
+  "edges": [
+    {
+      "from": "textbooks",
+      "to": "gateway",
+      "carries": "xAPI statements in an HTTPS POST to /xapi/statements with a district bearer token (no emitter sends them yet)"
+    },
+    {
+      "from": "gateway",
+      "to": "stream",
+      "carries": "Validated statements with ids and stored_at, keyed district:learner; the gateway replies after the queue acknowledges"
+    },
+    {
+      "from": "stream",
+      "to": "processors",
+      "carries": "Raw statements, read in order per partition, in batches of up to 1,000 or 200 ms"
+    },
+    {
+      "from": "identity",
+      "to": "processors",
+      "carries": "The district's salt, used to derive the pseudonymous student_key"
+    },
+    {
+      "from": "vault",
+      "to": "identity",
+      "carries": "Roster identities, keys and per-district salts (only the identity service may read the vault)"
+    },
+    {
+      "from": "processors",
+      "to": "clickhouse",
+      "carries": "Pseudonymized, enriched statements, one insert per batch; the offset is committed after the write"
+    },
+    {
+      "from": "clickhouse",
+      "to": "summarizer",
+      "carries": "Changed summary rows from the rollups, about every 60 seconds"
+    },
+    {
+      "from": "summarizer",
+      "to": "neo4j",
+      "carries": "Absolute summary values (MERGE ... SET, never +=), one vertex per grain"
+    },
+    {
+      "from": "processors",
+      "to": "reconciler",
+      "carries": "Reconcile tasks for unknown textbooks and activities (lrs.reconcile topic)",
+      "curve": true
+    },
+    {
+      "from": "reconciler",
+      "to": "neo4j",
+      "carries": "Matched metadata that resolves provisional stubs"
+    },
+    {
+      "from": "clickhouse",
+      "to": "api",
+      "carries": "Aggregate queries over the statement log"
+    },
+    {
+      "from": "neo4j",
+      "to": "api",
+      "carries": "Summary vertices and structure (tenancy, concepts, prerequisites)"
+    },
+    {
+      "from": "api",
+      "to": "dashboards",
+      "carries": "Report data for instructors, administrators and authors"
+    }
+  ]
+}

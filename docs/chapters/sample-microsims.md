@@ -11,7 +11,7 @@ blue ball that bounces around within a `drawingArea`.  A single
 horizontal slider allows you to adjust the speed of the ball.
 Note that the simulation adapts to changes in screen width.
 
-[](../sims/bouncing-ball/index.md)
+[](../microsims-old/bouncing-ball/index.md)
 
 ## Pythagorean Theorem
 
@@ -19,15 +19,15 @@ Our first Educational MicroSim shows a visualization of the Pythagorean Theorem.
 The initial display shows a simple right triangle where the user can adjust
 the length of two sides of a right triangle.  By checking the
 
-[Pythagorean Theorem Visualization](../sims/pythagorean-theorem/index.md)
+[Pythagorean Theorem Visualization](../microsims-old/pythagorean-theorem/index.md)
 
 ## Sine and Cosine
 
-[Sine and Cosine](../sims/sine-and-cosine/index.md)
+[Sine and Cosine](../microsims-old/sine-and-cosine/index.md)
 
 ## Least Squares
 
-[Least Squares](../sims/least-squares/index.md)
+[Least Squares](../microsims-old/least-squares/index.md)
 
 ## Tragedy of the Commons
 
@@ -41,10 +41,10 @@ the length of two sides of a right triangle.  By checking the
 
 Read the sound from the computer microphone and display a chart of the frequency
 
-[Signal Processing FFT](../sims/fft-mic/index.md)
+[Signal Processing FFT](../microsims-old/fft-mic/index.md)
 
 ## Graph Search
 
 Show the difference between breath-first search in a graph and depth-first search.
 
-[Graph Search BFS vs. DFS](../sims/bfs-vs-dfs/index.md)
+[Graph Search BFS vs. DFS](../microsims-old/bfs-vs-dfs/index.md)

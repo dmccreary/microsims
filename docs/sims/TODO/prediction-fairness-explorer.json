@@ -1,0 +1,15 @@
+{
+  "sim_id": "prediction-fairness-explorer",
+  "diagram_name": "Prediction Fairness Explorer",
+  "chapter_number": 24,
+  "chapter_title": "Pedagogy, Accessibility and Ethics",
+  "chapter_dir": "24-pedagogy-accessibility-and-ethics",
+  "chapter_rel_dir": "chapters/24-pedagogy-accessibility-and-ethics",
+  "library": "Chart.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Critique",
+  "learning_objective": "The learner will critique a mastery prediction by comparing its error across learner groups, and decide whether a pooled average hides a gap.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** prediction-fairness-explorer<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: critique): The learner will critique a mastery prediction by comparing its error across learner groups, and decide whether a pooled average hides a gap.\n\nLayout: a bar chart in the drawing region with one pair of bars per group, plus a control region below. A banner states in plain text that all numbers are synthetic and invented to illustrate the method, and that no real learner data has been collected.\n\nData: a synthetic table of three groups (for example \"Pointer users\", \"Keyboard users\", \"Shared device\") with an invented count and prediction error for each, and a pooled average line.\n\nControls:\n\n- Slider \"Threshold\" from 5 to 20, default 10, that hides any group with fewer learners than the threshold\n- Dropdown \"Scenario\" with \"Even error\", \"Hidden gap\" and \"Small group\"\n- Toggle \"Show pooled average\"\n- Button \"Reset\"\n\nBehavior: in the \"Hidden gap\" scenario the pooled average looks acceptable while one group's bar is much taller. In \"Small group,\" raising the threshold suppresses that group, and a message explains that the gap can no longer be seen.\n\nResponsive design: the chart resizes with its container on window resize, bar labels rotate under 500 pixels, and a text table of the data is available for screen reader users.\n\nImplementation: Chart.js bar chart with a data table fallback and an aria-label on the canvas."
+}

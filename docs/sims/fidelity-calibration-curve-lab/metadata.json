@@ -1,0 +1,90 @@
+{
+  "title": "Calibration Curve Lab",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Calibration", "Reliability Curve", "Predictive Fidelity", "Bayesian Knowledge Tracing"],
+  "description": "A Plotly reliability-curve lab that regenerates Chapter 19's seeded synthetic cohort in the browser, bins BKT forecasts, shows bin counts with dashed outlines for bins under ten learners, and asks learners to diagnose overconfidence, underconfidence or good calibration across three scenarios.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/fidelity-calibration-curve-lab/",
+  "canvasHeight": 620,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "Calibration and reliability curves for mastery forecasts",
+    "learningObjectives": [
+      "Diagnose whether a synthetic model is overconfident, underconfident or well calibrated by reading a reliability curve and its bin counts."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "diagnose",
+    "duration": "20 minutes",
+    "prerequisites": ["Forecast probabilities", "Calibration", "BKT guess parameter", "Synthetic cohort"],
+    "concepts": ["Calibration", "Synthetic Cohort", "Sample Size Requirement", "BKT Guess Parameter"],
+    "chapter": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+    "standards": []
+  },
+  "technical": {
+    "framework": "Plotly.js",
+    "version": "2.35.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": ["Plotly.js 2.35.0 (cdn.plot.ly)"],
+    "accessibility": {
+      "hasAltText": true,
+      "ariaLabel": true,
+      "keyboardNavigable": true,
+      "dataTable": "Bin counts are also shown as an HTML table"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Scenario", "options": ["model parameters match the simulation", "true guess rate 0.35, model assumes 0.20", "true guess rate 0.20, model assumes 0.35"]},
+      {"type": "slider", "label": "Number of bins", "min": 3, "max": 10, "default": 5, "step": 1},
+      {"type": "slider", "label": "Cohort size", "min": 50, "max": 1000, "default": 200, "step": 50},
+      {"type": "button", "label": "Redraw cohort"},
+      {"type": "button", "label": "Diagnosis: Overconfident / Underconfident / Well calibrated"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Seeded agent simulation of a BKT learning process with a BKT forecaster",
+    "variables": ["true guess rate", "model guess rate", "cohort size", "number of bins", "seed"],
+    "equations": [
+      "forecast = P(L) (1 - ps) + (1 - P(L)) pg_model after the BKT update over 4 practice answers",
+      "bin mean forecast = average forecast of learners in the bin; observed = fraction correct on the held-out item"
+    ],
+    "assumptions": [
+      "All data are synthetic.",
+      "Generation rules follow the Chapter 19 worked example (L0 0.30, slip 0.10, learning 0.15, 4 practice items, 1 held-out item).",
+      "Random numbers reproduce Python's random.Random(seed); seed 19 with 200 learners reproduces the chapter's calibration table."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Diagnose from evidence, then vary sample size and binning",
+    "interactionPattern": "Pattern finder with diagnosis feedback",
+    "keyQuestions": [
+      "Is the curve flatter or steeper than the diagonal?",
+      "Which bins hold enough learners to count as evidence?",
+      "Why does assuming too low a guess rate make forecasts too extreme?"
+    ],
+    "commonMisconceptions": [
+      "Any gap between a point and the diagonal proves miscalibration.",
+      "More bins always give a more detailed and more trustworthy curve.",
+      "A model that ranks learners well must also be calibrated."
+    ],
+    "assessmentOpportunities": [
+      "Classify a reliability curve and name the supporting bins.",
+      "Explain why small bins should be merged before concluding."
+    ]
+  },
+  "search": {
+    "keywords": ["calibration", "reliability diagram", "overconfidence", "bin counts", "Plotly", "BKT"]
+  }
+}

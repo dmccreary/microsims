@@ -1,0 +1,79 @@
+{
+  "title": "Objectives Neighborhood of the Learning Graph",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["Learning Graph", "Concept Dependency", "Learning Objectives", "Bloom's Taxonomy"],
+  "description": "A vis-network explorer of the 26 OBJ concepts of the book's learning graph and their direct prerequisites and dependents (57 concepts, 69 edges), with green/orange highlighting, Concept Impact Scores, a transitive-dependents toggle and a Check me quiz on prerequisites.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/objectives-graph-neighborhood/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 602,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Design",
+    "topic": "Prerequisites and dependents in a learning graph",
+    "learningObjectives": [
+      "Differentiate the prerequisites of a concept from its dependents in a neighborhood of the learning graph.",
+      "Explain why a concept with many dependents deserves more careful teaching."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "differentiate",
+    "duration": "15-20 minutes",
+    "prerequisites": ["Concept", "Learning graph", "Concept dependency"],
+    "concepts": ["Learning Graph", "Concept Dependency", "Concept", "Concept Impact Score"],
+    "chapter": "03-learning-objectives-and-blooms-taxonomy"
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 602
+    },
+    "responsive": true,
+    "dependencies": ["vis-network 9.1.9 (jsDelivr CDN)"],
+    "dataSource": "docs/learning-graph/learning-graph.json (embedded snapshot fallback)",
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "textAlternative": "Information panel lists the definition, score, prerequisites and dependents of the selected concept"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "node-click", "label": "Select a concept"},
+      {"type": "hover", "label": "Tooltip with Concept Impact Score"},
+      {"type": "checkbox", "label": "Show transitive dependents", "default": false},
+      {"type": "button", "label": "Check me / Done"},
+      {"type": "navigation-buttons", "label": "vis-network zoom and pan buttons"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Directed acyclic graph explorer",
+    "variables": ["selected concept", "direct prerequisites", "direct and transitive dependents", "Concept Impact Score"],
+    "equations": ["Concept Impact Score = 1 + sum of the scores of the concept's direct dependents", "node size = 4 + 1.9 * ln(score)"],
+    "assumptions": ["Only edges that touch an OBJ concept are shown, so outside concepts show only their links to OBJ concepts."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided exploration followed by self-check",
+    "interactionPattern": "Network explorer with highlight and quiz mode",
+    "keyQuestions": [
+      "Which way do the arrows point, and what does that tell you about teaching order?",
+      "Why does a weakness in Concept or Learning Objective affect more of the book than a weakness in Learning Outcome?"
+    ],
+    "commonMisconceptions": [
+      "Arrows point from prerequisite to dependent.",
+      "A concept's dependents are also its prerequisites.",
+      "All concepts deserve equal teaching time regardless of how much depends on them."
+    ],
+    "assessmentOpportunities": [
+      "Check me rounds scored as fully correct attempts.",
+      "Written explanation comparing the transitive dependents of a high-score and a low-score concept."
+    ]
+  }
+}

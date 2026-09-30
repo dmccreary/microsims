@@ -1,0 +1,15 @@
+{
+  "sim_id": "poster-folder-explorer",
+  "diagram_name": "Poster Folder Explorer",
+  "chapter_number": 10,
+  "chapter_title": "Image Overlays and Comparison Posters",
+  "chapter_dir": "10-image-overlays-and-comparison-posters",
+  "chapter_rel_dir": "chapters/10-image-overlays-and-comparison-posters",
+  "library": "vis-network",
+  "bloom_level": "Understand",
+  "bloom_verb": "Describe",
+  "learning_objective": "The learner will describe the role of each file in a poster folder and of the shared overlay library, and will identify which file to edit to fix a given problem.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** poster-folder-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: describe): The learner will describe the role of each file in a poster folder and of the shared overlay library, and will identify which file to edit to fix a given problem.\n\nNodes and edges: a tree with the folder \"docs/posters/\" at the top, children \"index.md\" (landing page), \"shared-libs/\" (with four child files: grid-diagram.js, grid-overlay.css, diagram.js, style.css) and one poster folder \"robot-kits/\" with children \"index.md\", \"main.html\", \"data.json\", \"robot-kits-infographic.png\" and \"image-prompt.md\". Dashed arrows show \"main.html loads shared-libs\", \"main.html fetches data.json\", and \"data.json names the PNG\".\n\nInteractions: clicking any node opens an information panel with a two-sentence role and one problem that the file would fix (\"Zone in the wrong place: edit data.json\", \"Broken image: check the filename in data.json\"). Hovering an arrow shows what passes along it. A \"Fix it\" mode shows a symptom and asks the learner to click the file to edit.\n\nResponsive design: the network re-fits to the container width on window resize, and the information panel moves below the network under 600 pixels.\n\nImplementation: vis-network with fixed hierarchical positions, physics disabled, and click and hover event handlers."
+}

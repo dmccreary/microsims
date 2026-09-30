@@ -1,0 +1,140 @@
+{
+  "title": "Marker, Popup and Tile Source Map",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Maps",
+    "Leaflet",
+    "Geographic Coordinates",
+    "Web Mapping"
+  ],
+  "description": "A Leaflet MicroSim of seven Minneapolis museums and parks in which learners switch tile sources, open popups, recolor markers by category and deliberately swap one marker's latitude and longitude to distinguish the separate roles of marker, popup and tile source.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/marker-popup-tile-map/",
+  "canvasHeight": 580,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Markers, popups, tile sources and latitude-first coordinates in Leaflet",
+    "learningObjectives": [
+      "The learner will distinguish the roles of the marker, the popup and the tile source by changing each one independently and observing the result."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Latitude and longitude in decimal degrees",
+      "Map marker, popup, tile source and layer control (Chapter 9)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Leaflet",
+    "version": "1.9.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 580
+    },
+    "responsive": true,
+    "dependencies": [
+      "Leaflet 1.9.4 JS and CSS (unpkg CDN)",
+      "Tile servers: OpenStreetMap, OpenTopoMap, Esri World Imagery (network required)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "Markers are keyboard-focusable with titles and alt text; controls are native checkbox and buttons; the caption is an aria-live region; categories are named in labels, not color only"
+    },
+    "dataFiles": [
+      "data.json (seven Minneapolis landmarks with lat, lng, category, description)",
+      "style.css"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "layerControl",
+        "type": "radio",
+        "label": "Base map",
+        "options": [
+          "OpenStreetMap",
+          "OpenTopoMap (terrain)",
+          "Esri World Imagery (satellite)"
+        ],
+        "purpose": "Switch the tile source; the attribution changes with it"
+      },
+      {
+        "id": "markers",
+        "type": "map-click",
+        "label": "Marker",
+        "purpose": "Open the marker's popup and show its category in the info panel"
+      },
+      {
+        "id": "categoryToggle",
+        "type": "checkbox",
+        "label": "Show category",
+        "default": false,
+        "purpose": "Recolor pins and labels from the category field"
+      },
+      {
+        "id": "swapBtn",
+        "type": "button",
+        "label": "Swap lat/lng / Restore lat/lng",
+        "purpose": "Reverse one marker's coordinates to show latitude-first order"
+      },
+      {
+        "id": "fitBtn",
+        "type": "button",
+        "label": "Fit all markers",
+        "purpose": "Zoom to the current marker positions"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Isolate-one-variable exploration with a deliberate error",
+    "interactionPattern": "Map explorer with independent layer controls",
+    "keyQuestions": [
+      "What does each of the marker, the popup and the tile source contain?",
+      "Why does the attribution change when the base map changes?",
+      "Where does a marker land if its latitude and longitude are swapped, and why?"
+    ],
+    "commonMisconceptions": [
+      "Coordinates are written x,y so longitude comes first in Leaflet (Leaflet takes [lat, lng])",
+      "The popup is part of the base map (it belongs to one marker)",
+      "Attribution is optional decoration (it is a license requirement of the tile source)"
+    ],
+    "assessmentOpportunities": [
+      "Written list of which layer each change affected",
+      "Correct marker code for a new location"
+    ]
+  },
+  "search": {
+    "tags": [
+      "Leaflet",
+      "map",
+      "marker",
+      "popup",
+      "tile layer",
+      "attribution",
+      "latitude",
+      "longitude",
+      "Minneapolis"
+    ],
+    "visualizationType": [
+      "map"
+    ]
+  },
+  "chapter": "09-timelines-and-maps"
+}

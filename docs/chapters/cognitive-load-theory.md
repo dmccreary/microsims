@@ -22,7 +22,7 @@ Consider learning how a car engine works. Instead of showing all 10,000 parts at
 - **Transmission Gearing**: Demonstrate only how gear ratios affect speed and torque
 - **Cooling System**: Show just coolant flow and heat transfer
 
-Our [Maze Solver Sketch](../sims/maze-solver/index.md) exemplifies this perfectly.
+Our [Maze Solver Sketch](../microsims-old/maze-solver/index.md) exemplifies this perfectly.
 It doesn't attempt to teach all pathfinding algorithms simultaneously. Instead, it focuses laser-sharp on breadth-first search, making each step visible and comprehensible. Students build mastery of one algorithm before moving to the next.
 
 ### Extraneous Load: The Unnecessary Friction
@@ -71,13 +71,13 @@ Effective MicroSims maximize germane load through:
 
 **The Principle**: Show learners exactly what they need to know, when they need to know it—nothing more, nothing less.
 
-An example of Progressive Disclosure is shown in the [Pythagorean Theorem MicroSim](../sims/pythagorean-theorem/index.md) . The user is first challenged just to see how the sliders change two sides of a right triangle.  Once they master that task, then they can check the option to "Show the Squares" which shows another level of complexity.
+An example of Progressive Disclosure is shown in the [Pythagorean Theorem MicroSim](../microsims-old/pythagorean-theorem/index.md) . The user is first challenged just to see how the sliders change two sides of a right triangle.  Once they master that task, then they can check the option to "Show the Squares" which shows another level of complexity.
 
 **MicroSim Solution: Reveal information incrementally rather than overwhelming learners**
 
 Consider learning the Fast Fourier Transform (FFT)—one of the most important algorithms in signal processing, but notoriously difficult to understand. Traditional approaches show the complete butterfly network diagram all at once, creating immediate cognitive overload.
 
-Our [FFT-butterfly](../sims/fft-butterfly/index.md) demonstrates masterful progressive disclosure:
+Our [FFT-butterfly](../microsims-old/fft-butterfly/index.md) demonstrates masterful progressive disclosure:
 
 1. **Start State**: Shows just the input data and basic structure
 2. **Step-by-Step Revelation**: Each "Next Step" button reveals one stage of the butterfly network

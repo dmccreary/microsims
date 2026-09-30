@@ -1,0 +1,149 @@
+{
+  "title": "Callout Overlay Anatomy Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Image Overlays",
+    "Callout Labels",
+    "JSON",
+    "Data-Driven Design"
+  ],
+  "description": "A p5.js MicroSim that shows a text-free animal cell with four callout markers beside the overlay data file as syntax-colored JSON, so learners can see how x, y, label, hint and description become marker positions, labels, quiz clues and an information box, including why positions are stored as percentages.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/callout-overlay-anatomy-explorer/",
+  "canvasHeight": 620,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Fields of the overlay data file and how the callout engine renders them",
+    "learningObjectives": [
+      "The learner will explain how each field of an overlay data file (position, label, hint, description) appears in the rendered overlay, by changing one field and observing the effect."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "JSON objects and fields",
+      "Callout labels, point markers and the overlay data file (Chapter 10)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "describe() is updated with the current mode and selection; sliders and mode buttons are native controls; markers carry numbers as well as colors"
+    },
+    "dataFiles": [
+      "Overlay data object (title, image, callouts[]) embedded in callout-overlay-anatomy-explorer.js"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "markers",
+        "type": "canvas-click",
+        "label": "Callout markers 1-4",
+        "purpose": "Hover to highlight the leader line, JSON block and description; click to select (Explore) or answer (Quiz)"
+      },
+      {
+        "id": "xSlider",
+        "type": "slider",
+        "label": "x",
+        "min": 0,
+        "max": 100,
+        "step": 0.1,
+        "default": 40,
+        "units": "percent of picture width"
+      },
+      {
+        "id": "ySlider",
+        "type": "slider",
+        "label": "y",
+        "min": 0,
+        "max": 100,
+        "step": 0.1,
+        "default": 42,
+        "units": "percent of picture height"
+      },
+      {
+        "id": "scaleSlider",
+        "type": "slider",
+        "label": "Resize picture",
+        "min": 50,
+        "max": 100,
+        "step": 1,
+        "default": 100,
+        "units": "percent of full width"
+      },
+      {
+        "id": "exploreButton",
+        "type": "button",
+        "label": "Explore",
+        "purpose": "Show labels and allow editing positions"
+      },
+      {
+        "id": "quizButton",
+        "type": "button",
+        "label": "Quiz",
+        "purpose": "Hide labels and ask for the marker matching each hint"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Change one field and observe; side-by-side data and rendering",
+    "interactionPattern": "Linked views (picture and JSON) with sliders and a hint quiz",
+    "keyQuestions": [
+      "Which part of the overlay does each field of the data file control?",
+      "Why are marker positions stored as percentages instead of pixels?",
+      "Why does the hint describe a structure without naming it?"
+    ],
+    "commonMisconceptions": [
+      "Labels are part of the image (they live only in the data file)",
+      "x and y are pixel coordinates (they are percentages of the image size)"
+    ],
+    "assessmentOpportunities": [
+      "Quiz score on the hint-to-marker questions",
+      "Written mapping of each field to its on-screen element"
+    ]
+  },
+  "search": {
+    "tags": [
+      "image overlay",
+      "callout",
+      "data.json",
+      "percent coordinates",
+      "hint",
+      "quiz mode",
+      "animal cell",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "labeled diagram",
+      "linked views"
+    ]
+  },
+  "chapter": "10-image-overlays-and-comparison-posters"
+}

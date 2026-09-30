@@ -1,0 +1,15 @@
+{
+  "sim_id": "attempt-order-swap-lab",
+  "diagram_name": "Attempt Order Swap Lab",
+  "chapter_number": 18,
+  "chapter_title": "Mastery Prediction and Knowledge Tracing",
+  "chapter_dir": "18-mastery-prediction-and-knowledge-tracing",
+  "chapter_rel_dir": "chapters/18-mastery-prediction-and-knowledge-tracing",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Compare",
+  "learning_objective": "The learner will compare the final mastery estimates produced by two orderings of the same set of answers, and will distinguish what order changes from what a simple success count would show.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** attempt-order-swap-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: compare): The learner will compare the final mastery estimates produced by two orderings of the same set of answers, and will distinguish what order changes from what a simple success count would show.\n\nLayout: two stacked line charts share one vertical axis from 0 to 1. The top chart shows the estimate for the learner's chosen order and the bottom chart for a second order. A summary strip between them reads \"Successes: 2 of 4\" in both, with the two final estimates beside it. A white control region sits below the drawing region.\n\nControls:\n\n- Two rows of four draggable tiles, green for correct and red for incorrect; dragging a tile reorders that row\n- Buttons \"Preset: successes first\", \"Preset: failures first\", \"Preset: brute force (five wrong, then right)\" and \"Reset\"\n- Checkbox \"Show a success-count-only model\" that overlays a flat line at the success rate\n- Four small sliders for the parameters, defaulting to 0.30, 0.15, 0.20 and 0.10\n\nData: presets reproduce the chapter's numbers, about 0.33 for successes first and 0.88 for failures first. All values are computed live from the update equations.\n\nInteractions: hovering a tile shows its position, observation and the estimate after it. Every tooltip text is also written to the console as a log line so it can later feed an activity log.\n\nResponsive design: the canvas width follows the container width on every window resize; below 500 pixels the tile rows shrink and the two charts keep their full width.\n\nImplementation: p5.js with mouse-drag handling on the tiles, controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

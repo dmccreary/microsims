@@ -1,0 +1,69 @@
+{
+  "title": "Clickable Detail Matrix",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Instructional Design; Learning Theory",
+  "description": "Interactive HTML table generated from data.json that compares four invented learning theories across four dimensions. Cells are tinted by emphasis; clicking a cell opens a slide-in detail panel with a description and example, and a Random cell mode asks the learner to predict emphasis first.",
+  "date": "2026-09-30",
+  "type": "Interactive Table",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 435,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Clickable tables with detail panels",
+    "learningObjectives": [
+      "The learner will differentiate several items across several dimensions by reading each cell's summary and then opening its explanation and example."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Reading a comparison table",
+      "The clickable-table pattern from Chapter 7"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "HTML/CSS/JavaScript",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 435
+    },
+    "responsive": true,
+    "dependencies": ["data.json (fetched at load time)"],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "click", "label": "Table cell (opens detail panel)"},
+      {"type": "toggle", "label": "Show emphasis colors"},
+      {"type": "button", "label": "Random cell"},
+      {"type": "button", "label": "Close (x), overlay click or Escape"}
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Comparison matrix with progressive disclosure and prediction",
+    "interactionPattern": "Read summary, predict, open explanation and example",
+    "keyQuestions": [
+      "On which dimension do two theories differ most?",
+      "Can you tell the theories apart from the summaries alone, without the color tints?"
+    ],
+    "commonMisconceptions": [
+      "Cells with similar summaries mean the same thing in every theory.",
+      "A color tint is enough to understand a cell without reading its explanation."
+    ],
+    "assessmentOpportunities": [
+      "Predict the emphasis of unseen cells with a reason",
+      "Explain the difference between two theories on one dimension"
+    ]
+  },
+  "chapter": "07-charts-plots-and-tables"
+}

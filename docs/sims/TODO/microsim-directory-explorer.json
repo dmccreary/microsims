@@ -1,0 +1,15 @@
+{
+  "sim_id": "microsim-directory-explorer",
+  "diagram_name": "MicroSim Directory Explorer",
+  "chapter_number": 2,
+  "chapter_title": "Anatomy of a MicroSim",
+  "chapter_dir": "02-anatomy-of-a-microsim",
+  "chapter_rel_dir": "chapters/02-anatomy-of-a-microsim",
+  "library": "vis-network",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain the role of each file in a MicroSim directory and predict which file to edit to make a given change.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** microsim-directory-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain the role of each file in a MicroSim directory and predict which file to edit to make a given change.\n\nNodes and edges: a tree with a root node `docs/sims/h-bridge/` and five child nodes, one per file: `main.html` (orange), `h-bridge.js` (steel blue), `index.md` (green), `metadata.json` (purple) and `h-bridge.png` (gray). Node shapes are boxes with the filename as the label. Edges are plain lines from the root to each file. Layout is a fixed hierarchical layout with the root at the top and physics disabled.\n\nInteractions: hovering a node shows a tooltip with its one-sentence job. Clicking a node opens an information panel on the right with three parts: what the file contains, who reads it, and one change a person would make there. A \"Which file?\" button hides the labels and shows a change request such as \"Make the slider start at 0.5\" or \"Add a learning objective\", and the learner clicks the file to edit. The score shows correct picks out of attempts.\n\nResponsive design: the network re-fits to the container width on window resize, and the information panel moves below the tree when the width is under 600 pixels.\n\nImplementation: vis-network with fixed hierarchical positions and click and hover handlers on the nodes."
+}

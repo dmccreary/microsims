@@ -1,0 +1,15 @@
+{
+  "sim_id": "roadmap-status-board",
+  "diagram_name": "Roadmap Status Board",
+  "chapter_number": 26,
+  "chapter_title": "The Future of MicroSims",
+  "chapter_dir": "26-the-future-of-microsims",
+  "chapter_rel_dir": "chapters/26-the-future-of-microsims",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish what is built, designed and hoped for among the near-term and long-term items by opening each item and reading its source and its test.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: infographic\n**sim-id:** roadmap-status-board<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish what is built, designed and hoped for among the near-term and long-term items by opening each item and reading its source and its test.\n\nLayout: a drawing region above a control region, following the standard MicroSim layout. The drawing region is aliceblue and holds two horizontal lanes of rounded cards, \"Near term (about one year)\" on top and \"Long term (speculative)\" below. The control region is white and silver-bordered.\n\nData: fourteen cards. The five near-term items from the table above and the five long-term ideas covered later in this chapter (fun and engagement, diagnostic interaction design, guess-resistant probes, adaptive difficulty, learning from aggregate data), plus the open problem areas of privacy, validity, equity and evaluation. Card color encodes the label: steel blue for built, amber for designed, grey with a dashed border for hoped for.\n\nInteractions: hovering a card shows a one-line tooltip with its label. Clicking a card opens an information panel on the right with the source it traces to (a plan section or a TODO item), the test that would show it worked, and the main way it could fail. Near-term cards show the source; long-term cards show \"no source: speculative\" and a required test.\n\nControls:\n\n- Checkboxes \"Built\", \"Designed\", \"Hoped for\" (all on by default) to filter cards by label\n- Button \"Quiz me\" that hides the colors and asks the learner to place five random cards into the correct label, then reveals the answers\n\nResponsive design: the canvas width follows the container width on every window resize, cards reflow to two columns under 600 pixels, and the information panel moves below the lanes at that width.\n\nImplementation: p5.js with card rectangles hit-tested in mousePressed and a describe() call for accessibility."
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "evidence-stream-to-prediction-pipeline",
+  "diagram_name": "From Interaction to Mastery Prediction",
+  "chapter_number": 18,
+  "chapter_title": "Mastery Prediction and Knowledge Tracing",
+  "chapter_dir": "18-mastery-prediction-and-knowledge-tracing",
+  "chapter_rel_dir": "chapters/18-mastery-prediction-and-knowledge-tracing",
+  "library": "p5.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain what enters and leaves each stage between a learner's action and a mastery prediction, and identify which stage discards exposure evidence.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: infographic\n**sim-id:** evidence-stream-to-prediction-pipeline<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain what enters and leaves each stage between a learner's action and a mastery prediction, and identify which stage discards exposure evidence.\n\nLayout: a left-to-right chain of six boxes in the drawing region: \"Learner action\", \"xAPI statement\", \"Evidence stream (per concept)\", \"Filter\", \"Model\", \"Estimate and prediction\". A white control region sits below the drawing region.\n\nControls:\n\n- Click any box to open an infobox below the chain with its definition, its input, its output and one example\n- Radio buttons \"Assessment answer\" and \"Slider drag\" that send a sample event down the chain\n- Button \"Reset\"\n\nData: an assessment answer travels to the end and raises the value shown in the estimate box. A slider drag stops at the Filter box for a model that needs `success`, with the infobox text \"attempts = 0: no right-or-wrong to condition on\".\n\nInteractions: hovering a box highlights its inputs and outputs. Every infobox text is written to the console as a log line so it can later feed an activity log.\n\nResponsive design: the canvas width follows the container width on every window resize; below 600 pixels the boxes stack vertically and the infobox moves below them.\n\nImplementation: p5.js with createRadio and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

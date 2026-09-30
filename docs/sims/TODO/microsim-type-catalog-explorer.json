@@ -1,0 +1,15 @@
+{
+  "sim_id": "microsim-type-catalog-explorer",
+  "diagram_name": "MicroSim Type Catalog Explorer",
+  "chapter_number": 4,
+  "chapter_title": "Choosing a MicroSim Type",
+  "chapter_dir": "04-choosing-a-microsim-type",
+  "chapter_rel_dir": "chapters/04-choosing-a-microsim-type",
+  "library": "vis-network",
+  "bloom_level": "Remember",
+  "bloom_verb": "Identify",
+  "learning_objective": "The learner will identify the library, the typical data, and one suitable objective for each MicroSim type in the catalog.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: graph-model\n**sim-id:** microsim-type-catalog-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Remember; verb: identify): The learner will identify the library, the typical data, and one suitable objective for each MicroSim type in the catalog.\n\nNodes and edges: a central node \"MicroSim Type Catalog\" connected to eight family nodes (Custom simulation, Quantitative data, Structure and process, Time and place, Comparison, Image-based, Assessment and labs, Verified facts). Each family node connects to its type nodes, for example Quantitative data to Chart.js Type and Plotly Type. Family nodes use one color each, and type nodes use a lighter tint of their family color.\n\nInteractions: hovering a type node shows its library name in a tooltip. Clicking a type node opens an information panel with a one-sentence definition, the data it needs, an example objective, and a near-miss objective that belongs to a different type. Nodes can be dragged, and the mouse wheel zooms. A \"Quiz me\" button hides the labels of the type nodes and shows one example objective at a time, asking the learner to click the node that fits.\n\nResponsive design: the network re-fits to the container width on window resize, and the information panel moves below the network when the width is under 600 pixels.\n\nImplementation: vis-network with a hierarchical layout and click and hover event handlers."
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Objectives Neighborhood of the Learning Graph using vis-network 9.1.9</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="header">
+                <span class="title">Objectives Neighborhood of the Learning Graph</span>
+                <span id="source-note" class="source-note"></span>
+            </div>
+            <div id="body">
+                <div id="network-wrap">
+                    <div id="network"></div>
+                </div>
+                <div id="panel">
+                    <div class="legend">
+                        <div class="legend-row"><span class="swatch sw-selected"></span>selected concept</div>
+                        <div class="legend-row"><span class="swatch sw-prereq"></span>prerequisite (it depends on this)</div>
+                        <div class="legend-row"><span class="swatch sw-dependent"></span>dependent (this depends on it)</div>
+                        <div class="legend-row nowrap"><span class="arrow-key">&#8212;&#9654;</span><span>arrowhead = "depends on"; it points at the prerequisite</span></div>
+                        <div class="legend-row"><span class="swatch sw-obj"></span>this chapter (OBJ) <span class="swatch sw-other"></span>other chapters</div>
+                        <div class="legend-row small wide-only">Dot size grows with the log of the Concept Impact Score.</div>
+                    </div>
+                    <div id="info"></div>
+                </div>
+            </div>
+            <div id="toolbar">
+                <label class="toggle"><input type="checkbox" id="transitive"> Show transitive dependents</label>
+                <button id="check-btn">Check me</button>
+                <span id="score"><span class="wide-only">Check me </span>score: <span id="score-val">0 of 0</span></span>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+    <script src="objectives-graph-neighborhood.js"></script>
+</body>
+</html>

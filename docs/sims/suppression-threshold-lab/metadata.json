@@ -1,0 +1,191 @@
+{
+  "title": "Suppression Threshold Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Student Privacy",
+    "Statistical Disclosure Control",
+    "Small-Cell Suppression",
+    "Learning Analytics Dashboards",
+    "Data Ethics"
+  ],
+  "description": "A p5.js lab in which learners predict which counts in a small mastery-band table must be hidden under a suppression threshold, see a single hidden cell leak through the row total by subtraction, and apply complementary suppression to close the leak.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/suppression-threshold-lab/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Applying a suppression threshold and complementary suppression to a table with row totals",
+    "learningObjectives": [
+      "The learner will apply a suppression threshold and complementary suppression to a small table and predict which cells must be hidden so that no hidden count can be recovered by subtraction."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "apply",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The Suppression Threshold section (Chapter 21)",
+      "Identification by elimination in small groups",
+      "Adding and subtracting row counts"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "notes": "Hidden cells carry a lock and a text tag (below threshold or complement) as well as a color; controls are native and labeled; predictions use native buttons"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "thresholdSlider",
+        "type": "slider",
+        "label": "Threshold",
+        "min": 5,
+        "max": 20,
+        "step": 1,
+        "default": 10,
+        "purpose": "Minimum group size for a published count"
+      },
+      {
+        "id": "scenarioSelect",
+        "type": "select",
+        "label": "Scenario",
+        "options": [
+          "All cells safe",
+          "One small cell",
+          "Complementary suppression needed"
+        ],
+        "default": "One small cell",
+        "purpose": "Load a preset table"
+      },
+      {
+        "id": "complementBox",
+        "type": "checkbox",
+        "label": "Apply complementary suppression",
+        "default": false,
+        "purpose": "Hide a second cell when a row has exactly one hidden cell"
+      },
+      {
+        "id": "subtractionBox",
+        "type": "checkbox",
+        "label": "Show the subtraction",
+        "default": true,
+        "purpose": "Draw the arithmetic that recovers a hidden cell or gives only a sum"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Hide the answers again for a new round of predictions"
+      },
+      {
+        "id": "revealButton",
+        "type": "button",
+        "label": "Reveal all",
+        "purpose": "Show every cell's status at once"
+      },
+      {
+        "id": "hiddenButton",
+        "type": "button",
+        "label": "Hidden",
+        "purpose": "Predict that the selected cell is hidden"
+      },
+      {
+        "id": "shownButton",
+        "type": "button",
+        "label": "Shown",
+        "purpose": "Predict that the selected cell is shown"
+      },
+      {
+        "id": "cellClick",
+        "type": "clickable canvas cells",
+        "label": "Table cells",
+        "purpose": "Select a cell to predict, or read the reason for a revealed cell"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-reveal practice of a rule, followed by exploring the rule's parameters",
+    "interactionPattern": "Click a cell, predict hidden or shown, get a reasoned answer; then vary threshold and settings",
+    "keyQuestions": [
+      "Which cells fall below the threshold?",
+      "Can the row total recover a hidden cell?",
+      "Which second cell closes the leak, and why not a zero?"
+    ],
+    "commonMisconceptions": [
+      "Blanking the small cell is enough when the total is published",
+      "Any second cell makes a good complement",
+      "Two small cells in a row still need a complement"
+    ],
+    "assessmentOpportunities": [
+      "Prediction score per scenario",
+      "Explaining the subtraction that recovers a hidden cell",
+      "Justifying the choice of complementary cell"
+    ]
+  },
+  "search": {
+    "tags": [
+      "suppression threshold",
+      "complementary suppression",
+      "student privacy",
+      "FERPA",
+      "dashboards",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "table",
+      "simulation",
+      "quiz"
+    ]
+  },
+  "chapter": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "simulation": {
+    "modelType": "Rule-based disclosure control",
+    "variables": [
+      "threshold",
+      "cell counts",
+      "row total",
+      "hidden cells",
+      "recoverable value"
+    ],
+    "equations": [
+      "hidden if 0 < count < threshold",
+      "complement = smallest non-zero visible count when exactly one cell in the row is hidden",
+      "recovered = row total - sum of visible cells (exact only when one cell is hidden)"
+    ],
+    "assumptions": [
+      "Zero counts stay visible, as in the chapter's worked example",
+      "Row totals are always published",
+      "Column totals are not published"
+    ],
+    "limitations": [
+      "Counts are invented",
+      "Real disclosure control also considers column totals, linked tables and differencing across releases",
+      "The design's suppression filter is designed, not built"
+    ]
+  }
+}

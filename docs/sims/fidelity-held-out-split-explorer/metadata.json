@@ -1,0 +1,88 @@
+{
+  "title": "Held-Out Split Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Held-Out Assessment", "Evaluation Protocol", "Leakage", "Predictive Fidelity"],
+  "description": "A p5.js timeline of one synthetic learner's xAPI statements in which learners drag a forecast cutoff, see which practice answers and exposure events may feed a BKT forecast, and watch leaked held-out answers inflate a mock cohort accuracy from 0.705 to 0.910.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/fidelity-held-out-split-explorer/",
+  "canvasHeight": 540,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "Held-out assessments and leakage in forecast evaluation",
+    "learningObjectives": [
+      "Distinguish statements that may legitimately feed a forecast from those that leak the held-out assessment, by placing a forecast cutoff on a learner's timeline and judging each statement."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "distinguish",
+    "duration": "15 minutes",
+    "prerequisites": ["Evaluation protocol", "Evidence window", "BKT forecast of a correct next answer"],
+    "concepts": ["Held-Out Assessment", "Evaluation Protocol", "Transfer Item", "Threats to Validity"],
+    "chapter": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 540
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "keyboardNotes": "Left and right arrow keys move the forecast cutoff between statements.",
+      "colorBlindSafePalette": "Okabe-Ito, with a distinct marker shape per statement type"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "drag", "label": "Forecast cutoff line (drag, click in the timeline, or arrow keys)"},
+      {"type": "checkbox", "label": "Allow the model to see assessment answers", "default": false},
+      {"type": "button", "label": "Reset"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Rule-based evidence window with a BKT forecast",
+    "variables": ["forecast cutoff", "statements in use", "leaked statements", "forecast of a correct held-out answer", "mock cohort accuracy"],
+    "equations": [
+      "Forecast = P(L) (1 - ps) + (1 - P(L)) pg after the BKT update over the answers in use (L0 0.30, pt 0.15, pg 0.20, ps 0.10)"
+    ],
+    "assumptions": [
+      "The learner's timeline is hand-written and synthetic.",
+      "Mock accuracies come from the Chapter 19 synthetic cohort (200 learners, seed 19): 0.365, 0.530, 0.660, 0.685 and 0.705 with 0 to 4 practice answers, and 0.910 when the held-out answer leaks into the forecast.",
+      "Exposure events carry no right or wrong answer and do not change the BKT forecast."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judge-then-check with a deliberate failure case",
+    "interactionPattern": "Timeline explorer with a draggable boundary",
+    "keyQuestions": [
+      "Which statements may feed a forecast of the held-out answer?",
+      "Why is a statement produced after the assessment a leak even if it is a practice answer?",
+      "Why is an accuracy computed with leaked statements not evidence?"
+    ],
+    "commonMisconceptions": [
+      "Using every statement a learner produced gives the most honest forecast.",
+      "Only the assessment answer itself can leak; later practice or feedback views cannot.",
+      "A higher accuracy always means a better model."
+    ],
+    "assessmentOpportunities": [
+      "Mark the latest valid forecast cutoff on a new timeline.",
+      "List the statements that leak when the cutoff moves past the assessment."
+    ]
+  },
+  "search": {
+    "keywords": ["held-out assessment", "leakage", "evaluation protocol", "forecast cutoff", "xAPI", "BKT"]
+  }
+}

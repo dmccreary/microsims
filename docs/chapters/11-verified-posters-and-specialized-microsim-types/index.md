@@ -66,6 +66,10 @@ The guide organizes the work as eight phases plus the overlay step. Before the d
 
 #### Diagram: Verified Poster Pipeline Explorer
 
+<iframe src="../../sims/verified-poster-pipeline-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Verified Poster Pipeline Explorer MicroSim Fullscreen](../../sims/verified-poster-pipeline-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Verified Poster Pipeline Explorer</summary>
 Type: diagram
@@ -140,6 +144,10 @@ Try the classification yourself in the following specification, which uses only 
 
 #### Diagram: Claim Bucket Sorter
 
+<iframe src="../../sims/claim-bucket-sorter/main.html" width="100%" height="552px" scrolling="no"></iframe>
+
+[Run the Claim Bucket Sorter MicroSim Fullscreen](../../sims/claim-bucket-sorter/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Claim Bucket Sorter</summary>
 Type: microsim
@@ -202,6 +210,10 @@ The guide lists practical constraints. Starter code should be short (5 to 15 lin
 
 #### Diagram: Docker Lab Run Flow
 
+<iframe src="../../sims/docker-lab-run-flow/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Docker Lab Run Flow MicroSim Fullscreen](../../sims/docker-lab-run-flow/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Docker Lab Run Flow</summary>
 Type: diagram
@@ -246,6 +258,10 @@ The guide states that the format primarily addresses the Apply level of Bloom's 
     A distractor earns its place by matching a real misconception. When a learner picks it, you learn *which* confusion they have, and that is more useful than a plain wrong mark.
 
 #### Diagram: Classifier Scenario Builder
+
+<iframe src="../../sims/classifier-scenario-builder/main.html" width="100%" height="837px" scrolling="no"></iframe>
+
+[Run the Classifier Scenario Builder MicroSim Fullscreen](../../sims/classifier-scenario-builder/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Classifier Scenario Builder</summary>

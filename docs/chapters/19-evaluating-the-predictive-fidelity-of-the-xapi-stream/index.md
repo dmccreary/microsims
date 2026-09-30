@@ -90,6 +90,10 @@ The interactive below lets you see how the timing rule works before we compute a
 
 #### Diagram: Held-Out Split Explorer
 
+<iframe src="../../sims/fidelity-held-out-split-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+[Run the Held-Out Split Explorer MicroSim Fullscreen](../../sims/fidelity-held-out-split-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Held-Out Split Explorer</summary>
 Type: microsim
@@ -164,6 +168,10 @@ The interactive below makes the trap visible by letting you change how common su
 
 #### Diagram: Accuracy Versus Base Rate Lab
 
+<iframe src="../../sims/fidelity-accuracy-base-rate-lab/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+[Run the Accuracy Versus Base Rate Lab MicroSim Fullscreen](../../sims/fidelity-accuracy-base-rate-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Accuracy Versus Base Rate Lab</summary>
 Type: microsim
@@ -226,6 +234,10 @@ The interactive below lets you build a reliability curve yourself, using only th
 
 #### Diagram: Calibration Curve Lab
 
+<iframe src="../../sims/fidelity-calibration-curve-lab/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Calibration Curve Lab MicroSim Fullscreen](../../sims/fidelity-calibration-curve-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Calibration Curve Lab</summary>
 Type: microsim
@@ -280,6 +292,10 @@ The arguments are the forecast probabilities and the 1-or-0 outcomes, as for the
 The interactive below draws the curve and reports the pair-based reading side by side, so the two definitions can be checked against each other.
 
 #### Diagram: AUC Pair Explorer
+
+<iframe src="../../sims/fidelity-auc-pair-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[Run the AUC Pair Explorer MicroSim Fullscreen](../../sims/fidelity-auc-pair-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>AUC Pair Explorer</summary>
@@ -381,6 +397,10 @@ This book's honesty rules divide statements into three kinds. **Measured versus 
 Applying it to this chapter shows how much is missing. The synthetic AUC of 0.743 is a measured result, but about a simulation whose rules we wrote, so it says the evaluation code works, not that real learners behave that way. The specification of the held-out protocol is designed. That real MicroSim streams predict real mastery is hoped for. The interactive below lets you practice sorting sentences.
 
 #### Diagram: Claim Sorter
+
+<iframe src="../../sims/fidelity-claim-sorter/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[Run the Claim Sorter MicroSim Fullscreen](../../sims/fidelity-claim-sorter/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Claim Sorter</summary>

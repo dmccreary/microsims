@@ -1,0 +1,131 @@
+{
+  "title": "Prompt Text Rule Checker",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Image Overlays",
+    "Prompt Writing",
+    "Text-Free Image Rule",
+    "Generative AI"
+  ],
+  "description": "A p5.js MicroSim in which learners judge each line of a shuffled draft image prompt as safe for a callout overlay or likely to put text into the image, get a one-sentence explanation for every line, and see a safe rewrite for each risky line.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/prompt-text-rule-checker/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The text-free image rule for overlay image prompts",
+    "learningObjectives": [
+      "The learner will judge whether a line of an image prompt is safe for a callout overlay or violates the text-free image rule, and will justify the judgment."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The text-free image rule and overlay image prompt template (Chapter 10)",
+      "Callout labels and the overlay data file (Chapter 10)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "describe() is updated with the selected line and score; judged rows show a check or cross and the word safe or risky, not color alone; all buttons are native controls"
+    },
+    "dataFiles": [
+      "Pool of 16 prompt lines (8 safe, 8 risky) with explanations and rewrites, embedded in prompt-text-rule-checker.js"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "promptRows",
+        "type": "canvas-click",
+        "label": "Prompt line",
+        "purpose": "Select a line of the draft prompt"
+      },
+      {
+        "id": "safeButton",
+        "type": "button",
+        "label": "Keeps image text-free",
+        "purpose": "Judge the selected line as safe"
+      },
+      {
+        "id": "riskyButton",
+        "type": "button",
+        "label": "Risks text in image",
+        "purpose": "Judge the selected line as risky"
+      },
+      {
+        "id": "rewriteButton",
+        "type": "button",
+        "label": "Show rewrite",
+        "purpose": "Show a safe replacement for a judged risky line"
+      },
+      {
+        "id": "newButton",
+        "type": "button",
+        "label": "New prompt",
+        "purpose": "Draw and shuffle a new draft of 10 (or 8) lines"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judge-then-explain with immediate feedback and worked rewrites",
+    "interactionPattern": "Sorting activity (binary classification) with explanations",
+    "keyQuestions": [
+      "Which words in a prompt line invite the model to draw text or marks?",
+      "Why is a line that mentions text sometimes safe?",
+      "How can a risky line be rewritten to keep its visual intent?"
+    ],
+    "commonMisconceptions": [
+      "Any line containing numbers is risky (file dimensions are safe)",
+      "Only explicit requests for labels are risky (a labeled-diagram style also invites text)",
+      "Arrows and numbered circles are not text (they duplicate the engine's markers and leader lines)"
+    ],
+    "assessmentOpportunities": [
+      "Score of correct judgments out of attempts",
+      "Learner-written reasons and rewrites compared with the given ones"
+    ]
+  },
+  "search": {
+    "tags": [
+      "image prompt",
+      "text-free image rule",
+      "callout overlay",
+      "generative AI",
+      "judgment",
+      "classification",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "interactive list",
+      "sorting quiz"
+    ]
+  },
+  "chapter": "10-image-overlays-and-comparison-posters"
+}

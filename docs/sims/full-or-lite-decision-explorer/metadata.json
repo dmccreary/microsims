@@ -1,0 +1,160 @@
+{
+  "title": "Full or Lite Decision Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "Learning Record Store",
+    "LRS-Lite",
+    "Architecture Decisions"
+  ],
+  "description": "Describe a school by roster size, budget and requirements, see which of the Lite, single-server and Full LRS tiers each requirement rules out, and recommend the cheapest tier that still fits.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/full-or-lite-decision-explorer/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Choosing between the Full LRS, a single-server tier and LRS-Lite",
+    "learningObjectives": [
+      "The learner will recommend Full, single-server or Lite for a described school by weighing scale, freshness, evidence integrity and budget, and will justify the recommendation against the trade-off table."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "recommend",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Full LRS capacity and cost model (Chapter 21)",
+      "LRS-Lite sync and dashboards (Chapters 22-23)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native p5 sliders, checkboxes and buttons; describe() is updated with the recommendation; unmet requirements use a cross symbol and text, not color alone."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Students",
+        "min": 10,
+        "max": 20000,
+        "default": 30,
+        "scale": "logarithmic"
+      },
+      {
+        "type": "slider",
+        "label": "Monthly budget (USD)",
+        "min": 0,
+        "max": 12000,
+        "default": 50,
+        "scale": "logarithmic above $1"
+      },
+      {
+        "type": "checkbox",
+        "label": "Grades depend on evidence",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "Need cross-class analytics",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "Need real-time alerts",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "Staff to run servers",
+        "default": false
+      },
+      {
+        "type": "button",
+        "label": "Show reasoning"
+      },
+      {
+        "type": "button",
+        "label": "Reset"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Scenario-based recommendation with visible reasoning",
+    "keyQuestions": [
+      "Which requirement rules out Lite for this school?",
+      "What is the cheapest tier that meets every requirement?",
+      "Which row of the trade-off table justifies the choice?"
+    ],
+    "commonMisconceptions": [
+      "That the choice is only about price",
+      "That Lite cannot serve any graded use without a server",
+      "That the single-server tier has the same resilience as Full"
+    ],
+    "assessmentOpportunities": [
+      "Recommend and justify for three described schools",
+      "Critique a factor the heuristic ignores"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "Full versus Lite decision",
+      "LRS-Lite",
+      "single-server tier",
+      "full LRS",
+      "trade-off table",
+      "evidence integrity",
+      "freshness",
+      "cost estimate"
+    ]
+  },
+  "chapter": "23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "simulation": {
+    "modelType": "rule-based decision heuristic",
+    "variables": [
+      "students",
+      "budget",
+      "grades depend on evidence",
+      "cross-class analytics",
+      "real-time alerts",
+      "staff to run servers"
+    ],
+    "equations": [
+      "A tier fails if students exceed its scale target (Lite ~150, single server ~10,000)",
+      "A tier fails if the budget is below its lowest estimate (Lite ~$1, single ~$300, Full ~$10,300)",
+      "Lite fails evidence, cross-class analytics and real-time alert requirements",
+      "Single server and Full fail without staff to run servers",
+      "Recommend the cheapest tier with no unmet requirement"
+    ],
+    "assumptions": [
+      "Cost and scale figures are design or planning estimates quoted in Chapters 21-23"
+    ],
+    "limitations": [
+      "A teaching heuristic, not an official sizing tool; ignores high availability, migration effort, licenses and engineering time"
+    ]
+  }
+}

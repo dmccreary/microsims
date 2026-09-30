@@ -78,13 +78,15 @@ function updateCanvasSize() {
 ```
 microsims/
 ├── docs/                    # MkDocs content
-│   ├── sims/               # Individual simulations (100+ directories)
+│   ├── sims/               # MicroSims 2.0 simulations (plus graph-viewer and template)
 │   │   ├── {sim-name}/    # Each simulation has its own directory
 │   │   │   ├── index.md   # Documentation with YAML metadata
 │   │   │   ├── {sim-name}.js      # p5.js sketch
 │   │   │   ├── {sim-name}.html    # Optional HTML wrapper
 │   │   │   └── {sim-name}.png     # Preview image
-│   │   └── thumbnails/    # Generated 128x128 thumbnails
+│   │   └── TODO/          # Diagram specs extracted from the chapters
+│   ├── microsims-old/     # The original MicroSims 1.0 collection (moved from sims/;
+│   │                      #   plugins/legacy_sims_redirects.py redirects the old /sims/<name>/ URLs)
 │   ├── chapters/          # Educational theory documentation
 │   ├── setup/             # Getting started guides
 │   ├── prompts/           # Prompt engineering guides

@@ -1,0 +1,83 @@
+{
+  "title": "Vector and Particle Lab",
+  "description": "A two-mode p5.js physics lab: in One ball mode, labeled position, velocity and gravity arrows and a draggable second ball separate the roles of the three vectors and of collision detection (dist < r1 + r2) versus collision response; in Fountain mode, a particle system applies one rule to many particles that fade with their remaining life.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["p5.js", "Vectors", "Physics Simulation", "Collision Detection", "Particle Systems"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/p5-vector-particle-lab/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 550,
+  "chapter": "06-p5js-microsims",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Computer Science",
+    "topic": "Vectors, Euler integration, collisions and particle systems in p5.js",
+    "learningObjectives": [
+      "The learner will distinguish the roles of position, velocity, and acceleration vectors, and of collision detection versus collision response, by changing parameters and observing the labeled arrows."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The Vectors, Physics Simulation, Collision Detection and Particle System sections of Chapter 6"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 550},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": false}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "radio", "label": "Mode", "options": ["One ball", "Fountain"], "default": "One ball"},
+      {"type": "button", "label": "Start / Pause", "default": "paused"},
+      {"type": "button", "label": "Reset", "action": "Restart the ball and clear the particles"},
+      {"type": "checkbox", "label": "Show vectors", "default": true},
+      {"type": "slider", "label": "Gravity", "min": 0.1, "max": 1.0, "default": 0.5, "step": 0.05, "units": "pixels per frame squared"},
+      {"type": "slider", "label": "Bounciness", "min": 0.3, "max": 0.95, "default": 0.8, "step": 0.05},
+      {"type": "slider", "label": "Spawn rate", "min": 1, "max": 10, "default": 3, "step": 1, "units": "particles per frame"}
+    ],
+    "canvasInteractions": ["Drag the fixed ball into the moving ball's path (One ball mode)"]
+  },
+  "simulation": {
+    "modelType": "Physics simulation (Euler integration) and particle system",
+    "variables": ["position", "velocity", "gravity", "bounciness", "particle life"],
+    "equations": [
+      "velocity = velocity + gravity (each frame)",
+      "position = position + velocity (each frame)",
+      "collision detected when dist(center1, center2) < r1 + r2",
+      "response: v = v - (1 + e)(v . n) n, with n the unit contact normal and e the bounciness",
+      "particle alpha = 255 * life / 90"
+    ],
+    "assumptions": ["One frame is one time step", "The fixed ball does not move when hit"],
+    "limitations": ["Euler integration gains or loses a little energy per step", "Particles do not collide with each other"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided exploration: change one parameter, observe which arrow or readout changes",
+    "keyQuestions": [
+      "Which arrow changes length when you move the gravity slider, and which does not?",
+      "When the balls overlap while paused, has a collision been detected? Has it been responded to?",
+      "Why do all particles follow the same rule yet look different?"
+    ],
+    "commonMisconceptions": [
+      "Velocity and acceleration always point the same way",
+      "Detecting a collision automatically changes the motion",
+      "Gravity changes position directly rather than through velocity"
+    ],
+    "assessmentOpportunities": [
+      "Explain the difference between detection and response using the readout",
+      "Predict the arrows at the top of a bounce"
+    ]
+  }
+}

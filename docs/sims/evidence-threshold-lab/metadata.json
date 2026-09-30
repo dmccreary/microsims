@@ -1,0 +1,159 @@
+{
+  "title": "Evidence Threshold Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Learning Analytics",
+    "Non-Evidence Thresholds",
+    "Data Quality",
+    "Instrumentation"
+  ],
+  "description": "A p5.js lab in which learners move the hover, misclick and glance thresholds and watch a scripted 60-second learner session gain or lose xAPI statements, with a cost table of likely noise kept and likely attention lost, so they can justify a choice of thresholds.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/evidence-threshold-lab/",
+  "canvasHeight": 770,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Hover, misclick and glance thresholds (HOVER_MS, MISCLICK_MS, GLANCE_MS)",
+    "learningObjectives": [
+      "The learner will justify a choice of hover, misclick and glance thresholds by observing how each changes the number and kind of statements produced from a fixed, scripted session."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "justify",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The three MicroSim verbs and the evidence classes (Chapter 16)",
+      "Non-evidence thresholds and their stated reasons (Chapter 16)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 770
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All inputs are native sliders, a checkbox and a button; emitted and filtered acts differ by label and strike-through as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "hoverSlider",
+        "type": "slider",
+        "label": "Hover threshold (ms)",
+        "min": 0,
+        "max": 2000,
+        "step": 50,
+        "default": 600,
+        "purpose": "Minimum hover counted as inspection"
+      },
+      {
+        "id": "misclickSlider",
+        "type": "slider",
+        "label": "Misclick threshold (ms)",
+        "min": 0,
+        "max": 1000,
+        "step": 50,
+        "default": 250,
+        "purpose": "Minimum run that emits an experienced statement"
+      },
+      {
+        "id": "glanceSlider",
+        "type": "slider",
+        "label": "Glance threshold (ms)",
+        "min": 0,
+        "max": 3000,
+        "step": 100,
+        "default": 1000,
+        "purpose": "Minimum page visit recorded as page dwell"
+      },
+      {
+        "id": "showFilteredBox",
+        "type": "checkbox",
+        "label": "Show statements that were filtered out",
+        "default": false,
+        "purpose": "List filtered acts, struck through"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset to runtime defaults",
+        "purpose": "Restore 600, 250 and 1000 ms"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Parameter exploration with a two-sided cost readout that supports a written justification",
+    "interactionPattern": "Threshold sliders over a fixed timeline with live recomputation and hover explanations",
+    "keyQuestions": [
+      "Which acts does each threshold remove, and which should it keep?",
+      "What does an over-strict threshold throw away?",
+      "Why does no threshold change the answered statement?"
+    ],
+    "commonMisconceptions": [
+      "A lower threshold always means better data",
+      "Thresholds remove bad learners rather than sub-threshold acts",
+      "The default values were fitted to learner data"
+    ],
+    "assessmentOpportunities": [
+      "Stating the safe band of hover thresholds for the session",
+      "A written justification naming the noise kept and the attention lost"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "hover threshold",
+      "misclick threshold",
+      "glance threshold",
+      "noise",
+      "evidence",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "timeline"
+    ]
+  },
+  "chapter": "16-xapi-statements-and-evidence",
+  "simulation": {
+    "model": "Rule-based filter over a fixed scripted session of 16 acts",
+    "variables": [
+      "hover threshold",
+      "misclick threshold",
+      "glance threshold"
+    ],
+    "equations": [
+      "hover emitted if duration >= hover threshold",
+      "run emits experienced if duration >= misclick threshold",
+      "page dwell emitted if duration >= glance threshold",
+      "answered always emitted"
+    ],
+    "assumptions": [
+      "Session acts and durations are scripted and illustrative",
+      "Optional press statements for Start/Pause are not shown"
+    ]
+  }
+}

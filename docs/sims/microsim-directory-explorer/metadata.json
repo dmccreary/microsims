@@ -1,0 +1,123 @@
+{
+  "title": "MicroSim Directory Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "MicroSim Directory",
+    "main.html",
+    "metadata.json",
+    "index.md",
+    "Preview Image"
+  ],
+  "description": "A vis-network tree of the H-Bridge MicroSim directory: hover a file for its job, click it to see what it contains, who reads it and a typical change, and play Which file? to pick the file to edit for a change request.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/microsim-directory-explorer/",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Roles of the files in a MicroSim directory",
+    "learningObjectives": [
+      "The learner will explain the role of each file in a MicroSim directory and predict which file to edit to make a given change."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "MicroSim Directory section of Chapter 2",
+      "Web foundations of Chapter 1"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)",
+      "vis-network 9.1.9 CSS for navigation buttons"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Info panel is an aria-live region; every node shows its file name as text"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "quiz-btn",
+        "type": "button",
+        "label": "Which file? / Explore",
+        "purpose": "Start a round of six change requests, or return to explore mode"
+      },
+      {
+        "id": "next-btn",
+        "type": "button",
+        "label": "Next change",
+        "purpose": "Advance after a correct pick"
+      },
+      {
+        "id": "tree-nodes",
+        "type": "clickable nodes",
+        "label": "Folder and five files",
+        "purpose": "Show contents, readers and a typical change (explore) or pick the file to edit (quiz)"
+      },
+      {
+        "id": "node-hover",
+        "type": "hover tooltips",
+        "label": "Five files",
+        "purpose": "Show each file's one-sentence job (hidden during the quiz)"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore-then-predict with change requests",
+    "interactionPattern": "Network explorer with click-to-inspect and a which-file quiz",
+    "keyQuestions": [
+      "Which file would you edit to change a slider's starting value?",
+      "Who reads metadata.json?",
+      "Why does the folder name matter?"
+    ],
+    "commonMisconceptions": [
+      "The page's iframe height is set in the sketch file",
+      "Learning objectives for search belong only in index.md",
+      "main.html contains the simulation logic"
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy over six change requests",
+      "One-sentence job statements for the five files"
+    ]
+  },
+  "search": {
+    "tags": [
+      "MicroSim directory",
+      "file roles",
+      "main.html",
+      "metadata.json",
+      "index.md",
+      "vis-network"
+    ],
+    "visualizationType": [
+      "diagram",
+      "network",
+      "tree"
+    ]
+  },
+  "chapter": "02-anatomy-of-a-microsim"
+}

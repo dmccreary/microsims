@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Accessibility Check Walkthrough using p5.js</title>
+    <style>
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
+        main button, main select, main label, main input { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }
+        main button { padding: 5px 9px; }
+        main select { padding: 3px; }
+        .ctl-row1 { width: max-content; height: 30px; display: flex; align-items: center; }
+        .ctl-row1 > label { margin-right: 6px; }
+        main div { white-space: nowrap; }
+        /* A focus ring that is always visible: 3px, dark blue, offset from the control */
+        main button:focus-visible, main select:focus-visible, main input:focus-visible {
+            outline: 3px solid #003c82; outline-offset: 2px;
+        }
+        main canvas:focus-visible { outline: 3px dashed #003c82; outline-offset: -3px; }
+        @media (max-width: 440px) {
+            main button, main select, main label, main input { font-size: 13px; }
+            main button { padding: 5px 7px; }
+        }
+        .sr-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+                   clip: rect(0 0 0 0); white-space: nowrap; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.js"></script>
+    <script src="accessibility-check-walkthrough.js"></script>
+</head>
+<body>
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

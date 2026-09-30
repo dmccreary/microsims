@@ -1,0 +1,15 @@
+{
+  "sim_id": "ai-generation-pipeline",
+  "diagram_name": "AI Generation Pipeline",
+  "chapter_number": 1,
+  "chapter_title": "What Is a MicroSim",
+  "chapter_dir": "01-what-is-a-microsim",
+  "chapter_rel_dir": "chapters/01-what-is-a-microsim",
+  "library": "Mermaid",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain the role of a prompt, a large language model, a skill, and an agent in generating a MicroSim.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** ai-generation-pipeline<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain the role of a prompt, a large language model, a skill, and an agent in generating a MicroSim.\n\nDiagram: a left-to-right flowchart with these nodes: \"Author writes a prompt or request\", \"AI agent\", \"Skill (instructions, guides, templates)\", \"Large language model\", \"MicroSim files (HTML, JavaScript, metadata)\", and \"Automated checks\". Arrows: author to agent; agent to skill (\"loads\"); agent to model (\"asks\"); model to agent (\"code\"); agent to files (\"writes\"); files to checks; checks back to agent (\"errors to fix\").\n\nInteractions: every node has a click directive that opens an infobox with a plain-language definition and one example. Hovering a node highlights the arrows in and out of it. The feedback arrow from checks to agent is drawn dashed and its infobox explains why generated code must be tested.\n\nResponsive design: the diagram scales to the container width, and node text wraps at narrow widths.\n\nImplementation: Mermaid flowchart with click callbacks that show the infobox below the diagram."
+}

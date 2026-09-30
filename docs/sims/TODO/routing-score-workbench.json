@@ -1,0 +1,15 @@
+{
+  "sim_id": "routing-score-workbench",
+  "diagram_name": "Routing Score Workbench",
+  "chapter_number": 4,
+  "chapter_title": "Choosing a MicroSim Type",
+  "chapter_dir": "04-choosing-a-microsim-type",
+  "chapter_rel_dir": "chapters/04-choosing-a-microsim-type",
+  "library": "Chart.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Justify",
+  "learning_objective": "The learner will justify a type choice by assigning rubric scores to competing types for a described objective and explaining any routing ambiguity.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** routing-score-workbench<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: justify): The learner will justify a type choice by assigning rubric scores to competing types for a described objective and explaining any routing ambiguity.\n\nData: a bank of at least eight objectives, each with three to four candidate types. Each candidate has a hidden reference score band (for example 70-89) written by the author of the bank, and these bands are teaching examples, not output of the generator skill.\n\nChart type and layout: a horizontal bar chart with one bar per candidate type, an x-axis of 0 to 100 with the five rubric bands shaded behind the bars, and the objective shown above the chart.\n\nControls: one slider per candidate (0 to 100, step 5, default 50), a \"Reveal reference bands\" button, a \"Next objective\" button, and a checkbox \"Show ambiguity warning\" that is on by default.\n\nInteractions: dragging a slider updates its bar and the band label. When the top two bars are within 10 points, a banner reads \"Routing ambiguity: ask a clarifying question\" and lists two candidate questions to choose from. Hovering a bar shows the guideline text that supports that candidate. After \"Reveal reference bands\" the chart overlays the reference bands and reports how many of the learner's scores fell in the reference band.\n\nResponsive design: the chart re-fits to the container width on window resize, and sliders stack below the chart under 600 pixels.\n\nImplementation: Chart.js bar chart with the annotation drawn by a custom plugin, plus standard HTML range inputs."
+}

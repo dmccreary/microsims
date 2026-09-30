@@ -1,0 +1,15 @@
+{
+  "sim_id": "audit-baseline-explorer",
+  "diagram_name": "Audit Baseline Explorer",
+  "chapter_number": 13,
+  "chapter_title": "Quality Assurance and Automated Layout Review",
+  "chapter_dir": "13-quality-assurance-and-automated-layout-review",
+  "chapter_rel_dir": "chapters/13-quality-assurance-and-automated-layout-review",
+  "library": "Chart.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Examine",
+  "learning_objective": "The learner will examine the 2026-09-30 audit of 116 MicroSims and identify which rubric issues most often hold MicroSims below the grade A bar.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** audit-baseline-explorer<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: examine): The learner will examine the 2026-09-30 audit of 116 MicroSims and identify which rubric issues most often hold MicroSims below the grade A bar.\n\nLayout: a bar chart of MicroSims per grade (A 18, B 27, C 30, D 41) above a second horizontal bar chart of issue frequency, using the standard region layout with a control region below.\n\nData: grade counts as above; issue counts across the audit are missing educational section 110, missing Lesson Plan section 76, missing References section 74, missing schema meta tag 73, missing copy-paste iframe example 68, missing description or about section 60, missing screenshot 54 and no main.html 43.\n\nInteractions: clicking a grade bar filters the issue chart to that grade and shows the recommended action from the audit; hovering an issue bar shows its rubric points and the score gained by fixing it. A dropdown switches the issue chart between counts and total points lost, computed as count times the rubric points for that check.\n\nResponsive design: both charts follow the container width on every window resize, and the two charts stack under 600 pixels wide. Include accessible text alternatives for each chart.\n\nImplementation: Chart.js bar charts with click and hover handlers, loading the counts from an inline JSON object that cites the audit date."
+}

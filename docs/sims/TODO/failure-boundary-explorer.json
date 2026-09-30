@@ -1,0 +1,15 @@
+{
+  "sim_id": "failure-boundary-explorer",
+  "diagram_name": "Failure Boundary Explorer",
+  "chapter_number": 21,
+  "chapter_title": "\"The Full LRS: Dashboards, Operations and Compliance\"",
+  "chapter_dir": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "chapter_rel_dir": "chapters/21-the-full-lrs-dashboards-operations-and-compliance",
+  "library": "vis-network",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the one failure that can lose data from the failures that only degrade freshness or speed, by locating each failing component relative to the durability boundary at Kafka.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** failure-boundary-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the one failure that can lose data from the failures that only degrade freshness or speed, by locating each failing component relative to the durability boundary at Kafka.\n\nNodes and edges: seven nodes left to right: Learning Record Provider, Ingestion Gateway, Kafka, Processor, ClickHouse, Summarizer and Neo4j, with a Redis cache attached to the read path. A dashed red line after Kafka is labeled \"Only failures before this line can lose data\".\n\nControls: a dropdown \"Fail this component\" lists each node, and a button \"Restore all\" resets the view.\n\nInteractions: choosing a component turns it gray and shows a panel with what is detected, what the system does meanwhile, and whether data is lost. Choosing Kafka turns the panel red and shows the 503 and Retry-After behavior. Clicking any node shows its role and its status as built or designed.\n\nResponsive design: the network re-fits to the container width on window resize, and the information panel moves below the network under 600 pixels.\n\nImplementation: vis-network with fixed positions, physics disabled, and click handlers on every node."
+}

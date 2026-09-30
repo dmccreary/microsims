@@ -87,6 +87,10 @@ A **worked example** shows the parts cooperating. Suppose you ask for a custom s
 
 #### Diagram: Generator Skill Anatomy Explorer
 
+<iframe src="../../sims/generator-skill-anatomy-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Generator Skill Anatomy Explorer MicroSim Fullscreen](../../sims/generator-skill-anatomy-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Generator Skill Anatomy Explorer</summary>
 Type: microsim
@@ -137,6 +141,10 @@ The skill's batch route for a whole chapter runs in these steps.
 The design principle is a division of labor. Deterministic work, such as creating directories and calculating iframe heights, is done by scripts that give the same answer every time. The agent's language model is reserved for the step that needs creativity, writing the sketch. The skill itself states that after scaffolding "the agent ONLY writes .js files," and it estimates that the utilities save about 430,000 tokens per batch run. That figure is the skill's own estimate, not a measurement we made.
 
 #### Diagram: Batch Generation Workflow Stepper
+
+<iframe src="../../sims/batch-generation-workflow-stepper/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Batch Generation Workflow Stepper MicroSim Fullscreen](../../sims/batch-generation-workflow-stepper/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Batch Generation Workflow Stepper</summary>
@@ -239,6 +247,10 @@ We should be candid about a gap: the skill's documentation does not define a beh
 
 #### Diagram: Specification Block Anatomy Explorer
 
+<iframe src="../../sims/spec-block-anatomy-explorer/main.html" width="100%" height="612px" scrolling="no"></iframe>
+
+[Run the Specification Block Anatomy Explorer MicroSim Fullscreen](../../sims/spec-block-anatomy-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Specification Block Anatomy Explorer</summary>
 Type: microsim
@@ -303,6 +315,10 @@ The rule of thumb that follows is to put a constraint at the widest scope where 
 
 #### Diagram: Prompt Quality Workbench
 
+<iframe src="../../sims/prompt-quality-workbench/main.html" width="100%" height="657px" scrolling="no"></iframe>
+
+[Run the Prompt Quality Workbench MicroSim Fullscreen](../../sims/prompt-quality-workbench/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Prompt Quality Workbench</summary>
 Type: microsim
@@ -357,6 +373,10 @@ The table below lists the failure modes we cover. We define the two library-rela
 | Text with an outline | Labels look fuzzy or heavy | A stroke was still active when text was drawn | Call `noStroke()` before `text()` |
 
 #### Diagram: Generation Failure Mode Triage
+
+<iframe src="../../sims/generation-failure-mode-triage/main.html" width="100%" height="612px" scrolling="no"></iframe>
+
+[Run the Generation Failure Mode Triage MicroSim Fullscreen](../../sims/generation-failure-mode-triage/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Generation Failure Mode Triage</summary>
@@ -433,6 +453,10 @@ async function setup() {
 The migration sequence follows from the audit. Fix the five listed MicroSims first, as the TODO says to do before bumping any pin past 1.x. Then change the pin in `main.html`, the title and `metadata.json` together. Finally, rerun the validation, height and layout checks from the workflow, because a MicroSim that runs without errors can still draw differently.
 
 #### Diagram: p5.js 2.x Migration Mapper
+
+<iframe src="../../sims/p5-2x-migration-mapper/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+[Run the p5.js 2.x Migration Mapper MicroSim Fullscreen](../../sims/p5-2x-migration-mapper/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>p5.js 2.x Migration Mapper</summary>

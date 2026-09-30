@@ -93,7 +93,7 @@ This architecture ensures efficient resource usage while maintaining access to s
 
 Here's an example of what the MicroSim-p5 skill can create with a simple prompt.
 
-<iframe src="../sims/projectile-motion-gravity/main.html" height="452px" scrolling="no"></iframe>
+<iframe src="../microsims-old/projectile-motion-gravity/main.html" height="452px" scrolling="no"></iframe>
 
 Here is the prompt that was used to create this skill.
 
@@ -303,7 +303,7 @@ Adding any MicroSim to a web page requires just one line of HTML:
 
 ```html
 <iframe
-   src="https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/main.html"
+   src="https://dmccreary.github.io/microsims/microsims-old/projectile-motion-gravity/main.html"
    height="452px"
    scrolling="no">
 </iframe>
@@ -497,7 +497,7 @@ This file contains comprehensive information about the MicroSim, making it disco
 To view the metadata for any MicroSim, simply add `/metadata.json` to the end of the path:
 
 **Example:**
-[https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/metadata.json](https://dmccreary.github.io/microsims/sims/projectile-motion-gravity/metadata.json)
+[https://dmccreary.github.io/microsims/microsims-old/projectile-motion-gravity/metadata.json](https://dmccreary.github.io/microsims/microsims-old/projectile-motion-gravity/metadata.json)
 
 ![Metadata in Browser](images/slide-32-img-1.png)
 

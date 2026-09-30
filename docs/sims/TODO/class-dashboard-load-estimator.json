@@ -1,0 +1,15 @@
+{
+  "sim_id": "class-dashboard-load-estimator",
+  "diagram_name": "Class Dashboard Load Estimator",
+  "chapter_number": 23,
+  "chapter_title": "\"LRS-Lite: Sync, Dashboards and Choosing Full or Lite\"",
+  "chapter_dir": "23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "chapter_rel_dir": "chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "library": "Chart.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "The learner will calculate the download size and load-time band for a teacher dashboard at a given roster size and decide whether the design's rollup function is needed.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** class-dashboard-load-estimator<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: calculate): The learner will calculate the download size and load-time band for a teacher dashboard at a given roster size and decide whether the design's rollup function is needed.\n\nControls: a slider \"Students\" from 10 to 300 in steps of 10 (default 30), and a slider \"Summary size (KB gzipped)\" from 5 to 30 (default 11, the design's estimate).\n\nChart: a bar chart with two bars, \"Total download (MB)\" computed as students times summary size divided by 1000, and \"Rollup download (one file)\" drawn as a thin reference bar. A horizontal line marks 100 students, the design's approximate threshold for using the rollup function. Below the chart, a text panel states the number of downloads, the total size, and one of three messages: \"Browser aggregation is comfortable\", \"Expect a few seconds\", or \"Use the rollup function\".\n\nInteractions: hovering a bar shows its exact value and formula. Data note: the 11 KB figure and the 100-student threshold are the design's estimates, and the panel says so.\n\nResponsive design: the chart and sliders resize with the container on every window resize, sliders remain usable at 400 pixels wide, and labels wrap rather than overflow.\n\nImplementation: Chart.js bar chart with HTML range inputs, updating on the input event."
+}

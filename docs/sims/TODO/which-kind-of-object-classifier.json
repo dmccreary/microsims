@@ -1,0 +1,15 @@
+{
+  "sim_id": "which-kind-of-object-classifier",
+  "diagram_name": "Which Kind of Object Is It?",
+  "chapter_number": 1,
+  "chapter_title": "What Is a MicroSim",
+  "chapter_dir": "01-what-is-a-microsim",
+  "chapter_rel_dir": "chapters/01-what-is-a-microsim",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish learning objects, interactive simulations, MicroSims, and instrumented MicroSims by sorting example descriptions into the correct category.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** which-kind-of-object-classifier<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish learning objects, interactive simulations, MicroSims, and instrumented MicroSims by sorting example descriptions into the correct category.\n\nLayout: four labeled bins across the bottom of the drawing region (Learning Object, Interactive Simulation, MicroSim, Instrumented MicroSim) and a card in the center that shows one example description at a time. The control region holds a Next button and a score readout.\n\nData: at least twelve cards, three per category, such as \"A five-minute video on photosynthesis\", \"A pendulum whose length you can change, in a desktop application\", \"A two-slider ball simulation embedded in a chapter with a metadata file\", and \"The same simulation that also sends slider and answer events to a record store\".\n\nInteractions: the learner drags a card to a bin. A correct placement turns the bin green and shows a one-sentence explanation. An incorrect placement shakes the card and shows the property that the example is missing. The score shows correct answers out of attempts, and cards are shuffled on each run.\n\nResponsive design: bin widths and card size scale with the container width on window resize, and text wraps inside cards.\n\nImplementation: p5.js with mouse drag events and describe() text for screen readers."
+}

@@ -1,0 +1,77 @@
+{
+  "title": "Clickable Flowchart Anatomy",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Diagrams; Instructional Design",
+  "description": "Interactive Mermaid flowchart of the MicroSim drafting process in which every node, branch label and arrow is clickable and fills an information panel with its shape, role, Mermaid source line and style class. A Break it toggle removes the quotes from one label and shows Mermaid's real parse error.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 520,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Flowchart anatomy and Mermaid syntax",
+    "learningObjectives": [
+      "The learner will differentiate the four node shapes of a flowchart and the roles of edges, labels and style classes by inspecting a small working diagram."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Flowcharts as steps joined by arrows",
+      "The Chapter 8 Mermaid syntax rules"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "frameworkVersion": "11.4.1",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 520
+    },
+    "responsive": true,
+    "dependencies": ["https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "click", "label": "Nodes (Mermaid click directives)"},
+      {"type": "click", "label": "Yes / No branch labels"},
+      {"type": "click", "label": "Arrows (edges)"},
+      {"type": "button", "label": "Four node shapes key"},
+      {"type": "toggle", "label": "Break it / Restore quotes"}
+    ]
+  },
+  "diagram": {
+    "type": "flowchart",
+    "direction": "TD",
+    "nodeCount": 4,
+    "edgeCount": 4
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided inspection of a working artifact with a deliberate break",
+    "interactionPattern": "Click to inspect, compare shapes, break and repair",
+    "keyQuestions": [
+      "Which node shape marks a decision, and why does only that node have labeled arrows?",
+      "What does a style class change, and what does it leave alone?"
+    ],
+    "commonMisconceptions": [
+      "Node shape is decoration rather than a signal of the node's role.",
+      "Quotes around labels are optional in every case."
+    ],
+    "assessmentOpportunities": [
+      "Choose the correct shape and write the Mermaid line for a new step",
+      "Explain why a label containing parentheses fails without quotes"
+    ]
+  },
+  "chapter": "08-diagrams-networks-and-systems"
+}

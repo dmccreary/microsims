@@ -1,0 +1,15 @@
+{
+  "sim_id": "pii-surface-explorer",
+  "diagram_name": "PII Surface Explorer",
+  "chapter_number": 24,
+  "chapter_title": "Pedagogy, Accessibility and Ethics",
+  "chapter_dir": "24-pedagogy-accessibility-and-ethics",
+  "chapter_rel_dir": "chapters/24-pedagogy-accessibility-and-ethics",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Classify",
+  "learning_objective": "The learner will classify each field of an example xAPI statement as no PII risk, pseudonymous, direct identifier or uncontrolled free text, and explain what protects or exposes it.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** pii-surface-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: classify): The learner will classify each field of an example xAPI statement as no PII risk, pseudonymous, direct identifier or uncontrolled free text, and explain what protects or exposes it.\n\nLayout: a drawing region above a control region. The drawing region displays the illustrative statement from the chapter as a formatted list of fields, each in its own clickable box. The control region is white and holds the classification buttons.\n\nData: the fields actor.account.homePage, actor.account.name, verb.id, object.id, result.success, result.response and two context fields. The classifications are the chapter's own analysis, not a legal determination, and the sim says so.\n\nControls:\n\n- Click a field, then choose one of four buttons: \"No PII risk\", \"Pseudonymous\", \"Direct identifier\", \"Uncontrolled free text\"\n- Toggle \"Storage location\" with two settings, \"Full LRS\" and \"LRS-Lite browser\", that changes which extra risks are listed under the statement\n- Button \"Check my answers\"\n\nBehavior: the sim colors each field green when the learner's class matches, amber when it is defensible but differs, and red otherwise, and shows a one-sentence reason. The storage toggle adds the shared-device risk for LRS-Lite.\n\nResponsive design: the canvas width follows the container width on every window resize, and long field values wrap or truncate with a tooltip at narrow widths.\n\nImplementation: p5.js with createButton and createRadio controls. Include a describe() call listing each field and its current classification."
+}

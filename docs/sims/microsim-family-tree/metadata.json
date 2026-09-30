@@ -1,0 +1,120 @@
+{
+  "title": "MicroSim Family Tree",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Learning Objects",
+    "Interactive Simulation",
+    "Instrumented MicroSim",
+    "xAPI"
+  ],
+  "description": "A vis-network diagram that shows how a learning object, an interactive simulation, a MicroSim and an instrumented MicroSim specialize one another, with a quiz that asks learners to place unlabeled examples on the right level.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/microsim-family-tree/",
+  "canvasHeight": 520,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Kinds of learning objects and the property that distinguishes each",
+    "learningObjectives": [
+      "The learner will classify an example as a learning object, an interactive simulation, a MicroSim, or an instrumented MicroSim, by identifying the property that distinguishes each level."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "classify",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Definitions of learning object and interactive simulation (Chapter 1)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 520
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)",
+      "vis-network 9.1.9 CSS for navigation buttons"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Info panel is an aria-live region; node colors are paired with text labels"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "quiz-btn",
+        "type": "button",
+        "label": "Quiz me / Explore",
+        "purpose": "Hide the box labels and start a four-example classification quiz, or return to explore mode"
+      },
+      {
+        "id": "next-btn",
+        "type": "button",
+        "label": "Next example",
+        "purpose": "Advance the quiz after a correct placement"
+      },
+      {
+        "id": "network-nodes",
+        "type": "clickable nodes",
+        "label": "Four level boxes",
+        "purpose": "Show a definition, an example and a near miss (explore) or place the example (quiz)"
+      },
+      {
+        "id": "network-edges",
+        "type": "hover tooltips",
+        "label": "Arrows",
+        "purpose": "Show the property each level adds"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Concept classification with near-miss examples",
+    "interactionPattern": "Network explorer with click-to-inspect and a placement quiz",
+    "keyQuestions": [
+      "What property does a MicroSim add to an interactive simulation?",
+      "Is a video with a metadata record an interactive simulation?",
+      "Why is every instrumented MicroSim also a learning object?"
+    ],
+    "commonMisconceptions": [
+      "Any animation counts as a simulation",
+      "Page-view analytics make a MicroSim instrumented",
+      "Any interactive program is a MicroSim"
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy in the placement quiz",
+      "Naming the missing property for a near miss"
+    ]
+  },
+  "search": {
+    "tags": [
+      "learning object",
+      "interactive simulation",
+      "MicroSim",
+      "instrumented MicroSim",
+      "xAPI",
+      "classification"
+    ],
+    "visualizationType": [
+      "diagram",
+      "network"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim"
+}

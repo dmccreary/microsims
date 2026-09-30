@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Metadata Section Explorer using vis-network</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="toolbar">
+            <span id="app-title">Metadata Section Explorer</span>
+            <label id="required-label" for="required-only">
+                <input type="checkbox" id="required-only" aria-label="Show required fields only">
+                Required fields only
+            </label>
+            <button id="quiz-btn" type="button" aria-label="Start or stop the section quiz">Quiz me</button>
+            <button id="collapse-btn" type="button" aria-label="Collapse all sections and show the whole diagram">Collapse all</button>
+        </div>
+        <div id="stage">
+            <div id="network" role="application"
+                 aria-label="Network diagram of the H-Bridge metadata.json: a microsim root node with five required section nodes and three optional section nodes. Click a section to expand its fields."></div>
+            <div id="infobox" aria-live="polite" aria-label="Details for the selected node"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+    <script src="metadata-section-explorer.js"></script>
+</body>
+</html>

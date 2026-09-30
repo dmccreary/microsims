@@ -118,6 +118,10 @@ The reason for this layering is scope. A person can change one setting for an en
 
 #### Diagram: Policy Precedence Resolver
 
+<iframe src="../../sims/policy-precedence-resolver/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Policy Precedence Resolver MicroSim Fullscreen](../../sims/policy-precedence-resolver/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Policy Precedence Resolver</summary>
 Type: microsim
@@ -210,6 +214,10 @@ Two details recur in practice. Name the instance `lrs`, not `x`, since p5.js ske
     Do not trust a read-through to catch a missing guard. Run `check-no-runtime.py --book . <sim-name>`, which blocks the five runtime files, loads the MicroSim, clicks its buttons and fails on any uncaught error.
 
 #### Diagram: Guarded Call Runtime Toggle
+
+<iframe src="../../sims/guarded-call-runtime-toggle/main.html" width="100%" height="722px" scrolling="no"></iframe>
+
+[Run the Guarded Call Runtime Toggle MicroSim Fullscreen](../../sims/guarded-call-runtime-toggle/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Guarded Call Runtime Toggle</summary>

@@ -1,0 +1,76 @@
+{
+  "title": "Star Rating Comparison Table",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Instructional Design; Data Presentation",
+  "description": "Interactive HTML and CSS comparison table of five MicroSim libraries with color-coded star ratings, difficulty badges, row tooltips and two weight sliders that compute and sort a weighted score, so learners can judge which library best fits a stated need. Ratings are invented illustrations.",
+  "date": "2026-09-30",
+  "type": "Interactive Table",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Star rating comparison tables and weighted criteria",
+    "learningObjectives": [
+      "The learner will judge which of several items best fits a stated need, by comparing star ratings, badges and tooltip descriptions across weighted criteria."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Reading a star rating table",
+      "Weighted averages"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "HTML/CSS/JavaScript",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Stated need"},
+      {"type": "slider", "label": "Weight: Ease of use", "min": 0, "max": 5, "step": 1},
+      {"type": "slider", "label": "Weight: Interactivity", "min": 0, "max": 5, "step": 1},
+      {"type": "button", "label": "Sort by weighted score"},
+      {"type": "button", "label": "Reset order"},
+      {"type": "checkbox", "label": "Show numeric ratings"}
+    ]
+  },
+  "simulation": {
+    "model": "Weighted average of two ordinal ratings",
+    "variables": ["ease of use rating", "interactivity rating", "ease weight", "interactivity weight"],
+    "equations": ["score = (wE * ease + wI * interactivity) / (wE + wI)"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Evaluation against weighted criteria with justification",
+    "interactionPattern": "Weight, sort, inspect tooltips and badges, judge",
+    "keyQuestions": [
+      "Which criterion matters more for this stated need, and by how much?",
+      "Would you still choose the top-ranked item after reading its badge and description?"
+    ],
+    "commonMisconceptions": [
+      "The highest star total is always the best choice, regardless of the need.",
+      "A weighted score is objective, although the weights are a judgment."
+    ],
+    "assessmentOpportunities": [
+      "Choose weights for a new need and justify the selected library",
+      "Explain a limitation of star ratings"
+    ]
+  },
+  "chapter": "07-charts-plots-and-tables"
+}

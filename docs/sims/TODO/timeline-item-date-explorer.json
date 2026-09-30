@@ -1,0 +1,15 @@
+{
+  "sim_id": "timeline-item-date-explorer",
+  "diagram_name": "Timeline Item and Date Explorer",
+  "chapter_number": 9,
+  "chapter_title": "Timelines and Maps",
+  "chapter_dir": "09-timelines-and-maps",
+  "chapter_rel_dir": "chapters/09-timelines-and-maps",
+  "library": "vis-timeline",
+  "bloom_level": "Apply",
+  "bloom_verb": "Use",
+  "learning_objective": "The learner will use the JSON event format to place events on a timeline and will identify how month numbering and group values change what is displayed.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** timeline-item-date-explorer<br/>\n**Library:** vis-timeline<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: use): The learner will use the JSON event format to place events on a timeline and will identify how month numbering and group values change what is displayed.\n\nLayout: a timeline region (height 300 pixels) above a detail panel, above a control region.\n\nData: eight events in the template's JSON format across three groups, with a mix of year-only, year-and-month and full dates. Use invented, clearly labeled sample events about a fictional course schedule, not real history.\n\nInteractions:\n\n- Hover an item to show its `notes` text as a tooltip.\n- Click an item to show its headline, formatted date and description in the detail panel.\n- Filter buttons \"All\", and one per group, clear and re-add matching items.\n- A checkbox \"Show month numbering bug\" rebuilds the dates without subtracting 1 from the month, so the learner sees events shift by one month, with a caption explaining why.\n- A text field lets the learner edit one event's `month` value (1 to 12) and press \"Update\" to see the item move.\n\nControls for navigation: buttons for pan left, pan right, zoom in, zoom out and \"Fit All\", because wheel zoom is disabled (see the scroll-zoom section).\n\nResponsive design: the timeline width is 100 percent of the container, listens for window resize events, and stacks the detail panel below the axis on narrow screens.\n\nImplementation: vis-timeline 7.7.3 from a CDN, with the data in a local `data.json` and styling in `style.css`."
+}

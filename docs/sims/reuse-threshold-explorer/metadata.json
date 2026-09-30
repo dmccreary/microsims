@@ -1,0 +1,135 @@
+{
+  "title": "Reuse Threshold Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Similarity Search",
+    "Reuse",
+    "Thresholds",
+    "Classification Error"
+  ],
+  "description": "A p5.js explorer of the reuse and template thresholds used by find-similar-templates.py in reuse mode. Using only the score ranges and the Coulomb's law probe reported in the tool's README, learners move both thresholds, see which parts of each range land in the wrong band, and weigh missed reuse against false reuse.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/reuse-threshold-explorer/",
+  "canvasHeight": 675,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Choosing similarity thresholds for reuse-before-build",
+    "learningObjectives": [
+      "The learner will judge where the reuse and template thresholds should sit by moving them and observing which documented example scores are misclassified, and will justify why a conservative reuse threshold trades missed reuse for fewer false reuse."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Similarity search and reuse before build (Chapter 15)",
+      "False positives and false negatives"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 675
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Native sliders, button and checkbox; misclassified parts are marked by an outline and listed in words with check and cross marks"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "reuseSlider",
+        "type": "slider",
+        "label": "Reuse threshold",
+        "min": 0.6,
+        "max": 0.9,
+        "step": 0.01,
+        "default": 0.75,
+        "purpose": "Scores at or above it are sent to reuse"
+      },
+      {
+        "id": "templateSlider",
+        "type": "slider",
+        "label": "Template threshold",
+        "min": 0.4,
+        "max": 0.75,
+        "step": 0.01,
+        "default": 0.6,
+        "purpose": "Scores at or above it (and below reuse) are sent to template"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset to defaults",
+        "purpose": "Return to 0.75 and 0.60"
+      },
+      {
+        "id": "misCheckbox",
+        "type": "checkbox",
+        "label": "Show misclassified",
+        "purpose": "Outline and list the parts of each range that fall in the wrong band"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Evaluate a decision rule against documented evidence, then justify a choice",
+    "interactionPattern": "Threshold explorer with error readout",
+    "keyQuestions": [
+      "Which reuse thresholds separate the documented same-concept and related ranges?",
+      "Why is a false reuse costlier than a missed reuse?",
+      "How much evidence stands behind the reported ranges?"
+    ],
+    "commonMisconceptions": [
+      "A higher threshold is always safer",
+      "A similarity score is a verdict rather than a distance",
+      "The bands have been validated against teachers' judgments"
+    ],
+    "assessmentOpportunities": [
+      "Naming the clean interval for the reuse threshold",
+      "Classifying each misrouting by error type",
+      "Written justification of a threshold choice"
+    ]
+  },
+  "search": {
+    "tags": [
+      "reuse before build",
+      "similarity search",
+      "thresholds",
+      "find-similar-templates",
+      "false reuse",
+      "missed reuse",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "chart",
+      "simulation"
+    ]
+  },
+  "chapter": "15-metadata-search-and-reuse",
+  "dataSources": [
+    "search-microsims repository, src/find-similar-templates/README.md (thresholds and score ranges, recalibrated 2026-07-15)",
+    "search-microsims repository, src/find-similar-templates/find-similar-templates.py (comment on keeping REUSE_THRESHOLD conservative)"
+  ]
+}

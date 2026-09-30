@@ -1,0 +1,144 @@
+{
+  "title": "From Interaction to Mastery Prediction",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "Knowledge Tracing",
+    "xAPI",
+    "Evidence Stream",
+    "Mastery Prediction"
+  ],
+  "description": "A p5.js step-through infographic of the six stages from a learner's action to a mastery prediction (action, xAPI statement, per-concept evidence stream, filter, BKT model, estimate and prediction), in which an assessment answer raises the estimate while a slider drag stops at the filter.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/evidence-stream-to-prediction-pipeline/",
+  "canvasHeight": 620,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The pipeline from learner interaction to mastery estimate and prediction",
+    "learningObjectives": [
+      "The learner will explain what enters and leaves each stage between a learner's action and a mastery prediction, and identify which stage discards exposure evidence."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "The three MicroSim verbs and the evidence classes (Chapter 16)",
+      "A mastery estimate as a probability (Chapter 18)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Radio buttons and buttons drive the step-through; stage cards are also reached by stepping; stopped events are marked in words and with a cross, not color alone"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "stages",
+        "type": "clickable canvas boxes",
+        "label": "Six pipeline stages",
+        "purpose": "Show a stage's definition, input, output and example"
+      },
+      {
+        "id": "eventRadio",
+        "type": "radio",
+        "label": "Send",
+        "options": [
+          "Assessment answer",
+          "Slider drag"
+        ],
+        "purpose": "Choose and send a sample event"
+      },
+      {
+        "id": "stepButton",
+        "type": "button",
+        "label": "Send event / Next stage / Send another",
+        "purpose": "Move the sample event one stage along the chain"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Clear the stream and return the estimate to 0.30"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through worked example with concrete data at every stage",
+    "interactionPattern": "Click-to-inspect stages plus a step-through token for two contrasting events",
+    "keyQuestions": [
+      "What enters and what leaves each stage?",
+      "Which stage discards exposure evidence, and why?",
+      "How does one correct answer change the estimate and the prediction?"
+    ],
+    "commonMisconceptions": [
+      "Slider drags and page time raise a mastery estimate",
+      "The estimate is the same thing as mastery",
+      "Every statement in the stream reaches the model"
+    ],
+    "assessmentOpportunities": [
+      "Writing the input and output of each stage",
+      "Explaining why the slider drag stops at the filter"
+    ]
+  },
+  "search": {
+    "tags": [
+      "knowledge tracing",
+      "BKT",
+      "evidence stream",
+      "mastery prediction",
+      "xAPI",
+      "filter",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "infographic",
+      "diagram",
+      "simulation"
+    ]
+  },
+  "chapter": "18-mastery-prediction-and-knowledge-tracing",
+  "simulation": {
+    "model": "Standard Bayesian knowledge tracing (conditioning then learning step)",
+    "variables": [
+      "P(L)",
+      "attempts",
+      "exposure events"
+    ],
+    "equations": [
+      "P(L|correct) = P(L)(1-p_s) / (P(L)(1-p_s) + (1-P(L))p_g)",
+      "P(L_next) = P(L|evidence) + (1 - P(L|evidence)) p_t",
+      "P(correct next) = P(L)(1-p_s) + (1-P(L))p_g"
+    ],
+    "assumptions": [
+      "Illustrative parameters P(L0)=0.30, p_t=0.15, p_g=0.20, p_s=0.10, not fitted to data",
+      "The sample answer is always correct"
+    ]
+  }
+}

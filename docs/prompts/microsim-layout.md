@@ -48,4 +48,4 @@
 
     Implementation: Static diagram or simple p5.js visualization
 
-[MicroSim Layout](../sims/microsim-layout/index.md)
+[MicroSim Layout](../microsims-old/microsim-layout/index.md)

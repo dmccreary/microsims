@@ -1,0 +1,176 @@
+{
+  "title": "Readability Repair Bench",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Diagram Readability",
+    "Accessibility",
+    "Information Design",
+    "Flowcharts"
+  ],
+  "description": "A p5.js MicroSim in which learners critique a deliberately cluttered 20-node flowchart against seven readability standards (text size, contrast, label length, size, color use, interaction, layout), name each flaw by clicking it, and repair the diagram with five fixes whose effects depend on their order.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/diagram-readability-repair-bench/",
+  "canvasHeight": 655,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Diagram readability standards and the order of repairs",
+    "learningObjectives": [
+      "The learner will critique a cluttered diagram against the readability standards and repair it by applying fixes in order of effect."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "critique",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "The readability standards table in Chapter 8",
+      "Basic flowchart notation"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 655
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "describe() summary for screen readers; repairs are native HTML buttons; status lights also show a text status (met, violated, not checked)"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "diagram",
+        "type": "canvas-click",
+        "label": "Click a flaw",
+        "purpose": "Names the violated standard and lights its checklist item"
+      },
+      {
+        "id": "fontsBtn",
+        "type": "button",
+        "label": "Enlarge fonts",
+        "purpose": "Raise node text from 9 px to 16 px"
+      },
+      {
+        "id": "shortenBtn",
+        "type": "button",
+        "label": "Shorten labels",
+        "purpose": "Replace long labels with 2-5 word labels and move the detail into hover text"
+      },
+      {
+        "id": "contrastBtn",
+        "type": "button",
+        "label": "Fix contrast",
+        "purpose": "Replace pale yellow text with near-black text"
+      },
+      {
+        "id": "splitBtn",
+        "type": "button",
+        "label": "Split into two",
+        "purpose": "Split the 20-node diagram into two diagrams of 8 and 12 nodes"
+      },
+      {
+        "id": "symbolsBtn",
+        "type": "button",
+        "label": "Add symbols",
+        "purpose": "Pair each meaning color with a symbol and a legend"
+      },
+      {
+        "id": "beforeBtn",
+        "type": "button",
+        "label": "Show Before / Show After",
+        "purpose": "Compare the original and the repaired diagram"
+      },
+      {
+        "id": "resetBtn",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Undo all repairs and findings"
+      },
+      {
+        "id": "partBtn",
+        "type": "button",
+        "label": "Show part 1 / 2",
+        "purpose": "Switch between the two diagrams after the split"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Critique-then-repair with immediate effect feedback",
+    "interactionPattern": "Hit-region flaw finder plus rubric checklist with status lights",
+    "keyQuestions": [
+      "Which standard does each flaw violate?",
+      "Which repairs satisfy more than one standard?",
+      "Why does enlarging fonts before shortening labels gain less?"
+    ],
+    "commonMisconceptions": [
+      "Bigger text always makes a diagram more readable (not if labels no longer fit)",
+      "Color alone is enough to mark categories (some readers cannot distinguish the colors)",
+      "Shortening labels loses information (the detail moves into hover text)"
+    ],
+    "assessmentOpportunities": [
+      "Number of distinct standards the learner finds by clicking before repairing",
+      "Whether the first two repairs are the two largest-effect fixes"
+    ]
+  },
+  "search": {
+    "tags": [
+      "readability",
+      "diagram design",
+      "contrast",
+      "accessibility",
+      "flowchart",
+      "critique",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "flowchart",
+      "checklist",
+      "interactive critique"
+    ]
+  },
+  "chapter": "08-diagrams-networks-and-systems",
+  "simulation": {
+    "modelType": "Rule-based rubric (standards as a function of applied repairs)",
+    "variables": [
+      "fonts",
+      "shorten",
+      "contrast",
+      "split",
+      "symbols"
+    ],
+    "equations": [
+      "Text size = fonts; Contrast = contrast; Label length = shorten; Size = split; Color use = symbols",
+      "Interaction = shorten (detail moves into hover text, notes overlay removed)",
+      "Layout = split AND NOT (fonts AND NOT shorten)"
+    ],
+    "assumptions": [
+      "Each repair is all-or-nothing",
+      "Contrast is judged for the pale-text nodes only"
+    ],
+    "limitations": [
+      "The standards are the generator guides' recommendations, not measured results",
+      "Hover text is shown in a message box rather than a floating tooltip"
+    ]
+  }
+}

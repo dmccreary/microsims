@@ -1,0 +1,89 @@
+{
+  "title": "Accuracy Versus Base Rate Lab",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Prediction Accuracy", "Base Rate", "Baseline Forecast", "Predictive Fidelity"],
+  "description": "A Chart.js lab comparing a synthetic model's accuracy with the always-predict-the-majority baseline on seeded cohorts of 200 learners, with sliders for the base rate and the model's signal strength and a warning when the accuracy carries no evidence.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/fidelity-accuracy-base-rate-lab/",
+  "canvasHeight": 520,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "Accuracy versus the base-rate baseline",
+    "learningObjectives": [
+      "Judge whether a reported accuracy demonstrates predictive value by comparing it with the always-predict-the-majority baseline as the base rate changes."
+    ],
+    "bloomsTaxonomy": ["Evaluate"],
+    "bloomVerb": "judge",
+    "duration": "15 minutes",
+    "prerequisites": ["Prediction accuracy", "Baseline forecast", "Synthetic cohort"],
+    "concepts": ["Prediction Accuracy", "Baseline", "Synthetic Cohort", "Reporting Prediction Quality"],
+    "chapter": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 520
+    },
+    "responsive": true,
+    "dependencies": ["Chart.js 4.4.4 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "ariaLabel": true,
+      "keyboardNavigable": true,
+      "colorBlindSafePalette": "Okabe-Ito blue and orange, with legend and value labels"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "slider", "label": "Base rate of correct answers", "min": 0.10, "max": 0.90, "default": 0.635, "step": 0.005},
+      {"type": "slider", "label": "Model signal strength", "min": 0, "max": 1, "default": 1.0, "step": 0.01},
+      {"type": "button", "label": "Simulate 200 learners"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Seeded synthetic cohort with a calibrated binormal forecaster",
+    "variables": ["base rate b", "signal strength s", "separation delta = 0.924 s", "model accuracy", "baseline accuracy", "lift"],
+    "equations": [
+      "y ~ Bernoulli(b); x = z + delta/2 if y = 1, z - delta/2 if y = 0, z ~ Normal(0, 1)",
+      "forecast f = 1 / (1 + exp(-(logit(b) + delta x))); call 'correct' when f >= 0.5",
+      "baseline accuracy = max(share correct, share incorrect)"
+    ],
+    "assumptions": [
+      "All data are synthetic.",
+      "The separation 0.924 matches the chapter's synthetic BKT model in expectation (AUC about 0.743, accuracy about 0.705 at base rate 0.635).",
+      "The first cohort uses seed 177, whose draw reproduces the chapter's counts (127 and 141 of 200)."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judge claims against a baseline, then probe with parameter changes",
+    "interactionPattern": "Parameter sliders with a paired comparison chart",
+    "keyQuestions": [
+      "What would a model that knows nothing score on this cohort?",
+      "How large must the lift be before it counts as evidence?",
+      "Why can an informative model tie the baseline when success is very common?"
+    ],
+    "commonMisconceptions": [
+      "A high accuracy means the model is informative.",
+      "Accuracy can be compared across cohorts with different base rates.",
+      "A model with no lift in accuracy must have no signal."
+    ],
+    "assessmentOpportunities": [
+      "State the baseline and lift for a reported accuracy and judge it.",
+      "Rewrite an accuracy claim so it reports the baseline in the same sentence."
+    ]
+  },
+  "search": {
+    "keywords": ["accuracy", "base rate", "baseline", "majority class", "predictive fidelity", "Chart.js"]
+  }
+}

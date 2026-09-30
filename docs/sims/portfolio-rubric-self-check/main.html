@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Rubric Self-Check using Chart.js</title>
+    <style>
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; color: #1e1e1e; }
+        .app { box-sizing: border-box; height: 620px; display: flex; flex-direction: column; gap: 6px;
+               padding: 8px 10px; background: aliceblue; border: 1px solid silver; }
+        .header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; }
+        .header h1 { font-size: 20px; margin: 0; }
+        .total { font-size: 17px; font-weight: bold; }
+        .total span { color: #005aa0; }
+        .note { font-size: 13px; color: #5f5f5f; width: 100%; }
+        .body { flex: 1 1 auto; min-height: 0; display: flex; gap: 10px; }
+        .chart-wrap { position: relative; flex: 1 1 58%; min-width: 0; background: white;
+                      border: 1px solid silver; border-radius: 6px; padding: 4px; }
+        .panel { flex: 0 0 40%; display: flex; flex-direction: column; gap: 4px; background: white;
+                 border: 1px solid silver; border-radius: 6px; padding: 6px 9px; box-sizing: border-box; }
+        .row { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 6px; font-size: 13px; }
+        .row label { font-weight: bold; }
+        .row .val { font-variant-numeric: tabular-nums; min-width: 38px; text-align: right; }
+        .row input[type=range] { grid-column: 1 / span 2; width: 100%; margin: 0 0 2px 0; }
+        .row.focus label { color: #8a4f00; }
+        .row.focus { background: #fff1d6; border-radius: 4px; outline: 2px solid #e69f00; }
+        .suggest { display: flex; flex-direction: column; gap: 4px; margin-top: 2px; }
+        .suggest button { align-self: flex-start; font-size: 14px; padding: 4px 10px; }
+        .msg { font-size: 13px; line-height: 1.3; min-height: 17px; }
+        .suggest label { font-size: 13px; font-weight: bold; }
+        .suggest textarea { font-size: 13px; font-family: Arial, Helvetica, sans-serif; height: 36px; resize: none;
+                            box-sizing: border-box; width: 100%; }
+        button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #003c82; outline-offset: 2px; }
+        .sr-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+                   clip: rect(0 0 0 0); white-space: nowrap; }
+        /* narrow: sliders stack below the chart, one line per criterion */
+        @media (max-width: 640px) {
+            .body { flex-direction: column; gap: 6px; }
+            .chart-wrap { flex: 1 1 auto; min-height: 150px; }
+            .panel { flex: 0 0 auto; gap: 1px; }
+            .row { grid-template-columns: 142px 1fr 40px; font-size: 12px; }
+            .row input[type=range] { grid-column: auto; margin: 0; }
+            .row label .long { display: none; }
+            .row label .short { display: inline; }
+            .header h1 { font-size: 18px; }
+            .total { font-size: 15px; }
+        }
+        @media (min-width: 641px) {
+            .row label .short { display: none; }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="app">
+            <div class="header">
+                <h1>Rubric Self-Check</h1>
+                <div class="total" aria-live="polite">Self-rated total: <span id="total">50.0</span> / 100</div>
+                <div class="note">Self-assessment only: these ratings are your own estimates, not a grade.</div>
+            </div>
+            <div class="body">
+                <div class="chart-wrap">
+                    <canvas id="rubric-chart" role="img" aria-label="Stacked bar chart of points earned and still available for seven rubric criteria"></canvas>
+                </div>
+                <div class="panel">
+                    <div id="sliders"></div>
+                    <div class="suggest">
+                        <button type="button" id="suggest">Suggest next focus</button>
+                        <div class="msg" id="msg" aria-live="polite"></div>
+                        <label for="reason" id="reason-label">Your reason for improving it first:</label>
+                        <textarea id="reason" placeholder="Type why this criterion should come first (or why another should)."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+    <script src="portfolio-rubric-self-check.js"></script>
+</body>
+</html>

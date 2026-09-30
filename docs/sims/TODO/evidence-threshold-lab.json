@@ -1,0 +1,15 @@
+{
+  "sim_id": "evidence-threshold-lab",
+  "diagram_name": "Evidence Threshold Lab",
+  "chapter_number": 16,
+  "chapter_title": "xAPI Statements and Evidence",
+  "chapter_dir": "16-xapi-statements-and-evidence",
+  "chapter_rel_dir": "chapters/16-xapi-statements-and-evidence",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Justify",
+  "learning_objective": "The learner will justify a choice of hover, misclick and glance thresholds by observing how each changes the number and kind of statements produced from a fixed, scripted session.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** evidence-threshold-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: justify): The learner will justify a choice of hover, misclick and glance thresholds by observing how each changes the number and kind of statements produced from a fixed, scripted session.\n\nLayout: the upper region is a timeline of a scripted 60-second learner session drawn as labeled bars: eight quick hovers of 100 to 500 ms, three hovers of 700 to 1200 ms, one 120 ms run, one 40 second run, a 700 ms page visit and an answered question. The lower left region shows the resulting statement list. The bottom white region holds the sliders.\n\nControls:\n\n- Slider \"Hover threshold (ms)\" from 0 to 2000 in steps of 50, default 600\n- Slider \"Misclick threshold (ms)\" from 0 to 1000 in steps of 50, default 250\n- Slider \"Glance threshold (ms)\" from 0 to 3000 in steps of 100, default 1000\n- Checkbox \"Show statements that were filtered out\" (default off)\n- Button \"Reset to runtime defaults\"\n\nBehavior: moving a slider immediately recomputes which bars in the timeline produce statements, coloring emitted acts green and filtered acts gray. The statement list updates with the verb and object of each emitted statement, and a counter shows the total, with the answered statement highlighted as unaffected by any threshold.\n\nInteractions: hovering a bar shows its duration and the rule that admitted or removed it. Setting the hover threshold to 0 shows the flood of crossings, and setting it very high shows genuine attention being discarded, which the readout notes as a cost of an over-strict threshold.\n\nDefault state: runtime defaults, filtered acts hidden.\n\nResponsive design: the canvas width follows the container on every window resize. Sliders resize to the container width minus the label margin and remain visible at 400 pixels wide.\n\nImplementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

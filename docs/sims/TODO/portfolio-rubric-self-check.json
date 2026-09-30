@@ -1,0 +1,15 @@
+{
+  "sim_id": "portfolio-rubric-self-check",
+  "diagram_name": "Rubric Self-Check",
+  "chapter_number": 25,
+  "chapter_title": "\"Capstone: Building an Instrumented MicroSim Portfolio\"",
+  "chapter_dir": "25-capstone-building-an-instrumented-microsim-portfolio",
+  "chapter_rel_dir": "chapters/25-capstone-building-an-instrumented-microsim-portfolio",
+  "library": "Chart.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Assess",
+  "learning_objective": "The learner will assess a draft portfolio against the seven rubric criteria and justify which criterion to improve first.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** portfolio-rubric-self-check<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: assess): The learner will assess a draft portfolio against the seven rubric criteria and justify which criterion to improve first.\n\nData: the seven criteria and their point values from the rubric table. Each criterion has a self-rating slider from 0 to 100 percent, defaulting to 50.\n\nLayout: a horizontal stacked bar chart above a control region. Each bar shows points earned against points available for one criterion, with a total score displayed above the chart.\n\nInteractions: moving a slider updates the bar and the total. Hovering a bar shows the criterion's \"full credit means\" text. A button \"Suggest next focus\" highlights the criterion with the largest points still available, and a text box records the learner's reason. The ratings are self-assessments and the sim says they are not a grade.\n\nResponsive design: the chart width follows the container width on every window resize, and the sliders stack below the chart at narrow widths.\n\nImplementation: Chart.js bar chart with HTML range inputs, updating the chart data on the input event."
+}

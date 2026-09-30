@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Clickable Detail Matrix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="head">
+            <h1 id="matrix-title">Learning Theory Matrix</h1>
+            <span class="subtitle">Four invented theories. Click any cell to read its explanation and example.</span>
+        </div>
+
+        <div class="toolbar">
+            <label class="toggle">
+                <input type="checkbox" id="emphasis-toggle" checked>
+                <span class="toggle-track" aria-hidden="true"><span class="toggle-thumb"></span></span>
+                Show emphasis colors
+            </label>
+            <button type="button" id="random-btn">Random cell</button>
+            <span class="score" id="score" aria-live="polite"></span>
+        </div>
+
+        <div class="matrix-wrapper" id="matrix-wrapper">
+            <table id="matrix">
+                <thead><tr id="matrix-head"></tr></thead>
+                <tbody id="matrix-body"></tbody>
+            </table>
+        </div>
+
+        <div class="legend" id="legend"></div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="detail-panel" id="detail-panel" role="dialog" aria-modal="true"
+           aria-labelledby="detail-row" aria-hidden="true">
+        <button type="button" class="close-btn" id="close-btn" aria-label="Close details">&times;</button>
+        <h2 id="detail-row"></h2>
+        <h3 id="detail-column"></h3>
+        <div class="value-line">Summary: <strong id="detail-value"></strong></div>
+
+        <div class="predict-box" id="predict-box" hidden>
+            <p class="predict-q">Predict first: what emphasis does this cell have?</p>
+            <div class="predict-options" id="predict-options"></div>
+        </div>
+        <div class="predict-result" id="predict-result" hidden></div>
+
+        <div id="detail-body">
+            <div class="emph-line">Emphasis: <span class="emph-badge" id="detail-emphasis"></span></div>
+            <div class="description" id="detail-description"></div>
+            <div class="example">
+                <div class="example-label">Example</div>
+                <div class="example-text" id="detail-example"></div>
+            </div>
+        </div>
+    </aside>
+
+    <script src="clickable-detail-matrix.js"></script>
+</body>
+</html>

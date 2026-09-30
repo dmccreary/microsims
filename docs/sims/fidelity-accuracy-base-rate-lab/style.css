@@ -1,0 +1,73 @@
+/* Accuracy Versus Base Rate Lab - fills a fixed-height iframe (100vh).
+   The chart takes whatever height remains after the caption and the controls. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+body { background: aliceblue; }
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+}
+.chart-box {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    margin: 6px 10px 0 10px;
+    background: white;
+    border: 1px solid #d6dde6;
+    border-radius: 8px;
+}
+/* the canvas lives in an absolutely positioned box so it can never push the flex layout */
+.chart-inner {
+    position: absolute;
+    inset: 6px;
+}
+.caption {
+    padding: 6px 12px 0 12px;
+    font-size: 16px;
+    line-height: 1.35;
+}
+.message {
+    min-height: 26px;
+    padding: 2px 12px 4px 12px;
+    font-size: 15px;
+    line-height: 1.35;
+}
+.message.warn {
+    color: #8a3300;
+    font-weight: bold;
+}
+.message.warn .detail { font-weight: normal; color: #5a2a00; }
+.message.ok { color: #1f4e8c; }
+
+.controls {
+    background: white;
+    border-top: 1px solid silver;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 22px;
+    font-size: 15px;
+}
+.ctrl { display: flex; flex-direction: column; gap: 2px; min-width: 220px; flex: 1; }
+.ctrl input[type=range] { width: 100%; }
+.ctrl-button { flex: 0 0 auto; min-width: 0; }
+.controls button { font-size: 15px; padding: 5px 12px; }
+
+/* below tablet width the controls stack vertically */
+@media (max-width: 767px) {
+    .controls { flex-direction: column; align-items: stretch; gap: 4px; padding: 6px 12px; }
+    .ctrl { flex-direction: row; align-items: center; gap: 10px; min-width: 0; }
+    .ctrl label { flex: 0 0 auto; width: 250px; }
+    .ctrl input[type=range] { flex: 1; width: auto; min-width: 80px; }
+    .ctrl-button { align-self: flex-start; }
+    .caption { font-size: 15px; }
+}
+@media (max-width: 480px) {
+    .ctrl { flex-direction: column; align-items: stretch; gap: 0; }
+    .ctrl label { width: auto; }
+    .caption, .message { font-size: 14px; }
+}

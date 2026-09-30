@@ -1,0 +1,70 @@
+/* AI Generation Pipeline - fixed total height (CANVAS_HEIGHT 500):
+   title bar 36px + diagram panel (flex) + infobox 150px below the diagram */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+main { display: block; }
+
+#app {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+    background: aliceblue;
+    overflow: hidden;
+}
+#titlebar {
+    flex: 0 0 36px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 12px 0 12px;
+}
+#title { font-size: 19px; font-weight: bold; }
+#subtitle { font-size: 14px; color: dimgray; }
+
+#diagram-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    overflow: hidden;       /* never scroll inside the iframe */
+}
+#diagram { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+#diagram svg { max-width: 100%; max-height: 100%; height: auto; }
+
+#infobox {
+    flex: 0 0 150px;
+    background: white;
+    border-top: 1px solid silver;
+    padding: 9px 14px;
+    font-size: 15px;
+    line-height: 1.4;
+    overflow: hidden;
+}
+#infobox h3 { margin: 0 0 4px 0; font-size: 17px; }
+#infobox p { margin: 0 0 5px 0; }
+#infobox .hint { color: dimgray; }
+#infobox .label { font-weight: bold; }
+.swatch {
+    display: inline-block; width: 13px; height: 13px; border-radius: 3px;
+    vertical-align: -1px; margin-right: 6px; border: 1px solid #333;
+}
+
+/* Node and edge interaction styles */
+#diagram .node { cursor: pointer; }
+#diagram .node.selected rect, #diagram .node.selected path, #diagram .node.selected polygon {
+    stroke: gold !important; stroke-width: 4px !important;
+}
+#diagram path.flowchart-link { transition: stroke 0.15s, stroke-width 0.15s, opacity 0.15s; }
+#diagram path.flowchart-link.hl { stroke: #d9480f !important; stroke-width: 4px !important; opacity: 1 !important; }
+#diagram path.flowchart-link.dim { opacity: 0.25; }
+#diagram .edgeLabel.hl .label, #diagram .edgeLabel.hl span { color: #d9480f !important; font-weight: bold; }
+#diagram .feedback-hit { cursor: pointer; }
+
+@media (max-width: 520px) {
+    #subtitle { display: none; }
+    #infobox { flex-basis: 178px; font-size: 14px; padding: 7px 10px; line-height: 1.3; }
+    #infobox h3 { font-size: 16px; }
+}

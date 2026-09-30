@@ -1,0 +1,90 @@
+{
+  "title": "AUC Pair Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["AUC", "ROC Curve", "Discrimination", "Predictive Fidelity"],
+  "description": "A p5.js explorer that shows 40 synthetic learners sorted by forecast beside their ROC curve, moves a cutoff along both, and draws random successful-unsuccessful pairs whose running win fraction converges on the AUC.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/fidelity-auc-pair-explorer/",
+  "canvasHeight": 580,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "AUC as a pairwise ranking probability",
+    "learningObjectives": [
+      "Explain AUC as the probability that a random successful learner outranks a random unsuccessful one, by connecting the ROC curve to a live count of correct pairs."
+    ],
+    "bloomsTaxonomy": ["Understand"],
+    "bloomVerb": "explain",
+    "duration": "15 minutes",
+    "prerequisites": ["Discrimination", "True-positive and false-positive rates"],
+    "concepts": ["AUC", "Discrimination", "Synthetic Cohort", "Prediction Accuracy"],
+    "chapter": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 580
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "colorBlindSafePalette": "Okabe-Ito bluish green circles (correct) and orange squares (incorrect)"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "slider", "label": "Cutoff", "min": 0, "max": 1, "default": 0.5, "step": 0.01},
+      {"type": "slider", "label": "Signal strength", "min": 0, "max": 1, "default": 0.6, "step": 0.01},
+      {"type": "button", "label": "Draw random pair"},
+      {"type": "button", "label": "Draw 100 pairs"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Seeded synthetic cohort with pairwise AUC and ROC computed in the sketch",
+    "variables": ["signal strength", "separation delta = 1.516 x signal", "cutoff", "true-positive rate", "false-positive rate", "AUC"],
+    "equations": [
+      "score = z + delta/2 (correct) or z - delta/2 (incorrect), z from seeded +z/-z normal pairs",
+      "forecast = 1 / (1 + exp(-(logit(0.6) + score)))",
+      "AUC = (wins + 0.5 ties) / (24 x 16) over all green-orange pairs"
+    ],
+    "assumptions": [
+      "All data are synthetic: 24 correct and 16 incorrect held-out answers.",
+      "Seed 6 gives AUC 0.742 at signal 0.6; the symmetric draws give exactly 0.5 at signal 0.",
+      "Forecasts are rank scores and are not calibrated."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Two representations of one quantity, linked by live counts",
+    "interactionPattern": "Step-through pair draws with a convergence plot and a linked cutoff",
+    "keyQuestions": [
+      "How often does a random successful learner get the higher forecast?",
+      "Why does the running fraction of pairs won approach the area under the ROC curve?",
+      "Why does moving the cutoff not change the AUC?"
+    ],
+    "commonMisconceptions": [
+      "AUC is the accuracy at the best cutoff.",
+      "An AUC of 0.5 means half the forecasts are right.",
+      "A model with a high AUC must be well calibrated."
+    ],
+    "assessmentOpportunities": [
+      "Explain an AUC value in plain words to a teacher.",
+      "Explain why signal 0 gives an AUC of 0.5."
+    ]
+  },
+  "search": {
+    "keywords": ["AUC", "ROC", "discrimination", "pairwise ranking", "synthetic cohort", "p5.js"]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "title": "Rubric Self-Check",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Capstone Portfolio",
+    "Rubrics",
+    "Self-Assessment",
+    "MicroSim Quality"
+  ],
+  "description": "A Chart.js horizontal stacked bar chart of the seven capstone rubric criteria from Chapter 25 (100 points). Self-rating sliders set points earned against points still available, a total appears above the chart, hovering a bar shows what full credit means, and Suggest next focus highlights the criterion with the most points still available; a text box records the learner's reason. The ratings are a self-assessment, not a grade.",
+  "date": "2026-09-30",
+  "type": "Interactive Chart",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/portfolio-rubric-self-check/",
+  "canvasHeight": 620,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Self-assessing a capstone portfolio against its rubric",
+    "learningObjectives": [
+      "The learner will assess a draft portfolio against the seven rubric criteria and justify which criterion to improve first."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "assess",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Capstone brief, milestones and rubric (Chapter 25)",
+      "A draft portfolio or the chapter's worked portfolio plan"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native labeled range inputs with aria-valuetext giving percent and points; the chart canvas has role=img and an aria-label with every criterion's points; the total and the suggestion are aria-live regions; the suggested criterion is marked by a thick outline and a highlighted slider row as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "rate-0..rate-6",
+        "type": "range",
+        "label": "One self-rating slider per criterion",
+        "range": "0-100 percent, step 5, default 50",
+        "purpose": "Set points earned for the criterion"
+      },
+      {
+        "id": "suggest",
+        "type": "button",
+        "label": "Suggest next focus",
+        "purpose": "Highlight the criterion with the most points still available"
+      },
+      {
+        "id": "reason",
+        "type": "textarea",
+        "label": "Your reason for improving it first",
+        "purpose": "Record the learner's justification"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Weighted rubric score",
+    "variables": [
+      "self-rating per criterion (0-100%)",
+      "points per criterion"
+    ],
+    "equations": [
+      "earned = points x rating / 100",
+      "still available = points - earned",
+      "total = sum of earned"
+    ],
+    "assumptions": [
+      "Ratings are the learner's own estimates, not a grade"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Self-assessment against explicit criteria with prioritization and justification",
+    "interactionPattern": "Rating sliders driving a stacked bar chart, with a suggestion and a written reason",
+    "keyQuestions": [
+      "What evidence supports each rating?",
+      "Which criterion has the most points still available?",
+      "Which improvement do other criteria depend on?"
+    ],
+    "commonMisconceptions": [
+      "The self-rated total predicts the grade",
+      "The criterion with the most points available is always the right first fix",
+      "An impressive fidelity number earns more credit than an honest limits sentence"
+    ],
+    "assessmentOpportunities": [
+      "Evidence-backed ratings",
+      "A written reason that uses points and dependency"
+    ]
+  },
+  "search": {
+    "tags": [
+      "rubric",
+      "self-assessment",
+      "capstone",
+      "portfolio",
+      "stacked bar chart",
+      "Chart.js"
+    ],
+    "visualizationType": [
+      "chart",
+      "bar-chart"
+    ]
+  },
+  "chapter": "25-capstone-building-an-instrumented-microsim-portfolio"
+}

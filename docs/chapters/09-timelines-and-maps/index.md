@@ -87,6 +87,10 @@ Before you read the specification, note the terms it uses. A *detail panel* is t
 
 #### Diagram: Timeline Item and Date Explorer
 
+<iframe src="../../sims/timeline-item-date-explorer/main.html" width="100%" height="652px" scrolling="no"></iframe>
+
+[Run the Timeline Item and Date Explorer MicroSim Fullscreen](../../sims/timeline-item-date-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Timeline Item and Date Explorer</summary>
 Type: microsim
@@ -140,6 +144,10 @@ Before the next specification, define its control terms. A *layer control* is a 
 
 #### Diagram: Marker, Popup and Tile Source Map
 
+<iframe src="../../sims/marker-popup-tile-map/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[Run the Marker, Popup and Tile Source Map MicroSim Fullscreen](../../sims/marker-popup-tile-map/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Marker, Popup and Tile Source Map</summary>
 Type: map
@@ -188,6 +196,10 @@ A **choropleth map** shades each region according to a data value, so the learne
 A worked example of that decision: with the template thresholds, a region valued 61 and one valued 80 share a color, while 80 and 81 differ. If the learning goal is to compare regions near 80, you would move a threshold there. The template's own thresholds are a starting point for illustration, so treat the values in any sample data as placeholders and cite a real source before publishing real statistics.
 
 #### Diagram: Choropleth Threshold Lab
+
+<iframe src="../../sims/choropleth-threshold-lab/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Choropleth Threshold Lab MicroSim Fullscreen](../../sims/choropleth-threshold-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Choropleth Threshold Lab</summary>

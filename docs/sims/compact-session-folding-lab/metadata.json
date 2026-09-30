@@ -1,0 +1,163 @@
+{
+  "title": "Compact Session Folding Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "xAPI",
+    "LRS-Lite",
+    "Producer-Side Summarization"
+  ],
+  "description": "Drive a small practice MicroSim and watch the same interactions arrive as separate statements in Full mode but fold into one session summary in Compact mode, while checked answers pass through unfolded.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/compact-session-folding-lab/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Compact mode session summaries and loss-of-focus events",
+    "learningObjectives": [
+      "The learner will distinguish which interactions Compact mode folds into a session summary, which pass through as their own statements, and which Loss of Focus Event ends the session."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "xAPI verbs interacted, experienced and answered (Chapter 16)",
+      "The xAPI runtime and deadbands (Chapter 17)",
+      "Full mode and Compact mode (Chapter 22)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native p5 DOM controls (slider, buttons, radio) are keyboard operable; describe() provides a screen-reader description. Statement tooltips need a pointer."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Gravity",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 5,
+        "note": "deadband of 1 unit: every step is one Full-mode statement"
+      },
+      {
+        "type": "button",
+        "label": "Start / Pause"
+      },
+      {
+        "type": "radio",
+        "label": "Answer",
+        "options": [
+          "less time",
+          "more time"
+        ]
+      },
+      {
+        "type": "button",
+        "label": "Check"
+      },
+      {
+        "type": "button",
+        "label": "Hide tab",
+        "action": "end_reason tab-hidden"
+      },
+      {
+        "type": "button",
+        "label": "Scroll away 10 s",
+        "action": "end_reason scrolled-away"
+      },
+      {
+        "type": "button",
+        "label": "Sit idle 90 s",
+        "action": "end_reason idle (ignored while running)"
+      },
+      {
+        "type": "button",
+        "label": "Click Done",
+        "action": "end_reason explicit-end"
+      },
+      {
+        "type": "button",
+        "label": "Reset lab"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Side-by-side step-through with concrete statements",
+    "keyQuestions": [
+      "Which events fold into the session and which pass through?",
+      "Why does an answer never change statements_represented?",
+      "Why does Idle not fire while the sim is running?"
+    ],
+    "commonMisconceptions": [
+      "That Compact mode drops answers",
+      "That leaving the page emits something extra in Full mode",
+      "That a session opened only by an answer emits nothing"
+    ],
+    "assessmentOpportunities": [
+      "Predict both statement counts for a described sequence",
+      "Name the loss-of-focus event that closed a session"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "Compact mode",
+      "Full mode",
+      "session summary statement",
+      "statements_represented",
+      "loss of focus event",
+      "answers never folded",
+      "LRS-Lite"
+    ]
+  },
+  "chapter": "22-lrs-lite-compact-summaries-and-browser-storage",
+  "simulation": {
+    "modelType": "event-driven model of the compact session runtime",
+    "variables": [
+      "interaction_count",
+      "controls (n, min, max)",
+      "runs",
+      "statements_represented",
+      "end_reason"
+    ],
+    "equations": [
+      "statements_represented = interaction_count + runs",
+      "answers never change statements_represented"
+    ],
+    "assumptions": [
+      "A run still in progress is closed (and emitted in Full mode) when a focus-loss signal ends the session",
+      "end_reason strings other than scrolled-away are illustrative"
+    ],
+    "limitations": [
+      "Timing (active_ms, session_ms, duration) is not modelled",
+      "Only one practice control of each kind"
+    ]
+  }
+}

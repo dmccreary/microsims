@@ -1,0 +1,135 @@
+{
+  "title": "PII Surface Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Student Privacy",
+    "Personally Identifiable Information",
+    "xAPI",
+    "Learning Record Store",
+    "Learning Analytics Ethics"
+  ],
+  "description": "A p5.js MicroSim that shows an illustrative xAPI statement one field per box. Learners classify each field as no PII risk, pseudonymous, direct identifier or uncontrolled free text, check their classes against Chapter 24's analysis (green match, amber defensible, red mismatch, each with a one-sentence reason), and compare the extra risks of Full LRS and LRS-Lite browser storage.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/pii-surface-explorer/",
+  "canvasHeight": 790,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The PII surface of an xAPI statement",
+    "learningObjectives": [
+      "The learner will classify each field of an example xAPI statement as no PII risk, pseudonymous, direct identifier or uncontrolled free text, and explain what protects or exposes it."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "classify",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The parts of an xAPI statement (Chapter 16)",
+      "The PII surface and pseudonymous versus anonymous (Chapter 24)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 790
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Fields can be selected with the arrow keys while the statement has focus and classified with the buttons or keys 1-4; verdicts use a symbol and a word as well as color; describe() lists every field and its current class; changes are announced in an aria-live region"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "fieldBoxes",
+        "type": "clickable canvas rows",
+        "label": "Statement fields",
+        "purpose": "Select the field to classify (click, or arrow keys when focused)"
+      },
+      {
+        "id": "classButtons",
+        "type": "button",
+        "label": "No PII risk / Pseudonymous / Direct identifier / Uncontrolled free text",
+        "purpose": "Assign a class to the selected field"
+      },
+      {
+        "id": "checkButton",
+        "type": "button",
+        "label": "Check my answers",
+        "purpose": "Color each classified field and show its reason"
+      },
+      {
+        "id": "storageRadio",
+        "type": "radio",
+        "label": "Storage location",
+        "purpose": "List the extra risks of Full LRS or LRS-Lite browser storage"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Rule-based comparison of learner classifications with the chapter's analysis",
+    "variables": [
+      "class chosen for each of eight fields",
+      "storage location"
+    ],
+    "assumptions": [
+      "The statement and its values are fictional",
+      "The context.grouping and context.registration fields were added to the chapter's example for this exercise",
+      "Classes are the chapter's analysis, not a legal determination"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification with graded feedback (match, defensible, mismatch) and explanations",
+    "interactionPattern": "Select a field, assign a class, check against an answer key",
+    "keyQuestions": [
+      "Which single field brings personal identity into the statement?",
+      "Why is free text the least controllable part of the surface?",
+      "What new risk appears when statements are stored in the browser?"
+    ],
+    "commonMisconceptions": [
+      "A code such as student-4471 is anonymous",
+      "A pseudonym is the same as anonymity",
+      "Pseudonymizing the actor removes every identity from a stored statement"
+    ],
+    "assessmentOpportunities": [
+      "Number of fields matched or defended",
+      "Written reason for each amber field",
+      "Comparison of Full LRS and LRS-Lite risks"
+    ]
+  },
+  "search": {
+    "tags": [
+      "PII",
+      "privacy",
+      "pseudonymous",
+      "xAPI",
+      "FERPA",
+      "LRS-Lite",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "interactive-demo",
+      "classifier"
+    ]
+  },
+  "chapter": "24-pedagogy-accessibility-and-ethics"
+}

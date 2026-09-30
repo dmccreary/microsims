@@ -1,0 +1,119 @@
+{
+  "title": "Prediction Trust Ladder",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Trustworthy Prediction",
+    "Mastery Prediction",
+    "Evidence Standards",
+    "Learning Analytics"
+  ],
+  "description": "A Mermaid ladder of five evidence rungs for mastery-prediction claims (hoped for, designed, simulated, measured once, replicated and audited), joined by upward arrows. A click directive on every rung opens an infobox with the evidence the rung requires, an example claim from the book and what would move a claim up; a Place this claim menu offers six example claims and highlights the correct rung after the learner chooses one.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/prediction-trust-ladder/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "How far a mastery-prediction claim can be trusted",
+    "learningObjectives": [
+      "The learner will judge how far a given mastery-prediction claim can be trusted by locating it on a ladder of evidence."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Mastery prediction and knowledge tracing (Chapter 18)",
+      "Fidelity evaluation protocol (Chapter 19)",
+      "Bias in prediction and ethical use (Chapter 24)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [
+      "Mermaid 10.9.8 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Each rung is a focusable button (Tab, Enter) with an aria-label; the infobox is an aria-live region; rungs on dark fills use white text above 5:1 contrast; placement feedback uses outline style (solid versus dashed) and words as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "rungs",
+        "type": "Mermaid click directive nodes",
+        "label": "Five rungs",
+        "purpose": "Open the rung's requirements, example and next step; place the current claim"
+      },
+      {
+        "id": "claim-select",
+        "type": "select",
+        "label": "Place this claim",
+        "purpose": "Choose one of six example claims to place on the ladder"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Ordinal ladder of evidence for prediction claims (a planning aid, not a measured result)",
+    "variables": [
+      "chosen claim",
+      "rung chosen by the learner"
+    ],
+    "assumptions": [
+      "The book has no real-learner result, so the top two rungs have no example claim from the book",
+      "Two of the six example claims are hypothetical and labeled as such"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judgment against an explicit evidence hierarchy with immediate explanatory feedback",
+    "interactionPattern": "Clickable flowchart nodes with an infobox and a claim-placement quiz",
+    "keyQuestions": [
+      "What evidence would this claim need to move up one rung?",
+      "Why is a synthetic result weaker than one real class?",
+      "Which rung produced the mastery number on a dashboard?"
+    ],
+    "commonMisconceptions": [
+      "A written model that runs is evidence that it predicts mastery",
+      "A good synthetic result transfers to real learners",
+      "One real class is enough to trust a prediction"
+    ],
+    "assessmentOpportunities": [
+      "Number of claims placed correctly",
+      "Placing and justifying a claim from the learner's own work"
+    ]
+  },
+  "search": {
+    "tags": [
+      "trustworthy prediction",
+      "evidence ladder",
+      "mastery prediction",
+      "replication",
+      "Mermaid",
+      "flowchart"
+    ],
+    "visualizationType": [
+      "diagram",
+      "flowchart"
+    ]
+  },
+  "chapter": "26-the-future-of-microsims"
+}

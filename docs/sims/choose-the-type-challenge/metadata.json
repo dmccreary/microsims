@@ -1,0 +1,84 @@
+{
+  "title": "Choose the Type Challenge",
+  "description": "A 19-card challenge in which the learner justifies the MicroSim type for each learning objective by choosing one of twelve types and one of four reasons (data shape, verb and level, keyword, existing MicroSim), presses 'Not sure: ask a question' on four ambiguous objectives, and recognizes when an existing MicroSim should be reused. Immediate feedback gives the reference reasoning, and an end summary lists the most-confused types.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "Instructional Design", "MicroSim Engineering", "Learning Objectives"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/choose-the-type-challenge/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Choosing a MicroSim type for a learning objective",
+    "learningObjectives": [
+      "The learner will justify the choice of a MicroSim type for a given objective by selecting a type and a reason, and will recognize when routing is ambiguous or when reuse is preferable."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "justify",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Classifying an objective by Bloom level and verb",
+      "The MicroSim type catalog and routing rubric",
+      "Reuse-versus-build thresholds"
+    ],
+    "concepts": ["Type Routing", "Objective-to-Type Mapping", "Keyword Routing", "Routing Ambiguity", "Reuse Versus Build Decision", "MicroSim Type Catalog"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "screenReaderDescription": "describe() explains the card, the three button groups and the feedback",
+      "keyboardNavigable": true,
+      "notes": "All 19 answer and action controls are built-in p5.js buttons, so they can be reached with Tab and activated with Enter or Space."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "button-group", "label": "Type", "options": ["p5.js", "Chart.js", "Plotly", "Mermaid", "vis-network", "Causal loop", "Venn", "vis-timeline", "Leaflet map", "Comparison table", "Image overlay", "Verified poster"], "layout": "4 columns, 2 under 600 px" },
+      { "type": "button-group", "label": "Reason", "options": ["data shape", "verb and level", "keyword", "existing MicroSim"] },
+      { "type": "button", "label": "Not sure: ask a question", "action": "Declare the objective ambiguous and reveal the clarifying question" },
+      { "type": "button", "label": "Next", "action": "Go to the next card, or to the summary after the last card" },
+      { "type": "button", "label": "Reset", "action": "Restart from card 1 and clear the score" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Scenario-based decision quiz",
+    "variables": ["card", "chosen type", "chosen reason", "score", "confusion pairs"],
+    "assumptions": ["Reference answers follow the worked examples and routing rules in Chapter 4; they are teaching judgments, not output of the generator skill."],
+    "limitations": ["Each card accepts one reference type and at most one alternative; some real objectives admit more."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Decision practice with immediate feedback and reference reasoning",
+    "interactionPattern": "Sorting and judging with justification (Evaluate level)",
+    "keyQuestions": [
+      "What in this objective decides the type: its data shape, its verb, a keyword or an existing MicroSim?",
+      "When are two types close enough that you should ask a question instead of choosing?",
+      "When does a high similarity score still not justify reuse?"
+    ],
+    "commonMisconceptions": [
+      "A keyword such as 'graph' or 'map' settles the type by itself.",
+      "Any MicroSim on the same topic can be reused.",
+      "Ambiguity should be resolved by picking the more familiar library."
+    ],
+    "assessmentOpportunities": [
+      "Score over the 15 unambiguous cards",
+      "Detection of the 4 ambiguous cards",
+      "Summary of confused type pairs"
+    ]
+  },
+  "chapter": "04-choosing-a-microsim-type",
+  "canvasHeight": 700
+}

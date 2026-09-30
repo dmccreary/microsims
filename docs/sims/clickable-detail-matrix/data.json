@@ -1,0 +1,139 @@
+{
+  "title": "Learning Theory Matrix",
+  "note": "The four theories and four dimensions are invented for this exercise. They are simplified composites, not published theories.",
+  "emphasisLegend": {
+    "high": "central concern of the theory on this dimension",
+    "medium": "important, but secondary",
+    "low": "given little weight",
+    "balanced": "two concerns weighted equally",
+    "unique": "a feature no other theory in the table has"
+  },
+  "columns": [
+    { "key": "learnerRole", "name": "Learner's role" },
+    { "key": "simRole", "name": "Role of the MicroSim" },
+    { "key": "evidence", "name": "Evidence of learning" },
+    { "key": "feedback", "name": "Feedback timing" }
+  ],
+  "rows": [
+    {
+      "name": "Pathfinder Theory",
+      "subtitle": "learning by exploring",
+      "cells": {
+        "learnerRole": {
+          "value": "Explorer who forms rules",
+          "emphasis": "high",
+          "description": "The learner is the center of this theory. Progress comes from trying things, noticing patterns and forming a rule, not from being told the rule first.",
+          "example": "In a bouncing-ball MicroSim, the learner changes gravity several times and discovers that a stronger pull makes each bounce shorter."
+        },
+        "simRole": {
+          "value": "Open sandbox, no set path",
+          "emphasis": "unique",
+          "description": "Only this theory treats the MicroSim as an open space with no required order of steps. Every control is available from the start.",
+          "example": "A pendulum lab opens with every slider unlocked and a single question: what changes how fast the pendulum swings?"
+        },
+        "evidence": {
+          "value": "Learner states the rule",
+          "emphasis": "medium",
+          "description": "Evidence matters, but it is gathered informally at the end, when the learner can state the rule they found in their own words.",
+          "example": "After exploring, the learner types 'a longer string gives a slower swing' into a short text box."
+        },
+        "feedback": {
+          "value": "Delayed until after exploring",
+          "emphasis": "low",
+          "description": "Feedback is held back so that it does not cut discovery short. The theory gives it little weight while the activity is running.",
+          "example": "The MicroSim reveals the accepted rule only after the learner has submitted their own."
+        }
+      }
+    },
+    {
+      "name": "Echo Practice Model",
+      "subtitle": "learning by spaced repetition",
+      "cells": {
+        "learnerRole": {
+          "value": "Recalls on a schedule",
+          "emphasis": "low",
+          "description": "The learner follows a schedule set by the system. Choosing what to study or how to explore gets little attention in this model.",
+          "example": "Each morning the learner answers the ten items the MicroSim has scheduled for review, in the order given."
+        },
+        "simRole": {
+          "value": "Spaced drill scheduler",
+          "emphasis": "high",
+          "description": "The MicroSim does the central work: it decides which item to show next and when to show it again, based on past answers.",
+          "example": "A flashcard MicroSim shows a missed chart-type question again after one day, then after three days, then after a week."
+        },
+        "evidence": {
+          "value": "Recall after a delay",
+          "emphasis": "unique",
+          "description": "Only this model measures learning by testing the same item again after days have passed, to check that it is retained and not just recognized.",
+          "example": "The MicroSim reports that the learner still answers 8 of 10 items correctly one week after first learning them."
+        },
+        "feedback": {
+          "value": "Immediate, on every item",
+          "emphasis": "high",
+          "description": "Right-or-wrong feedback after every answer is a core part of the model, because each answer updates the review schedule.",
+          "example": "A green check or a red cross with the correct answer appears the moment the learner submits each card."
+        }
+      }
+    },
+    {
+      "name": "Circle Dialogue Approach",
+      "subtitle": "learning by discussion",
+      "cells": {
+        "learnerRole": {
+          "value": "Speaker and listener",
+          "emphasis": "balanced",
+          "description": "The learner explains ideas to others and listens to their explanations, and the approach weights both roles equally.",
+          "example": "Pairs take turns: one learner explains why a pie chart fails for eight categories, then the other restates the explanation and adds an example."
+        },
+        "simRole": {
+          "value": "Shared prompt only",
+          "emphasis": "low",
+          "description": "The MicroSim matters little here. It supplies a common thing to look at, and the learning happens in the conversation around it.",
+          "example": "The whole group looks at one priority-matrix MicroSim projected on a screen while discussing where each item belongs."
+        },
+        "evidence": {
+          "value": "Quality of explanations",
+          "emphasis": "medium",
+          "description": "Evidence comes from how well learners explain and justify ideas, but it is judged loosely, as one part of the discussion.",
+          "example": "The instructor notes which learners can explain why an item moved from Quick Wins to Major Projects."
+        },
+        "feedback": {
+          "value": "From peers, not the sim",
+          "emphasis": "unique",
+          "description": "Only this approach relies on other learners, not the MicroSim or an instructor, as the main source of feedback.",
+          "example": "A partner points out that the learner's flowchart has no path back from the No branch, and they fix it together."
+        }
+      }
+    },
+    {
+      "name": "Tuned Challenge Model",
+      "subtitle": "learning at the edge of skill",
+      "cells": {
+        "learnerRole": {
+          "value": "Works at the edge of skill",
+          "emphasis": "medium",
+          "description": "The learner is expected to stretch just beyond what they can already do, but the model focuses more on the system than on the learner's choices.",
+          "example": "A learner who solves three function-matching tasks in a row is given one that needs two steps instead of one."
+        },
+        "simRole": {
+          "value": "Adjusts difficulty live",
+          "emphasis": "unique",
+          "description": "Only this model has the MicroSim change its own difficulty while the learner works, based on recent performance.",
+          "example": "After two wrong answers, a slope MicroSim switches from fractional slopes back to whole-number slopes."
+        },
+        "evidence": {
+          "value": "Accuracy and speed together",
+          "emphasis": "balanced",
+          "description": "Evidence combines how often the learner is right with how quickly they answer, and the model weights the two equally.",
+          "example": "The MicroSim raises the level only when the learner is at least 80 percent correct and answers within 20 seconds."
+        },
+        "feedback": {
+          "value": "Immediate, sets next level",
+          "emphasis": "high",
+          "description": "Immediate feedback is central, because each result decides the difficulty of the next task.",
+          "example": "A correct answer shows 'Level up: next task has two unknowns' before the next task loads."
+        }
+      }
+    }
+  ]
+}

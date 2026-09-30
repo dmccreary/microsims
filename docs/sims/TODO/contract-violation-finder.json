@@ -1,0 +1,15 @@
+{
+  "sim_id": "contract-violation-finder",
+  "diagram_name": "Contract Violation Finder",
+  "chapter_number": 16,
+  "chapter_title": "xAPI Statements and Evidence",
+  "chapter_dir": "16-xapi-statements-and-evidence",
+  "chapter_rel_dir": "chapters/16-xapi-statements-and-evidence",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Critique",
+  "learning_objective": "The learner will critique a candidate xAPI statement against the producer contract's rules and justify each violation by section number.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** contract-violation-finder<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: critique): The learner will critique a candidate xAPI statement against the producer contract's rules and justify each violation by section number.\n\nLayout: the upper region shows one candidate statement as formatted JSON, one field per row. The right panel lists the nine contract rules as a checklist. The bottom white region holds the controls.\n\nData: eight candidate statements, each valid or containing one to three planted violations drawn from the rules in this chapter: a `main.html` identifier, a missing trailing slash, a local origin, a verb outside the three (for example `completed`), an `answered` with no `success`, an `experienced` with no `duration`, a missing `grouping`, a slider typed as a MicroSim, a shuffled quiz question with an ordinal fragment, and a run under 250 milliseconds that still produced an `experienced`.\n\nControls and interactions:\n\n- Clicking a JSON row flags it as suspect; clicking a rule in the checklist links the flag to that rule.\n- A \"Check my answer\" button reveals the planted violations, marks each flag correct, missed or false alarm, and explains the correct rule in one sentence.\n- A \"Next statement\" button advances; a \"Show hint\" button highlights the section of the statement in which a violation lies without naming it.\n- A score readout counts violations found, missed and falsely flagged across the set.\n\nDefault state: the first statement is shown with no flags.\n\nResponsive design: the canvas width follows the container on every window resize; the rule checklist moves below the statement under 600 pixels. All controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createButton controls and click hit-testing on rows, keyboard-focusable alternatives, and a describe() call for accessibility."
+}

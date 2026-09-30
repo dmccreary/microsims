@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Prediction Trust Ladder using Mermaid</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.8/dist/mermaid.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; overflow: hidden; font-family: Arial, Helvetica, sans-serif; background: white; color: #1e1e1e; }
+        main { display: block; width: 100%; }
+        #app { height: 640px; display: flex; flex-direction: column; border: 1px solid silver; }
+        #toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 7px 10px;
+                   background: white; border-bottom: 1px solid silver; font-size: 14px; }
+        #toolbar .title { font-size: 18px; font-weight: bold; margin-right: auto; }
+        #toolbar label { font-weight: bold; }
+        #toolbar select, #toolbar button { font-size: 14px; max-width: 100%; }
+        #toolbar select { max-width: 330px; }
+        #layout { flex: 1 1 auto; min-height: 0; display: flex; }
+        #diagram-panel { flex: 0 0 56%; background: aliceblue; padding: 6px 8px; overflow: hidden; position: relative; }
+        #diagram { height: 100%; display: flex; align-items: center; justify-content: center; }
+        #diagram svg { display: block; height: 100%; width: auto; max-width: 100%; }
+        #info-panel { flex: 1 1 auto; background: white; border-left: 1px solid silver; padding: 9px 12px;
+                      font-size: 14px; line-height: 1.38; overflow: hidden; }
+        #info-panel h3 { margin: 0 0 4px 0; font-size: 1.12em; }
+        #info-panel h4 { margin: 7px 0 2px 0; font-size: 0.95em; }
+        #info-panel p { margin: 2px 0; }
+        #info-panel .hint { color: #5f5f5f; }
+        #info-panel .claim { background: #fff4d6; border-left: 4px solid #c9a227; padding: 4px 8px; margin: 4px 0; }
+        #info-panel .ok { color: #006e50; font-weight: bold; }
+        #info-panel .bad { color: #af3c00; font-weight: bold; }
+        /* rung colors (set by the script after rendering) */
+        #diagram .node { cursor: pointer; }
+        #diagram .node:focus { outline: none; }
+        #diagram .node .label-container { stroke-width: 2px !important; }
+        #diagram .node.rung-1 .label-container { fill: #e3e3e3 !important; stroke: #666666 !important; stroke-dasharray: 6 4; }
+        #diagram .node.rung-2 .label-container { fill: #f5c451 !important; stroke: #9a6a00 !important; }
+        #diagram .node.rung-3 .label-container { fill: #cfe6f7 !important; stroke: #4a86b4 !important; }
+        #diagram .node.rung-4 .label-container { fill: #2f6690 !important; stroke: #1d4466 !important; }
+        #diagram .node.rung-5 .label-container { fill: #1f7a4d !important; stroke: #0f4d2f !important; }
+        #diagram .node .nodeLabel { color: #111111 !important; }
+        #diagram .node.rung-4 .nodeLabel, #diagram .node.rung-5 .nodeLabel { color: #ffffff !important; }
+        /* states (double class so they win over the rung colors) */
+        #diagram .node.hl-selected.hl-selected .label-container { stroke: #000000 !important; stroke-width: 4px !important; }
+        #diagram .node.hl-focus.hl-focus .label-container { stroke: #003c82 !important; stroke-width: 4px !important; stroke-dasharray: 5 3; }
+        #diagram .node.hl-correct.hl-correct .label-container { stroke: #000000 !important; stroke-width: 6px !important; stroke-dasharray: none; }
+        #diagram .node.hl-wrong.hl-wrong .label-container { stroke: #af3c00 !important; stroke-width: 5px !important; stroke-dasharray: 8 4; }
+        #diagram .flowchart-link { stroke: #555555 !important; stroke-width: 2px !important; }
+        .mermaidTooltip { position: absolute; z-index: 100; max-width: 220px; padding: 4px 8px; font-size: 13px;
+                          font-family: Arial, Helvetica, sans-serif; background: #ffffe1; color: #1e1e1e;
+                          border: 1px solid #555555; border-radius: 4px; pointer-events: none; }
+        select:focus-visible, button:focus-visible { outline: 3px solid #003c82; outline-offset: 2px; }
+        .sr-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        /* under 600 px: infobox below the diagram */
+        @media (max-width: 599px) {
+            #layout { flex-direction: column; }
+            #diagram-panel { flex: 0 0 44%; }
+            #info-panel { border-left: none; border-top: 1px solid silver; font-size: 13px; padding: 6px 10px; }
+            #toolbar .title { font-size: 16px; width: 100%; }
+            #toolbar select { max-width: 100%; flex: 1 1 0; min-width: 0; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="toolbar">
+                <span class="title">Prediction Trust Ladder</span>
+                <label for="claim-select">Place this claim</label>
+                <select id="claim-select"></select>
+            </div>
+            <div id="layout">
+                <div id="diagram-panel">
+                    <div id="diagram" role="group" aria-label="Ladder of evidence with five rungs, from Hoped for at the bottom to Replicated and audited at the top. Each rung is a button."></div>
+                </div>
+                <div id="info-panel" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+    <script src="prediction-trust-ladder.js"></script>
+</body>
+</html>

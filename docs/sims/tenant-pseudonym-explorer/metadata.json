@@ -1,0 +1,151 @@
+{
+  "title": "Tenant Isolation and Pseudonym Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "Multi-Tenancy",
+    "Student Privacy",
+    "Pseudonymization",
+    "Learning Analytics"
+  ],
+  "description": "A p5.js explorer in which learners derive a learner's pseudonymous key in two school districts with per-district salts or one global salt, see whether an analytics reader can link the keys, and click each level of the tenancy tree to read whether its boundary is hard or soft.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/tenant-pseudonym-explorer/",
+  "canvasHeight": 480,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "District tenancy boundaries and per-district salted pseudonymous learner keys",
+    "learningObjectives": [
+      "The learner will explain why a per-district salt gives one learner two unrelated pseudonymous keys, and which boundaries are hard or soft."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "The actor account of an xAPI statement (home page and name) (Chapter 16)",
+      "The idea of a one-way hash function",
+      "The district, school, course and section hierarchy (Chapter 20)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 480
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "notes": "Controls are native form elements; hard and soft boundaries are shown by solid versus dashed borders and by text, not by color alone"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "nameInput",
+        "type": "input",
+        "label": "Learner account name",
+        "default": "learner-17",
+        "purpose": "The account name mixed into each key"
+      },
+      {
+        "id": "saltRadio",
+        "type": "radio",
+        "label": "Per-district salt / One global salt",
+        "default": "Per-district salt",
+        "purpose": "Choose how the salt is handled"
+      },
+      {
+        "id": "deriveButton",
+        "type": "button",
+        "label": "Derive keys",
+        "purpose": "Compute each district's illustrative key"
+      },
+      {
+        "id": "attackerBox",
+        "type": "checkbox",
+        "label": "Attacker view",
+        "default": false,
+        "purpose": "Hide the vault and show only the analytics side"
+      },
+      {
+        "id": "treeNodes",
+        "type": "clickable canvas nodes",
+        "label": "Tenancy tree levels",
+        "purpose": "Show whether a level's boundary is hard or soft and its rule"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-observe explanation with an adversary's view",
+    "interactionPattern": "Step-through comparison of two salt policies plus clickable boundary rules",
+    "keyQuestions": [
+      "What does an analytics reader see, and what would let them link two rows to one learner?",
+      "Why does deleting a district's salt make its keys underivable?",
+      "Which boundaries are enforced by storage keys and which by role-based access control?"
+    ],
+    "commonMisconceptions": [
+      "A hashed name is anonymous no matter how it is salted",
+      "All levels of the tenancy tree are isolated in the same way",
+      "The pseudonym alone reveals the learner if you know the hash function"
+    ],
+    "assessmentOpportunities": [
+      "Explain why per-district salts defeat cross-district linking",
+      "Classify each tenancy level as hard or soft and name its enforcement",
+      "Explain how erasure by deleting a salt works"
+    ]
+  },
+  "search": {
+    "tags": [
+      "LRS",
+      "multi-tenancy",
+      "pseudonymous learner ID",
+      "salt",
+      "student privacy",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "diagram",
+      "simulation"
+    ]
+  },
+  "chapter": "20-the-full-lrs-architecture-and-ingestion",
+  "simulation": {
+    "modelType": "Deterministic key derivation (illustrative)",
+    "variables": [
+      "account home page",
+      "account name",
+      "salt per district or global",
+      "student_key"
+    ],
+    "equations": [
+      "student_key = hash(salt | home page | name); FNV-1a stands in for the design's HMAC-SHA256"
+    ],
+    "assumptions": [
+      "The learner has the same home page and name in both districts, as in the chapter's worked example"
+    ],
+    "limitations": [
+      "Tokens are illustrative and not cryptographically secure",
+      "The identity service and vault are designed, not built"
+    ]
+  }
+}

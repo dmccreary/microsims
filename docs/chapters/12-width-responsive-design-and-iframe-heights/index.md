@@ -112,6 +112,10 @@ The following MicroSim lets you feel these two mechanisms working together. Befo
 
 #### Diagram: Width-Responsive Breakpoint Lab
 
+<iframe src="../../sims/width-responsive-breakpoint-lab/main.html" width="100%" height="537px" scrolling="no"></iframe>
+
+[Run the Width-Responsive Breakpoint Lab MicroSim Fullscreen](../../sims/width-responsive-breakpoint-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Width-Responsive Breakpoint Lab</summary>
 Type: microsim
@@ -208,6 +212,10 @@ If none of the four yields a value, the MicroSim is reported as unresolved and i
 Before you look at the next specification, note its terms. A *source* is one row of the table above. A *trace* means following the tool's search from priority 1 downward until it finds a value.
 
 #### Diagram: Height Resolution Order Tracer
+
+<iframe src="../../sims/height-resolution-order-tracer/main.html" width="100%" height="612px" scrolling="no"></iframe>
+
+[Run the Height Resolution Order Tracer MicroSim Fullscreen](../../sims/height-resolution-order-tracer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Height Resolution Order Tracer</summary>
@@ -350,6 +358,10 @@ We should be precise about what exists. The reference is a design description. W
 The specification below lets a learner see why pinning matters. First, two terms: the *worst case* is the callout whose text produces the tallest infobox, and a *jump* is a change in the vertical position of the controls when the learner selects a different callout.
 
 #### Diagram: Iframe Resize Message Stepper
+
+<iframe src="../../sims/iframe-resize-message-stepper/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Iframe Resize Message Stepper MicroSim Fullscreen](../../sims/iframe-resize-message-stepper/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Iframe Resize Message Stepper</summary>

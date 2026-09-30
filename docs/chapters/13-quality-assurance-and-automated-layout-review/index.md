@@ -146,6 +146,10 @@ Those counts are a measured result for this repository: 116 MicroSims, a mean sc
 
 #### Diagram: Quality Score Calculator
 
+<iframe src="../../sims/quality-score-calculator/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Quality Score Calculator MicroSim Fullscreen](../../sims/quality-score-calculator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Quality Score Calculator</summary>
 Type: microsim
@@ -269,6 +273,10 @@ The guide gives a worked number for the first row: for 13-point text and a label
 
 #### Diagram: Layout Defect Catalog Explorer
 
+<iframe src="../../sims/layout-defect-catalog-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+[Run the Layout Defect Catalog Explorer MicroSim Fullscreen](../../sims/layout-defect-catalog-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Layout Defect Catalog Explorer</summary>
 Type: microsim
@@ -343,6 +351,10 @@ A **worked example** follows the predator-prey row. The iframe is 697 pixels tal
 The tests have limits worth knowing. They check only the bottom edge, so a control pushed past the right edge is not detected. They measure boxes, not appearance, so overlapping buttons or unreadable text pass without comment. They run in Chromium at 700 pixels wide. And they are only as good as the wait: the script loads the page until the network is idle and then waits 2 more seconds, so a MicroSim that builds its controls later than that can pass wrongly. Those gaps are why a second, visual check follows.
 
 #### Diagram: Iframe Height Test Simulator
+
+<iframe src="../../sims/iframe-height-test-simulator/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Iframe Height Test Simulator MicroSim Fullscreen](../../sims/iframe-height-test-simulator/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Iframe Height Test Simulator</summary>
@@ -419,6 +431,10 @@ A **worked example** contrasts two ways of spending the cycles on the guide's sa
 
 #### Diagram: Review and Fix Cycle Simulator
 
+<iframe src="../../sims/review-fix-cycle-simulator/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Review and Fix Cycle Simulator MicroSim Fullscreen](../../sims/review-fix-cycle-simulator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Review and Fix Cycle Simulator</summary>
 Type: microsim
@@ -460,6 +476,10 @@ The chain becomes economical when you connect it to the plan. The 2026-09-30 aud
 
 #### Diagram: Quality Chain Workflow
 
+<iframe src="../../sims/quality-chain-workflow/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Quality Chain Workflow MicroSim Fullscreen](../../sims/quality-chain-workflow/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Quality Chain Workflow</summary>
 Type: workflow
@@ -481,6 +501,10 @@ Implementation: Mermaid flowchart with click callbacks bound to a small JavaScri
 Finally, separate what is measured, built and only hoped for. **Measured:** the audit's 116 scores, their mean of 60.6 and the grade counts, reproduced by re-running the validator. **Built and working:** the validation script, the screenshot script, the height tester, the sync tool and the layout reviewer's checklist and fixes catalog. **Designed but not built:** cross-browser runs, a gate that fails a build on score, and closed-loop generation in which the quality chain runs inside the generator (a direction Chapter 26 discusses). **Hoped for:** that fewer layout defects will mean cleaner evidence in the xAPI stream. No test in this chapter can show that, because that stream has not yet been collected.
 
 #### Diagram: Audit Baseline Explorer
+
+<iframe src="../../sims/audit-baseline-explorer/main.html" width="100%" height="572px" scrolling="no"></iframe>
+
+[Run the Audit Baseline Explorer MicroSim Fullscreen](../../sims/audit-baseline-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Audit Baseline Explorer</summary>

@@ -139,6 +139,10 @@ The scenario that motivated the design makes this concrete. On Monday morning th
 
 #### Diagram: Two-Browser Convergence Lab
 
+<iframe src="../../sims/two-browser-convergence-lab/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+[Run the Two-Browser Convergence Lab MicroSim Fullscreen](../../sims/two-browser-convergence-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Two-Browser Convergence Lab</summary>
 Type: microsim
@@ -192,6 +196,10 @@ The teacher dashboard needs every student's summaries. The design estimates one 
 
 #### Diagram: Class Dashboard Load Estimator
 
+<iframe src="../../sims/class-dashboard-load-estimator/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+[Run the Class Dashboard Load Estimator MicroSim Fullscreen](../../sims/class-dashboard-load-estimator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Class Dashboard Load Estimator</summary>
 Type: chart
@@ -242,6 +250,10 @@ The decision turns on what each tier gives up, not only on price. The table belo
 A practical rule follows. Choose Lite when one teacher or a small team runs a pilot, freshness measured in minutes is acceptable, and evidence is formative. Choose Full when grades or compliance depend on tamper-resistant evidence, when analytics must span classes or districts, or when real-time alerts matter. The single-server tier is a middle option, and its own document notes it stops fitting near 3,000 to 5,000 statements per second.
 
 #### Diagram: Full or Lite Decision Explorer
+
+<iframe src="../../sims/full-or-lite-decision-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Full or Lite Decision Explorer MicroSim Fullscreen](../../sims/full-or-lite-decision-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Full or Lite Decision Explorer</summary>

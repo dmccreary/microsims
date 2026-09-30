@@ -1,0 +1,148 @@
+{
+  "title": "Evidence Class Sorter",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Learning Analytics",
+    "Evidence Classes",
+    "Instrumentation",
+    "Classification"
+  ],
+  "description": "A p5.js sorting activity in which learners assign the interactions of a mock MicroSim (slider, Start/Pause, Reset, diagram node, checked prediction, animation, tab switch) to the seven evidence classes, see the deciding question from the chapter's decision list, and compare the Full-mode statement with the Compact summary fields; a Challenge mode scores eight described events.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/evidence-class-sorter/",
+  "canvasHeight": 760,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Evidence classes and the seven-question decision list",
+    "learningObjectives": [
+      "The learner will distinguish the evidence classes by assigning each interaction in a described MicroSim to its class and explaining the deciding question."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The three MicroSim verbs (Chapter 16)",
+      "The evidence class table and decision list (Chapter 16)",
+      "Full and Compact modes (Chapter 16)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 760
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Item and Bin dropdowns with an Assign button replace clicking; keys 1-7 choose bins; feedback states correct or not in words as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "mockElements",
+        "type": "clickable canvas elements",
+        "label": "Mock MicroSim elements",
+        "purpose": "Select the interaction to classify"
+      },
+      {
+        "id": "bins",
+        "type": "clickable canvas bins",
+        "label": "Seven evidence-class bins",
+        "purpose": "Assign the selected item to a class; hover shows the definition"
+      },
+      {
+        "id": "itemSelect",
+        "type": "select",
+        "label": "Item",
+        "purpose": "Keyboard choice of the element to classify"
+      },
+      {
+        "id": "binSelect",
+        "type": "select",
+        "label": "Bin",
+        "purpose": "Keyboard choice of a class"
+      },
+      {
+        "id": "assignButton",
+        "type": "button",
+        "label": "Assign",
+        "purpose": "Assign the chosen bin"
+      },
+      {
+        "id": "compactBox",
+        "type": "checkbox",
+        "label": "Compact mode",
+        "purpose": "Show the Compact summary fields instead of the Full-mode statement"
+      },
+      {
+        "id": "challengeButton",
+        "type": "button",
+        "label": "Challenge",
+        "purpose": "Switch to eight unlabeled events with a score"
+      },
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next event",
+        "purpose": "Advance in Challenge mode"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided classification with an explicit ordered decision procedure and feedback that names the deciding question",
+    "interactionPattern": "Select-and-sort with a mode toggle and a scored challenge set",
+    "keyQuestions": [
+      "Which is the first decision-list question that answers yes?",
+      "What does Compact mode keep for this interaction, and what does it drop?",
+      "Why is an assessment unchanged by the Compact fold?"
+    ],
+    "commonMisconceptions": [
+      "A button is always a press (a Check button is assessment)",
+      "Hovering anything is inspection evidence, whatever its length",
+      "Compact mode folds answers into the session summary"
+    ],
+    "assessmentOpportunities": [
+      "Challenge score out of eight",
+      "Naming the deciding question for an interaction",
+      "Contrasting the Full and Compact records for one item"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "evidence class",
+      "decision list",
+      "Full mode",
+      "Compact mode",
+      "LRS-Lite",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "quiz",
+      "simulation"
+    ]
+  },
+  "chapter": "16-xapi-statements-and-evidence"
+}

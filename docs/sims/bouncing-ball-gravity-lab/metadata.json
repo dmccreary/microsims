@@ -1,0 +1,165 @@
+{
+  "title": "Bouncing Ball Gravity Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Interactive Simulation",
+    "Physics",
+    "Kinematics",
+    "Predict-Observe-Explain"
+  ],
+  "description": "A p5.js MicroSim in which learners predict, then test, how gravity and bounciness sliders change a falling ball's motion and the height of its first bounce.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/bouncing-ball-gravity-lab/",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Interactive simulation: model plus immediate interaction",
+    "learningObjectives": [
+      "The learner will explain how changing gravity and bounciness changes the motion of a falling ball, by predicting an outcome and then testing it."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Variables that change over time",
+      "Definition of an interactive simulation"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "describe() summary for screen readers; all controls are native HTML buttons, sliders and a checkbox"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "startButton",
+        "type": "button",
+        "label": "Start / Pause",
+        "purpose": "Run or pause the simulation (starts paused)"
+      },
+      {
+        "id": "dropButton",
+        "type": "button",
+        "label": "Drop Again",
+        "purpose": "Reset the ball to the top and run a new drop"
+      },
+      {
+        "id": "predictCheckbox",
+        "type": "checkbox",
+        "label": "Predict first",
+        "default": true,
+        "purpose": "Pause after each slider change and ask for a prediction"
+      },
+      {
+        "id": "predictionButtons",
+        "type": "button",
+        "label": "Higher / Lower / Same",
+        "purpose": "Answer the prediction question (shown only while a prediction is pending)"
+      },
+      {
+        "id": "gravitySlider",
+        "type": "slider",
+        "label": "Gravity",
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.1,
+        "default": 0.8,
+        "units": "pixels per frame squared"
+      },
+      {
+        "id": "bounceSlider",
+        "type": "slider",
+        "label": "Bounciness",
+        "min": 0.3,
+        "max": 0.95,
+        "step": 0.05,
+        "default": 0.8,
+        "units": "fraction of speed kept"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-test-explain with immediate visual feedback",
+    "interactionPattern": "Parameter sliders with a prediction gate",
+    "keyQuestions": [
+      "If gravity doubles, does the first bounce get higher, lower or stay the same?",
+      "What does the bounciness value represent?",
+      "Why does the ball eventually stop bouncing?"
+    ],
+    "commonMisconceptions": [
+      "Stronger gravity makes the ball bounce lower (it only makes the motion faster)",
+      "Bounciness is the fraction of height kept (it is the fraction of speed kept, so height scales with its square)"
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy of predictions",
+      "Written explanation of why gravity does not change bounce height"
+    ]
+  },
+  "search": {
+    "tags": [
+      "bouncing ball",
+      "gravity",
+      "coefficient of restitution",
+      "prediction",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "animation"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim",
+  "simulation": {
+    "modelType": "Physics-based (constant acceleration with inelastic bounce)",
+    "variables": [
+      "height",
+      "speed",
+      "gravity",
+      "bounciness",
+      "bounce count"
+    ],
+    "equations": [
+      "speed = speed + gravity (each frame)",
+      "height = height - speed",
+      "at the floor: speed = -speed x bounciness",
+      "first bounce peak = bounciness^2 x drop height"
+    ],
+    "assumptions": [
+      "No air resistance",
+      "Motion integrated exactly within each frame",
+      "Bouncing stops when the rebound speed is below 0.6 pixels per frame"
+    ],
+    "limitations": [
+      "Units are pixels and frames, not meters and seconds",
+      "The ball moves only vertically"
+    ]
+  }
+}

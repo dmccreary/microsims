@@ -109,6 +109,10 @@ Before you open the first diagram, two terms deserve a sentence each. *Built* me
 
 #### Diagram: Full LRS Architecture Explorer
 
+<iframe src="../../sims/lrs-architecture-explorer/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+[Run the Full LRS Architecture Explorer MicroSim Fullscreen](../../sims/lrs-architecture-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Full LRS Architecture Explorer</summary>
 Type: diagram
@@ -168,6 +172,10 @@ Here the honest status matters. The gateway is built and deliberately holds no s
 The tenancy hierarchy and the pseudonym both come together in the next diagram. Click a district to see how the same learner is keyed in each, and click a level to see who may cross it.
 
 #### Diagram: Tenant Isolation and Pseudonym Explorer
+
+<iframe src="../../sims/tenant-pseudonym-explorer/main.html" width="100%" height="482px" scrolling="no"></iframe>
+
+[Run the Tenant Isolation and Pseudonym Explorer MicroSim Fullscreen](../../sims/tenant-pseudonym-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Tenant Isolation and Pseudonym Explorer</summary>
@@ -260,6 +268,10 @@ The next specification lets you build a batch and watch the gateway's checks run
 
 #### Diagram: Gateway Request Simulator
 
+<iframe src="../../sims/gateway-request-simulator/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Gateway Request Simulator MicroSim Fullscreen](../../sims/gateway-request-simulator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Gateway Request Simulator</summary>
 Type: microsim
@@ -318,6 +330,10 @@ A worked example uses three learners and two partitions. Learner A's statements 
 
 #### Diagram: Partition Key Simulator
 
+<iframe src="../../sims/partition-key-simulator/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Partition Key Simulator MicroSim Fullscreen](../../sims/partition-key-simulator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Partition Key Simulator</summary>
 Type: microsim
@@ -362,6 +378,10 @@ Deduplication in the log has a caveat that the design flags as a real correctnes
     If at-least-once delivery feels slippery, that is normal, because most people need two passes at it. Try the simulation below with redelivery switched on and compare the "add" and "set" writers side by side before you read on.
 
 #### Diagram: Redelivery and Idempotency Lab
+
+<iframe src="../../sims/redelivery-idempotency-lab/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Redelivery and Idempotency Lab MicroSim Fullscreen](../../sims/redelivery-idempotency-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Redelivery and Idempotency Lab</summary>
@@ -433,6 +453,10 @@ A uniqueness constraint on each grain's key enforces the rule in the database. B
     A count on a summary vertex tells you how much evidence was compressed, not what the evidence said. Anything the rollup drops, such as the engagement mode of a click, is gone from the graph and lives only in the log, so query the log when the detail matters.
 
 #### Diagram: Log and Graph Compression Lab
+
+<iframe src="../../sims/log-graph-compression-lab/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+[Run the Log and Graph Compression Lab MicroSim Fullscreen](../../sims/log-graph-compression-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Log and Graph Compression Lab</summary>

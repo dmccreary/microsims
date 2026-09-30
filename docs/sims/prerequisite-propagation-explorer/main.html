@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Prerequisite Propagation Explorer using vis-network</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="prerequisite-propagation-explorer.js"></script>
+</head>
+<body>
+    <main aria-label="Prerequisite Propagation Explorer">
+        <div class="app">
+            <div class="title">Prerequisite Propagation Explorer</div>
+            <div class="legend" id="legend">
+                <span class="legend-end">0.0</span>
+                <span class="legend-bar"><span class="legend-threshold" id="legend-threshold"></span></span>
+                <span class="legend-end">1.0</span>
+                <span class="legend-note">Fill = mastery estimate &middot; black tick = threshold &middot; &#10003; = mastered &middot; arrows point to prerequisites ("depends on")</span>
+            </div>
+            <div class="content">
+                <div class="graph-wrap">
+                    <div id="network" aria-hidden="true"></div>
+                </div>
+                <aside class="panel" id="panel" aria-live="polite"></aside>
+            </div>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="est-slider">Estimate for selected concept: <strong id="est-value">0.00</strong></label>
+                    <input type="range" id="est-slider" min="0" max="1" step="0.01" value="0.5">
+                </div>
+                <div class="control-group">
+                    <button id="gap-btn" type="button">Find first gap</button>
+                    <label for="threshold">Threshold for mastered:</label>
+                    <select id="threshold">
+                        <option value="0.80">0.80</option>
+                        <option value="0.85">0.85</option>
+                        <option value="0.90">0.90</option>
+                        <option value="0.95" selected>0.95</option>
+                    </select>
+                    <button id="reset-btn" type="button">Reset</button>
+                </div>
+            </div>
+            <p class="sr-only">A directed graph of seven concepts. Speed Problems depends on Rates, Rates depends on Ratios,
+                Ratios and Percentages both depend on Fractions, Fractions depends on Division, and Division depends on
+                Multiplication. Each concept shows its mastery estimate; Ratios is the weak middle concept. Select a concept
+                to read its prerequisites and use Find first gap to locate the deepest unmastered prerequisite upstream.</p>
+            <p class="sr-only" id="sr-summary" aria-live="polite"></p>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

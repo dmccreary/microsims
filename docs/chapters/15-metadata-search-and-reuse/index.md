@@ -104,6 +104,10 @@ Before the interactive specification below, one more term. A *section explorer* 
 
 #### Diagram: Metadata Section Explorer
 
+<iframe src="../../sims/metadata-section-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the Metadata Section Explorer MicroSim Fullscreen](../../sims/metadata-section-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Metadata Section Explorer</summary>
 Type: diagram
@@ -243,6 +247,10 @@ Before the specification below, note that it uses a *sample* of the catalog: a f
 
 #### Diagram: Faceted Filter Lab
 
+<iframe src="../../sims/faceted-filter-lab/main.html" width="100%" height="652px" scrolling="no"></iframe>
+
+[Run the Faceted Filter Lab MicroSim Fullscreen](../../sims/faceted-filter-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Faceted Filter Lab</summary>
 Type: microsim
@@ -308,6 +316,10 @@ These thresholds are the tool's own calibration and are worth reading skepticall
 The chapter-content-generator skill that produced this chapter is designed to use this check. When it finds a match, it writes the specification with `**Status:** Reused`, and the batch tools of Chapter 14 skip such specifications because the MicroSim is already deployed elsewhere.
 
 #### Diagram: Reuse Threshold Explorer
+
+<iframe src="../../sims/reuse-threshold-explorer/main.html" width="100%" height="677px" scrolling="no"></iframe>
+
+[Run the Reuse Threshold Explorer MicroSim Fullscreen](../../sims/reuse-threshold-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Reuse Threshold Explorer</summary>

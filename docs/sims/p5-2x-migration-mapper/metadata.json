@@ -1,0 +1,75 @@
+{
+  "title": "p5.js 2.x Migration Mapper",
+  "description": "A code-conversion exercise in which learners flag the v1-only call in four short p5.js 1.x snippets (preload, multi-control-point bezierVertex, curveVertex, quadraticVertex), choose its replacement from three candidates, and compare their version with the corrected 2.x form, with feedback quoting the Chapter 5 migration table.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["p5.js", "Library Version Migration", "Library Version Drift", "MicroSim Maintenance"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/p5-2x-migration-mapper/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 680,
+  "chapter": "05-generating-microsims-with-ai-skills",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Computer Science",
+    "topic": "Migrating p5.js 1.x sketches to p5.js 2.x",
+    "learningObjectives": [
+      "The learner will use the migration table to convert a short p5.js 1.x snippet into its 2.x form and identify which call in it is no longer valid."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "use",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Library version drift and the p5.js 2.x migration table (Chapter 5)",
+      "Reading a p5.js sketch with beginShape() and endShape() (Chapter 6)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 680},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "dataFiles": ["data.json"],
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": false}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Snippet", "options": ["Board image (preload)", "Workflow arrow (bezierVertex)", "Closed blob (curveVertex)", "Flower petal (quadraticVertex)"], "default": "Board image (preload)"},
+      {"type": "button", "label": "Flag legacy calls", "action": "Highlight the lines that use a v1-only call and name the call"},
+      {"type": "button", "label": "Show 2.x form", "action": "Reveal the corrected snippet with changed lines highlighted"},
+      {"type": "button", "label": "Reset", "action": "Start the current snippet again"}
+    ],
+    "canvasInteractions": ["Click a highlighted line to open three candidate replacements", "Click a candidate to choose it", "Hover a call chip to read its migration rule"]
+  },
+  "simulation": {
+    "modelType": "Guided code transformation",
+    "variables": ["snippet", "flagged lines", "chosen candidate", "converted count"],
+    "assumptions": ["Each snippet contains exactly one kind of v1-only call", "Rules follow the Chapter 5 migration table and the p5.js 2.x reference"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked-example completion with explanatory feedback quoting the reference table",
+    "keyQuestions": [
+      "Which call in this snippet is no longer valid in p5.js 2.x?",
+      "What does the migration table say replaces it?",
+      "Why is renaming alone not always enough?"
+    ],
+    "commonMisconceptions": [
+      "2.x still calls preload() before setup()",
+      "bezierVertex() keeps its six-number form in 2.x",
+      "splineVertex() and bezierVertex() are interchangeable",
+      "Renaming curveVertex() to splineVertex() is the whole migration"
+    ],
+    "assessmentOpportunities": [
+      "First-try correct conversions out of four",
+      "Written 2.x form of a new 1.x snippet"
+    ]
+  }
+}

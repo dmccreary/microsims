@@ -48,13 +48,13 @@ We provide both a search and navigation system to help you find some MicroSims.
 
 Here are some sample MicroSims from this site and others to get you started:
 
-* [Bouncing Ball](./sims/bouncing-ball/index.md) - our classic "Hello World" demo to get started
-* [Projectile Motion](./sims/projectile-motion/) - simulating firing a ball from a canon
-* [String Harmonics](./sims/string-harmonics/index.md) - one version includes the use of sound
-* [3D Sphere](./sims/sphere/index.md) - demonstrates the use of the 3D rendering libraries in p5.js
+* [Bouncing Ball](./microsims-old/bouncing-ball/index.md) - our classic "Hello World" demo to get started
+* [Projectile Motion](./microsims-old/projectile-motion/) - simulating firing a ball from a canon
+* [String Harmonics](./microsims-old/string-harmonics/index.md) - one version includes the use of sound
+* [3D Sphere](./microsims-old/sphere/index.md) - demonstrates the use of the 3D rendering libraries in p5.js
 * [Expression Explorer](https://dmccreary.github.io/algebra-1/sims/expression-explorer/) - allows user to understand various components of equations
 * [Spectrum From Microphone](https://dmccreary.github.io/signal-processing/sims/fft-mic/) - allows a user to talk into their microphone and see the frequency spectrum
 * [Stock Market Returns](https://dmccreary.github.io/personal-finance/sims/stock-market-returns/) - shows a vertical bar chart with hover for US stock market returns over the last 30 years
 * [Euler's Formula](https://dmccreary.github.io/signal-processing/sims/euler-formula-explorer/) - allows the user to see how Euler's formula connects exponential functions with trigonometric functions
-* [Conway's Game of Life](./sims/conway-game-of-life/) - a demonstration of cellular automaton using the famous Conway's Game of Life algorithm
+* [Conway's Game of Life](./microsims-old/conway-game-of-life/) - a demonstration of cellular automaton using the famous Conway's Game of Life algorithm
 * [Book Build Workflow](https://dmccreary.github.io/ibook-skills/sims/book-build-workflow/) - a Mermaid.js diagram of the steps to build an intelligent textbook with MicroSims using Claude Code Skills

@@ -130,6 +130,10 @@ uv run --with playwright==1.58.0 python check-xapi.py docs/sims/<name> --actions
 
 #### Diagram: Portfolio Milestone Planner
 
+<iframe src="../../sims/portfolio-milestone-planner/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+[Run the Portfolio Milestone Planner MicroSim Fullscreen](../../sims/portfolio-milestone-planner/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Portfolio Milestone Planner</summary>
 Type: microsim
@@ -174,6 +178,10 @@ The rubric assigns 100 points to the capstone. The weights emphasize honest anal
     Run the quality chain and the instrumentation check after every MicroSim, not once at the end. A defect found in week 3 costs one regeneration, while the same defect found in week 7 can invalidate your evidence window.
 
 #### Diagram: Rubric Self-Check
+
+<iframe src="../../sims/portfolio-rubric-self-check/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+[Run the Rubric Self-Check MicroSim Fullscreen](../../sims/portfolio-rubric-self-check/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Rubric Self-Check</summary>

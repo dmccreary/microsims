@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Calibration Curve Lab using Plotly</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="fidelity-calibration-curve-lab.js"></script>
+</head>
+<body>
+    <main aria-label="Calibration Curve Lab">
+        <div class="app">
+            <div class="content">
+                <div class="plot-box">
+                    <div id="plot" class="plot-inner" role="img"
+                        aria-label="Reliability curve: mean forecast in each bin against the observed fraction correct, with a dashed diagonal for perfect calibration. Point size shows the number of learners in the bin."></div>
+                </div>
+                <div class="table-box">
+                    <div class="table-title">Bin counts (synthetic data)</div>
+                    <table id="bin-table">
+                        <thead>
+                            <tr><th>Forecast bin</th><th>Learners</th><th>Mean forecast</th><th>Observed</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="table-note" id="table-note"></div>
+                </div>
+            </div>
+            <div class="diagnosis">
+                <span class="diag-label">Your diagnosis:</span>
+                <button type="button" class="diag-btn" data-diag="over">Overconfident</button>
+                <button type="button" class="diag-btn" data-diag="under">Underconfident</button>
+                <button type="button" class="diag-btn" data-diag="well">Well calibrated</button>
+                <div class="diag-feedback" id="diag-feedback" aria-live="polite">Read the curve and the counts, then choose.</div>
+            </div>
+            <div class="controls">
+                <div class="ctrl">
+                    <label for="scenario">Scenario:</label>
+                    <select id="scenario">
+                        <option value="match">model parameters match the simulation</option>
+                        <option value="over">true guess rate 0.35, model assumes 0.20</option>
+                        <option value="under">true guess rate 0.20, model assumes 0.35</option>
+                    </select>
+                </div>
+                <div class="ctrl">
+                    <label for="bins">Number of bins: <strong id="bins-value">5</strong></label>
+                    <input type="range" id="bins" min="3" max="10" step="1" value="5">
+                </div>
+                <div class="ctrl">
+                    <label for="size">Cohort size: <strong id="size-value">200</strong></label>
+                    <input type="range" id="size" min="50" max="1000" step="50" value="200">
+                </div>
+                <button type="button" id="redraw">Redraw cohort</button>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

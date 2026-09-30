@@ -1,0 +1,86 @@
+{
+  "title": "Prerequisite Propagation Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Prerequisite Propagation", "Learning Graph", "Mastery Threshold", "Gap Analysis"],
+  "description": "A vis-network explorer of a seven-concept prerequisite graph in which learners read per-concept mastery estimates, walk depends-on edges upstream and find the deepest unmastered prerequisite, distinguishing a concept's own weak evidence from weakness inherited from a prerequisite.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/prerequisite-propagation-explorer/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "Prerequisite gap analysis on a learning graph",
+    "learningObjectives": [
+      "Differentiate a struggling concept whose own evidence is weak from one whose weakness traces to an unmastered prerequisite, by walking dependency edges upstream."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "differentiate",
+    "duration": "15 minutes",
+    "prerequisites": ["Per-concept mastery", "Mastery threshold", "Learning graph depends-on edges"],
+    "concepts": ["Prerequisite Propagation", "Mastery Threshold", "Per-Concept Mastery", "Learning Graph"],
+    "chapter": "18-mastery-prediction-and-knowledge-tracing",
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": ["vis-network 9.1.9 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "screenReaderSummary": true,
+      "keyboardNavigable": false,
+      "colorBlindSafePalette": "ColorBrewer RdYlBu with printed values and check marks"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "canvas-click", "label": "Click a concept node to select it"},
+      {"type": "slider", "label": "Estimate for selected concept", "min": 0, "max": 1, "step": 0.01},
+      {"type": "button", "label": "Find first gap"},
+      {"type": "select", "label": "Threshold for mastered", "options": [0.80, 0.85, 0.90, 0.95], "default": 0.95},
+      {"type": "button", "label": "Reset"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Graph read-out (no probability propagation)",
+    "variables": ["per-concept mastery estimate", "mastery threshold", "depends-on edges"],
+    "assumptions": [
+      "Concepts and estimates are illustrative, not from learner data.",
+      "The first gap is the unmastered prerequisite at the greatest distance upstream of the selected concept.",
+      "Estimates are only read, matching the LRS Prerequisite Gap Analysis report."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided exploration with contrasting cases",
+    "interactionPattern": "Network explorer with gap finder",
+    "keyQuestions": [
+      "Is this concept weak because of its own evidence or because of a prerequisite?",
+      "Where should reteaching begin?",
+      "How does the mastery threshold change which concepts count as gaps?"
+    ],
+    "commonMisconceptions": [
+      "A low estimate always means the concept itself must be retaught.",
+      "The gap report changes mastery estimates along the edges.",
+      "The mastery threshold is a fact about the learner rather than a policy."
+    ],
+    "assessmentOpportunities": [
+      "Name the first gap for a selected concept and justify it from the edges.",
+      "Explain why Percentages and Rates receive different verdicts."
+    ]
+  },
+  "search": {
+    "keywords": ["prerequisite", "gap analysis", "learning graph", "DEPENDS_ON", "mastery threshold", "vis-network"]
+  }
+}

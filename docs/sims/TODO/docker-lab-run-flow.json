@@ -1,0 +1,15 @@
+{
+  "sim_id": "docker-lab-run-flow",
+  "diagram_name": "Docker Lab Run Flow",
+  "chapter_number": 11,
+  "chapter_title": "Verified Posters and Specialized MicroSim Types",
+  "chapter_dir": "11-verified-posters-and-specialized-microsim-types",
+  "chapter_rel_dir": "chapters/11-verified-posters-and-specialized-microsim-types",
+  "library": "vis-network",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Diagnose",
+  "learning_objective": "The learner will diagnose why a lab fails to run by identifying which part of the path from browser to container is missing.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** docker-lab-run-flow<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: diagnose): The learner will diagnose why a lab fails to run by identifying which part of the path from browser to container is missing.\n\nNodes and edges: five nodes in a row, \"Lab page (textarea, Run, Reset)\", \"docker-lab.js\", \"Local service on port 5001\", \"Fresh Docker container (Lab Sandbox)\" and \"Output area\". Arrows show \"code sent\", \"container started\", \"text returned\" and \"output displayed\".\n\nInteractions: clicking a node shows its role and one thing that can break it. A \"Break it\" menu offers three failures: service not started, script missing from mkdocs.yml, and a starter program that calls input(). Choosing one turns the failing node red and shows the symptom, and the fix (\"run bash scripts/run-python-docker.sh, then reload the page\" for the first).\n\nResponsive design: the row wraps into a column under 600 pixels, and the network re-fits to the container on every window resize.\n\nImplementation: vis-network with fixed positions, click handlers and a scenario menu."
+}

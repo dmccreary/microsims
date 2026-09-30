@@ -1,0 +1,149 @@
+{
+  "title": "Two-Browser Convergence Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "LRS-Lite",
+    "Sync",
+    "Distributed Systems"
+  ],
+  "description": "Run the Chromebook and home-laptop scenario under a last-writer-wins merge and an append-only event-set merge, and identify which of the seven attempts each approach loses.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/two-browser-convergence-lab/",
+  "canvasHeight": 660,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Convergent sync of LRS-Lite records across browsers",
+    "learningObjectives": [
+      "The learner will compare a last-writer-wins merge with an append-only event-set merge by running the Chromebook and laptop scenario and identifying which attempts each approach loses."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "compare",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Event identity, version vectors and Hybrid Logical Clocks (Chapter 23)",
+      "Why attempt order matters for mastery estimates (Chapter 18)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 660
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native p5 DOM buttons, checkbox and radio; describe() summarizes the layout; correctness is shown by check and cross symbols as well as color; text is at least 14 px."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Chromebook: answer 3 (2 right)"
+      },
+      {
+        "type": "button",
+        "label": "Laptop: answer 4 (4 right)"
+      },
+      {
+        "type": "checkbox",
+        "label": "Chromebook offline",
+        "default": false
+      },
+      {
+        "type": "button",
+        "label": "Sync Chromebook",
+        "action": "push then pull (blocked while offline)"
+      },
+      {
+        "type": "button",
+        "label": "Sync laptop",
+        "action": "push then pull"
+      },
+      {
+        "type": "radio",
+        "label": "Merge rule",
+        "options": [
+          "Event set (union)",
+          "Last writer wins"
+        ],
+        "default": "Event set (union)"
+      },
+      {
+        "type": "button",
+        "label": "Reset"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Run the same scenario under two rules and compare outcomes",
+    "keyQuestions": [
+      "How many of the seven attempts does each device count under each rule?",
+      "Which attempts does last writer wins lose, and why those?",
+      "Why does set union converge in any sync order?"
+    ],
+    "commonMisconceptions": [
+      "That identical summaries mean nothing was lost",
+      "That the newest wall-clock write is always the most complete record"
+    ],
+    "assessmentOpportunities": [
+      "Predict the lost attempts for a given sync order",
+      "Explain the roles of id, version vector and HLC"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "LRS-Lite",
+      "convergent sync",
+      "last writer wins",
+      "set union",
+      "grow-only set",
+      "Hybrid Logical Clock",
+      "version vector",
+      "S3",
+      "object storage sync"
+    ]
+  },
+  "chapter": "23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "simulation": {
+    "modelType": "discrete replication model with two merge rules",
+    "variables": [
+      "local event sets",
+      "S3 segments or snapshot",
+      "version vectors",
+      "HLC stamps"
+    ],
+    "equations": [
+      "union: local = local UNION pulled segments, sorted by HLC",
+      "LWW: keep the snapshot with the newest HLC stamp; replace the other wholesale"
+    ],
+    "assumptions": [
+      "HLC values and statement ids are illustrative",
+      "Each answer batch is sealed into one segment (seq 1 per device)",
+      "Changing the merge rule resets the lab"
+    ],
+    "limitations": [
+      "Checkpoints, head.json, 412 collisions and Web Locks are not modelled"
+    ]
+  }
+}

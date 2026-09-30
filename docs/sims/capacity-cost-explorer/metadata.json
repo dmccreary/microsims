@@ -1,0 +1,162 @@
+{
+  "title": "Capacity and Cost Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "Capacity Planning",
+    "Cost Model",
+    "Cloud Infrastructure",
+    "Deployment Decisions"
+  ],
+  "description": "A Chart.js explorer that estimates daily statements and storage from the number of active students and outlines which full-LRS deployment tier fits, comparing the single-server and distributed tiers' monthly cost ranges from the draft hardware specification.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/capacity-cost-explorer/",
+  "canvasHeight": 700,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Sizing a full LRS deployment from active students and judging the fitting cost tier",
+    "learningObjectives": [
+      "The learner will judge which deployment tier fits a school or district by estimating daily statements and storage from the number of active students and comparing the result with the design's two published cost tiers."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The capacity model and cost model sections (Chapter 21)",
+      "Converting a per-second rate into a per-day total",
+      "The difference between a sustained rate and a burst"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "Each canvas has an aria-label rewritten with the current values; the message panel is an aria-live region; the fitting tier is marked with a dashed outline and named in text, not by color alone"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "students",
+        "type": "slider",
+        "label": "Active students at peak",
+        "min": 500,
+        "max": 100000,
+        "default": 3000,
+        "scale": "logarithmic",
+        "purpose": "Set the peak active population"
+      },
+      {
+        "id": "duty",
+        "type": "slider",
+        "label": "Duty cycle",
+        "min": 20,
+        "max": 60,
+        "default": 40,
+        "unit": "percent",
+        "purpose": "Share of peak sustained over the active window"
+      },
+      {
+        "id": "neo4j",
+        "type": "checkbox",
+        "label": "Include Neo4j license placeholder",
+        "default": false,
+        "purpose": "Add $3,000-$8,000/month to the distributed tier"
+      },
+      {
+        "id": "burst",
+        "type": "checkbox",
+        "label": "Show burst (5x)",
+        "default": false,
+        "purpose": "Report the 5x burst rate against the tier's stated burst"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Estimate, compare against published criteria, and judge",
+    "interactionPattern": "Parameter exploration with a live verdict and source-labeled arithmetic",
+    "keyQuestions": [
+      "At what student count does the single-server tier stop fitting, and why is the move advised early?",
+      "Why does the design size by the sustained rate rather than the burst?",
+      "What costs does the monthly range leave out?"
+    ],
+    "commonMisconceptions": [
+      "Planning estimates are vendor quotes",
+      "A 5x burst needs 5x the hardware",
+      "The duty cycle changes the peak rate"
+    ],
+    "assessmentOpportunities": [
+      "Hand calculation of rate, statements and storage checked against the explorer",
+      "A written tier recommendation with one named risk"
+    ]
+  },
+  "search": {
+    "tags": [
+      "LRS",
+      "capacity model",
+      "cost model",
+      "deployment tier",
+      "Kafka",
+      "ClickHouse",
+      "Chart.js"
+    ],
+    "visualizationType": [
+      "chart",
+      "bar chart",
+      "range chart"
+    ]
+  },
+  "chapter": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "simulation": {
+    "modelType": "Analytical capacity and cost model",
+    "variables": [
+      "active students",
+      "duty cycle",
+      "statements per second",
+      "statements per day",
+      "raw GB per day",
+      "ClickHouse GB per day",
+      "monthly cost range"
+    ],
+    "equations": [
+      "rate = students x 0.1 statements per second",
+      "statements per day = rate x duty cycle x 36,000 s",
+      "raw GB per day = statements x 1.5 KB",
+      "ClickHouse GB per day = raw / 10"
+    ],
+    "assumptions": [
+      "Capacity assumptions from the design's capacity model as quoted in Chapter 21",
+      "Cost ranges from the companion hardware specification, draft dated 2026-07-15 (sections 4, 5 and 8)",
+      "Tier limits: single server 1,000 stmt/s sustained (5,000 burst); distributed 10,000 (50,000 burst); move advised at 3,000-5,000"
+    ],
+    "limitations": [
+      "Costs are planning estimates from public cloud pricing, not quotes",
+      "Engineering time, support and one-time costs are excluded",
+      "The Neo4j license figure is a rough placeholder"
+    ]
+  }
+}

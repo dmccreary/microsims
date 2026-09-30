@@ -1,0 +1,15 @@
+{
+  "sim_id": "reuse-threshold-explorer",
+  "diagram_name": "Reuse Threshold Explorer",
+  "chapter_number": 15,
+  "chapter_title": "Metadata, Search and Reuse",
+  "chapter_dir": "15-metadata-search-and-reuse",
+  "chapter_rel_dir": "chapters/15-metadata-search-and-reuse",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Judge",
+  "learning_objective": "The learner will judge where the reuse and template thresholds should sit by moving them and observing which documented example scores are misclassified, and will justify why a conservative reuse threshold trades missed reuse for fewer false reuse.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** reuse-threshold-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: judge): The learner will judge where the reuse and template thresholds should sit by moving them and observing which documented example scores are misclassified, and will justify why a conservative reuse threshold trades missed reuse for fewer false reuse.\n\nData: only values stated in the `find-similar-templates` README are used: the default thresholds 0.75 and 0.60; the observed score ranges 0.73 to 0.86 (same concept), 0.53 to 0.69 (related but different) and 0.43 to 0.51 (absent); and one probe scoring 0.730 (Coulomb's law). Nothing else is invented, and the panel labels the ranges as \"reported by the tool's author\".\n\nVisual elements: a horizontal score axis from 0.40 to 0.90 with three colored range bars for the documented ranges, one marker for the Coulomb's law probe, and two vertical threshold lines colored by band (reuse, template, generate regions shaded behind).\n\nControls:\n\n- Slider \"Reuse threshold\" from 0.60 to 0.90 in steps of 0.01, default 0.75\n- Slider \"Template threshold\" from 0.40 to 0.75 in steps of 0.01, default 0.60\n- Button \"Reset to defaults\"\n- Toggle \"Show misclassified\": highlights any part of a range that falls in the wrong band and prints a sentence such as \"Coulomb's law probe would be sent to template, not reuse\"\n- Hover a range bar or the probe to read its description\n\nBehavior: the shaded band regions and the misclassification readout update on every slider change. The reuse threshold can never be set below the template threshold.\n\nResponsive design: the canvas width follows the container width on every window resize; sliders stay visible at 400 pixels wide and the axis labels shrink to a minimum of 12 pixels.\n\nImplementation: p5.js with createSlider and createButton positioned relative to the drawing height, and a describe() call for accessibility."
+}

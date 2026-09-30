@@ -1,0 +1,160 @@
+{
+  "title": "Policy Precedence Resolver",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Instrumentation",
+    "Configuration",
+    "Policy Precedence",
+    "LRS Runtime"
+  ],
+  "description": "A p5.js resolver in which learners set the book config, page option, metadata.json and ?xapi= URL switch layers, predict the resolved compact and teaching values, and watch the xAPI runtime's five-layer precedence resolve each key and name the layer that supplied it.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/policy-precedence-resolver/",
+  "canvasHeight": 700,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Policy precedence for the xAPI runtime's compact and teaching keys",
+    "learningObjectives": [
+      "The learner will determine the final compact and teaching values for a MicroSim by applying the five policy layers in order, and will identify which layer supplied each value."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "determine",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Full and Compact modes (Chapter 16)",
+      "The LRS config file and teaching mode (Chapter 17)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All inputs are native selects, buttons and a checkbox; values are written as true, false or not set, not shown by color alone; color-blind-safe blue/vermillion for true/false"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "bookSelect",
+        "type": "select",
+        "label": "Book config (layer 2)",
+        "purpose": "Set compact/teaching in lrs-config.js"
+      },
+      {
+        "id": "pageSelect",
+        "type": "select",
+        "label": "Page option (layer 3)",
+        "purpose": "Set the policy option passed to LRSSim.create"
+      },
+      {
+        "id": "metaSelect",
+        "type": "select",
+        "label": "metadata.json (layer 4)",
+        "purpose": "Set the MicroSim's own xapi block"
+      },
+      {
+        "id": "urlSelect",
+        "type": "select",
+        "label": "URL switch (layer 5)",
+        "purpose": "Choose ?xapi= tokens: teaching, production, full, compact"
+      },
+      {
+        "id": "resolveButton",
+        "type": "button",
+        "label": "Resolve",
+        "purpose": "Animate the climb from layer 1 to layer 5"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Return every layer to its starting state"
+      },
+      {
+        "id": "presetButton",
+        "type": "button",
+        "label": "Worked example",
+        "purpose": "Load the Chapter 17 worked example"
+      },
+      {
+        "id": "wonBox",
+        "type": "checkbox",
+        "label": "Show which layer won",
+        "purpose": "Label each resolved value with its source layer"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-resolve with an animated worked procedure and source attribution",
+    "interactionPattern": "Layer configuration with step animation and labelled result",
+    "keyQuestions": [
+      "Which layer is the highest one that sets this key?",
+      "Which file would you edit to change one MicroSim, the whole book, or one visit?",
+      "Why does ?xapi=teaching also change compact?"
+    ],
+    "commonMisconceptions": [
+      "A higher layer replaces the whole policy rather than resolving key by key",
+      "metadata.json always beats the URL switch",
+      "The book config is the highest-priority setting"
+    ],
+    "assessmentOpportunities": [
+      "Predicting resolved values and source layers before pressing Resolve",
+      "Designing a layer setup for a stated teaching goal"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "policy precedence",
+      "lrs-config.js",
+      "metadata.json",
+      "URL switch",
+      "teaching mode",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "diagram"
+    ]
+  },
+  "chapter": "17-instrumenting-microsims-with-the-xapi-runtime",
+  "simulation": {
+    "model": "Per-key precedence resolution mirroring lrs-lite-sim.js loadPolicy() and urlPolicy()",
+    "variables": [
+      "compact",
+      "teaching"
+    ],
+    "equations": [
+      "value(key) = first set value among URL switch, metadata.json, page option, book config, runtime defaults",
+      "a lone ?xapi=teaching implies compact = false"
+    ],
+    "assumptions": [
+      "Timer keys (idleMs, offscreenMs, blurMs) are not shown"
+    ]
+  }
+}

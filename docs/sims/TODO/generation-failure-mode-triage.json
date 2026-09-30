@@ -1,0 +1,15 @@
+{
+  "sim_id": "generation-failure-mode-triage",
+  "diagram_name": "Generation Failure Mode Triage",
+  "chapter_number": 5,
+  "chapter_title": "Generating MicroSims with AI Skills",
+  "chapter_dir": "05-generating-microsims-with-ai-skills",
+  "chapter_rel_dir": "chapters/05-generating-microsims-with-ai-skills",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish generation failure modes by matching a described symptom to its most likely cause and first repair.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** generation-failure-mode-triage<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish generation failure modes by matching a described symptom to its most likely cause and first repair.\n\nLayout: the drawing region shows a defective MicroSim thumbnail on the left (drawn by the sketch, with the defect visible) and six failure-mode cards on the right. The control region holds the controls.\n\nControls: a button \"Next case\" that loads one of eight defective-MicroSim cases, a button \"Show console\" that reveals a simulated browser console message for the case, and a button \"Check\" that confirms the learner's selected card.\n\nInteractions: the learner reads the symptom, optionally opens the console message, clicks the failure-mode card they think applies and presses Check. The sim answers with the cause and the first repair and, for wrong choices, explains what evidence would have distinguished the two modes. Hovering a card shows its definition. A score line counts correct first tries.\n\nData: the eight cases, console messages and answers are stored in a JSON file in the sim folder; every case is drawn from the failure modes in the table above.\n\nResponsive design: the canvas width follows the container width on every window resize, the cards move below the thumbnail under 600 pixels, and the three buttons stay visible at 400 pixels wide.\n\nImplementation: p5.js with createButton controls positioned relative to drawHeight, a describe() call for accessibility, and interaction events logged through a single function so Chapter 17 can attach xAPI statements to it."
+}

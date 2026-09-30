@@ -79,6 +79,10 @@ The sections below take the items in the order a dependency would force them: fi
 
 #### Diagram: Roadmap Status Board
 
+<iframe src="../../sims/roadmap-status-board/main.html" width="100%" height="762px" scrolling="no"></iframe>
+
+[Run the Roadmap Status Board MicroSim Fullscreen](../../sims/roadmap-status-board/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Roadmap Status Board</summary>
 Type: infographic
@@ -188,6 +192,10 @@ The table reports only arithmetic on the menu size. Whether a probe really resis
 
 #### Diagram: Guess Resistance Lab
 
+<iframe src="../../sims/guess-resistance-lab/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+[Run the Guess Resistance Lab MicroSim Fullscreen](../../sims/guess-resistance-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Guess Resistance Lab</summary>
 Type: microsim
@@ -243,6 +251,10 @@ Two constraints from earlier chapters shape it. Chapter 25's aggregate-only poli
 The claims in this book sit at different rungs of a ladder. The ladder below is a planning aid, not a measured result, and it states what evidence each rung needs.
 
 #### Diagram: Prediction Trust Ladder
+
+<iframe src="../../sims/prediction-trust-ladder/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Prediction Trust Ladder MicroSim Fullscreen](../../sims/prediction-trust-ladder/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Prediction Trust Ladder</summary>

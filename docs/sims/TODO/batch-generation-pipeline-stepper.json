@@ -1,0 +1,15 @@
+{
+  "sim_id": "batch-generation-pipeline-stepper",
+  "diagram_name": "Batch Generation Pipeline Stepper",
+  "chapter_number": 14,
+  "chapter_title": "Batch Generation from Specifications",
+  "chapter_dir": "14-batch-generation-from-specifications",
+  "chapter_rel_dir": "chapters/14-batch-generation-from-specifications",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the steps that a Python utility performs from the step that the AI agent performs, and will trace what each step reads and writes.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** batch-generation-pipeline-stepper<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the steps that a Python utility performs from the step that the AI agent performs, and will trace what each step reads and writes.\n\nLayout: a horizontal row of eight rounded boxes, one per pipeline step, above a white detail panel and a control region. Script steps are drawn in blue, the agent step (write the .js file) in orange, and the instructional design checkpoint in gray. The drawing region is aliceblue and the control region is white.\n\nData: for each step, the utility name (for example extract-sim-specs.py), the files it reads, the files it writes, and one plain-language sentence saying what it does. The content comes from the batch steps listed in this chapter.\n\nControls:\n\n- Buttons \"Previous\" and \"Next\" move a highlight through the eight steps\n- Clicking any box selects that step directly\n- Checkbox \"Show files\" toggles arrows for the files each step reads and writes\n- Hovering a box shows a tooltip with the step's purpose\n\nBehavior: the selected step is outlined in bold and its detail panel lists inputs, outputs and the actor (script or agent). A counter reads \"Step N of 8\". Files written by earlier steps appear as small document icons in the panel of later steps that read them.\n\nResponsive design: the canvas width follows the container width on every window resize, boxes wrap to two rows below 600 pixels, and the controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createButton and createCheckbox controls positioned relative to drawHeight. Include a describe() call for accessibility."
+}

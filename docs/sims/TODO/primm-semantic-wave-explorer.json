@@ -1,0 +1,15 @@
+{
+  "sim_id": "primm-semantic-wave-explorer",
+  "diagram_name": "PRIMM Semantic Wave Explorer",
+  "chapter_number": 24,
+  "chapter_title": "Pedagogy, Accessibility and Ethics",
+  "chapter_dir": "24-pedagogy-accessibility-and-ethics",
+  "chapter_rel_dir": "chapters/24-pedagogy-accessibility-and-ethics",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Relate",
+  "learning_objective": "The learner will relate each PRIMM stage to a point on a semantic wave and identify which stage a given lesson activity belongs to.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** primm-semantic-wave-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: relate): The learner will relate each PRIMM stage to a point on a semantic wave and identify which stage a given lesson activity belongs to.\n\nLayout: a drawing region above a control region. The drawing region shows a horizontal axis of five labeled stages (Predict, Run, Investigate, Modify, Make) and a vertical axis running from \"concrete\" at the bottom to \"abstract\" at the top. The control region is white with a silver divider.\n\nData: a fixed wave drawn as a smooth curve through five points, one per stage, with Predict and Investigate higher than Run. The heights are illustrative and the sim states this on screen.\n\nControls:\n\n- Five stage buttons that highlight the matching point on the curve and show a two-sentence description with one bouncing-ball activity\n- Dropdown \"Lesson activity\" with six sample activities (for example \"Write a guess before dropping the ball\"); the learner drags the activity onto the stage where it belongs and receives immediate feedback\n- Button \"Reset\"\n\nBehavior: a correct placement turns the stage green and shows why; an incorrect one shows the stage the activity most resembles and the reason.\n\nResponsive design: the canvas width follows the container width on every window resize, the stage buttons wrap to two rows under 500 pixels, and all controls remain reachable by keyboard.\n\nImplementation: p5.js with createButton and createSelect controls positioned relative to the drawing height. Include a describe() call summarizing the current wave position."
+}

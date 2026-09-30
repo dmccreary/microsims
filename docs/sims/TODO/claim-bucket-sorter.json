@@ -1,0 +1,15 @@
+{
+  "sim_id": "claim-bucket-sorter",
+  "diagram_name": "Claim Bucket Sorter",
+  "chapter_number": 11,
+  "chapter_title": "Verified Posters and Specialized MicroSim Types",
+  "chapter_dir": "11-verified-posters-and-specialized-microsim-types",
+  "chapter_rel_dir": "chapters/11-verified-posters-and-specialized-microsim-types",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Classify",
+  "learning_objective": "The learner will classify evidence records for a planned claim as VERIFIED, DIRECTIONAL, QUALITATIVE-ONLY or REJECTED, and will justify each choice from the quoted passage and the source type.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** claim-bucket-sorter<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: classify): The learner will classify evidence records for a planned claim as VERIFIED, DIRECTIONAL, QUALITATIVE-ONLY or REJECTED, and will justify each choice from the quoted passage and the source type.\n\nData: 12 invented practice records, each with a claim, a source type (peer-reviewed article, meta-analysis, marketing page, blog post citing unnamed studies), a quoted passage, and a correct bucket. The records are illustrative practice items and contain no real statistics.\n\nLayout: a card in the upper left shows the current record. Four labeled bucket regions run across the bottom. A side panel shows the four bucket definitions.\n\nInteractions: the learner drags the card into a bucket. Feedback appears at once and names the rule that decides the case (for example \"a marketing page with no primary paper cannot verify a number\"). A \"Show rule\" button reduces the score by half, and a summary screen lists missed records by pattern.\n\nResponsive design: the canvas width follows the container width on window resize, the buckets reflow into a two-by-two grid under 500 pixels, and the height is a fixed constant.\n\nImplementation: p5.js with drag handling, a data.json file of records, and a describe() call for accessibility."
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "iframe-height-test-simulator",
+  "diagram_name": "Iframe Height Test Simulator",
+  "chapter_number": 13,
+  "chapter_title": "Quality Assurance and Automated Layout Review",
+  "chapter_dir": "13-quality-assurance-and-automated-layout-review",
+  "chapter_rel_dir": "chapters/13-quality-assurance-and-automated-layout-review",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "The learner will apply the control visibility and iframe height tests to a mock MicroSim by choosing an iframe height, and will calculate the suggested height from the content height.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** iframe-height-test-simulator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: calculate): The learner will apply the control visibility and iframe height tests to a mock MicroSim by choosing an iframe height, and will calculate the suggested height from the content height.\n\nLayout: a drawing region showing a mock MicroSim inside a bordered iframe frame whose bottom edge moves with the height slider. Inside are a canvas, three sliders and two buttons at fixed positions, each with a small label showing its bottom edge in pixels. A results panel on the right lists PASS or FAIL for each control, the status of the whole MicroSim, the content height, and the suggested height.\n\nControls:\n\n- Slider \"Iframe height\" from 300 to 800 pixels in steps of 1, default 500.\n- Slider \"Content height\" from 400 to 800 pixels, default 528, which moves the lowest control.\n- Slider \"Tolerance\" from 0 to 20 pixels, default 5.\n- Checkbox \"Declared CANVAS_HEIGHT\" with a numeric field; when on, the suggestion uses the declared value instead of the measured content height.\n- Button \"Run test\", which animates a scan line from top to bottom and marks each control PASS or FAIL.\n\nBehavior: a control passes when its bottom is at most the iframe height plus the tolerance. The suggested height is the content height (or declared value) plus 10, rounded up to the next multiple of 10, shown only on FAIL. Clicking any control shows its bounding box and the inequality that decided its status.\n\nResponsive design: the canvas width follows the container width on every window resize; the results panel drops below the frame under 600 pixels wide. Include a describe() call.\n\nImplementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to the drawing height, and a CANVAS_HEIGHT comment for the height sync tool."
+}

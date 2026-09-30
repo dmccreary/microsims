@@ -1,0 +1,15 @@
+{
+  "sim_id": "generator-skill-anatomy-explorer",
+  "diagram_name": "Generator Skill Anatomy Explorer",
+  "chapter_number": 5,
+  "chapter_title": "Generating MicroSims with AI Skills",
+  "chapter_dir": "05-generating-microsims-with-ai-skills",
+  "chapter_rel_dir": "chapters/05-generating-microsims-with-ai-skills",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the entry file, reference guides, template assets and utility scripts of the generator skill by tracing which parts an agent reads for a given request.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** generator-skill-anatomy-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the entry file, reference guides, template assets and utility scripts of the generator skill by tracing which parts an agent reads for a given request.\n\nLayout: a drawing region above a control region. The drawing region shows a folder tree with four labeled boxes: SKILL.md, references, assets/templates and microsim-utils scripts, each connected by a line to a box labeled \"Agent working context\" on the right.\n\nControls: a dropdown \"Request\" with six sample requests (a bouncing ball simulation, a bar chart of survey results, a timeline of Unix history, a map of trade routes, a concept dependency network, a sorting quiz). A button \"Trace\" and a button \"Reset\".\n\nInteractions: choosing a request and pressing Trace highlights the path the agent follows, in order: SKILL.md routing table, then the one matching guide, then the matching templates, then the utilities used. Boxes that are not read stay grey. Hovering a box shows a tooltip that says what it contains. Clicking a highlighted box opens a panel with one sentence explaining why the agent needs it for this request. A counter shows how many of the skill's guides were loaded out of the total shown.\n\nData: the request-to-guide mapping is taken from the routing table in the skill's SKILL.md file; the number of template files is read from a small JSON data file in the sim folder.\n\nResponsive design: the canvas width follows the container width on every window resize, the folder tree stacks vertically below 500 pixels, and controls stay inside the control region at 400 pixels wide.\n\nImplementation: p5.js with createSelect and createButton controls positioned relative to drawHeight, a describe() call for accessibility, and mouse hover and click handling on the boxes."
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Marker, Popup and Tile Source Map using Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="marker-popup-tile-map.js"></script>
+</head>
+<body>
+    <main>
+        <h2>Marker, Popup and Tile Source Map</h2>
+        <div id="map" aria-label="Map of seven museums and parks in Minneapolis"></div>
+        <div class="controls">
+            <div class="row">
+                <label><input type="checkbox" id="categoryToggle"> Show category</label>
+                <span class="legend off" id="legend"></span>
+                <button id="swapBtn">Swap lat/lng</button>
+                <button id="fitBtn">Fit all markers</button>
+            </div>
+            <div id="caption" aria-live="polite"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

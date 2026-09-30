@@ -133,6 +133,10 @@ A **worked example** shows why the order matters. If the sketch paints the backg
 
 #### Diagram: Sketch Lifecycle Explorer
 
+<iframe src="../../sims/p5-sketch-lifecycle-explorer/main.html" width="100%" height="557px" scrolling="no"></iframe>
+
+[Run the Sketch Lifecycle Explorer MicroSim Fullscreen](../../sims/p5-sketch-lifecycle-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Sketch Lifecycle Explorer</summary>
 Type: microsim
@@ -221,6 +225,10 @@ circle(200, py, 20);
 If the output range were written `0, drawHeight` instead, the ball would appear upside down: rising values would move it down the screen. When a simulation's graph seems mirrored, check the direction of the mapping first.
 
 #### Diagram: Coordinate System Explorer
+
+<iframe src="../../sims/p5-coordinate-system-explorer/main.html" width="100%" height="517px" scrolling="no"></iframe>
+
+[Run the Coordinate System Explorer MicroSim Fullscreen](../../sims/p5-coordinate-system-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Coordinate System Explorer</summary>
@@ -372,6 +380,10 @@ function updateParticles() {
 Calling `spawnParticle` a few times per frame, and `updateParticles` once, gives a fountain. The lesson for a MicroSim author is the pattern of updating a whole population with one rule, since complex-looking behavior comes from many simple objects. Chapter 4 lists celebration effects under the p5.js custom-simulation type, and such effects are typically particle systems. Chapter 3 gives the counterweight: for an Understand-level objective, particle effects add extraneous load, so use them for feedback and reward, not as decoration.
 
 #### Diagram: Vector and Particle Lab
+
+<iframe src="../../sims/p5-vector-particle-lab/main.html" width="100%" height="552px" scrolling="no"></iframe>
+
+[Run the Vector and Particle Lab MicroSim Fullscreen](../../sims/p5-vector-particle-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Vector and Particle Lab</summary>
@@ -566,6 +578,10 @@ This rule complements the paused-by-default rule from the template. The template
 The H-Bridge shows one more habit worth copying. Its short-circuit warning flashes the wires red about twice per second, and its comments state that this rate is safe for photosensitive viewers. Attention-grabbing animation should be checked against accessibility concerns, a subject Chapter 24 returns to.
 
 #### Diagram: Flowing Current and Idle Pause
+
+<iframe src="../../sims/p5-flowing-current-idle-pause/main.html" width="100%" height="507px" scrolling="no"></iframe>
+
+[Run the Flowing Current and Idle Pause MicroSim Fullscreen](../../sims/p5-flowing-current-idle-pause/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Flowing Current and Idle Pause</summary>

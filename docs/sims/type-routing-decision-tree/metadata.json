@@ -1,0 +1,87 @@
+{
+  "title": "Type Routing Decision Tree",
+  "description": "A Mermaid flowchart of the generator skill's routing decision tree: thirteen yes-or-no questions about an objective's data shape, asked in order and stopping at the first yes, each yes ending in a leaf naming the MicroSim type and library, with a custom p5.js simulation when every answer is no. Every node has a click directive that opens an explanation and an example objective, and a Try an objective mode routes six objectives and compares the learner's path with the tree's.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "Instructional Design", "MicroSim Engineering", "Decision Trees"],
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/type-routing-decision-tree/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Routing a learning objective to a MicroSim type",
+    "learningObjectives": [
+      "The learner will use the routing questions to select the correct MicroSim type for six described objectives."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "use",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The MicroSim type catalog",
+      "Classifying an objective by Bloom level and verb",
+      "The idea of a data shape"
+    ],
+    "concepts": ["Type Routing", "Keyword Routing", "Objective-to-Type Mapping", "Routing Ambiguity", "MicroSim Type Catalog"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "libraryVersion": "11.4.1",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 820
+    },
+    "responsive": true,
+    "dependencies": ["Mermaid 11.4.1 (jsDelivr CDN)"],
+    "diagram": {
+      "type": "flowchart",
+      "direction": "TD",
+      "nodeCount": 28,
+      "edgeCount": 27,
+      "clickDirectives": 28
+    },
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Node text is real HTML inside the SVG; explanations appear as plain HTML in the infobox."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "select", "label": "Try an objective", "options": ["Explore: click any node", "Objective 1", "Objective 2", "Objective 3", "Objective 4", "Objective 5", "Objective 6"], "default": "Explore: click any node" },
+      { "type": "button", "label": "Clear my path", "action": "Remove the learner's path for the current objective" },
+      { "type": "diagram-click", "label": "Any node", "action": "Show its explanation and example; in Try mode, choose where the learner stops" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Ordered decision tree with path comparison",
+    "variables": ["selected objective", "learner stopping question", "tree stopping question"],
+    "assumptions": ["Question order follows the specification, which takes it from the decision tree in the generator skill's SKILL.md."],
+    "limitations": ["The skill's tree also has celebration-effects and HTML-matrix questions; the specification folds the matrix into the comparison-table question and omits celebration effects."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided practice applying an ordered procedure, with immediate path comparison",
+    "interactionPattern": "Procedure use with feedback (Apply level)",
+    "keyQuestions": [
+      "What is the data shape of this objective?",
+      "Which question does it answer yes to first?",
+      "When could two questions both fairly answer yes?"
+    ],
+    "commonMisconceptions": [
+      "Any question that fits can be chosen; the order does not matter.",
+      "A keyword such as 'map' always means a geographic map.",
+      "If no standard library fits, the objective cannot be built."
+    ],
+    "assessmentOpportunities": [
+      "First-try routing accuracy on the six objectives",
+      "Written reasons for each 'no' above the stopping question"
+    ]
+  },
+  "chapter": "04-choosing-a-microsim-type",
+  "canvasHeight": 820
+}

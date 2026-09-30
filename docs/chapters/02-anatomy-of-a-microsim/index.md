@@ -87,6 +87,10 @@ The diagram below lets you explore a MicroSim directory interactively. Before yo
 
 #### Diagram: MicroSim Directory Explorer
 
+<iframe src="../../sims/microsim-directory-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the MicroSim Directory Explorer MicroSim Fullscreen](../../sims/microsim-directory-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>MicroSim Directory Explorer</summary>
 Type: diagram
@@ -237,6 +241,10 @@ Controls are positioned relative to `drawHeight`, not with fixed numbers. The H-
 The diagram below lets you build a canvas by changing region heights. Before using it, remember two facts from this section: the two regions stack vertically, and their heights add up to the canvas height.
 
 #### Diagram: Canvas Height Calculator
+
+<iframe src="../../sims/canvas-height-calculator/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+[Run the Canvas Height Calculator MicroSim Fullscreen](../../sims/canvas-height-calculator/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Canvas Height Calculator</summary>
@@ -427,6 +435,10 @@ We can now combine every part into one inspection routine. Given an unfamiliar M
 Try this routine on the interactive audit below. Before you begin, review the failure modes covered in this chapter: a floating library version, a height mismatch, a missing schema tag, and Dublin Core fields in the wrong place.
 
 #### Diagram: MicroSim Directory Audit
+
+<iframe src="../../sims/microsim-directory-audit/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the MicroSim Directory Audit MicroSim Fullscreen](../../sims/microsim-directory-audit/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>MicroSim Directory Audit</summary>

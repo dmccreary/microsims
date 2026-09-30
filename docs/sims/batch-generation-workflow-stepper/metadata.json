@@ -1,0 +1,84 @@
+{
+  "title": "Batch Generation Workflow Stepper",
+  "description": "A step-through of the eight steps of the MicroSim generator skill's batch workflow that shows each step's command, input file, output file and lifecycle state, and explains why a script, the agent or a human checkpoint performs it. An optional Predict first mode asks the learner to predict the actor before revealing it.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "Instructional Design", "AI-Assisted Content Generation", "MicroSim Engineering"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/batch-generation-workflow-stepper/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Batch generation workflow of the MicroSim generator skill",
+    "learningObjectives": [
+      "The learner will explain what each step of the batch generation workflow does and why it is done by a script or by the agent."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Parts of a MicroSim folder (main.html, index.md, metadata.json, the .js file)",
+      "The instructional design checkpoint",
+      "What a specification block is"
+    ],
+    "concepts": ["Agent Workflow", "Human in the Loop", "MicroSim Generator Skill", "Specification Block", "Generation Log"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "screenReaderDescription": "describe() summarizes the eight steps, the color key and the controls",
+      "colorIndependent": "Each step box also prints its actor as a word",
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "button", "label": "Previous", "action": "Select the previous step" },
+      { "type": "button", "label": "Next", "action": "Select the next step" },
+      { "type": "button", "label": "Reset", "action": "Return to step 1 and clear predictions" },
+      { "type": "checkbox", "label": "Predict first", "default": false, "action": "Hide each step's actor until the learner predicts it" },
+      { "type": "button", "label": "Script / Agent / Human", "action": "Record a prediction for the selected step (Predict first mode only)" },
+      { "type": "canvas-click", "label": "Step box", "action": "Select a step; hover shows its one-line purpose" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Step-through process model",
+    "variables": ["selected step (1-8)", "actor (script, agent, human)", "lifecycle state (specified, scaffolded, implemented, validated, deployed)"],
+    "assumptions": ["Step names, commands and lifecycle states follow the batch route described in Chapter 5 and the generator skill's SKILL.md."],
+    "limitations": ["Commands are shown in shortened form without the --project-dir and --verbose options."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through worked example with optional predict-first prompts",
+    "interactionPattern": "Step-through with concrete data (Understand level)",
+    "keyQuestions": [
+      "Why are six of the eight steps done by scripts?",
+      "What makes writing the JavaScript file the one step that needs the agent?",
+      "At which steps does the skill stop and hand a decision to a person?"
+    ],
+    "commonMisconceptions": [
+      "The AI agent does every step of the workflow.",
+      "The layout review is fully automatic and needs no human judgment.",
+      "Inserting iframes by itself makes a MicroSim deployed."
+    ],
+    "assessmentOpportunities": [
+      "Predict first score across the eight steps",
+      "One-sentence explanation of why each step belongs to its actor"
+    ]
+  },
+  "chapter": "05-generating-microsims-with-ai-skills",
+  "canvasHeight": 620
+}

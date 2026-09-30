@@ -1,0 +1,177 @@
+{
+  "title": "Partition Key Simulator",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "Event Streaming",
+    "Kafka Partitions",
+    "Partition Key",
+    "Message Ordering"
+  ],
+  "description": "A p5.js simulator that routes bursts of xAPI statements into event-stream partitions by hashing a district key, a district-and-learner key or no key, so learners can compare per-partition load with the order in which the processor reads each learner's statements.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/partition-key-simulator/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Choosing the event-stream partition key: load balance versus per-learner order",
+    "learningObjectives": [
+      "The learner will compare keying by district with keying by district and learner, in terms of per-partition load and per-learner ordering."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "compare",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The role of the event stream in the full LRS (Chapter 20)",
+      "The idea of a hash function",
+      "Why the order of evidence matters to sequential mastery updates (Chapter 18)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Radio, sliders and buttons are native controls with aria labels; the selected learner is marked by outline and sequence numbers, not color alone; overflow is shown with a +N count and a red limit tick"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "keyRadio",
+        "type": "radio",
+        "label": "Key: district only / Key: district and learner / No key (random lane)",
+        "default": "Key: district and learner",
+        "purpose": "Choose the partition key"
+      },
+      {
+        "id": "learnersSlider",
+        "type": "slider",
+        "label": "Learners",
+        "min": 3,
+        "max": 60,
+        "default": 12,
+        "purpose": "Number of learners sending statements"
+      },
+      {
+        "id": "districtsSlider",
+        "type": "slider",
+        "label": "Districts",
+        "min": 1,
+        "max": 4,
+        "default": 2,
+        "purpose": "Number of districts (unequal sizes)"
+      },
+      {
+        "id": "partitionsSlider",
+        "type": "slider",
+        "label": "Partitions",
+        "min": 2,
+        "max": 12,
+        "default": 6,
+        "purpose": "Number of partition lanes"
+      },
+      {
+        "id": "burstButton",
+        "type": "button",
+        "label": "Send burst",
+        "purpose": "Emit 60 more statements"
+      },
+      {
+        "id": "pauseButton",
+        "type": "button",
+        "label": "Pause",
+        "purpose": "Freeze production and consumption"
+      },
+      {
+        "id": "learnerClick",
+        "type": "clickable canvas dots",
+        "label": "Learner dots",
+        "purpose": "Select a learner to see their read order"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Side-by-side comparison of two designs on two criteria",
+    "interactionPattern": "Switch the key, observe lane load and a learner's read order, vary parameters",
+    "keyQuestions": [
+      "Which key concentrates a whole district on one partition, and why?",
+      "Does keying by district and learner give up per-learner order?",
+      "What would happen to mastery estimates if one learner's statements were read out of order?"
+    ],
+    "commonMisconceptions": [
+      "A coarser key gives stronger ordering guarantees",
+      "Kafka orders messages across partitions",
+      "More partitions always spread a single key's traffic"
+    ],
+    "assessmentOpportunities": [
+      "A two-key comparison table of peak load and order",
+      "Explaining the 200,000-student district hotspot",
+      "Justifying the design's district-and-learner key"
+    ]
+  },
+  "search": {
+    "tags": [
+      "LRS",
+      "Kafka",
+      "Redpanda",
+      "partition key",
+      "hot partition",
+      "message ordering",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "animation"
+    ]
+  },
+  "chapter": "20-the-full-lrs-architecture-and-ingestion",
+  "simulation": {
+    "modelType": "Discrete-event queue simulation",
+    "variables": [
+      "partition key",
+      "learners",
+      "districts",
+      "partitions",
+      "lane backlog",
+      "read order"
+    ],
+    "equations": [
+      "partition = (murmur2(key) & 0x7fffffff) mod partitions",
+      "lane limit = 2 x (60 / partitions)"
+    ],
+    "assumptions": [
+      "District A holds half the learners, then 25%, 15% and 10%",
+      "Each learner sends about the same number of statements per burst",
+      "Each lane's consumer reads at a slightly different fixed pace"
+    ],
+    "limitations": [
+      "The limit line is a teaching threshold, not a broker setting",
+      "Broker quotas that bound each district's throughput are not modeled",
+      "Learner colors cannot all be distinct for color-blind viewers at 60 learners; selection uses outline and numbers"
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+/* Chart Configuration Anatomy Explorer - layout for a fixed-height iframe (660 px) */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+}
+
+.app {
+    box-sizing: border-box;
+    height: 660px;
+    padding: 8px 10px 10px 10px;
+    background: aliceblue;
+    border: 1px solid silver;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.panels {
+    display: flex;
+    gap: 10px;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* Left panel: the configuration as color-coded blocks */
+.config-panel {
+    flex: 0 0 48%;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 8px;
+    padding: 6px 8px;
+    overflow: auto;
+    font-family: Menlo, Consolas, "Courier New", monospace;
+    font-size: 12.5px;
+    line-height: 1.35;
+}
+
+.code-line {
+    color: dimgray;
+    padding: 1px 4px;
+}
+
+.block {
+    position: relative;
+    border: 2px solid;
+    border-radius: 6px;
+    margin: 3px 0;
+    padding: 3px 6px;
+    cursor: default;
+    transition: box-shadow 0.15s;
+}
+
+.block pre {
+    margin: 0;
+    font-family: inherit;
+    white-space: normal;
+}
+
+.block .ln {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.block .tag {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 8px;
+}
+
+.type-block { background: lavender; border-color: slateblue; }
+.type-block .tag { background: slateblue; }
+.data-block { background: honeydew; border-color: seagreen; }
+.data-block .tag { background: seagreen; }
+.options-block { background: oldlace; border-color: darkorange; }
+.options-block .tag { background: chocolate; }
+
+.block:hover, .block:focus, .block.lit {
+    box-shadow: 0 0 0 3px gold;
+    outline: none;
+}
+
+/* Brief flash when a control rewrites a block */
+.block.changed {
+    animation: flash 0.9s ease-out;
+}
+
+@keyframes flash {
+    0% { box-shadow: 0 0 0 6px gold; }
+    100% { box-shadow: 0 0 0 0 gold; }
+}
+
+/* Token colors in the code */
+.k { color: black; font-weight: bold; }
+.s { color: firebrick; }
+.n { color: mediumblue; }
+.b { color: purple; font-weight: bold; }
+.c { color: gray; font-style: italic; }
+
+/* Right panel: the chart */
+.chart-panel {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.chart-box {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.caption {
+    flex: 0 0 auto;
+    min-height: 58px;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #333;
+    border-top: 1px solid gainsboro;
+    padding-top: 5px;
+    margin-top: 4px;
+}
+
+.caption.warn {
+    color: firebrick;
+}
+
+.caption code {
+    font-family: Menlo, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    background: whitesmoke;
+    padding: 0 2px;
+}
+
+/* Controls */
+.controls {
+    flex: 0 0 auto;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 8px;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+}
+
+.row label {
+    white-space: nowrap;
+}
+
+.row select, .row button {
+    font-size: 15px;
+}
+
+.value-input {
+    width: 3.1em;
+    font-size: 15px;
+}
+
+/* Narrow screens: the panels stack and the code panel scrolls */
+@media (max-width: 599px) {
+    .panels { flex-direction: column; }
+    .config-panel { flex: 0 0 150px; font-size: 12px; }
+    .chart-box { min-height: 150px; }
+    .caption { min-height: 40px; font-size: 13px; }
+    .controls { gap: 4px; font-size: 14px; }
+    .row { gap: 4px 10px; }
+    .row select, .row button, .value-input { font-size: 14px; }
+    .value-input { width: 3em; }
+}

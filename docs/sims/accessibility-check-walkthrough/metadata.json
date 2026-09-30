@@ -1,0 +1,146 @@
+{
+  "title": "Accessibility Check Walkthrough",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Accessibility",
+    "WCAG",
+    "Keyboard Operability",
+    "Universal Design for Learning",
+    "MicroSim Quality Review"
+  ],
+  "description": "A p5.js MicroSim in which learners run four human accessibility checks (keyboard-only completion, visible focus, text alternative and no color-only meaning) on three variants of a mock ball-drop MicroSim, record Pass or Fail verdicts, and compare them with the built-in defects, each mismatch explained in one sentence.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/accessibility-check-walkthrough/",
+  "canvasHeight": 700,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Human accessibility checks for MicroSims",
+    "learningObjectives": [
+      "The learner will judge whether a mock MicroSim passes each of four accessibility checks and justify each verdict with the defect they found."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Accessibility standards, keyboard operability and the accessibility check (Chapter 24)",
+      "Operating a web page with Tab, Shift+Tab, arrow keys and Enter"
+    ],
+    "standards": [
+      "WCAG 2.1 AA: 1.1.1 Non-text Content, 1.4.1 Use of Color, 2.1.1 Keyboard, 2.4.7 Focus Visible"
+    ]
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All controls are native labeled elements with a 3px focus ring; the mock is operable from the keyboard while the canvas has focus and never traps focus; verdicts are shown as words and symbols as well as colors; reveal results are announced in an aria-live region; describe() text is updated after every change"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "variantSelect",
+        "type": "select",
+        "label": "Mock variant",
+        "purpose": "Choose mock variant A, B or C"
+      },
+      {
+        "id": "keyboardBox",
+        "type": "checkbox",
+        "label": "Keyboard only",
+        "purpose": "Disable pointer input on the mock so the task must be done with Tab, arrow keys and Enter"
+      },
+      {
+        "id": "descBox",
+        "type": "checkbox",
+        "label": "Show description",
+        "purpose": "Hide the mock picture and show the text a screen reader would read"
+      },
+      {
+        "id": "verdictButtons",
+        "type": "button",
+        "label": "Keyboard / Focus / Text alt / Color",
+        "purpose": "Record a Pass or Fail verdict for each of the four checks"
+      },
+      {
+        "id": "revealButton",
+        "type": "button",
+        "label": "Reveal answers",
+        "purpose": "Compare verdicts with the built-in defects and explain each mismatch"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Mock MicroSim with built-in, deliberate accessibility defects (not real product findings)",
+    "variables": [
+      "variant",
+      "keyboard-only mode",
+      "description shown",
+      "four verdicts"
+    ],
+    "assumptions": [
+      "Variant A: pointer-only canvas slider and a vague description",
+      "Variant B: hidden focus indicator and a status light that relies on red versus green",
+      "Variant C: passes all four checks"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Hands-on evaluation against a checklist, followed by feedback on each verdict",
+    "interactionPattern": "Operate a mock, record verdicts, reveal and compare",
+    "keyQuestions": [
+      "Can every function be reached and used from the keyboard?",
+      "Can you always see where keyboard focus is?",
+      "Does the text alternative alone tell a listener what is shown and what the controls do?",
+      "Is any information carried only by color?"
+    ],
+    "commonMisconceptions": [
+      "If a control can be focused, focus is visible",
+      "Any describe() text satisfies the text alternative check",
+      "Automated tools can run all four checks"
+    ],
+    "assessmentOpportunities": [
+      "Verdicts that match the built-in answers",
+      "A written defect for each Fail verdict",
+      "A minimal repair plan for each defect"
+    ]
+  },
+  "search": {
+    "tags": [
+      "accessibility",
+      "WCAG",
+      "keyboard",
+      "focus indicator",
+      "describe",
+      "color blindness",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "interactive-demo",
+      "checklist"
+    ]
+  },
+  "chapter": "24-pedagogy-accessibility-and-ethics"
+}

@@ -104,6 +104,10 @@ The following diagram lets you trace dependencies among the concepts of this cha
 
 #### Diagram: Objectives Neighborhood of the Learning Graph
 
+<iframe src="../../sims/objectives-graph-neighborhood/main.html" width="100%" height="604px" scrolling="no"></iframe>
+
+[Run the Objectives Neighborhood of the Learning Graph MicroSim Fullscreen](../../sims/objectives-graph-neighborhood/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Objectives Neighborhood of the Learning Graph</summary>
 Type: diagram
@@ -161,6 +165,10 @@ Before you rewrite objectives yourself, the next specification gives you a place
 
 #### Diagram: Objective Rewriter Workbench
 
+<iframe src="../../sims/objective-rewriter-workbench/main.html" width="100%" height="597px" scrolling="no"></iframe>
+
+[Run the Objective Rewriter Workbench MicroSim Fullscreen](../../sims/objective-rewriter-workbench/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Objective Rewriter Workbench</summary>
 Type: microsim
@@ -211,6 +219,10 @@ The table below summarizes the six levels. It previews terms that the next six s
 | Create | produces something new | Design an original MicroSim that pairs an interaction pattern with a measurable learning objective |
 
 #### Diagram: Bloom Level Ladder
+
+<iframe src="../../sims/bloom-level-ladder/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+[Run the Bloom Level Ladder MicroSim Fullscreen](../../sims/bloom-level-ladder/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Bloom Level Ladder</summary>
@@ -329,6 +341,10 @@ The sorter below lets you practice on a larger set, with feedback that explains 
 
 #### Diagram: Bloom Objective Sorter
 
+<iframe src="../../sims/bloom-objective-sorter/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Bloom Objective Sorter MicroSim Fullscreen](../../sims/bloom-objective-sorter/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Bloom Objective Sorter</summary>
 Type: microsim
@@ -375,6 +391,10 @@ A **worked example** uses the bounciness objectives from earlier. For the Unders
 There is a second reason to care. Each pattern produces a different kind of event when instrumented, and Chapter 16 develops which events count as evidence. A flip of a flash card says little about understanding. A predicted value compared with the actual value says much more. Choosing the pattern is therefore the first decision that shapes the evidence a MicroSim can ever produce.
 
 #### Diagram: Bloom-to-Pattern Matrix
+
+<iframe src="../../sims/bloom-to-pattern-matrix/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Bloom-to-Pattern Matrix MicroSim Fullscreen](../../sims/bloom-to-pattern-matrix/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Bloom-to-Pattern Matrix</summary>
@@ -448,6 +468,10 @@ The table below summarizes the three loads for a MicroSim designer.
 
 #### Diagram: Cognitive Load Balance Lab
 
+<iframe src="../../sims/cognitive-load-balance-lab/main.html" width="100%" height="627px" scrolling="no"></iframe>
+
+[Run the Cognitive Load Balance Lab MicroSim Fullscreen](../../sims/cognitive-load-balance-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Cognitive Load Balance Lab</summary>
 Type: microsim
@@ -520,6 +544,10 @@ A short **worked example** applies the test to two proposed animations in a Micr
 The project's design framework also describes a *semantic wave*, in which MicroSims unpack an abstract idea into a concrete interactive experience and then repack it into a general understanding. Animation that supports the concrete phase can help, but animation that never leads back to the abstract idea leaves the learner at the bottom of the wave. Chapter 24 covers semantic waves in detail.
 
 #### Diagram: Instructional Design Checkpoint Navigator
+
+<iframe src="../../sims/design-checkpoint-navigator/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+[Run the Instructional Design Checkpoint Navigator MicroSim Fullscreen](../../sims/design-checkpoint-navigator/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Instructional Design Checkpoint Navigator</summary>

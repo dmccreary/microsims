@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Chart Type Chooser using Chart.js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="controls" role="group" aria-label="Chart type chooser controls">
+            <label class="control">Dataset
+                <select id="dataset-select" aria-label="Dataset"></select>
+            </label>
+            <fieldset class="control type-group">
+                <legend>Chart type</legend>
+                <label><input type="radio" name="chart-type" value="bar" checked> Bar</label>
+                <label><input type="radio" name="chart-type" value="line"> Line</label>
+                <label><input type="radio" name="chart-type" value="pie"> Pie</label>
+            </fieldset>
+            <button id="check-btn" type="button">Check my choice</button>
+        </div>
+        <p class="question" id="question"></p>
+        <div class="stage">
+            <div class="chart-box">
+                <canvas id="chart" aria-label="Chart of the selected dataset" role="img"></canvas>
+            </div>
+            <aside class="side-note" id="side-note" aria-live="polite">
+                <div class="note-title">Fit check</div>
+                <div id="feedback" class="feedback neutral">Pick the chart type you think answers the data question, then press <strong>Check my choice</strong>.</div>
+                <div id="rule" class="rule"></div>
+                <div class="viewed" id="viewed"></div>
+            </aside>
+        </div>
+        <p class="source">Data: invented for illustration. Not measured values.</p>
+    </main>
+    <script src="chart-type-chooser.js"></script>
+</body>
+</html>

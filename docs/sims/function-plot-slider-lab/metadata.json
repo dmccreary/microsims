@@ -1,0 +1,76 @@
+{
+  "title": "Function Plot Slider Lab",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Mathematics; Data Visualization",
+  "description": "Interactive Plotly.js function plot in which a slider moves a red marker along sin(x), cos(x), x squared or e^(-x^2), a readout reports x and f(x), and a Show matches button marks every x where the curve reaches a target output.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 540,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Slider-driven function plots",
+    "learningObjectives": [
+      "The learner will locate the x values where a chosen function reaches a given output, by moving a marker along the curve and reading the tooltip."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "locate",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The idea of a function and its graph",
+      "Familiarity with sine, cosine, squares and exponentials"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Plotly.js",
+    "frameworkVersion": "2.27.0",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 540
+    },
+    "responsive": true,
+    "dependencies": ["https://cdn.plot.ly/plotly-2.27.0.min.js"],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Function", "options": ["sin(x)", "cos(x)", "x^2", "e^(-x^2)"]},
+      {"type": "slider", "label": "x", "min": -6.28, "max": 6.28, "step": 0.01},
+      {"type": "number", "label": "Target y", "default": 0.5},
+      {"type": "button", "label": "Show matches"},
+      {"type": "button", "label": "Clear"}
+    ]
+  },
+  "simulation": {
+    "model": "Sampled function plot with a movable marker and root finding for f(x) = target",
+    "variables": ["x", "f(x)", "target y"],
+    "equations": ["f(x) = sin(x)", "f(x) = cos(x)", "f(x) = x^2", "f(x) = e^(-x^2)"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided practice with a self-check",
+    "interactionPattern": "Move a marker, read the readout, check with Show matches",
+    "keyQuestions": [
+      "How many x values in the domain give sin(x) = 0.5, and why?",
+      "Why does e^(-x^2) = 2 have no solution?"
+    ],
+    "commonMisconceptions": [
+      "An equation such as sin(x) = 0.5 has only one solution.",
+      "A curve that touches a level without crossing it does not reach that level."
+    ],
+    "assessmentOpportunities": [
+      "Locate all x values where a function reaches a target to within 0.01",
+      "Explain differing match counts from the shape of each curve"
+    ]
+  },
+  "chapter": "07-charts-plots-and-tables"
+}

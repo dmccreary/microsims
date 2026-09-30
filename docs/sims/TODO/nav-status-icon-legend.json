@@ -1,0 +1,15 @@
+{
+  "sim_id": "nav-status-icon-legend",
+  "diagram_name": "Nav Status Icon Legend",
+  "chapter_number": 14,
+  "chapter_title": "Batch Generation from Specifications",
+  "chapter_dir": "14-batch-generation-from-specifications",
+  "chapter_rel_dir": "chapters/14-batch-generation-from-specifications",
+  "library": "p5.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Match",
+  "learning_objective": "The learner will match each nav status icon and color to its meaning and to the batch lifecycle state that usually produces it.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: infographic\n**sim-id:** nav-status-icon-legend<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: match): The learner will match each nav status icon and color to its meaning and to the batch lifecycle state that usually produces it.\n\nLayout: a mock navigation sidebar on the left listing five sample MicroSim titles, each with a colored status icon, and a detail panel on the right. The drawing region is aliceblue and the control region is white.\n\nData: five statuses with color and meaning: scaffold (red, filled circle, placeholder not yet implemented), built (orange, filled circle, awaiting review), implemented (blue, filled circle, the MicroSim works), instrumented (teal, broadcast signal, emits xAPI events), approved (green, check circle, tested and approved).\n\nControls:\n\n- Hovering an icon shows its tooltip text exactly as it would appear in the nav\n- Clicking an icon selects it and fills the detail panel with the meaning and the related lifecycle state\n- Button \"Quiz me\" hides the labels and asks the learner to click the icon that means a given description, then scores the answer\n- Toggle \"Dark mode\" switches the mock sidebar between light and dark backgrounds to confirm the colors stay readable\n\nResponsive design: the canvas width follows the container width on every window resize, the detail panel moves below the sidebar under 600 pixels, and all controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createButton and createCheckbox controls positioned relative to drawHeight. Include a describe() call for accessibility."
+}

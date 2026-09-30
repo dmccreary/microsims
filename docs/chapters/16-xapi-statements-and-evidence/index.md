@@ -155,6 +155,10 @@ The next specification lets you take such a statement apart yourself. Every term
 
 #### Diagram: xAPI Statement Field Explorer
 
+<iframe src="../../sims/xapi-statement-field-explorer/main.html" width="100%" height="672px" scrolling="no"></iframe>
+
+[Run the xAPI Statement Field Explorer MicroSim Fullscreen](../../sims/xapi-statement-field-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>xAPI Statement Field Explorer</summary>
 Type: microsim
@@ -218,6 +222,10 @@ The worked example below shows the two fragment styles for a single MicroSim pag
 The last two rows share a pixel on screen but are different activities, and the contract's "one object, one type" rule says the user-interface mode never changes an object's type. Inspecting a thing and being asked to find it are different acts, and if two acts need different `result` fields to be honest, they are different objects. An inspection has no `success` to report; an answer must. The two objects meet again at the concept, not at the identifier.
 
 #### Diagram: Activity IRI Builder
+
+<iframe src="../../sims/activity-iri-builder/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Activity IRI Builder MicroSim Fullscreen](../../sims/activity-iri-builder/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Activity IRI Builder</summary>
@@ -342,6 +350,10 @@ The next specification asks you to classify events by verb, which is the skill t
 
 #### Diagram: Three Verb Classifier
 
+<iframe src="../../sims/three-verb-classifier/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Three Verb Classifier MicroSim Fullscreen](../../sims/three-verb-classifier/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Three Verb Classifier</summary>
 Type: microsim
@@ -401,6 +413,10 @@ The following worked example uses the contract to audit a malformed statement. S
 The next specification turns that audit into a practice exercise.
 
 #### Diagram: Contract Violation Finder
+
+<iframe src="../../sims/contract-violation-finder/main.html" width="100%" height="802px" scrolling="no"></iframe>
+
+[Run the Contract Violation Finder MicroSim Fullscreen](../../sims/contract-violation-finder/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Contract Violation Finder</summary>
@@ -467,6 +483,10 @@ Exposure evidence, which is classes 1 through 4, contributes zero attempts to a 
 The next specification lets you practice the classification on a set of cases.
 
 #### Diagram: Evidence Class Sorter
+
+<iframe src="../../sims/evidence-class-sorter/main.html" width="100%" height="762px" scrolling="no"></iframe>
+
+[Run the Evidence Class Sorter MicroSim Fullscreen](../../sims/evidence-class-sorter/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Evidence Class Sorter</summary>
@@ -566,6 +586,10 @@ A short warning belongs here because the thresholds are easy to misunderstand as
 The last specification lets you feel how the thresholds change the record.
 
 #### Diagram: Evidence Threshold Lab
+
+<iframe src="../../sims/evidence-threshold-lab/main.html" width="100%" height="772px" scrolling="no"></iframe>
+
+[Run the Evidence Threshold Lab MicroSim Fullscreen](../../sims/evidence-threshold-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Evidence Threshold Lab</summary>

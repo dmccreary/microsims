@@ -1,0 +1,76 @@
+{
+  "title": "Bloom Level Ladder",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["Bloom's Taxonomy", "Bloom Verbs", "Interaction Patterns", "Learning Objectives"],
+  "description": "A p5.js ladder of the six Bloom's 2001 levels with hover definitions, a DOM panel listing each level's eight canonical verbs, an example course outcome and a suitable interaction pattern, a compare mode that highlights shared verbs, and a random-verb quiz with a score counter.",
+  "date": "2026-09-30",
+  "type": "Interactive Infographic",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/bloom-level-ladder/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 520,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Design",
+    "topic": "The six levels of Bloom's 2001 Taxonomy",
+    "learningObjectives": [
+      "Summarize what each of the six Bloom levels asks of a learner.",
+      "Name one kind of MicroSim interaction that suits each level."
+    ],
+    "bloomsTaxonomy": ["Understand"],
+    "bloomVerb": "summarize",
+    "duration": "10-15 minutes",
+    "prerequisites": ["Learning objective"],
+    "concepts": ["Bloom's Taxonomy", "Remember Level", "Understand Level", "Apply Level", "Analyze Level", "Evaluate Level", "Create Level", "Bloom Verb", "Interaction Pattern"],
+    "chapter": "03-learning-objectives-and-blooms-taxonomy"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 520
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "domTextPanel": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "canvas-click", "label": "Ladder rungs (hover for definition, click for details)"},
+      {"type": "checkbox", "label": "Show verbs on bars", "default": false},
+      {"type": "checkbox", "label": "Compare two levels", "default": false},
+      {"type": "button", "label": "Random level quiz"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Interactive infographic with quiz",
+    "variables": ["selected level", "compared levels", "quiz verb", "quiz score"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Concrete data visibility with self-check quiz",
+    "interactionPattern": "Explore-then-quiz infographic",
+    "keyQuestions": [
+      "What does each level ask the learner to do?",
+      "Why do compare and contrast appear at two levels?"
+    ],
+    "commonMisconceptions": [
+      "The level named Understand is a good objective verb.",
+      "Every verb belongs to exactly one level.",
+      "Higher levels are always better objectives."
+    ],
+    "assessmentOpportunities": [
+      "Random level quiz score.",
+      "One-sentence summaries of each level with a matching interaction pattern."
+    ]
+  }
+}

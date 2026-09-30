@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Bloom-to-Pattern Matrix using HTML and JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="header">
+                <span class="title">Bloom-to-Pattern Matrix</span>
+                <span id="mode-note" class="mode-note">Click a chip for details</span>
+            </div>
+            <div id="content">
+                <div id="grid-wrap">
+                    <table id="matrix" aria-label="Bloom levels and interaction patterns">
+                        <thead>
+                            <tr>
+                                <th class="level-col">Bloom level</th>
+                                <th>Appropriate patterns</th>
+                                <th>Inappropriate patterns</th>
+                                <th>Example MicroSims in this book</th>
+                            </tr>
+                        </thead>
+                        <tbody id="matrix-body"></tbody>
+                    </table>
+                    <div id="cards"></div>
+                </div>
+                <div id="detail" aria-live="polite"></div>
+            </div>
+            <div id="toolbar">
+                <button id="reset-btn">Reset</button>
+                <button id="detective-btn">Mismatch detective</button>
+                <button id="answers-btn">Show answers</button>
+                <span id="score">Score: 0 of 0</span>
+            </div>
+            <div id="tooltip" role="tooltip"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+    <script src="bloom-to-pattern-matrix.js"></script>
+</body>
+</html>

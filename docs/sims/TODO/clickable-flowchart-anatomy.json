@@ -1,0 +1,15 @@
+{
+  "sim_id": "clickable-flowchart-anatomy",
+  "diagram_name": "Clickable Flowchart Anatomy",
+  "chapter_number": 8,
+  "chapter_title": "Diagrams, Networks and Systems",
+  "chapter_dir": "08-diagrams-networks-and-systems",
+  "chapter_rel_dir": "chapters/08-diagrams-networks-and-systems",
+  "library": "Mermaid",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the four node shapes of a flowchart and the roles of edges, labels and style classes by inspecting a small working diagram.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** clickable-flowchart-anatomy<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the four node shapes of a flowchart and the roles of edges, labels and style classes by inspecting a small working diagram.\n\nDiagram: the drafting flowchart from the text, drawn top-down in the left two thirds of the region: Learning objective written (rounded), AI drafts the MicroSim (rectangle), Meets the objective? (diamond), Publish (rounded). Edges: start to draft, draft to check, check to publish labeled Yes, check back to draft labeled No.\n\nInteractions: every node has a click directive that fills an information panel in the right third with its shape name, its role and the Mermaid line that created it. Hovering a node highlights it and shows the same text. Clicking an edge label shows what a branch label means. A \"Break it\" toggle removes the quotes from one label and shows the resulting parse error message in the panel, and a second click restores it.\n\nResponsive design: the diagram scales to the container width on window resize, the information panel moves below the diagram under 600 pixels, and fonts stay at least 16 pixels.\n\nImplementation: Mermaid flowchart with classDef styles and click callbacks that write to the panel."
+}

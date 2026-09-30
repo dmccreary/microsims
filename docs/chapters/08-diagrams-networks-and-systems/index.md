@@ -135,6 +135,10 @@ The guide's script waits for Mermaid to finish drawing before attaching handlers
 
 #### Diagram: Clickable Flowchart Anatomy
 
+<iframe src="../../sims/clickable-flowchart-anatomy/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+[Run the Clickable Flowchart Anatomy MicroSim Fullscreen](../../sims/clickable-flowchart-anatomy/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Clickable Flowchart Anatomy</summary>
 Type: diagram
@@ -256,6 +260,10 @@ Selection is the smallest useful interaction in a network MicroSim: it turns a s
 
 #### Diagram: Node and Edge Data Explorer
 
+<iframe src="../../sims/node-edge-data-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the Node and Edge Data Explorer MicroSim Fullscreen](../../sims/node-edge-data-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Node and Edge Data Explorer</summary>
 Type: graph-model
@@ -293,6 +301,10 @@ For a symbolic diagram like this one, the sizes are chosen to look balanced and 
 Choose a Venn diagram when the learning goal is to classify or compare, and the answer is a set relationship. If the relationship is a flow, use a flowchart; if it is a web of many-to-many links, use a network.
 
 #### Diagram: Set Overlap Explorer
+
+<iframe src="../../sims/set-overlap-explorer/main.html" width="100%" height="442px" scrolling="no"></iframe>
+
+[Run the Set Overlap Explorer MicroSim Fullscreen](../../sims/set-overlap-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Set Overlap Explorer</summary>
@@ -380,6 +392,10 @@ Run `stepReinforcing` repeatedly and `x` grows faster each step. Run `stepBalanc
 
 #### Diagram: Loop Polarity Tracer
 
+<iframe src="../../sims/loop-polarity-tracer/main.html" width="100%" height="514px" scrolling="no"></iframe>
+
+[Run the Loop Polarity Tracer MicroSim Fullscreen](../../sims/loop-polarity-tracer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Loop Polarity Tracer</summary>
 Type: causal-loop-diagram
@@ -399,6 +415,10 @@ Implementation: vis-network with a JSON document in the causal loop schema (node
 </details>
 
 #### Diagram: Reinforcing and Balancing Behavior Lab
+
+<iframe src="../../sims/feedback-behavior-lab/main.html" width="100%" height="652px" scrolling="no"></iframe>
+
+[Run the Reinforcing and Balancing Behavior Lab MicroSim Fullscreen](../../sims/feedback-behavior-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Reinforcing and Balancing Behavior Lab</summary>
@@ -441,6 +461,10 @@ A **worked example** applies the table. A first-draft flowchart has 22 nodes, la
 Color alone should not carry meaning, because some readers cannot distinguish the colors. The green plus and red minus of a polarity link avoid this problem in the generator's format by pairing the color with a symbol, and you should do likewise: add a shape, a symbol or a text label wherever a color encodes a category.
 
 #### Diagram: Readability Repair Bench
+
+<iframe src="../../sims/diagram-readability-repair-bench/main.html" width="100%" height="657px" scrolling="no"></iframe>
+
+[Run the Readability Repair Bench MicroSim Fullscreen](../../sims/diagram-readability-repair-bench/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Readability Repair Bench</summary>

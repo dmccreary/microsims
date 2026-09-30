@@ -1,0 +1,69 @@
+{
+  "title": "Chart Type Chooser",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Data Visualization; Instructional Design",
+  "description": "Interactive Chart.js MicroSim in which learners select bar, line or pie for a stated data question, receive green or amber feedback that quotes the fit rule, and compare the same data drawn in the two alternative chart types.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 450,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Choosing a chart type for a data question",
+    "learningObjectives": [
+      "The learner will select the chart type that best fits a stated data question, then check the choice against the same data drawn in two alternative types."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "select",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Reading bar, line and pie charts",
+      "Chart configuration parts: type, data and options"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "frameworkVersion": "4.4.0",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 450
+    },
+    "responsive": true,
+    "dependencies": ["https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Dataset", "options": ["Library shares (%)", "Learners by week", "Minutes per sim type"]},
+      {"type": "radio", "label": "Chart type", "options": ["bar", "line", "pie"]},
+      {"type": "button", "label": "Check my choice"}
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Practice problem with immediate feedback, followed by comparison of alternatives",
+    "interactionPattern": "Select, check, compare",
+    "keyQuestions": [
+      "Does the data question ask about parts of a whole, change over time, or comparison across categories?",
+      "What does each alternative chart type hide or distort for this dataset?"
+    ],
+    "commonMisconceptions": [
+      "A pie chart works for any list of categories, even when the values do not form a whole.",
+      "A line chart is fine for unordered categories because it shows every value."
+    ],
+    "assessmentOpportunities": [
+      "Name the best chart type for a new data question and quote the fit rule",
+      "Explain why an eight-slice pie chart is hard to read"
+    ]
+  },
+  "chapter": "07-charts-plots-and-tables"
+}

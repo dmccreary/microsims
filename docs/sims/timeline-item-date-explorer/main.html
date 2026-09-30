@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Timeline Item and Date Explorer using vis-timeline</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/styles/vis-timeline-graph2d.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    <script src="timeline-item-date-explorer.js"></script>
+</head>
+<body>
+    <main>
+        <div class="title">Timeline Item and Date Explorer <span class="sample">(fictional schedule)</span></div>
+        <div id="timeline" aria-label="Timeline of eight sample course events"></div>
+        <div id="caption" aria-live="polite"></div>
+        <div id="details">
+            <div class="card" id="eventCard" aria-live="polite"></div>
+            <div class="card" id="jsonCard"></div>
+        </div>
+        <div class="controls">
+            <div class="row" id="filterRow">
+                <span class="group" id="filterGroup" aria-label="Filter by group"></span>
+                <span class="group" aria-label="Navigate">
+                    <button id="panLeftBtn" title="Pan earlier" aria-label="Pan earlier">&#9664;</button>
+                    <button id="panRightBtn" title="Pan later" aria-label="Pan later">&#9654;</button>
+                    <button id="zoomInBtn" title="Zoom in" aria-label="Zoom in">+</button>
+                    <button id="zoomOutBtn" title="Zoom out" aria-label="Zoom out">&minus;</button>
+                    <button id="fitBtn">Fit All</button>
+                </span>
+            </div>
+            <div class="row">
+                <label class="group"><input type="checkbox" id="bugToggle"> Show month numbering bug</label>
+                <span class="group">
+                    <label for="monthInput" id="monthLabel">Month (1-12):</label>
+                    <input type="text" id="monthInput" inputmode="numeric" maxlength="2">
+                    <button id="updateBtn">Update</button>
+                    <span id="monthMsg"></span>
+                </span>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

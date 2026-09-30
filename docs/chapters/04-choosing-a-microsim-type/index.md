@@ -86,6 +86,10 @@ The diagram below lets you explore the catalog. First note two terms it uses. A 
 
 #### Diagram: MicroSim Type Catalog Explorer
 
+<iframe src="../../sims/microsim-type-catalog-explorer/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+[Run the MicroSim Type Catalog Explorer MicroSim Fullscreen](../../sims/microsim-type-catalog-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>MicroSim Type Catalog Explorer</summary>
 Type: graph-model
@@ -118,6 +122,10 @@ Type routing proceeds in four moves, which we will examine one at a time:
 Before we look at the decision tree that captures moves two through four, define its vocabulary. A *data shape* is the form the content takes: dated events, coordinates, nodes and edges, numbers in categories, functions of one variable, sets, and so on. The skill's decision tree asks a sequence of yes-or-no questions about data shape and stops at the first "yes."
 
 #### Diagram: Type Routing Decision Tree
+
+<iframe src="../../sims/type-routing-decision-tree/main.html" width="100%" height="822px" scrolling="no"></iframe>
+
+[Run the Type Routing Decision Tree MicroSim Fullscreen](../../sims/type-routing-decision-tree/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Type Routing Decision Tree</summary>
@@ -214,6 +222,10 @@ The skill also lists terms that trigger clarification on their own:
 The calculator below lets you practice with the rubric before we survey the types in detail.
 
 #### Diagram: Routing Score Workbench
+
+<iframe src="../../sims/routing-score-workbench/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+[Run the Routing Score Workbench MicroSim Fullscreen](../../sims/routing-score-workbench/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Routing Score Workbench</summary>
@@ -370,6 +382,10 @@ A **worked example**: you need a MicroSim to "explain how gravity changes a boun
 We can now put routing, scoring, and the types together. The final MicroSim of this chapter presents objectives and asks you to choose the type and defend the choice, which is the skill the chapter's Summary promised.
 
 #### Diagram: Choose the Type Challenge
+
+<iframe src="../../sims/choose-the-type-challenge/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Choose the Type Challenge MicroSim Fullscreen](../../sims/choose-the-type-challenge/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Choose the Type Challenge</summary>

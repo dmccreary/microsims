@@ -1,0 +1,111 @@
+{
+  "title": "From Author to Learner",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Publishing",
+    "MkDocs",
+    "Git",
+    "GitHub Pages",
+    "Content Delivery Network"
+  ],
+  "description": "A Mermaid top-to-bottom workflow of the seven steps that take a MicroSim from an author's files to a learner's browser; clicking a step shows its command or tool and a common failure, and hovering an arrow shows the artifact passed along.",
+  "date": "2026-09-30",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/author-to-learner-workflow/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Publishing a MicroSim with MkDocs, Git and GitHub Pages",
+    "learningObjectives": [
+      "The learner will summarize the path a MicroSim takes from an author's files to a learner's browser."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "summarize",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Publishing section of Chapter 1",
+      "Meaning of iframe and CDN"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "version": "10.9.8",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "Mermaid 10.9.8 UMD (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Info panel is an aria-live region; phase colors are paired with a text legend"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "steps",
+        "type": "clickable nodes (Mermaid click directives)",
+        "label": "Seven workflow steps",
+        "purpose": "Show the command or tool and what could go wrong"
+      },
+      {
+        "id": "arrows",
+        "type": "hover tooltips",
+        "label": "Six arrows",
+        "purpose": "Show the artifact passed to the next step"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Process walkthrough with failure modes at each step",
+    "interactionPattern": "Clickable workflow with an info panel and arrow tooltips",
+    "keyQuestions": [
+      "Which step first turns Markdown into HTML pages for readers?",
+      "What does a commit record?",
+      "Why do absolute paths break on GitHub Pages?"
+    ],
+    "commonMisconceptions": [
+      "git push publishes the website",
+      "mkdocs gh-deploy builds from the GitHub copy rather than the local copy",
+      "A MicroSim that works in mkdocs serve will always work when deployed"
+    ],
+    "assessmentOpportunities": [
+      "Three-sentence summary naming all phases in order",
+      "Matching commands to steps",
+      "Locating the step where a given failure starts"
+    ]
+  },
+  "search": {
+    "tags": [
+      "workflow",
+      "MkDocs",
+      "Git",
+      "GitHub Pages",
+      "deployment",
+      "Mermaid"
+    ],
+    "visualizationType": [
+      "diagram",
+      "flowchart",
+      "workflow"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim"
+}

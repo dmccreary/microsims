@@ -1,0 +1,28 @@
+# Follow-ups for the final report
+- b01: ch 12 examples (~175-186, 253, 388) treat bouncing-ball-gravity-lab as CANVAS_HEIGHT 450; real sim is 500. Ch 1 ~541 code-block example changed 452 -> 502px (kept).
+- b01: global sync must not touch fenced code blocks (ch 12 line ~186).
+- b02: bloom-to-pattern-matrix links to 12 other planned sims — verify links resolve after all batches.
+- b02: objectives-graph-neighborhood — 27 provisional definitions for other-chapter concepts; fetches learning graph (CORS under file://, embedded snapshot fallback) — verify on mkdocs serve.
+- b05: clickable-flowchart-anatomy end node renamed "Publish (add to chapter)"; chapter text says "Publish".
+- b05: star-rating-comparison-table uses invented ratings (labeled illustrative).
+- all: most DOM sims outgrow iframe at <600px width.
+- b04: p5 version mismatch — repo sims pin p5 1.11.10; p5 guide and ch 6 say 2.3.2. Sketches avoid version-divergent APIs. Decide which to pin book-wide.
+- b04: chart-configuration-anatomy-explorer config panel scrolls inside iframe with 2 datasets / <600px.
+- b03: type-routing-decision-tree CANVAS_HEIGHT 820 (tall); Mermaid/vis text ~7-8px under 600px width.
+- b03/b05/b04: CDN versions drift between sims (Chart.js 4.4.0 vs 4.4.4; Mermaid 10.9.8 vs 11.4.1) — consider normalizing.
+- b06: choropleth-threshold-lab fetches us-states.json from raw.githubusercontent.com at runtime — vendoring needs a download (ask user). Its red-to-green palette (from map-guide template) is not color-blind safe.
+- b06: Leaflet sims need network tiles. timeline-item-date-explorer scores 95 (validator code-fence regex bug).
+- b07: classifier-scenario-builder CANVAS_HEIGHT 835 (tall). Spec additions to review: verified-poster-pipeline-explorer (sequence quiz), docker-lab-run-flow (extra failures, Diagnose-first, Mystery), comparison-poster-explorer (first-try scoring), classifier-scenario-builder (defensibility checkbox).
+- validator: misses iframe example block when a ```json fence precedes it (-5 pts).
+- b09: metadata-section-explorer ships copies of STEM Robots H-Bridge metadata.json + microsim-schema.json; faceted-filter-lab ships 300-record sample from search-microsims (seed 2026). No re-sync mechanism. Data sims show "could not load" under file://.
+- b09: xapi-statement-field-explorer uses illustrative IDs/timestamps (labeled). Chapter wording to check listed in batch-09 notes.
+- b08: CANVAS_HEIGHT syntax conflict — ch 13 and the p5 template say `// CANVAS_HEIGHT = N`; SKILL.md says `:`; the tester regex expects `=`; sync-iframe-heights reads `:`. Pick one (chapter 13 text may need an edit).
+- b08: SKILL 6C "suggested minus 10" vs ch 13 worked example (set to suggested) conflict.
+- b08: layout-defect-catalog-explorer deviates (pale text instead of white-drawing-area symptom). audit-baseline-explorer per-grade counts tallied from repo TODO.md.
+- b10: tall sims (700-800px) sized for 400px stacked layout, wide screens leave empty panel space (contract-violation-finder 800, evidence-class-sorter 760, evidence-threshold-lab 770, bkt-parameter-lab 770). BKT values verified against ch 18 tables.
+- b10: spec additions: 4th dropdown in policy-precedence-resolver; 2.4s dwell act in evidence-threshold-lab; pipeline stepper instead of animation. Okabe-Ito palette vs p5 guide "named colors only".
+- b12: class-mastery-heatmap-reader — spec self-contradiction on shading; chose dark = low mastery (per objective + chapter). Author to confirm (cellColor()).
+- b12: partition-key-simulator added "No key (random lane)"; heatmap quiz adds a 2nd question; suppression lab adds Reveal all + prediction buttons. Data drawn from ~/projects/learning-record-store.
+- My batch listing mislabeled log-graph-compression-lab as ch 21; it is ch 20 (metadata correct).
+- b11: ch 19 numbers reproduced (seed-19 cohort, JS port of Python RNG). Calibration lab default 5 bins (spec said 4) + third "underconfident" scenario. lrs-architecture-explorer loads data.json (HTTP only).
+- b14: ch 24 says WCAG 2.1 AA (brief said 2.2) — page follows chapter. pii-surface-explorer adds context.registration (not in book). accessibility walkthrough adds second defect per variant. prediction-trust-ladder uses flowchart BT; 2 hypothetical claims. portfolio-rubric-self-check sliders ~18px at 400px (<44px touch target named in ch 24).

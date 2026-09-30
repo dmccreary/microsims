@@ -113,6 +113,10 @@ Before the next specification, note the terms it uses. A *panel* is a labeled re
 
 #### Diagram: Chart Configuration Anatomy Explorer
 
+<iframe src="../../sims/chart-configuration-anatomy-explorer/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+[Run the Chart Configuration Anatomy Explorer MicroSim Fullscreen](../../sims/chart-configuration-anatomy-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Chart Configuration Anatomy Explorer</summary>
 Type: microsim
@@ -155,6 +159,10 @@ A worked example shows how the choice follows the question. Suppose you have the
     A common trap is putting eight categories into a pie because the data happen to have eight rows, which makes the thin slices impossible to compare. If a pie needs more than about six slices, switch to a bar chart and sort the bars.
 
 #### Diagram: Chart Type Chooser
+
+<iframe src="../../sims/chart-type-chooser/main.html" width="100%" height="452px" scrolling="no"></iframe>
+
+[Run the Chart Type Chooser MicroSim Fullscreen](../../sims/chart-type-chooser/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Chart Type Chooser</summary>
@@ -209,6 +217,10 @@ The items and scores are invented for illustration. Under the impact-against-eff
 The terms in the next specification are now defined: *impact* and *effort* are the two axes, *bubble size* is the third variable, and a *quadrant* is one of the four regions the axes' midpoints create.
 
 #### Diagram: Priority Matrix Bubble Explorer
+
+<iframe src="../../sims/priority-matrix-bubble-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the Priority Matrix Bubble Explorer MicroSim Fullscreen](../../sims/priority-matrix-bubble-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Priority Matrix Bubble Explorer</summary>
@@ -284,6 +296,10 @@ Before the specification, recall the terms it uses: the *domain* is the set of x
 
 #### Diagram: Function Plot Slider Lab
 
+<iframe src="../../sims/function-plot-slider-lab/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+[Run the Function Plot Slider Lab MicroSim Fullscreen](../../sims/function-plot-slider-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Function Plot Slider Lab</summary>
 Type: microsim
@@ -330,6 +346,10 @@ A worked example shows the design choices. Suppose you compare three chart libra
 
 
 #### Diagram: Star Rating Comparison Table
+
+<iframe src="../../sims/star-rating-comparison-table/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the Star Rating Comparison Table MicroSim Fullscreen](../../sims/star-rating-comparison-table/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Star Rating Comparison Table</summary>
@@ -381,6 +401,10 @@ Because the summary and the explanation live in the same JSON record, an author 
     Splitting a table across JSON, CSS and JavaScript can feel like too many moving parts at first, and that reaction is normal. Start by editing only `data.json` in an existing example and watch the table change, then touch the script once you trust the data flow.
 
 #### Diagram: Clickable Detail Matrix
+
+<iframe src="../../sims/clickable-detail-matrix/main.html" width="100%" height="437px" scrolling="no"></iframe>
+
+[Run the Clickable Detail Matrix MicroSim Fullscreen](../../sims/clickable-detail-matrix/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Clickable Detail Matrix</summary>

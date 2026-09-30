@@ -1,0 +1,144 @@
+/* Priority Matrix Bubble Explorer - layout
+   Chart keeps a fixed aspect ratio and follows the container width (capped so
+   the total height stays inside the iframe). The quadrant list sits beside the
+   chart at 700px and wider, and moves below the chart under 700px. */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: aliceblue;
+    color: #1f2937;
+}
+
+main {
+    display: block;
+    padding: 6px 10px;
+}
+
+.top {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.chart-col {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.chart-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 460px;   /* caps the chart height (aspect ratio 1.3) so wide screens do not push the controls out of the iframe */
+    margin: 0 auto;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.quad-list {
+    flex: 0 0 205px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quad {
+    background: white;
+    border: 1px solid silver;
+    border-left-width: 6px;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.quad-title { font-weight: bold; font-size: 14px; }
+.quad-rule { color: #475569; font-size: 12px; }
+.quad-items { margin-top: 2px; }
+.quad-items .sel { font-weight: bold; text-decoration: underline; }
+.quad.flash { animation: flash 1.2s ease-out; }
+
+@keyframes flash {
+    0% { background: #fde68a; }
+    100% { background: white; }
+}
+
+.q-quick { border-left-color: #16a34a; }
+.q-major { border-left-color: #2563eb; }
+.q-fill  { border-left-color: #a16207; }
+.q-pit   { border-left-color: #dc2626; }
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 16px;
+    margin-top: 6px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.selected {
+    font-weight: bold;
+    color: #1e3a8a;
+    flex: 0 0 100%;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.slider span {
+    display: inline-block;
+    min-width: 24px;
+    font-weight: bold;
+}
+
+.slider input[type="range"] { width: 110px; }
+
+.check { white-space: nowrap; cursor: pointer; }
+
+button {
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 5px;
+    border: 1px solid #475569;
+    background: #f1f5f9;
+    cursor: pointer;
+}
+
+button:hover { background: #e2e8f0; }
+button:focus-visible, input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+.why {
+    margin: 5px 2px 0 2px;
+    font-size: 14px;
+    min-height: 18px;
+}
+
+@media (max-width: 699px) {
+    .top { flex-direction: column; align-items: stretch; }
+    .chart-wrap { max-width: 400px; }
+    .quad-list {
+        flex: 0 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+        margin-top: 6px;
+    }
+    .quad-rule { display: none; }
+}

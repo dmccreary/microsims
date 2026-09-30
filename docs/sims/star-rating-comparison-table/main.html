@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Star Rating Comparison Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="controls">
+            <label class="need">Stated need:
+                <select id="need-select" aria-label="Stated need">
+                    <option value="0">A teacher with one free afternoon needs a clear diagram of a lab procedure.</option>
+                    <option value="1">A course team wants standard charts that learners can hover, built quickly.</option>
+                    <option value="2">A developer wants learners to drag, tweak and explore a live model.</option>
+                </select>
+            </label>
+            <div class="row">
+                <label class="weight">Weight: Ease of use <span id="w-ease-val">3</span>
+                    <input type="range" id="w-ease" min="0" max="5" step="1" value="3" aria-label="Weight for ease of use">
+                </label>
+                <label class="weight">Weight: Interactivity <span id="w-inter-val">3</span>
+                    <input type="range" id="w-inter" min="0" max="5" step="1" value="3" aria-label="Weight for interactivity">
+                </label>
+            </div>
+            <div class="row">
+                <button type="button" id="sort-btn" aria-pressed="false">Sort by weighted score</button>
+                <button type="button" id="reset-btn" class="secondary">Reset order</button>
+                <label class="check"><input type="checkbox" id="numeric-check"> Show numeric ratings</label>
+            </div>
+        </div>
+
+        <div class="table-wrap" id="table-wrap">
+            <table class="comparison-table" id="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="item-col">Library</th>
+                        <th>Ease of use</th>
+                        <th>Interactivity</th>
+                        <th>Difficulty</th>
+                        <th>Best for</th>
+                        <th class="score-col">Weighted score</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr tabindex="0" data-order="0" data-ease="5" data-inter="2"
+                        data-tooltip="Turns a few lines of text into flowcharts and sequence diagrams. Layout is automatic, so an author writes the steps, not the coordinates.">
+                        <td class="item-col">Mermaid</td>
+                        <td class="rating" data-rating="5"></td>
+                        <td class="rating" data-rating="2"></td>
+                        <td><span class="difficulty easy">Easy</span></td>
+                        <td class="best-for">Process and decision flowcharts</td>
+                        <td class="score-col score"></td>
+                    </tr>
+                    <tr tabindex="0" data-order="1" data-ease="4" data-inter="4"
+                        data-tooltip="Draws bar, line, pie, scatter and bubble charts from one configuration object with a type, data and options, with hover tooltips built in.">
+                        <td class="item-col">Chart.js</td>
+                        <td class="rating" data-rating="4"></td>
+                        <td class="rating" data-rating="4"></td>
+                        <td><span class="difficulty easy">Easy</span></td>
+                        <td class="best-for">Standard charts of category or time data</td>
+                        <td class="score-col score"></td>
+                    </tr>
+                    <tr tabindex="0" data-order="2" data-ease="3" data-inter="4"
+                        data-tooltip="Plots mathematical functions and scientific data from traces, with hover text, zoom and image export included.">
+                        <td class="item-col">Plotly.js</td>
+                        <td class="rating" data-rating="3"></td>
+                        <td class="rating" data-rating="4"></td>
+                        <td><span class="difficulty medium">Medium</span></td>
+                        <td class="best-for">Function plots and scientific graphs</td>
+                        <td class="score-col score"></td>
+                    </tr>
+                    <tr tabindex="0" data-order="3" data-ease="2" data-inter="4"
+                        data-tooltip="Draws networks of nodes and labeled edges that learners can select and drag, with fixed or physics-based layout.">
+                        <td class="item-col">vis-network</td>
+                        <td class="rating" data-rating="2"></td>
+                        <td class="rating" data-rating="4"></td>
+                        <td><span class="difficulty medium">Medium</span></td>
+                        <td class="best-for">Concept maps and dependency graphs</td>
+                        <td class="score-col score"></td>
+                    </tr>
+                    <tr tabindex="0" data-order="4" data-ease="2" data-inter="5"
+                        data-tooltip="A creative-coding library that redraws a canvas many times a second, so almost any custom simulation, game or animation can be built.">
+                        <td class="item-col">p5.js</td>
+                        <td class="rating" data-rating="2"></td>
+                        <td class="rating" data-rating="5"></td>
+                        <td><span class="difficulty hard">Hard</span></td>
+                        <td class="best-for">Custom simulations and animations</td>
+                        <td class="score-col score"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="legend">
+            <span class="legend-item"><span class="difficulty easy">Easy</span> productive within an afternoon</span>
+            <span class="legend-item"><span class="difficulty medium">Medium</span> a few days of practice</span>
+            <span class="legend-item"><span class="difficulty hard">Hard</span> needs programming experience</span>
+            <span class="legend-item stars-key">Stars: <span class="stars-5">5</span> <span class="stars-4">4</span> <span class="stars-3">3</span> <span class="stars-2">2</span> <span class="stars-1">1</span></span>
+        </div>
+        <p class="source">Source: ratings, badges and descriptions are invented illustrations for this exercise, not a measured evaluation of the libraries.</p>
+    </main>
+    <div id="row-tooltip" class="row-tooltip" role="tooltip"></div>
+    <script src="star-rating-comparison-table.js"></script>
+</body>
+</html>

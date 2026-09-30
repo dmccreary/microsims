@@ -1,0 +1,15 @@
+{
+  "sim_id": "width-responsive-breakpoint-lab",
+  "diagram_name": "Width-Responsive Breakpoint Lab",
+  "chapter_number": 12,
+  "chapter_title": "Width-Responsive Design and Iframe Heights",
+  "chapter_dir": "12-width-responsive-design-and-iframe-heights",
+  "chapter_rel_dir": "chapters/12-width-responsive-design-and-iframe-heights",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Demonstrate",
+  "learning_objective": "The learner will demonstrate how container width detection and the windowResized handler keep a MicroSim usable, by dragging a container edge and switching the handler and slider resizing on and off.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** width-responsive-breakpoint-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: demonstrate): The learner will demonstrate how container width detection and the windowResized handler keep a MicroSim usable, by dragging a container edge and switching the handler and slider resizing on and off.\n\nLayout: a drawing region above a control region, following the standard MicroSim layout, with a \"container\" frame drawn inside the region. The frame has a draggable right edge, and inside it a miniature MicroSim is drawn: a ball, a slider labeled \"Gravity\", and a row of three buttons. A readout above the frame shows \"container width = N px\" and \"canvas width = M px\".\n\nControls:\n\n- Draggable frame edge: sets the container width from 280 to 900 pixels, default 600\n- Checkbox \"Call windowResized\" (default on): when off, the miniature canvas keeps the width it measured at load\n- Checkbox \"Resize sliders in the handler\" (default on): when off, the slider track keeps its old length\n- Button \"Reload page\": re-runs setup and measures the container again\n- Dropdown \"Preset width\": Phone 375, Tablet 768, Desktop 1024 (clamped to the maximum)\n\nBehavior: with both checkboxes on, the miniature canvas and slider follow the frame and nothing is clipped. With the first checkbox off, the canvas stays at its load width, so it is clipped or leaves blank space when the frame changes. With only the second checkbox off, the canvas follows but the slider track overshoots or undershoots, and a red outline marks the overflow. Clicking any element of the miniature shows a one-sentence note naming the function responsible for its width.\n\nInstructional rationale: parameter exploration fits an Apply objective because the learner must predict what breaks, then confirm it by toggling each mechanism independently.\n\nResponsive design: the lab itself is width-responsive and follows the same pattern it teaches, with a fixed height constant and controls repositioned on window resize.\n\nImplementation: p5.js with createCheckbox, createSelect and createButton controls positioned relative to drawHeight, mouse drag handling for the frame edge, and a describe() call."
+}

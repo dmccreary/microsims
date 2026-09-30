@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Chart Configuration Anatomy Explorer MicroSim using Chart.js 4.4.0</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="app">
+            <h1>Chart Configuration Anatomy Explorer</h1>
+            <div class="panels">
+                <div class="config-panel" id="configPanel" aria-label="The chart configuration object, in three color-coded blocks">
+                    <div class="code-line">const config = {</div>
+                    <div class="block type-block" id="typeBlock" data-part="type" tabindex="0">
+                        <span class="tag">type</span><pre id="typeCode"></pre>
+                    </div>
+                    <div class="block data-block" id="dataBlock" data-part="data" tabindex="0">
+                        <span class="tag">data</span><pre id="dataCode"></pre>
+                    </div>
+                    <div class="block options-block" id="optionsBlock" data-part="options" tabindex="0">
+                        <span class="tag">options</span><pre id="optionsCode"></pre>
+                    </div>
+                    <div class="code-line">};</div>
+                </div>
+                <div class="chart-panel">
+                    <div class="chart-box" id="chartBox"><canvas id="chartCanvas" role="img" aria-label="Chart drawn from the configuration"></canvas></div>
+                    <div class="caption" id="caption" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="row">
+                    <label>Chart type
+                        <select id="typeSelect">
+                            <option value="bar">bar</option>
+                            <option value="line">line</option>
+                            <option value="pie">pie</option>
+                        </select>
+                    </label>
+                    <label>Legend position
+                        <select id="legendSelect">
+                            <option value="top">top</option>
+                            <option value="bottom">bottom</option>
+                            <option value="left">left</option>
+                            <option value="right">right</option>
+                        </select>
+                    </label>
+                    <label class="check"><input type="checkbox" id="responsiveCheck" checked> Responsive</label>
+                </div>
+                <div class="row" id="valueRow">
+                    <span class="row-label">First dataset values:</span>
+                </div>
+                <div class="row">
+                    <button id="addButton">Add dataset</button>
+                    <button id="breakButton">Break it</button>
+                    <button id="resetButton">Reset</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="chart-configuration-anatomy-explorer.js"></script>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

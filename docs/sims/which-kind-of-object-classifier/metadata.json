@@ -1,0 +1,116 @@
+{
+  "title": "Which Kind of Object Is It?",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Learning Objects",
+    "Interactive Simulation",
+    "Instrumented MicroSim",
+    "Classification"
+  ],
+  "description": "A p5.js drag-and-drop sorting activity in which learners place twelve example cards into four bins (learning object, interactive simulation, MicroSim, instrumented MicroSim) and receive feedback naming the deciding property.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/which-kind-of-object-classifier/",
+  "canvasHeight": 490,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Distinguishing kinds of learning objects",
+    "learningObjectives": [
+      "The learner will distinguish learning objects, interactive simulations, MicroSims, and instrumented MicroSims by sorting example descriptions into the correct category."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Definitions of the four kinds of object (Chapter 1)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 490
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Keys 1-4 place the card without dragging; feedback uses words (Correct / Not quite) as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next / Finish / Shuffle",
+        "purpose": "Advance after a correct placement, finish the round, or start a new shuffled round"
+      },
+      {
+        "id": "card",
+        "type": "draggable canvas card",
+        "label": "Example card",
+        "purpose": "Drag into a bin to classify the example"
+      },
+      {
+        "id": "keys",
+        "type": "keyboard",
+        "label": "Keys 1-4",
+        "purpose": "Place the card in bin 1-4"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification practice with property-based corrective feedback",
+    "interactionPattern": "Drag-to-bin sorting (concept classifier)",
+    "keyQuestions": [
+      "What does an interactive simulation have that a video does not?",
+      "What makes a desktop simulator fail to be a MicroSim?",
+      "What single property turns a MicroSim into an instrumented MicroSim?"
+    ],
+    "commonMisconceptions": [
+      "Any interactive program is a MicroSim",
+      "A metadata record alone makes something a MicroSim",
+      "Tracking page views makes a MicroSim instrumented"
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy over twelve cards",
+      "Correct answers out of attempts",
+      "Naming the deciding property for a missed card"
+    ]
+  },
+  "search": {
+    "tags": [
+      "classification",
+      "sorting",
+      "learning object",
+      "MicroSim",
+      "instrumented MicroSim",
+      "drag and drop",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "quiz",
+      "simulation"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim"
+}

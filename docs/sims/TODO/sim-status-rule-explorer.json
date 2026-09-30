@@ -1,0 +1,15 @@
+{
+  "sim_id": "sim-status-rule-explorer",
+  "diagram_name": "Sim Status Rule Explorer",
+  "chapter_number": 14,
+  "chapter_title": "Batch Generation from Specifications",
+  "chapter_dir": "14-batch-generation-from-specifications",
+  "chapter_rel_dir": "chapters/14-batch-generation-from-specifications",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Predict",
+  "learning_objective": "The learner will predict the status that the extraction script assigns to a MicroSim given the state of its files, and will explain which rule produced the result.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** sim-status-rule-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: predict): The learner will predict the status that the extraction script assigns to a MicroSim given the state of its files, and will explain which rule produced the result.\n\nLayout: a control region on the left half and a lifecycle strip on the right half. The strip shows six labeled boxes in a row: specified, scaffolded, implemented, validated, deployed, plus a separate reused box below. The current status box is filled and the others are outlined.\n\nControls:\n\n- Checkbox \"Sim directory exists\" (default off)\n- Checkbox \"main.html exists\" (default off)\n- Slider \"Lines in the .js file\" from 0 to 300 in steps of 10, default 0\n- Slider \"Quality score\" from 0 to 100 in steps of 1, default 0\n- Checkbox \"Chapter has an iframe\" (default off)\n- Checkbox \"Spec says Status: Reused\" (default off)\n- Button \"Predict first\" hides the result until the learner chooses one of the six statuses, then reveals the true status and the rule that fired\n\nBehavior: apply the detection rules from this chapter in order. Reused overrides everything. Without a directory the result is specified. Without main.html the result stays specified. With main.html the result is scaffolded, becoming implemented above 50 lines of JavaScript, validated at a score of 70 or above, and deployed when an iframe is also present. Show a one-line explanation such as \"Score 62 is below 70, so not validated\".\n\nResponsive design: the canvas width follows the container width on every window resize, the two halves stack vertically below 600 pixels, and sliders shrink to fit while remaining visible at 400 pixels wide.\n\nImplementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to drawHeight. Include a describe() call for accessibility."
+}

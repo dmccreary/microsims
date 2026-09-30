@@ -1,0 +1,79 @@
+{
+  "title": "Objective Rewriter Workbench",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["Learning Objectives", "Measurable Objectives", "Bloom Verbs", "Instructional Design"],
+  "description": "A p5.js workbench that splits eight weak learning objectives into actor, action, concept, and condition-and-standard slots; learners choose observable Bloom verbs, name a learning-graph concept, add a condition and a standard, and compare their repair with a stored model repair.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/objective-rewriter-workbench/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 595,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Design",
+    "topic": "Repairing weak learning objectives",
+    "learningObjectives": [
+      "Use the actor, action, concept and condition-and-standard checklist to repair a weak learning objective.",
+      "Replace an unobservable verb with an observable Bloom verb."
+    ],
+    "bloomsTaxonomy": ["Apply"],
+    "bloomVerb": "use",
+    "duration": "15-20 minutes",
+    "prerequisites": ["Learning objective", "Measurable objective", "Bloom verb table"],
+    "concepts": ["Learning Objective", "Measurable Objective", "Bloom Verb", "Concept"],
+    "chapter": "03-learning-objectives-and-blooms-taxonomy"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 595
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "button", "label": "Next weak objective"},
+      {"type": "select", "label": "Action verb", "options": "24 verbs labeled with Bloom level, 4 of them unobservable"},
+      {"type": "input", "label": "Concept", "behavior": "green when it matches a learning-graph concept label, amber otherwise; datalist suggestions"},
+      {"type": "button", "label": "Add condition"},
+      {"type": "button", "label": "Add standard"},
+      {"type": "select", "label": "Condition or standard pick-list"},
+      {"type": "button", "label": "Check"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Checklist-based objective editor with scoring",
+    "variables": ["actor", "action verb", "concept", "condition", "standard"],
+    "assumptions": ["A concept matches when the field equals a learning-graph label or contains a multi-word label."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked example followed by guided practice with model answers",
+    "interactionPattern": "Slot-based editor with a checker",
+    "keyQuestions": [
+      "What observation would separate a learner who meets this objective from one who does not?",
+      "Does the verb you chose change the Bloom level the objective aims at?"
+    ],
+    "commonMisconceptions": [
+      "Understand, know and appreciate are acceptable objective verbs.",
+      "A topic such as 'xAPI' is the same as a concept a learner can be assessed on.",
+      "An objective without a standard can still be judged met or not met."
+    ],
+    "assessmentOpportunities": [
+      "Score out of five parts for each repaired objective.",
+      "A quiz question written to match one repaired objective."
+    ]
+  }
+}

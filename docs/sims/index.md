@@ -1,552 +1,889 @@
 ---
-title: Examples of MicroSims
-description: A collection of educational MicroSims covering geometry, electronics, biology, physics, and more
+title: MicroSims
+description: The 112 interactive MicroSims built for MicroSims 2.0, grouped by the chapter that uses them
 hide:
     - toc
 ---
-# Examples of MicroSims
+# MicroSims
 
-This section of the MicroSims website contains examples of MicroSims that cover many different subjects in education including geometry, electronics, biology, physics, linear algebra, statistics, systems thinking, cellular automata, fractals and computer science.
+These MicroSims were generated for the current edition of this book (MicroSims 2.0). They are grouped by the chapter that embeds them, and each card links to the MicroSim's own page with its lesson plan and embed code. The first edition's MicroSims are kept in [Original MicroSims (1.0)](../microsims-old/index.md).
 
-We encourage you to submit your own MicroSims and we have a set of guidelines to help.
+## Chapter 1: What Is a MicroSim
 
-[Gallery](./gallery.md)
+[Read Chapter 1](../chapters/01-what-is-a-microsim/index.md)
 
 <div class="grid cards" markdown>
 
-- **[555 Timer](./555-timer/index.md)**
+- **[AI Generation Pipeline](./ai-generation-pipeline/index.md)**
 
-    ![555 Timer](./555-timer/555-timer.png)
-    Interactive simulation of the classic 555 timer integrated circuit.
+    ![AI Generation Pipeline](./ai-generation-pipeline/ai-generation-pipeline.png)
 
-- **[A* Graph Search Algorithm](./a-star/index.md)**
+    A clickable flowchart that shows how an author's prompt, an AI agent, a skill, a large language model and automated checks work together to…
 
-    ![A* Search](./a-star/a-star.png)
-    Visualization of the A* pathfinding algorithm on a grid.
+- **[Bouncing Ball Gravity Lab](./bouncing-ball-gravity-lab/index.md)**
 
-- **[AC Circuit MicroSim](./ac-circuit/index.md)**
+    ![Bouncing Ball Gravity Lab](./bouncing-ball-gravity-lab/bouncing-ball-gravity-lab.png)
 
-    ![AC Circuit](./ac-circuit/ac-circuit-v1.png)
-    Interactive alternating current circuit simulation.
+    Predict, then test, how the gravity and bounciness sliders change a falling ball's motion and the height of its first bounce.
 
-- **[AI Benchmarks Timeline](./ai-benchmarks-timeline/index.md)**
+- **[From Author to Learner](./author-to-learner-workflow/index.md)**
 
-    ![AI Benchmarks](./ai-benchmarks-timeline/ai-benchmarks-timeline.png)
-    Timeline of AI benchmark achievements and milestones.
+    ![From Author to Learner](./author-to-learner-workflow/author-to-learner-workflow.png)
 
-- **[Arithmetic Logic Unit (ALU)](./alu/index.md)**
+    A clickable workflow that traces a MicroSim from the author's files through mkdocs serve, Git, GitHub, mkdocs gh-deploy and GitHub Pages to the…
 
-    ![ALU](./alu/alu.png)
-    Interactive simulation of an arithmetic logic unit.
+- **[MicroSim Family Tree](./microsim-family-tree/index.md)**
 
-- **[Analog Circuits](./analog-circuit/index.md)**
+    ![MicroSim Family Tree](./microsim-family-tree/microsim-family-tree.png)
 
-    ![Analog Circuit](./analog-circuit/input-image.png)
-    Explore analog circuit fundamentals.
+    Explore how a learning object, an interactive simulation, a MicroSim and an instrumented MicroSim nest, then classify examples by the property…
 
-- **[Analog Clock](./analog-clock/index.md)**
+- **[MicroSim Technology Stack](./microsim-technology-stack/index.md)**
 
-    ![Analog Clock](./analog-clock/analog-clock.png)
-    Interactive analog clock face with moving hands.
+    ![MicroSim Technology Stack](./microsim-technology-stack/microsim-technology-stack.png)
 
-- **[Animated Wire MicroSim](./animated-wire/index.md)**
+    Click each layer of a running MicroSim (iframe, HTML5, CSS, JavaScript, a JavaScript library and a CDN) to see its role and code, then break it to…
 
-    ![Animated Wire](./animated-wire/animated-wire.png)
-    Animated visualization of electrical current flow in a wire.
+- **[MicroSims Milestones Timeline](./microsims-milestones-timeline/index.md)**
 
-- **[Background Grid Controls](./background-grid/index.md)**
+    ![MicroSims Milestones Timeline](./microsims-milestones-timeline/microsims-milestones-timeline.png)
 
-    ![Background Grid](./background-grid/background-grid.png)
-    Customizable background grid for MicroSim layouts.
+    A zoomable timeline of the milestones from the first MicroSims 1.0 commit in 2023 to the start of the MicroSims 2.0 rewrite in 2026, grouped by…
 
-- **[Bouncing Ball in a Rotating Hexagon](./ball-in-rotating-hexagon/index.md)**
+- **[Which Kind of Object Is It?](./which-kind-of-object-classifier/index.md)**
 
-    ![Ball in Hexagon](./ball-in-rotating-hexagon/ball-in-rotating-hexagon.png)
-    Physics simulation of a ball bouncing inside a rotating hexagon.
+    ![Which Kind of Object Is It?](./which-kind-of-object-classifier/which-kind-of-object-classifier.png)
 
-- **[Bathtub MicroSim](./bathtub/index.md)**
+    Drag twelve example cards into four bins to distinguish learning objects, interactive simulations, MicroSims and instrumented MicroSims, with…
 
-    ![Bathtub](./bathtub/bathtub-image.png)
-    Stock and flow simulation demonstrating bathtub dynamics.
+</div>
 
-- **[Battery Drain](./battery-drain/index.md)**
+## Chapter 2: Anatomy of a MicroSim
 
-    ![Battery Drain](./battery-drain/battery-drain.png)
-    Visualization of battery discharge over time.
+[Read Chapter 2](../chapters/02-anatomy-of-a-microsim/index.md)
 
-- **[Battery Life Calculator](./battery-life/index.md)**
+<div class="grid cards" markdown>
 
-    ![Battery Life](./battery-life/battery-life.png)
-    Calculate battery life based on capacity and current draw.
+- **[Canvas Height Calculator](./canvas-height-calculator/index.md)**
 
-- **[Breadth First Graph Search](./bfs/index.md)**
+    ![Canvas Height Calculator](./canvas-height-calculator/canvas-height-calculator.png)
 
-    ![BFS](./bfs/bfs.png)
-    Visualization of breadth-first search algorithm.
+    Set a MicroSim's drawHeight, controlHeight and graphHeight, calculate CANVAS_HEIGHT and the iframe height, and see exactly how many pixels of…
 
-- **[BFS vs DFS](./bfs-vs-dfs/index.md)**
+- **[MicroSim Directory Audit](./microsim-directory-audit/index.md)**
 
-    ![BFS vs DFS](./bfs-vs-dfs/bfs-vs-dfs.png)
-    Side-by-side comparison of breadth-first and depth-first search.
+    ![MicroSim Directory Audit](./microsim-directory-audit/microsim-directory-audit.png)
 
-- **[Binary Number](./binary-number/index.md)**
+    Audit three sample MicroSim directories, flag the planted defects line by line, rate each one from cosmetic to breaks-embedding, and check your…
 
-    ![Binary Number](./binary-number/binary-number.png)
-    Interactive binary number converter and visualizer.
+- **[MicroSim Directory Explorer](./microsim-directory-explorer/index.md)**
 
-- **[Book Build Workflow](./book-gen-workflow/index.md)**
+    ![MicroSim Directory Explorer](./microsim-directory-explorer/microsim-directory-explorer.png)
 
-    ![Book Workflow](./book-gen-workflow/book-gen-workflow.png)
-    Workflow diagram for intelligent textbook generation.
+    Explore the five files in a MicroSim directory (main.html, the sketch, index.md, metadata.json and the preview image) and practice choosing which…
 
-- **[Bouncing Ball](./bouncing-ball/index.md)**
+</div>
 
-    ![Bouncing Ball](./bouncing-ball/bouncing-ball.png)
-    Classic bouncing ball physics simulation.
+## Chapter 3: Learning Objectives and Bloom's Taxonomy
 
-- **[Breadboard](./breadboard/index.md)**
+[Read Chapter 3](../chapters/03-learning-objectives-and-blooms-taxonomy/index.md)
 
-    ![Breadboard](./breadboard/breadboard-horiz.png)
-    Interactive breadboard for circuit prototyping.
+<div class="grid cards" markdown>
 
-- **[Brownian Motion](./brownian-motion/index.md)**
+- **[Bloom Level Ladder](./bloom-level-ladder/index.md)**
 
-    ![Brownian Motion](./brownian-motion/brownian-motion.png)
-    Simulation of random particle movement.
+    ![Bloom Level Ladder](./bloom-level-ladder/bloom-level-ladder.png)
 
-- **[Kinetic Molecular Theory](./chemistry/index.md)**
+    A six-rung ladder of Bloom's 2001 levels; click a rung to see its eight verbs, an example outcome from the course description and an interaction…
 
-    ![Chemistry](./chemistry/chemistry.png)
-    Visualization of molecular motion and kinetic theory.
+- **[Bloom Objective Sorter](./bloom-objective-sorter/index.md)**
 
-- **[Circle](./circle/index.md)**
+    ![Bloom Objective Sorter](./bloom-objective-sorter/bloom-objective-sorter.png)
 
-    ![Circle](./circle/circle.png)
-    Interactive circle geometry exploration.
+    Sort 24 real learning outcomes from this course's description into the six Bloom levels with the three-step classification procedure, and defend…
 
-- **[Battery Circuit](./circuits/index.md)**
+- **[Bloom-to-Pattern Matrix](./bloom-to-pattern-matrix/index.md)**
 
-    ![Circuits](./circuits/circuit-on-off.png)
-    Simple battery and switch circuit simulation.
+    ![Bloom-to-Pattern Matrix](./bloom-to-pattern-matrix/bloom-to-pattern-matrix.png)
 
-- **[Collision Avoidance Robot](./collision-avoidance-robot/index.md)**
+    A clickable matrix of the six Bloom levels showing which MicroSim interaction patterns suit each level, which undermine it and why, with a…
 
-    ![Collision Robot](./collision-avoidance-robot/collision-avoidance-robot.png)
-    Robot navigation with obstacle avoidance.
+- **[Cognitive Load Balance Lab](./cognitive-load-balance-lab/index.md)**
 
-- **[Color Names](./color-names/index.md)**
+    ![Cognitive Load Balance Lab](./cognitive-load-balance-lab/cognitive-load-balance-lab.png)
 
-    ![Color Names](./color-names/color-names.png)
-    Explore named CSS colors interactively.
+    Toggle features on a mock bouncing-ball MicroSim and watch a qualitative gauge split the load into intrinsic, extraneous and germane parts against…
 
-- **[Color Wheel Harmonies](./color-wheel/index.md)**
+- **[Instructional Design Checkpoint Navigator](./design-checkpoint-navigator/index.md)**
 
-    ![Color Wheel](./color-wheel/color-wheel.png)
-    Interactive color wheel with harmony rules.
+    ![Instructional Design Checkpoint Navigator](./design-checkpoint-navigator/design-checkpoint-navigator.png)
 
-- **[Color Wheel with Named Colors](./color-wheel-with-named-colors/index.md)**
+    A clickable Mermaid flowchart of the instructional design checkpoint in which you run the checkpoint on four sample specifications, compare your…
 
-    ![Color Wheel Named](./color-wheel-with-named-colors/color-wheel-with-named-colors.png)
-    Color wheel featuring CSS named colors.
+- **[Objective Rewriter Workbench](./objective-rewriter-workbench/index.md)**
 
-- **[Conway's Game of Life](./conway-game-of-life/index.md)**
+    ![Objective Rewriter Workbench](./objective-rewriter-workbench/objective-rewriter-workbench.png)
 
-    ![Game of Life](./conway-game-of-life/conway-game-of-life.png)
-    Classic cellular automaton simulation.
+    Repair eight weak learning objectives by filling the actor, action, concept, and condition-and-standard slots, choosing an observable verb and a…
 
-- **[CSS Box Model Interactive](./css-box-model/index.md)**
+- **[Objectives Neighborhood of the Learning Graph](./objectives-graph-neighborhood/index.md)**
 
-    ![CSS Box Model](./css-box-model/css-box-model.png)
-    Interactive visualization of the CSS box model.
+    ![Objectives Neighborhood of the Learning Graph](./objectives-graph-neighborhood/objectives-graph-neighborhood.png)
 
-- **[Curve Control PointerEvent](./curve/index.md)**
+    Explore the 26 learning-objective concepts of this book's learning graph with their direct prerequisites and dependents, and test yourself on…
 
-    ![Curve](./curve/curve-percent.png)
-    Interactive Bezier curve manipulation.
+</div>
 
-- **[Data Element Mapper MicroSim](./data-element-mapper/index.md)**
+## Chapter 4: Choosing a MicroSim Type
 
-    ![Data Mapper](./data-element-mapper/data-element-mapper.png)
-    Visual data element mapping tool.
+[Read Chapter 4](../chapters/04-choosing-a-microsim-type/index.md)
 
-- **[FFT Butterfly MicroSim](./fft-butterfly/index.md)**
+<div class="grid cards" markdown>
 
-    ![FFT Butterfly](./fft-butterfly/fft-butterfly.png)
-    Visualization of FFT butterfly computation pattern.
+- **[Choose the Type Challenge](./choose-the-type-challenge/index.md)**
 
-- **[Microphone Frequency Visualization with FFT](./fft-mic/index.md)**
+    ![Choose the Type Challenge](./choose-the-type-challenge/choose-the-type-challenge.png)
 
-    ![FFT Mic](./fft-mic/fft-mic.png)
-    Real-time audio frequency analysis using FFT.
+    A 19-card challenge in which you justify the MicroSim type for each learning objective by choosing a type and a reason, spot ambiguous objectives…
 
-- **[FFT Microphone V2](./fft-mic-v2/index.md)**
+- **[MicroSim Type Catalog Explorer](./microsim-type-catalog-explorer/index.md)**
 
-    ![FFT Mic V2](./fft-mic-v2/fft-mic-v2.png)
-    Enhanced microphone frequency visualization.
+    ![MicroSim Type Catalog Explorer](./microsim-type-catalog-explorer/microsim-type-catalog-explorer.png)
 
-- **[Fibonacci Clock](./fibonacci-clock/index.md)**
+    A vis-network explorer of the MicroSim Type Catalog's eight families and eighteen types, with hover-for-library, click-for-details and a Quiz me…
 
-    ![Fibonacci Clock](./fibonacci-clock/fibonacci-clock.png)
-    Clock display using Fibonacci sequence encoding.
+- **[Routing Score Workbench](./routing-score-workbench/index.md)**
 
-- **[Flashcards App](./flashcards/index.md)**
+    ![Routing Score Workbench](./routing-score-workbench/routing-score-workbench.png)
 
-    ![Flashcards](./flashcards/flashcards.png)
-    Interactive flashcard study application.
+    A Chart.js workbench in which you score competing MicroSim types for ten objectives against the five-band routing rubric, resolve close scores…
 
-- **[Flex Layout Playground](./flex-layout-playground/index.md)**
+- **[Type Routing Decision Tree](./type-routing-decision-tree/index.md)**
 
-    ![Flex Layout](./flex-layout-playground/flex-layout-playground.png)
-    Interactive CSS flexbox layout explorer.
+    ![Type Routing Decision Tree](./type-routing-decision-tree/type-routing-decision-tree.png)
 
-- **[Flower Petal Designer](./flower-petal/index.md)**
+    A clickable Mermaid decision tree of the generator skill's routing questions, asked in order until the first yes, with a practice mode that routes…
 
-    ![Flower Petal](./flower-petal/flower-petal.png)
-    Create flower patterns with customizable petals.
+</div>
 
-- **[Force Directed Graph](./force-directed-graph/index.md)**
+## Chapter 5: Generating MicroSims with AI Skills
 
-    ![Force Graph](./force-directed-graph/force-directed-graph.png)
-    Interactive force-directed graph visualization.
+[Read Chapter 5](../chapters/05-generating-microsims-with-ai-skills/index.md)
 
-- **[Fourier](./fourier/index.md)**
+<div class="grid cards" markdown>
 
-    ![Fourier](./fourier/fourier.png)
-    Fourier series and transform visualization.
+- **[Batch Generation Workflow Stepper](./batch-generation-workflow-stepper/index.md)**
 
-- **[Fractal Tree MicroSim](./fractal-tree/index.md)**
+    ![Batch Generation Workflow Stepper](./batch-generation-workflow-stepper/batch-generation-workflow-stepper.png)
 
-    ![Fractal Tree](./fractal-tree/fractal-tree.png)
-    Recursive fractal tree generator.
+    A step-through of the eight steps of the MicroSim generator skill's batch workflow that shows each step's command, input, output and lifecycle…
 
-- **[Galton Board](./galton-board/index.md)**
+- **[Generation Failure Mode Triage](./generation-failure-mode-triage/index.md)**
 
-    ![Galton Board](./galton-board/galton-board.png)
-    Simulation of the Galton board demonstrating normal distribution.
+    ![Generation Failure Mode Triage](./generation-failure-mode-triage/generation-failure-mode-triage.png)
 
-- **[Global Impact of MicroSims](./global-impact/index.md)**
+    Diagnose eight defective AI-generated MicroSims by matching each symptom and simulated console message to one of six generation failure modes, its…
 
-    ![Global Impact](./global-impact/global-impact.png)
-    Visualization of MicroSims educational reach.
+- **[Generator Skill Anatomy Explorer](./generator-skill-anatomy-explorer/index.md)**
 
-- **[Gold Star](./gold-star/index.md)**
+    ![Generator Skill Anatomy Explorer](./generator-skill-anatomy-explorer/generator-skill-anatomy-explorer.png)
 
-    ![Gold Star](./gold-star/gold-star.png)
-    Interactive gold star shape generator.
+    An explorer that traces which parts of the microsim-generator skill an agent reads for a request — the SKILL.md routing table, one reference…
 
-- **[Learning Graph Viewer](./graph-viewer/index.md)**
+- **[p5.js 2.x Migration Mapper](./p5-2x-migration-mapper/index.md)**
 
-    ![Graph Viewer](./graph-viewer/graph-viewer.png)
-    Interactive concept dependency graph explorer.
+    ![p5.js 2.x Migration Mapper](./p5-2x-migration-mapper/p5-2x-migration-mapper.png)
 
-- **[H-Bridge Circuit](./h-bridge/index.md)**
+    Convert four short p5.js 1.x snippets to their 2.x form by flagging the v1-only call, choosing its replacement and checking the choice against the…
 
-    ![H-Bridge](./h-bridge/h-bridge.png)
-    Motor control H-bridge circuit simulation.
+- **[Prompt Quality Workbench](./prompt-quality-workbench/index.md)**
 
-- **[Koch Curve Fractal](./koch/index.md)**
+    ![Prompt Quality Workbench](./prompt-quality-workbench/prompt-quality-workbench.png)
 
-    ![Koch Curve](./koch/koch.png)
-    Interactive Koch snowflake fractal generator.
+    Toggle the six clauses of a MicroSim generation prompt and see which decisions each omission hands to the model and which generation failure modes…
 
-- **[Lady Bug Walk](./lady-bug-walk/index.md)**
+- **[Specification Block Anatomy Explorer](./spec-block-anatomy-explorer/index.md)**
 
-    ![Lady Bug](./lady-bug-walk/lady-bug-walk.png)
-    Random walk simulation with a ladybug.
+    ![Specification Block Anatomy Explorer](./spec-block-anatomy-explorer/spec-block-anatomy-explorer.png)
 
-- **[Larson Scanner](./larson-scanner/index.md)**
+    An explorer that breaks a MicroSim specification block into its eight fields, runs a simulated extraction that marks missing fields in red, and…
 
-    ![Larson Scanner](./larson-scanner/larson-scanner.png)
-    Knight Rider-style LED scanner animation.
+</div>
 
-- **[Concept Graph Prompt](./learning-graph/index.md)**
+## Chapter 6: p5.js MicroSims
 
-    ![Learning Graph](./learning-graph/learning-graph.png)
-    Prompt engineering for learning graph generation.
+[Read Chapter 6](../chapters/06-p5js-microsims/index.md)
 
-- **[Learning Modality Effectiveness](./learning-modality-effectiveness/index.md)**
+<div class="grid cards" markdown>
 
-    ![Learning Modality](./learning-modality-effectiveness/learning-modality-effectiveness.png)
-    Comparison of different learning modalities.
+- **[Coordinate System Explorer](./p5-coordinate-system-explorer/index.md)**
 
-- **[Least Squares](./least-squares/index.md)**
+    ![Coordinate System Explorer](./p5-coordinate-system-explorer/p5-coordinate-system-explorer.png)
 
-    ![Least Squares](./least-squares/regression-line.png)
-    Interactive linear regression demonstration.
+    Read mouseX and mouseY on a labeled p5.js pixel grid, then calculate where a height on a meter scale lands, including the y flip, and check the…
 
-- **[Lissajous Figures](./lissajous-figures/index.md)**
+- **[Flowing Current and Idle Pause](./p5-flowing-current-idle-pause/index.md)**
 
-    ![Lissajous](./lissajous-figures/lissajous.png)
-    Generate Lissajous curves with adjustable parameters.
+    ![Flowing Current and Idle Pause](./p5-flowing-current-idle-pause/p5-flowing-current-idle-pause.png)
 
-- **[Logic Gates](./logic-gates/index.md)**
+    Design a flowing-current animation around a battery-and-lamp loop by choosing dot spacing, flow speed and direction, and decide whether…
 
-    ![Logic Gates](./logic-gates/logic-gates.png)
-    Interactive digital logic gate simulator.
+- **[Sketch Lifecycle Explorer](./p5-sketch-lifecycle-explorer/index.md)**
 
-- **[Maze Generator](./maze-gen/index.md)**
+    ![Sketch Lifecycle Explorer](./p5-sketch-lifecycle-explorer/p5-sketch-lifecycle-explorer.png)
 
-    ![Maze Gen](./maze-gen/maze-gen.png)
-    Procedural maze generation algorithms.
+    Step a p5.js sketch one draw() call at a time, watch setup() and draw() counters and the executing statement, and see why statement order inside…
 
-- **[Maze Solver](./maze-solver/index.md)**
+- **[Vector and Particle Lab](./p5-vector-particle-lab/index.md)**
 
-    ![Maze Solver](./maze-solver/solution-example.png)
-    Visualization of maze solving algorithms.
+    ![Vector and Particle Lab](./p5-vector-particle-lab/p5-vector-particle-lab.png)
 
-- **[AI-Assisted MicroSim Creation Workflow](./microsim-creation-workflow/index.md)**
+    Watch labeled position, velocity and gravity arrows drive a bouncing ball, drag a second ball into its path to separate collision detection from…
 
-    ![MicroSim Workflow](./microsim-creation-workflow/microsim-creation-workflow.png)
-    Workflow for creating MicroSims with AI assistance.
+</div>
 
-- **[MicroSim Growth Network Effect](./microsim-growth/index.md)**
+## Chapter 7: Charts, Plots and Tables
 
-    ![MicroSim Growth](./microsim-growth/microsim-growth.png)
-    Visualization of MicroSim adoption growth.
+[Read Chapter 7](../chapters/07-charts-plots-and-tables/index.md)
 
-- **[MicroSim Layout Architecture](./microsim-layout/index.md)**
+<div class="grid cards" markdown>
 
-    ![MicroSim Layout](./microsim-layout/microsim-layout.png)
-    Standard MicroSim layout patterns and architecture.
+- **[Chart Configuration Anatomy Explorer](./chart-configuration-anatomy-explorer/index.md)**
 
-- **[MicroSim Library Ecosystem](./microsim-library-ecosystem/index.md)**
+    ![Chart Configuration Anatomy Explorer](./chart-configuration-anatomy-explorer/chart-configuration-anatomy-explorer.png)
 
-    ![Library Ecosystem](./microsim-library-ecosystem/microsim-library-ecosystem.png)
-    Overview of JavaScript libraries used in MicroSims.
+    Edit a live Chart.js configuration shown as color-coded type, data and options blocks, and see which block controls each visible feature of the chart.
 
-- **[MicroSim Uniqueness Interactive Venn Diagram](./microsim-uniqueness/index.md)**
+- **[Chart Type Chooser](./chart-type-chooser/index.md)**
 
-    ![MicroSim Uniqueness](./microsim-uniqueness/microsim-uniqueness.png)
-    Venn diagram showing what makes MicroSims unique.
+    ![Chart Type Chooser](./chart-type-chooser/chart-type-chooser.png)
 
-- **[Mobile Compatible Buttons](./mobile-buttons/index.md)**
+    Choose bar, line or pie for a stated data question, check the choice against a fit rule, and compare the same data drawn in the two alternative…
 
-    ![Mobile Buttons](./mobile-buttons/mobile-buttons.png)
-    Touch-friendly button patterns for mobile devices.
+- **[Clickable Detail Matrix](./clickable-detail-matrix/index.md)**
 
-- **[Rotating Motor](./motor/index.md)**
+    ![Clickable Detail Matrix](./clickable-detail-matrix/clickable-detail-matrix.png)
 
-    ![Motor](./motor/motor.png)
-    Animated DC motor simulation.
+    Differentiate four invented learning theories across four dimensions by reading each cell's summary, predicting its emphasis, and opening a…
 
-- **[Named Colors](./named-colors/index.md)**
+- **[Function Plot Slider Lab](./function-plot-slider-lab/index.md)**
 
-    ![Named Colors](./named-colors/named-colors.png)
-    Complete CSS named color reference.
+    ![Function Plot Slider Lab](./function-plot-slider-lab/function-plot-slider-lab.png)
 
-- **[NeoPixel Simulation](./neopixel/index.md)**
+    Move a marker along sin(x), cos(x), x squared or a Gaussian curve with a slider, read x and f(x), and mark every x where the curve reaches a…
 
-    ![NeoPixel](./neopixel/neopixel.png)
-    Addressable LED strip simulation.
+- **[Priority Matrix Bubble Explorer](./priority-matrix-bubble-explorer/index.md)**
 
-- **[Neural Network](./neural-network/index.md)**
+    ![Priority Matrix Bubble Explorer](./priority-matrix-bubble-explorer/priority-matrix-bubble-explorer.png)
 
-    ![Neural Network](./neural-network/neural-network.png)
-    Interactive neural network visualization.
+    Compare eight candidate MicroSim types by impact, effort and count on a Chart.js bubble chart, move items across the quadrant midpoints, and see…
 
-- **[OODA Loop](./ooda/index.md)**
+- **[Star Rating Comparison Table](./star-rating-comparison-table/index.md)**
 
-    ![OODA Loop](./ooda/ooda.png)
-    Observe-Orient-Decide-Act decision cycle diagram.
+    ![Star Rating Comparison Table](./star-rating-comparison-table/star-rating-comparison-table.png)
 
-- **[p5.js Animation Loop Cycle](./p5-animation-loop/index.md)**
+    Judge which of five MicroSim libraries best fits a stated need by weighting two star-rated criteria, sorting by weighted score, and reading badges…
 
-    ![p5 Animation](./p5-animation-loop/p5-animation-loop.png)
-    Visualization of the p5.js draw loop.
+</div>
 
-- **[p5.js Coordinate System](./p5-coordinate-system/index.md)**
+## Chapter 8: Diagrams, Networks and Systems
 
-    ![p5 Coordinates](./p5-coordinate-system/p5-coordinate-system.png)
-    Interactive p5.js coordinate system explorer.
+[Read Chapter 8](../chapters/08-diagrams-networks-and-systems/index.md)
 
-- **[History of p5.js and Creative Coding](./p5-timeline/index.md)**
+<div class="grid cards" markdown>
 
-    ![p5 Timeline](./p5-timeline/p5-timeline.png)
-    Timeline of p5.js and creative coding evolution.
+- **[Clickable Flowchart Anatomy](./clickable-flowchart-anatomy/index.md)**
 
-- **[Particle Fields](./particle-fields/index.md)**
+    ![Clickable Flowchart Anatomy](./clickable-flowchart-anatomy/clickable-flowchart-anatomy.png)
 
-    ![Particle Fields](./particle-fields/particle-fields.png)
-    Interactive particle system with field effects.
+    Inspect a working Mermaid flowchart to tell apart its node shapes, edges, branch labels and style classes, and see the real parse error when a…
 
-- **[Pendulum](./pendulum/index.md)**
+- **[Loop Polarity Tracer](./loop-polarity-tracer/index.md)**
 
-    ![Pendulum](./pendulum/pendulum.png)
-    Simple pendulum physics simulation.
+    ![Loop Polarity Tracer](./loop-polarity-tracer/loop-polarity-tracer.png)
 
-- **[Regular Polygons](./polygon/index.md)**
+    Trace the polarity links of two learner feedback loops one link at a time, count the negative links, and decide whether each loop is reinforcing…
 
-    ![Polygon](./polygon/polygon.png)
-    Generate regular polygons with adjustable sides.
+- **[Node and Edge Data Explorer](./node-edge-data-explorer/index.md)**
 
-- **[Prisoners Dilemma](./prisoners-dilemma/index.md)**
+    ![Node and Edge Data Explorer](./node-edge-data-explorer/node-edge-data-explorer.png)
 
-    ![Prisoners Dilemma](./prisoners-dilemma/prisoners-dilemma.png)
-    Game theory simulation of the prisoner's dilemma.
+    Build a small concept map in vis-network by adding nodes, connecting them with labeled relationships and swapping edge directions, while a data…
 
-- **[Projectile Motion](./projectile-motion/index.md)**
+- **[Readability Repair Bench](./diagram-readability-repair-bench/index.md)**
 
-    ![Projectile Motion](./projectile-motion/projectile-motion.png)
-    Basic projectile motion physics.
+    ![Readability Repair Bench](./diagram-readability-repair-bench/diagram-readability-repair-bench.png)
 
-- **[Projectile Motion with Gravity](./projectile-motion-gravity/index.md)**
+    Critique a cluttered 20-step flowchart against seven diagram readability standards, name each flaw, and repair the diagram with five fixes applied…
 
-    ![Projectile Gravity](./projectile-motion-gravity/projectile-motion-gravity.png)
-    Projectile motion with adjustable gravity.
+- **[Reinforcing and Balancing Behavior Lab](./feedback-behavior-lab/index.md)**
 
-- **[Projecting AI Task Completion to 2030](./projecting-ai/index.md)**
+    ![Reinforcing and Balancing Behavior Lab](./feedback-behavior-lab/feedback-behavior-lab.png)
 
-    ![Projecting AI](./projecting-ai/projecting-ai.png)
-    AI capability projection visualization.
+    Compare how a reinforcing loop and a balancing loop behave over time by changing the loop rate, the goal and the start value and predicting how…
 
-- **[Pulse-Width Modulation](./pwm/index.md)**
+- **[Set Overlap Explorer](./set-overlap-explorer/index.md)**
 
-    ![PWM](./pwm/pwm.png)
-    Interactive PWM signal visualization.
+    ![Set Overlap Explorer](./set-overlap-explorer/set-overlap-explorer.png)
 
-- **[Pythagorean Theorem MicroSim](./pythagorean-theorem/index.md)**
+    Classify example diagrams into the seven regions of a three-circle Venn diagram of ordered process, labeled relationships and feedback, the…
 
-    ![Pythagorean](./pythagorean-theorem/pythagorean-theorem.png)
-    Visual proof of the Pythagorean theorem.
+</div>
 
-- **[Rabbits and Foxes](./rabbits-and-foxes/index.md)**
+## Chapter 9: Timelines and Maps
 
-    ![Rabbits Foxes](./rabbits-and-foxes/rabbits-and-foxes.png)
-    Predator-prey population dynamics simulation.
+[Read Chapter 9](../chapters/09-timelines-and-maps/index.md)
 
-- **[Rainbow Color Picker](./rainbow-color-picker/index.md)**
+<div class="grid cards" markdown>
 
-    ![Rainbow Picker](./rainbow-color-picker/rainbow-color-picker.png)
-    Colorful rainbow-based color selection tool.
+- **[Choropleth Threshold Lab](./choropleth-threshold-lab/index.md)**
 
-- **[Recursion Tree](./recursion-tree/index.md)**
+    ![Choropleth Threshold Lab](./choropleth-threshold-lab/choropleth-threshold-lab.png)
 
-    ![Recursion Tree](./recursion-tree/tree-v1.png)
-    Visualization of recursive function calls.
+    Move four color thresholds on a US choropleth of placeholder values and judge whether each setting reveals or hides a south-north gradient and a…
 
-- **[Resize in iframe](./resize-in-iframe/index.md)**
+- **[Marker, Popup and Tile Source Map](./marker-popup-tile-map/index.md)**
 
-    ![Resize iframe](./resize-in-iframe/resize-in-iframe.png)
-    Demonstration of responsive resizing in iframes.
+    ![Marker, Popup and Tile Source Map](./marker-popup-tile-map/marker-popup-tile-map.png)
 
-- **[Resize Demo](./resize-test/index.md)**
+    A Leaflet map of seven Minneapolis museums and parks that separates the jobs of the marker, the popup and the tile source by letting learners…
 
-    ![Resize Test](./resize-test/resize-test.png)
-    Canvas resize behavior demonstration.
+- **[Timeline Item and Date Explorer](./timeline-item-date-explorer/index.md)**
 
-- **[Responsive Design](./responsive-design/index.md)**
+    ![Timeline Item and Date Explorer](./timeline-item-date-explorer/timeline-item-date-explorer.png)
 
-    ![Responsive](./responsive-design/responsive-design.png)
-    Responsive design patterns for MicroSims.
+    Place fictional course-schedule events on a vis-timeline from the template's JSON event format, then see how the month off-by-one bug and group…
 
-- **[Collision Avoidance Robot](./robots/index.md)**
+</div>
 
-    ![Robots](./robots/robots.png)
-    Multiple robot collision avoidance simulation.
+## Chapter 10: Image Overlays and Comparison Posters
 
-- **[Rotating Gears](./rotating-gears/index.md)**
+[Read Chapter 10](../chapters/10-image-overlays-and-comparison-posters/index.md)
 
-    ![Rotating Gears](./rotating-gears/rotating-gears.png)
-    Animated interlocking gear system.
+<div class="grid cards" markdown>
 
-- **[7-Segment Display](./seven-segment-display/index.md)**
+- **[Callout Overlay Anatomy Explorer](./callout-overlay-anatomy-explorer/index.md)**
 
-    ![7 Segment](./seven-segment-display/7-segment-display.png)
-    Interactive seven-segment LED display.
+    ![Callout Overlay Anatomy Explorer](./callout-overlay-anatomy-explorer/callout-overlay-anatomy-explorer.png)
 
-- **[Sierpinski](./sierpinski/index.md)**
+    See how each field of an overlay data file (x, y, label, hint, description) turns into a marker, a label, a quiz clue or an information box on a…
 
-    ![Sierpinski](./sierpinski/serpinski.png)
-    Sierpinski triangle fractal generator.
+- **[Comparison Poster Explorer](./comparison-poster-explorer/index.md)**
 
-- **[Simple Tree](./simple-tree/index.md)**
+    ![Comparison Poster Explorer](./comparison-poster-explorer/comparison-poster-explorer.png)
 
-    ![Simple Tree](./simple-tree/simple-tree.png)
-    Basic recursive tree drawing.
+    Explore a three-column robot-kit comparison poster by hovering and clicking its percentage zones, then answer which-column quiz questions that…
 
-- **[Sine and Cosine](./sine-and-cosine/index.md)**
+- **[Percentage Zone Calibrator](./percentage-zone-calibrator/index.md)**
 
-    ![Sine Cosine](./sine-and-cosine/sine-and-cosine.png)
-    Interactive sine and cosine wave visualization.
+    ![Percentage Zone Calibrator](./percentage-zone-calibrator/percentage-zone-calibrator.png)
 
-- **[Sine Wave](./sine-wave/index.md)**
+    Drag the corners of a zone over a placeholder poster and watch the pixel-to-percentage calculation for x1, y1, x2 and y2, then practice matching a…
 
-    ![Sine Wave](./sine-wave/sine-wave.png)
-    Adjustable sine wave generator.
+- **[Poster Folder Explorer](./poster-folder-explorer/index.md)**
 
-- **[Slope and Intercept](./slope-and-intercept/index.md)**
+    ![Poster Folder Explorer](./poster-folder-explorer/poster-folder-explorer.png)
 
-    ![Slope Intercept](./slope-and-intercept/slope.png)
-    Interactive linear equation y = mx + b explorer.
+    Explore the folder layout of a poster collection, including the shared overlay library and one poster folder's five files, and practice choosing…
 
-- **[Snake MicroSim](./snake/index.md)**
+- **[Prompt Text Rule Checker](./prompt-text-rule-checker/index.md)**
 
-    ![Snake](./snake/snake.png)
-    Classic snake game implementation.
+    ![Prompt Text Rule Checker](./prompt-text-rule-checker/prompt-text-rule-checker.png)
 
-- **[Solar Battery](./solar-battery/index.md)**
+    Judge each line of a draft image prompt as safe for a callout overlay or likely to put text into the image, then read why and see a safe rewrite…
 
-    ![Solar Battery](./solar-battery/solar-battery.png)
-    Solar panel and battery charging simulation.
+</div>
 
-- **[Solar Cell Battery Charger MicroSim](./solar-cell/index.md)**
+## Chapter 11: Verified Posters and Specialized MicroSim Types
 
-    ![Solar Cell](./solar-cell/solar-cell.png)
-    Detailed solar cell charging system.
+[Read Chapter 11](../chapters/11-verified-posters-and-specialized-microsim-types/index.md)
 
-- **[Bouncing 3D Sphere Demo](./sphere/index.md)**
+<div class="grid cards" markdown>
 
-    ![Sphere](./sphere/sphere.png)
-    3D bouncing sphere with WebGL.
+- **[Claim Bucket Sorter](./claim-bucket-sorter/index.md)**
 
-- **[Spinning 3D Shapes](./spinning-3d-shapes/index.md)**
+    ![Claim Bucket Sorter](./claim-bucket-sorter/claim-bucket-sorter.png)
 
-    ![3D Shapes](./spinning-3d-shapes/spinning-3d-shapes.png)
-    Rotating 3D geometric shapes.
+    Drag twelve invented evidence records into the four verification buckets, VERIFIED, DIRECTIONAL, QUALITATIVE-ONLY and REJECTED, and read the rule…
 
-- **[Star Rating MicroSim](./star-rating/index.md)**
+- **[Classifier Scenario Builder](./classifier-scenario-builder/index.md)**
 
-    ![Star Rating](./star-rating/star-rating.png)
-    Interactive star rating component.
+    ![Classifier Scenario Builder](./classifier-scenario-builder/classifier-scenario-builder.png)
 
-- **[String Harmonics](./string-harmonics/index.md)**
+    Write a concept-classifier scenario with a correct answer, three distractors, a hint and an explanation, watch the learner's quiz card update as…
 
-    ![String Harmonics](./string-harmonics/string-harmonics.png)
-    Visualization of standing wave harmonics.
+- **[Docker Lab Run Flow](./docker-lab-run-flow/index.md)**
 
-- **[Supply and Demand](./supply-and-demand/index.md)**
+    ![Docker Lab Run Flow](./docker-lab-run-flow/docker-lab-run-flow.png)
 
-    ![Supply Demand](./supply-and-demand/supply-and-demand.png)
-    Economics supply and demand curve interaction.
+    Follow a Docker Python lab's path from the Run button through docker-lab.js, the local service on port 5001 and a fresh container to the output…
 
-- **[Temperature and Pressure](./temp-and-pressure/index.md)**
+- **[Verified Poster Pipeline Explorer](./verified-poster-pipeline-explorer/index.md)**
 
-    ![Temp Pressure](./temp-and-pressure/temp-and-pressure.png)
-    Gas law temperature and pressure relationship.
+    ![Verified Poster Pipeline Explorer](./verified-poster-pipeline-explorer/verified-poster-pipeline-explorer.png)
 
-- **[MicroSim Template](./template/index.md)**
+    Explore the nine steps of the verified poster route, from claim plan to overlay, see the file each step writes and what fails when a step is…
 
-    ![Template](./template/template.png)
-    Starter template for creating new MicroSims.
+</div>
 
-- **[Three Web Languages](./three-web-languages/index.md)**
+## Chapter 12: Width-Responsive Design and Iframe Heights
 
-    ![Three Web Languages](./three-web-languages/three-web-languages.png)
-    Overview of HTML, CSS, and JavaScript.
+[Read Chapter 12](../chapters/12-width-responsive-design-and-iframe-heights/index.md)
 
-- **[Virus Spread Simulation](./virus/index.md)**
+<div class="grid cards" markdown>
 
-    ![Virus](./virus/virus.png)
-    Epidemic spread simulation model.
+- **[Height Resolution Order Tracer](./height-resolution-order-tracer/index.md)**
 
-- **[Wave Sums and Fourier Synthesis](./wave-sums/index.md)**
+    ![Height Resolution Order Tracer](./height-resolution-order-tracer/height-resolution-order-tracer.png)
 
-    ![Wave Sums](./wave-sums/sum-of-waveforms.png)
-    Combine sine waves to create complex waveforms.
+    Examine a MicroSim folder, predict which of the four height sources the height sync tool will use, and trace the resolution order to the resulting…
 
-- **[Yin & Yang MicroSim](./yin-yang/index.md)**
+- **[Iframe Resize Message Stepper](./iframe-resize-message-stepper/index.md)**
 
-    ![Yin Yang](./yin-yang/yin-yang.png)
-    Interactive yin-yang symbol generator.
+    ![Iframe Resize Message Stepper](./iframe-resize-message-stepper/iframe-resize-message-stepper.png)
+
+    Step through the iframe auto-height protocol and compare a fixed height, a runtime resize message and a pinned infobox by watching where the…
+
+- **[Width-Responsive Breakpoint Lab](./width-responsive-breakpoint-lab/index.md)**
+
+    ![Width-Responsive Breakpoint Lab](./width-responsive-breakpoint-lab/width-responsive-breakpoint-lab.png)
+
+    Drag the edge of a simulated container around a miniature MicroSim and switch windowResized and slider resizing on and off to see how container…
+
+</div>
+
+## Chapter 13: Quality Assurance and Automated Layout Review
+
+[Read Chapter 13](../chapters/13-quality-assurance-and-automated-layout-review/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Audit Baseline Explorer](./audit-baseline-explorer/index.md)**
+
+    ![Audit Baseline Explorer](./audit-baseline-explorer/audit-baseline-explorer.png)
+
+    Explore the 2026-09-30 audit of 116 MicroSims by grade and find which rubric issues most often hold MicroSims below the grade A bar.
+
+- **[Iframe Height Test Simulator](./iframe-height-test-simulator/index.md)**
+
+    ![Iframe Height Test Simulator](./iframe-height-test-simulator/iframe-height-test-simulator.png)
+
+    Apply the control visibility and iframe height tests to a mock MicroSim and calculate the suggested iframe height from its content height.
+
+- **[Layout Defect Catalog Explorer](./layout-defect-catalog-explorer/index.md)**
+
+    ![Layout Defect Catalog Explorer](./layout-defect-catalog-explorer/layout-defect-catalog-explorer.png)
+
+    Find eight seeded layout defects in a mock MicroSim and match each to its visual checklist item, likely cause and repair.
+
+- **[Quality Chain Workflow](./quality-chain-workflow/index.md)**
+
+    ![Quality Chain Workflow](./quality-chain-workflow/quality-chain-workflow.png)
+
+    A clickable flowchart of the quality chain that explains each step, the condition on every arrow, and the path a MicroSim takes after failing the…
+
+- **[Quality Score Calculator](./quality-score-calculator/index.md)**
+
+    ![Quality Score Calculator](./quality-score-calculator/quality-score-calculator.png)
+
+    Tick the rubric checks a MicroSim satisfies to calculate its 100-point quality score and grade, and find the cheapest change that reaches the 85…
+
+- **[Review and Fix Cycle Simulator](./review-fix-cycle-simulator/index.md)**
+
+    ![Review and Fix Cycle Simulator](./review-fix-cycle-simulator/review-fix-cycle-simulator.png)
+
+    Judge candidate patches against the smallest patch rule and decide when the three-cycle limit requires stopping and reporting.
+
+</div>
+
+## Chapter 14: Batch Generation from Specifications
+
+[Read Chapter 14](../chapters/14-batch-generation-from-specifications/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Batch Generation Pipeline Stepper](./batch-generation-pipeline-stepper/index.md)**
+
+    ![Batch Generation Pipeline Stepper](./batch-generation-pipeline-stepper/batch-generation-pipeline-stepper.png)
+
+    Step through the eight steps of a MicroSim batch run to tell the Python-script steps from the one AI-agent step and trace the files each step…
+
+- **[Nav Status Icon Legend](./nav-status-icon-legend/index.md)**
+
+    ![Nav Status Icon Legend](./nav-status-icon-legend/nav-status-icon-legend.png)
+
+    Match each MicroSim nav status icon and color to its tooltip, its meaning and the batch lifecycle state that usually produces it, with a matching…
+
+- **[Sim Status Rule Explorer](./sim-status-rule-explorer/index.md)**
+
+    ![Sim Status Rule Explorer](./sim-status-rule-explorer/sim-status-rule-explorer.png)
+
+    Set the state of a MicroSim's files and predict the lifecycle status that extract-sim-specs.py assigns, then see the ordered rule that decided it.
+
+</div>
+
+## Chapter 15: Metadata, Search and Reuse
+
+[Read Chapter 15](../chapters/15-metadata-search-and-reuse/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Faceted Filter Lab](./faceted-filter-lab/index.md)**
+
+    ![Faceted Filter Lab](./faceted-filter-lab/faceted-filter-lab.png)
+
+    Narrow a 300-record sample of the MicroSim catalog with Subject, Framework and Bloom level facets, and predict how switching OR to AND within a…
+
+- **[Metadata Section Explorer](./metadata-section-explorer/index.md)**
+
+    ![Metadata Section Explorer](./metadata-section-explorer/metadata-section-explorer.png)
+
+    Expand the sections of the H-Bridge metadata.json as a network, classify each field under dublinCore, search, educational, technical or…
+
+- **[Reuse Threshold Explorer](./reuse-threshold-explorer/index.md)**
+
+    ![Reuse Threshold Explorer](./reuse-threshold-explorer/reuse-threshold-explorer.png)
+
+    Move the reuse and template thresholds of the find-similar-templates reuse check and judge where they should sit, using only the score ranges the…
+
+</div>
+
+## Chapter 16: xAPI Statements and Evidence
+
+[Read Chapter 16](../chapters/16-xapi-statements-and-evidence/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Activity IRI Builder](./activity-iri-builder/index.md)**
+
+    ![Activity IRI Builder](./activity-iri-builder/activity-iri-builder.png)
+
+    Construct the activity IRI for a page, a control, a diagram node or a question from the canonical site_url, and diagnose five common mistakes by…
+
+- **[Contract Violation Finder](./contract-violation-finder/index.md)**
+
+    ![Contract Violation Finder](./contract-violation-finder/contract-violation-finder.png)
+
+    Critique eight candidate xAPI statements against the nine rules of the MicroSim producer contract, flagging each violating field and justifying it…
+
+- **[Evidence Class Sorter](./evidence-class-sorter/index.md)**
+
+    ![Evidence Class Sorter](./evidence-class-sorter/evidence-class-sorter.png)
+
+    Assign each interaction in a mock MicroSim to one of the seven evidence classes, name the deciding question, and compare what Full and Compact…
+
+- **[Evidence Threshold Lab](./evidence-threshold-lab/index.md)**
+
+    ![Evidence Threshold Lab](./evidence-threshold-lab/evidence-threshold-lab.png)
+
+    Move the hover, misclick and glance thresholds and watch a scripted 60-second learner session gain or lose statements, then justify a choice of…
+
+- **[Three Verb Classifier](./three-verb-classifier/index.md)**
+
+    ![Three Verb Classifier](./three-verb-classifier/three-verb-classifier.png)
+
+    Classify twelve learner events in a mock Bouncing Ball MicroSim as answered, experienced, interacted or no statement, then see the verb, object…
+
+- **[xAPI Statement Field Explorer](./xapi-statement-field-explorer/index.md)**
+
+    ![xAPI Statement Field Explorer](./xapi-statement-field-explorer/xapi-statement-field-explorer.png)
+
+    Click the lines of three real-shaped xAPI statements to tell the actor, verb, object, result and context apart, name the question each part…
+
+</div>
+
+## Chapter 17: Instrumenting MicroSims with the xAPI Runtime
+
+[Read Chapter 17](../chapters/17-instrumenting-microsims-with-the-xapi-runtime/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Guarded Call Runtime Toggle](./guarded-call-runtime-toggle/index.md)**
+
+    ![Guarded Call Runtime Toggle](./guarded-call-runtime-toggle/guarded-call-runtime-toggle.png)
+
+    Toggle the xAPI runtime on and off and switch between a guarded and an unguarded instrumentation call to see which one keeps a p5.js sketch…
+
+- **[Policy Precedence Resolver](./policy-precedence-resolver/index.md)**
+
+    ![Policy Precedence Resolver](./policy-precedence-resolver/policy-precedence-resolver.png)
+
+    Set the book config, page option, metadata.json and ?xapi= URL switch layers, predict the resolved compact and teaching values, then watch the…
+
+</div>
+
+## Chapter 18: Mastery Prediction and Knowledge Tracing
+
+[Read Chapter 18](../chapters/18-mastery-prediction-and-knowledge-tracing/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Attempt Order Swap Lab](./attempt-order-swap-lab/index.md)**
+
+    ![Attempt Order Swap Lab](./attempt-order-swap-lab/attempt-order-swap-lab.png)
+
+    Drag answer tiles into two different orders and compare the Bayesian knowledge tracing estimates they produce, against a success-count model that…
+
+- **[BKT Parameter Lab](./bkt-parameter-lab/index.md)**
+
+    ![BKT Parameter Lab](./bkt-parameter-lab/bkt-parameter-lab.png)
+
+    Set the four Bayesian knowledge tracing parameters and a sequence of correct and incorrect answers, watch the mastery estimate update after each…
+
+- **[From Interaction to Mastery Prediction](./evidence-stream-to-prediction-pipeline/index.md)**
+
+    ![From Interaction to Mastery Prediction](./evidence-stream-to-prediction-pipeline/evidence-stream-to-prediction-pipeline.png)
+
+    Step an assessment answer and a slider drag through the six stages from a learner's action to a mastery prediction, and see which stage discards…
+
+- **[Prerequisite Propagation Explorer](./prerequisite-propagation-explorer/index.md)**
+
+    ![Prerequisite Propagation Explorer](./prerequisite-propagation-explorer/prerequisite-propagation-explorer.png)
+
+    Walk depends-on edges upstream through a seven-concept learning graph to tell a concept whose own evidence is weak from one whose weakness traces…
+
+</div>
+
+## Chapter 19: Evaluating the Predictive Fidelity of the xAPI Stream
+
+[Read Chapter 19](../chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Accuracy Versus Base Rate Lab](./fidelity-accuracy-base-rate-lab/index.md)**
+
+    ![Accuracy Versus Base Rate Lab](./fidelity-accuracy-base-rate-lab/fidelity-accuracy-base-rate-lab.png)
+
+    Change how common success is and how informative a synthetic model is, and judge whether its accuracy beats the always-predict-the-majority…
+
+- **[AUC Pair Explorer](./fidelity-auc-pair-explorer/index.md)**
+
+    ![AUC Pair Explorer](./fidelity-auc-pair-explorer/fidelity-auc-pair-explorer.png)
+
+    Connect the ROC curve to a live count of random pairs and explain AUC as the chance that a random successful learner outranks a random…
+
+- **[Calibration Curve Lab](./fidelity-calibration-curve-lab/index.md)**
+
+    ![Calibration Curve Lab](./fidelity-calibration-curve-lab/fidelity-calibration-curve-lab.png)
+
+    Build a reliability curve from a seeded synthetic cohort, read its bin counts, and diagnose whether a knowledge-tracing forecast is overconfident,…
+
+- **[Claim Sorter](./fidelity-claim-sorter/index.md)**
+
+    ![Claim Sorter](./fidelity-claim-sorter/fidelity-claim-sorter.png)
+
+    Sort ten sentences about the xAPI stream and the Learning Record Store into measured, designed and hoped-for claims, and justify each by the…
+
+- **[Held-Out Split Explorer](./fidelity-held-out-split-explorer/index.md)**
+
+    ![Held-Out Split Explorer](./fidelity-held-out-split-explorer/fidelity-held-out-split-explorer.png)
+
+    Drag a forecast cutoff along one synthetic learner's xAPI timeline and judge which statements may feed a mastery forecast and which leak the…
+
+</div>
+
+## Chapter 20: "The Full LRS: Architecture and Ingestion"
+
+[Read Chapter 20](../chapters/20-the-full-lrs-architecture-and-ingestion/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Full LRS Architecture Explorer](./lrs-architecture-explorer/index.md)**
+
+    ![Full LRS Architecture Explorer](./lrs-architecture-explorer/lrs-architecture-explorer.png)
+
+    Explore the full Learning Record Store's five planes and twelve nodes, see which components are built, partly built or only designed, and quiz…
+
+- **[Gateway Request Simulator](./gateway-request-simulator/index.md)**
+
+    ![Gateway Request Simulator](./gateway-request-simulator/gateway-request-simulator.png)
+
+    Build a batch of xAPI statements, set the token and broker, predict whether the ingestion gateway accepts or rejects it, and watch the five…
+
+- **[Log and Graph Compression Lab](./log-graph-compression-lab/index.md)**
+
+    ![Log and Graph Compression Lab](./log-graph-compression-lab/log-graph-compression-lab.png)
+
+    Move the ingest rate and sync cadence to see how summary vertices keep graph writes near 2,500 per second while one vertex per statement would…
+
+- **[Partition Key Simulator](./partition-key-simulator/index.md)**
+
+    ![Partition Key Simulator](./partition-key-simulator/partition-key-simulator.png)
+
+    Route a burst of xAPI statements into event-stream partitions by district, by district and learner, or with no key, and compare the load on each…
+
+- **[Redelivery and Idempotency Lab](./redelivery-idempotency-lab/index.md)**
+
+    ![Redelivery and Idempotency Lab](./redelivery-idempotency-lab/redelivery-idempotency-lab.png)
+
+    Deliver statements through an at-least-once stream, crash the processor before it commits, and compare a summary writer that increments with one…
+
+- **[Tenant Isolation and Pseudonym Explorer](./tenant-pseudonym-explorer/index.md)**
+
+    ![Tenant Isolation and Pseudonym Explorer](./tenant-pseudonym-explorer/tenant-pseudonym-explorer.png)
+
+    Derive a learner's pseudonymous key in two school districts with per-district salts or one global salt, see whether an analytics reader can link…
+
+</div>
+
+## Chapter 21: "The Full LRS: Dashboards, Operations and Compliance"
+
+[Read Chapter 21](../chapters/21-the-full-lrs-dashboards-operations-and-compliance/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Capacity and Cost Explorer](./capacity-cost-explorer/index.md)**
+
+    ![Capacity and Cost Explorer](./capacity-cost-explorer/capacity-cost-explorer.png)
+
+    Estimate daily statements and storage from the number of active students, then judge whether the full LRS's single-server tier or distributed tier…
+
+- **[Class Mastery Heatmap Reader](./class-mastery-heatmap-reader/index.md)**
+
+    ![Class Mastery Heatmap Reader](./class-mastery-heatmap-reader/class-mastery-heatmap-reader.png)
+
+    Read a synthetic class mastery heatmap to tell a concept the whole class struggles with (a dark column) from a student who struggles broadly (a…
+
+- **[Failure Boundary Explorer](./failure-boundary-explorer/index.md)**
+
+    ![Failure Boundary Explorer](./failure-boundary-explorer/failure-boundary-explorer.png)
+
+    Break one component of the full LRS at a time and see why only a failure before the durability boundary at Kafka can lose data, while every…
+
+- **[Suppression Threshold Lab](./suppression-threshold-lab/index.md)**
+
+    ![Suppression Threshold Lab](./suppression-threshold-lab/suppression-threshold-lab.png)
+
+    Predict which counts in a small mastery-band table must be hidden under a suppression threshold, see how a single hidden cell leaks through the…
+
+</div>
+
+## Chapter 22: "LRS-Lite: Compact Summaries and Browser Storage"
+
+[Read Chapter 22](../chapters/22-lrs-lite-compact-summaries-and-browser-storage/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Compact Session Folding Lab](./compact-session-folding-lab/index.md)**
+
+    ![Compact Session Folding Lab](./compact-session-folding-lab/compact-session-folding-lab.png)
+
+    Drive a small practice MicroSim and watch the same interactions arrive as separate statements in Full mode but fold into one session summary in…
+
+- **[Semester Storage Estimator](./lite-semester-storage-estimator/index.md)**
+
+    ![Semester Storage Estimator](./lite-semester-storage-estimator/lite-semester-storage-estimator.png)
+
+    Calculate a semester's xAPI statement count and LRS-Lite storage footprint from daily activity assumptions, then judge the headroom left under the…
+
+- **[Storage Meter Pressure Lab](./storage-meter-pressure-lab/index.md)**
+
+    ![Storage Meter Pressure Lab](./storage-meter-pressure-lab/storage-meter-pressure-lab.png)
+
+    Set the size, backup age and unsynced age of an LRS-Lite browser database, predict which pressure level (Normal, Offer, Reclaim or Protect) the…
+
+</div>
+
+## Chapter 23: "LRS-Lite: Sync, Dashboards and Choosing Full or Lite"
+
+[Read Chapter 23](../chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Class Dashboard Load Estimator](./class-dashboard-load-estimator/index.md)**
+
+    ![Class Dashboard Load Estimator](./class-dashboard-load-estimator/class-dashboard-load-estimator.png)
+
+    Calculate how much a teacher's browser must download to build an LRS-Lite class dashboard, estimate the load-time band, and decide when the…
+
+- **[Full or Lite Decision Explorer](./full-or-lite-decision-explorer/index.md)**
+
+    ![Full or Lite Decision Explorer](./full-or-lite-decision-explorer/full-or-lite-decision-explorer.png)
+
+    Describe a school by roster size, budget and requirements, see which of the Lite, single-server and Full LRS tiers each requirement rules out, and…
+
+- **[Two-Browser Convergence Lab](./two-browser-convergence-lab/index.md)**
+
+    ![Two-Browser Convergence Lab](./two-browser-convergence-lab/two-browser-convergence-lab.png)
+
+    Run the Chromebook and home-laptop scenario under a last-writer-wins merge and an append-only event-set merge, and identify which of the seven…
+
+</div>
+
+## Chapter 24: Pedagogy, Accessibility and Ethics
+
+[Read Chapter 24](../chapters/24-pedagogy-accessibility-and-ethics/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Accessibility Check Walkthrough](./accessibility-check-walkthrough/index.md)**
+
+    ![Accessibility Check Walkthrough](./accessibility-check-walkthrough/accessibility-check-walkthrough.png)
+
+    Run four human accessibility checks (keyboard-only completion, visible focus, text alternative and no color-only meaning) on three variants of a…
+
+- **[PII Surface Explorer](./pii-surface-explorer/index.md)**
+
+    ![PII Surface Explorer](./pii-surface-explorer/pii-surface-explorer.png)
+
+    Classify each field of an illustrative xAPI statement as no PII risk, pseudonymous, direct identifier or uncontrolled free text, check your…
+
+- **[Prediction Fairness Explorer](./prediction-fairness-explorer/index.md)**
+
+    ![Prediction Fairness Explorer](./prediction-fairness-explorer/prediction-fairness-explorer.png)
+
+    Critique a mastery prediction by comparing its under- and over-estimation rates across three synthetic learner groups, see how a pooled average…
+
+- **[PRIMM Semantic Wave Explorer](./primm-semantic-wave-explorer/index.md)**
+
+    ![PRIMM Semantic Wave Explorer](./primm-semantic-wave-explorer/primm-semantic-wave-explorer.png)
+
+    Relate each PRIMM stage (Predict, Run, Investigate, Modify, Make) to a point on a semantic wave between concrete and abstract, then place…
+
+</div>
+
+## Chapter 25: "Capstone: Building an Instrumented MicroSim Portfolio"
+
+[Read Chapter 25](../chapters/25-capstone-building-an-instrumented-microsim-portfolio/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Portfolio Milestone Planner](./portfolio-milestone-planner/index.md)**
+
+    ![Portfolio Milestone Planner](./portfolio-milestone-planner/portfolio-milestone-planner.png)
+
+    Design a week-by-week schedule for a capstone MicroSim portfolio by changing the number of MicroSims, test participants and weeks available, and…
+
+- **[Rubric Self-Check](./portfolio-rubric-self-check/index.md)**
+
+    ![Rubric Self-Check](./portfolio-rubric-self-check/portfolio-rubric-self-check.png)
+
+    Rate a draft capstone portfolio against the seven rubric criteria, see points earned and still available for each as a stacked bar chart, and…
+
+</div>
+
+## Chapter 26: The Future of MicroSims
+
+[Read Chapter 26](../chapters/26-the-future-of-microsims/index.md)
+
+<div class="grid cards" markdown>
+
+- **[Guess Resistance Lab](./guess-resistance-lab/index.md)**
+
+    ![Guess Resistance Lab](./guess-resistance-lab/guess-resistance-lab.png)
+
+    Compare how easily a pure guesser succeeds on different probe designs by changing the number of options, the number of chained items and the retry…
+
+- **[Prediction Trust Ladder](./prediction-trust-ladder/index.md)**
+
+    ![Prediction Trust Ladder](./prediction-trust-ladder/prediction-trust-ladder.png)
+
+    Judge how far a mastery-prediction claim can be trusted by placing it on a five-rung ladder of evidence, from hoped for to replicated and audited,…
+
+- **[Roadmap Status Board](./roadmap-status-board/index.md)**
+
+    ![Roadmap Status Board](./roadmap-status-board/roadmap-status-board.png)
+
+    Sort the MicroSims roadmap into built, designed and hoped-for items by opening fourteen near-term and long-term cards from Chapter 26 and reading…
 
 </div>

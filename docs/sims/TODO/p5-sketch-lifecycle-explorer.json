@@ -1,0 +1,15 @@
+{
+  "sim_id": "p5-sketch-lifecycle-explorer",
+  "diagram_name": "Sketch Lifecycle Explorer",
+  "chapter_number": 6,
+  "chapter_title": "p5.js MicroSims",
+  "chapter_dir": "06-p5js-microsims",
+  "chapter_rel_dir": "chapters/06-p5js-microsims",
+  "library": "p5.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain when setup() and draw() run and why the order of statements inside draw() changes what appears on the canvas.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** p5-sketch-lifecycle-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain when setup() and draw() run and why the order of statements inside draw() changes what appears on the canvas.\n\nLayout: a drawing region above a control region. The left half of the drawing region shows a small ball falling from a sketch like the one in this section. The right half shows a live counter panel with the lines \"setup() calls: 1\", \"draw() calls: N\", and \"frameCount: N\", plus a numbered list of the five draw() steps with the currently executing step highlighted.\n\nControls: a \"Start / Pause\" button (default paused), a \"Step one frame\" button, a checkbox \"Clear background each frame\" (default on), a checkbox \"Draw ball before background\" (default off), and a slider \"Frame rate\" from 1 to 60 frames per second, default 5 so the learner can watch each step.\n\nBehavior: pressing Step runs exactly one draw() call and advances the highlighted step through the list. Turning off \"Clear background\" shows the streak. Turning on \"Draw ball before background\" makes the ball vanish. A one-sentence caption under the canvas explains each result.\n\nInstructional rationale: a slowed, steppable loop lets the learner predict the next frame before seeing it, which suits an Understand-level objective better than continuous animation at full speed.\n\nResponsive design: the canvas width follows the container on window resize, the counter panel moves below the ball at widths under 500 pixels, and the slider width is recalculated on every resize.\n\nImplementation: p5.js with createButton, createCheckbox, and createSlider controls positioned relative to drawHeight, and a describe() call for accessibility."
+}

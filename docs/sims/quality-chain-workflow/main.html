@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Quality Chain Workflow using Mermaid 10.9.8</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.8/dist/mermaid.min.js"></script>
+    <style>
+        /* Fixed total height (CANVAS_HEIGHT 560): toolbar 44px + layout 516px */
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: white; }
+        main { display: block; width: 100%; }
+        #app { height: 560px; display: flex; flex-direction: column; border: 1px solid silver; overflow: hidden; }
+        #toolbar {
+            flex: 0 0 44px; display: flex; align-items: center; gap: 8px; flex-wrap: nowrap;
+            padding: 0 10px; background: white; border-bottom: 1px solid silver;
+        }
+        #title { font-size: 18px; font-weight: bold; margin-right: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #toolbar button { font-size: 15px; }
+        #layout { flex: 1 1 auto; min-height: 0; display: flex; }
+        #diagram-panel {
+            flex: 0 0 62%; background: aliceblue; padding: 6px 8px; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #diagram { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+        #diagram svg { display: block; max-width: 100%; max-height: 100%; height: auto; }
+        #infobox {
+            flex: 1 1 auto; background: white; border-left: 1px solid silver;
+            padding: 10px 12px; font-size: 14px; line-height: 1.4; color: #222; overflow: hidden;
+        }
+        #infobox h3 { margin: 0 0 6px 0; font-size: 17px; }
+        #infobox p { margin: 4px 0 6px 0; }
+        #infobox .label { font-weight: bold; }
+        #infobox .hint { color: dimgray; }
+        #infobox .kind { display: inline-block; font-size: 12px; padding: 1px 7px; border-radius: 9px; margin-bottom: 4px; color: white; }
+        #infobox code {
+            display: block; white-space: pre-wrap; word-break: break-word; margin: 2px 0 6px 0; padding: 5px 7px;
+            font-size: 12.5px; background: #f3f3f3; border: 1px solid silver; border-radius: 5px;
+        }
+        #infobox .step { color: darkorange; font-weight: bold; }
+        /* nodes and edges */
+        #diagram .node { cursor: pointer; }
+        #diagram .node.sel rect, #diagram .node.sel polygon, #diagram .node.sel path {
+            stroke: black !important; stroke-width: 4px !important;
+        }
+        #diagram .node.trace rect, #diagram .node.trace polygon, #diagram .node.trace path {
+            stroke: darkorange !important; stroke-width: 4px !important;
+        }
+        #diagram .node.trace-now rect, #diagram .node.trace-now polygon, #diagram .node.trace-now path {
+            fill: gold !important; stroke: darkorange !important; stroke-width: 5px !important;
+        }
+        #diagram .node.trace-now .nodeLabel { color: black !important; }
+        #diagram path.flowchart-link { transition: stroke 0.15s, stroke-width 0.15s; }
+        #diagram path.flowchart-link.hl { stroke: royalblue !important; stroke-width: 4px !important; }
+        #diagram path.flowchart-link.traced { stroke: darkorange !important; stroke-width: 4px !important; }
+        #diagram .edgeLabel { cursor: pointer; }
+        #diagram .edgeLabel.hl span, #diagram .edgeLabel.hl p { color: royalblue !important; font-weight: bold; }
+        #diagram .edge-hit { cursor: pointer; }
+        .mermaidTooltip {
+            position: absolute; max-width: 240px; padding: 4px 8px; font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif; background: lightyellow; border: 1px solid goldenrod;
+            border-radius: 4px; pointer-events: none; z-index: 100;
+        }
+        @media (max-width: 599px) {
+            #layout { flex-direction: column; }
+            #diagram-panel { flex: 1 1 auto; min-height: 0; }
+            #infobox { flex: 0 0 200px; border-left: none; border-top: 1px solid silver; font-size: 13px; padding: 7px 10px; }
+            #infobox h3 { font-size: 15px; }
+            #title { font-size: 15px; }
+        }
+    </style>
+    <script src="quality-chain-workflow.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="toolbar">
+                <span id="title">Quality Chain Workflow</span>
+                <button id="trace-btn">Trace a failure</button>
+                <button id="clear-btn">Clear</button>
+            </div>
+            <div id="layout">
+                <div id="diagram-panel"><div id="diagram" role="img" aria-label="Flowchart of the quality chain"></div></div>
+                <div id="infobox" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

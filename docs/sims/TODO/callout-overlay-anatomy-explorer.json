@@ -1,0 +1,15 @@
+{
+  "sim_id": "callout-overlay-anatomy-explorer",
+  "diagram_name": "Callout Overlay Anatomy Explorer",
+  "chapter_number": 10,
+  "chapter_title": "Image Overlays and Comparison Posters",
+  "chapter_dir": "10-image-overlays-and-comparison-posters",
+  "chapter_rel_dir": "chapters/10-image-overlays-and-comparison-posters",
+  "library": "p5.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain how each field of an overlay data file (position, label, hint, description) appears in the rendered overlay, by changing one field and observing the effect.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: infographic\n**sim-id:** callout-overlay-anatomy-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain how each field of an overlay data file (position, label, hint, description) appears in the rendered overlay, by changing one field and observing the effect.\n\nLayout: a two-column drawing region. The left column shows a simple flat-color illustration of a cell drawn with p5.js shapes (no text in the picture) with four numbered markers. The right column shows the data file as syntax-colored JSON text with the selected callout highlighted. A white control region below holds the mode buttons.\n\nData: four callouts (nucleus, cell membrane, mitochondrion, ribosome) with x and y percentages, colors, hints and one-sentence descriptions, using the same field names as the schema.\n\nInteractions: hovering a marker highlights its leader line and the matching JSON block and shows its description in an information box. Sliders labeled \"x\" and \"y\" move the selected marker, and the JSON text updates live so the learner sees percentages change. A \"Resize picture\" slider scales the drawing region from 50 to 100 percent of its width, and the markers stay on the same structures, demonstrating why percentages are used. A \"Quiz\" button hides the labels and shows each hint in turn; the learner clicks the marker that matches.\n\nResponsive design: the two columns stack vertically when the container is narrower than 600 pixels, and all marker positions are recomputed from percentages on every window resize.\n\nImplementation: p5.js with mouseMoved and mousePressed handlers, createSlider controls positioned relative to the drawing height, and a describe() call summarizing the current selection."
+}

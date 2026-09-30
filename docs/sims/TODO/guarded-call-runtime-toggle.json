@@ -1,0 +1,15 @@
+{
+  "sim_id": "guarded-call-runtime-toggle",
+  "diagram_name": "Guarded Call Runtime Toggle",
+  "chapter_number": 17,
+  "chapter_title": "Instrumenting MicroSims with the xAPI Runtime",
+  "chapter_dir": "17-instrumenting-microsims-with-the-xapi-runtime",
+  "chapter_rel_dir": "chapters/17-instrumenting-microsims-with-the-xapi-runtime",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish a guarded from an unguarded instrumentation call by observing what each does when the runtime is present and when it is absent.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** guarded-call-runtime-toggle<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish a guarded from an unguarded instrumentation call by observing what each does when the runtime is present and when it is absent.\n\nLayout: the drawing region is split in two. The left half shows a small bouncing ball sketch. The right half shows a code excerpt with one line highlighted and a status strip that reads \"Runs\" or \"ReferenceError: LRSSim is not defined\". The control region is white below.\n\nControls:\n\n- Toggle \"Runtime loaded\" (on: the runtime is present; off: simulates the p5.js editor)\n- Radio \"Call style\" with choices \"Unguarded lrs.slider(...)\" and \"Guarded if (lrs) ...\"\n- Button \"Move slider\" that fires one simulated slider input\n\nBehavior: with the runtime on, both styles run and a one-line log shows one statement recorded. With the runtime off, the guarded style still runs and records nothing, while the unguarded style stops the ball and shows the error in the status strip. A short caption explains which line caused the outcome.\n\nResponsive design: the canvas width follows the container width on every window resize, and below 500 pixels the two halves stack vertically. Controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createCheckbox, createRadio and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

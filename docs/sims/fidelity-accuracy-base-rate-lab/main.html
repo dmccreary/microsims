@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Accuracy Versus Base Rate Lab using Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="fidelity-accuracy-base-rate-lab.js"></script>
+</head>
+<body>
+    <main aria-label="Accuracy Versus Base Rate Lab">
+        <div class="app">
+            <div class="chart-box">
+                <div class="chart-inner">
+                    <canvas id="chart" role="img"
+                        aria-label="Grouped bar chart comparing the model's accuracy with the always-predict-the-majority baseline accuracy on a synthetic cohort of 200 learners."></canvas>
+                </div>
+            </div>
+            <div class="caption" id="caption" aria-live="polite"></div>
+            <div class="message" id="message" aria-live="polite"></div>
+            <div class="controls">
+                <div class="ctrl">
+                    <label for="base-rate">Base rate of correct answers: <strong id="base-rate-value">0.635</strong></label>
+                    <input type="range" id="base-rate" min="0.10" max="0.90" step="0.005" value="0.635">
+                </div>
+                <div class="ctrl">
+                    <label for="signal">Model signal strength: <strong id="signal-value">1.00</strong></label>
+                    <input type="range" id="signal" min="0" max="1" step="0.01" value="1">
+                </div>
+                <div class="ctrl ctrl-button">
+                    <button id="simulate" type="button">Simulate 200 learners</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

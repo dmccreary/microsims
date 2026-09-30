@@ -1,0 +1,15 @@
+{
+  "sim_id": "fidelity-calibration-curve-lab",
+  "diagram_name": "Calibration Curve Lab",
+  "chapter_number": 19,
+  "chapter_title": "Evaluating the Predictive Fidelity of the xAPI Stream",
+  "chapter_dir": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "chapter_rel_dir": "chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "library": "Plotly",
+  "bloom_level": "Analyze (L4)",
+  "bloom_verb": "diagnose",
+  "learning_objective": "Learners will diagnose whether a synthetic model is overconfident, underconfident or well calibrated by reading a reliability curve and its bin counts.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** fidelity-calibration-curve-lab<br/>\n**Library:** Plotly<br/>\n**Status:** Specified\n\nBloom Level: Analyze (L4)\nBloom Verb: diagnose\n\nLearning objective: Learners will diagnose whether a synthetic model is overconfident, underconfident or well calibrated by reading a reliability curve and its bin counts.\n\nLayout: A scatter plot of mean forecast (x axis, 0 to 1) against observed fraction correct (y axis, 0 to 1) with a dashed diagonal for perfect calibration. Point size is proportional to the number of learners in the bin. A table of bin counts sits beside the plot.\n\nControls: A dropdown for the synthetic scenario (\"model parameters match the simulation\" and \"true guess rate 0.35, model assumes 0.20\"); a slider for the number of bins (3 to 10, default 4); a slider for cohort size (50 to 1000, default 200); a \"Redraw cohort\" button.\n\nData: A seeded synthetic cohort generated in the browser with the same rules as the chapter's worked example. The plot title states \"Synthetic data\".\n\nInteractions: Hovering a point shows the bin range, the count, the mean forecast and the observed fraction. Bins with fewer than ten learners are drawn with a dashed outline and a tooltip reading \"Too few learners to trust this point\". Changing the scenario animates the points to their new positions.\n\nResponsive design: The Plotly chart uses responsive layout and the table wraps below the plot on narrow screens.\n\nImplementation: Plotly.js scatter plot with a shape for the diagonal; cohort simulation in vanilla JavaScript."
+}

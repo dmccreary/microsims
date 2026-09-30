@@ -1,0 +1,76 @@
+{
+  "title": "Bloom-to-Pattern Matrix",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["Bloom's Taxonomy", "Interaction Patterns", "Instructional Design Checkpoint", "MicroSim Design"],
+  "description": "A custom HTML table generated from a JSON array: six Bloom levels by appropriate patterns, inappropriate patterns and example MicroSims from the book, with clickable chips that open an explanation, a sketch and a reason, row tooltips with verb lists, and a Mismatch detective mode with a running score.",
+  "date": "2026-09-30",
+  "type": "Interactive Infographic",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/bloom-to-pattern-matrix/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Design",
+    "topic": "Matching interaction patterns to Bloom levels",
+    "learningObjectives": [
+      "Differentiate appropriate from inappropriate interaction patterns for each Bloom level.",
+      "Explain why a mismatched pattern fails its objective."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "differentiate",
+    "duration": "15 minutes",
+    "prerequisites": ["Six Bloom levels", "Interaction pattern"],
+    "concepts": ["Interaction Pattern", "Bloom's Taxonomy", "Instructional Design Checkpoint", "Purpose of Animation"],
+    "chapter": "03-learning-objectives-and-blooms-taxonomy"
+  },
+  "technical": {
+    "framework": "HTML, CSS and JavaScript (no external library)",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Chips are HTML buttons (keyboard focusable); the detail panel is aria-live."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "chip-buttons", "label": "Pattern and example chips"},
+      {"type": "hover", "label": "Row tooltip with the level's verbs"},
+      {"type": "button", "label": "Reset"},
+      {"type": "button", "label": "Mismatch detective / Next case"},
+      {"type": "button", "label": "Show answers"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Clickable comparison matrix with quiz mode",
+    "variables": ["selected chip", "detective case", "score"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore a comparison matrix, then diagnose mismatches",
+    "interactionPattern": "Comparison matrix with detail panel and diagnostic quiz",
+    "keyQuestions": [
+      "Which patterns let the learner produce the performance the level asks for?",
+      "What evidence would a mismatched pattern fail to produce?"
+    ],
+    "commonMisconceptions": [
+      "A richer simulation is always better, whatever the objective.",
+      "Continuous animation helps learners explain.",
+      "Any activity with a score is a good Evaluate activity, even without feedback on reasons."
+    ],
+    "assessmentOpportunities": [
+      "Mismatch detective score.",
+      "Written diagnosis of a new mismatched MicroSim description."
+    ]
+  }
+}

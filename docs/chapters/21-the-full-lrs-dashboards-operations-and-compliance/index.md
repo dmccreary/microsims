@@ -87,6 +87,10 @@ The next specification lets you read a heatmap and find its two patterns.
 
 #### Diagram: Class Mastery Heatmap Reader
 
+<iframe src="../../sims/class-mastery-heatmap-reader/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Class Mastery Heatmap Reader MicroSim Fullscreen](../../sims/class-mastery-heatmap-reader/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Class Mastery Heatmap Reader</summary>
 Type: microsim
@@ -136,6 +140,10 @@ Hiding one cell is not enough, and the second rule shows why. A worked example m
 One exemption keeps the rule from breaking the basic report. A teacher looking at their own rostered section already knows those students, so the filter exempts that direct scope and applies full suppression to cross-group, benchmark and de-identified views. As far as a search of the repository shows, the prototype dashboards do not implement this filter, since they read the graph directly. The filter is designed and not built, so nothing here should be presented to a school as enforced.
 
 #### Diagram: Suppression Threshold Lab
+
+<iframe src="../../sims/suppression-threshold-lab/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the Suppression Threshold Lab MicroSim Fullscreen](../../sims/suppression-threshold-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Suppression Threshold Lab</summary>
@@ -198,6 +206,10 @@ Three cautions from the same file belong beside the table. First, the large-tier
 
 #### Diagram: Capacity and Cost Explorer
 
+<iframe src="../../sims/capacity-cost-explorer/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Capacity and Cost Explorer MicroSim Fullscreen](../../sims/capacity-cost-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Capacity and Cost Explorer</summary>
 Type: chart
@@ -245,6 +257,10 @@ A production store must say in advance what happens when a part breaks. The desi
 The practical lesson concerns the vault. The configuration and backup material sets a recovery point of five minutes for the vault database and treats its loss as the one unrecoverable case, because without its salts every stored pseudonym becomes permanently unlinkable to a real learner. The design's stated recovery objectives, such as one hour and four hours for ClickHouse, are design targets, since no store in the repository yet receives learner data to back up.
 
 #### Diagram: Failure Boundary Explorer
+
+<iframe src="../../sims/failure-boundary-explorer/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Failure Boundary Explorer MicroSim Fullscreen](../../sims/failure-boundary-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Failure Boundary Explorer</summary>

@@ -1,0 +1,15 @@
+{
+  "sim_id": "gateway-request-simulator",
+  "diagram_name": "Gateway Request Simulator",
+  "chapter_number": 20,
+  "chapter_title": "\"The Full LRS: Architecture and Ingestion\"",
+  "chapter_dir": "20-the-full-lrs-architecture-and-ingestion",
+  "chapter_rel_dir": "chapters/20-the-full-lrs-architecture-and-ingestion",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Demonstrate",
+  "learning_objective": "The learner will demonstrate the gateway's five request steps and predict whether a batch is accepted or rejected in full.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** gateway-request-simulator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: demonstrate): The learner will demonstrate the gateway's five request steps and predict whether a batch is accepted or rejected in full.\n\nLayout: the drawing region shows a batch of up to five statement cards on the left, five gateway step boxes in a column in the middle (authenticate, validate, assign ids, produce, respond) and a queue on the right. The control region below holds the controls.\n\nControls:\n\n- Buttons \"Add valid statement\" and \"Add broken statement\" with a drop-down for the defect: wrong verb, answered without success, missing grouping, page IRI with a fragment\n- Checkbox \"Token is valid\" (default on) and checkbox \"Broker reachable\" (default on)\n- Button \"Send batch\" and button \"Reset\"\n- A \"Predict first\" checkbox (default on) that asks \"Accepted or rejected?\" before the result is revealed\n\nBehavior: sending the batch animates each card through the steps. If any statement is broken, all cards turn red at the validate step, the violation list appears with the index and field, and zero cards reach the queue. If the token is invalid the batch stops at 401. If the broker is unreachable and the local queue is full, the response is 503 with a Retry-After of 5.\n\nResponsive design: the canvas width follows the container width on every window resize, the step column collapses to a vertical list under 500 pixels, and controls stay visible at 400 pixels wide.\n\nImplementation: p5.js with createButton, createSelect and createCheckbox controls. Include a describe() call for accessibility. The rules mirror validation.py so the simulator can reuse its message text."
+}

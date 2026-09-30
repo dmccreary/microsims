@@ -9,4 +9,4 @@
 
 ## Result
 
-[Run the Color Wheel with Named Colors](../sims/color-wheel-with-named-colors/index.md)
+[Run the Color Wheel with Named Colors](../microsims-old/color-wheel-with-named-colors/index.md)

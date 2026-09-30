@@ -84,6 +84,10 @@ The next specification lets you see the two ideas together, so the description a
 
 #### Diagram: PRIMM Semantic Wave Explorer
 
+<iframe src="../../sims/primm-semantic-wave-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the PRIMM Semantic Wave Explorer MicroSim Fullscreen](../../sims/primm-semantic-wave-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>PRIMM Semantic Wave Explorer</summary>
 Type: microsim
@@ -166,6 +170,10 @@ An **Accessibility Check** is a repeatable review of a MicroSim against the stan
 
 #### Diagram: Accessibility Check Walkthrough
 
+<iframe src="../../sims/accessibility-check-walkthrough/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Accessibility Check Walkthrough MicroSim Fullscreen](../../sims/accessibility-check-walkthrough/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Accessibility Check Walkthrough</summary>
 Type: microsim
@@ -228,6 +236,10 @@ Three places deserve a review. The `actor` holds a real account name. The `objec
 
 #### Diagram: PII Surface Explorer
 
+<iframe src="../../sims/pii-surface-explorer/main.html" width="100%" height="792px" scrolling="no"></iframe>
+
+[Run the PII Surface Explorer MicroSim Fullscreen](../../sims/pii-surface-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>PII Surface Explorer</summary>
 Type: microsim
@@ -275,6 +287,10 @@ Law enters at this point, and this book describes it only in general terms. In t
 The evaluation method is straightforward to state. Once data exists, compute the same prediction-error measure separately for each group, such as learners using assistive technology or shared devices, and compare. A gap that the pooled average hides is a bias signal. Groups small enough to fall under the suppression threshold cannot be reported, which limits how well this can be done, and that limit itself should be disclosed.
 
 #### Diagram: Prediction Fairness Explorer
+
+<iframe src="../../sims/prediction-fairness-explorer/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Prediction Fairness Explorer MicroSim Fullscreen](../../sims/prediction-fairness-explorer/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Prediction Fairness Explorer</summary>

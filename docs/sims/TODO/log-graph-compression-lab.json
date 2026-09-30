@@ -1,0 +1,15 @@
+{
+  "sim_id": "log-graph-compression-lab",
+  "diagram_name": "Log and Graph Compression Lab",
+  "chapter_number": 20,
+  "chapter_title": "\"The Full LRS: Architecture and Ingestion\"",
+  "chapter_dir": "20-the-full-lrs-architecture-and-ingestion",
+  "chapter_rel_dir": "chapters/20-the-full-lrs-architecture-and-ingestion",
+  "library": "Chart.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Examine",
+  "learning_objective": "The learner will examine how summary vertices decouple graph write rate from ingest rate, using the design's published estimates as inputs.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** log-graph-compression-lab<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: examine): The learner will examine how summary vertices decouple graph write rate from ingest rate, using the design's published estimates as inputs.\n\nLayout: two charts side by side above a control region. The left chart is a bar chart of ClickHouse rows and graph vertices for one simulated semester. The right chart is a line chart of graph upserts per second against ingest rate in statements per second, with a second line for \"if every statement were a vertex\".\n\nControls:\n\n- Slider \"Ingest rate\" from 1,000 to 50,000 statements per second, default 10,000\n- Slider \"Sync cadence\" from 5 to 300 seconds, default 60\n- Drop-down \"Grain\" listing the six summary vertices\n- Checkbox \"Show design estimates\" that overlays the design document's 5-second, 60-second and 300-second rows\n\nData: the per-grain ratios and cadence rows are the design document's estimates, labeled \"design estimate, not measured\". Hovering a bar or point shows the value and its source section.\n\nBehavior: raising the ingest rate lifts the \"every statement a vertex\" line steeply and moves the summary line very little, and a note explains that a burst increases statements per grain, not the number of grains.\n\nResponsive design: both charts resize with the container on every window resize event, stacking vertically under 600 pixels wide.\n\nImplementation: Chart.js with a controls panel built in HTML and event listeners that update the datasets. Provide alternative text through aria-label on each canvas."
+}

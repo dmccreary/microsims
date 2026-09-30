@@ -1,0 +1,148 @@
+{
+  "title": "Activity IRI Builder",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Activity IRI",
+    "Identifiers",
+    "Learning Record Store",
+    "MkDocs"
+  ],
+  "description": "A p5.js builder for xAPI activity IRIs. Learners combine the canonical site_url, a page path and an optional fragment for a control, diagram node, fixed-order or shuffled question; see that the browser's address never changes the IRI; and apply five documented mistakes to watch the offending segment turn red and one learner's visit split into two rows in a store's grouping.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/activity-iri-builder/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Constructing and diagnosing activity IRIs",
+    "learningObjectives": [
+      "The learner will construct a correct activity IRI for a page, a control and a question, and diagnose why a malformed IRI is wrong."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "construct",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The object part of an xAPI statement (Chapter 16)",
+      "site_url in mkdocs.yml"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All inputs are native text fields, selects and a button reachable by Tab; mistakes are explained in words as well as by red color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "siteInput",
+        "type": "text-input",
+        "label": "site_url",
+        "default": "https://dmccreary.github.io/microsims",
+        "purpose": "The canonical base address; a missing trailing slash is added"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Return every control to its default"
+      },
+      {
+        "id": "pathSelect",
+        "type": "select",
+        "label": "Page path",
+        "purpose": "One of five navigation paths"
+      },
+      {
+        "id": "subSelect",
+        "type": "select",
+        "label": "Sub-activity",
+        "purpose": "none, control, node, fixed-order question or shuffled question"
+      },
+      {
+        "id": "nameInput",
+        "type": "text-input",
+        "label": "Sub-activity name or number",
+        "purpose": "Slugified or numbered into the fragment"
+      },
+      {
+        "id": "loadSelect",
+        "type": "select",
+        "label": "Loaded from",
+        "purpose": "published site, local preview or iframe payload main.html (changes only the address bar)"
+      },
+      {
+        "id": "mistakeSelect",
+        "type": "select",
+        "label": "Show a mistake",
+        "purpose": "Apply one of five documented IRI mistakes"
+      },
+      {
+        "id": "segments",
+        "type": "clickable canvas segments",
+        "label": "IRI segments",
+        "purpose": "Click to read the rule behind a segment"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Construction practice with worked counter-examples and visible consequences",
+    "interactionPattern": "Live builder with mistake injection and grouping preview",
+    "keyQuestions": [
+      "Why must the IRI use site_url and not the address the browser shows?",
+      "Why does a trailing slash matter to a store?",
+      "How should a question in a shuffled quiz be named?"
+    ],
+    "commonMisconceptions": [
+      "The browser address is the activity identifier",
+      "main.html and the page are the same activity",
+      "Question numbers can start at zero"
+    ],
+    "assessmentOpportunities": [
+      "Constructing IRIs for a page, control and question",
+      "Naming the consequence of each mistake",
+      "Applying the stable-name test to a fragment"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "activity IRI",
+      "object.id",
+      "site_url",
+      "fragment",
+      "learning record store",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "interactive-demo",
+      "diagram"
+    ]
+  },
+  "chapter": "16-xapi-statements-and-evidence"
+}

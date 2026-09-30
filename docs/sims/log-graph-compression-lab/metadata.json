@@ -1,0 +1,169 @@
+{
+  "title": "Log and Graph Compression Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "ClickHouse",
+    "Neo4j",
+    "Summary Vertices",
+    "Capacity Planning"
+  ],
+  "description": "A Chart.js lab that uses the LRS design document's published estimates to compare ClickHouse rows with summary vertices over a semester, and graph writes per second with and without summary vertices as the ingest rate and sync cadence change.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/log-graph-compression-lab/",
+  "canvasHeight": 660,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "How summary vertices decouple the graph write rate from the ingest rate",
+    "learningObjectives": [
+      "The learner will examine how summary vertices decouple graph write rate from ingest rate, using the design's published estimates as inputs."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "examine",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The roles of ClickHouse and the Neo4j graph in the full LRS (Chapter 20)",
+      "The six summary vertices and their grains (Chapter 20)",
+      "Reading a logarithmic axis"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 660
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "Each canvas has an aria-label that is rewritten with the current values; controls are labeled native inputs; the note panel is an aria-live region; bar values are printed on the chart"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "ingest",
+        "type": "slider",
+        "label": "Ingest rate",
+        "min": 1000,
+        "max": 50000,
+        "default": 10000,
+        "unit": "statements per second",
+        "purpose": "Raise the rate for the same student population (a burst)"
+      },
+      {
+        "id": "cadence",
+        "type": "slider",
+        "label": "Sync cadence",
+        "min": 5,
+        "max": 300,
+        "default": 60,
+        "unit": "seconds",
+        "purpose": "Length of the summarizer's sync window"
+      },
+      {
+        "id": "grain",
+        "type": "select",
+        "label": "Grain",
+        "options": [
+          "ConceptMastery",
+          "PageEngagement",
+          "MicroSimEngagement",
+          "QuestionResponse",
+          "LearningSession",
+          "SectionRollup"
+        ],
+        "default": "ConceptMastery",
+        "purpose": "Choose the summary vertex for the semester bar chart"
+      },
+      {
+        "id": "design",
+        "type": "checkbox",
+        "label": "Show design estimates",
+        "default": false,
+        "purpose": "Overlay the design's 5 s, 60 s and 300 s rows"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Examine a model built from published estimates by varying its inputs",
+    "interactionPattern": "Slider exploration with an overlay of the source's own data points and hover arithmetic",
+    "keyQuestions": [
+      "Why does a 5x burst barely change the summary write rate?",
+      "What does a longer sync cadence trade for fewer upserts?",
+      "Which grain compresses least, and why?"
+    ],
+    "commonMisconceptions": [
+      "Graph writes must scale with the statement rate",
+      "Storage compression and write-rate compression are the same ratio",
+      "Design estimates are measured performance"
+    ],
+    "assessmentOpportunities": [
+      "Ratio-of-change comparison for the two lines under a burst",
+      "Explaining the default 60 s cadence",
+      "Labeling which numbers are design estimates and which are interpolated"
+    ]
+  },
+  "search": {
+    "tags": [
+      "LRS",
+      "ClickHouse",
+      "Neo4j",
+      "summary vertex",
+      "compression",
+      "write rate",
+      "Chart.js"
+    ],
+    "visualizationType": [
+      "chart",
+      "bar chart",
+      "line chart"
+    ]
+  },
+  "chapter": "20-the-full-lrs-architecture-and-ingestion",
+  "simulation": {
+    "modelType": "Analytical model from published design estimates",
+    "variables": [
+      "ingest rate",
+      "sync cadence",
+      "grain storage ratio",
+      "distinct grains per window",
+      "graph writes per second"
+    ],
+    "equations": [
+      "semester rows = rate x 0.40 x 36,000 s x 90 days",
+      "vertices = rows / grain ratio",
+      "one vertex per statement: writes/s = rate x 5 (vertex + ~4 edges)",
+      "summary upserts/s = min(rate x cadence, 100,000 x 1.5 x (cadence/60)^0.437) / cadence"
+    ],
+    "assumptions": [
+      "Design section 4 and 4.1 estimates are used as inputs",
+      "The active student population is fixed at ~100,000, so higher rates are bursts",
+      "A 90-day semester is half the design's 180-day year"
+    ],
+    "limitations": [
+      "All values are design estimates, not measurements",
+      "Values between the design's three cadence rows are this sim's interpolation",
+      "The design gives no storage ratio for LearningSession"
+    ]
+  }
+}

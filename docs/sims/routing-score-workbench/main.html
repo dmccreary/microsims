@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Routing Score Workbench using Chart.js 4.4.4</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; overflow: hidden; font-family: Arial, Helvetica, sans-serif; background: white; }
+        main { display: block; width: 100%; }
+        #app { border: 1px solid silver; background: aliceblue; }
+        #objective { padding: 8px 12px; background: white; border-bottom: 1px solid silver; }
+        #objective .meta { font-size: 13px; color: dimgray; }
+        #objective .text { font-size: 17px; font-weight: bold; color: black; margin-top: 2px; }
+        #main { display: flex; width: 100%; }
+        #chart-box { position: relative; flex: 0 0 60%; padding: 6px 8px 2px 8px; }
+        #sliders { flex: 1 1 auto; padding: 8px 12px; background: white; border-left: 1px solid silver; }
+        #sliders h4 { margin: 0 0 6px 0; font-size: 14px; }
+        .srow { margin-bottom: 8px; }
+        .srow .top { display: flex; justify-content: space-between; font-size: 14px; }
+        .srow .name { font-weight: bold; }
+        .srow .val { color: black; }
+        .srow input[type=range] { width: 100%; margin: 2px 0 0 0; }
+        .srow .ref { font-size: 12px; }
+        .inband { color: darkgreen; }
+        .outband { color: firebrick; }
+        #feedback { padding: 6px 12px; background: white; border-top: 1px solid silver; font-size: 14px; overflow: hidden; }
+        #banner { background: lightyellow; border: 1px solid goldenrod; border-radius: 6px; padding: 6px 10px; }
+        #banner .title { font-weight: bold; color: darkgoldenrod; }
+        #banner button { font-size: 13px; margin: 4px 6px 0 0; text-align: left; white-space: normal; }
+        #banner .fb { margin-top: 4px; }
+        .hint { color: dimgray; font-style: italic; }
+        .ok { color: darkgreen; font-weight: bold; }
+        .bad { color: firebrick; font-weight: bold; }
+        #controls { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 6px 12px; background: white; border-top: 1px solid silver; }
+        #controls button { font-size: 14px; }
+        #controls label { font-size: 14px; }
+        @media (max-width: 599px) {
+            #main { flex-direction: column; }
+            #chart-box { flex: none; }
+            #sliders { border-left: none; border-top: 1px solid silver; padding: 6px 12px; }
+            .srow { margin-bottom: 2px; }
+            .srow .top { font-size: 13px; }
+            #objective .text { font-size: 15px; }
+        }
+    </style>
+    <script src="routing-score-workbench.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="objective">
+                <div class="meta" id="obj-meta"></div>
+                <div class="text" id="obj-text"></div>
+            </div>
+            <div id="main">
+                <div id="chart-box"><canvas id="chart"></canvas></div>
+                <div id="sliders"></div>
+            </div>
+            <div id="feedback"></div>
+            <div id="controls">
+                <button id="reveal-btn">Reveal reference bands</button>
+                <button id="next-btn">Next objective</button>
+                <label><input type="checkbox" id="amb-check" checked> Show ambiguity warning</label>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

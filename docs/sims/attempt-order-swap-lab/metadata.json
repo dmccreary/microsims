@@ -1,0 +1,93 @@
+{
+  "title": "Attempt Order Swap Lab",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Bayesian Knowledge Tracing", "Attempt Order", "Mastery Prediction", "Learning Analytics"],
+  "description": "A p5.js lab in which learners drag correct and incorrect answer tiles into two orders and compare the Bayesian knowledge tracing mastery estimates the orders produce, with a success-count-only overlay that shows what order-blind counting misses.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/attempt-order-swap-lab/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "Attempt order in Bayesian knowledge tracing",
+    "learningObjectives": [
+      "Compare the final mastery estimates produced by two orderings of the same set of answers.",
+      "Distinguish what attempt order changes from what a simple success count would show."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "compare",
+    "duration": "15 minutes",
+    "prerequisites": ["The two-step BKT update", "BKT initial knowledge, learning rate, guess and slip parameters", "Evidence stream"],
+    "concepts": ["Attempt Order", "Bayesian Knowledge Tracing", "BKT Guess Parameter", "BKT Slip Parameter", "Evidence Stream"],
+    "chapter": "18-mastery-prediction-and-knowledge-tracing",
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "colorBlindSafePalette": "Okabe-Ito, with check and cross glyphs on every tile"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "drag", "label": "Answer tiles in rows A and B (drag to reorder a row)"},
+      {"type": "button", "label": "Preset: successes first"},
+      {"type": "button", "label": "Preset: failures first"},
+      {"type": "button", "label": "Preset: brute force (five wrong, then right)"},
+      {"type": "button", "label": "Reset"},
+      {"type": "checkbox", "label": "Show a success-count-only model", "default": false},
+      {"type": "slider", "label": "Initial P(L0)", "min": 0, "max": 1, "default": 0.30, "step": 0.01},
+      {"type": "slider", "label": "Learning pt", "min": 0, "max": 1, "default": 0.15, "step": 0.01},
+      {"type": "slider", "label": "Guess pg", "min": 0, "max": 0.5, "default": 0.20, "step": 0.01},
+      {"type": "slider", "label": "Slip ps", "min": 0, "max": 0.5, "default": 0.10, "step": 0.01}
+    ]
+  },
+  "simulation": {
+    "modelType": "Bayesian knowledge tracing (two-state hidden Markov model)",
+    "variables": ["P(L0) initial knowledge", "pt learning rate", "pg guess", "ps slip", "answer sequence"],
+    "equations": [
+      "P(Ln | correct) = P(Ln)(1 - ps) / [P(Ln)(1 - ps) + (1 - P(Ln)) pg]",
+      "P(Ln | incorrect) = P(Ln) ps / [P(Ln) ps + (1 - P(Ln))(1 - pg)]",
+      "P(Ln+1) = P(Ln | evidence) + (1 - P(Ln | evidence)) pt"
+    ],
+    "assumptions": ["Basic BKT with no forgetting", "Parameters are the chapter's illustrative values, not fitted to data"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict, compare and contrast with an order-blind model",
+    "interactionPattern": "Comparison tool with direct manipulation of the answer order",
+    "keyQuestions": [
+      "Why do two orders with the same success count end at different estimates?",
+      "What does a success-count model throw away?",
+      "Why should a producer emit every deliberate attempt, not only the final success?"
+    ],
+    "commonMisconceptions": [
+      "Two learners with the same number of correct answers must have the same mastery estimate.",
+      "Summarizing attempts as '4 attempts, 2 correct' keeps all the evidence BKT needs.",
+      "Only the final correct answer matters for mastery."
+    ],
+    "assessmentOpportunities": [
+      "Record the highest and lowest final estimates for orders of two correct and two incorrect answers.",
+      "Predict and then check which of two reversed sequences ends higher."
+    ]
+  },
+  "search": {
+    "keywords": ["BKT", "knowledge tracing", "attempt order", "xAPI", "mastery estimate", "success count"]
+  }
+}

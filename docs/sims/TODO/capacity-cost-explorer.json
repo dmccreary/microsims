@@ -1,0 +1,15 @@
+{
+  "sim_id": "capacity-cost-explorer",
+  "diagram_name": "Capacity and Cost Explorer",
+  "chapter_number": 21,
+  "chapter_title": "\"The Full LRS: Dashboards, Operations and Compliance\"",
+  "chapter_dir": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "chapter_rel_dir": "chapters/21-the-full-lrs-dashboards-operations-and-compliance",
+  "library": "Chart.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Judge",
+  "learning_objective": "The learner will judge which deployment tier fits a school or district by estimating daily statements and storage from the number of active students and comparing the result with the design's two published cost tiers.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** capacity-cost-explorer<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: judge): The learner will judge which deployment tier fits a school or district by estimating daily statements and storage from the number of active students and comparing the result with the design's two published cost tiers.\n\nData: the capacity assumptions quoted in this chapter (0.1 statements per second per active student, 40 percent duty cycle, 10 active hours, 1.5 KB per statement, columnar ratio of 10) and the two cost ranges from the hardware specification, each labeled with its source and date.\n\nLayout: a controls panel above two charts. The first is a bar chart of statements per day and raw storage per day. The second is a horizontal range chart of monthly cost for the single-server and distributed tiers, with a marker at the learner's estimated rate.\n\nControls:\n\n- Slider \"Active students at peak\" from 500 to 100,000 on a logarithmic scale, default 3,000\n- Slider \"Duty cycle\" from 20 to 60 percent, default 40\n- Checkbox \"Include Neo4j license placeholder\" (default off) that adds the $3,000 to $8,000 range to the distributed tier\n- Checkbox \"Show burst (5x)\"\n\nInteractions: a message under the charts reports the derived statements per second and names the tier whose stated limits the load falls inside, and it warns when the load nears the 3,000 to 5,000 statements per second boundary. Hovering a bar shows its arithmetic.\n\nResponsive design: the charts resize with the container width and stack vertically under 700 pixels, and every control remains visible at 400 pixels wide.\n\nImplementation: Chart.js with a controls panel built in HTML and event listeners that update both datasets, and an aria-label on each canvas."
+}

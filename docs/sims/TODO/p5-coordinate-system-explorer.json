@@ -1,0 +1,15 @@
+{
+  "sim_id": "p5-coordinate-system-explorer",
+  "diagram_name": "Coordinate System Explorer",
+  "chapter_number": 6,
+  "chapter_title": "p5.js MicroSims",
+  "chapter_dir": "06-p5js-microsims",
+  "chapter_rel_dir": "chapters/06-p5js-microsims",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "The learner will calculate the pixel coordinates of a target point, including the y flip used when plotting a value, and confirm the result by placing a marker.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** p5-coordinate-system-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: calculate): The learner will calculate the pixel coordinates of a target point, including the y flip used when plotting a value, and confirm the result by placing a marker.\n\nLayout: an aliceblue drawing region with a light grid every 50 pixels, labeled with pixel coordinates, and a white control region below.\n\nInteractions: moving the mouse over the drawing region shows a readout of mouseX and mouseY next to the pointer. Clicking places a marker and lists its coordinates. A \"Challenge\" button shows a target such as \"Place a marker at the point that is 3 meters high on a 0 to 10 meter scale\", and the learner clicks where they think it belongs. The sim then draws the correct point and shows the map() call that produces it, with the numbers filled in.\n\nControls: a slider \"Scale maximum (m)\" from 5 to 20, default 10, that changes the challenge scale; buttons \"Challenge\" and \"Clear markers\"; a checkbox \"Show origin and axes directions\" that draws arrows from the top-left origin labeled \"x grows right\" and \"y grows down\".\n\nResponsive design: the grid and target positions are computed from the current canvas width and drawHeight on every frame, so the sim adapts when the window resizes.\n\nImplementation: p5.js using mouseX, mouseY, mousePressed(), and map(), with a describe() call."
+}

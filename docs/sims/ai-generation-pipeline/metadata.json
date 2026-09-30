@@ -1,0 +1,115 @@
+{
+  "title": "AI Generation Pipeline",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Generative AI",
+    "Large Language Model",
+    "AI Skill",
+    "AI Agent",
+    "Prompt"
+  ],
+  "description": "A Mermaid flowchart in which learners click each component of the MicroSim generation pipeline (author prompt, AI agent, skill, large language model, files, automated checks) to read a definition and an example, and click the dashed feedback arrow to see why generated code must be tested.",
+  "date": "2026-09-30",
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/ai-generation-pipeline/",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "How prompts, skills, models and agents generate MicroSims",
+    "learningObjectives": [
+      "The learner will explain the role of a prompt, a large language model, a skill, and an agent in generating a MicroSim."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Definitions of generative AI, large language model, prompt, skill and agent (Chapter 1)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "version": "10.9.8",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": [
+      "Mermaid 10.9.8 UMD (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Infobox is an aria-live region; node colors are paired with text labels"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "nodes",
+        "type": "clickable nodes (Mermaid click directives)",
+        "label": "Six pipeline boxes",
+        "purpose": "Show a definition and one example in the infobox"
+      },
+      {
+        "id": "node-hover",
+        "type": "hover",
+        "label": "Six pipeline boxes",
+        "purpose": "Highlight the arrows into and out of the box"
+      },
+      {
+        "id": "feedback-arrow",
+        "type": "clickable edge",
+        "label": "errors to fix (dashed)",
+        "purpose": "Explain why generated code must be tested"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked-example tour of a system with click-to-reveal definitions",
+    "interactionPattern": "Clickable flowchart with an infobox",
+    "keyQuestions": [
+      "Which component writes the code?",
+      "Which component decides which files to create and which conventions to follow?",
+      "Why does the pipeline loop back from the checks to the agent?"
+    ],
+    "commonMisconceptions": [
+      "The language model runs and tests its own code",
+      "A skill is just a longer prompt that must be rewritten for every request",
+      "Generated code that looks fluent is correct"
+    ],
+    "assessmentOpportunities": [
+      "One-sentence role statements for prompt, skill, model and agent",
+      "A reason why generated code must be tested"
+    ]
+  },
+  "search": {
+    "tags": [
+      "generative AI",
+      "large language model",
+      "AI agent",
+      "skill",
+      "prompt",
+      "pipeline",
+      "Mermaid"
+    ],
+    "visualizationType": [
+      "diagram",
+      "flowchart"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim"
+}

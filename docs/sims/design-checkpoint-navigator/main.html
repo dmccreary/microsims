@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Instructional Design Checkpoint Navigator MicroSim using Mermaid 11.4.1</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; overflow: hidden; font-family: Arial, Helvetica, sans-serif; background: white; }
+        main { display: block; width: 100%; }
+        #toolbar {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+            padding: 7px 10px; background: white; border: 1px solid silver; border-bottom: none;
+            font-size: 15px;
+        }
+        #toolbar label { font-weight: bold; }
+        #toolbar select, #toolbar button { font-size: 14px; }
+        #layout { display: flex; width: 100%; border: 1px solid silver; }
+        #diagram-panel { flex: 0 0 62%; background: aliceblue; padding: 6px 8px; overflow: hidden; }
+        #diagram svg { display: block; margin: 0 auto; width: 100%; height: auto; }
+        #info-panel {
+            flex: 1 1 auto; background: white; border-left: 1px solid silver;
+            padding: 10px 12px; font-size: 14px; line-height: 1.4; color: #222; overflow: hidden;
+        }
+        #info-panel h3 { margin: 0 0 6px 0; font-size: 1.2em; color: darkslateblue; }
+        #info-panel h4 { margin: 8px 0 3px 0; font-size: 1em; color: black; }
+        #info-panel p { margin: 4px 0; }
+        #info-panel .hint { color: dimgray; font-style: italic; }
+        #info-panel .example { background: aliceblue; border-left: 4px solid steelblue; padding: 4px 8px; margin: 6px 0; }
+        #info-panel .spec { background: lightyellow; border: 1px solid goldenrod; border-radius: 6px; padding: 6px 8px; margin: 6px 0; }
+        #info-panel .ok { color: darkgreen; font-weight: bold; }
+        #info-panel .bad { color: firebrick; font-weight: bold; }
+        #info-panel pre {
+            white-space: pre-wrap; margin: 6px 0; padding: 6px 8px; font-size: 0.93em;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4; border: 1px solid silver; border-radius: 6px;
+        }
+        .path-chip { display: inline-block; padding: 1px 6px; margin: 1px 0; border-radius: 10px; font-size: 0.93em; }
+        .chip-user { background: gold; }
+        .chip-ref { background: lightgreen; }
+        .chip-wrong { background: lightsalmon; }
+        .chip-miss { background: white; border: 2px dashed darkgreen; }
+        /* node kinds (set by the script after rendering) */
+        #diagram .node { cursor: pointer; }
+        #diagram .node .label-container { stroke-width: 1.5px !important; }
+        #diagram .node.kind-step .label-container { fill: white !important; stroke: steelblue !important; }
+        #diagram .node.kind-question .label-container { fill: lemonchiffon !important; stroke: darkgoldenrod !important; }
+        #diagram .node.kind-end .label-container { fill: honeydew !important; stroke: seagreen !important; }
+        #diagram .nodeLabel { color: black; }
+        /* node highlight states (listed after the kinds so they win) */
+        #diagram .node.hl-selected.hl-selected .label-container { stroke: black !important; stroke-width: 3px !important; }
+        #diagram .node.hl-user.hl-user .label-container { fill: gold !important; }
+        #diagram .node.hl-match.hl-match .label-container { fill: lightgreen !important; stroke: darkgreen !important; stroke-width: 2px !important; }
+        #diagram .node.hl-wrong.hl-wrong .label-container { fill: lightsalmon !important; stroke: firebrick !important; stroke-width: 2px !important; }
+        #diagram .node.hl-ref.hl-ref .label-container { stroke: darkgreen !important; stroke-width: 3px !important; stroke-dasharray: 6 3; }
+        #diagram path.hl-edge-user { stroke: darkorange !important; stroke-width: 3px !important; }
+        #diagram path.hl-edge-ref { stroke: darkgreen !important; stroke-width: 3px !important; }
+        .mermaidTooltip {
+            position: absolute; max-width: 220px; padding: 4px 8px; font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif; background: lightyellow; border: 1px solid goldenrod;
+            border-radius: 4px; pointer-events: none; z-index: 100;
+        }
+        @media (max-width: 599px) {
+            #layout { flex-direction: column; }
+            #diagram-panel { flex: none; }
+            #info-panel { border-left: none; border-top: 1px solid silver; font-size: 13px; }
+        }
+    </style>
+    <script src="design-checkpoint-navigator.js"></script>
+</head>
+<body>
+    <main>
+        <div id="toolbar">
+            <label for="spec-select">Try a specification:</label>
+            <select id="spec-select"></select>
+            <button id="check-btn">Check my path</button>
+            <button id="clear-btn">Clear path</button>
+        </div>
+        <div id="layout">
+            <div id="diagram-panel"><div id="diagram"></div></div>
+            <div id="info-panel"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

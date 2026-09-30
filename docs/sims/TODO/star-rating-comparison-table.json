@@ -1,0 +1,15 @@
+{
+  "sim_id": "star-rating-comparison-table",
+  "diagram_name": "Star Rating Comparison Table",
+  "chapter_number": 7,
+  "chapter_title": "Charts, Plots and Tables",
+  "chapter_dir": "07-charts-plots-and-tables",
+  "chapter_rel_dir": "chapters/07-charts-plots-and-tables",
+  "library": "HTML and CSS",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Judge",
+  "learning_objective": "The learner will judge which of several items best fits a stated need, by comparing star ratings, badges and tooltip descriptions across weighted criteria.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: table\n**sim-id:** star-rating-comparison-table<br/>\n**Library:** HTML and CSS<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: judge): The learner will judge which of several items best fits a stated need, by comparing star ratings, badges and tooltip descriptions across weighted criteria.\n\nData: five items, each with a name, two rating criteria on a 1 to 5 scale, a difficulty badge, a description tooltip of at most 200 characters, and a \"Best for\" text cell. All ratings are invented illustrations.\n\nLayout: a table with one row per item. Star cells use the five-color scale (5 green, 4 yellow-green, 3 orange, 2 red-orange, 1 red), and a legend below explains the badges. A source line sits under the legend.\n\nControls:\n\n- Two sliders \"Weight: Ease of use\" and \"Weight: Interactivity\", each from 0 to 5\n- Button \"Sort by weighted score\" and button \"Reset order\"\n- Checkbox \"Show numeric ratings\", which adds the digit next to each star group for readers who cannot rely on color\n\nInteractions: hovering a row shows its tooltip, and the first row's tooltip appears below the row so the header does not hide it. Changing a weight recomputes the weighted score and, when sorting is on, reorders the rows.\n\nResponsive design: the table scrolls horizontally inside its container below 600 pixels while the item column stays fixed, and the iframe height is set to about 60 pixels per row plus 150 pixels.\n\nImplementation: plain HTML, CSS star classes such as `stars-4`, and a short JavaScript sort function."
+}

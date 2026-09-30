@@ -1,0 +1,84 @@
+{
+  "title": "Specification Block Anatomy Explorer",
+  "description": "An explorer that shows a MicroSim specification block as eight labeled bands (heading, type, sim-id, library, status, learning objective, body, implementation), runs a simulated regular-expression extraction that marks missing fields in red, and asks the learner to trace described generation defects back to the band that caused them.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "Instructional Design", "AI-Assisted Content Generation", "MicroSim Engineering"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/spec-block-anatomy-explorer/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Fields of a MicroSim specification block",
+    "learningObjectives": [
+      "The learner will deconstruct a specification block into its fields and identify which field a given generation defect traces back to."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "deconstruct",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Writing a measurable objective with a Bloom level and verb",
+      "Choosing a MicroSim type and library",
+      "The sim-id as the MicroSim's directory name"
+    ],
+    "concepts": ["Specification Block", "Diagram Specification", "Drawing Specification", "Generation Failure Mode", "Prompt Design"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 610
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)", "data.json (three example specifications and eight defects, loaded with fetch)"],
+    "dataFiles": ["data.json"],
+    "accessibility": {
+      "hasAltText": true,
+      "screenReaderDescription": "describe() explains the eight bands, the Extract button and the defect-tracing mode",
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "select", "label": "Example spec", "options": ["1. Complete specification", "2. Missing a Bloom verb", "3. No numeric ranges"], "default": "1. Complete specification" },
+      { "type": "button", "label": "Extract", "action": "Run a simulated extraction and list the fields found, with missing fields in red" },
+      { "type": "checkbox", "label": "Show defects", "default": false, "action": "Show a described generation defect and ask which band caused it" },
+      { "type": "button", "label": "Next defect", "action": "Show the next of eight defects (visible only with Show defects on)" },
+      { "type": "canvas-click", "label": "Band", "action": "Highlight the band's extracted fields, or answer the defect question" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Rule-based text extraction",
+    "variables": ["selected example", "extracted fields", "missing fields", "current defect"],
+    "equations": ["heading: ^####\\s+(Diagram|Drawing):\\s*(.+)$", "objective: Bloom level:\\s*(\\w+) and verb:\\s*(\\w+)"],
+    "assumptions": ["The extraction is a simplified stand-in for extract-sim-specs.py; field names mirror its output."],
+    "limitations": ["The numeric_values check only looks for digits in the body; it does not judge whether the numbers are sensible."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Deconstruction followed by defect tracing",
+    "interactionPattern": "Explorer with diagnostic quiz (Analyze level)",
+    "keyQuestions": [
+      "Which field does each tool in the pipeline read?",
+      "What does the agent do when a field is missing?",
+      "Which field would you fix to remove a given defect?"
+    ],
+    "commonMisconceptions": [
+      "A clear description in the body can make up for a missing Bloom verb.",
+      "The agent will choose sensible slider ranges on its own.",
+      "Any heading level works as long as the block is inside a details element."
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy on the eight defects",
+      "Rewriting the flawed fields of examples 2 and 3"
+    ]
+  },
+  "chapter": "05-generating-microsims-with-ai-skills",
+  "canvasHeight": 610
+}

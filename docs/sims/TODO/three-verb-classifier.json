@@ -1,0 +1,15 @@
+{
+  "sim_id": "three-verb-classifier",
+  "diagram_name": "Three Verb Classifier",
+  "chapter_number": 16,
+  "chapter_title": "xAPI Statements and Evidence",
+  "chapter_dir": "16-xapi-statements-and-evidence",
+  "chapter_rel_dir": "chapters/16-xapi-statements-and-evidence",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Classify",
+  "learning_objective": "The learner will classify learner actions in a described MicroSim into the correct verb, object type and required result field, and explain any action that needs no statement.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** three-verb-classifier<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: classify): The learner will classify learner actions in a described MicroSim into the correct verb, object type and required result field, and explain any action that needs no statement.\n\nLayout: an upper scene panel shows a small mock MicroSim (a slider, a Start/Pause button, a diagram with three nodes and a one-question check). A lower panel holds three verb bins labeled answered, experienced and interacted, plus a fourth bin labeled \"no statement\".\n\nData: twelve scripted learner events, for example \"moves the speed slider from 3 to 4\", \"presses Start, waits 40 seconds, presses Pause\", \"picks option B on the checked prediction, which is wrong\", \"presses Start and Pause 100 milliseconds later\", \"clicks the same wrong option a second time\" and \"sweeps the pointer across four nodes in under half a second\".\n\nControls and interactions:\n\n- Each event card can be dragged into a bin, or selected and assigned with a button, so the task works by keyboard.\n- After placement, an infobox shows the correct verb, the object type (Page, MicroSim, Question or Control), the required result field and one sentence of reasoning drawn from this chapter.\n- A \"Show statement\" button renders the resulting statement's verb, object and result in JSON.\n- A running score and a \"Try again\" button that reshuffles the twelve events.\n\nDefault state: events shuffled, all bins empty, score 0 of 12.\n\nResponsive design: the canvas width follows the container on every window resize; the bins stack vertically below 500 pixels. All buttons remain visible at 400 pixels wide.\n\nImplementation: p5.js with drag handling in mousePressed, mouseDragged and mouseReleased, keyboard-accessible button alternatives, and a describe() call for accessibility."
+}

@@ -1,0 +1,125 @@
+{
+  "title": "Batch Generation Pipeline Stepper",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Batch Generation",
+    "AI Skills",
+    "Automation",
+    "Software Pipelines"
+  ],
+  "description": "A p5.js stepper through the eight steps of the microsim-generator batch route. Color and a text tag mark each step as a Python script, the AI agent or the design checkpoint, and a detail panel traces the files each step reads and writes and the step that produced each input.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/batch-generation-pipeline-stepper/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Dividing batch MicroSim generation between scripts and the AI agent",
+    "learningObjectives": [
+      "The learner will differentiate the steps that a Python utility performs from the step that the AI agent performs, and will trace what each step reads and writes."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Files in a MicroSim directory (Chapter 2)",
+      "Specification blocks (Chapter 5)",
+      "The batch pipeline list in Chapter 14"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Left and right arrow keys change the step; each box carries a text tag (script, agent, checkpoint) so color is not the only cue"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "prevButton",
+        "type": "button",
+        "label": "Previous",
+        "purpose": "Select the previous step"
+      },
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next",
+        "purpose": "Select the next step"
+      },
+      {
+        "id": "showFilesCheckbox",
+        "type": "checkbox",
+        "label": "Show files",
+        "purpose": "Draw arrows for the files the selected step reads (green) and writes for later steps (purple)"
+      },
+      {
+        "id": "stepBoxes",
+        "type": "clickable canvas boxes",
+        "label": "Steps 1-8",
+        "purpose": "Click to select a step; hover for a tooltip with its purpose"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through worked example with concrete file hand-offs",
+    "interactionPattern": "Process stepper with actor color coding and data-flow tracing",
+    "keyQuestions": [
+      "Which steps have exactly one correct answer, and which need judgment?",
+      "Which earlier step produced each file this step reads?",
+      "Why does the design checkpoint write no file?"
+    ],
+    "commonMisconceptions": [
+      "The AI agent writes every file in a MicroSim directory",
+      "The status file is typed in by a person",
+      "Scaffolding overwrites the .js file"
+    ],
+    "assessmentOpportunities": [
+      "Label each step with its actor",
+      "Trace one file from its writer to every reader",
+      "Explain why only step 4 is given to the agent"
+    ]
+  },
+  "search": {
+    "tags": [
+      "batch generation",
+      "pipeline",
+      "microsim-generator",
+      "extract-sim-specs.py",
+      "generate-sim-scaffold.py",
+      "AI agent",
+      "stepper",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "diagram",
+      "simulation"
+    ]
+  },
+  "chapter": "14-batch-generation-from-specifications"
+}

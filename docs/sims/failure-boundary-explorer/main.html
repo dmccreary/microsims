@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Failure Boundary Explorer using vis-network</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="failure-boundary-explorer.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="toolbar">
+                <span id="title">Failure Boundary Explorer</span>
+                <span class="spacer"></span>
+                <label for="fail-select" class="ctl-label">Fail this component:</label>
+                <select id="fail-select" aria-label="Fail this component"></select>
+                <button id="restore-btn" class="btn" type="button">Restore all</button>
+            </div>
+            <div id="body">
+                <div id="network-wrap"><div id="network"></div></div>
+                <div id="panel" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

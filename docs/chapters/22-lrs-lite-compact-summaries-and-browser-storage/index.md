@@ -112,6 +112,10 @@ Try the estimate yourself with the interactive specified below.
 
 #### Diagram: Semester Storage Estimator
 
+<iframe src="../../sims/lite-semester-storage-estimator/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Semester Storage Estimator MicroSim Fullscreen](../../sims/lite-semester-storage-estimator/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Semester Storage Estimator</summary>
 Type: chart
@@ -230,6 +234,10 @@ Reading the example: this student spent 3 minutes 12 seconds on the page, was en
 The activity below lets you produce these statements yourself and compare the two streams.
 
 #### Diagram: Compact Session Folding Lab
+
+<iframe src="../../sims/compact-session-folding-lab/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the Compact Session Folding Lab MicroSim Fullscreen](../../sims/compact-session-folding-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Compact Session Folding Lab</summary>
@@ -351,6 +359,10 @@ At the measured rate of 0.2 to 0.4 MB per semester, the Protect level is a corre
 Use the following lab to see how the levels respond.
 
 #### Diagram: Storage Meter Pressure Lab
+
+<iframe src="../../sims/storage-meter-pressure-lab/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+[Run the Storage Meter Pressure Lab MicroSim Fullscreen](../../sims/storage-meter-pressure-lab/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Storage Meter Pressure Lab</summary>

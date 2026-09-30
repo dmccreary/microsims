@@ -1,0 +1,15 @@
+{
+  "sim_id": "fidelity-auc-pair-explorer",
+  "diagram_name": "AUC Pair Explorer",
+  "chapter_number": 19,
+  "chapter_title": "Evaluating the Predictive Fidelity of the xAPI Stream",
+  "chapter_dir": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "chapter_rel_dir": "chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "library": "p5.js",
+  "bloom_level": "Understand (L2)",
+  "bloom_verb": "explain",
+  "learning_objective": "Learners will explain AUC as the probability that a random successful learner outranks a random unsuccessful one, by connecting the ROC curve to a live count of correct pairs.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** fidelity-auc-pair-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Understand (L2)\nBloom Verb: explain\n\nLearning objective: Learners will explain AUC as the probability that a random successful learner outranks a random unsuccessful one, by connecting the ROC curve to a live count of correct pairs.\n\nLayout: The left half shows a strip of 40 synthetic learners as dots sorted by forecast, green for correct held-out answers and orange for incorrect. The right half shows the ROC curve with a movable cutoff point and the shaded area under it.\n\nControls: A slider for the cutoff (0 to 1, step 0.01); a slider for model signal strength (0 to 1, default 0.6); a \"Draw random pair\" button that picks one green and one orange dot and highlights which one the model ranked higher; a \"Draw 100 pairs\" button.\n\nData: A synthetic cohort of 40 learners, regenerated when the signal slider moves. A readout shows the computed AUC, the running fraction of random pairs won, and the cutoff's true-positive and false-positive rates.\n\nInteractions: Moving the cutoff slides a vertical line along the strip and moves the point on the ROC curve. Repeated pair draws converge visibly on the AUC value. At signal strength 0 the curve lies on the diagonal and the readout shows about 0.5.\n\nResponsive design: The two panels sit side by side on wide screens and stack vertically on narrow ones; the canvas width follows the container and re-lays out on window resize.\n\nImplementation: p5.js sketch with seeded random generation, ROC computed in the sketch, and DOM sliders and buttons."
+}

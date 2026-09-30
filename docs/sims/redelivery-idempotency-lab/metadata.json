@@ -1,0 +1,159 @@
+{
+  "title": "Redelivery and Idempotency Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "Stream Processing",
+    "Idempotency",
+    "At-Least-Once Delivery",
+    "Deduplication"
+  ],
+  "description": "A p5.js lab in which learners deliver statements through an at-least-once stream, crash the processor before it commits, and compare a summary writer that increments with one that recomputes an absolute count from a deduplicated log.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/redelivery-idempotency-lab/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Idempotent ingest: redelivery, deduplication by statement id and absolute summary writes",
+    "learningObjectives": [
+      "The learner will justify why writing absolute values, not increments, keeps a summary correct when statements are redelivered."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "justify",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The stream processor's write-then-commit sequence (Chapter 20)",
+      "Summary vertices and statements_compressed (Chapter 20)",
+      "Rows and unique keys in a database"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Native buttons, slider and checkbox; counter values and their offset from the truth are printed as numbers and words, not only as bar lengths or colors"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "deliverButton",
+        "type": "button",
+        "label": "Deliver next statement",
+        "purpose": "Process one delivery (and attempt a commit at a batch boundary)"
+      },
+      {
+        "id": "redeliverySlider",
+        "type": "slider",
+        "label": "Redelivery chance",
+        "min": 0,
+        "max": 50,
+        "default": 20,
+        "unit": "percent",
+        "purpose": "Chance that a batch commit fails and the batch is redelivered"
+      },
+      {
+        "id": "crashButton",
+        "type": "button",
+        "label": "Crash before commit",
+        "purpose": "Force the current batch to be redelivered"
+      },
+      {
+        "id": "dedupBox",
+        "type": "checkbox",
+        "label": "Deduplicate log by statement id",
+        "default": true,
+        "purpose": "Keep one log row per statement id"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Empty the log and both counters"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Contrast two write strategies under the same failures, then justify one",
+    "interactionPattern": "Step-through delivery with forced and random failures and a layer toggle",
+    "keyQuestions": [
+      "Why can an increment never tell a repeat from a new statement?",
+      "Why does an absolute value computed from the log survive any number of rewrites?",
+      "When Writer B drifts, which layer failed?"
+    ],
+    "commonMisconceptions": [
+      "Exactly-once delivery can be assumed from a durable queue",
+      "Deduplicating the log alone makes every downstream summary correct",
+      "An increment error can be found and fixed later from the summary"
+    ],
+    "assessmentOpportunities": [
+      "Tracing how Writer A reached its value",
+      "Naming the failed layer when deduplication is off",
+      "A written justification of recompute-absolutes"
+    ]
+  },
+  "search": {
+    "tags": [
+      "LRS",
+      "idempotency",
+      "at-least-once delivery",
+      "deduplication",
+      "ClickHouse",
+      "summarizer",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation"
+    ]
+  },
+  "chapter": "20-the-full-lrs-architecture-and-ingestion",
+  "simulation": {
+    "modelType": "Discrete event simulation of at-least-once delivery",
+    "variables": [
+      "read position",
+      "committed offset",
+      "log rows",
+      "Writer A count",
+      "Writer B count",
+      "distinct statements (truth)"
+    ],
+    "equations": [
+      "Writer A: count = count + 1 per delivery",
+      "Writer B: count = rows in the log view (one per statement id when deduplicated)",
+      "truth = number of distinct statement ids delivered"
+    ],
+    "assumptions": [
+      "Batches of three statements",
+      "The offset commit happens when the processor fetches the next batch",
+      "A seeded random draw decides whether a commit fails"
+    ],
+    "limitations": [
+      "ReplacingMergeTree deduplicates eventually at merge time; the lab shows the deduplicated view immediately",
+      "Only one summary count is modeled"
+    ]
+  }
+}

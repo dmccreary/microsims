@@ -1,0 +1,15 @@
+{
+  "sim_id": "p5-vector-particle-lab",
+  "diagram_name": "Vector and Particle Lab",
+  "chapter_number": 6,
+  "chapter_title": "p5.js MicroSims",
+  "chapter_dir": "06-p5js-microsims",
+  "chapter_rel_dir": "chapters/06-p5js-microsims",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish the roles of position, velocity, and acceleration vectors, and of collision detection versus collision response, by changing parameters and observing the labeled arrows.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** p5-vector-particle-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish the roles of position, velocity, and acceleration vectors, and of collision detection versus collision response, by changing parameters and observing the labeled arrows.\n\nLayout: a drawing region above a control region. A mode switch at the top of the controls selects \"One ball\" or \"Fountain\".\n\nOne ball mode: a ball with a green arrow for velocity, a red arrow for gravity, and a small readout of position, velocity, and speed. A second, fixed ball can be dragged into the path; when the circles collide, both flash and the readout shows \"dist < r1 + r2\" with the actual numbers.\n\nFountain mode: particles spawn at the bottom center, each drawn with an alpha that fades with its remaining life, and a counter shows how many particles are alive.\n\nControls: sliders \"Gravity\" (0.1 to 1.0, default 0.5), \"Bounciness\" (0.3 to 0.95, default 0.8), and \"Spawn rate\" (1 to 10 per frame, default 3); buttons \"Start / Pause\" (default paused) and \"Reset\"; a checkbox \"Show vectors\" (default on).\n\nBehavior: changing gravity changes the red arrow length at once. Turning on \"Show vectors\" in fountain mode draws the velocity arrow for a few sampled particles. Pausing freezes the model but keeps the picture on screen.\n\nResponsive design: canvas width follows the container on resize, sliders are resized in windowResized(), and the fixed ball and the fountain origin are positioned as fractions of the canvas width.\n\nImplementation: p5.js with createVector(), p5.Vector methods, dist(), mouse dragging, and an array of particle objects; include a describe() call."
+}

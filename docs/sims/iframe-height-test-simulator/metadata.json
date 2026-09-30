@@ -1,0 +1,151 @@
+{
+  "title": "Iframe Height Test Simulator",
+  "description": "A mock MicroSim with a canvas, three sliders and two buttons inside an iframe frame whose bottom edge follows an Iframe height slider. Run test sweeps a scan line down the page and marks each control PASS when its bottom is at most the iframe height plus the tolerance. The results panel shows the overall status, the content height and, on failure, the suggested height, as test-iframe-heights.py computes it.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Quality Assurance",
+    "Web Development",
+    "MicroSim Engineering"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/iframe-height-test-simulator/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Control visibility and iframe height tests",
+    "learningObjectives": [
+      "The learner will apply the control visibility and iframe height tests to a mock MicroSim by choosing an iframe height, and will calculate the suggested height from the content height."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The CANVAS_HEIGHT comment and iframe heights (Chapter 12)",
+      "Bounding boxes and the tester's rules (Chapter 13)"
+    ],
+    "concepts": [
+      "Control Visibility Test",
+      "Iframe Height Test",
+      "Hidden Control",
+      "Playwright",
+      "Headless Browser"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() provides a screen-reader description; all controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Iframe height",
+        "min": 300,
+        "max": 800,
+        "default": 500,
+        "units": "px"
+      },
+      {
+        "type": "slider",
+        "label": "Content height",
+        "min": 400,
+        "max": 800,
+        "default": 528,
+        "units": "px"
+      },
+      {
+        "type": "slider",
+        "label": "Tolerance",
+        "min": 0,
+        "max": 20,
+        "default": 5,
+        "units": "px"
+      },
+      {
+        "type": "checkbox",
+        "label": "Declared CANVAS_HEIGHT",
+        "default": false
+      },
+      {
+        "type": "input",
+        "label": "Declared value",
+        "default": 520
+      },
+      {
+        "type": "button",
+        "label": "Run test"
+      },
+      {
+        "type": "canvas-click",
+        "label": "Mock element",
+        "action": "Show its bounding box and inequality"
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Geometric bounding-box test",
+    "variables": [
+      "iframe height",
+      "tolerance",
+      "element bottoms",
+      "content height",
+      "suggested height"
+    ],
+    "equations": [
+      "PASS if bottom <= iframe height + tolerance",
+      "suggested = ceil((content or declared + 10) / 10) * 10"
+    ],
+    "assumptions": [
+      "The rules are those of test-iframe-heights.py: 5 px default tolerance, 10 px safety margin."
+    ],
+    "limitations": [
+      "Only bottom edges are checked, as in the real tester; right-edge overflow and overlaps are invisible to it."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Calculate, then verify with an animated test run",
+    "interactionPattern": "Parameter exploration with a worked check (Apply level)",
+    "keyQuestions": [
+      "What number does each control's bottom edge have to beat?",
+      "Where does the suggested height come from?",
+      "What can this test not see?"
+    ],
+    "commonMisconceptions": [
+      "A canvas below the iframe edge fails the test.",
+      "The suggested height is the content height plus 2.",
+      "A declared CANVAS_HEIGHT changes whether the MicroSim passes."
+    ],
+    "assessmentOpportunities": [
+      "The learner computes the pass limit, each verdict and the suggested height for a given set of numbers.",
+      "The learner explains why a declared CANVAS_HEIGHT changes the suggestion but not the PASS or FAIL."
+    ]
+  },
+  "chapter": "13-quality-assurance-and-automated-layout-review",
+  "canvasHeight": 620
+}

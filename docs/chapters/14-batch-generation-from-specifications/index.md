@@ -75,6 +75,10 @@ Steps 6 to 8 belong to the quality chain covered in [Chapter 13](../13-quality-a
 
 #### Diagram: Batch Generation Pipeline Stepper
 
+<iframe src="../../sims/batch-generation-pipeline-stepper/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+[Run the Batch Generation Pipeline Stepper MicroSim Fullscreen](../../sims/batch-generation-pipeline-stepper/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Batch Generation Pipeline Stepper</summary>
 Type: microsim
@@ -195,6 +199,10 @@ The next specification lets you experiment with those rules.
 
 #### Diagram: Sim Status Rule Explorer
 
+<iframe src="../../sims/sim-status-rule-explorer/main.html" width="100%" height="707px" scrolling="no"></iframe>
+
+[Run the Sim Status Rule Explorer MicroSim Fullscreen](../../sims/sim-status-rule-explorer/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Sim Status Rule Explorer</summary>
 Type: microsim
@@ -256,6 +264,10 @@ That project's `mkdocs.yml` uses these five values, with their tooltip text summ
 The nav status is the reader's view, and the batch lifecycle is the pipeline's view, so the two need a mapping. This book's plan proposes one but leaves the details open: `scaffolded` corresponds to `scaffold`, `implemented` to `implemented`, `validated` to `built` or `approved` depending on score, and instrumentation to `instrumented`, with a decision still needed on who sets `approved`. The `sync-status.py` script from the `add-xapi-events-to-microsim` skill already automates one row of it. With `--apply` it sets `status: instrumented` on any sim that carries xAPI handling, and it never overwrites a human sign-off such as `approved`. Chapter 16 covers that step. As of this writing, this repository's `mkdocs.yml` and `extra.css` do not yet contain the status configuration; the plan schedules it for the site skeleton.
 
 #### Diagram: Nav Status Icon Legend
+
+<iframe src="../../sims/nav-status-icon-legend/main.html" width="100%" height="552px" scrolling="no"></iframe>
+
+[Run the Nav Status Icon Legend MicroSim Fullscreen](../../sims/nav-status-icon-legend/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Nav Status Icon Legend</summary>

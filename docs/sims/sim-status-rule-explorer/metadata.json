@@ -1,0 +1,155 @@
+{
+  "title": "Sim Status Rule Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Batch Generation",
+    "Status Lifecycle",
+    "Automation",
+    "Rule-Based Systems"
+  ],
+  "description": "A p5.js rule explorer for the MicroSim status lifecycle. Learners set whether the sim directory, main.html and a chapter iframe exist, the .js line count, the quality score and a Reused flag, predict the status extract-sim-specs.py assigns, and see the ordered rule that decided it.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/sim-status-rule-explorer/",
+  "canvasHeight": 705,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Deriving MicroSim lifecycle status from files on disk",
+    "learningObjectives": [
+      "The learner will predict the status that the extraction script assigns to a MicroSim given the state of its files, and will explain which rule produced the result."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "predict",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The status lifecycle and sim status file (Chapter 14)",
+      "quality_score in index.md front matter (Chapter 13)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 705
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All inputs are native checkboxes, sliders, a button and a select; rule outcomes are spelled out in words, not only by color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "dirCheckbox",
+        "type": "checkbox",
+        "label": "Sim directory exists",
+        "purpose": "Whether docs/sims/<sim-id>/ exists (unchecking also removes main.html)"
+      },
+      {
+        "id": "htmlCheckbox",
+        "type": "checkbox",
+        "label": "main.html exists",
+        "purpose": "Whether the directory holds main.html (checking also creates the directory)"
+      },
+      {
+        "id": "linesSlider",
+        "type": "slider",
+        "label": "Lines in the .js file",
+        "min": 0,
+        "max": 300,
+        "step": 10,
+        "default": 0,
+        "purpose": "Implemented needs more than 50 lines"
+      },
+      {
+        "id": "scoreSlider",
+        "type": "slider",
+        "label": "Quality score",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 0,
+        "purpose": "Validated needs 70 or higher"
+      },
+      {
+        "id": "iframeCheckbox",
+        "type": "checkbox",
+        "label": "Chapter has an iframe",
+        "purpose": "Deployed needs validated plus a chapter iframe"
+      },
+      {
+        "id": "reusedCheckbox",
+        "type": "checkbox",
+        "label": "Spec says Status: Reused",
+        "purpose": "Overrides every file check"
+      },
+      {
+        "id": "predictButton",
+        "type": "button",
+        "label": "Predict first",
+        "purpose": "Hide the result until the learner chooses a status"
+      },
+      {
+        "id": "predictSelect",
+        "type": "select",
+        "label": "Choose a status",
+        "purpose": "Record the prediction (clicking a strip box also works)"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-reveal practice with an ordered rule trace",
+    "interactionPattern": "Rule explorer with prediction gate",
+    "keyQuestions": [
+      "Why does an iframe not make an implemented sim deployed?",
+      "What status does a 50-line .js file give, and why?",
+      "Why can a sim with complete files still be reported as reused?"
+    ],
+    "commonMisconceptions": [
+      "Any .js file makes a sim implemented",
+      "An iframe alone makes a sim deployed",
+      "Status is typed into the status file by a person"
+    ],
+    "assessmentOpportunities": [
+      "Predictions correct out of attempts",
+      "Naming the rule that decided a status",
+      "Explaining why recomputed status makes the pipeline resumable"
+    ]
+  },
+  "search": {
+    "tags": [
+      "sim-status.json",
+      "extract-sim-specs.py",
+      "status lifecycle",
+      "resumable pipeline",
+      "prediction",
+      "rules",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "diagram"
+    ]
+  },
+  "chapter": "14-batch-generation-from-specifications"
+}
