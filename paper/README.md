@@ -355,3 +355,17 @@ Content Extraction and Completion:
 Last Updated: 2024
 Status: In Progress
 Target Completion: TBD
+
+## Rebuilding the v1.0 paper
+
+The paper is being revised in place for MicroSims 2.0 (v0.07). The last pre-2.0 version is preserved at the git tag `v1.0`. The source at that tag says "Version 0.05" on its title page, and the matching PDF is `microsims-v0.06.pdf`. To rebuild it without touching `main`:
+
+```bash
+git worktree add ../microsims-v1.0 v1.0
+cd ../microsims-v1.0/paper
+./build.sh            # requires tectonic: brew install tectonic
+open main.pdf
+cd ../../microsims && git worktree remove ../microsims-v1.0
+```
+
+Prebuilt PDFs for v0.02 through v0.06 are kept in this directory.

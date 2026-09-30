@@ -13,6 +13,26 @@ The current book ("MicroSims 1.0") was started in November 2023. It teaches how 
 
 The v1.0 book treats p5.js as the whole subject. In v2.0, p5.js is one of about 17 generator types.
 
+### Core thread: fidelity of the xAPI stream as a predictor of mastery
+
+The organizing question of the whole book is: **how well does the xAPI event stream from a MicroSim predict whether a student has mastered a concept?** Every chapter is written to serve this question, and each says so in a short "Evidence and Prediction" section. The thread is:
+
+| Where | What it contributes to prediction fidelity |
+|---|---|
+| Ch 3 (objectives) | A measurable objective per concept, so there is something to predict |
+| Ch 4–5 (type and generation) | Choosing a type and interaction pattern for its **diagnostic value**, not only its appeal; the Instructional Design Checkpoint's "does the learner predict first?" gives a testable answer, not just exposure |
+| Ch 6–11 (type chapters) | For each type, which interactions count as evidence and which are noise, in terms of the six evidence classes and the runtime's thresholds (hover under 600 ms, clicks under 250 ms, page dwell under 1 s do not count) |
+| Ch 12–13 (responsive design and QA) | A broken layout hides controls and corrupts the stream, so QA is a data-quality control |
+| Ch 14 (batch) | Consistent instrumentation at scale, so events are comparable across sims |
+| Ch 15 (metadata and reuse) | The concept ID in each sim's metadata is what links events to a concept |
+| Ch 16 (xAPI) | Evidence classes, why answers are never folded (attempt order matters to BKT), one concept ID per statement, and how Compact summaries lose or keep signal |
+| Ch 17–18 (Full LRS and LRS-Lite) | Bayesian knowledge tracing on the full stream versus on compact summaries: what each preserves, and how much fidelity the Lite strategy trades for cost |
+| Ch 19 (evaluation) | How to **measure** fidelity: correlation with held-out assessments, calibration of predicted mastery, discrimination (for example AUC), stability across sessions, and the guess and slip parameters |
+| Ch 20 (capstone) | A measured predictive check on the student's own instrumented portfolio |
+| Ch 21 (future) | How AI-generated sims can be designed for higher predictive value |
+
+Two honesty rules apply throughout: the book reports what has been *measured* and separates it from what is *designed* or *hoped for*, and it does not claim predictive validity without student data. Today the runtime and back-end designs exist, but no learner data has been collected through them, so fidelity claims are stated as hypotheses with the evaluation method attached.
+
 ### Headline changes
 
 | Theme | MicroSims 1.0 | MicroSims 2.0 |
@@ -131,9 +151,10 @@ The order follows the life of a MicroSim: understand it, choose it, generate it,
 | 17 | The Full LRS: Architecture for Scale | The complete server-side strategy: system context and multi-tenancy, the property-graph data model, the ingestion gateway (`POST /xapi/statements`, strict validation, all-or-nothing batches), the Kafka (Redpanda), ClickHouse and Neo4j pipeline, the twelve core LRS functions, summary vertices, Bayesian knowledge tracing, dashboards for teachers, authors and administrators, privacy and compliance, and cost (about $300–2,500/month for one server and about $10,300/month at full scale). Worked from `learning-record-store` (spec, design and `src/lrs/`). |
 | 18 | LRS-Lite: The Serverless Compact Strategy | Why a pilot needs no always-on server (about 0.01 statements/second against a design for 10,000/second); measured data sizes (about 970 bytes per statement, about 0.2 MB per student per semester); producer-side summarization (one session summary per loss of focus, and answers never folded); the local data model in a 10 MB browser database; the storage meter and quota rules; multi-device sync and backup through S3 and why it converges; mastery estimation and dashboards in the browser; the few things that need a server; and cost (a few dollars a month). Ends with **choosing and migrating between Full and Lite**: a decision table, and how every Lite statement is a valid contract statement, so a school can move up without rewriting sims. |
 | 19 | Pedagogy, Accessibility and Evaluation | UDL, cognitive load, PRIMM, keyboard access, and evaluating a MicroSim |
-| 20 | Capstone: Building an Instrumented MicroSim Portfolio | An end-to-end project using the 2.0 pipeline, ending in either a Compact or a Full configuration |
+| 20 | Capstone: Building an Instrumented MicroSim Portfolio | An end-to-end project using the 2.0 pipeline, ending in either a Compact or a Full configuration, and a measured check of how well its event stream predicts mastery |
+| 21 | The Future of MicroSims | **Short term (about one year):** verified adapters for every library, a proven POST path from sims to an LRS, closed-loop generation in which QA and vision review run inside the generator, richer showcase-quality animation as a standard, per-concept mastery dashboards for students and teachers, and shared sim libraries with reuse search across books. **Long term:** AI that generates super high-quality MicroSims that are both fun to use and better able to tell whether a student has mastered a concept: designing the interaction *for* diagnostic value, adapting difficulty and representation to the learner, generating probes that separate real understanding from guessing, and learning from aggregate xAPI data which sim designs give the most predictive evidence. Also the open problems (privacy, validity, equity, and evaluation) and what would make each prediction trustworthy. |
 
-Each chapter keeps the `index.md` plus `quiz.md` pattern. The chapter count (20) is a proposal: it may drop if the learning graph shows that chapters 6–9 or 11 can be merged. Chapters 17 and 18 stay separate because the full LRS and LRS-Lite are the two deployment strategies the book must treat in detail.
+Each chapter keeps the `index.md` plus `quiz.md` pattern. The chapter count (21) is a proposal: it may drop if the learning graph shows that chapters 6–9 or 11 can be merged. Chapters 17 and 18 stay separate because the full LRS and LRS-Lite are the two deployment strategies the book must treat in detail.
 
 ### 4.2 New appendices (this folder, `docs/appendices/`)
 
@@ -157,16 +178,16 @@ In a complete rewrite, the sims are regenerated with the current pipeline, not p
 
 1. **Write specs first.** Each new chapter carries `#### Diagram:` and `#### Drawing:` specification blocks, so `extract-sim-specs.py` can drive batch generation (see Chapter 14).
 2. **Reuse before build.** For every spec, query the search index (§2.3) and the v1.0 pool. Record one of: reused as-is, adapted, or built new.
-3. **Harvest good v1.0 sims.** Run `validate-sims.py` and `audit-microsims.py` over the v1.0 sims. Any sim that scores grade B or better, is width-responsive, and fits a new spec is copied forward, re-linted, and moved to p5 2.x. The other v1.0 sims are not carried over and remain in git history.
+3. **Harvest v1.0 sims only if they reach the bar.** Decision: a v1.0 sim is reused only when its `validate-sims.py` score can be raised to **85 (grade A)**, it is width-responsive, and its iframe height is correct. If it cannot be raised that high, it is **not** in the new textbook, and it stays in git at the `v1.0` tag. The per-sim upgrade list is in [`TODO.md`](../../TODO.md) (section "MicroSims 2.0: Per-Sim Quality Upgrades"), with each sim's score and its rubric issues. Upgrades are done **on demand**: when a new chapter's spec adopts a sim, we work through its checklist, re-score, and tick it off. Sims that no chapter adopts are not upgraded. The 2026-09-30 baseline is 116 sims scored, mean 60.6, with 18 at grade A, 27 at B, 30 at C and 41 at D.
 4. **Regenerate the rest** from specs with the meta-skill, then run the full QA chain (scaffold, validate, height sync, Playwright height test, screenshot, layout review, nav update).
 5. **Showcase set.** Build 4–6 sims in the H-Bridge style, one per major family (a physics animation, a chart explorer, a network, an overlay, and a comparison poster). The six stem-robots posters cover the poster family; add one or two posters on this book's own topics (for example the MicroSim types, or p5 vs Chart.js vs Plotly).
 6. **xAPI pilot.** Instrument about 10 sims covering every evidence class and at least the p5, Chart.js and Mermaid adapters, using the `lrs-*.js` runtime and a generated `lrs-config.js`, and using the coordinator-plus-workers pattern proven on eight-hour-entrepreneur (20 sims).
-7. **Quality bar.** Proposed release gate: every sim scores B (70+) or better, passes the iframe-height and control-visibility tests, and is width-responsive.
+7. **Quality bar.** Every new or regenerated sim scores at least B (70+); every carried-over v1.0 sim scores at least A (85). All sims pass the iframe-height and control-visibility tests and are width-responsive. Sims that carry xAPI instrumentation must also pass `check-xapi.py`.
 8. **Metrics.** Regenerate `book-metrics.json` after the portfolio pass. The known p5 2.x breakages in `TODO.md` no longer need fixing in place: those five sims are only fixed if they are harvested.
 
 ## 6. Revising the Paper
 
-Decision: **revise the paper in place** in `paper/`, on `main`, with no new paper directory. Earlier versions stay available as the existing PDFs (v0.02–v0.06) and in git history. The revision is released as v0.07 (bump `main.tex`, which still says 0.05) and the title is updated to reflect the 2.0 framework only if the co-authors agree. Use `paper/sections/` as the working set.
+Decision: **revise the paper in place** in `paper/`, on `main`, with no new paper directory. **The three co-authors (Valerie Lockhart, Dan McCreary and Troy A. Peterson) stay on the 2.0 paper.** The title stays as it is unless the authors agree on a change. Earlier versions stay available as the existing PDFs (v0.02–v0.06) and in git history. The revision is released as v0.07 (bump `main.tex`, which still says 0.05) and the title is updated to reflect the 2.0 framework only if the co-authors agree. Use `paper/sections/` as the working set.
 
 | Section file | Change |
 |---|---|
@@ -183,6 +204,8 @@ Decision: **revise the paper in place** in `paper/`, on `main`, with no new pape
 | `10-discussion.tex`, `11-conclusion.tex` | Remove the TODOs. Add privacy, mastery prediction, limitations and future work. |
 | `references.bib` | Grow from 22 toward the 50–80 target. |
 | New figures/tables | Routing table, pipeline diagram, xAPI event flow, library distribution chart (from real data), QA before/after examples. |
+| Core thread | Make the predictive fidelity of the xAPI stream a central theme of the paper (a dedicated section on evidence classes, compact versus full streams, and how to measure prediction), stated as a design and evaluation framework until learner data exist. |
+| **Keep the v1.0 paper reproducible** | Add a "Rebuilding the v1.0 paper" section to `paper/README.md` (done; see below) so anyone can regenerate the paper as it stood at the `v1.0` tag. |
 | Housekeeping | Bump the version in `main.tex` to 0.07 and save the built PDF as `microsims-v0.07.pdf` alongside the earlier ones. Refresh `STATUS.md`, `README.md` and `FIGURES-STATUS.md`. Rebuild the arXiv bundle. |
 
 **Empirical evidence.** This is the main weakness. The paper needs something MicroSim-specific, and the data we can honestly produce are:
@@ -197,6 +220,18 @@ We should not claim learning gains from MicroSims without student data. Learning
 
 **Co-authors.** The paper has three authors. The plan should let them decide who owns which sections.
 
+**Rebuilding the v1.0 paper.** The paper at the `v1.0` tag is the last pre-2.0 version (its source says "Version 0.05" but its PDF is v0.06). To regenerate it without disturbing `main`:
+
+```bash
+git worktree add ../microsims-v1.0 v1.0
+cd ../microsims-v1.0/paper
+./build.sh            # needs tectonic: brew install tectonic
+open main.pdf
+cd ../../microsims && git worktree remove ../microsims-v1.0
+```
+
+The prebuilt PDFs `MicroSims-v0.02.pdf` through `microsims-v0.06.pdf` also stay in `paper/`. These instructions are also in `paper/README.md`.
+
 ## 7. Work Phases
 
 | Phase | Scope | Main outputs |
@@ -207,7 +242,7 @@ We should not claim learning gains from MicroSims without student data. Learning
 | **3. Foundation chapters** | Chapters 1–5 and Appendices A and B | The concepts and the routing story |
 | **4. Type chapters** | Chapters 6–11 | One chapter per type family, each with specs and sims |
 | **5. Engineering chapters** | Chapters 12–18 and Appendices C–E | QA, batch, reuse, xAPI, the full LRS and LRS-Lite |
-| **6. Pedagogy and capstone** | Chapters 19–20 and Appendices F–H | The closing chapters and reference material |
+| **6. Pedagogy and capstone** | Chapters 19–21 and Appendices F–H | The closing chapters (including the future chapter) and reference material |
 | **7. Sim portfolio** | Reuse search, harvest, batch generation, showcase sims, and the xAPI pilot (§5). Runs alongside phases 3–6 as chapter specs are written | Validated sims and screenshots |
 | **8. Learning-graph artifacts** | Glossary, FAQ, quizzes, references, diagrams, and book metrics | Regenerated reports |
 | **9. Paper revision** | The table in §6 | New PDF and arXiv bundle |
@@ -247,7 +282,7 @@ The decision is made: **complete rewrite in this repository, on `main`, with v1.
 - **Runtime distribution.** The `lrs-*.js` files are copied into each book, and `lrs-config.js` is per book. Decide how copies stay in sync (the `install-runtime.py --check` script exists for this). The same question applies to the poster shared libs.
 - **Tooling paths.** The skills refer to paths that do not exist here. The book should use `~/projects/ibook-skills` or a stable environment variable.
 - **Skills change quickly.** The book should describe the *concepts and contracts*, and link to the skills for details, so it does not go stale as quickly as v1.0 did.
-- **Scale of the rewrite.** About 20 new chapters, 8 appendices, and a regenerated sim portfolio is large. The harvest step (§5) and batch pipeline keep the sim cost bounded, but the chapter text is entirely new writing.
+- **Scale of the rewrite.** About 21 new chapters, 8 appendices, and a regenerated sim portfolio is large. The harvest step (§5) and batch pipeline keep the sim cost bounded, but the chapter text is entirely new writing.
 - **Broken inbound links.** v1.0 URLs (search engines, other books that link to `microsims` pages) will 404 after release. Mitigate with a redirect list in Appendix G, and grep sibling repos for links to this site before release.
 - **Losing good v1.0 material.** Some v1.0 explanations and sims are worth keeping. The harvest step and the `v1.0` tag mitigate this.
 - **Paper evidence.** Without student data, the empirical contribution is limited to portfolio and QA metrics.
@@ -257,27 +292,29 @@ The decision is made: **complete rewrite in this repository, on `main`, with v1.
 
 **Resolved**
 
+- Rewrite the book completely, on `main`, with no `v2` branch. The `v1.0` tag is created and pushed.
 - The book gives detailed treatment of both the full LRS (Chapter 17) and LRS-Lite (Chapter 18).
-- The paper is revised in place in `paper/` (v0.07), not restarted.
-- The v1.0 tag is created and pushed. The work stays on `main` with no `v2` branch.
-- Rewrite the book completely. v1.0 stays in git for historians.
-- Comparison posters are grid-overlay posters in the pattern of `stem-robots/docs/posters`. They are documented as their own type in Chapter 10.
+- **The core focus of the entire book is the fidelity of the xAPI stream as a predictor of concept mastery** (see §1).
+- The 21-chapter map is accepted, including the new Chapter 21, *The Future of MicroSims* (short-term ideas for the next year, and the long-term view of AI generating high-quality, fun MicroSims that predict mastery better).
+- v1.0 sims are reused only if they can reach grade A (85); otherwise they are excluded. The per-sim upgrade checklist is in `TODO.md`.
+- The paper is revised in place (v0.07) with the same three co-authors, and instructions for rebuilding the v1.0 paper are kept.
+- Comparison posters are grid-overlay posters in the pattern of `stem-robots/docs/posters`, documented in Chapter 10.
+
+**Resolved by default** (you asked me to use the defaults; say so if any is wrong)
+
+- **Old links:** a redirect table in Appendix G, with no `/v1/` deployment.
+- **xAPI status:** Chapters 16–18 describe the runtime, the gateway and LRS-Lite as designs with working pieces until a POST path is proven, and say plainly that no learner data have been collected yet.
+- **Release gate:** grade B or better for new sims and A for carried-over v1.0 sims (see §5).
+- **Showcase examples:** Appendix F includes sims and posters from stem-robots and xapi-course.
+- **Your original item 1** (cut off) is read as the xAPI skill and the xapi-course book.
 
 **Still open**
 
-1. **Old links.** The tag exists and is pushed. Do you want a one-time `/v1/` deployment on GitHub Pages so old chapter links keep working, or a redirect table in Appendix G, or neither?
-2. **Item 1 of your original list** was cut off after "shows this and the". I assumed it means the xAPI skill and the xapi-course book.
-3. **xAPI status.** The runtime is available, but no emitter POSTs yet. Should Chapters 17–18 describe the full LRS and LRS-Lite as *designs with working pieces* until a POST path is proven, or will one exist by release?
-4. **Sim reuse.** In the plan, v1.0 sims are a candidate pool and are carried over only if they pass the harvest checks (§5). Is that right, or should *no* v1.0 sim be carried over?
-5. **Quality bar.** Is "every sim grade B (70+) or better and passing the iframe tests" the right release gate?
-6. **Chapter map.** Is the 20-chapter proposal acceptable as a starting point for the learning-graph step? Do you want a different reading order, such as engineering chapters before type chapters?
-7. **Paper co-authors.** The paper is revised in place. Who are the co-authors for the new sections (the current authors are Lockhart, McCreary and Peterson), and should the title change?
-8. **Showcase examples from other repos.** Should Appendix F include sims and posters from stem-robots and xapi-course? The six stem-robots posters would be the worked examples for Chapter 10.
+- None blocking. The paper title stays unless the authors decide otherwise.
 
-## 12. Next Steps After Review
+## 12. Next Steps
 
-1. You answer the open items in §11 and mark up this plan.
-2. I commit this plan to `main` (commit and push only, no deploy).
-3. I add the plan to `mkdocs.yml` (an "Appendices" nav section; it is not there yet).
-4. Phase 0: run the validator over the v1.0 sims to build the harvest pool.
-5. Phase 1: a new course description and learning graph, which confirm or reshape the chapter map in §4.
+1. Add the plan to `mkdocs.yml` (an "Appendices" nav section; it is not there yet).
+2. Phase 1: a new course description and learning graph. The learning graph should treat mastery-prediction fidelity as a first-class concern (concepts for evidence, BKT, calibration, and so on), and confirm or reshape the 21-chapter map.
+3. Phase 2: the skeleton (new nav, stubbed chapters, and spec blocks), in one commit on `main`. Commit and push only; no deploy until release.
+4. Work through the upgrade checklist in `TODO.md` as chapter specs adopt sims.

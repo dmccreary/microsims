@@ -20,3 +20,916 @@ A static scan of this repo's `docs/sims/` MicroSims found **5 sim(s)** using p5.
     - `temp-and-pressure.js` uses the old multi-control-point `bezierVertex(...)` call — v2 takes one control point per `bezierVertex()` call — chain multiple calls instead of packing several points into one; use `bezierOrder()` for a quadratic curve.
 
 Reference: [p5.js Teachers' Guide to v2 transition](https://p5js.org/tutorials/v2_transition/)
+
+<!-- microsims-2-upgrade-audit-2026-09-30 -->
+## MicroSims 2.0: Per-Sim Quality Upgrades (audit 2026-09-30)
+
+Produced by `validate-sims.py` (the `microsim-utils` 100-point rubric: main.html 10, metadata.json 30, index.md 35, screenshot 5, lesson plan 10, references 5, p5 conventions 5) over every directory in `docs/sims/`. See the [MicroSims 2.0 plan](docs/appendices/microsims-2-plan.md), section 5.
+
+**Rule.** A v1.0 sim enters the new textbook only if its score reaches **85 (grade A)** and it is width-responsive with a correct iframe height. If it cannot be raised to that, it is left out (it stays in git at tag `v1.0`).
+
+**How to use this list.** Do not upgrade everything. When a new chapter's spec adopts a sim, upgrade that sim: work through its unchecked items, re-run `validate-sims.py --sim <name>`, and tick the boxes. Sims no chapter adopts are simply not carried over.
+
+**Baseline:** 116 sims scored, mean 60.6. Grades: A 18, B 27, C 30, D 41.
+
+Every sim also needs, whatever its issues below: a width-responsiveness check, `test-iframe-heights.py`, and a layout review. Sims marked **p5 2.x** also appear in the p5.js 2.x section above.
+
+
+### Grade A (85+): already at the bar; confirm and carry over when adopted (18)
+
+- [ ] **ai-benchmarks-timeline** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **ball-in-rotating-hexagon** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **brownian-motion** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **color-wheel** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **color-wheel-with-named-colors** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - index.md: missing References section
+- [ ] **larson-scanner** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **neural-network** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **profit-maximum** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **revenue-maximum** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **seven-segment-display** — score 92, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+- [ ] **alu** — score 89, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **flex-layout-playground** — score 87, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing References section
+- [ ] **ooda** — score 87, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+- [ ] **projectile-motion** — score 87, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+- [ ] **projectile-motion-gravity** — score 87, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing References section
+- [ ] **temp-and-pressure** — score 87, p5.js **p5 2.x**
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+- [ ] **template** — score 87, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+- [ ] **spinning-3d-shapes** — score 85, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+    - p5.js: missing updateCanvasSize() call
+
+### Grade B (70-84): close; fix the listed issues (27)
+
+- [ ] **bouncing-ball** — score 82, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **css-box-model** — score 82, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing Lesson Plan section
+- [ ] **icons** — score 82, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **p5-coordinate-system** — score 82, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+    - index.md: missing References section
+- [ ] **rainbow-color-picker** — score 82, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+    - index.md: missing References section
+- [ ] **maze-solver** — score 80, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+- [ ] **555-timer** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+- [ ] **conway-game-of-life** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing Lesson Plan section
+- [ ] **gold-star** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **least-squares** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **microsim-uniqueness** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **sine-wave** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **star-rating** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+- [ ] **supply-and-demand** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **wave-sums** — score 77, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing Lesson Plan section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **a-star** — score 74, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+- [ ] **battery-life** — score 72, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+- [ ] **fft-mic** — score 72, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **flower-petal** — score 72, p5.js **p5 2.x**
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **microsim-layout** — score 72, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **simple-tree** — score 72, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **virus** — score 72, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **ac-circuit** — score 70, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+- [ ] **microsim-creation-workflow** — score 70, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - p5.js: no JS file found
+- [ ] **projecting-ai** — score 70, Chart.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing Lesson Plan section
+- [ ] **pythagorean-theorem** — score 70, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+- [ ] **recursion-tree** — score 70, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+
+### Grade C (50-69): substantial work; rebuild from a spec if cheaper (30)
+
+- [ ] **global-impact** — score 67, Leaflet
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+- [ ] **koch** — score 67, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **polygon** — score 67, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing description/about section
+    - index.md: missing References section
+- [ ] **pwm** — score 67, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **solar-battery** — score 67, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **triangle-types** — score 67, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing fields: title, description, creator, date, subject
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **yin-yang** — score 67, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **breadboard** — score 65, no main.html **p5 2.x**
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+- [ ] **circle** — score 65, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **us-state-quality-map** — score 65, Leaflet
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **string-harmonics** — score 64, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing References section
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **fft-butterfly** — score 62, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **fibonacci-clock** — score 62, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **fractal-tree** — score 62, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing fullscreen link
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **lady-bug-walk** — score 62, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **microsim-library-ecosystem** — score 62, vis-network
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **responsive-design** — score 62, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **analog-circuit** — score 60, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing References section
+- [ ] **battery-drain** — score 60, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing References section
+- [ ] **binary-number** — score 60, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+- [ ] **bee** — score 54, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **p5-animation-loop** — score 54, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **sphere** — score 52, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **bathtub** — score 50, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **circuits** — score 50, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+- [ ] **color-names** — score 50, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **named-colors** — score 50, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **particle-fields** — score 50, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing References section
+- [ ] **rotating-gears** — score 50, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+- [ ] **terms-to-ekg** — score 50, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: controls appear manually drawn (mouse hit-testing, no createButton/createSlider/etc.) — use builtin p5.js controls
+
+### Grade D (under 50): likely rebuild or drop (41)
+
+- [ ] **book-gen-workflow** — score 49, p5.js **p5 2.x**
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **microsim-growth** — score 47, vis-network
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **analog-clock** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **bfs** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **bfs-vs-dfs** — score 45, vis-network
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **chemistry** — score 45, no main.html
+    - main.html missing
+    - metadata.json missing
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **collision-avoidance-robot** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **curve** — score 45, no main.html **p5 2.x**
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **galton-board** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **h-bridge** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **learning-graph** — score 45, other
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **lissajous-figures** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **logic-gates** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **motor** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **resize-test** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **sierpinski** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **slope-and-intercept** — score 45, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **data-element-mapper** — score 40, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **learning-modality-effectiveness** — score 40, Chart.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json missing
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **neopixel** — score 40, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **prisoners-dilemma** — score 40, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **resize-in-iframe** — score 40, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+- [ ] **sine-and-cosine** — score 40, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **snake** — score 40, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **solar-cell** — score 39, p5.js
+    - main.html: missing schema meta tag
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: missing updateCanvasSize() call
+    - p5.js: missing canvas.parent(document.querySelector('main'))
+- [ ] **graph-viewer** — score 37, vis-network
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **p5-timeline** — score 37, p5.js
+    - main.html: missing schema meta tag
+    - main.html: missing <main> tag
+    - metadata.json: missing educational section
+    - metadata.json: missing fields: creator, date
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing copy-paste iframe example
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+    - p5.js: no JS file found
+- [ ] **animated-wire** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **background-grid** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **conway-old** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **flashcards** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **force-directed-graph** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **fourier** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **maze-gen** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **mobile-buttons** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **pendulum** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **rabbits-and-foxes** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **robots** — score 35, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **learning-graph-v1** — score 30, no main.html
+    - main.html missing
+    - metadata.json: missing educational section
+    - index.md: missing # title header
+    - index.md: missing title/description in frontmatter
+    - index.md: missing social preview images in frontmatter
+    - index.md: missing iframe with src='main.html'
+    - index.md: missing fullscreen link
+    - index.md: missing copy-paste iframe example
+    - index.md: missing description/about section
+    - screenshot PNG missing
+    - index.md: missing Lesson Plan section
+    - index.md: missing References section
+- [ ] **fft-simple** — score 5, no main.html
+    - main.html missing
+    - metadata.json missing
+    - index.md missing
+    - screenshot PNG missing
+    - index.md missing
+    - index.md missing
+- [ ] **three-web-languages** — score 5, no main.html
+    - main.html missing
+    - metadata.json missing
+    - index.md missing
+    - screenshot PNG missing
+    - index.md missing
+    - index.md missing
