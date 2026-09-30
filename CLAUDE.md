@@ -172,3 +172,9 @@ The `.cursor/rules/microsims.mdc` file contains comprehensive coding standards i
 - Markdown extensions: admonition, superfences, pymdownx
 - Custom CSS: `docs/css/extra.css`, JS: `docs/js/extra.js`
 - remember that even static diagrams like mermaid charts can have hovertext that can be logged for future activity logs through the xAPI interfaces
+
+## Content Generation
+
+Before generating content for the chapters, lesson plans, quizzes, FAQ or other student-facing
+text, read the `CONTENT-GENERATION-GUIDE.md` file. Note that the teacher guide, instructor guide,
+or other instructor-facing content does not use the mascot described in CONTENT-GENERATION-GUIDE.md.
