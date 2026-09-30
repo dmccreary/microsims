@@ -2,14 +2,16 @@
 
 ## Overview
 
-- **Total Concepts**: 242
-- **Foundational Concepts** (no dependencies): 8
-- **Concepts with Dependencies**: 234
-- **Average Dependencies per Concept**: 1.72
+- **Total Concepts**: 462
+- **Foundational Concepts** (no prerequisites, other concepts depend on them): 6
+- **Terminal Nodes** (nothing depends on them, but have prerequisites): 143
+- **Orphaned Nodes** (completely disconnected, no edges): 0
+- **Concepts with Dependencies**: 456
+- **Average Dependencies per Concept**: 1.57
 
 ## Graph Structure Validation
 
-- **Valid DAG Structure**: ❌ No
+- **Valid DAG Structure**: ✅ Yes
 - **Self-Dependencies**: None detected ✅
 - **Cycles Detected**: 0
 
@@ -17,66 +19,83 @@
 
 These concepts have no prerequisites:
 
-- **1**: MicroSim Definition
-- **6**: Programming Fundamentals
-- **15**: Web Browser
-- **45**: Generative AI
-- **73**: Bloom's Taxonomy
-- **134**: Dublin Core Metadata
-- **152**: Cognitive Load Theory
-- **189**: Creative Commons
+- **3**: Interactive Simulation
+- **4**: Learning Object
+- **9**: Generative AI
+- **14**: MkDocs
+- **16**: Git Version Control
+- **17**: HTML5
 
 ## Dependency Chain Analysis
 
-- **Maximum Dependency Chain Length**: 16
+- **Maximum Dependency Chain Length**: 24
 
 ### Longest Learning Path:
 
-1. **Bloom's Taxonomy** (ID: 73)
-2. **Remember Level** (ID: 74)
-3. **Understand Level** (ID: 75)
-4. **Apply Level** (ID: 76)
-5. **Analyze Level** (ID: 77)
-6. **Evaluate Level** (ID: 78)
-7. **Create Level** (ID: 79)
-8. **Taxonomy Pyramid** (ID: 82)
-9. **Objective Classification** (ID: 83)
-10. **MicroSim Type Selection** (ID: 84)
-11. **Other MicroSim Libraries** (ID: 203)
-12. **Mermaid** (ID: 205)
-13. **Mermaid.js Diagrams** (ID: 86)
-14. **Process Diagrams** (ID: 87)
-15. **Flowchart** (ID: 208)
-16. **Flowcharts** (ID: 88)
+1. **Interactive Simulation** (ID: 3)
+2. **MicroSim** (ID: 1)
+3. **Instrumented MicroSim** (ID: 7)
+4. **xAPI** (ID: 287)
+5. **xAPI Statement** (ID: 288)
+6. **Verb** (ID: 290)
+7. **Answered Verb** (ID: 295)
+8. **Producer Contract** (ID: 298)
+9. **Ingestion Gateway** (ID: 337)
+10. **Event Stream** (ID: 340)
+11. **Stream Processor** (ID: 341)
+12. **ClickHouse** (ID: 343)
+13. **Capacity Model** (ID: 355)
+14. **Cost Model** (ID: 356)
+15. **LRS-Lite** (ID: 361)
+16. **Serverless LRS** (ID: 362)
+17. **Browser Database** (ID: 371)
+18. **IndexedDB Storage** (ID: 372)
+19. **Event Identity** (ID: 377)
+20. **Device Sequence Number** (ID: 378)
+21. **Hybrid Logical Clock** (ID: 379)
+22. **Sync Cycle** (ID: 383)
+23. **Convergent Sync** (ID: 384)
+24. **Multi-Device Backup** (ID: 385)
+
+## Terminal Nodes Analysis
+
+Terminal nodes are concepts that nothing else depends on but have prerequisites. They represent natural endpoints of learning paths — culminating or specialized concepts.
+
+- **Total Terminal Nodes**: 143 (31.0% of all concepts)
+- **Healthy Range**: 5-40% of total concepts
+
+Concepts at the end of learning paths:
+
+- **15**: GitHub Pages
+- **34**: Preview Image
+- **43**: Learning Outcome
+- **46**: Understand Level
+- **56**: Germane Load
+- **59**: Purpose of Animation
+- **68**: Routing Ambiguity
+- **71**: Static Image Exception
+- **91**: Runnable Code Block
+- **92**: Lab Sandbox
+- **94**: Category Bucket
+- **95**: Reward Feedback
+- **96**: Builder MicroSim
+- **98**: Skill Reference Guide
+- **99**: Skill Template Asset
+- **105**: Rules File
+- **109**: Code Review of AI Output
+- **112**: Human in the Loop
+- **117**: Reproducible Generation
+- **118**: Generation Failure Mode
+
+*...and 123 more*
 
 ## Orphaned Nodes Analysis
 
-- **Total Orphaned Nodes**: 107
+Orphaned nodes are completely disconnected concepts with no inbound AND no outbound edges. These indicate a quality problem — every concept should connect to the graph.
 
-Concepts that are not prerequisites for any other concept:
+- **Total Orphaned Nodes**: 0
 
-- **2**: MicroSim Uniqueness
-- **3**: Simplicity
-- **5**: AI Driven
-- **16**: Developer Tools
-- **24**: Pixels
-- **29**: Local Variables
-- **32**: createCanvas()
-- **33**: background()
-- **36**: rect()
-- **37**: ellipse()
-- **38**: line()
-- **40**: textSize()
-- **41**: textAlign()
-- **43**: Shape Rendering
-- **47**: ChatGPT
-- **51**: Iterative Refinement
-- **53**: Code Debugging with AI
-- **55**: Context Window
-- **57**: AI Limitations
-- **66**: Draw Height
-
-*...and 87 more*
+✅ No orphaned nodes detected. All concepts are connected to the graph.
 
 ## Connected Components
 
@@ -90,33 +109,33 @@ Top 10 concepts that are prerequisites for the most other concepts:
 
 | Rank | Concept ID | Concept Label | Indegree |
 |------|-----------|---------------|----------|
-| 1 | 21 | p5.js Library | 14 |
-| 2 | 12 | JavaScript Basics | 12 |
-| 3 | 13 | HTML Fundamentals | 11 |
-| 4 | 203 | Other MicroSim Libraries | 11 |
-| 5 | 73 | Bloom's Taxonomy | 10 |
-| 6 | 84 | MicroSim Type Selection | 10 |
-| 7 | 142 | MicroSim Packaging | 10 |
-| 8 | 6 | Programming Fundamentals | 9 |
-| 9 | 27 | draw() Function | 9 |
-| 10 | 46 | Large Language Models | 8 |
+| 1 | 63 | MicroSim Type Catalog | 14 |
+| 2 | 20 | JavaScript Library | 12 |
+| 3 | 288 | xAPI Statement | 11 |
+| 4 | 303 | Evidence Class | 11 |
+| 5 | 19 | JavaScript | 10 |
+| 6 | 397 | Bayesian Knowledge Tracing | 9 |
+| 7 | 313 | LRS Runtime Script | 8 |
+| 8 | 41 | Learning Objective | 7 |
+| 9 | 60 | Interaction Pattern | 7 |
+| 10 | 1 | MicroSim | 6 |
 
 ## Outdegree Distribution
 
 | Dependencies | Number of Concepts |
 |--------------|--------------------|
-| 0 | 8 |
-| 1 | 88 |
-| 2 | 133 |
-| 3 | 9 |
-| 4 | 1 |
-| 5 | 2 |
-| 7 | 1 |
+| 0 | 6 |
+| 1 | 233 |
+| 2 | 192 |
+| 3 | 26 |
+| 4 | 4 |
+| 5 | 1 |
 
 ## Recommendations
 
-- ⚠️ **Many orphaned nodes** (107): Consider if these should be prerequisites for advanced concepts
-- ℹ️ **Long dependency chains** (16): Ensure students can follow extended learning paths
+- ✅ **Terminal node percentage** (31.0%): Within healthy range (5-40%)
+- ✅ **DAG structure verified**: Graph supports valid learning progressions
+- ℹ️ **Long dependency chains** (24): Ensure students can follow extended learning paths
 
 ---
 

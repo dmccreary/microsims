@@ -1,243 +1,463 @@
 ConceptID,ConceptLabel,Dependencies,TaxonomyID
-1,MicroSim Definition,,FOUND
-2,MicroSim Uniqueness,1,FOUND
-3,Simplicity,1,FOUND
-4,Embedding,1|13,FOUND
-5,AI Driven,1|45,FOUND
-6,Programming Fundamentals,,PROG
-7,Variables,6,PROG
-8,Control Flow,6|7,PROG
-9,Loops,6|8,PROG
-10,Functions,6|7|8,PROG
-11,Debugging Techniques,6|7|8|9|10,PROG
-12,JavaScript Basics,6|7|8|9|10,WEB
-13,HTML Fundamentals,6,WEB
-14,CSS Basics,13,WEB
-15,Web Browser,,WEB
-16,Developer Tools,15|12,WEB
-17,Text Editor,6,WEB
-18,Version Control,6,WEB
-19,Git,18,WEB
-20,GitHub,19,WEB
-21,p5.js Library,12|13,P5JS
-22,Canvas Element,21|13,P5JS
-23,Coordinate System,22,P5JS
-24,Pixels,22|23,P5JS
-25,RGB Color Model,22,P5JS
-26,setup() Function,21|10,P5JS
-27,draw() Function,21|10|26,P5JS
-28,Global Variables,7|21,P5JS
-29,Local Variables,7|10,P5JS
-30,Animation Loop,27|9,P5JS
-31,Frame Rate,30,P5JS
-32,createCanvas(),26|22,P5JS
-33,background(),27|25,P5JS
-34,fill(),27|25,P5JS
-35,stroke(),27|25,P5JS
-36,rect(),27|42,P5JS
-37,ellipse(),27|42,P5JS
-38,line(),27|42,P5JS
-39,text(),27|42,P5JS
-40,textSize(),39,P5JS
-41,textAlign(),39,P5JS
-42,Drawing Primitives,27|23,P5JS
-43,Shape Rendering,42|34|35,P5JS
-44,Color Theory,25|34|35,P5JS
-45,Generative AI,,GENAI
-46,Large Language Models,45,GENAI
-47,ChatGPT,46,GENAI
-48,Claude,46,GENAI
-49,AI Prompting,46,GENAI
-50,Prompt Engineering,49,GENAI
-51,Iterative Refinement,50|52,GENAI
-52,AI Code Generation,46|12,GENAI
-53,Code Debugging with AI,52|11,GENAI
-54,Token Limits,46,GENAI
-55,Context Window,46|54,GENAI
-56,AI Hallucinations,46,GENAI
-57,AI Limitations,46|56,GENAI
-58,Educational Simulation,1,FOUND
-59,Interactive Learning,58,FOUND
-60,Web-Based Simulation,58|13|12,FOUND
-61,MicroSim Architecture,1|60,ARCH
-62,Drawing Region,61|22,ARCH
-63,Control Region,61,ARCH
-64,Canvas Width,22|61,ARCH
-65,Canvas Height,22|61,ARCH
-66,Draw Height,62|65,ARCH
-67,Control Height,63|65,ARCH
-68,Margin Variable,61|23,ARCH
-69,Standard Layout,61|62|63,ARCH
-70,Two-Column Layout,69,ARCH
-71,Fixed Layout,69,ARCH
-72,Responsive Layout,69|123,ARCH
-73,Bloom's Taxonomy,,BLOOM
-74,Remember Level,73,BLOOM
-75,Understand Level,73|74,BLOOM
-76,Apply Level,73|75,BLOOM
-77,Analyze Level,73|76,BLOOM
-78,Evaluate Level,73|77,BLOOM
-79,Create Level,73|78,BLOOM
-80,Learning Objectives,73,BLOOM
-81,Cognitive Levels,73|80,BLOOM
-82,Taxonomy Pyramid,73|74|75|76|77|78|79,BLOOM
-83,Objective Classification,80|82,BLOOM
-84,MicroSim Type Selection,83|1,BLOOM
-85,p5.js MicroSim,21|84,TYPES
-86,Mermaid.js Diagrams,84|205,TYPES
-87,Process Diagrams,86,TYPES
-88,Flowcharts,86|208,TYPES
-89,Chart.js Library,84|211,TYPES
-90,Bar Charts,89|213,TYPES
-91,Pie Charts,89|212,TYPES
-92,Line Charts,89|214,TYPES
-93,Timeline Visualization,84|227,TYPES
-94,Geographic Maps,84|224,TYPES
-95,Leaflet.js,94|225,TYPES
-96,Network Graphs,84|218,TYPES
-97,vis-network Library,96|218,TYPES
-98,Causal Loop Diagrams,96,TYPES
-99,Equation Graphing,84|21,TYPES
-100,Specialized MicroSims,84|203,TYPES
-101,3D Visualization,100,TYPES
-102,Circuit Simulation,100,TYPES
-103,Slider Control,63|21,UI
-104,Button Control,63|21,UI
-105,Start Button,104|119,UI
-106,Stop Button,104|119,UI
-107,Pause Button,104|119,UI
-108,Reset Button,104,UI
-109,createSlider(),103|26,UI
-110,createButton(),104|26,UI
-111,Input Handling,103|104,UI
-112,Mouse Events,21|111,UI
-113,mousePressed(),112,UI
-114,mouseDragged(),112,UI
-115,Keyboard Events,21|111,UI
-116,keyPressed(),115,UI
-117,Event Handlers,112|115,UI
-118,User Interaction,111|117,UI
-119,isRunning State,28|30,UI
-120,Animation Control,119|105|106|107,UI
-121,Speed Control,103|31,UI
-122,Parameter Adjustment,103|118,UI
-123,windowResized(),21|10,RESP
-124,updateCanvasSize(),123|64|65,RESP
-125,Container Width,124,RESP
-126,Relative Positioning,23|125,RESP
-127,Responsive Width,72|125,RESP
-128,Dynamic Scaling,127|126,RESP
-129,push() Function,21|23,RESP
-130,pop() Function,129,RESP
-131,translate() Function,23|129,RESP
-132,Element Grouping,129|130|131,RESP
-133,Coordinate Translation,131|23,RESP
-134,Dublin Core Metadata,,META
-135,Metadata Standards,134,META
-136,Title Metadata,135,META
-137,Creator Metadata,135,META
-138,Subject Metadata,135,META
-139,Description Metadata,135,META
-140,JSON Schema,135|12,META
-141,YAML Frontmatter,135|13,META
-142,MicroSim Packaging,61|135,META
-143,index.md File,142|141,META
-144,main.html File,142|13,META
-145,style.css File,142|14,META
-146,script.js File,142|12,META
-147,data.json File,142|140,META
-148,metadata.json File,142|140,META
-149,Quality Score,142|150,META
-150,100-Point Rubric,142,META
-151,MicroSim Validation,149|150,META
-152,Cognitive Load Theory,,PED
-153,Extraneous Load,152,PED
-154,Intrinsic Load,152,PED
-155,Germane Load,152,PED
-156,Universal Design Learning,152,PED
-157,Multiple Representations,156,PED
-158,Scaffolding Strategies,152|59,PED
-159,Guided Exploration,158,PED
-160,Open Exploration,158,PED
-161,PRIMM Methodology,59,PED
-162,Predict Phase,161,PED
-163,Run Phase,161|162,PED
-164,Investigate Phase,161|163,PED
-165,Modify Phase,161|164,PED
-166,Make Phase,161|165,PED
-167,Formative Assessment,59|80,PED
-168,Quiz Mode,167|85,PED
-169,Flash Card MicroSim,74|85,PED
-170,Sorter MicroSim,74|85,PED
-171,Model Editor,79|85,PED
-172,describe() Function,21|173,ACCESS
-173,Screen Reader Support,177,ACCESS
-174,Color Contrast,44|177,ACCESS
-175,Keyboard Navigation,115|177,ACCESS
-176,WCAG Guidelines,177,ACCESS
-177,Accessible Design,156,ACCESS
-178,Rules Files,50|180,GENAI
-179,Skills Development,178,GENAI
-180,Claude Code,48,GENAI
-181,p5.js Editor Preview,21|183,PROF
-182,mkdocs serve,13|183,PROF
-183,Live Preview,17,PROF
-184,iframe Integration,4|13,PROF
-185,MkDocs Embedding,184|182,PROF
-186,HTML Slide Embedding,184|13,PROF
-187,iframe Styling,184|14,PROF
-188,Minimal Borders,187,PROF
-189,Creative Commons,,PROF
-190,Attribution License,189,PROF
-191,CC BY-NC-SA,190,PROF
-192,Fullscreen Icon,184|187,PROF
-193,Copyright Icon,189|184,PROF
-194,Collaboration Workflow,20,PROF
-195,Peer Review,194,PROF
-196,User Testing,59|197,PROF
-197,Usability Studies,59,PROF
-198,Educational Equity,156,ACCESS
-199,Low-Bandwidth Design,198|72,ACCESS
-200,Older Device Support,198|72,ACCESS
-201,Social Image Preview,142|202,META
-202,Open Graph Tags,13|135,META
-203,Other MicroSim Libraries,84,TYPES
-204,General vs. Specialized,203,TYPES
-205,Mermaid,203|206,TYPES
-206,Declarative Layout,12,TYPES
-207,Infographics,203,TYPES
-208,Flowchart,205|87,TYPES
-209,Workflow,205|87,TYPES
-210,ToolTips,118|39,TYPES
-211,ChartJS,203|12,TYPES
-212,Chart Types,211,TYPES
-213,Bar Chart,212,TYPES
-214,Line Chart,212,TYPES
-215,Bubble Chart,212,TYPES
-216,Other Chart Types,212,TYPES
-217,Data Type to Chart Types,212,TYPES
-218,Vis-network JS Library,203|12,TYPES
-219,Graph Layout Algorithms,218,TYPES
-220,History of GraphViz,219,TYPES
-221,Forced Directed Layout,219,TYPES
-222,Graph Node Coloring,218|44,TYPES
-223,Org Chart Example,218,TYPES
-224,Maps,203,TYPES
-225,Leaflet JS Library,224|12,TYPES
-226,OpenMaps Data,224,TYPES
-227,Timelines,203,TYPES
-228,Event Lists,227,TYPES
-229,Durations,227,TYPES
-230,Sequence Diagrams,205|227,TYPES
-231,Heavyweight Libraries,203,TYPES
-232,ReactFlow,231|12,TYPES
-233,ER Diagram Example,205|218,TYPES
-234,Vis-Timeline,227|12,TYPES
-235,Venn Diagrams,203,TYPES
-236,Portfolio Development,142|237,PROF
-237,Diversity of MicroSims,84|203,PROF
-238,Learning Graph,239,PROF
-239,Concept Dependencies,73|80,PROF
-240,Capstone Project,236|79|151,PROF
-241,Project Evaluation,240|150,PROF
-242,Working in Teams,194|195,PROF
+1,MicroSim,3|4,FOUND
+2,Intelligent Textbook,1,FOUND
+3,Interactive Simulation,,FOUND
+4,Learning Object,,FOUND
+5,MicroSims 1.0,1,FOUND
+6,MicroSims 2.0,5|9,FOUND
+7,Instrumented MicroSim,1,FOUND
+8,Showcase MicroSim,1,FOUND
+9,Generative AI,,FOUND
+10,Large Language Model,9,FOUND
+11,AI Skill,10,FOUND
+12,AI Agent,10,FOUND
+13,Prompt,10,FOUND
+14,MkDocs,,FOUND
+15,GitHub Pages,16,FOUND
+16,Git Version Control,,FOUND
+17,HTML5,,FOUND
+18,CSS,17,FOUND
+19,JavaScript,17,FOUND
+20,JavaScript Library,19,FOUND
+21,CDN,20,FOUND
+22,iframe Embedding,17,FOUND
+23,Open Educational Resource,4,FOUND
+24,Creative Commons License,23,FOUND
+25,MicroSim Directory,1|14,FOUND
+26,main.html,25|22,FOUND
+27,MicroSim JavaScript File,25|19,FOUND
+28,index.md Documentation Page,25|14,FOUND
+29,metadata.json,25,FOUND
+30,Draw Region,27,FOUND
+31,Control Region,27,FOUND
+32,Canvas Height Constant,30|31,FOUND
+33,Page Front Matter,28,FOUND
+34,Preview Image,28,FOUND
+35,Pinned Library Version,21|20,FOUND
+36,MicroSim Template,25|26|27|28|29,FOUND
+37,Course Description,14|2,OBJ
+38,Concept,4,OBJ
+39,Learning Graph,38|37,OBJ
+40,Concept Dependency,38,OBJ
+41,Learning Objective,38,OBJ
+42,Measurable Objective,41,OBJ
+43,Learning Outcome,41,OBJ
+44,Bloom's Taxonomy,41,OBJ
+45,Remember Level,44,OBJ
+46,Understand Level,44,OBJ
+47,Apply Level,44,OBJ
+48,Analyze Level,47,OBJ
+49,Evaluate Level,48,OBJ
+50,Create Level,49,OBJ
+51,Bloom Verb,44|42,OBJ
+52,Objective Classification,44|41|51,OBJ
+53,Cognitive Load Theory,4,OBJ
+54,Intrinsic Load,53,OBJ
+55,Extraneous Load,53,OBJ
+56,Germane Load,53,OBJ
+57,Instructional Design Checkpoint,52|53,OBJ
+58,Predict-First Design,57,OBJ
+59,Purpose of Animation,57|55,OBJ
+60,Interaction Pattern,52|3,OBJ
+61,Scaffolding,54,OBJ
+62,Formative Assessment,41,OBJ
+63,MicroSim Type Catalog,1|60,TYPE
+64,Type Routing,63|52,TYPE
+65,Routing Rubric,64,TYPE
+66,Keyword Routing,64,TYPE
+67,Routing Score,65,TYPE
+68,Routing Ambiguity,67|66,TYPE
+69,Objective-to-Type Mapping,64|57|51,TYPE
+70,Interactive-by-Default Policy,60|69,TYPE
+71,Static Image Exception,70,TYPE
+72,Reuse Versus Build Decision,63,TYPE
+73,p5.js Type,63|20,TYPE
+74,Chart.js Type,63|20,TYPE
+75,Plotly Type,63|20,TYPE
+76,Mermaid Type,63|20,TYPE
+77,vis-network Type,63|20,TYPE
+78,vis-timeline Type,63|20,TYPE
+79,Leaflet Map Type,63|20,TYPE
+80,Venn Diagram Type,63,TYPE
+81,Causal Loop Diagram Type,77,TYPE
+82,Comparison Table Type,63,TYPE
+83,Image Overlay Type,63,TYPE
+84,Grid Overlay Poster Type,83,TYPE
+85,Verified Poster Type,84,TYPE
+86,Docker Python Lab Type,63,TYPE
+87,Concept Classifier Type,63|45,TYPE
+88,Celebration Effect Type,73,TYPE
+89,Flash Card MicroSim,45|60,TYPE
+90,Model Editor MicroSim,50|60,TYPE
+91,Runnable Code Block,86,TYPE
+92,Lab Sandbox,86,TYPE
+93,Sorting Quiz,87,TYPE
+94,Category Bucket,93,TYPE
+95,Reward Feedback,89|88,TYPE
+96,Builder MicroSim,90,TYPE
+97,MicroSim Generator Skill,11|64,GEN
+98,Skill Reference Guide,97,GEN
+99,Skill Template Asset,97|36,GEN
+100,Specification Block,41|97,GEN
+101,Diagram Specification,100,GEN
+102,Drawing Specification,100,GEN
+103,Prompt Design,13,GEN
+104,System Prompt,103,GEN
+105,Rules File,104,GEN
+106,Iterative Refinement,103,GEN
+107,Claude Code,12,GEN
+108,Debugging AI Code,106|19,GEN
+109,Code Review of AI Output,106,GEN
+110,Skill Invocation,11|107,GEN
+111,Agent Workflow,12|110,GEN
+112,Human in the Loop,111,GEN
+113,Generation Log,111,GEN
+114,Hallucinated API,10|20,GEN
+115,Library Version Drift,35|114,GEN
+116,p5.js 2.x Migration,115|73,GEN
+117,Reproducible Generation,113|110,GEN
+118,Generation Failure Mode,108|114,GEN
+119,Token Cost,10,GEN
+120,p5.js Web Editor,73,GEN
+121,p5.js Sketch,73|19,P5
+122,setup() Function,121,P5
+123,draw() Function,121,P5
+124,Global Variables,121,P5
+125,Canvas Creation,122|30,P5
+126,Coordinate System,125,P5
+127,Shape Drawing,123|126,P5
+128,Color Model,127,P5
+129,Animation Loop,123,P5
+130,Frame Rate,129,P5
+131,Vectors,126|124,P5
+132,Physics Simulation,131|129,P5
+133,Collision Detection,132,P5
+134,Particle System,132|131,P5
+135,Slider Control,122|31,P5
+136,Button Control,122|31,P5
+137,Mouse Events,123,P5
+138,Keyboard Events,123,P5
+139,Text Rendering,127,P5
+140,Async Setup,122|116,P5
+141,Flowing Current Animation,129|127|8,P5
+142,Pause-When-Idle Animation,129|137,P5
+143,Chart.js Library,74,CHRT
+144,Chart Configuration,143,CHRT
+145,Chart Dataset,143,CHRT
+146,Bar Chart,144|145,CHRT
+147,Line Chart,144|145,CHRT
+148,Pie Chart,144|145,CHRT
+149,Scatter Plot,145,CHRT
+150,Bubble Chart,149,CHRT
+151,Priority Matrix,150,CHRT
+152,Chart Tooltip,144,CHRT
+153,Plotly Library,75,CHRT
+154,Function Plot,153,CHRT
+155,Slider-Driven Plot,154|135,CHRT
+156,Data Table,17,CHRT
+157,Comparison Table,156|82,CHRT
+158,Star Rating Table,157,CHRT
+159,Clickable Table Detail Panel,156,CHRT
+160,Chart Color Palette,144|18,CHRT
+161,Data Source Citation,145,CHRT
+162,Infographic,145|83,CHRT
+163,Mermaid Library,76,DIAG
+164,Flowchart,163,DIAG
+165,Sequence Diagram,163,DIAG
+166,Mermaid Syntax Rules,163,DIAG
+167,Mermaid Hover Text,166,DIAG
+168,vis-network Library,77,DIAG
+169,Node and Edge Data,168|40,DIAG
+170,Network Layout,168,DIAG
+171,Concept Map,169|38,DIAG
+172,Graph Viewer,39|169|170,DIAG
+173,Node Selection Event,168|19,DIAG
+174,Venn Diagram,80,DIAG
+175,Causal Loop Diagram,81|169,DIAG
+176,Reinforcing Loop,175,DIAG
+177,Balancing Loop,175,DIAG
+178,Feedback Loop,176|177,DIAG
+179,System Dynamics,178,DIAG
+180,Polarity Link,175,DIAG
+181,Diagram Readability,170|55,DIAG
+182,vis-timeline Library,78,DIAG
+183,Timeline Event Item,182,DIAG
+184,Timeline Grouping,183,DIAG
+185,Timeline Date Handling,183,DIAG
+186,Leaflet Library,79,DIAG
+187,Map Marker,186,DIAG
+188,Map Popup,187,DIAG
+189,Map Tile Source,186,DIAG
+190,Choropleth Map,186|192,DIAG
+191,Scroll Zoom Hijacking,186,DIAG
+192,Geographic Data Source,187,DIAG
+193,Image Overlay,83,OVL
+194,Callout Label,193,OVL
+195,Hover Zone,193|137,OVL
+196,Point-Marker Overlay,194|195,OVL
+197,Overlay Data File,193,OVL
+198,Overlay Image Prompt,193|103,OVL
+199,Text-Free Image Rule,198,OVL
+200,Overlay Height Pinning,193|224,OVL
+201,Grid Overlay,84|193,OVL
+202,Comparison Poster,201|82,OVL
+203,Poster Column Zone,202,OVL
+204,Percentage Rectangle Zone,203,OVL
+205,Explore Mode,201,OVL
+206,Quiz Mode,201|62,OVL
+207,Zone Summary and Facts,203|197,OVL
+208,Edit Mode Alignment,204,OVL
+209,Verbatim Text Prompt,198|202,OVL
+210,Image Model Generation,209,OVL
+211,Poster Folder Convention,202,OVL
+212,Shared Overlay Library,201|211,OVL
+213,Fact-Verified Poster,85|202,OVL
+214,Claim Plan,213,OVL
+215,Source Discovery,214,OVL
+216,Claim Verification,215,OVL
+217,Verification Report,216,OVL
+218,Render Audit,217|210,OVL
+219,Poster Quiz Question,206|207,OVL
+220,Poster Instrumentation,205|206|305|308,OVL
+221,Width Responsiveness,30|18,QA
+222,Container Width Detection,221|19,QA
+223,windowResized Handler,222|121,QA
+224,Iframe Height,22|32,QA
+225,CANVAS_HEIGHT Comment,32|27,QA
+226,Height Resolution Order,225|29,QA
+227,Iframe Auto-Height Protocol,224,QA
+228,postMessage Resize,227|19,QA
+229,Height Sync Tool,226|224,QA
+230,Relative Iframe Path,22,QA
+231,Mobile Layout,221,QA
+232,Control Wrapping,31|231,QA
+233,Text Overflow,221,QA
+234,Fullscreen Mode,22,QA
+235,Quality Score,236,QA
+236,100-Point Rubric,26|29|28,QA
+237,Quality Grade,235,QA
+238,Validation Script,235,QA
+239,Playwright,240,QA
+240,Headless Browser,19,QA
+241,Screenshot Capture,240,QA
+242,Layout Review,241|244,QA
+243,Vision-Based Review,242|10,QA
+244,Visual Checklist,245,QA
+245,Layout Defect,221,QA
+246,Clipped Content,245|233,QA
+247,Hidden Control,245|31,QA
+248,Control Visibility Test,239|247,QA
+249,Iframe Height Test,239|224,QA
+250,Fix Cycle Limit,243,QA
+251,Smallest Patch Rule,243|250,QA
+252,Cross-Browser Check,240,QA
+253,Accessibility Check,436|254,QA
+254,Color Contrast,18,QA
+255,Quality Gate,237|238|249|248,QA
+256,Standards Hardening,255|230|191,QA
+257,Batch Generation,97|100,BATCH
+258,Spec Extraction,257|101|102,BATCH
+259,Specification JSON,258,BATCH
+260,Scaffold Generation,259|36,BATCH
+261,Status Lifecycle,257,BATCH
+262,Sim Status File,261|259,BATCH
+263,Resumable Pipeline,262,BATCH
+264,Parallel Workers,111|257,BATCH
+265,Coordinator Pattern,264,BATCH
+266,Chapter Diagram Coverage,258|101,BATCH
+267,Navigation Update,14|260,BATCH
+268,Iframe Insertion,224|260,BATCH
+269,Nav Status Icon,267|261|33,BATCH
+270,Generation Cost,119|257,BATCH
+271,Dublin Core Metadata,29,BATCH
+272,Educational Metadata,271|41|44,BATCH
+273,Technical Metadata,271|20,BATCH
+274,Search Metadata,271,BATCH
+275,Metadata Schema,271|272|273|274,BATCH
+276,Faceted Search,274,BATCH
+277,Search Index,276|275,BATCH
+278,Cross-Book Index,277,BATCH
+279,Reuse Before Build,277|72,BATCH
+280,Similarity Search,277,BATCH
+281,Adapt Existing MicroSim,279|280,BATCH
+282,Provenance Record,281|16,BATCH
+283,Concept Link Metadata,275|38|39,BATCH
+284,Version Metadata,275,BATCH
+285,Licensing Metadata,275|24,BATCH
+286,MicroSim Submission Guidelines,255|275|285,BATCH
+287,xAPI,7,XAPI
+288,xAPI Statement,287,XAPI
+289,Actor,288,XAPI
+290,Verb,288,XAPI
+291,Object,288,XAPI
+292,Result,288,XAPI
+293,Context,288,XAPI
+294,Activity IRI,291,XAPI
+295,Answered Verb,290,XAPI
+296,Experienced Verb,290,XAPI
+297,Interacted Verb,290,XAPI
+298,Producer Contract,288|295|296|297,XAPI
+299,Canonical Site URL,294|14,XAPI
+300,Sub-Activity Fragment,294,XAPI
+301,Concept ID Extension,293|283,XAPI
+302,Result Extensions,292|297,XAPI
+303,Evidence Class,298|60,XAPI
+304,Continuous Parameter Evidence,303|135,XAPI
+305,Discrete Inspection Evidence,303|195,XAPI
+306,Run and Pause Evidence,303|136,XAPI
+307,Page Dwell Evidence,303,XAPI
+308,Assessment Evidence,303|295|62,XAPI
+309,Focus Loss Handling,303,XAPI
+310,Non-Evidence Threshold,303,XAPI
+311,Hover Threshold,310|195,XAPI
+312,Misclick Threshold,310,XAPI
+313,LRS Runtime Script,298|19,XAPI
+314,LRS Config File,313|299,XAPI
+315,Library Adapter,313|20,XAPI
+316,Slider Handle,313|304,XAPI
+317,Item Handle,313|305,XAPI
+318,Button Handle,313|306,XAPI
+319,Question Handle,313|308,XAPI
+320,Guarded Call,313,XAPI
+321,Concept Mapping,301|39|283,XAPI
+322,Teaching Mode,314,XAPI
+323,Policy Precedence,314|29,XAPI
+324,Instrumented Status,269|315,XAPI
+325,Statement Log Viewer,322,XAPI
+326,xAPI Quality Check,239|298|315,XAPI
+327,Learning Record Store,288,LRS
+328,LRS Architecture,327,LRS
+329,System Context,328,LRS
+330,Multi-Tenancy,328,LRS
+331,District Tenant,330,LRS
+332,Roster and Identity,331|289,LRS
+333,Pseudonymous Learner ID,332|439,LRS
+334,Per-District Salt,333,LRS
+335,Property Graph Data Model,328|39,LRS
+336,Summary Vertex,335,LRS
+337,Ingestion Gateway,328|298,LRS
+338,Statement Validation,337|298,LRS
+339,All-or-Nothing Batch,338,LRS
+340,Event Stream,337,LRS
+341,Stream Processor,340,LRS
+342,Redpanda,340,LRS
+343,ClickHouse,341,LRS
+344,Neo4j Graph Database,335,LRS
+345,Twelve Core Functions,328,LRS
+346,Idempotent Ingest,339|341,LRS
+347,Partition by Learner,340|333,LRS
+348,Teacher Dashboard,343|407,LRS
+349,Author Dashboard,353,LRS
+350,Admin Interface,331|332,LRS
+351,Class Mastery Heatmap,348,LRS
+352,At-Risk Roster,348|402,LRS
+353,Content Insights,343|336,LRS
+354,A/B Experiment,353,LRS
+355,Capacity Model,340|343,LRS
+356,Cost Model,355,LRS
+357,Container Deployment,328,LRS
+358,Failure Modes,357|346,LRS
+359,Compliance Reporting,439|350,LRS
+360,Suppression Threshold,439|351,LRS
+361,LRS-Lite,327|356,LITE
+362,Serverless LRS,361,LITE
+363,Statement Volume Estimate,361|355,LITE
+364,Statement Size Measurement,288|363,LITE
+365,Session Summary Statement,296|370,LITE
+366,Compact Mode,365|323,LITE
+367,Full Mode,298|323,LITE
+368,Loss of Focus Event,309,LITE
+369,Answers Never Folded,366|403,LITE
+370,Producer-Side Summarization,361|364|303,LITE
+371,Browser Database,362|19,LITE
+372,IndexedDB Storage,371,LITE
+373,10 MB Budget,372|364,LITE
+374,Storage Meter,373,LITE
+375,Quota and Eviction,372,LITE
+376,Persistent Storage Request,375,LITE
+377,Event Identity,288|372,LITE
+378,Device Sequence Number,377,LITE
+379,Hybrid Logical Clock,378,LITE
+380,Local Summary Vertex,336|365|372,LITE
+381,Evidence List,380|303,LITE
+382,Object Storage Sync,362|377,LITE
+383,Sync Cycle,382|379,LITE
+384,Convergent Sync,383,LITE
+385,Multi-Device Backup,384,LITE
+386,Browser-Side Dashboard,380|397,LITE
+387,Full Versus Lite Decision,356|361|419,LITE
+388,Lite to Full Migration,387|338,LITE
+389,Concept Mastery,42|38,MAST
+390,Mastery Prediction,389|392,MAST
+391,Predictive Fidelity,390,MAST
+392,Evidence Stream,303|288,MAST
+393,Signal Versus Noise,392|310,MAST
+394,Diagnostic Value,393|60,MAST
+395,Guessing,308,MAST
+396,Slipping,308,MAST
+397,Bayesian Knowledge Tracing,390|403,MAST
+398,BKT Initial Knowledge,397,MAST
+399,BKT Learning Rate,397,MAST
+400,BKT Guess Parameter,397|395,MAST
+401,BKT Slip Parameter,397|396,MAST
+402,Mastery Threshold,397,MAST
+403,Attempt Order,308|295,MAST
+404,Soft Correctness Mapping,397|304,MAST
+405,Item Response Theory,395|390,MAST
+406,Deep Knowledge Tracing,397,MAST
+407,Per-Concept Mastery,397|321,MAST
+408,Prerequisite Propagation,407|40,MAST
+409,Held-Out Assessment,62|42,MAST
+410,Prediction Accuracy,409|390,MAST
+411,Correlation With Assessment,410,MAST
+412,Calibration,410,MAST
+413,Discrimination,410,MAST
+414,AUC,413,MAST
+415,Brier Score,412,MAST
+416,Stability Across Sessions,410|392,MAST
+417,Sample Size Requirement,410,MAST
+418,Confounding Factors,410,MAST
+419,Compact Versus Full Fidelity,391|366|367,MAST
+420,Information Loss,366,MAST
+421,Fidelity-Driven Instrumentation,391|394|303,MAST
+422,Interaction Diagnosticity,394|60,MAST
+423,Transfer Item,409|389,MAST
+424,Evaluation Protocol,409|412|413,MAST
+425,Threats to Validity,424|418|417,MAST
+426,Measured Versus Designed Claims,425,MAST
+427,Reporting Prediction Quality,424|426,MAST
+428,Concept Coverage Gap,39|392,MAST
+429,Universal Design for Learning,4,PED
+430,PRIMM Method,61|58,PED
+431,Semantic Waves,53,PED
+432,Active Learning,3,PED
+433,Simulation Effectiveness Studies,432,PED
+434,Engagement Versus Learning,433,PED
+435,Accessibility Standards,429,PED
+436,Keyboard Operability,435|138,PED
+437,Low-Bandwidth Design,438,PED
+438,Equity Considerations,429,PED
+439,Student Privacy,288,PED
+440,PII Surface,439|302,PED
+441,Aggregate-Only Data Policy,439|440,PED
+442,Data Minimization,440,PED
+443,Ethical Use of Predictions,390|439,PED
+444,Bias in Prediction,443|438,PED
+445,Usability Testing,3,PED
+446,Peer Review,445,PED
+447,Capstone Portfolio,255|257|321,PED
+448,Portfolio Fidelity Report,447|427,PED
+449,Near-Term Roadmap,6|426,PED
+450,Verified Adapters,449|315,PED
+451,End-to-End POST Path,449|337|313,PED
+452,Closed-Loop Generation,449|243|257,PED
+453,Automated Layout Repair,452|251,PED
+454,Shared Sim Libraries,449|278,PED
+455,Long-Term Vision,449|390,PED
+456,Diagnostic Interaction Design,455|421,PED
+457,Adaptive Difficulty,455|407,PED
+458,Guess-Resistant Probes,456|395,PED
+459,Fun and Engagement,455|434,PED
+460,Learning From Aggregate Data,455|441|353,PED
+461,Trustworthy Prediction,455|443|427,PED
+462,Open Research Problems,461|444,PED
