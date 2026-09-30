@@ -485,7 +485,8 @@ It is easy to read a detailed design and assume a running system. This section c
 | Topic bootstrap, ClickHouse DDL, Neo4j constraint file | Built as files; applying the DDL and constraints is manual |
 | Demo seeder for districts and learners | Built; writes summary vertices directly and marks them seeded |
 | Processor, identity service, summarizer, reconciler | Designed, not built |
-| Analytics API and dashboards | Designed, not built |
+| Analytics API | Designed, not built |
+| Dashboards | Prototype Dash apps over a seeded graph with synthetic data; production dashboards designed, not built |
 | Emitters POSTing statements to the gateway | Not built |
 
 That last row deserves a plain statement. The shared runtime from Chapter 17 has a transport seam and no network call by design, so no MicroSim currently sends a statement to any store, and the TODO file records that, when last inspected, the statement table in the development database held zero rows. It also warns that older notes reading "verified against live ClickHouse" meant that a person copied an emitted statement shape into a manual insert to test the DDL, which tests the schema and not the path from producer to store. The hoped-for part is the reason to build the chain at all: the hypothesis from Chapter 18 that these statements carry enough signal to predict mastery. That is untested. The scale targets, storage sizes and compression ratios are estimates from the design. Only the gateway's behavior has been measured, and only against a local development stack.
