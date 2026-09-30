@@ -116,6 +116,10 @@ Before you look at the first specification below, note the terms it uses. A *sli
 
 #### Diagram: Bouncing Ball Gravity Lab
 
+<iframe src="../../sims/bouncing-ball-gravity-lab/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the Bouncing Ball Gravity Lab MicroSim Fullscreen](../../sims/bouncing-ball-gravity-lab/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>Bouncing Ball Gravity Lab</summary>
 Type: microsim
@@ -175,6 +179,10 @@ The following diagram lets you explore how the four kinds of object we have disc
 
 #### Diagram: MicroSim Family Tree
 
+<iframe src="../../sims/microsim-family-tree/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+[Run the MicroSim Family Tree MicroSim Fullscreen](../../sims/microsim-family-tree/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>MicroSim Family Tree</summary>
 Type: diagram
@@ -226,6 +234,10 @@ The timeline below places these milestones in order. Each item opens a short des
 
 #### Diagram: MicroSims Milestones Timeline
 
+<iframe src="../../sims/microsims-milestones-timeline/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+[Run the MicroSims Milestones Timeline MicroSim Fullscreen](../../sims/microsims-milestones-timeline/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>MicroSims Milestones Timeline</summary>
 Type: timeline
@@ -235,7 +247,7 @@ Type: timeline
 
 Learning objective (Bloom level: Remember; verb: identify): The learner will identify the major milestones between MicroSims 1.0 and MicroSims 2.0 and order them in time.
 
-Data: point events with these dates and labels, taken from the project history: 2023-11-21 "First commit of MicroSims 1.0"; 2025-10 "First arXiv-style paper draft (v0.02)"; 2025-11 "Paper draft v0.06"; 2026-09-26 "Skill for adding xAPI events to a MicroSim (v0.2)"; 2026-09-29 "H-Bridge showcase MicroSim created"; 2026-09-30 "Tag v1.0 marks the original book; the rewrite begins".
+Data: point events with these dates and labels, taken from the project history: 2023-11-04 "MicroSim Term Coined" (link: https://dmccreary.medium.com/micro-simulations-for-education-6989eae8d85d); 2023-11-21 "First commit of MicroSims 1.0"; 2024-12-03 "First commit of the intelligent-textbooks project"; 2025-02-24 "Anthropic introduces Claude Code"; 2025-03-17 "First use of Claude Code"; 2025-10 "First arXiv-style paper draft (v0.02)"; 2025-10-16 "Anthropic introduces Agent Skills"; 2025-11 "Paper draft v0.06"; 2025-12-10 "First MicroSim generator skill"; 2026-09-26 "Skill for adding xAPI events to a MicroSim (v0.2)"; 2026-09-30 "Tag v1.0 marks the original book; the rewrite begins".
 
 Interactions: clicking an event opens a panel with a two-sentence description. A mouse wheel zooms the time axis, and dragging pans it. A "Group by" toggle switches between grouping by theme (book, paper, tools) and a single track.
 
@@ -323,6 +335,10 @@ An **AI agent** is a program built around a language model that can take actions
 With prompt, model, skill, and agent defined, the next diagram brings them together. Click each box to see what it contributes.
 
 #### Diagram: AI Generation Pipeline
+
+<iframe src="../../sims/ai-generation-pipeline/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+[Run the AI Generation Pipeline MicroSim Fullscreen](../../sims/ai-generation-pipeline/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>AI Generation Pipeline</summary>
@@ -491,6 +507,10 @@ The diagram below shows the technology stack from the bottom to the top. Click a
 
 #### Diagram: MicroSim Technology Stack
 
+<iframe src="../../sims/microsim-technology-stack/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+[Run the MicroSim Technology Stack MicroSim Fullscreen](../../sims/microsim-technology-stack/main.html){ .md-button .md-button--primary }
+
 <details markdown="1">
 <summary>MicroSim Technology Stack</summary>
 Type: infographic
@@ -538,7 +558,7 @@ Set **gravity** and predict the result.
 - Move the slider
 - Press Drop Again
 
-<iframe src="../../sims/bouncing-ball-gravity-lab/main.html" width="100%" height="452"></iframe>
+<iframe src="../../sims/bouncing-ball-gravity-lab/main.html" width="100%" height="502px"></iframe>
 ```
 
 A **worked example** follows a chapter through MkDocs. You write `index.md` in a chapter folder. MkDocs converts its Markdown to HTML, applies the theme, adds it to the navigation menu, and builds a search index. The MicroSim iframe in the page then loads `main.html` from the MicroSim's own folder. You wrote text, and MkDocs produced a website.
@@ -546,6 +566,10 @@ A **worked example** follows a chapter through MkDocs. You write `index.md` in a
 The next diagram traces the whole path from an author's files to a learner's browser.
 
 #### Diagram: From Author to Learner
+
+<iframe src="../../sims/author-to-learner-workflow/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+[Run the From Author to Learner MicroSim Fullscreen](../../sims/author-to-learner-workflow/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>From Author to Learner</summary>
@@ -613,6 +637,10 @@ We should also be candid about where the field stands. The runtime that produces
 Now test your grasp of the four kinds of object in this chapter with the classifier below.
 
 #### Diagram: Which Kind of Object Is It?
+
+<iframe src="../../sims/which-kind-of-object-classifier/main.html" width="100%" height="492px" scrolling="no"></iframe>
+
+[Run the Which Kind of Object Is It? MicroSim Fullscreen](../../sims/which-kind-of-object-classifier/main.html){ .md-button .md-button--primary }
 
 <details markdown="1">
 <summary>Which Kind of Object Is It?</summary>

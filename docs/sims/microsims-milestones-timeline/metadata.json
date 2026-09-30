@@ -1,0 +1,139 @@
+{
+  "title": "MicroSims Milestones Timeline",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Project History",
+    "MicroSims 1.0",
+    "MicroSims 2.0"
+  ],
+  "description": "A vis-timeline MicroSim showing eleven milestones from the first MicroSims 1.0 commit (2023) to the start of the MicroSims 2.0 rewrite (2026), with click-to-read descriptions, zoom and pan, and grouping by book, paper, tools and Anthropic announcements.",
+  "date": "2026-09-30",
+  "type": "Interactive Timeline",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/microsims-milestones-timeline/",
+  "canvasHeight": 580,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "History of the MicroSims project",
+    "learningObjectives": [
+      "The learner will identify the major milestones between MicroSims 1.0 and MicroSims 2.0 and order them in time."
+    ],
+    "bloomsTaxonomy": "Remember",
+    "bloomVerb": "identify",
+    "duration": "10 minutes",
+    "prerequisites": [
+      "MicroSims 1.0 and MicroSims 2.0 section of Chapter 1"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-timeline",
+    "version": "7.7.3",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 580
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-timeline 7.7.3 standalone UMD (jsDelivr CDN)",
+      "vis-timeline 7.7.3 CSS"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Details panel is an aria-live region; buttons and the Group by select are native HTML controls; colors are paired with group labels and a legend"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "group-select",
+        "type": "select",
+        "label": "Group by",
+        "options": [
+          "Theme",
+          "Single track"
+        ],
+        "default": "Theme"
+      },
+      {
+        "id": "pan-left",
+        "type": "button",
+        "label": "Earlier",
+        "purpose": "Pan 30% toward earlier dates"
+      },
+      {
+        "id": "zoom-in",
+        "type": "button",
+        "label": "+ Zoom",
+        "purpose": "Zoom in around the selected milestone"
+      },
+      {
+        "id": "zoom-out",
+        "type": "button",
+        "label": "- Zoom",
+        "purpose": "Zoom out"
+      },
+      {
+        "id": "fit-all",
+        "type": "button",
+        "label": "Fit all",
+        "purpose": "Show every milestone"
+      },
+      {
+        "id": "pan-right",
+        "type": "button",
+        "label": "Later",
+        "purpose": "Pan 30% toward later dates"
+      },
+      {
+        "id": "timeline-items",
+        "type": "clickable items",
+        "label": "Milestones",
+        "purpose": "Show a two-sentence description"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Chronological sequencing with retrieval practice",
+    "interactionPattern": "Timeline explorer with click-to-read details",
+    "keyQuestions": [
+      "Which milestone started MicroSims 1.0?",
+      "Which two milestones happened in the last week of September 2026?",
+      "Which milestone introduced xAPI instrumentation?"
+    ],
+    "commonMisconceptions": [
+      "The paper drafts came after the rewrite began",
+      "Evenly spaced events on a list are evenly spaced in time"
+    ],
+    "assessmentOpportunities": [
+      "Ordering the eleven milestones from memory",
+      "Naming the dates of the September 2026 cluster"
+    ]
+  },
+  "search": {
+    "tags": [
+      "timeline",
+      "project history",
+      "MicroSims 1.0",
+      "MicroSims 2.0",
+      "xAPI",
+      "vis-timeline"
+    ],
+    "visualizationType": [
+      "timeline"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim"
+}

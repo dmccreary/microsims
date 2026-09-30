@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>MicroSims Milestones Timeline using vis-timeline</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/styles/vis-timeline-graph2d.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vis-timeline@7.7.3/standalone/umd/vis-timeline-graph2d.min.js"></script>
+    <script src="microsims-milestones-timeline.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="toolbar">
+                <span id="title">MicroSims Milestones</span>
+                <span class="spacer"></span>
+                <label for="group-select">Group by:</label>
+                <select id="group-select">
+                    <option value="theme" selected>Theme</option>
+                    <option value="single">Single track</option>
+                </select>
+            </div>
+            <div id="timeline"></div>
+            <div id="navbar">
+                <button class="nav-btn" id="pan-left" title="Show earlier dates">&#9664; Earlier</button>
+                <button class="nav-btn" id="zoom-in" title="Zoom in">+ Zoom</button>
+                <button class="nav-btn" id="zoom-out" title="Zoom out">&minus; Zoom</button>
+                <button class="nav-btn" id="fit-all" title="Show every milestone">Fit all</button>
+                <button class="nav-btn" id="pan-right" title="Show later dates">Later &#9654;</button>
+            </div>
+            <div id="details" aria-live="polite">
+                <div id="legend"></div>
+                <div id="event-details"></div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>
