@@ -50,7 +50,7 @@ function draw() {
 
 ## Related Concepts
 
-- [Getting Started with p5.js](../../chapters/03-getting-started-with-p5js/index.md)
-- [Drawing, Animation and Color](../../chapters/04-drawing-animation-and-color/index.md)
+- [Getting Started with p5.js](../../chapters/06-p5js-microsims/index.md)
+- [Drawing, Animation and Color](../../chapters/06-p5js-microsims/index.md)
 - [noLoop() and loop()](https://p5js.org/reference/#/p5/noLoop) - Control the animation loop
 - [frameRate()](https://p5js.org/reference/#/p5/frameRate) - Change the frames per second

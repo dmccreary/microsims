@@ -82,7 +82,7 @@ The `draw()` function executes approximately 60 times per second in a continuous
 
 **Bloom's Taxonomy** is a hierarchical framework classifying educational learning objectives into six cognitive levels: Remember, Understand, Apply, Analyze, Evaluate, and Create. It matters for MicroSims because different cognitive levels require different types of simulations. Flashcards work for Remember; simulators work for Apply; model editors work for Create.
 
-See [Chapter 9: Bloom's Taxonomy](chapters/09-blooms-taxonomy-and-learning-objectives/index.md)
+See [Chapter 9: Bloom's Taxonomy](chapters/03-learning-objectives-and-blooms-taxonomy/index.md)
 
 ### What are the six levels of Bloom's Taxonomy?
 
