@@ -602,7 +602,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) <= maxW || !line) {
+    if (fontWidth(test) <= maxW || !line) {
       line = test;
     } else {
       lines.push(line);

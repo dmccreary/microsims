@@ -196,7 +196,7 @@ function layoutControls() {
   const wX = dedupBox.elt.offsetWidth;
   textSize(14);
   textStyle(BOLD);
-  const labelW = textWidth('Redelivery chance: 50%') + 12;
+  const labelW = fontWidth('Redelivery chance: 50%') + 12;
   textStyle(NORMAL);
   let rows;
   if (x0 + wD + gap + wC + gap + wR <= canvasWidth - margin && x0 + labelW + 120 + gap + wX <= canvasWidth - margin) {
@@ -411,7 +411,7 @@ function drawLog(x, y, w, h) {
   // deduplication indicator
   const badge = dedup ? 'dedup ON' : 'dedup OFF';
   textSize(11);
-  const bw = textWidth(badge) + 12;
+  const bw = fontWidth(badge) + 12;
   fill(dedup ? color(OK_GREEN) : color(A_COLOR));
   rect(x + w - bw, y - 2, bw, 16, 8);
   fill(255);
@@ -447,7 +447,7 @@ function drawLog(x, y, w, h) {
     if (dup && dedup) {
       stroke(150);
       strokeWeight(1);
-      line(x + 6, ry + 7, x + 8 + textWidth(d.id) + 4, ry + 7);
+      line(x + 6, ry + 7, x + 8 + fontWidth(d.id) + 4, ry + 7);
       noStroke();
     }
     ry += rowH;
@@ -586,7 +586,7 @@ function drawCountersStacked(x, y, w, h) {
   textSize(11);
   textAlign(LEFT, TOP);
   let foot = 'dashed line = truth: ' + truthCount() + ' distinct';
-  if (textWidth(foot) > w) foot = 'dashed = truth: ' + truthCount();
+  if (fontWidth(foot) > w) foot = 'dashed = truth: ' + truthCount();
   text(foot, x, y + h - 14);
 }
 
@@ -613,7 +613,7 @@ function drawControlLabels() {
   textStyle(BOLD);
   const lab = 'Redelivery chance: ';
   text(lab, sliderLabelSpot.x, sliderLabelSpot.y);
-  const lw = textWidth(lab);
+  const lw = fontWidth(lab);
   textStyle(NORMAL);
   text(redeliverySlider.value() + '%', sliderLabelSpot.x + lw, sliderLabelSpot.y);
 }
@@ -625,7 +625,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

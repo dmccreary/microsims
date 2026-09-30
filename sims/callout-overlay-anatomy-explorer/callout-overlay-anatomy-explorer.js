@@ -362,7 +362,7 @@ function drawJson() {
   const lh = narrow ? 14 : 15;
   textFont('monospace');                 // code text only; the rest of the sim uses the default font
   textSize(narrow ? 11.5 : 12.5);
-  const cw = textWidth('M');
+  const cw = fontWidth('M');
   const maxChars = floor((b.w - 16) / cw);
   const active = mode === 'quiz' ? null : (hoverId || selectedId);
   let y = b.y + 24;
@@ -383,11 +383,11 @@ function drawJson() {
       const flash = line.id === selectedId && field && field === lastChanged;
       if (flash) {
         fill(255, 200, 80);
-        rect(x - 1, y - 1, textWidth(s) + 2, lh);
+        rect(x - 1, y - 1, fontWidth(s) + 2, lh);
       }
       fill(...TOKEN_COLORS[kind]);
       text(s, x, y);
-      x += textWidth(s);
+      x += fontWidth(s);
       used += s.length;
       if (used >= maxChars) break;
     }
@@ -397,8 +397,8 @@ function drawJson() {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 1 && textWidth(s + '…') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 1 && fontWidth(s + '…') > w) s = s.slice(0, -1);
   return s + '…';
 }
 

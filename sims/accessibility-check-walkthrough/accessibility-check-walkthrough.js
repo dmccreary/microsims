@@ -271,12 +271,12 @@ function drawMock(m) {
   text('Status:', tx, y);
   fill(dot);
   stroke(60);
-  circle(tx + textWidth('Status: ') + 9, y + 8, 16);
+  circle(tx + fontWidth('Status: ') + 9, y + 8, 16);
   if (v.statusWord) {
     noStroke();
     fill(INK);
     text(st === 'ready' ? 'Ready' : (st === 'falling' ? 'Falling' : 'Landed'),
-      tx + textWidth('Status: ') + 22, y);
+      tx + fontWidth('Status: ') + 22, y);
   }
   y += 26;
   if (taskDone) {
@@ -610,7 +610,7 @@ function wrapText(str, x, y, w, lh) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) {
+    if (fontWidth(test) > w && line) {
       text(line, x, y);
       y += lh;
       line = word;

@@ -315,7 +315,7 @@ function drawReadout(lines) {
   let w = 0;
   for (const ln of lines) {
     textStyle(ln.b ? BOLD : NORMAL);
-    w = max(w, textWidth(ln.t));
+    w = max(w, fontWidth(ln.t));
   }
   textStyle(NORMAL);
   w = min(w + 20, canvasWidth - 20);

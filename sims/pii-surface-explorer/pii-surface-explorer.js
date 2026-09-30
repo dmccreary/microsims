@@ -192,7 +192,7 @@ function draw() {
     textSize(13);
     let tag = chosen[i] ? classLabel(chosen[i]) : 'not classified';
     if (v) tag = VERDICT[v].sym + ' ' + VERDICT[v].word + ': ' + tag;
-    const tagW = textWidth(tag);
+    const tagW = fontWidth(tag);
     fill(v ? VERDICT[v].ink : (chosen[i] ? INK : MUTED));
     textAlign(RIGHT, TOP);
     text(tag, r.x + r.w - 10, r.y + (narrow ? 19 : 24));
@@ -284,7 +284,7 @@ function drawRisks(y) {
 function drawTooltip(str, mx, my) {
   textFont('monospace');
   textSize(12);
-  const w = Math.min(canvasWidth - 20, textWidth(str) + 16);
+  const w = Math.min(canvasWidth - 20, fontWidth(str) + 16);
   const lines = countLines(str, w - 16);
   const h = lines * 15 + 10;
   let tx = constrain(mx - w / 2, 8, canvasWidth - w - 8);
@@ -385,9 +385,9 @@ function layoutControls() {
 }
 
 function fitText(str, w) {
-  if (textWidth(str) <= w) return str;
+  if (fontWidth(str) <= w) return str;
   let s = str;
-  while (s.length > 4 && textWidth(s + '…') > w) s = s.slice(0, -1);
+  while (s.length > 4 && fontWidth(s + '…') > w) s = s.slice(0, -1);
   return s + '…';
 }
 
@@ -396,7 +396,7 @@ function countLines(str, w) {
   let line = '', n = 0;
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > w && line) { n++; line = word; } else line = t;
+    if (fontWidth(t) > w && line) { n++; line = word; } else line = t;
   }
   return n + (line ? 1 : 0);
 }
@@ -406,7 +406,7 @@ function wrapText(str, x, y, w, lh) {
   let line = '';
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > w && line) { text(line, x, y); y += lh; line = word; } else line = t;
+    if (fontWidth(t) > w && line) { text(line, x, y); y += lh; line = word; } else line = t;
   }
   if (line) { text(line, x, y); y += lh; }
   return y;

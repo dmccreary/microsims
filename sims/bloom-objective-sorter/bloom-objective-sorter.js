@@ -236,10 +236,10 @@ function drawRichText(str, x, y, w, size, hi) {
   const words = str.split(' ');
   const lh = size * 1.3;
   let cx = x, cy = y;
-  const space = textWidth(' ');
+  const space = fontWidth(' ');
   for (let i = 0; i < words.length; i++) {
     if (i === hi) textStyle(BOLD);
-    const ww = textWidth(words[i]);
+    const ww = fontWidth(words[i]);
     textStyle(NORMAL);
     if (cx + ww > x + w && cx > x) { cx = x; cy += lh; }
     if (i === hi) {
@@ -420,7 +420,7 @@ function wrapCount(s, w) {
   let lines = 1, cur = '';
   for (const word of words) {
     const t = cur ? cur + ' ' + word : word;
-    if (textWidth(t) > w && cur) { lines++; cur = word; } else cur = t;
+    if (fontWidth(t) > w && cur) { lines++; cur = word; } else cur = t;
   }
   return lines;
 }
@@ -438,7 +438,7 @@ function drawScore() {
   for (const [t, c] of parts) {
     fill(c);
     text(t, x, y);
-    x += textWidth(t) + 20;
+    x += fontWidth(t) + 20;
   }
   textStyle(NORMAL);
 }

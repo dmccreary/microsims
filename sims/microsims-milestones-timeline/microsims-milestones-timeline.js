@@ -1,8 +1,8 @@
 // MicroSims Milestones Timeline - vis-timeline
-// CANVAS_HEIGHT: 480
+// CANVAS_HEIGHT: 580
 // Learning objective (Remember / identify): the learner identifies the major milestones between
 // MicroSims 1.0 and MicroSims 2.0 and orders them in time.
-// Layout (fixed 480px): toolbar with a "Group by" select, the timeline, a navigation bar
+// Layout (fixed 580px): toolbar with a "Group by" select, the timeline, a navigation bar
 // (pan and zoom buttons), and a details panel that shows the clicked milestone.
 // Wheel zoom is enabled only when the page is opened on its own (fullscreen); inside an iframe
 // the wheel scrolls the textbook page and the buttons zoom instead.
@@ -13,10 +13,21 @@
 const themes = {
     book:  { name: 'Book',  className: 'book' },
     paper: { name: 'Paper', className: 'paper' },
-    tools: { name: 'Tools', className: 'tools' }
+    tools: { name: 'Tools', className: 'tools' },
+    anthropic: { name: 'Anthropic Announcements', className: 'anthropic' }
 };
 
 const milestones = [
+    {
+        id: 12, date: new Date(2023, 10, 4, 12), display: 'November 4, 2023', theme: 'book',
+        short: 'MicroSim term coined',
+        title: 'The term "MicroSim" is coined',
+        text: 'The term "MicroSim" first appeared in a Medium article, "Micro Simulations for ' +
+            'Education". It names small, focused, browser-based simulations that a teacher ' +
+            'or student can create with generative AI.',
+        link: 'https://dmccreary.medium.com/micro-simulations-for-education-6989eae8d85d',
+        linkText: 'Read the article on Medium'
+    },
     {
         id: 1, date: new Date(2023, 10, 21, 12), display: 'November 21, 2023', theme: 'book',
         short: 'MicroSims 1.0 first commit',
@@ -24,6 +35,47 @@ const milestones = [
         text: 'The first commit started MicroSims 1.0, a course on using generative AI to ' +
             'create p5.js simulations. Most of the roughly 115 MicroSims in that first book ' +
             'were p5.js sketches with a drawing region above a control region.'
+    },
+    {
+        id: 9, date: new Date(2024, 11, 3, 12), display: 'December 3, 2024', theme: 'book',
+        short: 'Intelligent textbooks repo',
+        title: 'First commit of the intelligent-textbooks project',
+        text: 'The first commit to the intelligent-textbooks repository began the work on ' +
+            'textbooks that pair readable content with interactive, AI-generated ' +
+            'simulations. MicroSims became the building blocks of that approach.'
+    },
+    {
+        id: 10, date: new Date(2025, 1, 24, 12), display: 'February 24, 2025', theme: 'anthropic',
+        short: 'Claude Code released',
+        title: 'Anthropic introduces Claude Code',
+        text: 'Anthropic released Claude Code as a research preview, an AI coding agent that ' +
+            'reads a project, edits files and runs commands from the terminal. It made it ' +
+            'practical to build and revise whole MicroSims by describing them.'
+    },
+    {
+        id: 11, date: new Date(2025, 9, 16, 12), display: 'October 16, 2025', theme: 'anthropic',
+        short: 'Claude Skills released',
+        title: 'Anthropic introduces Agent Skills',
+        text: 'Anthropic introduced Agent Skills, folders of instructions, scripts and ' +
+            'resources that Claude loads when a task calls for them. Skills let the steps ' +
+            'for creating a MicroSim be written down once and reused.'
+    },
+    {
+        id: 7, date: new Date(2025, 2, 17, 12), display: 'March 17, 2025', theme: 'tools',
+        short: 'First use of Claude Code',
+        title: 'First use of Claude Code',
+        text: 'Claude Code, an AI coding agent that works in the terminal, was first used on ' +
+            'this project. The evidence is a CLAUDE.md file, which gives the agent standing ' +
+            'context about the repository, committed on this date.'
+    },
+    {
+        id: 8, date: new Date(2025, 11, 10, 12), display: 'December 10, 2025', theme: 'tools',
+        short: 'First MicroSim skill',
+        title: 'First MicroSim generator skill',
+        text: 'The first microsim-generator skill was committed to the skills repository. A ' +
+            'skill packages the steps, templates and rules for building a MicroSim so an AI ' +
+            'agent can repeat them, which moved MicroSim creation from ad hoc prompts toward ' +
+            'a reusable workflow.'
     },
     {
         id: 2, date: new Date(2025, 9, 15), display: 'October 2025', theme: 'paper',
@@ -47,14 +99,6 @@ const milestones = [
         text: 'An AI skill for adding xAPI events to an existing MicroSim reached version ' +
             '0.2. It points toward instrumented MicroSims, which report learner interactions ' +
             'as evidence.'
-    },
-    {
-        id: 5, date: new Date(2026, 8, 29, 12), display: 'September 29, 2026', theme: 'tools',
-        short: 'H-Bridge showcase',
-        title: 'H-Bridge showcase MicroSim created',
-        text: 'The H-Bridge simulation for the STEM Robots book animates current through a ' +
-            'motor-control circuit and warns when the switches create a short circuit. This ' +
-            'book uses it as a showcase: a quality target, not typical output.'
     },
     {
         id: 6, date: new Date(2026, 8, 30, 12), display: 'September 30, 2026', theme: 'book',
@@ -150,7 +194,7 @@ function showDetails(id) {
     const m = milestones.find(x => x.id === id);
     if (!m) {
         box.innerHTML = '<p class="hint">Click a milestone to read about it. Drag the timeline ' +
-            'to pan. To separate the three September 2026 events, click one of them and ' +
+            'to pan. To separate the two September 2026 events, click one of them and ' +
             'press + Zoom a few times.</p>';
         return;
     }
@@ -159,7 +203,8 @@ function showDetails(id) {
         '<div><span class="when">' + m.display + ' &middot; milestone ' + order + ' of ' +
         milestones.length + ' &middot; ' + themes[m.theme].name + '</span></div>' +
         '<div class="what">' + m.title + '</div>' +
-        '<p>' + m.text + '</p>';
+        '<p>' + m.text + (m.link ? ' <a href="' + m.link + '" target="_blank" rel="noopener">' +
+            m.linkText + '</a>' : '') + '</p>';
 }
 
 function renderLegend() {

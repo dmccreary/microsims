@@ -377,7 +377,7 @@ function drawDevice(dev, r, stacked) {
     textStyle(NORMAL);
     if (dev.id === 'c7' && offlineBox.checked()) {
         textSize(14);
-        const tw = textWidth('offline') + 12;
+        const tw = fontWidth('offline') + 12;
         fill('#555');
         rect(r.x + r.w - tw - 8, r.y + 4, tw, 20, 10);
         fill('white');
@@ -560,7 +560,7 @@ function drawPackets(R) {
         const tx = to.x + to.w / 2, ty = to.y + to.h / 2 + i * 28;
         const x = lerp(fx, tx, e), y = lerp(fy, ty, e);
         textSize(14);
-        const w = textWidth(it.label) + 16;
+        const w = fontWidth(it.label) + 16;
         stroke('#6A3D9A');
         strokeWeight(2);
         fill('#EFE6F7');
@@ -669,16 +669,16 @@ function wrapLines(str, w) {
     let cur = '';
     for (const wd of words) {
         const test = cur ? cur + ' ' + wd : wd;
-        if (textWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
+        if (fontWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
     }
     if (cur) lines.push(cur);
     return lines;
 }
 
 function fitText(str, w) {
-    if (textWidth(str) <= w) return str;
+    if (fontWidth(str) <= w) return str;
     let s = str;
-    while (s.length > 1 && textWidth(s + '…') > w) s = s.slice(0, -1);
+    while (s.length > 1 && fontWidth(s + '…') > w) s = s.slice(0, -1);
     return s + '…';
 }
 

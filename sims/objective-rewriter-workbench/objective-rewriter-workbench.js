@@ -473,7 +473,7 @@ function wrapLines(s, w) {
   let cur = '';
   for (const word of words) {
     const t = cur ? cur + ' ' + word : word;
-    if (textWidth(t) > w && cur) { out.push(cur); cur = word; } else cur = t;
+    if (fontWidth(t) > w && cur) { out.push(cur); cur = word; } else cur = t;
   }
   if (cur) out.push(cur);
   return out;
@@ -510,7 +510,7 @@ function drawTooltip() {
       const tip = SLOT_HELP[r.key];
       textSize(13);
       const tw = min(260, canvasWidth - 2 * margin);
-      const lines = ceil(textWidth(tip) / (tw - 16)) + 1;
+      const lines = ceil(fontWidth(tip) / (tw - 16)) + 1;
       const th = lines * 16 + 10;
       let tx = constrain(mouseX + 12, margin, canvasWidth - tw - margin);
       let ty = mouseY + 16;

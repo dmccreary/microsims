@@ -263,8 +263,8 @@ function drawChips(zoneKey, r) {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '…') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '…') > w) s = s.slice(0, -1);
   return s + '…';
 }
 
@@ -334,8 +334,8 @@ function drawPanel() {
   fill(80);
   textSize(fs - 2);
   const attemptsText = 'attempts: ' + attempts;
-  const room = p.x + p.w - pad - textWidth(attemptsText) > p.x + pad + 20 + textWidth('Correctly placed: 10 of 10') * 1.08;
-  if (room) text(attemptsText, p.x + p.w - pad - textWidth(attemptsText), y + 1);
+  const room = p.x + p.w - pad - fontWidth(attemptsText) > p.x + pad + 20 + fontWidth('Correctly placed: 10 of 10') * 1.08;
+  if (room) text(attemptsText, p.x + p.w - pad - fontWidth(attemptsText), y + 1);
   else { y += fs + 3; text(attemptsText, p.x + pad, y); }
   y += fs + 10;
   stroke(225);
@@ -403,7 +403,7 @@ function drawWrapped(str, x, y, w, lineH, bottom) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) {
+    if (fontWidth(test) > w && line) {
       if (y + lineH > bottom) return y;
       text(line, x, y);
       y += lineH;

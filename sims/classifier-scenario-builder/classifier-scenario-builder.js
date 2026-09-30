@@ -540,7 +540,7 @@ function wrapLines(s, maxW) {
   let cur = '';
   for (const w of words) {
     const t = cur ? cur + ' ' + w : w;
-    if (textWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
+    if (fontWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
   }
   if (cur) lines.push(cur);
   return lines;

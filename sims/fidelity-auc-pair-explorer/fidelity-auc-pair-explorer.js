@@ -476,7 +476,7 @@ function drawConvergence() {
   let lineY = p.y + 26;
   if (!lastPair) {
     const prompt = 'Press "Draw random pair" to compare one green and one orange learner.';
-    const twoLines = textWidth(prompt) > p.w - 20;
+    const twoLines = fontWidth(prompt) > p.w - 20;
     text(prompt, p.x + 10, lineY, p.w - 20, twoLines ? 36 : 20);
     if (twoLines) lineY += 16;
   } else {
@@ -485,7 +485,7 @@ function drawConvergence() {
       : (lastPair.result === 0.5 ? 'tie (counts half)' : 'loss (orange ranked higher)');
     fill(lastPair.result === 1 ? color(0, 90, 150) : color(170, 70, 0));
     const sentence = 'Last pair: green ' + fa.toFixed(2) + ' vs orange ' + fb.toFixed(2) + ' → ' + verdict;
-    const twoLines = textWidth(sentence) > p.w - 20;
+    const twoLines = fontWidth(sentence) > p.w - 20;
     text(sentence, p.x + 10, lineY, p.w - 20, twoLines ? 36 : 20);
     if (twoLines) lineY += 16;
   }
@@ -536,7 +536,7 @@ function drawHoverDot(dots) {
       const l = learners[i];
       const t = 'Forecast ' + l.f.toFixed(2) + ', ' + (l.correct ? 'correct' : 'incorrect') + ' on the held-out item';
       textSize(13);
-      const w = textWidth(t) + 14, h = 22;
+      const w = fontWidth(t) + 14, h = 22;
       const x = constrain(mouseX + 10, 4, canvasWidth - w - 4);
       const y = mouseY - h - 8;
       stroke(120);

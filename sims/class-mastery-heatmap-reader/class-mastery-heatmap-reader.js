@@ -167,7 +167,7 @@ function layoutControls() {
   drawHeight = canvasHeight - controlHeight;
   textSize(14);
   textStyle(BOLD);
-  sliderLeftMargin = min(260, textWidth('Weight on prerequisite gaps: 0.00') + 22);
+  sliderLeftMargin = min(260, fontWidth('Weight on prerequisite gaps: 0.00') + 22);
   textStyle(NORMAL);
   labelSpots = [];
   [wMastery, wIdle, wGap].forEach((s, i) => {
@@ -310,8 +310,8 @@ function drawHeatmap(x, y, w, h) {
   fill(60);
   const room = x + w - (x + nameW + lw + 16);
   let legendText = 'darker = lower mastery estimate (a model output, not a measured fact)';
-  if (textWidth(legendText) > room) legendText = 'darker = lower estimate (model output)';
-  if (textWidth(legendText) > room) legendText = 'darker = lower estimate';
+  if (fontWidth(legendText) > room) legendText = 'darker = lower estimate (model output)';
+  if (fontWidth(legendText) > room) legendText = 'darker = lower estimate';
   text(legendText, x + nameW + lw + 16, ly - 1);
 }
 
@@ -438,7 +438,7 @@ function drawControlLabels() {
   labelSpots.forEach((l, i) => {
     textStyle(BOLD);
     text(names[i], 10, l.y);
-    const nw = textWidth(names[i]);
+    const nw = fontWidth(names[i]);
     textStyle(NORMAL);
     text(nf(l.s.value(), 1, 2), 10 + nw, l.y);
   });
@@ -455,7 +455,7 @@ function drawHoverTip() {
   const { s, c } = hover;
   const lines = [STUDENTS[s].name + ' · ' + CONCEPTS[c], 'estimated mastery ' + nf(M[s][c], 1, 2) + ' (model estimate)'];
   textSize(12);
-  const tw = max(lines.map(l => textWidth(l))) + 16;
+  const tw = max(lines.map(l => fontWidth(l))) + 16;
   let tx = constrain(mouseX + 12, 4, canvasWidth - tw - 4);
   let ty = mouseY + 16;
   if (ty + 44 > drawHeight) ty = mouseY - 50;
@@ -519,7 +519,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

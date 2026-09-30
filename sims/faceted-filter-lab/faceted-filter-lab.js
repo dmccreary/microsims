@@ -305,7 +305,7 @@ function drawFacets(x, y, w, hidden) {
     textStyle(BOLD);
     textSize(15);
     text(f.label, x, y);
-    const lw = textWidth(f.label);
+    const lw = fontWidth(f.label);
     textStyle(NORMAL);
     textSize(12);
     fill('dimgray');
@@ -317,7 +317,7 @@ function drawFacets(x, y, w, hidden) {
       const count = chipCount(f.key, v);
       const isSel = selected[f.key].has(v);
       const label = hidden ? v : v + '  ' + count;
-      const cw = textWidth(label) + 20;
+      const cw = fontWidth(label) + 20;
       if (cx + cw > x + w && cx > x) { cx = x; y += chipH + gap; }
       const disabled = !isSel && count === 0;
       const idx = chips.length;
@@ -414,7 +414,7 @@ function drawResults(x, y, w, h, result, hidden) {
   }
   const rowH = 19;
   const room = floor((y + h - yy - 22) / rowH);
-  const shown = min(12, room, result.length);
+  const shown = min([12, room, result.length]);
   const sorted = result.slice().sort((a, b) => a.title.localeCompare(b.title));
   for (let i = 0; i < shown; i++) {
     const r = sorted[i];
@@ -486,7 +486,7 @@ function wrapLines(str, w) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > w && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);
@@ -501,8 +501,8 @@ function wrapText(str, x, y, w, lead) {
 }
 
 function fitText(str, w) {
-  if (textWidth(str) <= w) return str;
-  while (str.length > 3 && textWidth(str + '…') > w) str = str.slice(0, -1);
+  if (fontWidth(str) <= w) return str;
+  while (str.length > 3 && fontWidth(str + '…') > w) str = str.slice(0, -1);
   return str + '…';
 }
 

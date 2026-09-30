@@ -472,7 +472,7 @@ function drawSourceStack(r, vals, win) {
     else vt = 'value ' + v;
     fill(v === null ? 'dimgray' : 'darkslateblue');
     textSize(13);
-    text(vt, tx, b.y + b.h - (wide ? 18 : 17), tw, 16);
+    text(vt, tx, b.y + b.h - (wide ? 18 : 17), tw, 18);
 
     // status tag on the right
     let tag = '', tagColor = 'dimgray';
@@ -561,7 +561,7 @@ function drawResult(r, vals, win) {
     : 'unresolved: iframes left untouched';
   let ts = wide ? 18 : 15;
   textSize(ts);
-  while (textWidth(headline) > tw && ts > 11) { ts--; textSize(ts); }
+  while (fontWidth(headline) > tw && ts > 11) { ts--; textSize(ts); }
   text(headline, r.x + pad, r.y + 7);
   textStyle(NORMAL);
   textSize(13);
@@ -604,7 +604,7 @@ function drawTooltip(vals, win) {
       'first source with a value, so this ' + vals[i] + ' is never read.' + why;
     const tw = min(300, canvasWidth - 20);
     textSize(13);
-    const lines = ceil(textWidth(msg) / (tw - 16)) + 1;
+    const lines = ceil(fontWidth(msg) / (tw - 16)) + 1;
     const th = lines * 17 + 12;
     let tx = constrain(mouseX - tw / 2, 10, canvasWidth - tw - 10);
     let ty = b.y - th - 6;

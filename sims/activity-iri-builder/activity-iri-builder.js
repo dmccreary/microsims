@@ -298,7 +298,7 @@ function draw() {
   textStyle(BOLD);
   fill('black');
   text('Activity IRI (object.id)', x, y);
-  const labelW = textWidth('Activity IRI (object.id)');
+  const labelW = fontWidth('Activity IRI (object.id)');
   textStyle(NORMAL);
   textSize(13);
   fill('dimgray');
@@ -328,7 +328,7 @@ function drawSegments(B, x, y, w) {
   textFont('monospace');
   const fs = isWide() ? 14 : 13;
   textSize(fs);
-  const charW = textWidth('M');
+  const charW = fontWidth('M');
   const h = 26;
   let cx = x;
   const parts = [['site', B.shown.site], ['path', B.shown.path]];
@@ -368,10 +368,10 @@ function drawSegments(B, x, y, w) {
     rect(lx, y + 3, 10, 10, 2);
     fill('dimgray');
     text(label, lx + 14, y + 1);
-    lx += 14 + textWidth(label) + 16;
+    lx += 14 + fontWidth(label) + 16;
   }
   fill('dimgray');
-  if (lx + textWidth('red: the mistake') < x + w) { fill([220, 20, 60]); rect(lx, y + 3, 10, 10, 2); fill('dimgray'); text('the mistake', lx + 14, y + 1); }
+  if (lx + fontWidth('red: the mistake') < x + w) { fill([220, 20, 60]); rect(lx, y + 3, 10, 10, 2); fill('dimgray'); text('the mistake', lx + 14, y + 1); }
   return y + 16;
 }
 
@@ -469,7 +469,7 @@ function drawGrouping(B, x, y, w, h) {
 
 // Fit a string into a width with a middle ellipsis (monospace)
 function fitMono(s, w) {
-  const per = floor(w / textWidth('M'));
+  const per = floor(w / fontWidth('M'));
   if (s.length <= per) return s;
   const keep = per - 1;
   const head = ceil(keep * 0.45);
@@ -477,8 +477,8 @@ function fitMono(s, w) {
 }
 
 function fitSans(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '…') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '…') > w) s = s.slice(0, -1);
   return s + '…';
 }
 
@@ -488,7 +488,7 @@ function wrapLines(str, w) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > w && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);

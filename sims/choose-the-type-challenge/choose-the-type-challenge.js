@@ -361,14 +361,14 @@ function drawCard(top) {
   const chip1 = 'Bloom level: ' + c.level;
   const chip2 = 'verb: ' + c.verb;
   fill('steelblue');
-  rect(x + 14, top + 12, textWidth(chip1) + 16, 22, 11);
+  rect(x + 14, top + 12, fontWidth(chip1) + 16, 22, 11);
   fill('darkorange');
-  rect(x + 14 + textWidth(chip1) + 24, top + 12, textWidth(chip2) + 16, 22, 11);
+  rect(x + 14 + fontWidth(chip1) + 24, top + 12, fontWidth(chip2) + 16, 22, 11);
   fill('white');
   textAlign(LEFT, CENTER);
   text(chip1, x + 22, top + 23);
   fill('black');
-  text(chip2, x + 14 + textWidth(chip1) + 32, top + 23);
+  text(chip2, x + 14 + fontWidth(chip1) + 32, top + 23);
   textStyle(NORMAL);
 
   // objective text with the verb highlighted
@@ -383,14 +383,14 @@ function drawCard(top) {
       if (k === verbIdx) {
         textStyle(BOLD);
         fill('darkorange');
-        rect(lx - 2, y - 1, textWidth(wd) + 4, fs + 4, 3);
+        rect(lx - 2, y - 1, fontWidth(wd) + 4, fs + 4, 3);
         fill('black');
       } else {
         textStyle(NORMAL);
         fill('black');
       }
       text(wd, lx, y);
-      lx += textWidth(wd + ' ');
+      lx += fontWidth(wd + ' ');
       k++;
     });
     y += fs + 6;
@@ -554,8 +554,8 @@ function layoutWords(words, maxW) {
   let line = [];
   let lw = 0;
   words.forEach(wd => {
-    const ww = textWidth(wd + ' ');
-    if (lw + textWidth(wd) > maxW && line.length) {
+    const ww = fontWidth(wd + ' ');
+    if (lw + fontWidth(wd) > maxW && line.length) {
       lines.push(line);
       line = [];
       lw = 0;
@@ -572,9 +572,9 @@ function wrapText(str, maxW) {
 }
 
 function fitText(str, maxW) {
-  if (textWidth(str) <= maxW) return str;
+  if (fontWidth(str) <= maxW) return str;
   let s = str;
-  while (s.length > 3 && textWidth(s + '...') > maxW) s = s.slice(0, -1);
+  while (s.length > 3 && fontWidth(s + '...') > maxW) s = s.slice(0, -1);
   return s + '...';
 }
 

@@ -240,7 +240,7 @@ function drawFittedLines(str, cx, cy, maxW, maxLines, size, minSize) {
   while (true) {
     textSize(s);
     lines = wrapLines(str, maxW);
-    const tooWide = lines.some(l => textWidth(l) > maxW);
+    const tooWide = lines.some(l => fontWidth(l) > maxW);
     if ((!tooWide && lines.length <= maxLines) || s <= minSize) break;
     s--;
   }
@@ -256,7 +256,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const w of words) {
     const test = line ? line + ' ' + w : w;
-    if (textWidth(test) > maxW && line) {
+    if (fontWidth(test) > maxW && line) {
       lines.push(line);
       line = w;
     } else {
@@ -383,7 +383,7 @@ function drawControlText() {
   const msg = 'Score: ' + correct + ' correct / ' + attempts + ' attempts' +
     (finished ? '' : '   Card ' + (cardIndex + 1) + ' of ' + deck.length);
   textSize(size);
-  while (textWidth(msg) > canvasWidth - 130 && size > 11) { size--; textSize(size); }
+  while (fontWidth(msg) > canvasWidth - 130 && size > 11) { size--; textSize(size); }
   text(msg, 118, drawHeight + 25);
 }
 

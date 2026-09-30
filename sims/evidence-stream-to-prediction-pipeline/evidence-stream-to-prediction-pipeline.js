@@ -320,7 +320,7 @@ function drawToken() {
   const label = token.kind === 'answer' ? 'answer' : (narrow() ? 'drag' : 'slider drag');
   const c = token.kind === 'answer' ? C_ANSWER : C_EXPOSE;
   textSize(12);
-  const tw = textWidth(label) + (token.stopped ? 64 : 18);
+  const tw = fontWidth(label) + (token.stopped ? 64 : 18);
   let x, y;
   if (narrow()) { x = r.x + r.w + 10; y = r.y + r.h / 2 - 11; }
   else { x = r.x + r.w / 2 - tw / 2; y = r.y + r.h + 8; }
@@ -342,13 +342,13 @@ function drawStream(x, y, w) {
   textSize(12.5);
   textStyle(BOLD);
   text('This learner\'s elasticity stream:', x, y + 4);
-  let cx = x + textWidth('This learner\'s elasticity stream: ') + 8;
+  let cx = x + fontWidth('This learner\'s elasticity stream: ') + 8;
   textStyle(NORMAL);
   textSize(12);
   if (streamLog.length === 0) { fill('dimgray'); text('empty: send an event', cx, y + 4); }
   for (const ev of streamLog) {
     const t = ev.kind === 'answer' ? 'answered (right)' : 'interacted (drag)';
-    const bw = textWidth(t) + 16;
+    const bw = fontWidth(t) + 16;
     if (cx + bw > x + w) { fill('dimgray'); text('...', cx, y + 4); break; }
     fill(ev.kind === 'answer' ? C_ANSWER : [250, 222, 160]);
     rect(cx, y, bw, 22, 11);
@@ -395,7 +395,7 @@ function drawInfo(r) {
       textStyle(BOLD);
       fill(label === 'Slider drag' ? [150, 100, 0] : C_ANSWER);
       text(label + ':', tx, y);
-      const lw = textWidth(label + ': ');
+      const lw = fontWidth(label + ': ');
       textStyle(NORMAL);
       fill('black');
       y = drawWrapped(body, tx + lw, y, tw - lw, lh) + 3;
@@ -443,15 +443,18 @@ function eventText(i) {
   const n = attempts;
   if (token.kind === 'answer') {
     const before = token.before !== undefined ? token.before : pL;
+    // all five stage texts are built at once, so later stages need a value before the update runs
+    const cond = token.cond !== undefined ? token.cond : before;
+    const after = token.after !== undefined ? token.after : before;
     return [
       'The learner picks "lower" on the elasticity prediction and presses Check. The MicroSim marks it correct.',
       'Emitted: answered, object .../sims/bouncing-ball/#q1, result.success = true, concept_id elasticity.',
       'Appended to this learner\'s elasticity stream, after ' + exposure + ' exposure event' + (exposure === 1 ? '' : 's') + '.',
       'Kept: it carries result.success, so it counts as an attempt (attempts = ' + n + ').',
-      'BKT update on a correct answer: conditioning ' + nf(before, 1, 2) + ' to ' + nf(token.cond, 1, 2) +
-        ', then the learning step ' + nf(token.cond, 1, 2) + ' + (1 - ' + nf(token.cond, 1, 2) + ') x 0.15 = ' + nf(token.after, 1, 2) + '.',
-      'The estimate rises from ' + nf(before, 1, 2) + ' to P(L) = ' + nf(token.after, 1, 2) + '. Predicted chance the next answer is correct: ' +
-        nf(token.after, 1, 2) + ' x 0.90 + ' + nf(1 - token.after, 1, 2) + ' x 0.20 = ' + nf(predictCorrect(token.after), 1, 2) + '.'
+      'BKT update on a correct answer: conditioning ' + nf(before, 1, 2) + ' to ' + nf(cond, 1, 2) +
+        ', then the learning step ' + nf(cond, 1, 2) + ' + (1 - ' + nf(cond, 1, 2) + ') x 0.15 = ' + nf(after, 1, 2) + '.',
+      'The estimate rises from ' + nf(before, 1, 2) + ' to P(L) = ' + nf(after, 1, 2) + '. Predicted chance the next answer is correct: ' +
+        nf(after, 1, 2) + ' x 0.90 + ' + nf(1 - after, 1, 2) + ' x 0.20 = ' + nf(predictCorrect(after), 1, 2) + '.'
     ][i];
   }
   return [
@@ -476,7 +479,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

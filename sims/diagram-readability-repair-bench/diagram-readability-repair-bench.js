@@ -301,7 +301,7 @@ function drawColorLegend(a) {
   textAlign(RIGHT, TOP);
   for (let i = items.length - 1; i >= 0; i--) {
     const [label, c] = items[i];
-    const w = textWidth(label) + 10;
+    const w = fontWidth(label) + 10;
     stroke(120);
     fill(c);
     rect(x - w, y, w, 16, 3);
@@ -353,7 +353,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const w of words) {
     const test = line ? line + ' ' + w : w;
-    if (textWidth(test) <= maxW || !line) line = test;
+    if (fontWidth(test) <= maxW || !line) line = test;
     else { lines.push(line); line = w; }
   }
   if (line) lines.push(line);
@@ -430,7 +430,7 @@ function drawChecklist() {
     textAlign(LEFT, TOP);
     text(s.name, x + 24, y + 1);
     if (!narrow) {
-      const nw = textWidth(s.name);
+      const nw = fontWidth(s.name);
       textSize(13);
       fill(status === 'met' ? 'darkgreen' : status === 'violated' ? 'firebrick' : 'gray');
       text(status, x + 30 + nw, y + 3);

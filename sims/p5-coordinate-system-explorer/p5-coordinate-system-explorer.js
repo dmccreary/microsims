@@ -112,7 +112,7 @@ function drawAxesDirections() {
     ['origin (0, 0)', ox + 12, oy + 34]];
   for (const [t, lx, ly] of labels) {
     fill(255, 255, 255, 220);
-    rect(lx - 3, ly - 2, textWidth(t) + 6, 20, 3);
+    rect(lx - 3, ly - 2, fontWidth(t) + 6, 20, 3);
     fill('darkorange');
     text(t, lx, ly);
   }
@@ -295,7 +295,7 @@ function drawPointerReadout() {
   line(mx, my - 6, mx, my + 6);
   const label = 'mouseX: ' + mx + ', mouseY: ' + my;
   textSize(14);
-  const w = textWidth(label) + 12;
+  const w = fontWidth(label) + 12;
   let bx = mx + 12, by = my + 10;
   if (bx + w > canvasWidth - 4) bx = mx - w - 12;
   if (by + 24 > drawHeight - 2) by = my - 32;
@@ -353,7 +353,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) <= maxW || !line) {
+    if (fontWidth(test) <= maxW || !line) {
       line = test;
     } else {
       lines.push(line);

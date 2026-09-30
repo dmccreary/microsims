@@ -341,14 +341,14 @@ function drawReadout(canvasH, needed, hidden, blank) {
   const eq1a = 'canvasHeight = drawHeight + controlHeight + graphHeight';
   const eq1b = '= ' + modelDraw + ' + ' + modelControl + ' + ' + modelGraph + ' = ' + canvasH;
   fill('black');
-  if (textWidth(eq1a + ' ' + eq1b) < tw) {
+  if (fontWidth(eq1a + ' ' + eq1b) < tw) {
     text(eq1a + ' ', tx, y);
     fill('navy');
-    text(eq1b, tx + textWidth(eq1a + ' '), y);
+    text(eq1b, tx + fontWidth(eq1a + ' '), y);
     y += lineH;
   } else {
     text(eq1a, tx, y, tw);
-    y += textWidth(eq1a) > tw ? 2 * lineH : lineH;
+    y += fontWidth(eq1a) > tw ? 2 * lineH : lineH;
     fill('navy');
     text(eq1b, tx + 20, y);
     y += lineH + 2;
@@ -359,8 +359,8 @@ function drawReadout(canvasH, needed, hidden, blank) {
   fill('black');
   text(eq2a + ' ', tx, y);
   fill('navy');
-  if (textWidth(eq2a + ' ' + eq2b) < tw) {
-    text(eq2b, tx + textWidth(eq2a + ' '), y);
+  if (fontWidth(eq2a + ' ' + eq2b) < tw) {
+    text(eq2b, tx + fontWidth(eq2a + ' '), y);
     y += lineH + 4;
   } else {
     y += lineH;
@@ -385,7 +385,7 @@ function drawReadout(canvasH, needed, hidden, blank) {
   textStyle(NORMAL);
 
   // A practice prompt when there is room for it (wide layouts)
-  const msgLines = ceil(textWidth(msg) / tw);
+  const msgLines = ceil(fontWidth(msg) / tw);
   const tipY = y + msgLines * lineH + 12;
   if (tipY + 2 * lineH < py + ph) {
     fill('dimgray');

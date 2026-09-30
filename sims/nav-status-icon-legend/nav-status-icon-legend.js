@@ -248,8 +248,8 @@ function drawStatusIcon(key, cx, cy, d, darker) {
 }
 
 function fitText(str, w) {
-  if (textWidth(str) <= w) return str;
-  while (str.length > 3 && textWidth(str + '…') > w) str = str.slice(0, -1);
+  if (fontWidth(str) <= w) return str;
+  while (str.length > 3 && fontWidth(str + '…') > w) str = str.slice(0, -1);
   return str + '…';
 }
 
@@ -307,7 +307,7 @@ function labeled(label, body, x, y, w, lead) {
     if (i === 0) {
       fill('navy');
       text(label + ':', x, y);
-      lx = x + textWidth(label + ': ');
+      lx = x + fontWidth(label + ': ');
       ln = ln.slice(label.length + 2);
     }
     fill('black');
@@ -407,7 +407,7 @@ function drawTooltip(msg) {
   const maxW = min(300, canvasWidth - 30);
   const lines = wrapLines(msg, maxW - 12);
   let tw = 0;
-  for (const l of lines) tw = max(tw, textWidth(l));
+  for (const l of lines) tw = max(tw, fontWidth(l));
   const th = lines.length * 17 + 8;
   let tx = mouseX + 10;
   let ty = mouseY + 20;
@@ -429,7 +429,7 @@ function wrapLines(str, w) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > w && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);

@@ -224,7 +224,7 @@ function drawReadout(g, advancing, idlePause) {
   const narrow = canvasWidth < 560;
   textSize(narrow ? 14 : 15);
   let w = 0;
-  for (const ln of lines) { textStyle(ln.b ? BOLD : NORMAL); w = max(w, textWidth(ln.t)); }
+  for (const ln of lines) { textStyle(ln.b ? BOLD : NORMAL); w = max(w, fontWidth(ln.t)); }
   textStyle(NORMAL);
   w = min(w + 20, canvasWidth - 20);
   const lh = narrow ? 18 : 19;
@@ -272,7 +272,7 @@ function positionControls() {
   reverseCheckbox.position(x1 + idleCheckbox.elt.offsetWidth + 16, drawHeight + 10);
   // The sliders start just past the longest label
   textSize(defaultTextSize);
-  sliderLeftMargin = ceil(textWidth('Flow speed (pixels per frame): 0.5')) + 24;
+  sliderLeftMargin = ceil(fontWidth('Flow speed (pixels per frame): 0.5')) + 24;
   spacingSlider.position(sliderLeftMargin, drawHeight + 45);
   speedSlider.position(sliderLeftMargin, drawHeight + 80);
   spacingSlider.size(max(60, canvasWidth - sliderLeftMargin - margin));

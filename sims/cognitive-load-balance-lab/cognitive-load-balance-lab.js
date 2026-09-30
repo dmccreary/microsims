@@ -342,7 +342,7 @@ function drawGauge(x, y, w, h, load, narrow) {
     fill('black');
     const t = name + ' ' + load[type];
     text(t, lx + 16, ly);
-    lx += textWidth(t) + 30;
+    lx += fontWidth(t) + 30;
   }
   ly += 24;
 
@@ -363,7 +363,7 @@ function drawGauge(x, y, w, h, load, narrow) {
   }
   text(msg, x, ly, tw);
   textStyle(NORMAL);
-  ly += (textWidth(msg) > tw ? (textWidth(msg) > 2 * tw ? 60 : 42) : 24) + 4;
+  ly += (fontWidth(msg) > tw ? (fontWidth(msg) > 2 * tw ? 60 : 42) : 24) + 4;
 
   // breakdown of what is adding load (wide layout only)
   if (!narrow) {
@@ -397,7 +397,7 @@ function positionControls() {
   let x = x0;
   for (const f of FEATURES) {
     const el = boxes[f.key];
-    const w = el.elt.offsetWidth || textWidth(f.label) + 30;
+    const w = el.elt.offsetWidth || fontWidth(f.label) + 30;
     if (x + w > canvasWidth - margin && x > x0) { x = x0; y += 28; }
     el.position(x, y);
     x += w + 18;

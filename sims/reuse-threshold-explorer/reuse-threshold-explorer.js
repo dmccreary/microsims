@@ -142,7 +142,7 @@ function draw() {
     // band name at the top when there is room
     textSize(13);
     textStyle(BOLD);
-    if (xOf(c) - xOf(a) > textWidth(b) + 6) {
+    if (xOf(c) - xOf(a) > fontWidth(b) + 6) {
       fill(BAND_TEXT[b]);
       textAlign(CENTER, TOP);
       text(b, (xOf(a) + xOf(c)) / 2, bandTop + 4);
@@ -208,9 +208,9 @@ function draw() {
     textSize(13);
     textAlign(LEFT, BOTTOM);
     const label = R.name + ' ' + fmt(R.lo) + '–' + fmt(R.hi);
-    const lx = constrain(x1, axL, axR - textWidth(label));
+    const lx = constrain(x1, axL, axR - fontWidth(label));
     fill(255, 255, 255, 170);
-    rect(lx - 2, y - 19, textWidth(label) + 4, 16, 3);
+    rect(lx - 2, y - 19, fontWidth(label) + 4, 16, 3);
     fill('black');
     text(label, lx, y - 3);
     if (mouseX >= x1 - 2 && mouseX <= x2 + 2 && mouseY >= y - 18 && mouseY <= y + 16) hoverItem = R;
@@ -228,7 +228,7 @@ function draw() {
   fill('black');
   textSize(13);
   const plabel = PROBE.name + ' 0.730';
-  if (px + 12 + textWidth(plabel) < axR) { textAlign(LEFT, CENTER); text(plabel, px + 12, py); }
+  if (px + 12 + fontWidth(plabel) < axR) { textAlign(LEFT, CENTER); text(plabel, px + 12, py); }
   else { textAlign(RIGHT, CENTER); text(plabel, px - 12, py); }
   if (dist(mouseX, mouseY, px, py) < 12) hoverItem = PROBE;
 
@@ -253,7 +253,7 @@ function drawThreshold(x, y1, y2, col, label, side) {
   const tx = side === 'left' ? x + 1 : x - 1;
   const ty = y1 - 18;
   // a white backing keeps the label readable over the bars
-  const tw = textWidth(label);
+  const tw = fontWidth(label);
   fill(255, 255, 255, 210);
   rect(side === 'left' ? tx - tw - 2 : tx - 2, ty - 1, tw + 4, 15, 3);
   fill(col);
@@ -304,7 +304,7 @@ function drawReadout(th, x, y, w, h) {
   const a = 'Missed reuse: ' + (res.missedReuse ? 'yes' : 'none');
   text(a, ix, yy);
   fill(res.falseReuse ? 'firebrick' : 'darkgreen');
-  const bx = ix + textWidth(a) + 24;
+  const bx = ix + fontWidth(a) + 24;
   if (bx + 120 < ix + iw) text('False reuse: ' + (res.falseReuse ? 'yes' : 'none'), bx, yy);
   else { yy += 19; text('False reuse: ' + (res.falseReuse ? 'yes' : 'none'), ix, yy); }
   textStyle(NORMAL);
@@ -370,7 +370,7 @@ function wrapLines(str, w) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > w && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);

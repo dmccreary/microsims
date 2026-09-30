@@ -327,7 +327,7 @@ function drawMini(x, y, w, s, withLabels) {
   if (withLabels && s >= 0.3) {
     textSize(11);
     const tag = (label, ty, alignV) => {
-      const tw = textWidth(label) + 6;
+      const tw = fontWidth(label) + 6;
       noStroke();
       fill(255, 255, 255, 220);
       rect(x + w - tw - 2, ty - (alignV === CENTER ? 7 : 1), tw, 14);
@@ -502,7 +502,7 @@ function drawMessages(x, y, w, h) {
   textAlign(LEFT, TOP);
   textSize(13);
   textStyle(BOLD);
-  text(w < 300 ? 'Messages received' : 'Messages received (click one)', x + 6, y + 4, w - 12, 16);
+  text(w < 300 ? 'Messages received' : 'Messages received (click one)', x + 6, y + 4, w - 12, 18);
   textStyle(NORMAL);
   if (messages.length === 0) {
     fill('dimgray');

@@ -470,7 +470,7 @@ function drawTooltip(g, traces) {
     logEvent('tooltip: ' + t);
   }
   textSize(13);
-  const w = textWidth(t) + 16;
+  const w = fontWidth(t) + 16;
   const h = 24;
   let x = constrain(mouseX + 12, 4, canvasWidth - w - 4);
   let y = mouseY + 16;

@@ -180,7 +180,7 @@ function drawCard() {
   // source-type badge
   textSize(14);
   const badge = 'Source: ' + r.sourceType;
-  const bw = min(textWidth(badge) + 16, maxW);
+  const bw = min(fontWidth(badge) + 16, maxW);
   fill('lavender');
   stroke('slateblue');
   rect(lx, y, bw, 24, 12);
@@ -325,8 +325,8 @@ function drawDragChip() {
   // a one-line chip: as many opening words of the claim as fit in 220 px
   const all = r.claim.split(' ');
   let n = min(6, all.length), words = all.slice(0, n).join(' ') + '...';
-  while (n > 1 && textWidth(words) > 220) { n--; words = all.slice(0, n).join(' ') + '...'; }
-  const w = textWidth(words) + 20, h = 34;
+  while (n > 1 && fontWidth(words) > 220) { n--; words = all.slice(0, n).join(' ') + '...'; }
+  const w = fontWidth(words) + 20, h = 34;
   stroke('steelblue');
   strokeWeight(2);
   fill(255, 255, 255, 240);
@@ -413,7 +413,7 @@ function wrapLines(s, maxW) {
   let cur = '';
   for (const w of words) {
     const t = cur ? cur + ' ' + w : w;
-    if (textWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
+    if (fontWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
   }
   if (cur) lines.push(cur);
   return lines;

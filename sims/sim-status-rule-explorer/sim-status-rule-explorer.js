@@ -388,10 +388,10 @@ function drawFilesPanel(x, y, w, h) {
     textAlign(LEFT, TOP);
     const nameMax = w - (ix - x) - 22 - 10;
     let name = r.name;
-    while (textWidth(name + '  ' + r.note) > nameMax && name.length > 8) name = name.slice(0, -4) + '…';
+    while (fontWidth(name + '  ' + r.note) > nameMax && name.length > 8) name = name.slice(0, -4) + '…';
     text(name, ix + 20, ty);
     fill(r.ok ? 'dimgray' : 'firebrick');
-    text(r.note, ix + 20 + textWidth(name) + 8, ty);
+    text(r.note, ix + 20 + fontWidth(name) + 8, ty);
     ty += lead;
   }
 }
@@ -499,7 +499,7 @@ function wrapCount(str, w) {
   let n = 1;
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { n++; line = word; }
+    if (fontWidth(test) > w && line) { n++; line = word; }
     else line = test;
   }
   return n;
@@ -511,7 +511,7 @@ function wrapText(str, x, y, w, lead) {
   let yy = y;
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { text(line, x, yy); yy += lead; line = word; }
+    if (fontWidth(test) > w && line) { text(line, x, yy); yy += lead; line = word; }
     else line = test;
   }
   if (line) text(line, x, yy);

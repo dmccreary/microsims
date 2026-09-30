@@ -340,7 +340,7 @@ function drawSlices(s, act, revealed, y0) {
     textSize(13);
     SLICES.forEach((sl, i) => {
         const label = (narrow ? sl.short : sl.name) + ' ' + nf(s.slices[sl.key], 1, 2) + ' MB';
-        let lw = 16 + textWidth(label) + 14;
+        let lw = 16 + fontWidth(label) + 14;
         if (narrow) { lw = w / 2; lx = x + (i % 2) * w / 2; if (i === 2) ly += 20; }
         else if (lx + lw > x + w && lx > x) { lx = x; ly += 20; }
         noStroke();
@@ -411,7 +411,7 @@ function drawLevel(s, lv, act, revealed, y0) {
         const label = 'Level: ' + (revealed ? lv.level : '?');
         textSize(15);
         textStyle(BOLD);
-        const pw = textWidth(label) + 18;
+        const pw = fontWidth(label) + 18;
         fill(revealed ? LEVEL_COLOR[lv.level] : 'gainsboro');
         rect(x + 8, y0 + 6, pw, 24, 12);
         fill(revealed ? 'white' : '#333');
@@ -570,16 +570,16 @@ function wrapLines(str, w) {
     let cur = '';
     for (const wd of words) {
         const test = cur ? cur + ' ' + wd : wd;
-        if (textWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
+        if (fontWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
     }
     if (cur) lines.push(cur);
     return lines;
 }
 
 function fitText(str, w) {
-    if (textWidth(str) <= w) return str;
+    if (fontWidth(str) <= w) return str;
     let s = str;
-    while (s.length > 1 && textWidth(s + '…') > w) s = s.slice(0, -1);
+    while (s.length > 1 && fontWidth(s + '…') > w) s = s.slice(0, -1);
     return s + '…';
 }
 

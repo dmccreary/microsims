@@ -216,7 +216,7 @@ function drawChips(sn, x, y, w, narrow) {
   const cw = narrow ? (w - 8) / 2 : null;
   for (let i = 0; i < data.chips.length; i++) {
     const chip = data.chips[i];
-    const chipW = narrow ? cw : textWidth(chip.label) + 22;
+    const chipW = narrow ? cw : fontWidth(chip.label) + 22;
     if (narrow) {
       cx = x + (i % cols) * (cw + 8);
       cy = y + floor(i / cols) * (h + 6);
@@ -426,7 +426,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) <= maxW || !line) {
+    if (fontWidth(test) <= maxW || !line) {
       line = test;
     } else {
       lines.push(line);
@@ -448,10 +448,10 @@ function wrapCode(lines, maxW) {
   for (let k = 0; k < lines.length; k++) {
     let rest = lines[k];
     let first = true;
-    while (textWidth(rest) > maxW) {
+    while (fontWidth(rest) > maxW) {
       let cut = -1;
       for (let i = rest.length - 1; i > 0; i--) {
-        if (rest[i] === ',' && textWidth(rest.slice(0, i + 1)) <= maxW) { cut = i + 1; break; }
+        if (rest[i] === ',' && fontWidth(rest.slice(0, i + 1)) <= maxW) { cut = i + 1; break; }
       }
       if (cut < 0) break;
       rows.push({ index: k, text: rest.slice(0, cut), first: first });
@@ -465,9 +465,9 @@ function wrapCode(lines, maxW) {
 }
 
 function truncateToWidth(str, maxW) {
-  if (textWidth(str) <= maxW) return str;
+  if (fontWidth(str) <= maxW) return str;
   let s = str;
-  while (s.length > 1 && textWidth(s + '...') > maxW) s = s.slice(0, -1);
+  while (s.length > 1 && fontWidth(s + '...') > maxW) s = s.slice(0, -1);
   return s + '...';
 }
 

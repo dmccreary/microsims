@@ -318,7 +318,7 @@ function drawStatement(x0, top, w, rowH) {
   const fs = isWide() ? 13 : 12;
   textFont('monospace');
   textSize(fs);
-  const charW = textWidth('M');
+  const charW = fontWidth('M');
   const textX = x0 + 16;
   const maxChars = floor((w - 22) / charW);
   const selPart = selectedLine >= 0 ? lines[selectedLine][2] : null;
@@ -507,7 +507,7 @@ function wrapText(str, x, y, w, lead, bottom) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > w && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);
@@ -524,7 +524,7 @@ function wrapText(str, x, y, w, lead, bottom) {
 
 // Character wrap for long code lines
 function wrapChars(str, x, y, w, lead, bottom) {
-  const per = max(10, floor(w / textWidth('M')));
+  const per = max(10, floor(w / fontWidth('M')));
   for (let i = 0; i * per < str.length; i++) {
     if (y + (i + 1) * lead > bottom) break;
     text(str.slice(i * per, (i + 1) * per), x, y + i * lead);
@@ -534,12 +534,12 @@ function wrapChars(str, x, y, w, lead, bottom) {
 function drawTooltip(msg) {
   if (!msg) return;
   textSize(13);
-  const tw = min(textWidth(msg), canvasWidth - 40);
+  const tw = min(fontWidth(msg), canvasWidth - 40);
   const lines = [];
   let line = '';
   for (const word of msg.split(' ')) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > tw && line) { lines.push(line); line = word; } else line = test;
+    if (fontWidth(test) > tw && line) { lines.push(line); line = word; } else line = test;
   }
   lines.push(line);
   const th = lines.length * 17 + 8;

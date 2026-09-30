@@ -318,7 +318,7 @@ function drawLegend() {
     : ['Reinforcing (R)', 'Balancing (B)', 'Previous settings'];
   textSize(14);
   let w = 0;
-  for (const l of labels) w = max(w, textWidth(l));
+  for (const l of labels) w = max(w, fontWidth(l));
   w += 52;
   const x = plotLeft + 10, y = plotTop + 8;
   fill(255, 255, 255, 235);
@@ -357,7 +357,7 @@ function drawExitLabel() {
   textSize(16);
   textStyle(BOLD);
   const label = 'R \u2191 off chart';
-  if (ex + 8 + textWidth(label) < plotRight - 4) {
+  if (ex + 8 + fontWidth(label) < plotRight - 4) {
     textAlign(LEFT, TOP);
     text(label, ex + 8, plotTop + 4);
   } else {
@@ -466,7 +466,7 @@ function drawHover() {
   circle(px, py, 14);
   const label = best.name + ', step ' + best.i + ': ' + nf(best.v, 0, 2);
   textSize(14);
-  const tw = textWidth(label) + 16;
+  const tw = fontWidth(label) + 16;
   let bx = px + 12, by = py - 34;
   if (bx + tw > canvasWidth - 4) bx = px - tw - 12;
   if (by < 4) by = py + 12;

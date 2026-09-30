@@ -498,7 +498,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;
@@ -510,8 +510,8 @@ function drawWrapped(s, x, y, w, lh) {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '...') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '...') > w) s = s.slice(0, -1);
   return s + '...';
 }
 

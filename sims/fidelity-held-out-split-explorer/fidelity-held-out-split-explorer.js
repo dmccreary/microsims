@@ -367,7 +367,7 @@ function textWidthAt(size, s, bold) {
   push();
   textSize(size);
   textStyle(bold ? BOLD : NORMAL);
-  const w = textWidth(s);
+  const w = fontWidth(s);
   pop();
   return w;
 }
@@ -471,7 +471,7 @@ function drawHover() {
     isLeak(i) ? 'In use, but this is leakage' : (isUsed(i) ? 'In use for the forecast' : 'Not used (after the cutoff)')
   ];
   textSize(13);
-  const w = Math.max(...lines.map(l => textWidth(l))) + 16;
+  const w = Math.max(...lines.map(l => fontWidth(l))) + 16;
   const h = lines.length * 17 + 8;
   const x = constrain(mouseX + 12, 4, canvasWidth - w - 4);
   let y = mouseY + 14;

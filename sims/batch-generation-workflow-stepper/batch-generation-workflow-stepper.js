@@ -248,7 +248,7 @@ function drawLegend(y) {
   textSize(14);
   textAlign(LEFT, CENTER);
   let total = 0;
-  items.forEach(([k, label]) => { total += 16 + 6 + textWidth(label) + 18; });
+  items.forEach(([k, label]) => { total += 16 + 6 + fontWidth(label) + 18; });
   let x = (canvasWidth - total + 18) / 2;
   items.forEach(([k, label]) => {
     stroke('dimgray');
@@ -258,7 +258,7 @@ function drawLegend(y) {
     noStroke();
     fill('black');
     text(label, x + 20, y);
-    x += 16 + 6 + textWidth(label) + 18;
+    x += 16 + 6 + fontWidth(label) + 18;
   });
 }
 
@@ -440,7 +440,7 @@ function layoutPanel(x, top, w, h, fs, measureOnly) {
   } else {
     const info = actorInfo[s.actor];
     textStyle(BOLD);
-    const bw = textWidth(info.label) + 16;
+    const bw = fontWidth(info.label) + 16;
     if (!measureOnly) {
       fill(info.fill);
       rect(x + pad, y - 2, bw, lh + 2, 6);
@@ -455,7 +455,7 @@ function layoutPanel(x, top, w, h, fs, measureOnly) {
         'You predicted ' + actorInfo[p].label.split(' (')[0] + '.';
       const mx = x + pad + bw + 10;
       fill(ok ? 'darkgreen' : 'firebrick');
-      if (mx + textWidth(msg) < x + w - pad) {
+      if (mx + fontWidth(msg) < x + w - pad) {
         if (!measureOnly) text(msg, mx, y);
       } else {
         y += lh + 4;
@@ -490,7 +490,7 @@ function drawField(label, value, x, y, w, labelW, fs, lh, measureOnly) {
   if (!measureOnly) text(label, x, y);
   if (labelW === 0) {
     // narrow layout: the value starts on the label's line and wraps under it
-    const lw = textWidth(label) + 6;
+    const lw = fontWidth(label) + 6;
     textStyle(NORMAL);
     wrapLines(value, w, w - lw).forEach((L, i) => {
       if (!measureOnly) text(L, i === 0 ? x + lw : x, y);
@@ -514,7 +514,7 @@ function wrapLines(str, maxW, firstW) {
   let limit = firstW !== undefined ? firstW : maxW;
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > limit && line) {
+    if (fontWidth(test) > limit && line) {
       lines.push(line);
       line = word;
       limit = maxW;
@@ -550,7 +550,7 @@ function drawTooltip() {
   textSize(14);
   const maxW = min(280, canvasWidth - 40);
   const lines = wrapLines(s.purpose, maxW - 16);
-  const tw = min(maxW, max(lines.map(L => textWidth(L))) + 16);
+  const tw = min(maxW, max(lines.map(L => fontWidth(L))) + 16);
   const th = lines.length * 18 + 10;
   let tx = mouseX + 14;
   let ty = mouseY + 16;

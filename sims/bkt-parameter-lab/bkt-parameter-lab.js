@@ -406,7 +406,7 @@ function drawSliderLabels() {
     const lab = s.label + ': ';
     text(lab, s.x, s.y + 10);
     fill(abs(vals[i] - defs[i]) < 1e-9 ? 'black' : [185, 70, 0]);
-    text(nf(vals[i], 1, 2), s.x + textWidth(lab), s.y + 10);
+    text(nf(vals[i], 1, 2), s.x + fontWidth(lab), s.y + 10);
     textStyle(NORMAL);
   });
   textAlign(LEFT, TOP);
@@ -420,7 +420,7 @@ function drawTooltip() {
     : 'Attempt ' + p.n + ': ' + (p.correct ? 'correct' : 'incorrect') + ', P(L' + p.n + ') = ' + nf(p.value, 1, 2);
   if (tip !== lastTip) { console.log('[bkt-parameter-lab] tooltip: ' + tip); lastTip = tip; }
   textSize(13);
-  const w = textWidth(tip) + 16;
+  const w = fontWidth(tip) + 16;
   const pr = pointRects[hoverPoint];
   const x = constrain(pr.x - w / 2, margin, canvasWidth - margin - w);
   const y = pr.y + 14;
@@ -441,7 +441,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

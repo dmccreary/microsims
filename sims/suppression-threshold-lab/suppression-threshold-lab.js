@@ -210,7 +210,7 @@ function layoutControls() {
   const placed = [];
   for (const it of layoutItems) {
     textStyle(BOLD);
-    const lw = it.label ? textWidth(it.label) + 8 : 0;
+    const lw = it.label ? fontWidth(it.label) + 8 : 0;
     textStyle(NORMAL);
     const w = lw + (it.el.elt.offsetWidth || 100);
     if (x > x0 && ((it.br && !narrow()) || x + w > canvasWidth - margin)) { row++; x = x0; }
@@ -517,7 +517,7 @@ function drawLegend(x, y) {
     noStroke();
     fill(40);
     text(it.t, xx + 19, y + 8);
-    xx += 19 + textWidth(it.t) + 16;
+    xx += 19 + fontWidth(it.t) + 16;
     if (xx > canvasWidth - 120) { xx = x; y += 18; }
   }
   return y + 18;
@@ -548,7 +548,7 @@ function drawControlLabels() {
     textStyle(BOLD);
     const t = l.el === thresholdSlider ? 'Threshold: ' : l.text;
     text(t, l.x, l.y);
-    const tw = textWidth(t);
+    const tw = fontWidth(t);
     textStyle(NORMAL);
     if (l.el === thresholdSlider) text(thresholdSlider.value(), l.x + tw, l.y);
   }
@@ -585,7 +585,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

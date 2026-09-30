@@ -393,7 +393,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) <= maxW || !line) {
+    if (fontWidth(test) <= maxW || !line) {
       line = test;
     } else {
       lines.push(line);
@@ -405,9 +405,9 @@ function wrapLines(str, maxW) {
 }
 
 function truncateToWidth(str, maxW) {
-  if (textWidth(str) <= maxW) return str;
+  if (fontWidth(str) <= maxW) return str;
   let s = str;
-  while (s.length > 1 && textWidth(s + '...') > maxW) s = s.slice(0, -1);
+  while (s.length > 1 && fontWidth(s + '...') > maxW) s = s.slice(0, -1);
   return s + '...';
 }
 

@@ -399,7 +399,7 @@ function drawTracker(x, y, w, h) {
   else if (locked) head += ' - limit reached: Stop and report';
   else if (present.size === 0) head += ' - all PASS: Stop and report';
   fill(locked && !stopped ? 'firebrick' : 'black');
-  text(head, x + 8, y + 5, w - 16, 16);
+  text(head, x + 8, y + 5, w - 16, 18);
   textStyle(NORMAL);
   const bw = (w - 16 - 2 * 6) / 3, by = y + 24, bh = h - 30;
   for (let i = 0; i < MAX_CYCLES; i++) {
@@ -480,7 +480,7 @@ function drawLog(x, y, w, h) {
   textSize(12);
   // newest entries that fit, measured by wrapped line count
   const lineH = 15, tw = w - 16;
-  const heights = logLines.map(l => (ceil(textWidth(l) / (tw - 6)) || 1) * lineH + 3);
+  const heights = logLines.map(l => (ceil(fontWidth(l) / (tw - 6)) || 1) * lineH + 3);
   let avail = h - 26, start = logLines.length;
   while (start > 0 && avail - heights[start - 1] >= 0) { avail -= heights[start - 1]; start--; }
   let yy = y + 24;
@@ -540,7 +540,7 @@ function drawReport() {
   let yy = y + 36;
   const line2 = (t, col, lh) => {
     fill(col || 'black');
-    const lines = ceil(textWidth(t) / (w - 30)) || 1;
+    const lines = ceil(fontWidth(t) / (w - 30)) || 1;
     text(t, x + 12, yy, w - 24, lines * (lh || 16) + 2);
     yy += lines * (lh || 16) + 4;
   };

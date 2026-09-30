@@ -1,11 +1,11 @@
-/* MicroSims Milestones Timeline - fixed total height 480px (CANVAS_HEIGHT)
+/* MicroSims Milestones Timeline - fixed total height 580px (CANVAS_HEIGHT)
    toolbar 42 + timeline (flex) + nav bar 38 + details 150 */
 * { box-sizing: border-box; }
 body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
 main { display: block; }
 
 #app {
-    height: 480px;
+    height: 580px;
     display: flex;
     flex-direction: column;
     border: 1px solid silver;
@@ -72,12 +72,15 @@ main { display: block; }
 /* Theme colors (book, paper, tools) */
 .swatch.book, .vis-item.book { background-color: steelblue; border-color: #1f4e79; color: white; }
 .swatch.paper, .vis-item.paper { background-color: darkorange; border-color: #9a4d00; color: black; }
+.swatch.anthropic, .vis-item.anthropic { background-color: #C15F3C; border-color: #8A3F24; color: white; }
 .swatch.tools, .vis-item.tools { background-color: seagreen; border-color: #1d5c38; color: white; }
 .vis-item.vis-line.book { border-color: steelblue; }
 .vis-item.vis-line.paper { border-color: darkorange; }
+.vis-item.vis-line.anthropic { border-color: #C15F3C; }
 .vis-item.vis-line.tools { border-color: seagreen; }
 .vis-item.vis-dot.book { border-color: steelblue; }
 .vis-item.vis-dot.paper { border-color: darkorange; }
+.vis-item.vis-dot.anthropic { border-color: #C15F3C; }
 .vis-item.vis-dot.tools { border-color: seagreen; }
 
 /* Item boxes must fit their text (see the timeline guide) */
@@ -92,6 +95,7 @@ main { display: block; }
 .vis-item.vis-selected { border-color: black !important; border-width: 2px; box-shadow: 0 0 0 3px gold; }
 .vis-item.vis-box.book.vis-selected { background-color: steelblue !important; color: white; }
 .vis-item.vis-box.paper.vis-selected { background-color: darkorange !important; color: black; }
+.vis-item.vis-box.anthropic.vis-selected { background-color: #C15F3C !important; color: white; }
 .vis-item.vis-box.tools.vis-selected { background-color: seagreen !important; color: white; }
 .vis-labelset .vis-label { font-size: 14px; font-weight: bold; color: #333; }
 .vis-time-axis .vis-text { font-size: 13px; color: #333; }

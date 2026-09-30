@@ -575,14 +575,14 @@ function drawInfo(g) {
   for (const r of rows) {
     textStyle(BOLD);
     text(r[0] + ':', tx, ty);
-    const lw = textWidth(r[0] + ': ');
+    const lw = fontWidth(r[0] + ': ');
     textStyle(NORMAL);
     ty = drawWrapped(r[1], tx + lw, ty, tw - lw, lh - 2);
   }
   ty += 6;
   textStyle(BOLD);
   text('Why:', tx, ty);
-  const lw = textWidth('Why: ');
+  const lw = fontWidth('Why: ');
   textStyle(NORMAL);
   ty = drawWrapped(ev.why, tx + lw, ty, tw - lw, lh - 2) + 6;
   if (ty + lh < y + h) {
@@ -653,7 +653,7 @@ function drawJson(g) {
   const fs = narrow() ? 11 : 13;
   textFont('monospace');
   textSize(fs);
-  const cw = textWidth('M');
+  const cw = fontWidth('M');
   const maxChars = max(20, floor((w - 24) / cw));
   const lh = fs + 3;
   let ty = y + 48;
@@ -703,7 +703,7 @@ function jsonColors(s) {
 // Draw one JSON line, wrapped, coloring the whole line before it is split. Returns the new y.
 function drawJsonLine(s, maxChars, x, y, lh) {
   const cols = jsonColors(s);
-  const cw = textWidth('M');
+  const cw = fontWidth('M');
   noStroke();
   for (const p of wrapParts(s, maxChars)) {
     let i = p.start;
@@ -762,7 +762,7 @@ function drawWrapped(s, x, y, w, lh) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) {
+    if (fontWidth(test) > w && line) {
       text(line, x, y);
       y += lh;
       line = wd;

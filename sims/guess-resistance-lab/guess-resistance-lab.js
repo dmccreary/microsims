@@ -371,8 +371,8 @@ function drawChanceChart(x, y, w, h) {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '\u2026') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '\u2026') > w) s = s.slice(0, -1);
   return s + '\u2026';
 }
 
@@ -519,7 +519,7 @@ function wrapText(str, x, y, w, lh, maxLines, center) {
   const out = [];
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > w && line) { out.push(line); line = word; } else line = t;
+    if (fontWidth(t) > w && line) { out.push(line); line = word; } else line = t;
   }
   if (line) out.push(line);
   out.forEach(L => { text(L, center ? x + w / 2 : x, y); y += lh; });

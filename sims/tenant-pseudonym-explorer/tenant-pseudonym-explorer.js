@@ -160,7 +160,7 @@ function draw() {
   textStyle(BOLD);
   let title = 'Tenant Isolation and Pseudonym Explorer';
   textSize(20);
-  if (textWidth(title) > canvasWidth - 2 * margin) title = 'Tenants and Pseudonyms';
+  if (fontWidth(title) > canvasWidth - 2 * margin) title = 'Tenants and Pseudonyms';
   text(title, margin, 8);
   textStyle(NORMAL);
 
@@ -435,8 +435,8 @@ function drawControlLabels() {
     textSize(13);
     fill('dimgray');
     let note = 'Account home page: ' + HOME_PAGE + '.  The real design derives the key with HMAC-SHA256 keyed by the salt.';
-    if (textWidth(note) > canvasWidth - 20) note = 'Home page: ' + HOME_PAGE + '.  Real keys use HMAC-SHA256 with the salt.';
-    if (textWidth(note) > canvasWidth - 20) note = 'Home page: ' + HOME_PAGE;
+    if (fontWidth(note) > canvasWidth - 20) note = 'Home page: ' + HOME_PAGE + '.  Real keys use HMAC-SHA256 with the salt.';
+    if (fontWidth(note) > canvasWidth - 20) note = 'Home page: ' + HOME_PAGE;
     text(note, 10, drawHeight + 84);
   } else {
     // narrow: the note goes to the right of the button row when it fits
@@ -472,7 +472,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;
@@ -484,8 +484,8 @@ function drawWrapped(s, x, y, w, lh) {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '...') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '...') > w) s = s.slice(0, -1);
   return s + '...';
 }
 

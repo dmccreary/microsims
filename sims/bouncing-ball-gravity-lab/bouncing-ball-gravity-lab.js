@@ -261,7 +261,7 @@ function drawHeightMarkers(panelX) {
 
 // Use the long label when it fits, otherwise the short one
 function fitLabel(longText, shortText, room) {
-  return textWidth(longText) <= room ? longText : shortText;
+  return fontWidth(longText) <= room ? longText : shortText;
 }
 
 // Split text into lines that fit maxW at the current text size and style
@@ -271,7 +271,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const w of words) {
     const test = line ? line + ' ' + w : w;
-    if (textWidth(test) > maxW && line) {
+    if (fontWidth(test) > maxW && line) {
       lines.push(line);
       line = w;
     } else {

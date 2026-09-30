@@ -274,7 +274,7 @@ function drawCard(r, b, recommended, rowMode) {
     if (recommended) {
         textSize(13);
         const lab = 'Recommended';
-        const lw = textWidth(lab) + 14;
+        const lw = fontWidth(lab) + 14;
         fill('#007A5A');
         rect(b.x + b.w - lw - 8, y, lw, 20, 10);
         fill('white');
@@ -469,16 +469,16 @@ function wrapLines(str, w) {
     let cur = '';
     for (const wd of words) {
         const test = cur ? cur + ' ' + wd : wd;
-        if (textWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
+        if (fontWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
     }
     if (cur) lines.push(cur);
     return lines;
 }
 
 function fitText(str, w) {
-    if (textWidth(str) <= w) return str;
+    if (fontWidth(str) <= w) return str;
     let s = str;
-    while (s.length > 1 && textWidth(s + '…') > w) s = s.slice(0, -1);
+    while (s.length > 1 && fontWidth(s + '…') > w) s = s.slice(0, -1);
     return s + '…';
 }
 

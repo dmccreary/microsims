@@ -452,7 +452,7 @@ function drawTreeChips(y) {
   for (const it of items) {
     const n = flagsInFile(it.file);
     const label = it.label + (n > 0 && it.file >= 0 ? ' (' + n + ')' : '');
-    const w = textWidth(label) + 16;
+    const w = fontWidth(label) + 16;
     if (x + w > canvasWidth - margin) {
       x = margin;
       yy += 28;
@@ -487,7 +487,7 @@ function drawFile() {
   textFont('monospace');
   textSize(codeSize);
   const textW = viewer.w - gutterW - 16 - 108; // room on the right for severity tags
-  const charW = textWidth('M');
+  const charW = fontWidth('M');
   const maxChars = max(12, floor(textW / charW));
 
   // Lay out wrapped rows in content coordinates
@@ -512,8 +512,8 @@ function drawFile() {
   for (const r of rowLayout) {
     const y = bodyTop + r.y - scrollY;
     if (y + r.h < bodyTop || y > bodyTop + bodyH) continue;
-    const key = currentFile + ':' + r.line;
-    const flag = flags.get(key);
+    const flagKey = currentFile + ':' + r.line;
+    const flag = flags.get(flagKey);
     const hover = mouseInViewerBody() && mouseY >= y && mouseY < y + r.h;
     const status = lineStatus(currentFile, r.line, flag);
 
@@ -537,7 +537,7 @@ function drawFile() {
       drawingContext.restore();
     }
     // active flag outline
-    if (flag && key === activeKey) {
+    if (flag && flagKey === activeKey) {
       stroke('darkorange');
       strokeWeight(2);
       noFill();
@@ -597,7 +597,7 @@ function drawViewerFrame(title) {
   textStyle(BOLD);
   textAlign(LEFT, CENTER);
   let t = title;
-  while (textWidth(t) > viewer.w - 16 && t.length > 4) t = t.slice(0, -2);
+  while (fontWidth(t) > viewer.w - 16 && t.length > 4) t = t.slice(0, -2);
   text(t, viewer.x + 8, viewer.y + 14);
   textStyle(NORMAL);
 }
@@ -623,7 +623,7 @@ function drawScrollHint(bodyTop, bodyH) {
   const more = scrollY + bodyH < contentH - 2;
   const hint = more ? 'scroll for more ▼' : '▲ top';
   fill(255, 255, 255, 235);
-  rect(viewer.x + viewer.w - textWidth(hint) - 16, bodyTop + bodyH - 18, textWidth(hint) + 12, 17, 4);
+  rect(viewer.x + viewer.w - fontWidth(hint) - 16, bodyTop + bodyH - 18, fontWidth(hint) + 12, 17, 4);
   fill('steelblue');
   text(hint, viewer.x + viewer.w - 8, bodyTop + bodyH - 2);
 }
@@ -745,7 +745,7 @@ function wrapWords(s, w) {
   let cur = '';
   for (const word of words) {
     const test = cur ? cur + ' ' + word : word;
-    if (textWidth(test) > w - 20 && cur) {
+    if (fontWidth(test) > w - 20 && cur) {
       lines.push(cur);
       cur = word;
     } else cur = test;
@@ -845,15 +845,15 @@ function mousePressed() {
     const cy = mouseY - (viewer.y + 28) + scrollY;
     for (const r of rowLayout) {
       if (cy >= r.y && cy < r.y + r.h) {
-        const key = currentFile + ':' + r.line;
-        if (flags.has(key)) {
-          if (activeKey === key) {
-            flags.delete(key);
+        const flagKey = currentFile + ':' + r.line;
+        if (flags.has(flagKey)) {
+          if (activeKey === flagKey) {
+            flags.delete(flagKey);
             activeKey = null;
-          } else activeKey = key;
+          } else activeKey = flagKey;
         } else {
-          flags.set(key, { file: currentFile, line: r.line, severity: '' });
-          activeKey = key;
+          flags.set(flagKey, { file: currentFile, line: r.line, severity: '' });
+          activeKey = flagKey;
         }
         syncSelect();
         return;

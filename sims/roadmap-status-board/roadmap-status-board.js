@@ -218,7 +218,7 @@ function drawKey(x, y, w, wide) {
     noStroke();
     fill(INK);
     text(L.word, cx + 27, y + 10);
-    cx += 27 + textWidth(L.word) + 16;
+    cx += 27 + fontWidth(L.word) + 16;
   });
   return y + 24;
 }
@@ -403,14 +403,14 @@ function drawQuizPanel(tx, yy, tw) {
 function field(label, body, x, y, w) {
   fill(INK);
   textStyle(BOLD);
-  const lw = textWidth(label);
+  const lw = fontWidth(label);
   text(label, x, y);
   textStyle(NORMAL);
   const words = body.split(' ');
   let line = '', cx = x + lw, cw = w - lw, first = true;
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > cw && line) {
+    if (fontWidth(t) > cw && line) {
       text(line, cx, y); y += 16; line = word;
       if (first) { first = false; cx = x; cw = w; }
     } else line = t;
@@ -421,7 +421,7 @@ function field(label, body, x, y, w) {
 
 function drawTooltip(t, mx, my) {
   textSize(12);
-  const w = textWidth(t) + 14;
+  const w = fontWidth(t) + 14;
   let x = constrain(mx + 12, 4, canvasWidth - w - 4);
   let y = my + 16;
   if (y + 22 > drawHeight) y = my - 30;
@@ -537,8 +537,8 @@ function layoutControls() {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '…') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '…') > w) s = s.slice(0, -1);
   return s + '…';
 }
 
@@ -547,7 +547,7 @@ function wrapText(str, x, y, w, lh, maxLines) {
   let line = '', n = 0;
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > w && line) {
+    if (fontWidth(t) > w && line) {
       n++;
       if (maxLines && n >= maxLines) { text(fitText(line + ' ' + word, w), x, y); return y + lh; }
       text(line, x, y); y += lh; line = word;

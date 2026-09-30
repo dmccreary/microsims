@@ -209,7 +209,7 @@ function drawLegend() {
   const items = ['script', 'agent', 'checkpoint'];
   textSize(14);
   textAlign(LEFT, CENTER);
-  let widths = items.map(k => 18 + textWidth(ACTORS[k].label) + 16);
+  let widths = items.map(k => 18 + fontWidth(ACTORS[k].label) + 16);
   let total = widths.reduce((a, b) => a + b, 0);
   let x = (canvasWidth - total) / 2;
   const y = L.legendY;
@@ -278,7 +278,7 @@ function wrapLines(str, w) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > w && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > w && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);
@@ -326,7 +326,7 @@ function drawArrowBetween(s, t, col, label, above, bulge) {
   const mx = bezierPoint(x1, x1, x2, x2, 0.5);
   const my = bezierPoint(y1, c1y, c2y, y2, 0.5);
   textSize(12);
-  const tw = textWidth(label);
+  const tw = fontWidth(label);
   noStroke();
   fill(255, 255, 255, 230);
   rect(mx - tw / 2 - 3, my - 8, tw + 6, 16, 3);
@@ -398,7 +398,7 @@ function drawDetailPanel() {
   y += wrappedText('Step ' + (selected + 1) + ': ' + (wide ? st.title : st.short), x, y, w, wide ? 22 : 20) + 2;
   textSize(wide ? 15 : 14);
   text('Actor:', x, y);
-  const ax = x + textWidth('Actor: ');
+  const ax = x + fontWidth('Actor: ');
   textStyle(NORMAL);
   y += wrappedText(a.label + ' \u2014 ' + st.tool, ax, y, w - (ax - x), lead);
   y += wrappedText(st.does, x, y, w, lead) + 8;
@@ -452,9 +452,9 @@ function drawFileList(heading, files, x, y, w, dir) {
       else caption = wide ? (DOWNSTREAM[f] || 'final output') : '(' + (DOWNSTREAM[f] || 'final output') + ')';
     }
     textSize(13);
-    const nameW = textWidth(f);
+    const nameW = fontWidth(f);
     textSize(12);
-    const capW = textWidth(caption);
+    const capW = fontWidth(caption);
     const cw = wide ? 22 + max(nameW, capW) + 10 : 20 + nameW + 5 + capW + 12;
     if (cx + cw > x + w && cx > x) { cx = x; cy += chipH + 4; }
     drawDocIcon(cx, cy + (wide ? 2 : 0), iconFill);
@@ -501,7 +501,7 @@ function drawControlText() {
 function drawTooltip(i) {
   const msg = STEPS[i].purpose;
   textSize(14);
-  const tw = min(textWidth(msg), 240);
+  const tw = min(fontWidth(msg), 240);
   const lines = wrapLines(msg, tw);
   const th = lines.length * 18 + 8;
   let tx = mouseX + 14;

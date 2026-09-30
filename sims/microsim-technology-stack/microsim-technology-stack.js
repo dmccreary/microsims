@@ -251,7 +251,7 @@ function drawLayer(layer, x, y, w, h, compact) {
     // small tag saying the hovered layer needs this one
     const tag = 'needed';
     textSize(12);
-    const tw = textWidth(tag) + 10;
+    const tw = fontWidth(tag) + 10;
     fill('black');
     rect(x + w - tw - 6, y + h / 2 - 9, tw, 18, 9);
     fill('gold');
@@ -317,7 +317,7 @@ function drawPanel(x, y, w, bottom, compact) {
   textStyle(BOLD);
   textSize(compact ? 14 : 15);
   text('If it is missing:', innerX, cy);
-  const labelW = textWidth('If it is missing:') + 6;   // measured in bold
+  const labelW = fontWidth('If it is missing:') + 6;   // measured in bold
   textStyle(NORMAL);
   fill('black');
   cy = drawWrapped(layer.missing, innerX, cy, innerW, compact ? 17 : 19, labelW) + 6;
@@ -448,7 +448,7 @@ function drawBackLink(x, y) {
   textSize(11);
   text('Back to Lesson Plan', x, y);
   stroke('blue');
-  line(x, y + 12, x + textWidth('Back to Lesson Plan'), y + 12);
+  line(x, y + 12, x + fontWidth('Back to Lesson Plan'), y + 12);
   noStroke();
   textFont('sans-serif');
 }
@@ -464,7 +464,7 @@ function drawWrapped(str, x, y, maxW, lineH, firstIndent) {
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
     const avail = first ? maxW - indent : maxW;
-    if (textWidth(test) > avail && line) {
+    if (fontWidth(test) > avail && line) {
       text(line, x + (first ? indent : 0), y);
       y += lineH;
       line = word;
@@ -493,9 +493,9 @@ function drawControlText() {
 
 // Shorten a string with an ellipsis until it fits maxW at the current text size
 function fitText(str, maxW) {
-  if (textWidth(str) <= maxW) return str;
+  if (fontWidth(str) <= maxW) return str;
   let t = str;
-  while (t.length > 3 && textWidth(t + '…') > maxW) t = t.slice(0, -1);
+  while (t.length > 3 && fontWidth(t + '…') > maxW) t = t.slice(0, -1);
   return t.trimEnd() + '…';
 }
 
@@ -503,7 +503,7 @@ function fitText(str, maxW) {
 function drawFitted(str, x, y, maxW) {
   let size = 15;
   textSize(size);
-  while (textWidth(str) > maxW && size > 11) { size--; textSize(size); }
+  while (fontWidth(str) > maxW && size > 11) { size--; textSize(size); }
   text(str, x, y);
 }
 

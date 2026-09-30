@@ -269,7 +269,7 @@ function drawCounterPanel(x, y, w, h, narrow) {
     text(codeText, x + pad, ty);
     if (skipped) {
       stroke('darkgray');
-      line(x + pad + 24, ty + 8, x + pad + textWidth(codeText), ty + 8);
+      line(x + pad + 24, ty + 8, x + pad + fontWidth(codeText), ty + 8);
       noStroke();
     }
     textFont('sans-serif');
@@ -362,7 +362,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) <= maxW || !line) {
+    if (fontWidth(test) <= maxW || !line) {
       line = test;
     } else {
       lines.push(line);

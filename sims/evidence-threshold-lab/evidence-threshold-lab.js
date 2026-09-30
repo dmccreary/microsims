@@ -302,7 +302,7 @@ function drawList(r, results) {
     fill(ok ? 'black' : 'darkgray');
     const tail = ok ? obj + '  ' + res : obj + '  ' + fmtMs(a.ms) + ' ' + a.lane;
     text(fitText(tail + (a.lane === 'answer' ? '  (no threshold)' : ''), r.x + r.w - 8 - c2), c2, y);
-    if (!ok) { stroke('darkgray'); line(c2, y + fs * 0.6, c2 + min(textWidth(tail), r.x + r.w - 8 - c2), y + fs * 0.6); noStroke(); }
+    if (!ok) { stroke('darkgray'); line(c2, y + fs * 0.6, c2 + min(fontWidth(tail), r.x + r.w - 8 - c2), y + fs * 0.6); noStroke(); }
     y += lh;
   }
   if (!showF) {
@@ -418,7 +418,7 @@ function drawControlLabels() {
     fill('black');
     textStyle(BOLD);
     text(l[0], 10, y);
-    const lw = textWidth(l[0]);
+    const lw = fontWidth(l[0]);
     fill(l[1] === l[2] ? 'black' : 'darkorange');
     text(l[1], 10 + lw, y);
     textStyle(NORMAL);
@@ -459,7 +459,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;
@@ -471,8 +471,8 @@ function drawWrapped(s, x, y, w, lh) {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '...') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '...') > w) s = s.slice(0, -1);
   return s + '...';
 }
 

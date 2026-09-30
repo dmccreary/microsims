@@ -425,7 +425,7 @@ function drawScorePanel(st, g, score) {
   textSize(54);
   textStyle(BOLD);
   text(score, x + 12, y + 28);
-  const sw = textWidth(String(score));
+  const sw = fontWidth(String(score));
   textStyle(NORMAL);
   textSize(18);
   fill('dimgray');
@@ -506,7 +506,7 @@ function drawReadoutStrip(score) {
   textSize(32);
   textStyle(BOLD);
   text(score, x, y);
-  const sw = textWidth(String(score));
+  const sw = fontWidth(String(score));
   const gs = 34;
   gradeRect = { x: x + sw + 8, y: y + 1, w: gs, h: gs };
   fill(band.col);

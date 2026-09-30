@@ -350,7 +350,7 @@ function drawTile(e, x, y, w, h) {
         textSize(13);
         textAlign(CENTER, CENTER);
         const t = fitText(e.text, w - 8);
-        const tw = textWidth(t) + 8;
+        const tw = fontWidth(t) + 8;
         fill('aliceblue');
         rect(x + w / 2 - tw / 2, y + 4, tw, h - 8);
         fill('#555');
@@ -620,7 +620,7 @@ function wrapLines(str, w) {
     let cur = '';
     for (const wd of words) {
         const test = cur ? cur + ' ' + wd : wd;
-        if (textWidth(test) > w && cur) { lines.push(cur); cur = wd; }
+        if (fontWidth(test) > w && cur) { lines.push(cur); cur = wd; }
         else cur = test;
     }
     if (cur) lines.push(cur);
@@ -628,9 +628,9 @@ function wrapLines(str, w) {
 }
 
 function fitText(str, w) {
-    if (textWidth(str) <= w) return str;
+    if (fontWidth(str) <= w) return str;
     let s = str;
-    while (s.length > 1 && textWidth(s + '…') > w) s = s.slice(0, -1);
+    while (s.length > 1 && fontWidth(s + '…') > w) s = s.slice(0, -1);
     return s + '…';
 }
 

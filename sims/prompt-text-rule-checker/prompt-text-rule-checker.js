@@ -156,7 +156,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const w of words) {
     const t = line ? line + ' ' + w : w;
-    if (textWidth(t) <= maxW || !line) line = t;
+    if (fontWidth(t) <= maxW || !line) line = t;
     else { out.push(line); line = w; }
   }
   if (line) out.push(line);

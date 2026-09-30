@@ -196,7 +196,7 @@ function drawMini() {
     fill('black');
     textAlign(CENTER, CENTER);
     textSize(ts);
-    if (textWidth(b.label) < bw - 4) text(b.label, bx + bw / 2, by + 11);
+    if (fontWidth(b.label) < bw - 4) text(b.label, bx + bw / 2, by + 11);
   }
   strokeWeight(1);
 }
@@ -309,7 +309,7 @@ function wrapLines(str, maxW) {
   let cur = '';
   for (const w of words) {
     const t = cur ? cur + ' ' + w : w;
-    if (textWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
+    if (fontWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
   }
   if (cur) lines.push(cur);
   return lines;

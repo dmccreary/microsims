@@ -443,7 +443,7 @@ function drawStatement(st, x, y, w, h) {
   for (; fs >= 10; fs--) {
     textSize(fs);
     lh = fs + (fs >= 12 ? 4 : 3);
-    maxChars = max(24, floor((w - 16) / textWidth('M')));
+    maxChars = max(24, floor((w - 16) / fontWidth('M')));
     let n = 0;
     let extra = 0;
     st.lines.forEach((ln, k) => { n += wrapMono(ln[0], maxChars).length; if (rowBadges(k, ln).length) extra += 18; });
@@ -482,7 +482,7 @@ function drawStatement(st, x, y, w, h) {
     textFont('sans-serif');
     textSize(11);
     for (let b = badges.length - 1; b >= 0; b--) {
-      const bw = textWidth(badges[b].t) + 10;
+      const bw = fontWidth(badges[b].t) + 10;
       bx -= bw;
       fill(badges[b].c);
       noStroke();
@@ -700,7 +700,7 @@ function jsonColors(s) {
 // Draw one JSON line, wrapped, coloring the whole line before it is split. Returns the new y.
 function drawJsonLine(s, maxChars, x, y, lh) {
   const cols = jsonColors(s);
-  const cw = textWidth('M');
+  const cw = fontWidth('M');
   noStroke();
   for (const p of wrapParts(s, maxChars)) {
     let i = p.start;
@@ -722,7 +722,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

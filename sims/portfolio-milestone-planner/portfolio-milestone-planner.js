@@ -242,7 +242,7 @@ function draw() {
     textSize(12);
     textAlign(CENTER, CENTER);
     const label = (warn ? '! ' : '') + p.dur.toFixed(1) + ' wk';
-    if (textWidth(label) + 6 < r.w) text(label, r.x + r.w / 2, r.y + r.h / 2);
+    if (fontWidth(label) + 6 < r.w) text(label, r.x + r.w / 2, r.y + r.h / 2);
     else if (warn) text('!', r.x + r.w / 2, r.y + r.h / 2);
   });
 
@@ -307,7 +307,7 @@ function drawPanel(y, sims, people) {
 function labeled(label, body, x, y, w) {
   fill(INK);
   textStyle(BOLD);
-  const lw = textWidth(label);
+  const lw = fontWidth(label);
   text(label, x, y);
   textStyle(NORMAL);
   // first line continues after the label, later lines wrap to the left edge
@@ -315,7 +315,7 @@ function labeled(label, body, x, y, w) {
   let line = '', first = true, cx = x + lw, cw = w - lw;
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > cw && line) {
+    if (fontWidth(t) > cw && line) {
       text(line, cx, y); y += 16; line = word;
       if (first) { first = false; cx = x; cw = w; }
     } else line = t;
@@ -397,7 +397,7 @@ function wrapText(str, x, y, w, lh) {
   let line = '';
   for (const word of words) {
     const t = line ? line + ' ' + word : word;
-    if (textWidth(t) > w && line) { text(line, x, y); y += lh; line = word; } else line = t;
+    if (fontWidth(t) > w && line) { text(line, x, y); y += lh; line = word; } else line = t;
   }
   if (line) { text(line, x, y); y += lh; }
   return y;

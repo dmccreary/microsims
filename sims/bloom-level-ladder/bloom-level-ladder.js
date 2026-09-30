@@ -209,8 +209,8 @@ function drawTooltip() {
       const lev = LEVELS[r.i];
       const tip = lev.name + ': ' + lev.def;
       textSize(14);
-      const tw = min(textWidth(tip) + 20, canvasWidth - 2 * margin);
-      const lines = ceil(textWidth(tip) / (tw - 16));
+      const tw = min(fontWidth(tip) + 20, canvasWidth - 2 * margin);
+      const lines = ceil(fontWidth(tip) / (tw - 16));
       const th = lines * 18 + 10;
       const tx = constrain(mouseX + 10, margin, canvasWidth - tw - margin);
       let ty = mouseY - th - 10;

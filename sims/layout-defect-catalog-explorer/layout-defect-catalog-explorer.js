@@ -139,7 +139,7 @@ function geom() {
 function defectBoxes(g) {
   textSize(24);
   textStyle(BOLD);
-  const tw = textWidth(g.title);
+  const tw = fontWidth(g.title);
   textStyle(NORMAL);
   const tx = active('T') ? 300 - tw / 2 : 12;
   return {
@@ -444,7 +444,7 @@ function drawChecklist(r) {
     textStyle(BOLD);
     textSize(13);
     text(fam.n + '. ' + fam.name, r.x + 8, y);
-    const headW = textWidth(fam.n + '. ' + fam.name);
+    const headW = fontWidth(fam.n + '. ' + fam.name);
     textStyle(NORMAL);
     if (fam.items.length === 0) {
       fill('gray');
@@ -484,14 +484,14 @@ function drawChecklistCompact(r) {
     textStyle(BOLD);
     const head = fam.n + ' ' + fam.name + ':';
     text(head, x, y);
-    x += textWidth(head) + 6;
+    x += fontWidth(head) + 6;
     textStyle(NORMAL);
     fam.items.forEach(it => {
       const hit = it[2].some(id => found.has(id));
       fill(hit ? 'green' : 'dimgray');
       textStyle(hit ? BOLD : NORMAL);
       text(it[0], x, y);
-      x += textWidth(it[0]) + 8;
+      x += fontWidth(it[0]) + 8;
       textStyle(NORMAL);
     });
     y += 15;

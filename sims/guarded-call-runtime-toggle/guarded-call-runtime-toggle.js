@@ -342,7 +342,7 @@ function drawStrip(r) {
   // shrink, then wrap to two lines, so the whole message is always visible
   let fs = narrow() ? 12 : 13.5;
   textSize(fs);
-  if (textWidth(status.text) > r.w - 16) { fs = 11.5; textSize(fs); }
+  if (fontWidth(status.text) > r.w - 16) { fs = 11.5; textSize(fs); }
   const lines = wrapWords(status.text, r.w - 16).slice(0, 2);
   textAlign(LEFT, CENTER);
   lines.forEach((l, i) => text(l, r.x + 8, r.y + r.h / 2 + (i - (lines.length - 1) / 2) * (fs + 2)));
@@ -441,7 +441,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;
@@ -453,12 +453,12 @@ function drawWrapped(s, x, y, w, lh) {
 }
 
 function fitText(s, w) {
-  if (textWidth(s) <= w) return s;
-  while (s.length > 3 && textWidth(s + '...') > w) s = s.slice(0, -1);
+  if (fontWidth(s) <= w) return s;
+  while (s.length > 3 && fontWidth(s + '...') > w) s = s.slice(0, -1);
   return s + '...';
 }
 
-function fitMono(s, w) { return textWidth(s) <= w ? s : fitText(s, w); }
+function fitMono(s, w) { return fontWidth(s) <= w ? s : fitText(s, w); }
 
 // ---------- Responsive ----------
 function windowResized() {

@@ -144,7 +144,7 @@ function draw() {
   textSize(defaultTextSize);
   if (mode === 'quiz') {
     const s = 'First-try correct: ' + firstTry + ' of ' + answered;
-    text(s, max(190, canvasWidth - textWidth(s) - 12), drawHeight + 56);
+    text(s, max(190, canvasWidth - fontWidth(s) - 12), drawHeight + 56);
   }
   cursor(hovered && mouseY < drawHeight ? HAND : ARROW);
 }
@@ -331,7 +331,7 @@ function drawEdges(z, x, y, w, h) {
   textSize(narrow ? 11 : 13);
   const l1 = 'x1 ' + z.x1 + '  x2 ' + z.x2;
   const l2 = 'y1 ' + z.y1 + '  y2 ' + z.y2;
-  const bw = max(textWidth(l1), textWidth(l2)) + 8;
+  const bw = max(fontWidth(l1), fontWidth(l2)) + 8;
   const bx = x + (w - bw) / 2, by = y + h * 0.655;
   noStroke();
   fill(255, 255, 255, 235);
@@ -427,7 +427,7 @@ function wrapLines(s, maxW) {
   let cur = '';
   for (const w of words) {
     const t = cur ? cur + ' ' + w : w;
-    if (textWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
+    if (fontWidth(t) > maxW && cur) { lines.push(cur); cur = w; } else { cur = t; }
   }
   if (cur) lines.push(cur);
   return lines;

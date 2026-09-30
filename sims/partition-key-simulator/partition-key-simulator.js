@@ -287,7 +287,7 @@ function layoutControls() {
   } else {
     const cell = (canvasWidth - 2 * x0) / 3;
     sliderRow.forEach((it, i) => {
-      const lw = textWidth(it.label) + 10;
+      const lw = fontWidth(it.label) + 10;
       it.s.position(x0 + i * cell + lw, y + 2);
       it.s.size(max(60, cell - lw - 14));
       labelSpots.push({ s: it.s, x: x0 + i * cell, y: y + 12 });
@@ -347,7 +347,7 @@ function drawLegend(x, y, w) {
     const L = learners[li];
     if (L.district !== lastDistrict) {
       const lab = 'District ' + 'ABCD'[L.district] + ':';
-      const lw = textWidth(lab) + 6;
+      const lw = fontWidth(lab) + 6;
       if (cx + lw + d > x + w) { cx = x; cy += 16; }
       noStroke();
       fill(40);
@@ -378,7 +378,7 @@ function drawLanes(top, bottom) {
   const spacing = dotR * 2 + 3;
   const cap = max(1, floor((rx - lx - 50) / spacing));
   const limit = 2 * BURST / P;            // red line: twice an even share of one burst
-  const barMax = max(limit * 2, ...lanePeak, 1);
+  const barMax = max([limit * 2, ...lanePeak, 1]);
 
   // producer and consumer boxes
   stroke(120);
@@ -532,16 +532,16 @@ function drawOrderPanel(x, y, w, h) {
   fill(60);
   const lab = 'Processor read: ';
   text(lab, tx, ty);
-  tx += textWidth(lab);
+  tx += fontWidth(lab);
   let prev = 0;
   for (const s of mine) {
     const bad = s.seq < prev;
     fill(bad ? color(LIMIT_RED) : color(0));
     textStyle(bad ? BOLD : NORMAL);
     const t = s.seq + ' ';
-    if (tx + textWidth(t) > x + w - 150) { text('...', tx, ty); tx += 14; break; }
+    if (tx + fontWidth(t) > x + w - 150) { text('...', tx, ty); tx += 14; break; }
     text(t, tx, ty);
-    tx += textWidth(t);
+    tx += fontWidth(t);
     prev = max(prev, s.seq);
   }
   textStyle(NORMAL);
@@ -572,7 +572,7 @@ function drawControlLabels() {
     const i = sliders.indexOf(l.s);
     textStyle(BOLD);
     text(names[i], l.x, l.y);
-    const nw = textWidth(names[i]);
+    const nw = fontWidth(names[i]);
     textStyle(NORMAL);
     text(l.s.value(), l.x + nw, l.y);
   }
@@ -610,7 +610,7 @@ function wrapWords(s, w) {
   let line = '';
   for (const wd of words) {
     const test = line ? line + ' ' + wd : wd;
-    if (textWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
+    if (fontWidth(test) > w && line) { lines.push(line); line = wd; } else line = test;
   }
   if (line) lines.push(line);
   return lines;

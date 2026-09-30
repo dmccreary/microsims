@@ -191,7 +191,7 @@ function drawTarget() {
   pop();
   // small label inside the target's lower-left corner
   textSize(13);
-  const lw = textWidth('target') + 8;
+  const lw = fontWidth('target') + 8;
   noStroke();
   fill(255, 255, 255, 220);
   rect(x + 3, y + h - 20, lw, 17, 3);
@@ -229,7 +229,7 @@ function drawZone() {
 // a small white label with a border, kept inside the canvas
 function labelBox(s, ax, ay, anchor) {
   textSize(14);
-  const w = textWidth(s) + 10, h = 20;
+  const w = fontWidth(s) + 10, h = 20;
   let x = anchor === 'topleft' ? ax : ax - w;
   let y = anchor === 'topleft' ? ay : ay - h;
   x = constrain(x, 2, canvasWidth - w - 2);
@@ -406,7 +406,7 @@ function wrapLines(s, maxW) {
   let cur = '';
   for (const w of words) {
     const test = cur ? cur + ' ' + w : w;
-    if (textWidth(test) > maxW && cur) {
+    if (fontWidth(test) > maxW && cur) {
       lines.push(cur);
       cur = w;
     } else {

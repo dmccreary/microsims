@@ -175,7 +175,7 @@ function trayHeight() {
     if (inHand < 0) return 50;
     textSize(14);
     const w = canvasWidth - 2 * margin;
-    const scoreW = textWidth('Placed 0 of 6') + 20;
+    const scoreW = fontWidth('Placed 0 of 6') + 20;
     const cw = cardWidth(w, scoreW);
     const n = wrapLines(ACTIVITIES[inHand].text, cw - 20).length;
     return max(50, n * 17 + 14 + 12);
@@ -294,7 +294,7 @@ function drawTray(top, h) {
     textAlign(RIGHT, CENTER);
     const score = 'Placed ' + placed.length + ' of 6';
     text(score, x + w - 10, top + h / 2);
-    const scoreW = textWidth(score) + 20;
+    const scoreW = fontWidth(score) + 20;
     if (inHand < 0) {
         textAlign(LEFT, CENTER);
         const msg = placed.length === ACTIVITIES.length
@@ -483,7 +483,7 @@ function wrapLines(str, w) {
     let cur = '';
     for (const wd of words) {
         const test = cur ? cur + ' ' + wd : wd;
-        if (textWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
+        if (fontWidth(test) > w && cur) { lines.push(cur); cur = wd; } else cur = test;
     }
     if (cur) lines.push(cur);
     return lines;

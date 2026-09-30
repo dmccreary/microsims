@@ -380,7 +380,7 @@ function drawTooltip(msg) {
   textSize(14);
   const maxW = min(300, canvasWidth - 30);
   const lines = wrapLines(msg, maxW - 16);
-  const tw = min(maxW, max(lines.map(L => textWidth(L))) + 16);
+  const tw = min(maxW, max(lines.map(L => fontWidth(L))) + 16);
   const th = lines.length * 18 + 10;
   let tx = mouseX + 14, ty = mouseY + 16;
   if (tx + tw > canvasWidth - 4) tx = canvasWidth - 4 - tw;
@@ -403,7 +403,7 @@ function wrapLines(str, maxW) {
   let line = '';
   for (const word of words) {
     const test = line ? line + ' ' + word : word;
-    if (textWidth(test) > maxW && line) { lines.push(line); line = word; }
+    if (fontWidth(test) > maxW && line) { lines.push(line); line = word; }
     else line = test;
   }
   if (line) lines.push(line);
@@ -412,9 +412,9 @@ function wrapLines(str, maxW) {
 
 function fitText(str, maxW) {
   str = String(str);
-  if (textWidth(str) <= maxW) return str;
+  if (fontWidth(str) <= maxW) return str;
   let s = str;
-  while (s.length > 3 && textWidth(s + '...') > maxW) s = s.slice(0, -1);
+  while (s.length > 3 && fontWidth(s + '...') > maxW) s = s.slice(0, -1);
   return s + '...';
 }
 
