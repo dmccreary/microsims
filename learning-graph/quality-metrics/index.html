@@ -1247,6 +1247,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#terminal-nodes-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Nodes Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#orphaned-nodes-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1575,6 +1586,58 @@
   
   
   
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
         
@@ -1873,6 +1936,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#terminal-nodes-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Nodes Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#orphaned-nodes-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2003,80 +2077,96 @@
 <h1 id="learning-graph-quality-metrics-report">Learning Graph Quality Metrics Report</h1>
 <h2 id="overview">Overview</h2>
 <ul>
-<li><strong>Total Concepts</strong>: 242</li>
-<li><strong>Foundational Concepts</strong> (no dependencies): 8</li>
-<li><strong>Concepts with Dependencies</strong>: 234</li>
-<li><strong>Average Dependencies per Concept</strong>: 1.72</li>
+<li><strong>Total Concepts</strong>: 462</li>
+<li><strong>Foundational Concepts</strong> (no prerequisites, other concepts depend on them): 6</li>
+<li><strong>Terminal Nodes</strong> (nothing depends on them, but have prerequisites): 143</li>
+<li><strong>Orphaned Nodes</strong> (completely disconnected, no edges): 0</li>
+<li><strong>Concepts with Dependencies</strong>: 456</li>
+<li><strong>Average Dependencies per Concept</strong>: 1.57</li>
 </ul>
 <h2 id="graph-structure-validation">Graph Structure Validation</h2>
 <ul>
-<li><strong>Valid DAG Structure</strong>: ❌ No</li>
+<li><strong>Valid DAG Structure</strong>: ✅ Yes</li>
 <li><strong>Self-Dependencies</strong>: None detected ✅</li>
 <li><strong>Cycles Detected</strong>: 0</li>
 </ul>
 <h2 id="foundational-concepts">Foundational Concepts</h2>
 <p>These concepts have no prerequisites:</p>
 <ul>
-<li><strong>1</strong>: MicroSim Definition</li>
-<li><strong>6</strong>: Programming Fundamentals</li>
-<li><strong>15</strong>: Web Browser</li>
-<li><strong>45</strong>: Generative AI</li>
-<li><strong>73</strong>: Bloom's Taxonomy</li>
-<li><strong>134</strong>: Dublin Core Metadata</li>
-<li><strong>152</strong>: Cognitive Load Theory</li>
-<li><strong>189</strong>: Creative Commons</li>
+<li><strong>3</strong>: Interactive Simulation</li>
+<li><strong>4</strong>: Learning Object</li>
+<li><strong>9</strong>: Generative AI</li>
+<li><strong>14</strong>: MkDocs</li>
+<li><strong>16</strong>: Git Version Control</li>
+<li><strong>17</strong>: HTML5</li>
 </ul>
 <h2 id="dependency-chain-analysis">Dependency Chain Analysis</h2>
 <ul>
-<li><strong>Maximum Dependency Chain Length</strong>: 16</li>
+<li><strong>Maximum Dependency Chain Length</strong>: 24</li>
 </ul>
 <h3 id="longest-learning-path">Longest Learning Path:</h3>
 <ol>
-<li><strong>Bloom's Taxonomy</strong> (ID: 73)</li>
-<li><strong>Remember Level</strong> (ID: 74)</li>
-<li><strong>Understand Level</strong> (ID: 75)</li>
-<li><strong>Apply Level</strong> (ID: 76)</li>
-<li><strong>Analyze Level</strong> (ID: 77)</li>
-<li><strong>Evaluate Level</strong> (ID: 78)</li>
-<li><strong>Create Level</strong> (ID: 79)</li>
-<li><strong>Taxonomy Pyramid</strong> (ID: 82)</li>
-<li><strong>Objective Classification</strong> (ID: 83)</li>
-<li><strong>MicroSim Type Selection</strong> (ID: 84)</li>
-<li><strong>Other MicroSim Libraries</strong> (ID: 203)</li>
-<li><strong>Mermaid</strong> (ID: 205)</li>
-<li><strong>Mermaid.js Diagrams</strong> (ID: 86)</li>
-<li><strong>Process Diagrams</strong> (ID: 87)</li>
-<li><strong>Flowchart</strong> (ID: 208)</li>
-<li><strong>Flowcharts</strong> (ID: 88)</li>
+<li><strong>Interactive Simulation</strong> (ID: 3)</li>
+<li><strong>MicroSim</strong> (ID: 1)</li>
+<li><strong>Instrumented MicroSim</strong> (ID: 7)</li>
+<li><strong>xAPI</strong> (ID: 287)</li>
+<li><strong>xAPI Statement</strong> (ID: 288)</li>
+<li><strong>Verb</strong> (ID: 290)</li>
+<li><strong>Answered Verb</strong> (ID: 295)</li>
+<li><strong>Producer Contract</strong> (ID: 298)</li>
+<li><strong>Ingestion Gateway</strong> (ID: 337)</li>
+<li><strong>Event Stream</strong> (ID: 340)</li>
+<li><strong>Stream Processor</strong> (ID: 341)</li>
+<li><strong>ClickHouse</strong> (ID: 343)</li>
+<li><strong>Capacity Model</strong> (ID: 355)</li>
+<li><strong>Cost Model</strong> (ID: 356)</li>
+<li><strong>LRS-Lite</strong> (ID: 361)</li>
+<li><strong>Serverless LRS</strong> (ID: 362)</li>
+<li><strong>Browser Database</strong> (ID: 371)</li>
+<li><strong>IndexedDB Storage</strong> (ID: 372)</li>
+<li><strong>Event Identity</strong> (ID: 377)</li>
+<li><strong>Device Sequence Number</strong> (ID: 378)</li>
+<li><strong>Hybrid Logical Clock</strong> (ID: 379)</li>
+<li><strong>Sync Cycle</strong> (ID: 383)</li>
+<li><strong>Convergent Sync</strong> (ID: 384)</li>
+<li><strong>Multi-Device Backup</strong> (ID: 385)</li>
 </ol>
+<h2 id="terminal-nodes-analysis">Terminal Nodes Analysis</h2>
+<p>Terminal nodes are concepts that nothing else depends on but have prerequisites. They represent natural endpoints of learning paths — culminating or specialized concepts.</p>
+<ul>
+<li><strong>Total Terminal Nodes</strong>: 143 (31.0% of all concepts)</li>
+<li><strong>Healthy Range</strong>: 5-40% of total concepts</li>
+</ul>
+<p>Concepts at the end of learning paths:</p>
+<ul>
+<li><strong>15</strong>: GitHub Pages</li>
+<li><strong>34</strong>: Preview Image</li>
+<li><strong>43</strong>: Learning Outcome</li>
+<li><strong>46</strong>: Understand Level</li>
+<li><strong>56</strong>: Germane Load</li>
+<li><strong>59</strong>: Purpose of Animation</li>
+<li><strong>68</strong>: Routing Ambiguity</li>
+<li><strong>71</strong>: Static Image Exception</li>
+<li><strong>91</strong>: Runnable Code Block</li>
+<li><strong>92</strong>: Lab Sandbox</li>
+<li><strong>94</strong>: Category Bucket</li>
+<li><strong>95</strong>: Reward Feedback</li>
+<li><strong>96</strong>: Builder MicroSim</li>
+<li><strong>98</strong>: Skill Reference Guide</li>
+<li><strong>99</strong>: Skill Template Asset</li>
+<li><strong>105</strong>: Rules File</li>
+<li><strong>109</strong>: Code Review of AI Output</li>
+<li><strong>112</strong>: Human in the Loop</li>
+<li><strong>117</strong>: Reproducible Generation</li>
+<li><strong>118</strong>: Generation Failure Mode</li>
+</ul>
+<p><em>...and 123 more</em></p>
 <h2 id="orphaned-nodes-analysis">Orphaned Nodes Analysis</h2>
+<p>Orphaned nodes are completely disconnected concepts with no inbound AND no outbound edges. These indicate a quality problem — every concept should connect to the graph.</p>
 <ul>
-<li><strong>Total Orphaned Nodes</strong>: 107</li>
+<li><strong>Total Orphaned Nodes</strong>: 0</li>
 </ul>
-<p>Concepts that are not prerequisites for any other concept:</p>
-<ul>
-<li><strong>2</strong>: MicroSim Uniqueness</li>
-<li><strong>3</strong>: Simplicity</li>
-<li><strong>5</strong>: AI Driven</li>
-<li><strong>16</strong>: Developer Tools</li>
-<li><strong>24</strong>: Pixels</li>
-<li><strong>29</strong>: Local Variables</li>
-<li><strong>32</strong>: createCanvas()</li>
-<li><strong>33</strong>: background()</li>
-<li><strong>36</strong>: rect()</li>
-<li><strong>37</strong>: ellipse()</li>
-<li><strong>38</strong>: line()</li>
-<li><strong>40</strong>: textSize()</li>
-<li><strong>41</strong>: textAlign()</li>
-<li><strong>43</strong>: Shape Rendering</li>
-<li><strong>47</strong>: ChatGPT</li>
-<li><strong>51</strong>: Iterative Refinement</li>
-<li><strong>53</strong>: Code Debugging with AI</li>
-<li><strong>55</strong>: Context Window</li>
-<li><strong>57</strong>: AI Limitations</li>
-<li><strong>66</strong>: Draw Height</li>
-</ul>
-<p><em>...and 87 more</em></p>
+<p>✅ No orphaned nodes detected. All concepts are connected to the graph.</p>
 <h2 id="connected-components">Connected Components</h2>
 <ul>
 <li><strong>Number of Connected Components</strong>: 1</li>
@@ -2096,63 +2186,63 @@
 <tbody>
 <tr>
 <td>1</td>
-<td>21</td>
-<td>p5.js Library</td>
+<td>63</td>
+<td>MicroSim Type Catalog</td>
 <td>14</td>
 </tr>
 <tr>
 <td>2</td>
-<td>12</td>
-<td>JavaScript Basics</td>
+<td>20</td>
+<td>JavaScript Library</td>
 <td>12</td>
 </tr>
 <tr>
 <td>3</td>
-<td>13</td>
-<td>HTML Fundamentals</td>
+<td>288</td>
+<td>xAPI Statement</td>
 <td>11</td>
 </tr>
 <tr>
 <td>4</td>
-<td>203</td>
-<td>Other MicroSim Libraries</td>
+<td>303</td>
+<td>Evidence Class</td>
 <td>11</td>
 </tr>
 <tr>
 <td>5</td>
-<td>73</td>
-<td>Bloom's Taxonomy</td>
+<td>19</td>
+<td>JavaScript</td>
 <td>10</td>
 </tr>
 <tr>
 <td>6</td>
-<td>84</td>
-<td>MicroSim Type Selection</td>
-<td>10</td>
+<td>397</td>
+<td>Bayesian Knowledge Tracing</td>
+<td>9</td>
 </tr>
 <tr>
 <td>7</td>
-<td>142</td>
-<td>MicroSim Packaging</td>
-<td>10</td>
+<td>313</td>
+<td>LRS Runtime Script</td>
+<td>8</td>
 </tr>
 <tr>
 <td>8</td>
+<td>41</td>
+<td>Learning Objective</td>
+<td>7</td>
+</tr>
+<tr>
+<td>9</td>
+<td>60</td>
+<td>Interaction Pattern</td>
+<td>7</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1</td>
+<td>MicroSim</td>
 <td>6</td>
-<td>Programming Fundamentals</td>
-<td>9</td>
-</tr>
-<tr>
-<td>9</td>
-<td>27</td>
-<td>draw() Function</td>
-<td>9</td>
-</tr>
-<tr>
-<td>10</td>
-<td>46</td>
-<td>Large Language Models</td>
-<td>8</td>
 </tr>
 </tbody>
 </table>
@@ -2167,38 +2257,35 @@
 <tbody>
 <tr>
 <td>0</td>
-<td>8</td>
+<td>6</td>
 </tr>
 <tr>
 <td>1</td>
-<td>88</td>
+<td>233</td>
 </tr>
 <tr>
 <td>2</td>
-<td>133</td>
+<td>192</td>
 </tr>
 <tr>
 <td>3</td>
-<td>9</td>
+<td>26</td>
 </tr>
 <tr>
 <td>4</td>
-<td>1</td>
+<td>4</td>
 </tr>
 <tr>
 <td>5</td>
-<td>2</td>
-</tr>
-<tr>
-<td>7</td>
 <td>1</td>
 </tr>
 </tbody>
 </table>
 <h2 id="recommendations">Recommendations</h2>
 <ul>
-<li>⚠️ <strong>Many orphaned nodes</strong> (107): Consider if these should be prerequisites for advanced concepts</li>
-<li>ℹ️ <strong>Long dependency chains</strong> (16): Ensure students can follow extended learning paths</li>
+<li>✅ <strong>Terminal node percentage</strong> (31.0%): Within healthy range (5-40%)</li>
+<li>✅ <strong>DAG structure verified</strong>: Graph supports valid learning progressions</li>
+<li>ℹ️ <strong>Long dependency chains</strong> (24): Ensure students can follow extended learning paths</li>
 </ul>
 <hr />
 <p><em>Report generated by learning-graph-reports/analyze_graph.py</em></p>

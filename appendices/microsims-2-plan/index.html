@@ -1,0 +1,2697 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Resources for teaching classes on MicroSims using generative AI p5.js.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/appendices/microsims-2-plan/">
+      
+      
+        <link rel="prev" href="../../learning-graph/chapter-metrics/">
+      
+      
+        <link rel="next" href="../../shared-microsims-linking-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>MicroSims 2.0 Plan - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="MicroSims 2.0 Plan - Micro Simulations for Education" />
+<meta property="og:description" content="Resources for teaching classes on MicroSims using generative AI p5.js." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/appendices/microsims-2-plan.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/appendices/microsims-2-plan/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="MicroSims 2.0 Plan - Micro Simulations for Education" />
+<meta property="twitter:description" content="Resources for teaching classes on MicroSims using generative AI p5.js." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/appendices/microsims-2-plan.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#microsims-20-plan-for-a-new-version-of-this-textbook" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MicroSims 2.0 Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../chapters/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims 2.0 Plan
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims 2.0 Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose-and-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Purpose and Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Purpose and Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-thread-fidelity-of-the-xapi-stream-as-a-predictor-of-mastery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core thread: fidelity of the xAPI stream as a predictor of mastery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headline-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headline changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-findings-from-the-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Findings from the Survey
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Findings from the Survey">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-current-state-of-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Current state of this repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-paper-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 The paper (paper/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-skills-and-tooling-in-projectsibook-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Skills and tooling (in ~/projects/ibook-skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-discrepancies-to-resolve-before-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Discrepancies to resolve before writing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-additional-improvements-beyond-your-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Additional Improvements Beyond Your List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-proposed-structure-of-microsims-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Proposed Structure of MicroSims 2.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Proposed Structure of MicroSims 2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-proposed-chapter-map-all-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Proposed chapter map (all new)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-new-appendices-this-folder-docsappendices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 New appendices (this folder, docs/appendices/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42a-nav-status-icons-must-be-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2a Nav status icons (must be covered)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-site-pages-to-write-all-fresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Site pages to write (all fresh)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sim-portfolio-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sim Portfolio Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-revising-the-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Revising the Paper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-work-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Work Phases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-the-work-would-be-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. How the Work Would Be Done
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Alternatives Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Risks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Decisions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose-and-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Purpose and Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Purpose and Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-thread-fidelity-of-the-xapi-stream-as-a-predictor-of-mastery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core thread: fidelity of the xAPI stream as a predictor of mastery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headline-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headline changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-findings-from-the-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Findings from the Survey
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Findings from the Survey">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-current-state-of-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Current state of this repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-the-paper-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 The paper (paper/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-skills-and-tooling-in-projectsibook-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Skills and tooling (in ~/projects/ibook-skills)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-discrepancies-to-resolve-before-writing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Discrepancies to resolve before writing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-additional-improvements-beyond-your-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Additional Improvements Beyond Your List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-proposed-structure-of-microsims-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Proposed Structure of MicroSims 2.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Proposed Structure of MicroSims 2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-proposed-chapter-map-all-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Proposed chapter map (all new)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-new-appendices-this-folder-docsappendices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 New appendices (this folder, docs/appendices/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42a-nav-status-icons-must-be-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2a Nav status icons (must be covered)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-site-pages-to-write-all-fresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Site pages to write (all fresh)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sim-portfolio-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sim Portfolio Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-revising-the-paper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Revising the Paper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-work-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Work Phases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-the-work-would-be-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. How the Work Would Be Done
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Alternatives Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Risks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Decisions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Appendices
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/appendices/microsims-2-plan.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="microsims-20-plan-for-a-new-version-of-this-textbook">MicroSims 2.0: Plan for a New Version of This Textbook</h1>
+<p><em>Draft for review. Prepared 2026-09-30. Revised after the decision to rewrite the book completely.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Decision: complete rewrite</p>
+<p>MicroSims 2.0 is a from-scratch rewrite, not an in-place revision. The v1.0 book stays available to historians through git (tag <code>v1.0</code>, pushed; see §8). No chapter text from v1.0 is carried over by default; v1.0 pages are source material only.</p>
+</div>
+<h2 id="1-purpose-and-summary">1. Purpose and Summary</h2>
+<p>The current book ("MicroSims 1.0") was started in November 2023. It teaches how to build p5.js simulations with generative AI. Since then the practice of MicroSims has changed a lot. MicroSims 2.0 will retell the subject as it now exists:</p>
+<blockquote>
+<p>A MicroSim is a small, AI-generated, iframe-embeddable, width-responsive, <em>instrumented</em> interactive learning object. It is chosen from a wide family of types by matching a learning objective to an interaction pattern. It is generated in batches from specifications, checked by automated layout QA, found again by metadata search, and emits compact xAPI events that help predict concept mastery.</p>
+</blockquote>
+<p>The v1.0 book treats p5.js as the whole subject. In v2.0, p5.js is one of about 17 generator types.</p>
+<h3 id="core-thread-fidelity-of-the-xapi-stream-as-a-predictor-of-mastery">Core thread: fidelity of the xAPI stream as a predictor of mastery</h3>
+<p>The organizing question of the whole book is: <strong>how well does the xAPI event stream from a MicroSim predict whether a student has mastered a concept?</strong> Every chapter is written to serve this question, and each says so in a short "Evidence and Prediction" section. The thread is:</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What it contributes to prediction fidelity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ch 3 (objectives)</td>
+<td>A measurable objective per concept, so there is something to predict</td>
+</tr>
+<tr>
+<td>Ch 4–5 (type and generation)</td>
+<td>Choosing a type and interaction pattern for its <strong>diagnostic value</strong>, not only its appeal; the Instructional Design Checkpoint's "does the learner predict first?" gives a testable answer, not just exposure</td>
+</tr>
+<tr>
+<td>Ch 6–11 (type chapters)</td>
+<td>For each type, which interactions count as evidence and which are noise, in terms of the six evidence classes and the runtime's thresholds (hover under 600 ms, clicks under 250 ms, page dwell under 1 s do not count)</td>
+</tr>
+<tr>
+<td>Ch 12–13 (responsive design and QA)</td>
+<td>A broken layout hides controls and corrupts the stream, so QA is a data-quality control</td>
+</tr>
+<tr>
+<td>Ch 14 (batch)</td>
+<td>Consistent instrumentation at scale, so events are comparable across sims</td>
+</tr>
+<tr>
+<td>Ch 15 (metadata and reuse)</td>
+<td>The concept ID in each sim's metadata is what links events to a concept</td>
+</tr>
+<tr>
+<td>Ch 16 (xAPI)</td>
+<td>Evidence classes, why answers are never folded (attempt order matters to BKT), one concept ID per statement, and how Compact summaries lose or keep signal</td>
+</tr>
+<tr>
+<td>Ch 17–18 (Full LRS and LRS-Lite)</td>
+<td>Bayesian knowledge tracing on the full stream versus on compact summaries: what each preserves, and how much fidelity the Lite strategy trades for cost</td>
+</tr>
+<tr>
+<td>Ch 19 (evaluation)</td>
+<td>How to <strong>measure</strong> fidelity: correlation with held-out assessments, calibration of predicted mastery, discrimination (for example AUC), stability across sessions, and the guess and slip parameters</td>
+</tr>
+<tr>
+<td>Ch 20 (capstone)</td>
+<td>A measured predictive check on the student's own instrumented portfolio</td>
+</tr>
+<tr>
+<td>Ch 21 (future)</td>
+<td>How AI-generated sims can be designed for higher predictive value</td>
+</tr>
+</tbody>
+</table>
+<p>Two honesty rules apply throughout: the book reports what has been <em>measured</em> and separates it from what is <em>designed</em> or <em>hoped for</em>, and it does not claim predictive validity without student data. Today the runtime and back-end designs exist, but no learner data has been collected through them, so fidelity claims are stated as hypotheses with the evaluation method attached.</p>
+<h3 id="headline-changes">Headline changes</h3>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>MicroSims 1.0</th>
+<th>MicroSims 2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scope</td>
+<td>p5.js sketches</td>
+<td>17+ types across p5.js, Chart.js, Plotly, Mermaid, vis-network, vis-timeline, Leaflet, Venn, overlays, Docker labs and verified posters</td>
+</tr>
+<tr>
+<td>Generation</td>
+<td>One prompt, one sim, hand-tuned</td>
+<td>Meta-skill routing, a mandatory instructional-design checkpoint, and batch pipelines driven by specs</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Manual review; a checklist in <code>rules/</code></td>
+<td>Playwright and vision-based layout QA, a 100-point validator, iframe-height sync, and control-visibility tests</td>
+</tr>
+<tr>
+<td>Assessment</td>
+<td>Not covered</td>
+<td>xAPI instrumentation with 3 verbs, evidence classes, compact mode and mastery prediction</td>
+</tr>
+<tr>
+<td>Reuse</td>
+<td>Faceted search described in theory</td>
+<td>A 3,700-entry cross-book search index that the generator consults before building</td>
+</tr>
+<tr>
+<td>Showcase quality</td>
+<td>Basic sketches</td>
+<td>Fully animated, richly documented sims such as H-Bridge</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-findings-from-the-survey">2. Findings from the Survey</h2>
+<h3 id="21-current-state-of-this-repository">2.1 Current state of this repository</h3>
+<ul>
+<li><strong>Age.</strong> First commit 2023-11-21; last commit 2026-09-29. Some content is 2023–24 vintage: <code>docs/setup/*</code>, <code>sims/learning-graph-v1</code>, Circuits v2, <code>rules/cursor.md</code>, "Basic Microsims", <code>paper-steps</code>.</li>
+<li><strong>Sims.</strong> 118 entries in <code>docs/sims/</code> (book-metrics says 115). About 88% of those with a <code>main.html</code> use p5.js. About 9 use vis-network, Chart.js, Leaflet, Mermaid or vis-timeline. p5 versions are mixed (CDN 1.11.10 in most, 1.9.0 in one, and old local copies in <code>docs/js/</code>). The generator skill now defaults to p5 2.3.2.</li>
+<li><strong>Chapters.</strong> 14 chapters, each with <code>index.md</code> and <code>quiz.md</code>. Nothing covers xAPI, non-p5 generators beyond Chapters 10–11, batch generation, or automated QA. xAPI appears only in the FAQ, glossary, course description, a few chapter mentions, and <code>CLAUDE.md</code>. No sim contains xAPI code.</li>
+<li><strong>Metrics.</strong> <code>book-metrics.json</code> was generated 2026-06-03 (242 concepts, 252 glossary terms, 71 FAQs, 182 quiz questions, 66 diagrams, 56 equations). It is stale.</li>
+<li><strong>Known defects to fix in Phase 0.</strong></li>
+<li><code>TODO.md</code> lists 5 sims that break under p5 2.x: <code>book-gen-workflow</code>, <code>breadboard</code>, <code>curve</code>, <code>flower-petal</code>, <code>temp-and-pressure</code>.</li>
+<li>The nav entry <code>rules/ibook-skills/index.md</code> points at a directory that does not exist on disk. Verify with <code>mkdocs build</code>.</li>
+<li><code>docs/appendices/</code> does not exist yet; this file creates it.</li>
+</ul>
+<h3 id="22-the-paper-paper">2.2 The paper (<code>paper/</code>)</h3>
+<p>Title: <em>MicroSims: A Framework for AI-Generated, Scalable Educational Simulations with Universal Embedding and Adaptive Learning Support</em> (Lockhart, McCreary, Peterson). Versions v0.02–v0.06 exist. Gaps that v2.0 material can close:</p>
+<ul>
+<li>xAPI gets one paragraph (<code>08-workflow.tex</code> around line 130), a "not SCORM" note, and a generic "Learning Analytics Integration" subsection. It has no event schema, no verbs, and no link to mastery estimation.</li>
+<li>Library diversity is one paragraph in <code>06-architecture.tex</code>. <code>09-expected-benefits.tex</code> presents Leaflet, vis-timeline and causal-loop diagrams as <em>future</em> needs. They are now implemented.</li>
+<li>Overlays, comparison posters and verified posters are absent. Poster instrumentation is also a gap: the grid overlay's Explore and Quiz events are natural xAPI evidence (discrete inspection and assessment classes).</li>
+<li>The mapping from learning objective to type is conceptual only. The paper has no tables.</li>
+<li>Workflow is one educator prompting one sim. There is no batch pipeline, no Playwright QA and no validator.</li>
+<li>Reuse search is described but not implemented in the text.</li>
+<li>The "over 100 MicroSims" claim is unsubstantiated. The effectiveness data are borrowed from PhET and meta-analyses, not measured on MicroSims.</li>
+<li>Housekeeping: <code>main.tex</code> still says "Version 0.05"; <code>STATUS.md</code> and <code>README.md</code> are stale; there are TODOs in <code>10-discussion.tex</code> and <code>11-conclusion.tex</code>; related work is thin; there are 22 references, and there are no LLM-code-generation, knowledge-tracing or Playwright references.</li>
+</ul>
+<h3 id="23-skills-and-tooling-in-projectsibook-skills">2.3 Skills and tooling (in <code>~/projects/ibook-skills</code>)</h3>
+<ul>
+<li><strong><code>microsim-generator</code></strong> (1,055 lines). It is a meta-skill with keyword routing plus the scored rubric in <code>references/routing-criteria.md</code>. Its mandatory Step 3, the Instructional Design Checkpoint, matches Bloom level to interaction pattern. Interactive is the default output; a static image is produced only on explicit request. A batch pipeline runs Steps 0–9. The <code>sim-status.json</code> lifecycle is <code>specified → scaffolded → implemented → validated → deployed</code>.</li>
+<li><strong><code>microsim-utils</code></strong>. It provides the quality validator (100-point rubric, grades A–D), iframe-height sync and Playwright-based height and control-visibility tests. It also provides a Claude-Vision layout reviewer (PASS/FAIL checklist, smallest patch, three-cycle limit), screenshots, icons, index generation and coverage reports.</li>
+<li><strong><code>add-xapi-events-to-microsim</code></strong> (v0.2). It adds a thin 20–60 line adapter over a shared runtime. There are three verbs (<code>answered</code>, <code>experienced</code>, <code>interacted</code>), six evidence classes, and adapters for ten libraries. It has a compact mode that folds exposure evidence into one summary but never folds answers, because Bayesian knowledge tracing (BKT) reads attempt order.</li>
+<li><strong><code>learning-record-store</code></strong> (<code>~/projects/learning-record-store</code>, now available locally; a 32-chapter book plus code). It holds the <strong>real runtime and backend examples</strong>:</li>
+<li><strong>Client runtime</strong>, in <code>docs/js/</code>: <code>lrs-xapi.js</code> (statement builder and IRIs), <code>lrs-lite-sim.js</code> (Compact mode, one summary per session), <code>lrs-sim.js</code> (the API sim authors use: <code>slider</code>, <code>item</code>, <code>button</code>, <code>runner</code>, <code>question</code>), <code>lrs-config.js</code> (one file per book: <code>siteUrl</code>, <code>textbookId</code>, <code>version</code>, <code>conceptPrefix</code>, and the <code>xapi: {compact, teaching}</code> policy), <code>quiz-xapi.js</code> and <code>xapi-json-viewer.js</code>. Policy precedence is defaults, then the book config, then the page, then the sim's <code>metadata.json</code>. A <code>?xapi=teaching|production|full|compact</code> URL switch overrides it for one visit.</li>
+<li><strong>Full LRS backend</strong> (<code>src/lrs/</code>, <code>deploy/docker-compose.yml</code>): an HTTP gateway (<code>POST /xapi/statements</code>, strict producer-contract validation, all-or-nothing batches), Redpanda (Kafka), ClickHouse, Neo4j and Postgres/Vault. Three dashboard apps (<code>dashboards/</code>: teacher, author and admin).</li>
+<li><strong>LRS-Lite</strong> (<code>docs/lrs-lite/index.md</code>): a serverless design where each student's compressed event stream lives in a 10 MB browser database that syncs through S3. It is sized at about 0.2 MB per student per semester and a few dollars a month.</li>
+<li><strong>Specs</strong>: <code>xapi-producer-contract-v1.md</code>, <code>lrs-spec-v1.md</code>, <code>lrs-design-v1.md</code>. Chapter 12 covers Bayesian knowledge tracing, and 26 of its sims are headless-Chromium tested (<code>make test-sims</code>).</li>
+<li><strong>Status (from its <code>TODO.md</code>, 2026-09-26).</strong> The runtime is complete and every emitter in that book uses it. The gateway accepts and validates POSTs, but <strong>no emitter POSTs yet</strong> (<code>lrs-xapi.js</code> has a <code>transport</code> seam and no network call by design), the stream processor that makes statements durable is not finished, and <code>lrs.statements</code> had 0 rows at that time. The skill's adapters for p5, Mermaid and others are verified there; Plotly, Leaflet, vis-network and p5 drags were not.</li>
+<li><strong>Showcase: H-Bridge</strong> (<code>../stem-robots/docs/sims/h-bridge</code>). Flowing green and purple current dots, spinning motor arrows, red shoot-through flashing, four clickable switches, keyboard shortcuts, and animation that pauses when the mouse leaves. <code>quality_score: 95</code>, a rich <code>metadata.json</code> (Dublin Core plus search, educational and technical blocks), and a mascot warning callout.</li>
+<li><strong>Search.</strong> <code>../search-microsims/docs/search/microsims-data.json</code> is 8.4 MB with 3,764 entries. Library mix: p5.js 1,430, vis-network 188, Mermaid about 189, Chart.js 81, vis-timeline 38, static SVG 21, Leaflet 12, and about 1,700 unlabeled.</li>
+<li><strong>Sibling books using the pipeline.</strong> ibook-skills (101 sims), stem-robots (85), xapi-course (51, about 42 with xAPI), robot-faces (49), moving-rainbow (45), intelligent-textbooks (35), learning-micropython (30), and others.</li>
+</ul>
+<h3 id="24-discrepancies-to-resolve-before-writing">2.4 Discrepancies to resolve before writing</h3>
+<p>These affect the accuracy of the plan and the future text:</p>
+<ol>
+<li><strong>Comparison posters (resolved).</strong> These are the grid-overlay posters in <code>../stem-robots/docs/posters/</code> (six posters: communication-protocols, distance-sensors, motor-control-methods, robot-control-modes, robot-kits, wireless-technologies). Each poster is a folder with a <code>*-infographic.png</code>, a <code>data.json</code>, a <code>main.html</code>, an <code>index.md</code> and (for most) an <code>image-prompt.md</code>. The pattern is:</li>
+<li>An image model renders a side-by-side comparison poster from a verbatim-text prompt ("Render all text exactly verbatim... do not invent extra rows/columns/stats"). The prompt is stored in the <code>index.md</code> as a <code>!!! prompt</code> admonition.</li>
+<li><code>data.json</code> (<code>layout: "grid"</code>) defines one percentage-rectangle zone per column, with <code>label</code>, <code>color</code>, <code>summary</code> and a list of <code>facts</code>, plus a <code>quiz</code> array.</li>
+<li>The shared <code>grid-diagram.js</code> and <code>grid-overlay.css</code> in <code>posters/shared-libs/</code> turn the image into <strong>Explore</strong> (click a column, see facts) and <strong>Quiz Me</strong> (which column fits this scenario?) modes. An edit-mode badge lets an author align zones.</li>
+<li>Posters live under <code>docs/posters/</code>, not <code>docs/sims/</code>, with a card-grid <code>posters/index.md</code> and a standard iframe (<code>height="800"</code>).</li>
+</ol>
+<p>This is the same mechanism as the "verified-infographic" grid wrap in the generator skill. The plan now treats it as its own MicroSim type (see Chapter 10). Note the shared libs are copied per book, so a versioning and distribution decision is needed (Appendix H).
+2. <strong>Search path.</strong> The data file is at <code>search-microsims/docs/search/</code>, not <code>docs/sims/search/</code>.
+3. <strong>xAPI: runtime exists, end-to-end transport does not.</strong> The runtime and both modes (Compact and Full) are now available in <code>~/projects/learning-record-store</code> and can be studied and copied. But no emitter sends statements to a store yet: the client has a <code>transport</code> seam (<code>LRSLite.record()</code>) and no network call, and the backend's ingest path was unfinished at last check. Chapter text should say "instrumentation-ready, with a working runtime and a validating gateway" and must not claim end-to-end analytics until a POST path is proven. Re-check its <code>TODO.md</code> at writing time, because it may have moved.
+4. <strong>Hard-coded paths.</strong> <code>SKILL.md</code> refers to <code>$HOME/Documents/ws/ibook-skills/...</code>, <code>$BK_HOME</code>, and <code>~/Documents/ws/learning-record-store</code> (now at <code>~/projects/learning-record-store</code>). The real path is <code>~/projects/ibook-skills</code>.
+5. <strong>Your message item 1 was cut off</strong> after "shows this and the". I assumed it refers to the xAPI skill plus the xapi-course book. Please confirm.
+6. <strong>Item 9's path</strong> (<code>../stem-robots/docs/sims/h-bridge</code>) is correct, but the sim was created 2026-09-29. Screenshots and metrics should be regenerated at publish time.</p>
+<h2 id="3-additional-improvements-beyond-your-list">3. Additional Improvements Beyond Your List</h2>
+<p>Your 13 items are all confirmed by the survey (with the caveats above). I propose adding these as distinct topics:</p>
+<ol>
+<li><strong>Instructional Design Checkpoint.</strong> A mandatory gate before code. It asks whether the learner predicts first and what animation adds, and it flags animation at the Understand level. This is a pedagogical improvement, not only a technical one.</li>
+<li><strong>Interactive-by-default and "forced interactivity" policy.</strong> This is the basis for measurable evidence.</li>
+<li><strong>Consistent metadata.</strong> Dublin Core plus <code>search</code>, <code>educational</code> and <code>technical</code> blocks, a schema meta tag, <code>quality_score</code>, and <code>status: implemented|instrumented</code>.</li>
+<li><strong>Verified statistics posters.</strong> An eight-phase claim-plan, source-verification and render-audit pipeline. Phases 1–4 can give any sim cited data (<code>source_id</code> carried into the data file).</li>
+<li><strong>Canvas-height strategy and iframe auto-height protocol.</strong> A <code>// CANVAS_HEIGHT</code> comment plus the <code>microsim-resize</code> postMessage protocol.</li>
+<li><strong>Standards hardening.</strong> Relative iframe paths, <code>scrolling="no"</code>, no scroll hijacking, and no proprietary fonts.</li>
+<li><strong>Status lifecycle and resumable batches.</strong> <code>sim-status.json</code> lets a pipeline survive context exhaustion.</li>
+<li><strong>Coverage and TODO reports.</strong> Per-chapter diagram and MicroSim coverage, plus TODO JSON files from chapter specs.</li>
+<li><strong>Concept-level linking.</strong> Each sim maps to a learning-graph concept ID, which is what makes mastery estimation possible.</li>
+<li><strong>Privacy and ethics.</strong> The "aggregate events only, no per-student identifiable history" stance, and PII surface in xAPI statements.</li>
+<li><strong>Accessibility.</strong> <code>describe()</code>, contrast, keyboard operation (H-Bridge shows this), and UDL.</li>
+<li><strong>Library and version hygiene.</strong> The p5 2.x migration, pinned CDN versions, and a decision on local versus CDN copies.</li>
+<li><strong>Mascot and callout conventions</strong> (the "Sparky" warning admonition in H-Bridge).</li>
+<li><strong>Portfolio scale.</strong> Hundreds of sims across ten or more books. This creates a real dataset for evaluation.</li>
+<li><strong>Skills as the delivery mechanism.</strong> The book teaches the reader to use skills, not only to write prompts.</li>
+</ol>
+<h2 id="4-proposed-structure-of-microsims-20">4. Proposed Structure of MicroSims 2.0</h2>
+<p>Because this is a complete rewrite, the structure is designed from the 2.0 definition, not from the 14 v1.0 chapters. The learning graph and course description are regenerated first (Phase 1), and the chapter list below is a <strong>starting proposal</strong> that the regenerated graph will confirm or reshape. Nothing here is tied to v1.0 URLs.</p>
+<h3 id="41-proposed-chapter-map-all-new">4.1 Proposed chapter map (all new)</h3>
+<p>The order follows the life of a MicroSim: understand it, choose it, generate it, check it, instrument it, reuse it, then scale it.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Title</th>
+<th>Key content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>What Is a MicroSim?</td>
+<td>The 2.0 definition, the role of MicroSims in intelligent textbooks, the 1.0-to-2.0 story, and a tour of showcase sims (H-Bridge and others)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Anatomy of a MicroSim</td>
+<td><code>main.html</code>, the JS file, <code>index.md</code>, <code>metadata.json</code>, iframe embedding, pinned CDN libraries, and the draw and control layout</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Learning Objectives and Bloom's Taxonomy</td>
+<td>Writing measurable objectives and the Instructional Design Checkpoint (predict first? what does animation add?)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Choosing a MicroSim Type</td>
+<td>The type catalog, the routing rubric, and the objective-to-type mapping table</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Generating MicroSims with AI Skills</td>
+<td>The <code>microsim-generator</code> meta-skill, prompt and spec design, and single-sim generation</td>
+</tr>
+<tr>
+<td>6</td>
+<td>p5.js MicroSims</td>
+<td>p5 2.x, animation, physics and showcase techniques (animated wires, flowing current)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Charts, Plots and Tables</td>
+<td>Chart.js, Plotly, bubble charts, and comparison tables</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Diagrams, Networks and Systems</td>
+<td>Mermaid, vis-network, Venn, and causal-loop diagrams</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Timelines and Maps</td>
+<td>vis-timeline and Leaflet</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Image Overlays, Grids and Comparison Posters</td>
+<td>Point-marker callout overlays; the grid-overlay comparison poster (image-prompt design, <code>data.json</code> zones and quiz, Explore and Quiz modes, the <code>docs/posters/</code> convention); fact-verified posters</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Runnable Labs and Other Specialized Types</td>
+<td>Docker Python labs, concept-classifier sorting quizzes, and celebration effects</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Width-Responsive Design and Iframe Heights</td>
+<td>Responsive layout, <code>CANVAS_HEIGHT</code>, the auto-height protocol, and height sync</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Quality Assurance and Automated Layout Review</td>
+<td>Playwright, the 100-point validator, vision-based layout review, control-visibility tests, and the catalog of layout errors and fixes</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Batch Generation from Specifications</td>
+<td>Spec extraction from chapters, scaffolding, the <code>sim-status.json</code> lifecycle, resumable runs, and parallel workers</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Metadata, Search and Reuse</td>
+<td>Dublin Core plus search metadata, the cross-book search index, and reuse-before-build</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Instrumenting MicroSims with xAPI</td>
+<td>The producer side: the three verbs, evidence classes, the <code>lrs-sim.js</code> API and adapters, the producer contract, <code>lrs-config.js</code> per-book identity, concept mapping to the learning graph, Compact versus Full policy, and privacy</td>
+</tr>
+<tr>
+<td>17</td>
+<td>The Full LRS: Architecture for Scale</td>
+<td>The complete server-side strategy: system context and multi-tenancy, the property-graph data model, the ingestion gateway (<code>POST /xapi/statements</code>, strict validation, all-or-nothing batches), the Kafka (Redpanda), ClickHouse and Neo4j pipeline, the twelve core LRS functions, summary vertices, Bayesian knowledge tracing, dashboards for teachers, authors and administrators, privacy and compliance, and cost (about $300–2,500/month for one server and about $10,300/month at full scale). Worked from <code>learning-record-store</code> (spec, design and <code>src/lrs/</code>).</td>
+</tr>
+<tr>
+<td>18</td>
+<td>LRS-Lite: The Serverless Compact Strategy</td>
+<td>Why a pilot needs no always-on server (about 0.01 statements/second against a design for 10,000/second); measured data sizes (about 970 bytes per statement, about 0.2 MB per student per semester); producer-side summarization (one session summary per loss of focus, and answers never folded); the local data model in a 10 MB browser database; the storage meter and quota rules; multi-device sync and backup through S3 and why it converges; mastery estimation and dashboards in the browser; the few things that need a server; and cost (a few dollars a month). Ends with <strong>choosing and migrating between Full and Lite</strong>: a decision table, and how every Lite statement is a valid contract statement, so a school can move up without rewriting sims.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Pedagogy, Accessibility and Evaluation</td>
+<td>UDL, cognitive load, PRIMM, keyboard access, and evaluating a MicroSim</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Capstone: Building an Instrumented MicroSim Portfolio</td>
+<td>An end-to-end project using the 2.0 pipeline, ending in either a Compact or a Full configuration, and a measured check of how well its event stream predicts mastery</td>
+</tr>
+<tr>
+<td>21</td>
+<td>The Future of MicroSims</td>
+<td><strong>Short term (about one year):</strong> verified adapters for every library, a proven POST path from sims to an LRS, closed-loop generation in which QA and vision review run inside the generator, richer showcase-quality animation as a standard, per-concept mastery dashboards for students and teachers, and shared sim libraries with reuse search across books. <strong>Long term:</strong> AI that generates super high-quality MicroSims that are both fun to use and better able to tell whether a student has mastered a concept: designing the interaction <em>for</em> diagnostic value, adapting difficulty and representation to the learner, generating probes that separate real understanding from guessing, and learning from aggregate xAPI data which sim designs give the most predictive evidence. Also the open problems (privacy, validity, equity, and evaluation) and what would make each prediction trustworthy.</td>
+</tr>
+</tbody>
+</table>
+<p>Each chapter keeps the <code>index.md</code> plus <code>quiz.md</code> pattern. The chapter count (21) is a proposal: it may drop if the learning graph shows that chapters 6–9 or 11 can be merged. Chapters 17 and 18 stay separate because the full LRS and LRS-Lite are the two deployment strategies the book must treat in detail.</p>
+<h3 id="42-new-appendices-this-folder-docsappendices">4.2 New appendices (this folder, <code>docs/appendices/</code>)</h3>
+<ul>
+<li><strong>A. MicroSim Type Catalog.</strong> All 17+ types with library, guide, best Bloom levels, limits and an example.</li>
+<li><strong>B. Routing Rubric.</strong> Condensed from <code>routing-criteria.md</code>, with a decision tree.</li>
+<li><strong>C. Metadata and Schema Reference.</strong></li>
+<li><strong>D. xAPI and LRS Quick Reference.</strong> A Full versus Lite comparison table, verbs, object IDs, evidence classes, <code>lrs-config.js</code> keys, the policy precedence, and the <code>?xapi=</code> URL switch.</li>
+<li><strong>E. QA Tool Reference.</strong> Every script with flags.</li>
+<li><strong>F. Showcase Gallery.</strong> H-Bridge and others, each with a "why it works" annotation.</li>
+<li><strong>G. Migration Guide from 1.0.</strong> p5 1.x to 2.x, and adding metadata and xAPI to old sims.</li>
+<li><strong>H. Skills Installation and Paths.</strong></li>
+<li><strong>This plan</strong> stays here after the work is done, as a record.</li>
+</ul>
+<h3 id="42a-nav-status-icons-must-be-covered">4.2a Nav status icons (must be covered)</h3>
+<p>The new <code>mkdocs.yml</code> must describe and configure the <strong>status icon shown next to each MicroSim in the nav bar</strong>, and the book must explain it. This repo's current <code>mkdocs.yml</code> has no status configuration at all. The working pattern is in <code>~/projects/learning-record-store</code>:</p>
+<ul>
+<li><strong>Per-page value.</strong> Each sim's <code>index.md</code> front matter sets <code>status: scaffold | built | implemented | instrumented | approved</code>.</li>
+<li><strong>The legend.</strong> An <code>extra.status</code> block in <code>mkdocs.yml</code> gives each value its hover text (for example "Instrumented — the MicroSim emits xAPI events; add <code>?xapi=teaching</code> to the URL to see them").</li>
+<li><strong>The icons.</strong> Community Material renders each status as an empty span painted by a CSS <code>mask-image</code>, driven by <code>--md-status--&lt;name&gt;</code> custom properties in <code>docs/css/extra.css</code>. <strong>Do not</strong> add <code>theme.icon.status</code>: it is Insiders-only, is silently ignored on community Material, and gives no build warning (the icons fall back to a generic "i" circle). The colors come from the <code>:after</code> background-color, not <code>color</code>.</li>
+<li><strong>Automation.</strong> <code>add-xapi-events-to-microsim/scripts/sync-status.py --apply</code> sets <code>instrumented</code> on any sim that carries xAPI handling and, if the book lacks them, installs <code>assets/status-instrumented.css</code> and the <code>extra.status</code> entries. It leaves sign-off values such as <code>approved</code> alone.</li>
+<li><strong>Relationship to the batch lifecycle.</strong> The nav status (<code>scaffold</code> to <code>approved</code>) is the reader-facing view. It should be aligned with the pipeline's <code>sim-status.json</code> lifecycle (<code>specified → scaffolded → implemented → validated → deployed</code>). The plan needs a defined mapping (for example <code>scaffolded</code> to <code>scaffold</code>, <code>implemented</code> to <code>implemented</code>, <code>validated</code> to <code>built</code> or <code>approved</code> by score, and instrumentation to <code>instrumented</code>) and a decision on who sets <code>approved</code>.</li>
+</ul>
+<p>Where it is covered: the Phase 2 skeleton (<code>mkdocs.yml</code>, <code>extra.css</code> and a status legend), <strong>Chapter 2</strong> (anatomy: the <code>status</code> front-matter key), <strong>Chapter 13</strong> (QA: status is set from validation results), <strong>Chapter 16</strong> (<code>instrumented</code> and <code>sync-status.py</code>), <strong>Appendix E</strong> (the script reference), and <strong>How We Built This Site</strong>. A short legend page for readers should explain what each icon means.</p>
+<h3 id="43-site-pages-to-write-all-fresh">4.3 Site pages to write (all fresh)</h3>
+<p><code>index.md</code>, <code>about.md</code>, <code>course-description.md</code> (which drives the learning graph), <code>why/*</code>, <code>faq.md</code>, <code>glossary.md</code>, <code>references.md</code>, <code>how-we-built-this-site.md</code>, and the <code>rules/</code> pages. The <code>rules/ibook-skills</code> nav entry should be fixed or replaced.</p>
+<h2 id="5-sim-portfolio-plan">5. Sim Portfolio Plan</h2>
+<p>In a complete rewrite, the sims are regenerated with the current pipeline, not patched. The 118 v1.0 sims are treated as a <strong>candidate pool</strong>, not as the book's contents.</p>
+<ol>
+<li><strong>Write specs first.</strong> Each new chapter carries <code>#### Diagram:</code> and <code>#### Drawing:</code> specification blocks, so <code>extract-sim-specs.py</code> can drive batch generation (see Chapter 14).</li>
+<li><strong>Reuse before build.</strong> For every spec, query the search index (§2.3) and the v1.0 pool. Record one of: reused as-is, adapted, or built new.</li>
+<li><strong>Harvest v1.0 sims only if they reach the bar.</strong> Decision: a v1.0 sim is reused only when its <code>validate-sims.py</code> score can be raised to <strong>85 (grade A)</strong>, it is width-responsive, and its iframe height is correct. If it cannot be raised that high, it is <strong>not</strong> in the new textbook, and it stays in git at the <code>v1.0</code> tag. The per-sim upgrade list is in <a href="../../TODO.md"><code>TODO.md</code></a> (section "MicroSims 2.0: Per-Sim Quality Upgrades"), with each sim's score and its rubric issues. Upgrades are done <strong>on demand</strong>: when a new chapter's spec adopts a sim, we work through its checklist, re-score, and tick it off. Sims that no chapter adopts are not upgraded. The 2026-09-30 baseline is 116 sims scored, mean 60.6, with 18 at grade A, 27 at B, 30 at C and 41 at D.</li>
+<li><strong>Regenerate the rest</strong> from specs with the meta-skill, then run the full QA chain (scaffold, validate, height sync, Playwright height test, screenshot, layout review, nav update).</li>
+<li><strong>Showcase set.</strong> Build 4–6 sims in the H-Bridge style, one per major family (a physics animation, a chart explorer, a network, an overlay, and a comparison poster). The six stem-robots posters cover the poster family; add one or two posters on this book's own topics (for example the MicroSim types, or p5 vs Chart.js vs Plotly).</li>
+<li><strong>xAPI pilot.</strong> Instrument about 10 sims covering every evidence class and at least the p5, Chart.js and Mermaid adapters, using the <code>lrs-*.js</code> runtime and a generated <code>lrs-config.js</code>, and using the coordinator-plus-workers pattern proven on eight-hour-entrepreneur (20 sims).</li>
+<li><strong>Quality bar.</strong> Every new or regenerated sim scores at least B (70+); every carried-over v1.0 sim scores at least A (85). All sims pass the iframe-height and control-visibility tests and are width-responsive. Sims that carry xAPI instrumentation must also pass <code>check-xapi.py</code>.</li>
+<li><strong>Metrics.</strong> Regenerate <code>book-metrics.json</code> after the portfolio pass. The known p5 2.x breakages in <code>TODO.md</code> no longer need fixing in place: those five sims are only fixed if they are harvested.</li>
+</ol>
+<h2 id="6-revising-the-paper">6. Revising the Paper</h2>
+<p>Decision: <strong>revise the paper in place</strong> in <code>paper/</code>, on <code>main</code>, with no new paper directory. <strong>The three co-authors (Valerie Lockhart, Dan McCreary and Troy A. Peterson) stay on the 2.0 paper.</strong> The title stays as it is unless the authors agree on a change. Earlier versions stay available as the existing PDFs (v0.02–v0.06) and in git history. The revision is released as v0.07 (bump <code>main.tex</code>, which still says 0.05) and the title is updated to reflect the 2.0 framework only if the co-authors agree. Use <code>paper/sections/</code> as the working set.</p>
+<table>
+<thead>
+<tr>
+<th>Section file</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>01-abstract.tex</code>, <code>abstract.txt</code></td>
+<td>Rewrite. Add the instrumentation, batch pipeline and type family. Fix the "enabling" grammar error.</td>
+</tr>
+<tr>
+<td><code>02-introduction.tex</code></td>
+<td>Update contributions. Replace the unsubstantiated "over 100" claim with measured counts from the portfolio.</td>
+</tr>
+<tr>
+<td><code>03-related-work.tex</code></td>
+<td>Expand. Add LLM code generation, xAPI and learning analytics, knowledge tracing, and automated UI testing.</td>
+</tr>
+<tr>
+<td><code>04-definition.tex</code></td>
+<td>Broaden the definition beyond p5. Add types, overlays and posters. Rewrite the SCORM/xAPI contrast.</td>
+</tr>
+<tr>
+<td><code>05-design-framework.tex</code></td>
+<td>Add the objective-to-type mapping <strong>table</strong>, the Instructional Design Checkpoint, and interaction patterns by Bloom level.</td>
+</tr>
+<tr>
+<td><code>06-architecture.tex</code></td>
+<td>Make it library-neutral. Add an xAPI instrumentation subsection and the postMessage height protocol.</td>
+</tr>
+<tr>
+<td><code>06-architecture.tex</code> (addition)</td>
+<td>Add a subsection contrasting the full LRS and LRS-Lite as back-end strategies.</td>
+</tr>
+<tr>
+<td><code>07-metadata.tex</code></td>
+<td>Update the schema. Describe the implemented cross-book search index. Add the concept-ID link.</td>
+</tr>
+<tr>
+<td><code>08-workflow.tex</code></td>
+<td>Replace the single-prompt flow with the batch pipeline. Add automated QA (Playwright, vision review).</td>
+</tr>
+<tr>
+<td><code>09-expected-benefits.tex</code></td>
+<td>Trim. Stop presenting implemented libraries as future needs. Keep the literature-based benefits but label them clearly.</td>
+</tr>
+<tr>
+<td><code>10-discussion.tex</code>, <code>11-conclusion.tex</code></td>
+<td>Remove the TODOs. Add privacy, mastery prediction, limitations and future work.</td>
+</tr>
+<tr>
+<td><code>references.bib</code></td>
+<td>Grow from 22 toward the 50–80 target.</td>
+</tr>
+<tr>
+<td>New figures/tables</td>
+<td>Routing table, pipeline diagram, xAPI event flow, library distribution chart (from real data), QA before/after examples.</td>
+</tr>
+<tr>
+<td>Core thread</td>
+<td>Make the predictive fidelity of the xAPI stream a central theme of the paper (a dedicated section on evidence classes, compact versus full streams, and how to measure prediction), stated as a design and evaluation framework until learner data exist.</td>
+</tr>
+<tr>
+<td><strong>Keep the v1.0 paper reproducible</strong></td>
+<td>Add a "Rebuilding the v1.0 paper" section to <code>paper/README.md</code> (done; see below) so anyone can regenerate the paper as it stood at the <code>v1.0</code> tag.</td>
+</tr>
+<tr>
+<td>Housekeeping</td>
+<td>Bump the version in <code>main.tex</code> to 0.07 and save the built PDF as <code>microsims-v0.07.pdf</code> alongside the earlier ones. Refresh <code>STATUS.md</code>, <code>README.md</code> and <code>FIGURES-STATUS.md</code>. Rebuild the arXiv bundle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Empirical evidence.</strong> This is the main weakness. The paper needs something MicroSim-specific, and the data we can honestly produce are:</p>
+<ul>
+<li>Portfolio counts and type distribution (from the search index).</li>
+<li>Validator score distributions before and after the QA pipeline.</li>
+<li>Layout defects found and fixed per batch.</li>
+<li>Generation cost or time per sim.</li>
+<li>(If pilot data exist) xAPI event volume and any BKT trial.</li>
+</ul>
+<p>We should not claim learning gains from MicroSims without student data. Learning-outcome claims should stay attributed to the literature.</p>
+<p><strong>Co-authors.</strong> The paper has three authors. The plan should let them decide who owns which sections.</p>
+<p><strong>Rebuilding the v1.0 paper.</strong> The paper at the <code>v1.0</code> tag is the last pre-2.0 version (its source says "Version 0.05" but its PDF is v0.06). To regenerate it without disturbing <code>main</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>../microsims-v1.0<span class="w"> </span>v1.0
+<span class="nb">cd</span><span class="w"> </span>../microsims-v1.0/paper
+./build.sh<span class="w">            </span><span class="c1"># needs tectonic: brew install tectonic</span>
+open<span class="w"> </span>main.pdf
+<span class="nb">cd</span><span class="w"> </span>../../microsims<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>../microsims-v1.0
+</code></pre></div></td></tr></table></div>
+<p>The prebuilt PDFs <code>MicroSims-v0.02.pdf</code> through <code>microsims-v0.06.pdf</code> also stay in <code>paper/</code>. These instructions are also in <code>paper/README.md</code>.</p>
+<h2 id="7-work-phases">7. Work Phases</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Scope</th>
+<th>Main outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0. Archive and prep</strong></td>
+<td>Tag v1.0 (done and pushed), run the validator over the v1.0 sims for the harvest pool, and settle the open questions in §2.4</td>
+<td>The <code>v1.0</code> tag (done), a baseline report</td>
+</tr>
+<tr>
+<td><strong>1. Foundations</strong></td>
+<td>New course description, new learning graph (concepts, taxonomy, dependencies), and a confirmed chapter map</td>
+<td>Course description, learning graph, chapter map</td>
+</tr>
+<tr>
+<td><strong>2. Skeleton</strong></td>
+<td>New <code>mkdocs.yml</code> (including the <code>extra.status</code> legend and the <code>--md-status--*</code> CSS for the nav status icons, §4.2a), an empty site with all chapters and appendices stubbed, and the spec blocks per chapter</td>
+<td>A building skeleton</td>
+</tr>
+<tr>
+<td><strong>3. Foundation chapters</strong></td>
+<td>Chapters 1–5 and Appendices A and B</td>
+<td>The concepts and the routing story</td>
+</tr>
+<tr>
+<td><strong>4. Type chapters</strong></td>
+<td>Chapters 6–11</td>
+<td>One chapter per type family, each with specs and sims</td>
+</tr>
+<tr>
+<td><strong>5. Engineering chapters</strong></td>
+<td>Chapters 12–18 and Appendices C–E</td>
+<td>QA, batch, reuse, xAPI, the full LRS and LRS-Lite</td>
+</tr>
+<tr>
+<td><strong>6. Pedagogy and capstone</strong></td>
+<td>Chapters 19–21 and Appendices F–H</td>
+<td>The closing chapters (including the future chapter) and reference material</td>
+</tr>
+<tr>
+<td><strong>7. Sim portfolio</strong></td>
+<td>Reuse search, harvest, batch generation, showcase sims, and the xAPI pilot (§5). Runs alongside phases 3–6 as chapter specs are written</td>
+<td>Validated sims and screenshots</td>
+</tr>
+<tr>
+<td><strong>8. Learning-graph artifacts</strong></td>
+<td>Glossary, FAQ, quizzes, references, diagrams, and book metrics</td>
+<td>Regenerated reports</td>
+</tr>
+<tr>
+<td><strong>9. Paper revision</strong></td>
+<td>The table in §6</td>
+<td>New PDF and arXiv bundle</td>
+</tr>
+<tr>
+<td><strong>10. Release</strong></td>
+<td>Full <code>mkdocs build</code>, link check, <code>gh-deploy</code>, announcement material</td>
+<td>MicroSims 2.0 site</td>
+</tr>
+</tbody>
+</table>
+<p>Phases 3–6 (writing) and 7 (sims) can proceed in parallel once the skeleton exists. Paper work (Phase 9) can start after Phase 5 because it needs the pipeline text and portfolio numbers.</p>
+<h2 id="8-how-the-work-would-be-done">8. How the Work Would Be Done</h2>
+<p>The book teaches a skills-based workflow, so we should build it with the same workflow:</p>
+<ul>
+<li>Use the <code>book-chapter-generator</code>, <code>chapter-content-generator</code>, <code>glossary-generator</code>, <code>faq-generator</code>, <code>quiz-generator</code> and <code>reference-generator</code> skills for the text.</li>
+<li>Use <code>microsim-generator</code> and <code>microsim-utils</code> for the sims, in batch mode with <code>sim-status.json</code>.</li>
+<li>Use parallel subagents per chapter or per sim group, with a coordinator (the pattern proven on eight-hour-entrepreneur).</li>
+<li>Record generation logs in <code>logs/</code>, as v1.0 did (v1.0 logs stay in git history; the new logs start fresh).</li>
+<li>Keep <code>book-status.json</code> current so the dashboard shows progress.</li>
+<li><strong>Preserving v1.0 for historians.</strong> The annotated tag <code>v1.0</code> (on commit <code>b1c4a9fe</code>) is created and pushed. Historians browse it at <code>https://github.com/dmccreary/microsims/tree/v1.0</code>. Appendix G links to it.</li>
+<li><strong>One branch: <code>main</code>.</strong> The rewrite happens directly on <code>main</code>, in small commits, so there is no second branch to keep in sync. A <code>v2</code> branch is used only if a specific change needs isolation for quality (for example a large structural change that would leave <code>main</code> unable to build). I do not expect to need one.</li>
+<li><strong>Do not deploy mid-rewrite.</strong> The live site is published by <code>mkdocs gh-deploy</code>, which builds from the working tree. While the book is half rewritten, use commit and push only, and run <code>gh-deploy</code> once at release (Phase 10). Your "publish" shorthand includes the deploy step, so during the rewrite I will treat "publish" as commit and push only and ask before deploying, unless you say otherwise.</li>
+<li><strong>Keep <code>main</code> building.</strong> Each commit should pass <code>mkdocs build</code> so <code>main</code> is always in a good state. The skeleton phase (Phase 2) replaces the nav in one commit, and content is added chapter by chapter.</li>
+<li><strong>URLs.</strong> The rewrite will break v1.0 chapter URLs on the live site (GitHub Pages serves only <code>main</code>'s last deploy). If old links matter, Appendix G can list a redirect table, or v1.0 can be deployed once to a <code>/v1/</code> path. This is a separate small decision (§11).</li>
+</ul>
+<h2 id="9-alternatives-considered">9. Alternatives Considered</h2>
+<p>The decision is made: <strong>complete rewrite in this repository, on <code>main</code>, with v1.0 preserved by a git tag.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complete rewrite in this repo, on <code>main</code> (chosen)</strong></td>
+<td>Keeps the repository, the site URL, the GitHub Pages deployment and the full git history. v1.0 is recoverable at the pushed tag. No long-lived branch.</td>
+</tr>
+<tr>
+<td>Rewrite on a <code>v2</code> branch</td>
+<td>Isolates half-finished work, but adds merge and sync overhead. Not chosen unless a change needs it.</td>
+</tr>
+<tr>
+<td>Rewrite in a new repo</td>
+<td>Would split history and lose the site URL. Not chosen.</td>
+</tr>
+<tr>
+<td>Evolve in place</td>
+<td>Would leave p5-centric structure and mixed voice. Not chosen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-risks">10. Risks</h2>
+<ul>
+<li><strong>xAPI overclaiming.</strong> The runtime is real, but no emitter POSTs to a store yet and some adapters are unverified. The text must match reality, and Chapters 16–18 should be written last among the engineering chapters so it reflects the state of <code>learning-record-store</code> at that time.</li>
+<li><strong>Runtime distribution.</strong> The <code>lrs-*.js</code> files are copied into each book, and <code>lrs-config.js</code> is per book. Decide how copies stay in sync (the <code>install-runtime.py --check</code> script exists for this). The same question applies to the poster shared libs.</li>
+<li><strong>Tooling paths.</strong> The skills refer to paths that do not exist here. The book should use <code>~/projects/ibook-skills</code> or a stable environment variable.</li>
+<li><strong>Skills change quickly.</strong> The book should describe the <em>concepts and contracts</em>, and link to the skills for details, so it does not go stale as quickly as v1.0 did.</li>
+<li><strong>Scale of the rewrite.</strong> About 21 new chapters, 8 appendices, and a regenerated sim portfolio is large. The harvest step (§5) and batch pipeline keep the sim cost bounded, but the chapter text is entirely new writing.</li>
+<li><strong>Broken inbound links.</strong> v1.0 URLs (search engines, other books that link to <code>microsims</code> pages) will 404 after release. Mitigate with a redirect list in Appendix G, and grep sibling repos for links to this site before release.</li>
+<li><strong>Losing good v1.0 material.</strong> Some v1.0 explanations and sims are worth keeping. The harvest step and the <code>v1.0</code> tag mitigate this.</li>
+<li><strong>Paper evidence.</strong> Without student data, the empirical contribution is limited to portfolio and QA metrics.</li>
+<li><strong>Privacy.</strong> Any student data collection needs the aggregate-only policy and a clear statement in the book.</li>
+</ul>
+<h2 id="11-decisions">11. Decisions</h2>
+<p><strong>Resolved</strong></p>
+<ul>
+<li>Rewrite the book completely, on <code>main</code>, with no <code>v2</code> branch. The <code>v1.0</code> tag is created and pushed.</li>
+<li>The book gives detailed treatment of both the full LRS (Chapter 17) and LRS-Lite (Chapter 18).</li>
+<li><strong>The core focus of the entire book is the fidelity of the xAPI stream as a predictor of concept mastery</strong> (see §1).</li>
+<li>The 21-chapter map is accepted, including the new Chapter 21, <em>The Future of MicroSims</em> (short-term ideas for the next year, and the long-term view of AI generating high-quality, fun MicroSims that predict mastery better).</li>
+<li>v1.0 sims are reused only if they can reach grade A (85); otherwise they are excluded. The per-sim upgrade checklist is in <code>TODO.md</code>.</li>
+<li>The paper is revised in place (v0.07) with the same three co-authors, and instructions for rebuilding the v1.0 paper are kept.</li>
+<li>Comparison posters are grid-overlay posters in the pattern of <code>stem-robots/docs/posters</code>, documented in Chapter 10.</li>
+</ul>
+<p><strong>Resolved by default</strong> (you asked me to use the defaults; say so if any is wrong)</p>
+<ul>
+<li><strong>Old links:</strong> a redirect table in Appendix G, with no <code>/v1/</code> deployment.</li>
+<li><strong>xAPI status:</strong> Chapters 16–18 describe the runtime, the gateway and LRS-Lite as designs with working pieces until a POST path is proven, and say plainly that no learner data have been collected yet.</li>
+<li><strong>Release gate:</strong> grade B or better for new sims and A for carried-over v1.0 sims (see §5).</li>
+<li><strong>Showcase examples:</strong> Appendix F includes sims and posters from stem-robots and xapi-course.</li>
+<li><strong>Your original item 1</strong> (cut off) is read as the xAPI skill and the xapi-course book.</li>
+</ul>
+<p><strong>Still open</strong></p>
+<ul>
+<li>None blocking. The paper title stays unless the authors decide otherwise.</li>
+</ul>
+<h2 id="12-next-steps">12. Next Steps</h2>
+<ol>
+<li>Add the plan to <code>mkdocs.yml</code> (an "Appendices" nav section; it is not there yet).</li>
+<li>Phase 1: a new course description and learning graph. The learning graph should treat mastery-prediction fidelity as a first-class concern (concepts for evidence, BKT, calibration, and so on), and confirm or reshape the 21-chapter map.</li>
+<li>Phase 2: the skeleton (new nav, stubbed chapters, and spec blocks), in one commit on <code>main</code>. Commit and push only; no deploy until release.</li>
+<li>Cover the nav status icons (§4.2a) in the skeleton and in the chapters listed there.</li>
+<li>Work through the upgrade checklist in <code>TODO.md</code> as chapter specs adopt sims.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../learning-graph/chapter-metrics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter Metrics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chapter Metrics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../shared-microsims-linking-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Shared MicroSims Linking Guide">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Shared MicroSims Linking Guide
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

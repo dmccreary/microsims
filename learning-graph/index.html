@@ -95,7 +95,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#learning-graph-for-creating-educational-microsims" class="md-skip">
+        <a href="#learning-graph-for-microsims-20" class="md-skip">
           Skip to content
         </a>
       
@@ -1412,6 +1412,58 @@
   
   
   
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../shared-microsims-linking-guide/" class="md-nav__link">
         
@@ -1649,17 +1701,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#learning-graph-statistics" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Learning Graph Statistics
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#course-description" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1753,28 +1794,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#foundational-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Foundational Concepts
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#taxonomy-categories" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Taxonomy Categories
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1848,50 +1867,19 @@
   
 
 
-<h1 id="learning-graph-for-creating-educational-microsims">Learning Graph for Creating Educational MicroSims</h1>
-<p>This section contains the learning graph for this textbook. A learning graph is
-a graph of concepts used in this textbook. Each concept is represented by a
-node in a network graph. Concepts are connected by directed edges that indicate
+<h1 id="learning-graph-for-microsims-20">Learning Graph for MicroSims 2.0</h1>
+<p>This section contains the learning graph for this textbook.  A learning graph is
+a graph of concepts used in this textbook.  Each concept is represented by a
+node in a network graph.  Concepts are connected by directed edges that indicate
 what concepts each node depends on before that concept is understood by the student.</p>
-<p><a class="md-button md-button--primary" href="../sims/graph-viewer/main.html">View the Learning Graph</a></p>
 <p>A learning graph is the foundational data structure for intelligent textbooks that can recommend learning paths.
 A learning graph is like a roadmap of concepts to help students arrive at their learning goals.</p>
-<p>At the left of the learning graph are prerequisite or foundational concepts. They
-have no outbound edges. They only have inbound edges for other concepts that depend on
-understanding these foundational prerequisite concepts. At the far right
-we have the most advanced concepts in the course. To master these concepts you
+<p>At the left of the learning graph are prerequisite or foundational concepts.  They
+have no outbound edges.  They only have inbound edges for other concepts that depend on
+understanding these foundational prerequisite concepts.  At the far right
+we have the most advanced concepts in the course.  To master these concepts you
 must understand all the concepts that they point to.</p>
-<h2 id="learning-graph-statistics">Learning Graph Statistics</h2>
-<table>
-<thead>
-<tr>
-<th>Metric</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Total Concepts</td>
-<td>242</td>
-</tr>
-<tr>
-<td>Foundational Concepts</td>
-<td>8</td>
-</tr>
-<tr>
-<td>Total Dependencies</td>
-<td>402</td>
-</tr>
-<tr>
-<td>Taxonomy Categories</td>
-<td>14</td>
-</tr>
-<tr>
-<td>Max Dependency Chain</td>
-<td>16</td>
-</tr>
-</tbody>
-</table>
+<p>Here are other files used by the learning graph.</p>
 <h2 id="course-description">Course Description</h2>
 <p>We use the <a href="../course-description/">Course Description</a> as
 the source document for the concepts that are included in this course.
@@ -1900,167 +1888,61 @@ The course description uses the 2001 Bloom taxonomy to order learning objectives
 <p>We use generative AI to convert the course description into a <a href="concept-list/">Concept List</a>.
 Each concept is in the form of a short Title Case label with most labels under 32 characters long.</p>
 <h2 id="concept-dependency-list">Concept Dependency List</h2>
-<p>We next use generative AI to create a Directed Acyclic Graph (DAG). DAGs do not have cycles where
-concepts depend on themselves. We provide the DAG in two formats. One is a <a href="learning-graph.csv">CSV file</a> and the other
-format is a <a href="learning-graph.json">JSON file</a> that uses the vis-network JavaScript library format. The vis-network format uses <code>nodes</code>, <code>edges</code> and <code>metadata</code>
-elements with edges containing <code>from</code> and <code>to</code> properties. This makes it easy for you to view and edit the learning
+<p>We next use generative AI to create a Directed Acyclic Graph (DAG).  DAGs do not have cycles where
+concepts depend on themselves.  We provide the DAG in two formats.  One is a <a href="learning-graph.csv">CSV file</a> and the other
+format is a <a href="learning-graph.json">JSON file</a> that uses the vis-network JavaScript library format.  The vis-network format uses <code>nodes</code>, <code>edges</code> and <code>metadata</code>
+elements with edges containing <code>from</code> and <code>to</code> properties.  This makes it easy for you to view and edit the learning
 graph using an editor built with the vis-network tools.</p>
 <h2 id="analysis-documentation">Analysis &amp; Documentation</h2>
 <h3 id="course-description-quality-assessment">Course Description Quality Assessment</h3>
 <p>This report rates the overall quality of the course description for the purpose of generating a learning graph.</p>
 <ul>
 <li>Course description fields and content depth analysis</li>
-<li>Validates course description has sufficient depth for generating 200+ concepts</li>
+<li>Validates course description has sufficient depth for generating 300-600 concepts</li>
 <li>Compares course description against similar courses</li>
 <li>Identifies content gaps and strengths</li>
-<li>Suggests areas of improvement</li>
+<li>Suggests areas of improvement
+<a href="course-description-assessment/">Vew the Course Description Quality Assessment</a></li>
 </ul>
-<p><a href="course-description-assessment/">View the Course Description Quality Assessment</a></p>
 <h3 id="learning-graph-quality-validation">Learning Graph Quality Validation</h3>
 <p>This report gives you an overall assessment of the quality of the learning graph.
 It uses graph algorithms to look for specific quality patterns in the graph.</p>
 <ul>
 <li>Graph structure validation - all concepts are connected</li>
 <li>DAG validation (no cycles detected)</li>
-<li>Foundational concepts: 8 entry points</li>
+<li>Foundational concepts: 10 entry points</li>
 <li>Indegree distribution analysis</li>
-<li>Longest dependency chains (16 steps)</li>
-<li>Connectivity: 100% of nodes connected to the main cluster</li>
+<li>Longest dependency chains</li>
+<li>Connectivity: percent of nodes connected to the main cluster</li>
 </ul>
 <p><a href="quality-metrics/">View the Learning Graph Quality Validation</a></p>
 <h3 id="concept-taxonomy">Concept Taxonomy</h3>
 <p>In order to see patterns in the learning graph, it is useful to assign colors
-to each concept based on the concept type. We use generative AI to
-create categories for our concepts and then place each concept
+to each concept based on the concept type.  We use generative AI to
+create about a dozen categories for our concepts and then place each concept
 into a single primary classifier.</p>
 <ul>
-<li>14 taxonomy categories</li>
-<li>Category organization - foundational elements first, capstone projects last</li>
-<li>Balanced categories (2.5% - 21.1% each)</li>
+<li>A concept classifier taxonomy with approximately 12 categories (+/- 1 or 2)</li>
+<li>Category organization - foundational elements first, course capstone project ideas last</li>
+<li>Balanced categories (3.5% - 15% each)</li>
 <li>All categories under 30% threshold</li>
+<li>Pedagogical flow recommendations</li>
 <li>Clear 3-5 letter abbreviations for use in CSV file</li>
+<li>A Miscellaneous (MOSC) category is sometimes added
+<a href="concept-taxonomy/">View the Concept Taxonomy</a></li>
 </ul>
-<p><a href="concept-taxonomy/">View the Concept Taxonomy</a></p>
 <h3 id="taxonomy-distribution">Taxonomy Distribution</h3>
-<p>This report shows how many concepts fit into each category of the taxonomy.
-Our goal is a somewhat balanced taxonomy where each category holds a
-reasonable number of concepts. No category contains over 30% of our concepts.</p>
+<p>This reports shows how many concepts fit into each category of the taxonomy.
+Our goal is a somewhat balanced taxonomy where each category holds an
+equal number of concepts.  We also don't want any category to contain
+over 30% of our concepts.</p>
 <ul>
 <li>Statistical breakdown</li>
 <li>Detailed concept listing by category</li>
-<li>Visual distribution chart</li>
+<li>Visual distribution table</li>
 <li>Balance verification</li>
 </ul>
 <p><a href="taxonomy-distribution/">View the Taxonomy Distribution Report</a></p>
-<h2 id="foundational-concepts">Foundational Concepts</h2>
-<p>These 8 concepts have no prerequisites and serve as entry points to the learning graph:</p>
-<ol>
-<li><strong>MicroSim Definition</strong> - Core definition of what a MicroSim is</li>
-<li><strong>Programming Fundamentals</strong> - Basic programming concepts</li>
-<li><strong>Web Browser</strong> - Understanding web browser technology</li>
-<li><strong>Generative AI</strong> - Introduction to AI for code generation</li>
-<li><strong>Bloom's Taxonomy</strong> - Educational learning levels framework</li>
-<li><strong>Dublin Core Metadata</strong> - Metadata standards foundation</li>
-<li><strong>Cognitive Load Theory</strong> - Learning theory fundamentals</li>
-<li><strong>Creative Commons</strong> - Licensing fundamentals</li>
-</ol>
-<h2 id="taxonomy-categories">Taxonomy Categories</h2>
-<table>
-<thead>
-<tr>
-<th>TaxonomyID</th>
-<th>Category</th>
-<th>Count</th>
-<th>Percentage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TYPES</td>
-<td>MicroSim Types &amp; Libraries</td>
-<td>51</td>
-<td>21.1%</td>
-</tr>
-<tr>
-<td>P5JS</td>
-<td>p5.js Core</td>
-<td>24</td>
-<td>9.9%</td>
-</tr>
-<tr>
-<td>PROF</td>
-<td>Professional &amp; Integration</td>
-<td>24</td>
-<td>9.9%</td>
-</tr>
-<tr>
-<td>UI</td>
-<td>User Interface &amp; Controls</td>
-<td>20</td>
-<td>8.3%</td>
-</tr>
-<tr>
-<td>META</td>
-<td>Metadata &amp; Packaging</td>
-<td>20</td>
-<td>8.3%</td>
-</tr>
-<tr>
-<td>PED</td>
-<td>Pedagogy &amp; Learning Theory</td>
-<td>20</td>
-<td>8.3%</td>
-</tr>
-<tr>
-<td>GENAI</td>
-<td>Generative AI</td>
-<td>16</td>
-<td>6.6%</td>
-</tr>
-<tr>
-<td>ARCH</td>
-<td>MicroSim Architecture</td>
-<td>12</td>
-<td>5.0%</td>
-</tr>
-<tr>
-<td>BLOOM</td>
-<td>Bloom's Taxonomy</td>
-<td>12</td>
-<td>5.0%</td>
-</tr>
-<tr>
-<td>RESP</td>
-<td>Responsive Design</td>
-<td>11</td>
-<td>4.5%</td>
-</tr>
-<tr>
-<td>WEB</td>
-<td>Web Technologies</td>
-<td>9</td>
-<td>3.7%</td>
-</tr>
-<tr>
-<td>ACCESS</td>
-<td>Accessibility</td>
-<td>9</td>
-<td>3.7%</td>
-</tr>
-<tr>
-<td>FOUND</td>
-<td>Foundation Concepts</td>
-<td>8</td>
-<td>3.3%</td>
-</tr>
-<tr>
-<td>PROG</td>
-<td>Programming Fundamentals</td>
-<td>6</td>
-<td>2.5%</td>
-</tr>
-</tbody>
-</table>
 
 
 
