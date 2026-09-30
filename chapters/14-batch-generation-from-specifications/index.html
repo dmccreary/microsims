@@ -1,0 +1,3049 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to turn the specification blocks in a chapter into many MicroSims with extraction, scaffolding, status tracking, resumable runs and parallel workers.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/14-batch-generation-from-specifications/">
+      
+      
+        <link rel="prev" href="../13-quality-assurance-and-automated-layout-review/">
+      
+      
+        <link rel="next" href="../15-metadata-search-and-reuse/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Batch Generation from Specifications - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Batch Generation from Specifications - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to turn the specification blocks in a chapter into many MicroSims with extraction, scaffolding, status tracking, resumable runs and parallel workers." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/14-batch-generation-from-specifications/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/14-batch-generation-from-specifications/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Batch Generation from Specifications - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to turn the specification blocks in a chapter into many MicroSims with extraction, scaffolding, status tracking, resumable runs and parallel workers." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/14-batch-generation-from-specifications/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#batch-generation-from-specifications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Batch Generation from Specifications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-generation-the-whole-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch Generation: The Whole Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Batch Generation: The Whole Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-batch-generation-pipeline-stepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Batch Generation Pipeline Stepper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spec-extraction-and-specification-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spec Extraction and Specification JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaffold-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaffold Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-status-lifecycle-and-the-sim-status-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Status Lifecycle and the Sim Status File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Status Lifecycle and the Sim Status File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sim-status-rule-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Sim Status Rule Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-insertion-and-navigation-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Insertion and Navigation Update
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nav-status-icons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nav Status Icons
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nav Status Icons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nav-status-icon-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Nav Status Icon Legend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-workers-and-the-coordinator-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel Workers and the Coordinator Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-generation-the-whole-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch Generation: The Whole Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Batch Generation: The Whole Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-batch-generation-pipeline-stepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Batch Generation Pipeline Stepper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spec-extraction-and-specification-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spec Extraction and Specification JSON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaffold-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaffold Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-status-lifecycle-and-the-sim-status-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Status Lifecycle and the Sim Status File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Status Lifecycle and the Sim Status File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sim-status-rule-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Sim Status Rule Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-insertion-and-navigation-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Insertion and Navigation Update
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nav-status-icons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nav Status Icons
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nav Status Icons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nav-status-icon-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Nav Status Icon Legend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-workers-and-the-coordinator-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel Workers and the Coordinator Pattern
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/14-batch-generation-from-specifications/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="batch-generation-from-specifications">Batch Generation from Specifications</h1>
+<h2 id="summary">Summary</h2>
+<p>Shows how to generate many MicroSims from chapter specifications with status tracking, resumable pipelines and parallel workers.</p>
+<p>Students learn specification extraction, scaffolding, the status lifecycle and the coordinator pattern, plus nav status icons and cost. After it, they can run a batch from a chapter's specs.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 14 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Batch Generation</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Spec Extraction</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Specification JSON</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Scaffold Generation</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Status Lifecycle</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Sim Status File</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Resumable Pipeline</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Parallel Workers</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Coordinator Pattern</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Chapter Diagram Coverage</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Navigation Update</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Iframe Insertion</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Nav Status Icon</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Generation Cost</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../05-generating-microsims-with-ai-skills/">Chapter 5: Generating MicroSims with AI Skills</a></li>
+<li><a href="../12-width-responsive-design-and-iframe-heights/">Chapter 12: Width-Responsive Design and Iframe Heights</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">One Chapter, Many Simulations</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Writing one MicroSim by hand is fun; writing thirty is a job for a pipeline. This chapter shows you how a chapter full of specifications becomes a folder full of working simulations, with a status board that always tells you what is left. Let's bounce it around!</p>
+</div>
+<p>Every chapter in this book carries specification blocks, the collapsible sections that describe a MicroSim before it exists. Chapter 5 showed how a single specification becomes a single MicroSim through an AI skill. This chapter scales that idea up. We follow the batch workflow defined in the <code>microsim-generator</code> skill, look at what each of its Python utilities does, and see how the work is tracked, resumed and divided among several workers.</p>
+<h2 id="batch-generation-the-whole-pipeline">Batch Generation: The Whole Pipeline</h2>
+<p><strong>Batch generation</strong> is the practice of producing every MicroSim specified in a chapter (or a whole book) in one organized run, rather than by hand-crafting each one in a separate conversation. The <code>microsim-generator</code> skill defines it as a fixed sequence of steps. Deterministic steps, such as parsing text or creating folders, are done by small Python scripts. The one creative step, writing each simulation's JavaScript file, is done by the AI agent.</p>
+<p>That division is the central idea. A script never guesses and never tires, so it should do everything that has one correct answer. An agent is good at judgment and code, so it should do only what needs them. The skill's own summary states the payoff: the utilities are estimated to save about 430,000 tokens per batch run, and the README of the utilities gives per-script estimates such as about 150,000 tokens for scaffolding. These are the skill authors' estimates, not measurements made for this book.</p>
+<p>The batch route in the skill runs in this order:</p>
+<ol>
+<li>Extract the specifications from a chapter into a JSON file and a status file.</li>
+<li>Scaffold a directory for each specification.</li>
+<li>Pass an instructional design checkpoint for each MicroSim.</li>
+<li>Write the <code>.js</code> file for each MicroSim (the agent's creative work).</li>
+<li>Insert and fix the iframes in the chapter.</li>
+<li>Validate quality, synchronize iframe heights and test control visibility.</li>
+<li>Update the site navigation.</li>
+<li>Capture a screenshot and run a visual layout review.</li>
+</ol>
+<p>Steps 6 to 8 belong to the quality chain covered in <a href="../13-quality-assurance-and-automated-layout-review/">Chapter 13</a>, and step 3 applies the objective-to-interaction matching from <a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3</a>. This chapter concentrates on steps 1, 2, 5 and 7, plus the bookkeeping that ties them together. The diagram below lets you step through the sequence and see which stages a script handles and which the agent handles.</p>
+<h4 id="diagram-batch-generation-pipeline-stepper">Diagram: Batch Generation Pipeline Stepper</h4>
+<iframe src="../../sims/batch-generation-pipeline-stepper/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/batch-generation-pipeline-stepper/main.html">Run the Batch Generation Pipeline Stepper MicroSim Fullscreen</a></p>
+<details>
+<summary>Batch Generation Pipeline Stepper</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> batch-generation-pipeline-stepper<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the steps that a Python utility performs from the step that the AI agent performs, and will trace what each step reads and writes.</p>
+<p>Layout: a horizontal row of eight rounded boxes, one per pipeline step, above a white detail panel and a control region. Script steps are drawn in blue, the agent step (write the .js file) in orange, and the instructional design checkpoint in gray. The drawing region is aliceblue and the control region is white.</p>
+<p>Data: for each step, the utility name (for example extract-sim-specs.py), the files it reads, the files it writes, and one plain-language sentence saying what it does. The content comes from the batch steps listed in this chapter.</p>
+<p>Controls:</p>
+<ul>
+<li>Buttons "Previous" and "Next" move a highlight through the eight steps</li>
+<li>Clicking any box selects that step directly</li>
+<li>Checkbox "Show files" toggles arrows for the files each step reads and writes</li>
+<li>Hovering a box shows a tooltip with the step's purpose</li>
+</ul>
+<p>Behavior: the selected step is outlined in bold and its detail panel lists inputs, outputs and the actor (script or agent). A counter reads "Step N of 8". Files written by earlier steps appear as small document icons in the panel of later steps that read them.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, boxes wrap to two rows below 600 pixels, and the controls remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton and createCheckbox controls positioned relative to drawHeight. Include a describe() call for accessibility.</p>
+</details>
+<h2 id="spec-extraction-and-specification-json">Spec Extraction and Specification JSON</h2>
+<p>The pipeline begins by reading the chapter itself. <strong>Spec extraction</strong> is the step that scans a chapter's Markdown for specification blocks and turns each into a structured record, so no one has to parse the prose by hand. It is performed by <code>extract-sim-specs.py</code>, which looks for level-four headings that begin with <code>#### Diagram:</code> or <code>#### Drawing:</code> and reads the collapsible details block that follows each one.</p>
+<p>Three flags matter most. The <code>--project-dir</code> flag names the textbook's root (the folder containing <code>mkdocs.yml</code>) and is auto-detected if omitted. The <code>--chapter</code> flag limits the scan to one chapter directory. The <code>--output</code> flag writes the specifications to a file, and <code>--status-file</code> additionally writes a status file, described later in this chapter.</p>
+<p>The output is the <strong>specification JSON</strong>: a JSON array with one object per specification. Each object has twelve fields, listed in the utilities' README: <code>sim_id</code>, <code>title</code>, <code>summary</code>, <code>heading_type</code>, <code>chapter</code>, <code>element_type</code>, <code>bloom_level</code>, <code>library</code>, <code>iframe_src</code>, <code>iframe_height</code>, <code>spec_text</code> and <code>status</code>. The <code>sim_id</code> is taken from the explicit <code>**sim-id:**</code> line if there is one, then from an existing iframe path, and otherwise from a kebab-case version of the heading. The <code>library</code> comes from the <code>**Library:**</code> line, or from the <code>Implementation:</code> line if that is missing. The <code>spec_text</code> field holds the entire details block, so the later steps can hand the full specification to the agent.</p>
+<p>A worked example makes this concrete. Chapter 1 of this book contains seven specification blocks. Running the extractor against it on 2026-09-30 produced a JSON array of seven objects. Its first object was the Bouncing Ball Gravity Lab, and its fields were as follows (the long <code>spec_text</code> is shortened here):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"sim_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bouncing-ball-gravity-lab"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bouncing Ball Gravity Lab"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bouncing Ball Gravity Lab"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"heading_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diagram"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"chapter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01-what-is-a-microsim"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"element_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"microsim"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"bloom_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"library"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p5.js"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"iframe_src"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"iframe_height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Specified"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"spec_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(the full details block, omitted here)"</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The command that produced it was:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>python3<span class="w"> </span>extract-sim-specs.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--project-dir<span class="w"> </span>/Users/dan/projects/microsims<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--chapter<span class="w"> </span><span class="m">01</span>-what-is-a-microsim<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>ch01-specs.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--verbose
+</code></pre></div></td></tr></table></div>
+<p>Look closely at the <code>bloom_level</code> value. The specification says the objective's Bloom level is Understand with the verb explain, yet the extractor reported Create.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Extracted Bloom Levels Are Guesses</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+When a spec has no field the extractor recognizes, it guesses the Bloom level by scanning for keywords, and <code>createSlider</code> and <code>createButton</code> in the spec text matched the word "create". Always read <code>bloom_level</code> in the JSON before trusting it, and add a <code>Bloom Taxonomy Level:</code> line to the spec instead of editing the JSON.</p>
+</div>
+<p>This behavior comes from <code>_infer_bloom_from_text</code>, a best-effort keyword list that is checked in a fixed order with the Create verbs first. The lesson generalizes: extraction is only as good as the regular expressions behind it, so a batch run should begin by reading the specification JSON and confirming that every <code>sim_id</code>, <code>library</code> and <code>bloom_level</code> is what the author intended.</p>
+<p>The <code>create-microsim-todo-json-files.py</code> utility offers a second, per-sim form of the same idea. It writes one JSON file per unimplemented specification into <code>docs/sims/TODO/</code>, skipping any <code>sim-id</code> that already has a <code>main.html</code>. Its records carry a <code>diagram_name</code>, a <code>learning_objective</code> and a <code>completion_status</code>, which suits handing a single specification to a single worker.</p>
+<h2 id="scaffold-generation">Scaffold Generation</h2>
+<p><strong>Scaffold generation</strong> is the step that creates the boilerplate files for each specified MicroSim, so the agent only has to write the simulation logic. The script <code>generate-sim-scaffold.py</code> reads the specification JSON and, for each <code>sim_id</code>, creates a directory <code>docs/sims/&lt;sim-id&gt;/</code> containing three files: <code>main.html</code>, <code>index.md</code> and <code>metadata.json</code>.</p>
+<p>The three files have distinct jobs. The <code>main.html</code> file loads the correct library from a CDN (a content delivery network, a public server that hosts shared code libraries), includes a <code>&lt;main&gt;</code> element and the schema meta tag, and loads <code>&lt;sim-id&gt;.js</code>. The <code>index.md</code> file holds the documentation page: front matter, an iframe, a fullscreen link and a lesson plan skeleton. The <code>metadata.json</code> file holds the Dublin Core and educational metadata that Chapter 15 develops. The <code>--spec-file</code> flag is required; <code>--sim-id</code> restricts the run to one MicroSim; <code>--dry-run</code> prints what would be created; and <code>--force</code> overwrites existing files.</p>
+<p>A short worked example shows the safe way to run it. Start with a dry run for one MicroSim, inspect the plan, then run it for real:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>python3<span class="w"> </span>generate-sim-scaffold.py<span class="w"> </span>--spec-file<span class="w"> </span>ch01-specs.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--sim-id<span class="w"> </span>bouncing-ball-gravity-lab<span class="w"> </span>--dry-run
+python3<span class="w"> </span>generate-sim-scaffold.py<span class="w"> </span>--spec-file<span class="w"> </span>ch01-specs.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--project-dir<span class="w"> </span>/Users/dan/projects/microsims<span class="w"> </span>--verbose
+</code></pre></div></td></tr></table></div>
+<p>By default the scaffolder skips any directory that already exists. That rule protects finished work, but it also means a half-built sim (with <code>main.html</code> and a <code>.js</code> file but no <code>index.md</code>) is skipped as well. The skill's remedy is <code>--force</code>, which the skill describes as safe because the scaffold never writes the <code>.js</code> file, where the creative work lives.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Scaffolds Contain Placeholders</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The generated <code>index.md</code> is full of <code>TODO</code> lines, and the templates in the script default to generic values such as a high school geometry lesson. Treat a scaffold as a starting form, and fill in the description, the learning objectives and the metadata for your own subject before the sim is called done.</p>
+</div>
+<h2 id="the-status-lifecycle-and-the-sim-status-file">The Status Lifecycle and the Sim Status File</h2>
+<p>A batch touches dozens of MicroSims at different stages, so the pipeline needs a way to say where each one stands. The <strong>status lifecycle</strong> is the ordered set of states a MicroSim passes through on its way from an idea to a published page. The utilities define five: <code>specified</code>, <code>scaffolded</code>, <code>implemented</code>, <code>validated</code> and <code>deployed</code>. A sixth value, <code>reused</code>, sits outside the sequence and marks a MicroSim that the chapter embeds from another book, which is treated as complete.</p>
+<p>The <strong>sim status file</strong>, usually named <code>sim-status.json</code>, records the current state of every MicroSim. It is created by adding <code>--status-file</code> to the extraction command. Each entry holds a <code>sim_id</code>, <code>title</code>, <code>chapter</code>, <code>bloom_level</code>, <code>library</code>, <code>status</code>, <code>has_iframe</code> and <code>quality_score</code>.</p>
+<p>The important design choice is that the status is not typed in by a person. <code>extract-sim-specs.py</code> derives it from the files on disk each time it runs, using the rules in the table below. The table summarizes rules that the paragraphs above have introduced, and the checks are cumulative from top to bottom.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>How the script detects it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>specified</code></td>
+<td>A specification exists in a chapter but no sim directory does</td>
+</tr>
+<tr>
+<td><code>scaffolded</code></td>
+<td>The directory has <code>main.html</code> but no substantive JavaScript</td>
+</tr>
+<tr>
+<td><code>implemented</code></td>
+<td>A <code>.js</code> file with more than 50 lines exists</td>
+</tr>
+<tr>
+<td><code>validated</code></td>
+<td>The sim is implemented and the <code>quality_score</code> in <code>index.md</code> front matter is 70 or higher</td>
+</tr>
+<tr>
+<td><code>deployed</code></td>
+<td>The sim is validated and the chapter has an iframe for it</td>
+</tr>
+<tr>
+<td><code>reused</code></td>
+<td>The spec's <code>**Status:**</code> line says Reused</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>resumable pipeline</strong> follows directly from this design. Because status is recomputed from the file system, a run that stops halfway leaves an accurate record of its own progress. A new session, with a fresh context window, re-runs the extractor, reads the status file, skips everything at <code>implemented</code> or later, and continues with the sims still at <code>specified</code> or <code>scaffolded</code>. Nothing depends on the previous conversation's memory. The skill documents exactly this recovery procedure for the case where a batch fills the context window mid-chapter.</p>
+<p>Let us apply the rules to a sim. Suppose <code>bouncing-ball-gravity-lab</code> has a directory with <code>main.html</code>, a 120-line <code>.js</code> file, a <code>quality_score</code> of 62 and an iframe in Chapter 1. The <code>.js</code> file makes it <code>implemented</code>. The score of 62 is below 70, so it never becomes <code>validated</code>, and because <code>deployed</code> requires validation, it stays <code>implemented</code> despite the iframe. Raising the score to 78 promotes it to <code>deployed</code> on the next run.</p>
+<p>The next specification lets you experiment with those rules.</p>
+<h4 id="diagram-sim-status-rule-explorer">Diagram: Sim Status Rule Explorer</h4>
+<iframe src="../../sims/sim-status-rule-explorer/main.html" width="100%" height="707px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/sim-status-rule-explorer/main.html">Run the Sim Status Rule Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Sim Status Rule Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> sim-status-rule-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: predict): The learner will predict the status that the extraction script assigns to a MicroSim given the state of its files, and will explain which rule produced the result.</p>
+<p>Layout: a control region on the left half and a lifecycle strip on the right half. The strip shows six labeled boxes in a row: specified, scaffolded, implemented, validated, deployed, plus a separate reused box below. The current status box is filled and the others are outlined.</p>
+<p>Controls:</p>
+<ul>
+<li>Checkbox "Sim directory exists" (default off)</li>
+<li>Checkbox "main.html exists" (default off)</li>
+<li>Slider "Lines in the .js file" from 0 to 300 in steps of 10, default 0</li>
+<li>Slider "Quality score" from 0 to 100 in steps of 1, default 0</li>
+<li>Checkbox "Chapter has an iframe" (default off)</li>
+<li>Checkbox "Spec says Status: Reused" (default off)</li>
+<li>Button "Predict first" hides the result until the learner chooses one of the six statuses, then reveals the true status and the rule that fired</li>
+</ul>
+<p>Behavior: apply the detection rules from this chapter in order. Reused overrides everything. Without a directory the result is specified. Without main.html the result stays specified. With main.html the result is scaffolded, becoming implemented above 50 lines of JavaScript, validated at a score of 70 or above, and deployed when an iframe is also present. Show a one-line explanation such as "Score 62 is below 70, so not validated".</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the two halves stack vertically below 600 pixels, and sliders shrink to fit while remaining visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to drawHeight. Include a describe() call for accessibility.</p>
+</details>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">The Files Are the Truth</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice why this pipeline survives interruptions: the status file is a report about the file system, never the other way around. Think of it like a scoreboard that a referee recounts from the field each time, instead of a tally someone might forget to update.</p>
+</div>
+<h2 id="iframe-insertion-and-navigation-update">Iframe Insertion and Navigation Update</h2>
+<p>Once the JavaScript exists, the chapter must actually show the MicroSim. <strong>Iframe insertion</strong> is the step that adds an <code>&lt;iframe&gt;</code> embed to the chapter for every specification that lacks one. The script <code>add-iframes-to-chapter.py</code> finds each <code>#### Diagram:</code> or <code>#### Drawing:</code> heading, looks ahead a limited number of lines for an existing iframe, and if none is found, inserts an iframe and a fullscreen link just before the details block. The inserted tag is a relative path of the form <code>../../sims/&lt;sim-id&gt;/main.html</code> with <code>width="100%"</code>, <code>scrolling="no"</code> and a height of 450 pixels by default. Relative paths matter because an absolute <code>/sims/...</code> path breaks when the site is served from a subdirectory on GitHub Pages.</p>
+<p>Two flags refine the run. The <code>--fix-heights</code> flag reads each sim's <code>.js</code> file for its canvas height and sets the iframe to that height plus 2 pixels for the border. The <code>--fix-paths</code> flag rewrites absolute <code>/sims/</code> paths into relative ones. The <code>--chapter</code> flag selects one chapter and <code>--all</code> processes every chapter, while <code>--dry-run</code> previews the edits. Chapter 12 explains the <code>CANVAS_HEIGHT</code> convention and the sync utility that keeps heights correct across every page that embeds a sim, so use that utility for the final heights and treat this script's height fix as a first pass.</p>
+<p>The second bookkeeping step is the <strong>navigation update</strong>. The script <code>update-mkdocs-nav.py</code> scans <code>docs/sims/</code> for directories that contain an <code>index.md</code>, reads each display title (from front matter, then the first heading, then the folder name), and replaces the whole <code>- MicroSims:</code> section of <code>mkdocs.yml</code> with an alphabetical list. It accepts <code>--project-dir</code>, <code>--dry-run</code> and <code>--verbose</code>, and is idempotent, meaning that running it twice gives the same result as running it once.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Dry-Run Before You Rewrite</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Both the iframe script and the nav script rewrite files you care about, and the nav script replaces the entire MicroSims section, so a hand-edited entry there will vanish. Run each with <code>--dry-run --verbose</code> first, read the plan, and commit your working tree beforehand so <code>git diff</code> can show exactly what changed.</p>
+</div>
+<p>The batch also needs a view of coverage across chapters. <strong>Chapter diagram coverage</strong> is a report of every diagram and MicroSim specified in each chapter, with its status, type and Bloom level, so an author can see which chapters are thin on interactive elements and which specifications are still unbuilt. The <code>microsim-utils</code> skill generates it with <code>diagram-report.py</code>, which writes two pages into <code>docs/learning-graph/</code>: <code>diagram-table.md</code>, a table view, and <code>diagram-details.md</code>, a per-chapter detailed view. The report estimates a difficulty rating from the number of controls, so treat it as a planning aid rather than a measurement.</p>
+<h2 id="nav-status-icons">Nav Status Icons</h2>
+<p>The status file serves the pipeline, but readers see status in a different place. A <strong>nav status icon</strong> is a small colored icon displayed beside a page's entry in the site's navigation bar, showing at a glance how finished that MicroSim is. Material for MkDocs supports it through a <code>status</code> value in each page's front matter, and a sim's <code>index.md</code> might contain <code>status: implemented</code>, the same key that Chapter 2 introduced.</p>
+<p>Three pieces make the icons appear on the community edition of Material for MkDocs, and the sister project <code>learning-record-store</code> shows all three working. First, each page sets <code>status:</code> in its front matter. Second, an <code>extra.status</code> block in <code>mkdocs.yml</code> maps each value to its hover text. Third, <code>docs/css/extra.css</code> paints the icons: Material renders each status as an empty span, and a CSS <code>mask-image</code> driven by a custom property named <code>--md-status--&lt;name&gt;</code> supplies the shape.</p>
+<p>That project's <code>mkdocs.yml</code> uses these five values, with their tooltip text summarized here: <code>scaffold</code> (placeholder, not yet implemented), <code>built</code> (complete, awaiting review), <code>implemented</code> (the MicroSim works), <code>instrumented</code> (it emits xAPI events) and <code>approved</code> (tested and approved). Its stylesheet colors them red, orange, blue, teal and green respectively, and pins a darker shade on hover.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Set theme.icon.status</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+It is tempting to configure the icons under <code>theme.icon.status</code>, but that key is an Insiders-only feature and community Material ignores it silently, so the icons fall back to a generic circled "i" with no build warning. Define the <code>--md-status--&lt;name&gt;</code> variables in <code>extra.css</code> instead, and set the color on the <code>:after</code> rule, because the SVG is applied as a mask.</p>
+</div>
+<p>The nav status is the reader's view, and the batch lifecycle is the pipeline's view, so the two need a mapping. This book's plan proposes one but leaves the details open: <code>scaffolded</code> corresponds to <code>scaffold</code>, <code>implemented</code> to <code>implemented</code>, <code>validated</code> to <code>built</code> or <code>approved</code> depending on score, and instrumentation to <code>instrumented</code>, with a decision still needed on who sets <code>approved</code>. The <code>sync-status.py</code> script from the <code>add-xapi-events-to-microsim</code> skill already automates one row of it. With <code>--apply</code> it sets <code>status: instrumented</code> on any sim that carries xAPI handling, and it never overwrites a human sign-off such as <code>approved</code>. Chapter 16 covers that step. As of this writing, this repository's <code>mkdocs.yml</code> and <code>extra.css</code> do not yet contain the status configuration; the plan schedules it for the site skeleton.</p>
+<h4 id="diagram-nav-status-icon-legend">Diagram: Nav Status Icon Legend</h4>
+<iframe src="../../sims/nav-status-icon-legend/main.html" width="100%" height="552px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/nav-status-icon-legend/main.html">Run the Nav Status Icon Legend MicroSim Fullscreen</a></p>
+<details>
+<summary>Nav Status Icon Legend</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> nav-status-icon-legend<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: match): The learner will match each nav status icon and color to its meaning and to the batch lifecycle state that usually produces it.</p>
+<p>Layout: a mock navigation sidebar on the left listing five sample MicroSim titles, each with a colored status icon, and a detail panel on the right. The drawing region is aliceblue and the control region is white.</p>
+<p>Data: five statuses with color and meaning: scaffold (red, filled circle, placeholder not yet implemented), built (orange, filled circle, awaiting review), implemented (blue, filled circle, the MicroSim works), instrumented (teal, broadcast signal, emits xAPI events), approved (green, check circle, tested and approved).</p>
+<p>Controls:</p>
+<ul>
+<li>Hovering an icon shows its tooltip text exactly as it would appear in the nav</li>
+<li>Clicking an icon selects it and fills the detail panel with the meaning and the related lifecycle state</li>
+<li>Button "Quiz me" hides the labels and asks the learner to click the icon that means a given description, then scores the answer</li>
+<li>Toggle "Dark mode" switches the mock sidebar between light and dark backgrounds to confirm the colors stay readable</li>
+</ul>
+<p>Responsive design: the canvas width follows the container width on every window resize, the detail panel moves below the sidebar under 600 pixels, and all controls remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton and createCheckbox controls positioned relative to drawHeight. Include a describe() call for accessibility.</p>
+</details>
+<h2 id="parallel-workers-and-the-coordinator-pattern">Parallel Workers and the Coordinator Pattern</h2>
+<p>A single agent working through a long list of sims sequentially is reliable but slow, and the <code>microsim-generator</code> skill defaults to sequential execution unless the user asks for parallel execution. When the batch is large, <strong>parallel workers</strong> are several AI agents that each build a separate subset of the MicroSims at the same time. Splitting works because each MicroSim lives in its own directory, so two workers rarely edit the same file.</p>
+<p>Files that are shared, however, need one owner. The <strong>coordinator pattern</strong> assigns one agent, the coordinator, all the per-book steps that must happen once and in a fixed order, while the workers do the per-sim steps. The <code>add-xapi-events-to-microsim</code> skill describes the split as it was used on the 20 sims of the <code>eight-hour-entrepreneur</code> book on 2026-09-26. The coordinator installs the shared runtime before any worker starts, wires and verifies one sim by hand as a reference, and at the end syncs status, runs the whole-book checks and does <code>mkdocs build --strict</code>. Workers do the steps for their own sims only and must not touch <code>mkdocs.yml</code>, <code>extra.css</code>, shared <code>docs/js/</code> files, chapter files, <code>status:</code> values or git. The coordinator also relays discoveries between workers, since a fix found by one often applies to another's sims.</p>
+<p>Applied to batch generation, the same split gives a sensible plan. The coordinator runs <code>extract-sim-specs.py</code> and <code>generate-sim-scaffold.py</code> once, hands each worker a group of <code>sim_id</code> values (grouping by library keeps each worker's context focused), and afterward runs the iframe, height, navigation and screenshot steps that touch shared files. This mapping is our design suggestion built from the two skills; the batch-generation skill itself has been documented for sequential runs, and the parallel split has been documented for the xAPI wiring task.</p>
+<h2 id="generation-cost">Generation Cost</h2>
+<p><strong>Generation cost</strong> is the total resource a batch consumes: agent tokens (the units in which a language model's input and output are counted and billed), elapsed time, and the human minutes spent reviewing. The utilities exist to cut the first of these, because a script that parses specifications spends no tokens on work an agent would otherwise repeat for every sim. The README's estimates, cited earlier, are the only figures the source material gives, and they are design estimates rather than logged results.</p>
+<p>Parallel workers trade cost against time. They can shorten the elapsed time of a large batch, but the <code>chapter-content-generator</code> skill warns that parallel execution carries a substantial token penalty, and it cites about 38 percent additional tokens for chapter text. That figure concerns text generation and has not been measured for MicroSim batches, so parallelism is worth it only when wall-clock time matters more than the bill. The plan for this book lists generation cost or time per sim as an empirical figure to collect from the portfolio pass, and it does not yet exist. Until then, treat any per-sim cost as unmeasured.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Batch Pipeline Mastered</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now take a chapter's specifications through extraction, scaffolding, status tracking, iframe insertion and navigation update, and you know how to split the work between a coordinator and its workers. That is a full batch run, and it is one of the harder skills in this book.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li><strong>Batch generation</strong> turns a chapter's specifications into MicroSims in one run, with scripts doing every deterministic step and the agent writing only the <code>.js</code> files.</li>
+<li><strong>Spec extraction</strong> with <code>extract-sim-specs.py</code> produces the <strong>specification JSON</strong>, one object per <code>#### Diagram:</code> block, and its inferred Bloom levels should be checked by eye.</li>
+<li><strong>Scaffold generation</strong> creates <code>main.html</code>, <code>index.md</code> and <code>metadata.json</code> for each sim, skips existing directories unless <code>--force</code> is used, and leaves <code>TODO</code> placeholders to fill.</li>
+<li>The <strong>status lifecycle</strong> (<code>specified</code>, <code>scaffolded</code>, <code>implemented</code>, <code>validated</code>, <code>deployed</code>, plus <code>reused</code>) is recomputed from the file system into the <strong>sim status file</strong>, which makes the pipeline <strong>resumable</strong>.</li>
+<li><strong>Iframe insertion</strong> and the <strong>navigation update</strong> wire the finished sims into the chapters and the site, and both should be dry-run first.</li>
+<li><strong>Chapter diagram coverage</strong> reports show which chapters have unbuilt or thin interactive elements.</li>
+<li>A <strong>nav status icon</strong> needs three parts on community Material: front matter <code>status</code>, an <code>extra.status</code> legend and CSS mask variables, never <code>theme.icon.status</code>.</li>
+<li><strong>Parallel workers</strong> build sims side by side while a <strong>coordinator</strong> owns the shared files. <strong>Generation cost</strong> figures for MicroSims are still unmeasured.</li>
+</ul>
+<p>The next chapter turns from producing MicroSims to describing them, showing how metadata makes a growing portfolio searchable and reusable.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../13-quality-assurance-and-automated-layout-review/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 13. Quality Assurance and Automated Layout Review">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                13. Quality Assurance and Automated Layout Review
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../15-metadata-search-and-reuse/" class="md-footer__link md-footer__link--next" aria-label="Next: 15. Metadata, Search and Reuse">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                15. Metadata, Search and Reuse
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

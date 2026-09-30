@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Log and Graph Compression Lab using Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="log-graph-compression-lab.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="title-row">
+                <span id="title">Log and Graph Compression Lab</span>
+                <span id="badge">design estimates, not measured</span>
+            </div>
+            <div id="charts">
+                <div class="chart-box">
+                    <canvas id="storageChart" role="img"
+                            aria-label="Bar chart of ClickHouse rows and graph vertices for one simulated semester"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="rateChart" role="img"
+                            aria-label="Line chart of graph writes per second against ingest rate, for summary vertices and for one vertex per statement"></canvas>
+                </div>
+            </div>
+            <div id="controls">
+                <div class="ctl">
+                    <label for="ingest">Ingest rate</label>
+                    <span class="val" id="ingest-val">10,000/s</span>
+                    <input type="range" id="ingest" min="1000" max="50000" step="1000" value="10000">
+                </div>
+                <div class="ctl">
+                    <label for="cadence">Sync cadence</label>
+                    <span class="val" id="cadence-val">60 s</span>
+                    <input type="range" id="cadence" min="5" max="300" step="5" value="60">
+                </div>
+                <div class="ctl">
+                    <label for="grain">Grain</label>
+                    <select id="grain">
+                        <option value="ConceptMastery" selected>ConceptMastery (student, concept)</option>
+                        <option value="PageEngagement">PageEngagement (student, page)</option>
+                        <option value="MicroSimEngagement">MicroSimEngagement (student, MicroSim)</option>
+                        <option value="QuestionResponse">QuestionResponse (student, question)</option>
+                        <option value="LearningSession">LearningSession (student, session)</option>
+                        <option value="SectionRollup">SectionRollup (section, concept)</option>
+                    </select>
+                </div>
+                <div class="ctl">
+                    <label class="check"><input type="checkbox" id="design"> Show design estimates</label>
+                </div>
+            </div>
+            <div id="note" aria-live="polite"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

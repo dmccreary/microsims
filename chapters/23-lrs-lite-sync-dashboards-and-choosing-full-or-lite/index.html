@@ -1,0 +1,3194 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explains how LRS-Lite keeps several browsers consistent through object storage, how dashboards run in the browser, and how to choose and migrate between Lite and the full LRS.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/">
+      
+      
+        <link rel="prev" href="../22-lrs-lite-compact-summaries-and-browser-storage/">
+      
+      
+        <link rel="next" href="../24-pedagogy-accessibility-and-ethics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>LRS-Lite: Sync, Dashboards and Choosing Full or Lite - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="LRS-Lite: Sync, Dashboards and Choosing Full or Lite - Micro Simulations for Education" />
+<meta property="og:description" content="Explains how LRS-Lite keeps several browsers consistent through object storage, how dashboards run in the browser, and how to choose and migrate between Lite and the full LRS." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="LRS-Lite: Sync, Dashboards and Choosing Full or Lite - Micro Simulations for Education" />
+<meta property="twitter:description" content="Explains how LRS-Lite keeps several browsers consistent through object storage, how dashboards run in the browser, and how to choose and migrate between Lite and the full LRS." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lrs-lite-sync-dashboards-and-choosing-full-or-lite" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-summary-rests-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Summary Rests On
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Identity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Identity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-sequence-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Sequence Number
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-logical-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Logical Clock
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-storage-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object Storage Sync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Storage Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Cycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergent-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convergent Sync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convergent Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-two-browser-convergence-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Two-Browser Convergence Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-device-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Device Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashboards-in-the-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboards in the Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dashboards in the Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-class-dashboard-load-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Class Dashboard Load Estimator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compact-versus-full-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compact Versus Full Fidelity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-versus-lite-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Versus Lite Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Full Versus Lite Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-or-lite-decision-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Full or Lite Decision Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lite-to-full-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lite to Full Migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-summary-rests-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Summary Rests On
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Identity
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Identity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-sequence-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Sequence Number
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-logical-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hybrid Logical Clock
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-storage-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object Storage Sync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Storage Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sync-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sync Cycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergent-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convergent Sync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Convergent Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-two-browser-convergence-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Two-Browser Convergence Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-device-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Device Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashboards-in-the-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboards in the Browser
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dashboards in the Browser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-class-dashboard-load-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Class Dashboard Load Estimator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compact-versus-full-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compact Versus Full Fidelity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-versus-lite-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Versus Lite Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Full Versus Lite Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-or-lite-decision-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Full or Lite Decision Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lite-to-full-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lite to Full Migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="lrs-lite-sync-dashboards-and-choosing-full-or-lite">LRS-Lite: Sync, Dashboards and Choosing Full or Lite</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers multi-device sync and backup for LRS-Lite, browser-side dashboards, and how to choose between the full LRS and LRS-Lite and migrate between them.</p>
+<p>Students learn event identity, clocks, sync cycles, convergence, and what compaction does to predictive fidelity. After it, they can recommend Full or Lite for a given school and plan the move.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 14 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event Identity</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Device Sequence Number</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Hybrid Logical Clock</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Local Summary Vertex</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Evidence List</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Object Storage Sync</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Sync Cycle</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Convergent Sync</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Multi-Device Backup</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Browser-Side Dashboard</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Compact Versus Full Fidelity</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Information Loss</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Full Versus Lite Decision</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Lite to Full Migration</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../16-xapi-statements-and-evidence/">Chapter 16: xAPI Statements and Evidence</a></li>
+<li><a href="../18-mastery-prediction-and-knowledge-tracing/">Chapter 18: Mastery Prediction and Knowledge Tracing</a></li>
+<li><a href="../20-the-full-lrs-architecture-and-ingestion/">Chapter 20: The Full LRS: Architecture and Ingestion</a></li>
+<li><a href="../21-the-full-lrs-dashboards-operations-and-compliance/">Chapter 21: The Full LRS: Dashboards, Operations and Compliance</a></li>
+<li><a href="../22-lrs-lite-compact-summaries-and-browser-storage/">Chapter 22: LRS-Lite: Compact Summaries and Browser Storage</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">One record, many browsers</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+A student who switches from a school Chromebook to a home laptop should not lose a single answer, and you are about to learn how a design with no server keeps that promise. By the end you can also recommend Full or Lite for a real school and plan the move between them. Let's bounce it around!</p>
+</div>
+<p>The previous chapter left each student with a small, compressed record in one browser. That record is fragile: browsers do not share storage, they may evict it, and a school may wipe a shared Chromebook. This chapter adds the three pieces that turn a local record into a usable system. First comes <strong>sync</strong>, the way several browsers agree on one history through cheap object storage. Second come <strong>dashboards</strong>, which run in the browser instead of on a server. Third is the <strong>decision</strong> a school actually faces: whether LRS-Lite is enough or whether the full LRS is worth its cost.</p>
+<p>A note on status applies to everything below. As of the learning-record-store repository's TODO dated 2026-09-26, the compact MicroSim session code (<code>lrs-lite-sim.js</code>, <code>lrs-sim.js</code>) and the shared statement builder (<code>lrs-xapi.js</code>) exist, but no emitter posts statements to any store yet. The sync engine, the S3 deployment, the dashboards and the replay script described here are designs from the LRS-Lite analysis of 2026-09-24. Where a figure appears, it is that design's estimate, not a measurement from real learners.</p>
+<h2 id="what-a-summary-rests-on">What a Summary Rests On</h2>
+<p>Sync moves events, and dashboards read summaries, so we first fix what the local store holds. A <strong>Local Summary Vertex</strong> is a rollup of all the events at one grain, kept in the browser and named after the corresponding summary vertex in the full LRS so the book teaches one vocabulary. A grain is the key a rollup is computed at. LRS-Lite keeps six: one per concept, per page, per MicroSim, per question, per learning session, and one for the whole book.</p>
+<p>Most fields on a local summary vertex are counters, sums, maxima and first or last times. Those are order-independent, so they update incrementally as events arrive. One field is not: the mastery estimate for a concept depends on the order of observations, because right-then-wrong and wrong-then-right end at different probabilities. To keep that field repairable, each concept also keeps an <strong>Evidence List</strong>, a compact list of the observations that touched the concept, sorted by a global clock. The design gives each entry as four values: an ordering key, the kind of evidence (quiz, sim goal, read), a soft correctness value, and a weight, at about 45 bytes each.</p>
+<p>The payoff is cheap repair. When a synced segment brings an event that belongs before a concept's newest evidence, only that concept is re-folded, usually from fewer than 50 entries, rather than the whole history. The ordering key on those entries comes from the identity scheme in the next section.</p>
+<h2 id="event-identity">Event Identity</h2>
+<p>Two browsers can only merge histories if every event can be recognized, deduplicated and placed in order. <strong>Event Identity</strong> is the set of fields that give each statement a globally unique name and a position in one shared timeline. The design attaches three identities to every statement, each answering a different question.</p>
+<table>
+<thead>
+<tr>
+<th>Identity</th>
+<th>Field</th>
+<th>Question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Statement ID</td>
+<td>xAPI <code>id</code> (a UUID)</td>
+<td>Have I already stored this event?</td>
+</tr>
+<tr>
+<td>Device and sequence</td>
+<td><code>device_id</code> and <code>seq</code> extensions</td>
+<td>Which events from that device do I still lack?</td>
+</tr>
+<tr>
+<td>Clock</td>
+<td><code>hlc</code> extension</td>
+<td>Which event came first, across devices?</td>
+</tr>
+</tbody>
+</table>
+<p>Only the first is standard xAPI. The producer contract already requires producer-supplied IDs, and the xAPI specification tells an LRS that receives a duplicate ID not to modify the stored statement, so an xAPI stream already behaves like a set that can only grow. The other two are LRS-Lite extensions, and the design notes that their extension IRIs must still be added to the producer contract's extension table so the full LRS can process them.</p>
+<h3 id="device-sequence-number">Device Sequence Number</h3>
+<p>A <strong>Device Sequence Number</strong> is a counter that each device increments for every sealed segment it writes, so the pair of device ID and sequence number is unique and gap-free per device. Its job is bookkeeping. Each replica keeps a <strong>version vector</strong>, a map from device ID to the highest sequence number it has ingested from that device.</p>
+<p>A worked example shows the mechanics. The Firefox laptop, device <code>f2</code>, holds the version vector <code>{c7: 38, f2: 12}</code>. When it opens the book it reads the Chromebook's small <code>head.json</code> file and learns <code>c7</code> has reached sequence 41. It therefore fetches segments 39, 40 and 41 and nothing else. If segment 40 were missing, the gap would be visible at once, because the vector cannot advance past a hole. If the fetch dies halfway, the vector stays at the last fully ingested segment, so the next attempt resumes there.</p>
+<h3 id="hybrid-logical-clock">Hybrid Logical Clock</h3>
+<p>Wall clocks disagree: a Chromebook may run two minutes fast. A <strong>Hybrid Logical Clock</strong> (HLC) fixes ordering without trusting either clock. It takes the larger of the device's physical clock and the largest clock value it has seen so far, then adds a counter to break ties. The result stays close to real time but never runs backward after a sync.</p>
+<p>Consider illustrative numbers in milliseconds. The Chromebook, running fast, stamps an answer <code>1000200-0</code> (time, counter). The laptop, whose own clock reads <code>1000000</code>, pulls that segment, then records an answer. It takes the maximum of <code>1000000</code> and <code>1000200</code>, which is <code>1000200</code>, and adds a counter: <code>1000200-1</code>. The laptop's answer, made after seeing the Chromebook's, sorts after it even though its wall clock is behind. The standard xAPI <code>timestamp</code> still holds the device's wall-clock time, as the contract requires. The HLC orders evidence only.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Three names, three jobs</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that no single identifier could do all three jobs. A UUID says "same event", a device counter says "what am I missing", and the clock says "which came first". Ask which question you are answering and the right field picks itself.</p>
+</div>
+<h2 id="object-storage-sync">Object Storage Sync</h2>
+<p>With identities settled, we need somewhere every browser can reach. <strong>Object Storage Sync</strong> treats a cheap object store, Amazon S3 in the design, as the system of record and every browser as a rebuildable replica. The record lives in one prefix per student, and the layout follows from three rules: history is never rewritten, each object has exactly one writer where possible, and derived data can always be rebuilt.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>students/{identity_id}/
+  devices/{device_id}/seg/{seq}.jsonl.gz   immutable; written once
+  devices/{device_id}/head.json            one writer: its own device
+  checkpoints/{hlc}-{device_id}.json.gz    immutable snapshot + version vector
+  latest.json                              pointer to newest checkpoint
+  summary.json                             teacher-facing projection
+</code></pre></div></td></tr></table></div>
+<p>A <strong>segment</strong> is a batch of events from one device, sealed as gzip-compressed newline-delimited JSON. Segments are the truth. A <strong>checkpoint</strong> is a snapshot of all summaries, evidence lists and the version vector, and like a summary vertex it is a projection that any device can rebuild. Two S3 features supply all the coordination. A create-if-absent write (<code>If-None-Match: *</code>, available since August 2024) guarantees that a segment is written once, and among concurrent writers the first wins while the rest receive <code>412 Precondition Failed</code>. A compare-and-swap write (<code>If-Match: &lt;etag&gt;</code>, since November 2024) lets several devices safely move the single <code>latest.json</code> pointer. Neither needs a server the school runs.</p>
+<p>The same features enforce the append-only rule on the server side. The design's student role has no delete permission, and a bucket-policy statement rejects any segment write that lacks the create-if-absent header, so even a modified client can add segments but not alter or remove one. The design's cost model estimates about $0.77 per month for 150 students, using AWS list prices it checked on 2026-09-24. That is an estimate, not a bill.</p>
+<h3 id="sync-cycle">Sync Cycle</h3>
+<p>A <strong>Sync Cycle</strong> is one round of pushing local segments to the store and pulling other devices' segments back. The pseudocode below is a shortened form of the design's sketch, not shipped code. Before reading it, note two terms. A <strong>Web Lock</strong> (<code>navigator.locks</code>) is a browser feature that lets only one tab run a piece of code at a time, so one tab per browser acts as sync leader. <strong>Sealing</strong> means compressing the still-open events into an immutable segment.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">await</span><span class="w"> </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">locks</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="sb">`lrs-lite-sync:</span><span class="si">${</span><span class="nx">bookId</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">sealOpenEvents</span><span class="p">();</span><span class="w">                       </span><span class="c1">// PUSH: compress open events</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">seg</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">unsyncedLocalSegments</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">s3</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">segKey</span><span class="p">(</span><span class="nx">me</span><span class="p">,</span><span class="w"> </span><span class="nx">seg</span><span class="p">.</span><span class="nx">seq</span><span class="p">),</span><span class="w"> </span><span class="nx">seg</span><span class="p">.</span><span class="nx">bytes</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">'If-None-Match'</span><span class="o">:</span><span class="w"> </span><span class="s1">'*'</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">412</span><span class="p">)</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">onCollision</span><span class="p">(</span><span class="nx">seg</span><span class="p">);</span><span class="w">  </span><span class="c1">// same bytes: already stored</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">markSynced</span><span class="p">(</span><span class="nx">seg</span><span class="p">.</span><span class="nx">seq</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">dev</span><span class="p">,</span><span class="w"> </span><span class="nx">head</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">readHeads</span><span class="p">(</span><span class="nx">s3</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// PULL: fetch what we lack</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">vv</span><span class="p">[</span><span class="nx">dev</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">head</span><span class="p">.</span><span class="nx">seq</span><span class="p">;</span><span class="w"> </span><span class="nx">n</span><span class="o">++</span><span class="p">)</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">ingestRemoteSegment</span><span class="p">(</span><span class="nx">dev</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">s3</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">segKey</span><span class="p">(</span><span class="nx">dev</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">)));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Every step is safe to repeat. A retried upload that already succeeded returns <code>412</code>, and the client checks that the stored object matches its own bytes before marking it synced. If the stored bytes differ, the browser profile was cloned onto another machine, and the copy rotates to a new device ID. Local state is marked synced only after S3 confirms the write. The design schedules a small sync when the book opens, about every five minutes while events are waiting, when the tab is hidden, and when it becomes visible after a gap.</p>
+<h3 id="convergent-sync">Convergent Sync</h3>
+<p><strong>Convergent Sync</strong> means that any number of replicas, syncing in any order and any number of times, end with identical summaries. It holds because the replicated state is a grow-only set: merging is set union, which is commutative, associative and idempotent, and summaries are a deterministic fold of the sorted set. The design lists four conditions the guarantee depends on: events are never modified, IDs are never reused, the fold is deterministic including tie-breaking, and every replica runs the same summarizer version.</p>
+<p>The scenario that motivated the design makes this concrete. On Monday morning the Chromebook records three answers on one concept, two right, but Wi-Fi drops before sync. That evening the laptop records four answers, all right, and syncs. On Tuesday the Chromebook reconnects. A last-writer-wins snapshot keeps one device's record and silently discards the other's, losing either three or four attempts. Under set union both devices end with all seven attempts, sort them by HLC, and compute the same mastery estimate. The design's proposed test, not yet run, is a property test: three simulated devices with random events, random sync order and injected failures must end with byte-identical summaries.</p>
+<h4 id="diagram-two-browser-convergence-lab">Diagram: Two-Browser Convergence Lab</h4>
+<iframe src="../../sims/two-browser-convergence-lab/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/two-browser-convergence-lab/main.html">Run the Two-Browser Convergence Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Two-Browser Convergence Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> two-browser-convergence-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: compare): The learner will compare a last-writer-wins merge with an append-only event-set merge by running the Chromebook and laptop scenario and identifying which attempts each approach loses.</p>
+<p>Layout: three columns on an aliceblue drawing region: "Chromebook (c7)" on the left, "S3 student prefix" in the center, "Home laptop (f2)" on the right. Each device column shows its local event list as small tiles, each tile labeled with an HLC value, a device ID and a green check or red cross for the answer. The S3 column shows uploaded segment tiles. Below each device is a summary readout: attempts counted and successes counted. A white control region sits below with a silver border line.</p>
+<p>Controls:</p>
+<ul>
+<li>Button "Chromebook: answer 3 (2 right)" and button "Laptop: answer 4 (4 right)", each adding tiles to that device only</li>
+<li>Toggle "Chromebook offline" that blocks that device's Sync button (default off)</li>
+<li>Buttons "Sync Chromebook" and "Sync laptop" that run one push then pull, animating tiles moving to or from S3</li>
+<li>Radio "Merge rule": "Last writer wins" or "Event set (union)" (default event set)</li>
+<li>Button "Reset"</li>
+</ul>
+<p>Interactions: hovering a tile shows its <code>id</code>, <code>device_id</code>, <code>seq</code> and <code>hlc</code>. Hovering a summary readout explains how it was computed. After both devices have synced, a banner states whether the two summaries are identical and how many of the seven attempts each device counts.</p>
+<p>Data: the seven attempts from the Monday and Tuesday scenario. The HLC values are illustrative, chosen so the laptop's answers sort after the Chromebook's first three.</p>
+<p>Responsive design: the three columns scale to the container width on every window resize and stack vertically below 500 pixels wide. Text stays at least 14 pixels, and the canvas height is a fixed drawing height plus a control region.</p>
+<p>Implementation: p5.js with createButton and createRadio controls positioned relative to drawHeight. Include a describe() call for accessibility.</p>
+</details>
+<h3 id="multi-device-backup">Multi-Device Backup</h3>
+<p>Sync and backup are different operations, and the design separates them on purpose. <strong>Multi-Device Backup</strong> is an explicit, student-approved act that publishes a verified checkpoint to the store and then reclaims local space. Verified means the browser uploads the checkpoint, downloads it again and compares hashes. The table summarizes the two operations after the prose above.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Sync</th>
+<th>Backup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What moves</td>
+<td>Newest small segment, other devices' segments</td>
+<td>A verified checkpoint</td>
+</tr>
+<tr>
+<td>Typical size</td>
+<td>1 to 10 KB</td>
+<td>20 to 200 KB</td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Automatic, as described above</td>
+<td>Offered: weekly, at 60% full, when unsynced data is over 24 hours old, before sign-out on a shared device</td>
+</tr>
+<tr>
+<td>Consent</td>
+<td>One-time notice, or ask every time</td>
+<td>Every time</td>
+</tr>
+</tbody>
+</table>
+<p>The split resolves a tension between requirements. A backup that can be declined would leave the second browser a day behind, so freshness comes from automatic sync. Backup exists for durability and to shrink the local copy. A school that wants no automatic transmission can set the design's <code>sync.mode</code> to <code>"ask"</code>, at the cost that another browser is only as current as the last accepted prompt.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">A tab closing is not a data loss</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Do not design around the leave-time upload as if it were the only safety net. Every event is committed to the local database before any upload, and the upload is idempotent, so a lost final PUT simply goes up on the next visit. The real exposure is a device wiped before it reconnects.</p>
+</div>
+<h2 id="dashboards-in-the-browser">Dashboards in the Browser</h2>
+<p>A <strong>Browser-Side Dashboard</strong> computes its views in the viewer's browser from summary data, with no dashboard server. Chapter 21 described the full LRS's server-rendered dashboards, and the contrast is the point here. The student dashboard reads the local summaries, so it is instant, current to the latest event, and works offline. The design also sets rules for student-facing views: compare a student only with their own past, show how much evidence stands behind a color and how old it is, and never encode meaning by color alone.</p>
+<p>The teacher dashboard needs every student's summaries. The design estimates one student's whole-book summary snapshot at about 11 KB gzipped, so a class of 30 is roughly 0.3 MB and 150 students roughly 1.7 MB. The teacher's browser fetches each <code>summary.json</code> in parallel and computes the class heatmap, completion funnel and at-risk list itself. The design puts 150 students at about one to four seconds and adds an on-demand rollup function above roughly 100 students. Each row shows an "as of" time, since freshness is only as good as each student's last sync. Applied to the report catalog, the design scores most single-teacher reports as fully supported, idle alerts and the at-risk roster as degraded, and real-time views and cross-district benchmarks as unavailable.</p>
+<h4 id="diagram-class-dashboard-load-estimator">Diagram: Class Dashboard Load Estimator</h4>
+<iframe src="../../sims/class-dashboard-load-estimator/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/class-dashboard-load-estimator/main.html">Run the Class Dashboard Load Estimator MicroSim Fullscreen</a></p>
+<details>
+<summary>Class Dashboard Load Estimator</summary>
+<p>Type: chart
+<strong>sim-id:</strong> class-dashboard-load-estimator<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will calculate the download size and load-time band for a teacher dashboard at a given roster size and decide whether the design's rollup function is needed.</p>
+<p>Controls: a slider "Students" from 10 to 300 in steps of 10 (default 30), and a slider "Summary size (KB gzipped)" from 5 to 30 (default 11, the design's estimate).</p>
+<p>Chart: a bar chart with two bars, "Total download (MB)" computed as students times summary size divided by 1000, and "Rollup download (one file)" drawn as a thin reference bar. A horizontal line marks 100 students, the design's approximate threshold for using the rollup function. Below the chart, a text panel states the number of downloads, the total size, and one of three messages: "Browser aggregation is comfortable", "Expect a few seconds", or "Use the rollup function".</p>
+<p>Interactions: hovering a bar shows its exact value and formula. Data note: the 11 KB figure and the 100-student threshold are the design's estimates, and the panel says so.</p>
+<p>Responsive design: the chart and sliders resize with the container on every window resize, sliders remain usable at 400 pixels wide, and labels wrap rather than overflow.</p>
+<p>Implementation: Chart.js bar chart with HTML range inputs, updating on the input event.</p>
+</details>
+<h2 id="compact-versus-full-fidelity">Compact Versus Full Fidelity</h2>
+<p>Compaction is what makes the small record possible, so its cost must be stated plainly. <strong>Compact Versus Full Fidelity</strong> is the trade between a stream that summarizes each MicroSim session in one statement and a stream that keeps every interaction. Chapter 22 defined the two modes. In the design's worked comparison, one session with three sim uses, two page reads and ten answers produces about 143 statements in Full mode and about 16 in Compact mode.</p>
+<p><strong>Information Loss</strong> is what Compact mode cannot give back: the per-drag sequence inside a session. A summary keeps the count of interactions, the range of each control explored, active time and how many statements it represents. It does not keep the order in which a student moved the sliders. The design's own scorecard records the consequence: a time-on-task timeline is supported at session grain, but detail inside a session is summarized, not replayable. What survives intact is what mastery estimation reads, because answers, predictions and goals are never folded.</p>
+<p>Whether the lost sequence matters for predicting mastery is not known. Research the design cites suggests the quality of exploration, such as varying one factor at a time, can predict learning better than its quantity, and a summary that records only counts and ranges may miss that. No learner data has been collected through MicroSims yet, so this is a hypothesis. The method to test it is the evaluation approach of Chapter 19: compare predictions built from Compact-stream features against those built from Full-stream features once both exist.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Keep Full mode as your control group</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Before you claim Compact loses nothing, run a few pilot sims in Full mode and compare. A sim that teaches xAPI can switch modes from its teaching panel, and a URL parameter switches the stream for one visit without editing any file.</p>
+</div>
+<h2 id="full-versus-lite-decision">Full Versus Lite Decision</h2>
+<p>The <strong>Full Versus Lite Decision</strong> asks which architecture fits a given school. The design offers three tiers: the full LRS, a single-server tier of the full LRS, and LRS-Lite. The hardware requirements document estimates the full tier at about $10,300 per month and the single-server tier at $300 to $2,500 per month, both planning-level estimates. The single-server tier serves roughly 10,000 concurrent active students on one host with no high availability. LRS-Lite targets one course of up to about 150 students at an estimated one to five dollars per month.</p>
+<p>The decision turns on what each tier gives up, not only on price. The table below summarizes the trade-offs discussed in this chapter and the previous ones.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Lite</th>
+<th>Full or single server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Always-on servers acceptable?</td>
+<td>No servers</td>
+<td>Yes, and staff to run them</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>One course, about 150 students</td>
+<td>Many classes, districts</td>
+</tr>
+<tr>
+<td>Freshness</td>
+<td>As of each student's last sync</td>
+<td>Server-side, near real time</td>
+</tr>
+<tr>
+<td>Evidence integrity</td>
+<td>Self-reported by the student's browser</td>
+<td>Server-authenticated ingestion</td>
+</tr>
+<tr>
+<td>Cross-class or cross-district analytics</td>
+<td>On demand only, or not supported</td>
+<td>Native</td>
+</tr>
+<tr>
+<td>Push alerts</td>
+<td>Scheduled function only</td>
+<td>Native</td>
+</tr>
+</tbody>
+</table>
+<p>A practical rule follows. Choose Lite when one teacher or a small team runs a pilot, freshness measured in minutes is acceptable, and evidence is formative. Choose Full when grades or compliance depend on tamper-resistant evidence, when analytics must span classes or districts, or when real-time alerts matter. The single-server tier is a middle option, and its own document notes it stops fitting near 3,000 to 5,000 statements per second.</p>
+<h4 id="diagram-full-or-lite-decision-explorer">Diagram: Full or Lite Decision Explorer</h4>
+<iframe src="../../sims/full-or-lite-decision-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/full-or-lite-decision-explorer/main.html">Run the Full or Lite Decision Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Full or Lite Decision Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> full-or-lite-decision-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: recommend): The learner will recommend Full, single-server or Lite for a described school by weighing scale, freshness, evidence integrity and budget, and will justify the recommendation against the trade-off table.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Students" from 10 to 20000 on a logarithmic scale (default 30)</li>
+<li>Checkboxes: "Grades depend on evidence", "Need cross-class analytics", "Need real-time alerts", "Staff to run servers"</li>
+<li>Slider "Monthly budget (USD)" from 0 to 12000 (default 50)</li>
+<li>Button "Show reasoning" and button "Reset"</li>
+</ul>
+<p>Visual elements: three tier cards (Lite, Single server, Full) each showing its design estimate for cost per month, scale target and the requirements it fails. A card is dimmed with a red label for each unmet requirement and highlighted when nothing is unmet. A recommendation banner names the cheapest card with no unmet requirement, or states that no tier fits.</p>
+<p>Interactions: hovering a card shows the source of each figure, labeled as a design or planning estimate. "Show reasoning" lists each requirement and which tier it rules out.</p>
+<p>Behavior: the rule set is a teaching heuristic derived from the trade-off table, not an official sizing tool, and the banner says so.</p>
+<p>Responsive design: cards sit in a row above 600 pixels wide and stack below it, resizing on every window resize, with controls remaining reachable at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSlider and createCheckbox controls positioned relative to drawHeight. Include a describe() call for accessibility.</p>
+</details>
+<h2 id="lite-to-full-migration">Lite to Full Migration</h2>
+<p>A school that outgrows Lite does not start over. <strong>Lite to Full Migration</strong> is the planned path of replaying a student's stored segments into the full LRS. It works because every statement LRS-Lite stores is a valid producer-contract statement, and segments are plain gzip newline-delimited JSON in a per-student prefix, which the design describes as the export.</p>
+<p>The design specifies a script, <code>scripts/lrs-lite-replay.mjs</code>, planned for its final hardening phase. It rebuilds summaries from a prefix, diffs them against the stored checkpoint, and replays the statements into the full gateway. Its stated exit test is zero differences on dry-run prefixes. The script does not exist yet, and neither does a full LRS that receives emitter traffic.</p>
+<p>Two limits deserve honesty. First, the migration carries what Lite recorded. Session summaries arrive as summary statements, so the dropped per-drag history is not recovered. Second, the full LRS's processor must learn the new extension fields, which is a listed contract change. The migration path is therefore a design with a sound basis, not a tested procedure.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Migrate the choice, not just the data</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Moving to Full does not restore fidelity you never recorded. If you may later want per-interaction analysis, run a slice of your sims in Full mode from the start, so the history exists to migrate.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li><strong>Event Identity</strong> combines a UUID for deduplication, a <strong>Device Sequence Number</strong> for version vectors and gap detection, and a <strong>Hybrid Logical Clock</strong> for one order across devices despite clock skew.</li>
+<li>A <strong>Local Summary Vertex</strong> rolls events up at one grain, and an <strong>Evidence List</strong> keeps the ordered observations so one concept can be re-folded cheaply.</li>
+<li><strong>Object Storage Sync</strong> makes S3 the system of record using immutable segments, create-if-absent writes and one compare-and-swap pointer. A <strong>Sync Cycle</strong> pushes and pulls under a per-browser lock, and every step is safe to repeat.</li>
+<li><strong>Convergent Sync</strong> follows from a grow-only event set and deterministic summaries, so the two-browser case loses no attempts. The property test that would demonstrate it is designed, not run.</li>
+<li><strong>Multi-Device Backup</strong> is an offered, verified checkpoint, separate from automatic sync.</li>
+<li>A <strong>Browser-Side Dashboard</strong> computes student and class views locally. The design estimates about 11 KB per student summary and adds a rollup function above roughly 100 students.</li>
+<li><strong>Compact Versus Full Fidelity</strong> trades detail for size. <strong>Information Loss</strong> is the per-drag sequence, and its effect on predicting mastery is a hypothesis awaiting data.</li>
+<li>The <strong>Full Versus Lite Decision</strong> weighs scale, freshness, evidence integrity, analytics scope and cost, and <strong>Lite to Full Migration</strong> replays stored statements into the full LRS.</li>
+<li>Built: compact session code and the statement builder. Designed: sync, dashboards, S3 deployment, replay. Hoped for: that compact evidence predicts mastery.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Sync, dashboards and the Full or Lite call</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now explain how three identity fields let browsers merge histories without a server, and you can recommend Full or Lite for a school and defend the choice. That closes the LRS architecture story, and it is one of the harder trade-off judgments in the book.</p>
+</div>
+<p>The next chapter turns from architecture to people, asking how pedagogy, accessibility and ethics should govern what these records are used for.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 22. LRS-Lite: Compact Summaries and Browser Storage">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                22. LRS-Lite: Compact Summaries and Browser Storage
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../24-pedagogy-accessibility-and-ethics/" class="md-footer__link md-footer__link--next" aria-label="Next: 24. Pedagogy, Accessibility and Ethics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                24. Pedagogy, Accessibility and Ethics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

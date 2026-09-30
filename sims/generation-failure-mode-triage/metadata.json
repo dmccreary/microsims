@@ -1,0 +1,74 @@
+{
+  "title": "Generation Failure Mode Triage",
+  "description": "A triage exercise in which learners match eight defective AI-generated MicroSims, each with a symptom, a picture of the defect and an optional simulated console message, to one of six generation failure modes, then read the cause, the first repair and the evidence that separates similar modes.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Debugging AI-Generated Code", "Generation Failure Modes", "MicroSim Quality", "Instructional Technology"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/generation-failure-mode-triage/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 610,
+  "chapter": "05-generating-microsims-with-ai-skills",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Instructional Technology",
+    "topic": "Generation failure modes of AI-written MicroSim code",
+    "learningObjectives": [
+      "The learner will distinguish generation failure modes by matching a described symptom to its most likely cause and first repair."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Generation failure modes table (Chapter 5)",
+      "MicroSim layout: drawing region, control region and iframe height (Chapter 2)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 610},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "dataFiles": ["data.json"],
+    "instrumentation": "All interactions pass through logInteraction(verb, extra), which appends to interactionLog and dispatches a 'microsim-interaction' CustomEvent on window. Verbs: viewed-case, opened-console, selected, answered.",
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": false}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "button", "label": "Next case", "action": "Load the next of eight defective-MicroSim cases"},
+      {"type": "button", "label": "Show console", "action": "Reveal or hide the simulated browser console for the case"},
+      {"type": "button", "label": "Check", "action": "Check the selected failure-mode card and show cause, first repair and distinguishing evidence"}
+    ],
+    "canvasInteractions": ["Click a failure-mode card to select it", "Hover a card to read its definition"]
+  },
+  "simulation": {
+    "modelType": "Case-based classification quiz",
+    "variables": ["current case", "selected mode", "first-try score"],
+    "assumptions": ["Each case has one most likely failure mode", "Console messages are simulated in Chrome's format"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Case-based diagnosis with immediate, contrastive feedback",
+    "keyQuestions": [
+      "What evidence separates a hallucinated API from library version drift?",
+      "What does a clean console tell you?",
+      "Is the defect on the right edge, the bottom edge, or inside the drawing?"
+    ],
+    "commonMisconceptions": [
+      "Every console error is a hallucinated API",
+      "Clipped controls always mean the canvas is too small",
+      "A clean console means the code is correct"
+    ],
+    "assessmentOpportunities": [
+      "First-try score across eight cases",
+      "Written justification of one diagnosis with evidence"
+    ]
+  }
+}

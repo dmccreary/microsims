@@ -1,0 +1,79 @@
+{
+  "title": "Set Overlap Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Diagrams; Knowledge Representation",
+  "description": "Interactive three-circle Venn diagram built with venn.js and D3 whose sets are ordered process, labeled relationships and feedback. Each of the seven regions shows a definition on hover and two example diagrams on click, and a Classify mode scores six example diagram descriptions with immediate feedback and a reason.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 440,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Classifying diagram types with a Venn diagram",
+    "learningObjectives": [
+      "The learner will classify example diagrams into the correct region of a three-circle Venn diagram of Flowchart, Concept Map and Causal Loop Diagram characteristics."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "classify",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Definitions of flowchart, concept map and feedback loop",
+      "Reading a Venn diagram"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "venn.js",
+    "frameworkVersion": "0.2.20",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 440
+    },
+    "responsive": true,
+    "dependencies": [
+      "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js",
+      "https://cdn.jsdelivr.net/npm/venn.js@0.2.20/venn.js"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "hover", "label": "Region definition tooltip"},
+      {"type": "click", "label": "Region (examples or classification answer)"},
+      {"type": "toggle", "label": "Start Classify mode / Back to Explore"},
+      {"type": "button", "label": "Next example / Try again"}
+    ]
+  },
+  "diagram": {
+    "type": "venn",
+    "setCount": 3,
+    "regionCount": 7,
+    "sets": ["Ordered process", "Labeled relationships", "Feedback"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification with immediate feedback and reasons",
+    "interactionPattern": "Hover to define, click for examples, classify with feedback",
+    "keyQuestions": [
+      "Does the diagram have an order of steps, named links, a loop, or several of these?",
+      "How is a flowchart's loop back different from a causal feedback loop?"
+    ],
+    "commonMisconceptions": [
+      "Any diagram with a loop is a causal loop diagram.",
+      "Circle sizes in a symbolic Venn diagram represent quantities."
+    ],
+    "assessmentOpportunities": [
+      "Classify a new diagram description and justify the region",
+      "Score on the six-item Classify mode"
+    ]
+  },
+  "chapter": "08-diagrams-networks-and-systems"
+}

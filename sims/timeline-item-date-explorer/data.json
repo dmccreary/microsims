@@ -1,0 +1,78 @@
+{
+  "title": "MicroSims 101 Course Schedule (fictional sample data)",
+  "note": "Invented events for teaching the timeline template's JSON event format. Not real history.",
+  "events": [
+    {
+      "start_date": { "year": "2025" },
+      "text": {
+        "headline": "Course idea proposed",
+        "text": "A teacher proposes a short course on building MicroSims. Only the year is known, so the event has no month or day."
+      },
+      "group": "Planning",
+      "notes": "Year-only date: the script treats the missing month and day as January 1."
+    },
+    {
+      "start_date": { "year": "2025", "month": "9" },
+      "text": {
+        "headline": "Learning graph drafted",
+        "text": "The course team drafts the learning graph of concepts and their dependencies during September."
+      },
+      "group": "Planning",
+      "notes": "Year and month: \"month\": \"9\" is September, placed on the 1st."
+    },
+    {
+      "start_date": { "year": "2026", "month": "1", "day": "12" },
+      "text": {
+        "headline": "Syllabus approved",
+        "text": "The curriculum committee approves the syllabus and the chapter list on January 12."
+      },
+      "group": "Planning",
+      "notes": "Full date: month 1 (January) becomes Date month 0."
+    },
+    {
+      "start_date": { "year": "2026", "month": "2" },
+      "text": {
+        "headline": "Pilot section begins",
+        "text": "The first pilot section of the course starts in February with twenty volunteer teachers."
+      },
+      "group": "Teaching",
+      "notes": "Year and month only: shown on February 1."
+    },
+    {
+      "start_date": { "year": "2026", "month": "3", "day": "16" },
+      "text": {
+        "headline": "Midterm MicroSim lab",
+        "text": "Learners build their first instrumented MicroSim in a two-hour lab on March 16."
+      },
+      "group": "Teaching",
+      "notes": "Full date: \"month\": \"3\" is March; the script passes 2 to new Date()."
+    },
+    {
+      "start_date": { "year": "2026", "month": "5", "day": "8" },
+      "text": {
+        "headline": "Final project due",
+        "text": "Each learner submits a MicroSim portfolio with a specification, the sim and its metadata by May 8."
+      },
+      "group": "Assessment",
+      "notes": "Full date: May 8, 2026."
+    },
+    {
+      "start_date": { "year": "2026", "month": "6" },
+      "text": {
+        "headline": "Course evaluation survey",
+        "text": "Learners and teachers answer the end-of-course evaluation survey during June."
+      },
+      "group": "Assessment",
+      "notes": "Year and month only: shown on June 1."
+    },
+    {
+      "start_date": { "year": "2027" },
+      "text": {
+        "headline": "Course opens to all",
+        "text": "After revisions from the pilot, the course is offered to every teacher in the district."
+      },
+      "group": "Teaching",
+      "notes": "Year-only date: placed on January 1, 2027."
+    }
+  ]
+}

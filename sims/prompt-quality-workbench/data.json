@@ -1,0 +1,103 @@
+{
+  "title": "Prompt Quality Workbench data",
+  "note": "Clauses, the decision each clause removes from the model, and the generation failure modes (Chapter 5) that an open decision makes more likely. The links are a teaching heuristic, not measured probabilities.",
+  "failureModes": {
+    "Hallucinated API": "The model writes a call the library does not have. Symptom: a console error about an unknown function.",
+    "Library version drift": "Code and library release no longer match. Symptom: code that once worked errors or draws differently.",
+    "Control in drawing area": "A hard-coded y position puts a slider or button over the drawing.",
+    "Non-responsive canvas": "A hard-coded width and no updateCanvasSize(), so the canvas ignores window resizes.",
+    "Wrong iframe height": "The iframe height differs from the canvas height plus 2, so controls are clipped in the chapter.",
+    "Text with an outline": "A stroke is still active when text() runs, so labels look fuzzy or heavy.",
+    "Unrequested extra files": "The model helpfully regenerates files you did not ask for, and each one is extra review work (see the tip 'Name the Output You Do Not Want').",
+    "Spec and sim disagree": "The model fills a gap with its own guess, so the MicroSim no longer matches its specification block (see Iterative Refinement)."
+  },
+  "clauses": [
+    {
+      "id": "skill",
+      "name": "Skill",
+      "title": "Names the skill",
+      "text": "Use the microsim-generator skill to create the MicroSim",
+      "example": "\"Use the microsim-generator skill to create the MicroSim ...\" Invoking the skill loads its p5.js guide and template, so conventions such as updateCanvasSize() and noStroke() before text() arrive with it.",
+      "decision": "Which conventions and template to follow",
+      "failures": ["Non-responsive canvas", "Text with an outline"]
+    },
+    {
+      "id": "spec",
+      "name": "Spec",
+      "title": "Points to the specification",
+      "text": "specified in the block with sim-id {simId} in {chapter}.",
+      "example": "\"... specified in the block with sim-id pendulum-period-explorer in docs/chapters/[chapter]/index.md.\" The block carries the objective, the controls, every range and every default.",
+      "decision": "Which controls, ranges and defaults to build",
+      "failures": ["Spec and sim disagree"]
+    },
+    {
+      "id": "pin",
+      "name": "Version pin",
+      "title": "Pins the library version",
+      "text": "Use the pinned library version in the skill's main.html template.",
+      "example": "\"Use the pinned library version in the skill's main.html template.\" Naming the pin tells the model which release to write for, for example p5.js 2.x with no preload().",
+      "decision": "Which library version to write for",
+      "failures": ["Library version drift", "Hallucinated API"]
+    },
+    {
+      "id": "files",
+      "name": "Output files",
+      "title": "Limits the output files",
+      "text": "Generate only the JavaScript file; the scaffold already exists.",
+      "example": "\"Generate only the JavaScript file; the scaffold already exists.\" This keeps the scaffolded main.html, index.md and metadata.json, with their iframe height, untouched.",
+      "decision": "Which files to create or overwrite",
+      "failures": ["Unrequested extra files", "Wrong iframe height"]
+    },
+    {
+      "id": "layout",
+      "name": "Layout",
+      "title": "States the layout",
+      "text": "Layout: {layout}.",
+      "example": "\"Layout: drawing region above a control region; canvas 400 wide by 450 high.\" Stating the regions and sizes fixes where controls go and how tall the canvas is.",
+      "decision": "Where controls go and how tall the canvas is",
+      "failures": ["Control in drawing area", "Wrong iframe height"]
+    },
+    {
+      "id": "tie",
+      "name": "Tie-break",
+      "title": "Gives a tie-breaking rule",
+      "text": "If the specification and the skill's conventions conflict, stop and ask me.",
+      "example": "\"If the specification and the skill's conventions conflict, stop and ask me.\" Without it the model settles every conflict silently and you find out only when you test.",
+      "decision": "How to settle spec-versus-convention conflicts",
+      "failures": ["Spec and sim disagree"]
+    }
+  ],
+  "defaultOn": ["skill", "spec", "layout"],
+  "scenarios": [
+    {
+      "id": "easy",
+      "label": "Easy: bouncing ball, one slider",
+      "request": "Make a bouncing ball simulation with a speed slider.",
+      "simId": "bouncing-ball-speed",
+      "chapter": "chapter 6's index.md",
+      "layout": "drawing region 400 high above one 50-pixel control row",
+      "risk": {"skill": "medium", "spec": "low", "pin": "medium", "files": "medium", "layout": "low", "tie": "low"},
+      "why": "A one-slider sketch is close to the template, so most gaps are cheap to fix."
+    },
+    {
+      "id": "medium",
+      "label": "Medium: pendulum period explorer",
+      "request": "Make a simulation about pendulums.",
+      "simId": "pendulum-period-explorer",
+      "chapter": "chapter 5's index.md",
+      "layout": "drawing region above a control region; canvas 400 wide by 450 high",
+      "risk": {"skill": "medium", "spec": "high", "pin": "medium", "files": "medium", "layout": "medium", "tie": "medium"},
+      "why": "The length range 0.2 to 2.0 and the period readout live only in the specification, and without a named pin the model may write p5.js 1.x code, such as preload(), for the skill's 2.3.2 template."
+    },
+    {
+      "id": "hard",
+      "label": "Hard: projectile lab with a live chart",
+      "request": "Make a projectile lab with a chart of range against angle.",
+      "simId": "projectile-range-lab",
+      "chapter": "chapter 6's index.md",
+      "layout": "simulation left, range chart right; three slider rows below drawHeight",
+      "risk": {"skill": "high", "spec": "high", "pin": "high", "files": "medium", "layout": "high", "tie": "high"},
+      "why": "Two panels, three sliders and a chart give the model many places to guess."
+    }
+  ]
+}

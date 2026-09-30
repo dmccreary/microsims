@@ -1,0 +1,123 @@
+{
+  "title": "Nav Status Icon Legend",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Material for MkDocs",
+    "Navigation",
+    "Status Lifecycle",
+    "Accessibility"
+  ],
+  "description": "A p5.js legend and matching quiz for the five MicroSim nav status icons (scaffold, built, implemented, instrumented, approved). A mock navigation sidebar shows each icon with its real color and tooltip text; clicking an icon shows its meaning, the batch lifecycle state that usually produces it and its contrast ratio on a light or dark sidebar.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/nav-status-icon-legend/",
+  "canvasHeight": 550,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Reading nav status icons and mapping them to the batch lifecycle",
+    "learningObjectives": [
+      "The learner will match each nav status icon and color to its meaning and to the batch lifecycle state that usually produces it."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "match",
+    "duration": "10 minutes",
+    "prerequisites": [
+      "The status lifecycle (Chapter 14)",
+      "Front matter status in Material for MkDocs"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 550
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Keys 1-5 select a nav row; the three icon shapes (circle, broadcast, check) and text labels mean color is not the only cue; the panel reports WCAG contrast ratios"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "navIcons",
+        "type": "clickable canvas icons",
+        "label": "Nav rows 1-5",
+        "purpose": "Hover for the nav tooltip; click to show meaning, lifecycle state and contrast"
+      },
+      {
+        "id": "quizButton",
+        "type": "button",
+        "label": "Quiz me / Stop quiz",
+        "purpose": "Hide labels and tooltips, shuffle icons and ask the learner to click the icon for a description"
+      },
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next question",
+        "purpose": "Advance the quiz after an answer"
+      },
+      {
+        "id": "darkCheckbox",
+        "type": "checkbox",
+        "label": "Dark mode",
+        "purpose": "Switch the mock sidebar to a dark background"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Legend exploration followed by a matching quiz",
+    "interactionPattern": "Labeled legend with click-for-detail and matching quiz",
+    "keyQuestions": [
+      "Which two nav statuses both come from the validated lifecycle state?",
+      "Which status is set by sync-status.py rather than the batch pipeline?",
+      "Why do the icons differ in shape as well as color?"
+    ],
+    "commonMisconceptions": [
+      "Nav status and sim-status.json status are the same list",
+      "A script sets approved automatically",
+      "theme.icon.status works on community Material"
+    ],
+    "assessmentOpportunities": [
+      "Quiz score out of five",
+      "Mapping a lifecycle state to a nav status",
+      "Explaining the built versus approved distinction"
+    ]
+  },
+  "search": {
+    "tags": [
+      "nav status",
+      "status icons",
+      "Material for MkDocs",
+      "legend",
+      "quiz",
+      "contrast",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "infographic",
+      "quiz"
+    ]
+  },
+  "chapter": "14-batch-generation-from-specifications"
+}

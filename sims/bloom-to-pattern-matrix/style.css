@@ -1,0 +1,149 @@
+/* Bloom-to-Pattern Matrix
+ * Fixed total height: header 38 + content 556 + toolbar 46 = 640 (CANVAS_HEIGHT 640)
+ */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: #222;
+}
+
+#app {
+    position: relative;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    background: aliceblue;
+    border: 1px solid silver;
+}
+
+#header {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-bottom: 1px solid silver;
+}
+.title { font-size: 18px; font-weight: bold; }
+.mode-note { font-size: 13px; color: dimgray; }
+.mode-note.detective { color: purple; font-weight: bold; }
+
+#content {
+    height: 556px;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+}
+
+#grid-wrap { flex: 2.3 1 0; min-width: 0; overflow-y: auto; }
+#detail {
+    flex: 1 1 0;
+    min-width: 0;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 10px;
+    padding: 10px 12px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+table { width: 100%; border-collapse: separate; border-spacing: 0 4px; font-size: 13px; }
+th {
+    text-align: left;
+    font-size: 12px;
+    color: #333;
+    padding: 2px 6px;
+    background: #e8f4f8;
+}
+th.level-col { width: 78px; }
+td { padding: 3px 4px; vertical-align: middle; background: white; }
+td:first-child { border-radius: 8px 0 0 8px; font-weight: bold; font-size: 13px; }
+td:last-child { border-radius: 0 8px 8px 0; }
+tr.row { transition: background 0.15s; }
+tr.row:hover td, tr.row.hl td { background: lightyellow; }
+tr.row.target td { outline: none; }
+
+.lvl-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+.chip {
+    display: inline-block;
+    margin: 2px 2px;
+    padding: 2px 7px;
+    border-radius: 12px;
+    border: 1.5px solid;
+    font-size: 12.5px;
+    line-height: 1.15;
+    cursor: pointer;
+    background: white;
+    font-family: inherit;
+}
+.chip.good { background: #e3f6e3; border-color: seagreen; color: darkgreen; }
+.chip.bad { background: #fde6e6; border-color: firebrick; color: darkred; }
+.chip.example { background: #e6f0fb; border-color: steelblue; color: navy; }
+.chip.neutral { background: whitesmoke; border-color: gray; color: #333; }
+.chip:hover { box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+.chip.selected { outline: 3px solid gold; }
+.chip.answer { outline: 3px solid purple; }
+.chip.wrong { outline: 3px solid firebrick; }
+
+#detail h3 { margin: 0 0 4px 0; font-size: 16px; }
+#detail .kind { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 8px; color: white; margin-bottom: 6px; }
+#detail .kind.good { background: seagreen; }
+#detail .kind.bad { background: firebrick; }
+#detail .kind.example { background: steelblue; }
+#detail .sketch { text-align: center; margin: 4px 0; }
+#detail .reason { margin-top: 6px; }
+#detail .hint { color: dimgray; }
+#detail .scenario { background: lavender; border-left: 4px solid purple; padding: 8px; border-radius: 6px; margin: 6px 0; }
+#detail .ok { color: darkgreen; font-weight: bold; }
+#detail .no { color: firebrick; font-weight: bold; }
+#detail a { color: navy; }
+
+#cards { display: none; }
+.card { background: white; border-radius: 10px; padding: 6px 8px; margin-bottom: 6px; border-left: 6px solid gray; }
+.card h4 { margin: 0 0 3px 0; font-size: 15px; }
+.card .sub { font-size: 12px; color: dimgray; margin-top: 3px; }
+
+#toolbar {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    background: white;
+    border-top: 1px solid silver;
+}
+#toolbar button { font-size: 15px; padding: 4px 10px; cursor: pointer; }
+#score { margin-left: auto; font-weight: bold; color: navy; font-size: 15px; }
+
+#tooltip {
+    position: absolute;
+    display: none;
+    max-width: 280px;
+    background: #fffff0;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-size: 13px;
+    pointer-events: none;
+    z-index: 20;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Narrow: the grid collapses to six stacked cards, the detail panel moves below */
+@media (max-width: 599px) {
+    #content { flex-direction: column; }
+    #grid-wrap { flex: none; height: 330px; }
+    #detail { flex: none; height: 202px; }
+    #matrix { display: none; }
+    #cards { display: block; }
+    #toolbar { gap: 6px; }
+    #toolbar button { font-size: 13px; padding: 3px 6px; }
+    #score { font-size: 13px; }
+    .mode-note { display: none; }
+}

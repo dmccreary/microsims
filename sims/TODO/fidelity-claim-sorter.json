@@ -1,0 +1,15 @@
+{
+  "sim_id": "fidelity-claim-sorter",
+  "diagram_name": "Claim Sorter",
+  "chapter_number": 19,
+  "chapter_title": "Evaluating the Predictive Fidelity of the xAPI Stream",
+  "chapter_dir": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "chapter_rel_dir": "chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "library": "p5.js",
+  "bloom_level": "Evaluate (L5)",
+  "bloom_verb": "classify",
+  "learning_objective": "Learners will classify statements about the xAPI stream as measured, designed or hoped for, and justify the classification by pointing to the evidence that would be required.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** fidelity-claim-sorter<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Evaluate (L5)\nBloom Verb: classify\n\nLearning objective: Learners will classify statements about the xAPI stream as measured, designed or hoped for, and justify the classification by pointing to the evidence that would be required.\n\nLayout: A stack of sentence cards at the top and three labeled drop zones below: \"Measured\", \"Designed\" and \"Hoped for\". A feedback panel on the right shows an explanation for the last card placed.\n\nControls: Drag a card into a zone, or select a card and press a zone button for keyboard use; a \"Check all\" button; a \"Shuffle\" button; a \"Reset\" button.\n\nData: About ten cards, each with a correct label and a one-sentence explanation. Examples include \"The synthetic cohort's AUC is 0.743\" (measured, about a simulation), \"The LRS design chooses Bayesian knowledge tracing\" (designed), \"MicroSim streams predict real mastery\" (hoped for), and \"No emitter sends statements to a store yet\" (measured, as recorded in the repository's TODO file).\n\nInteractions: A correct placement turns the card green and shows its explanation. An incorrect placement returns the card and shows a hint naming the evidence a measured claim would need. A counter shows how many cards are correctly placed.\n\nResponsive design: Cards and zones reflow to a single column on narrow screens, and the canvas width follows the container on window resize.\n\nImplementation: p5.js with drag-and-drop and a keyboard-accessible fallback using buttons."
+}

@@ -1,0 +1,148 @@
+{
+  "title": "Guess Resistance Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Assessment Design",
+    "Guess-Resistant Probes",
+    "Knowledge Tracing",
+    "Probability"
+  ],
+  "description": "A p5.js lab comparing probe designs by the chance that a pure guesser succeeds on the first attempt (1/options^chained) and the attempts needed to guarantee success when retries are allowed. Sliders set options and chained items, a checkbox allows retry until correct, one guesser's attempt sequence is drawn as a strip of wrong and right squares, and 1000 simulated guessers produce a histogram of attempts used.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/guess-resistance-lab/",
+  "canvasHeight": 680,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "How probe design and retry policy affect lucky guessing",
+    "learningObjectives": [
+      "The learner will compare the chance of a lucky success and the attempts needed to guarantee success across probe designs by changing option count, chained items and retry policy."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "compare",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The guess parameter of Bayesian knowledge tracing (Chapter 18)",
+      "Guess-resistant probes (Chapter 26)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 680
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All controls are native and labeled; attempt squares carry a check or a cross as well as color; describe() reports the design, the lucky-guess chance, the last guesser's sequence and the 1000-guesser result"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "optionsSlider",
+        "type": "slider",
+        "label": "Options",
+        "range": "2-12, step 1, default 4",
+        "purpose": "Options per item"
+      },
+      {
+        "id": "chainSlider",
+        "type": "slider",
+        "label": "Chained items",
+        "range": "1-3, step 1, default 1",
+        "purpose": "Number of items that must all be right"
+      },
+      {
+        "id": "retryBox",
+        "type": "checkbox",
+        "label": "Allow retry until correct",
+        "purpose": "Let the guesser try untried combinations until it succeeds"
+      },
+      {
+        "id": "guessButton",
+        "type": "button",
+        "label": "Guess randomly",
+        "purpose": "Simulate one random guesser and draw its attempt sequence"
+      },
+      {
+        "id": "runButton",
+        "type": "button",
+        "label": "Run 1000 guessers",
+        "purpose": "Draw a histogram of attempts used and report first-attempt successes"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Monte Carlo simulation of uniform random guessing without replacement",
+    "variables": [
+      "options per item",
+      "chained items",
+      "retry allowed"
+    ],
+    "equations": [
+      "P(lucky first attempt) = 1 / options^chained",
+      "attempts to guarantee success with retry = options^chained",
+      "with retry, attempts used ~ Uniform(1, options^chained)"
+    ],
+    "assumptions": [
+      "Chained items give feedback only for the whole chain, so a retry is a new combination",
+      "The guesser never repeats a combination it has tried"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Parameter exploration with simulation and comparison to reference designs",
+    "interactionPattern": "Sliders, single-run animation and a 1000-run histogram",
+    "keyQuestions": [
+      "How fast does the lucky-guess chance fall as items are chained?",
+      "How many attempts guarantee success when retries are allowed?",
+      "What must a record keep so a guesser does not look like a knower?"
+    ],
+    "commonMisconceptions": [
+      "A correct final answer shows mastery even when retries were allowed",
+      "More options always beats chaining items",
+      "A low guess rate on paper means the probe resists guessing in practice"
+    ],
+    "assessmentOpportunities": [
+      "Computing 1/options^chained for a design",
+      "Stating attempts to guarantee success",
+      "Redesigning the six-hotspot quiz"
+    ]
+  },
+  "search": {
+    "tags": [
+      "guessing",
+      "probe design",
+      "retry",
+      "knowledge tracing",
+      "Monte Carlo",
+      "histogram",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "bar-chart",
+      "histogram"
+    ]
+  },
+  "chapter": "26-the-future-of-microsims"
+}

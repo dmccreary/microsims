@@ -1,0 +1,153 @@
+{
+  "title": "Contract Violation Finder",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Learning Analytics",
+    "Producer Contract",
+    "Activity IRI",
+    "Data Quality"
+  ],
+  "description": "A p5.js critique exercise in which learners audit eight candidate xAPI statements, flag the fields that break the MicroSim producer contract and justify each flag by section number, with feedback that marks each flag correct, missed or false alarm.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/contract-violation-finder/",
+  "canvasHeight": 800,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Auditing xAPI statements against the MicroSim producer contract",
+    "learningObjectives": [
+      "The learner will critique a candidate xAPI statement against the producer contract's rules and justify each violation by section number."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "critique",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "The five parts of an xAPI statement and the three MicroSim verbs (Chapter 16)",
+      "Activity IRIs, canonical site URL and fragments (Chapter 16)",
+      "The producer contract summary table (Chapter 16)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 800
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Row and Rule dropdowns with a Flag row with rule button replace clicking; keys 1-9 toggle rules; results use words (correct, missed, false alarm) as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "jsonRows",
+        "type": "clickable canvas rows",
+        "label": "Statement rows",
+        "purpose": "Flag a field as suspect"
+      },
+      {
+        "id": "ruleList",
+        "type": "clickable canvas list",
+        "label": "Producer contract rules 1-9",
+        "purpose": "Link the selected flag to a rule"
+      },
+      {
+        "id": "checkButton",
+        "type": "button",
+        "label": "Check my answer",
+        "purpose": "Reveal planted violations and grade each flag"
+      },
+      {
+        "id": "hintButton",
+        "type": "button",
+        "label": "Show hint",
+        "purpose": "Highlight the statement section that still hides a violation"
+      },
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next statement",
+        "purpose": "Advance to the next candidate statement"
+      },
+      {
+        "id": "clearButton",
+        "type": "button",
+        "label": "Clear flags",
+        "purpose": "Remove all flags on the current statement"
+      },
+      {
+        "id": "rowSelect",
+        "type": "select",
+        "label": "Row",
+        "purpose": "Keyboard choice of a row"
+      },
+      {
+        "id": "ruleSelect",
+        "type": "select",
+        "label": "Rule",
+        "purpose": "Keyboard choice of a rule"
+      },
+      {
+        "id": "linkButton",
+        "type": "button",
+        "label": "Flag row with rule",
+        "purpose": "Keyboard alternative to clicking a row and a rule"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Error detection with justification against a checklist, with graded feedback",
+    "interactionPattern": "Flag-and-justify critique over a set of worked examples",
+    "keyQuestions": [
+      "Does this identifier start with the canonical site URL and end with a trailing slash?",
+      "Does the verb carry the result field it requires?",
+      "Would this fragment survive a reshuffle or a reorder?"
+    ],
+    "commonMisconceptions": [
+      "Any IRI that loads in the browser is a valid activity IRI",
+      "A slider can be typed as the MicroSim it lives in",
+      "Every statement in an audit must contain an error"
+    ],
+    "assessmentOpportunities": [
+      "Violations found with the correct section number",
+      "False alarms across the set",
+      "Stating the downstream consequence of a violation"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "producer contract",
+      "activity IRI",
+      "critique",
+      "data validation",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "quiz",
+      "simulation"
+    ]
+  },
+  "chapter": "16-xapi-statements-and-evidence"
+}

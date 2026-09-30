@@ -1,0 +1,135 @@
+{
+  "title": "Review and Fix Cycle Simulator",
+  "description": "A mock screenshot with three seeded layout defects (clipped row labels, a residual text stroke, a title under a panel), a three-box cycle tracker, a checklist strip and an edit log. For the selected defect the learner chooses the smallest correct patch, an over-broad patch or a wrong-cause patch; each apply re-captures and uses a cycle. After three cycles the simulator locks until Stop and report, whose report scores fixes, new defects and cycles and explains each choice.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Quality Assurance",
+    "MicroSim Engineering"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/review-fix-cycle-simulator/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The smallest patch rule and the fix cycle limit",
+    "learningObjectives": [
+      "The learner will judge whether each proposed patch follows the smallest patch rule and decide when the fix cycle limit requires stopping and reporting."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Layout defects and the fixes table (Chapter 13)",
+      "The layout reviewer's ten-step workflow (Chapter 13)"
+    ],
+    "concepts": [
+      "Layout Review",
+      "Smallest Patch Rule",
+      "Fix Cycle Limit",
+      "Visual Checklist",
+      "Vision-Based Review"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() provides a screen-reader description; all controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "select",
+        "label": "Defect",
+        "options": [
+          "current FAIL items"
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Choose a patch",
+        "options": [
+          "smallest correct",
+          "over-broad",
+          "wrong cause (mixed order)"
+        ]
+      },
+      {
+        "type": "button",
+        "label": "Apply patch and re-capture"
+      },
+      {
+        "type": "button",
+        "label": "Stop and report"
+      },
+      {
+        "type": "button",
+        "label": "Reset"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show hint from the fixes catalog",
+        "default": false
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Decision simulation with a cycle budget",
+    "variables": [
+      "defects present",
+      "cycles used (max 3)",
+      "patch kind per cycle"
+    ],
+    "equations": [],
+    "assumptions": [
+      "Smallest patches clear only their defect; over-broad patches clear it and add one new defect; wrong-cause patches change nothing."
+    ],
+    "limitations": [
+      "Real patches can have partial effects; here each patch has one of three clean outcomes."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judgment under a constraint with explained feedback",
+    "interactionPattern": "Choice evaluation with a scored report (Evaluate level)",
+    "keyQuestions": [
+      "Does this patch change anything besides the cause of the defect?",
+      "If a patch changed nothing, what does that tell you about its cause?",
+      "When must the review stop, and what must it report?"
+    ],
+    "commonMisconceptions": [
+      "A patch that fixes the defect is a good patch.",
+      "More cycles always lead to a better result.",
+      "Stopping with FAILs left is a failure of the reviewer."
+    ],
+    "assessmentOpportunities": [
+      "The learner reaches a clean state in three cycles using only smallest patches.",
+      "The learner justifies why each rejected patch is over-broad or aimed at the wrong cause."
+    ]
+  },
+  "chapter": "13-quality-assurance-and-automated-layout-review",
+  "canvasHeight": 560
+}

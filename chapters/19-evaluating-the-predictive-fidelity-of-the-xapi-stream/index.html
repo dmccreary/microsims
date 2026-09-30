@@ -1,0 +1,3486 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to test whether an xAPI evidence stream predicts mastery, using held-out assessments, accuracy against baselines, Brier score, calibration, AUC, sample size and honest reporting.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream/">
+      
+      
+        <link rel="prev" href="../18-mastery-prediction-and-knowledge-tracing/">
+      
+      
+        <link rel="next" href="../20-the-full-lrs-architecture-and-ingestion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Evaluating the Predictive Fidelity of the xAPI Stream - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Evaluating the Predictive Fidelity of the xAPI Stream - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to test whether an xAPI evidence stream predicts mastery, using held-out assessments, accuracy against baselines, Brier score, calibration, AUC, sample size and honest reporting." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Evaluating the Predictive Fidelity of the xAPI Stream - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to test whether an xAPI evidence stream predicts mastery, using held-out assessments, accuracy against baselines, Brier score, calibration, AUC, sample size and honest reporting." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#evaluating-the-predictive-fidelity-of-the-xapi-stream" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Evaluating the Predictive Fidelity of the xAPI Stream
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-evaluation-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Evaluation Protocol
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-held-out-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Held-Out Assessment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Held-Out Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-held-out-split-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Held-Out Split Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-synthetic-cohort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Synthetic Cohort
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction Accuracy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prediction Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-accuracy-versus-base-rate-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Accuracy Versus Base Rate Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-brier-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Brier Score
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calibration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-calibration-curve-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Calibration Curve Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discrimination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AUC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AUC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-auc-pair-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: AUC Pair Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-with-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation With Assessment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-across-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stability Across Sessions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sample-size-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sample Size Requirement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confounding-factors-and-threats-to-validity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confounding Factors and Threats to Validity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-diagnosticity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction Diagnosticity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fidelity-driven-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity-Driven Instrumentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-coverage-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Coverage Gap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measured-versus-designed-claims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measured Versus Designed Claims
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measured Versus Designed Claims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-claim-sorter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Claim Sorter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-prediction-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Prediction Quality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-evaluation-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Evaluation Protocol
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-held-out-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Held-Out Assessment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Held-Out Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-held-out-split-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Held-Out Split Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-synthetic-cohort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Synthetic Cohort
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediction-accuracy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction Accuracy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prediction Accuracy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-accuracy-versus-base-rate-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Accuracy Versus Base Rate Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-brier-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Brier Score
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Calibration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-calibration-curve-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Calibration Curve Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discrimination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AUC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AUC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-auc-pair-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: AUC Pair Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-with-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation With Assessment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stability-across-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stability Across Sessions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sample-size-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sample Size Requirement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confounding-factors-and-threats-to-validity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confounding Factors and Threats to Validity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-diagnosticity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction Diagnosticity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fidelity-driven-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity-Driven Instrumentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-coverage-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Coverage Gap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measured-versus-designed-claims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measured Versus Designed Claims
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Measured Versus Designed Claims">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-claim-sorter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Claim Sorter
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-prediction-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Prediction Quality
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="evaluating-the-predictive-fidelity-of-the-xapi-stream">Evaluating the Predictive Fidelity of the xAPI Stream</h1>
+<h2 id="summary">Summary</h2>
+<p>Teaches how to measure how well the xAPI stream predicts mastery, using held-out assessments, calibration, discrimination and honest reporting of limits.</p>
+<p>Students learn evaluation protocols, sample-size needs, confounders and threats to validity, and how to design instrumentation for fidelity. After it, they can report prediction quality and separate measured claims from designed ones.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 18 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Held-Out Assessment</td>
+<td>126</td>
+</tr>
+<tr>
+<td>Prediction Accuracy</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Correlation With Assessment</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Discrimination</td>
+<td>27</td>
+</tr>
+<tr>
+<td>AUC</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Brier Score</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Stability Across Sessions</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sample Size Requirement</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Confounding Factors</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Fidelity-Driven Instrumentation</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Interaction Diagnosticity</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Transfer Item</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Evaluation Protocol</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Threats to Validity</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Measured Versus Designed Claims</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Reporting Prediction Quality</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Concept Coverage Gap</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../16-xapi-statements-and-evidence/">Chapter 16: xAPI Statements and Evidence</a></li>
+<li><a href="../18-mastery-prediction-and-knowledge-tracing/">Chapter 18: Mastery Prediction and Knowledge Tracing</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Does the Bounce Predict the Learner?</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Every MicroSim you instrument leaves a trail of events, and this chapter shows you how to find out whether that trail tells the truth about what learners know. By the end you can design a fair test, score it, and write up the result without overclaiming. Let's bounce it around!</p>
+</div>
+<p>Chapter 18 ended with a promise. A mastery estimate is only useful if it forecasts what a learner will do next, and the chapter defined <strong>predictive fidelity</strong> as how closely those forecasts match later behavior. This chapter turns that definition into a procedure. It explains how to test the forecasts, how to summarize how good they are with a few numbers, and how to describe the outcome so that a reader can tell what was measured from what was merely designed.</p>
+<p>One fact shapes everything that follows. As of the Learning Record Store repository's <code>TODO.md</code> dated 2026-09-26, no MicroSim emitter sends statements to a store, and no learner data have been collected through this book's MicroSims. Every number in this chapter therefore comes from a <strong>synthetic cohort</strong>, a small population of simulated learners whose behavior we programmed ourselves. The numbers illustrate the method. They are not evidence that any real stream predicts mastery.</p>
+<h2 id="the-evaluation-protocol">The Evaluation Protocol</h2>
+<p>An <strong>evaluation protocol</strong> is a written plan, fixed before any data are examined, that states what will be predicted, from which evidence, for whom, against which outcome, and how the result will be scored. Writing it first matters because the choices are easy to bend after the fact. If an analyst sees the results and then picks the threshold, the concept or the subgroup that looks best, the reported quality is inflated and nobody, including the analyst, can tell by how much.</p>
+<p>A protocol for this book's question has six parts, and each is settled in the sections below.</p>
+<ol>
+<li><strong>Prediction target.</strong> What event is forecast, for example a correct answer on a specific assessment item for one concept.</li>
+<li><strong>Evidence window.</strong> Which part of the xAPI stream the model may use, for example every statement recorded before the assessment.</li>
+<li><strong>Held-out outcome.</strong> The assessment that the model never sees during fitting or updating.</li>
+<li><strong>Metrics.</strong> Accuracy, Brier score, calibration, discrimination and their baselines, chosen in advance.</li>
+<li><strong>Sample plan.</strong> How many learners are needed for the result to be stable.</li>
+<li><strong>Validity checks.</strong> The confounders and threats that will be examined, and how.</li>
+</ol>
+<p>The next section defines the second and third parts precisely, because they carry the most weight.</p>
+<h2 id="the-held-out-assessment">The Held-Out Assessment</h2>
+<p>A <strong>held-out assessment</strong> is a test of the learner's mastery whose results the prediction model has never used. The model may use everything the stream recorded during practice. It must not use the assessment answers, or any statement produced after them, when it makes the forecast. The assessment is "held out" in the same sense that a test set is held out in machine learning: it exists to reveal how the model behaves on evidence it did not learn from.</p>
+<p>The reason is simple. A knowledge-tracing model updates its estimate after every answer, so the stream's own answers are always, in a sense, explained by the model. Asking a model to predict answers it has already absorbed measures memory, not foresight. Only an outcome that arrives after the forecast is fixed can show whether the forecast was any good.</p>
+<p>Two practical rules follow. First, the assessment must be separated in time or by design from the practice stream, and its timestamp must be later than the last statement used. Second, the assessment items should not be items the learner practiced. An item that is new but tests the same concept is called a <strong>transfer item</strong>. Transfer items check that the learner grasps the concept rather than the specific wording of a practice question, and this is the meaning of mastery the book cares about.</p>
+<p>The Learning Record Store design already points in this direction. Its design specification treats the starting parameters that a new concept borrows from its taxonomy category as a guess until real data exist, and it lists checking them against held-out quiz outcomes as future work. That is a design statement, not a completed test.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">The Test Must Arrive After the Forecast</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Picture a weather forecaster who is allowed to look out the window before predicting rain. Their accuracy would be superb and meaningless. A held-out assessment is the rule that keeps the window closed until the forecast is on record.</p>
+</div>
+<p>The interactive below lets you see how the timing rule works before we compute anything. It uses only the terms defined above: the evidence window, the forecast and the held-out assessment.</p>
+<h4 id="diagram-held-out-split-explorer">Diagram: Held-Out Split Explorer</h4>
+<iframe src="../../sims/fidelity-held-out-split-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/fidelity-held-out-split-explorer/main.html">Run the Held-Out Split Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Held-Out Split Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> fidelity-held-out-split-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: distinguish</p>
+<p>Learning objective: Learners will distinguish statements that may legitimately feed a forecast from those that leak the held-out assessment, by placing a forecast cutoff on a learner's timeline and judging each statement.</p>
+<p>Layout: A horizontal timeline for one synthetic learner shows about twelve statements as small markers, colored by type (practice answer, exposure event, held-out assessment answer). A draggable vertical line marks the forecast cutoff. A right panel lists the statements the model may use.</p>
+<p>Controls: A draggable cutoff line; a checkbox "Allow the model to see assessment answers" that intentionally introduces leakage; a "Reset" button.</p>
+<p>Data: The learner's timeline is fixed and hand-written with timestamps. A readout shows a mock predicted probability computed only from the permitted statements, and a second mock accuracy that jumps upward when leakage is enabled.</p>
+<p>Interactions: Hovering a marker shows its type and timestamp. Dragging the cutoff updates the usable-evidence list and flags any statement after the cutoff that is still in use with a red outline. Turning on leakage displays the message "Score is inflated: the forecast saw its own answer key."</p>
+<p>Responsive design: The canvas width follows the container and re-lays out on window resize; the side panel drops below the timeline on narrow screens.</p>
+<p>Implementation: p5.js with a single sketch, a timeline drawn in draw(), and DOM controls for the checkbox and reset button.</p>
+</details>
+<h2 id="the-synthetic-cohort">The Synthetic Cohort</h2>
+<p>Before defining the scores, we need data to score. This section builds the smallest honest example: a simulated cohort whose true behavior we know, so that every metric has a value we can check by hand. It is <strong>synthetic</strong>, and the label appears on every table below.</p>
+<p>The simulation models one concept. Each of 200 simulated learners starts as mastered with probability 0.30. A learner answers four practice items. A mastered learner answers correctly with probability 0.90 (a slip rate of 0.10) and an unmastered learner with probability 0.20 (a guess rate of 0.20). After every answer, an unmastered learner has a 0.15 chance of learning the concept. Finally, each learner answers one held-out item with the same slip and guess rates. The random seed is 19.</p>
+<p>The forecast comes from the Bayesian knowledge tracing update of Chapter 18, using the same four values, then converted to a predicted chance of a correct held-out answer with the formula from that chapter. Because the model's parameters equal the simulation's true parameters, this is the best case. The final section of the worked example weakens that assumption.</p>
+<p>Four functions do all the work. <code>bkt</code> runs the two-step update over a list of practice answers (True for correct) and returns the final mastery estimate; its keyword arguments are the initial knowledge <code>L0</code>, the learning rate <code>pt</code>, the guess <code>pg</code> and the slip <code>ps</code>. <code>pred</code> converts a mastery estimate into the chance of a correct next answer. <code>auc</code> and the Brier line are explained in the sections that define those scores, so they are shown there.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">bkt</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">L0</span><span class="o">=</span><span class="mf">.3</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mf">.15</span><span class="p">,</span> <span class="n">pg</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">ps</span><span class="o">=</span><span class="mf">.1</span><span class="p">):</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">L0</span>
+    <span class="k">for</span> <span class="n">correct</span> <span class="ow">in</span> <span class="n">obs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">correct</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ps</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ps</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">pg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="n">ps</span> <span class="o">/</span> <span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="n">ps</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pg</span><span class="p">))</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="n">pt</span>
+    <span class="k">return</span> <span class="n">L</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">pred</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">pg</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">ps</span><span class="o">=</span><span class="mf">.1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">ps</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">pg</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="prediction-accuracy">Prediction Accuracy</h2>
+<p><strong>Prediction accuracy</strong> is the fraction of held-out outcomes the model gets right after its probabilities are turned into yes-or-no calls. The usual rule predicts "correct" when the forecast is at least 0.5 and "incorrect" otherwise. Accuracy is easy to explain to a teacher, which is why it is the first number most people ask for, and it is also the easiest number to misread.</p>
+<p>On the synthetic cohort the model's accuracy is 0.705: it called 141 of 200 held-out answers correctly. That sounds decent until you compare it with the simplest possible forecaster. In this cohort 63.5 percent of learners answered the held-out item correctly, so a forecaster that ignores the stream and always predicts "correct" is right 63.5 percent of the time. The stream adds about seven percentage points over that <strong>baseline</strong>, a reference forecast that uses no evidence. Any accuracy claim should be reported next to its baseline, because the baseline is what accuracy would be worth if the stream carried no information.</p>
+<p>The table below puts the three forecasters side by side. All values are computed on the synthetic cohort.</p>
+<table>
+<thead>
+<tr>
+<th>Forecaster (synthetic cohort, n = 200)</th>
+<th>Accuracy</th>
+<th>Brier score</th>
+<th>AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Always predict the cohort base rate (0.635)</td>
+<td>0.635</td>
+<td>0.232</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>Raw fraction correct in the four practice answers</td>
+<td>0.695</td>
+<td>0.247</td>
+<td>0.724</td>
+</tr>
+<tr>
+<td>BKT with the true parameters</td>
+<td>0.705</td>
+<td>0.195</td>
+<td>0.743</td>
+</tr>
+</tbody>
+</table>
+<p>The Brier score and AUC columns are defined in later sections; for now, read only the accuracy column and notice how narrow the gaps are.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Accuracy Can Hide a Do-Nothing Model</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+When most learners succeed, a model that always says "will succeed" scores well without knowing anything. Report the baseline in the same sentence as the accuracy, every time.</p>
+</div>
+<p>The interactive below makes the trap visible by letting you change how common success is and how informative the model is.</p>
+<h4 id="diagram-accuracy-versus-base-rate-lab">Diagram: Accuracy Versus Base Rate Lab</h4>
+<iframe src="../../sims/fidelity-accuracy-base-rate-lab/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/fidelity-accuracy-base-rate-lab/main.html">Run the Accuracy Versus Base Rate Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Accuracy Versus Base Rate Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> fidelity-accuracy-base-rate-lab<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Evaluate (L5)
+Bloom Verb: judge</p>
+<p>Learning objective: Learners will judge whether a reported accuracy demonstrates predictive value by comparing it with the always-predict-the-majority baseline as the base rate changes.</p>
+<p>Layout: A grouped bar chart with two bars, "Model accuracy" and "Baseline accuracy", above a row of controls. A caption under the chart states the lift in percentage points.</p>
+<p>Controls: A slider for the base rate of correct answers (0.10 to 0.90, step 0.01, default 0.635); a slider for model signal strength (0.0 meaning no information, 1.0 meaning the synthetic model above, default 1.0); a "Simulate 200 learners" button that draws a fresh synthetic cohort.</p>
+<p>Data: Each press of the button draws a cohort with the chosen base rate, generates model forecasts whose informativeness scales with the signal slider, and computes both accuracies. All values are synthetic and the chart title says so.</p>
+<p>Interactions: Hovering a bar shows its exact value and how many of the 200 learners it classified correctly. When the signal slider is at zero and the base rate is far from 0.5, the model bar equals or falls below the baseline bar and a message reads "This accuracy carries no evidence."</p>
+<p>Responsive design: The chart resizes with its container and the controls stack vertically below tablet width.</p>
+<p>Implementation: Chart.js bar chart with DOM sliders; cohort generation in a small seeded JavaScript function.</p>
+</details>
+<p>Accuracy also throws away information. A forecast of 0.51 and a forecast of 0.99 both become "correct", even though one is a coin flip and the other is near certainty. The next scores keep the probabilities intact.</p>
+<h2 id="the-brier-score">The Brier Score</h2>
+<p>The <strong>Brier score</strong> is the mean squared difference between each forecast probability and what actually happened, where a correct answer counts as 1 and an incorrect answer as 0. It ranges from 0, for perfect and fully confident forecasts, upward; a forecaster who always says 0.5 scores exactly 0.25. Lower is better. In code it is one line:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">brier</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">outcomes</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Here <code>predictions</code> are forecast probabilities and <code>outcomes</code> are 1 for a correct held-out answer and 0 for an incorrect one. On the synthetic cohort the BKT forecast scores 0.195, the base-rate baseline 0.232 and the raw fraction 0.247. Notice that the raw fraction, which looked competitive on accuracy, is worse than the do-nothing baseline on Brier. Its forecasts of exactly 0 and 1 are overconfident, and the squared error punishes confident mistakes heavily. This is the practical value of the Brier score: it rewards honest uncertainty, which is what an estimate of mastery is supposed to express.</p>
+<h2 id="calibration">Calibration</h2>
+<p><strong>Calibration</strong> asks whether a forecast of 0.70 comes true about 70 percent of the time. It is a property of the probabilities themselves, separate from whether the model ranks learners well. A calibrated model can be trusted at face value: when a dashboard says "80 percent likely to have mastered this", a teacher can act on that number as a rate.</p>
+<p>To check it, sort the forecasts into bins, then compare the average forecast in each bin with the fraction of learners in that bin who actually succeeded. A well-calibrated model gives pairs that lie close together. Plotting observed against predicted gives a reliability curve; a perfectly calibrated model traces the diagonal. The table below shows the synthetic cohort in four bins.</p>
+<table>
+<thead>
+<tr>
+<th>Forecast bin (synthetic)</th>
+<th>Learners</th>
+<th>Mean forecast</th>
+<th>Observed correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>below 0.4</td>
+<td>65</td>
+<td>0.332</td>
+<td>0.400</td>
+</tr>
+<tr>
+<td>0.4 to 0.6</td>
+<td>25</td>
+<td>0.586</td>
+<td>0.520</td>
+</tr>
+<tr>
+<td>0.6 to 0.8</td>
+<td>8</td>
+<td>0.653</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>0.8 and above</td>
+<td>102</td>
+<td>0.880</td>
+<td>0.824</td>
+</tr>
+</tbody>
+</table>
+<p>The pairs are close but not identical. With only 8 learners in the third bin, a gap of 0.15 is well within chance. This is why calibration tables should always show the bin counts: a large gap in a small bin is a warning to gather more data, not proof of miscalibration.</p>
+<p>The worked example now weakens the ideal assumption. Suppose the simulated learners' true guess rate is 0.35 but the model still uses 0.20, a mistake a real deployment could easily make because the design's starting parameters are borrowed guesses. Over 200 learners with the same seed, accuracy falls to 0.655, below that cohort's baseline of 0.690, and the Brier score is 0.216, slightly worse than the baseline's 0.214. The lowest bin (below 0.4) contains 47 learners, the model forecast 0.341 on average, and 0.574 of them succeeded. The model underestimated its weakest learners because it assumed guessing was rarer than it was.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Always Print the Bin Counts</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+A calibration plot with no counts hides which points are noise. Print the number of learners in every bin, and merge bins with fewer than about ten learners before drawing conclusions.</p>
+</div>
+<p>The interactive below lets you build a reliability curve yourself, using only the bins and counts described above.</p>
+<h4 id="diagram-calibration-curve-lab">Diagram: Calibration Curve Lab</h4>
+<iframe src="../../sims/fidelity-calibration-curve-lab/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/fidelity-calibration-curve-lab/main.html">Run the Calibration Curve Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Calibration Curve Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> fidelity-calibration-curve-lab<br/>
+<strong>Library:</strong> Plotly<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Analyze (L4)
+Bloom Verb: diagnose</p>
+<p>Learning objective: Learners will diagnose whether a synthetic model is overconfident, underconfident or well calibrated by reading a reliability curve and its bin counts.</p>
+<p>Layout: A scatter plot of mean forecast (x axis, 0 to 1) against observed fraction correct (y axis, 0 to 1) with a dashed diagonal for perfect calibration. Point size is proportional to the number of learners in the bin. A table of bin counts sits beside the plot.</p>
+<p>Controls: A dropdown for the synthetic scenario ("model parameters match the simulation" and "true guess rate 0.35, model assumes 0.20"); a slider for the number of bins (3 to 10, default 4); a slider for cohort size (50 to 1000, default 200); a "Redraw cohort" button.</p>
+<p>Data: A seeded synthetic cohort generated in the browser with the same rules as the chapter's worked example. The plot title states "Synthetic data".</p>
+<p>Interactions: Hovering a point shows the bin range, the count, the mean forecast and the observed fraction. Bins with fewer than ten learners are drawn with a dashed outline and a tooltip reading "Too few learners to trust this point". Changing the scenario animates the points to their new positions.</p>
+<p>Responsive design: The Plotly chart uses responsive layout and the table wraps below the plot on narrow screens.</p>
+<p>Implementation: Plotly.js scatter plot with a shape for the diagonal; cohort simulation in vanilla JavaScript.</p>
+</details>
+<h2 id="discrimination">Discrimination</h2>
+<p><strong>Discrimination</strong> is the model's ability to tell learners who succeed from learners who fail, by giving the first group higher forecasts. It concerns ranking, not the exact probability. A model can discriminate perfectly yet be badly calibrated, for example by predicting 0.9 for every success and 0.8 for every failure, and it can be calibrated yet useless at ranking, for example by predicting the cohort average for everyone. The base-rate baseline is exactly that second case: perfectly calibrated on average and unable to separate anyone.</p>
+<p>The two properties answer different practical questions. Calibration tells a teacher how far to trust a number. Discrimination tells a teacher whether the list of learners flagged as "likely struggling" actually contains the ones who struggle. A report on predictive fidelity needs both, and the common failure is to publish one.</p>
+<h2 id="auc">AUC</h2>
+<p>The standard single number for discrimination is <strong>AUC</strong>, the area under the receiver operating characteristic curve. The curve plots, for every possible cutoff, the fraction of successful learners correctly called successful against the fraction of unsuccessful learners wrongly called successful. The area under it has a plain interpretation that needs no calculus. Take one learner who answered the held-out item correctly and one who answered it incorrectly, both chosen at random. AUC is the probability that the model gave the first a higher forecast, with ties counted as half.</p>
+<p>An AUC of 0.5 means the ranking is no better than a coin flip and 1.0 means perfect ranking. The function below computes it by comparing every correct-incorrect pair, which is fine for hundreds of learners:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">auc</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">outcomes</span><span class="p">):</span>
+    <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">outcomes</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span><span class="p">]</span>
+    <span class="n">neg</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">outcomes</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">y</span><span class="p">]</span>
+    <span class="n">wins</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">pos</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">neg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wins</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">neg</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>The arguments are the forecast probabilities and the 1-or-0 outcomes, as for the Brier score. On the synthetic cohort the BKT forecast has an AUC of 0.743, the raw fraction correct 0.724, and the base-rate baseline exactly 0.500 because it gives every learner the same number. In the mismatched scenario BKT drops to 0.680 while still ranking learners better than chance.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Ranking Pairs, Nothing More</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+ROC curves look intimidating, but the reading is one sentence long: pick a success and a failure at random, and AUC is how often the success got the higher score.</p>
+</div>
+<p>The interactive below draws the curve and reports the pair-based reading side by side, so the two definitions can be checked against each other.</p>
+<h4 id="diagram-auc-pair-explorer">Diagram: AUC Pair Explorer</h4>
+<iframe src="../../sims/fidelity-auc-pair-explorer/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/fidelity-auc-pair-explorer/main.html">Run the AUC Pair Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>AUC Pair Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> fidelity-auc-pair-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Understand (L2)
+Bloom Verb: explain</p>
+<p>Learning objective: Learners will explain AUC as the probability that a random successful learner outranks a random unsuccessful one, by connecting the ROC curve to a live count of correct pairs.</p>
+<p>Layout: The left half shows a strip of 40 synthetic learners as dots sorted by forecast, green for correct held-out answers and orange for incorrect. The right half shows the ROC curve with a movable cutoff point and the shaded area under it.</p>
+<p>Controls: A slider for the cutoff (0 to 1, step 0.01); a slider for model signal strength (0 to 1, default 0.6); a "Draw random pair" button that picks one green and one orange dot and highlights which one the model ranked higher; a "Draw 100 pairs" button.</p>
+<p>Data: A synthetic cohort of 40 learners, regenerated when the signal slider moves. A readout shows the computed AUC, the running fraction of random pairs won, and the cutoff's true-positive and false-positive rates.</p>
+<p>Interactions: Moving the cutoff slides a vertical line along the strip and moves the point on the ROC curve. Repeated pair draws converge visibly on the AUC value. At signal strength 0 the curve lies on the diagonal and the readout shows about 0.5.</p>
+<p>Responsive design: The two panels sit side by side on wide screens and stack vertically on narrow ones; the canvas width follows the container and re-lays out on window resize.</p>
+<p>Implementation: p5.js sketch with seeded random generation, ROC computed in the sketch, and DOM sliders and buttons.</p>
+</details>
+<h2 id="correlation-with-assessment">Correlation With Assessment</h2>
+<p>A simpler summary is the <strong>correlation with assessment</strong>: the Pearson correlation between the predicted mastery values and the held-out scores, for example a 0 or 1 per item or a percentage on a longer assessment. It is popular because it needs no threshold and works for graded scores as well as right-or-wrong items. On the synthetic cohort the correlation between forecast and held-out outcome is 0.41.</p>
+<p>Its limits deserve saying plainly. Correlation measures how well a straight line relates the two quantities, so it says nothing about calibration: a model that multiplies every forecast by 0.5 keeps the same correlation while being badly miscalibrated. It is also sensitive to a few extreme learners. Use it as a quick sanity check and a way to compare against published studies, never as the only score.</p>
+<h2 id="stability-across-sessions">Stability Across Sessions</h2>
+<p>A model can look good on one occasion and poor on the next. <strong>Stability across sessions</strong> is whether the fidelity metrics stay about the same when the evaluation is repeated on different class sessions, dates or sections. A result that swings widely between sessions cannot be relied on, even if its average is high, because the next classroom might be the bad one.</p>
+<p>The worked example splits the synthetic cohort into its first 100 learners and its last 100. The AUC is 0.777 for the first half and 0.714 for the second. Every learner was generated by the same process, so the 0.06 gap is pure sampling noise. That is the yardstick: real between-session differences must be larger than this noise before they signal a problem with the model or the instrumentation.</p>
+<h2 id="the-sample-size-requirement">The Sample Size Requirement</h2>
+<p>The <strong>sample size requirement</strong> is the number of learners and held-out answers needed before a fidelity number is worth reporting. Small samples produce metrics that move a lot from one draw to the next. To measure that uncertainty, the worked example resampled the cohort with replacement 500 times, a method called the bootstrap, and recorded the middle 95 percent of the resulting AUC values.</p>
+<table>
+<thead>
+<tr>
+<th>Synthetic cohort size</th>
+<th>AUC</th>
+<th>95 percent bootstrap interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50</td>
+<td>0.758</td>
+<td>0.612 to 0.885</td>
+</tr>
+<tr>
+<td>200</td>
+<td>0.743</td>
+<td>0.676 to 0.810</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>0.776</td>
+<td>0.746 to 0.802</td>
+</tr>
+</tbody>
+</table>
+<p>At 50 learners the interval spans 0.27, wide enough to contain both "useless" (near 0.6) and "excellent" (near 0.9). At 200 it narrows to about 0.13, and at 1000 to about 0.06. The point estimates barely move; the confidence in them does. This gives a practical rule: plan the sample size before the study, by deciding how narrow an interval you need and simulating or resampling to see what cohort size delivers it. The numbers above are for this synthetic setup only, and a real study must recompute them, since noisier answers or fewer items per learner widen the intervals.</p>
+<h2 id="confounding-factors-and-threats-to-validity">Confounding Factors and Threats to Validity</h2>
+<p><strong>Confounding factors</strong> are conditions that influence both the stream and the assessment outcome, so that a link between them can appear without the stream carrying real information about mastery. Suppose a class that meets in the morning spends longer on the MicroSim and also scores higher, because of the teacher or the time of day. The model would seem to predict mastery from dwell time when it is really detecting the class. Other confounders in this setting include prior knowledge, reading speed, device type, whether the MicroSim was assigned or optional, and whether the teacher hinted during the assessment.</p>
+<p><strong>Threats to validity</strong> are the broader set of reasons a conclusion might not hold. They include confounding, but also leakage of assessment answers into the forecast, an assessment that does not really test the concept, a sample that does not represent the learners you care about, and repeated peeking at results until a good one appears. The table below summarizes the threats most relevant to this book's question and one defense for each.</p>
+<table>
+<thead>
+<tr>
+<th>Threat</th>
+<th>How it shows up</th>
+<th>Defense</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leakage</td>
+<td>Forecast used statements after the assessment</td>
+<td>Fix the cutoff time in the protocol</td>
+</tr>
+<tr>
+<td>Confounding</td>
+<td>A class or teacher effect drives both stream and score</td>
+<td>Compare within class, or record and adjust for it</td>
+</tr>
+<tr>
+<td>Weak criterion</td>
+<td>The assessment tests wording, not the concept</td>
+<td>Use transfer items with reviewed alignment</td>
+</tr>
+<tr>
+<td>Unrepresentative sample</td>
+<td>Volunteers are keener than typical learners</td>
+<td>Report who was included and who was not</td>
+</tr>
+<tr>
+<td>Result shopping</td>
+<td>Metrics chosen after seeing the data</td>
+<td>Fix the metrics in the protocol beforehand</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Correlation From the Classroom, Not the Learner</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+If all your high-engagement learners sit in one section, you cannot tell whether the stream predicted mastery or merely identified the section. Record the section, and check that the result holds inside each one.</p>
+</div>
+<h2 id="interaction-diagnosticity">Interaction Diagnosticity</h2>
+<p>Chapter 18 introduced diagnostic value: how much one observation moves a mastery estimate. <strong>Interaction diagnosticity</strong> applies the same idea to a whole kind of interaction, measured against the held-out outcome. An interaction is diagnostic to the degree that learners who perform it succeed on the assessment at a different rate from learners who do not. A diagnostic interaction is worth instrumenting and weighting; a non-diagnostic one is noise, however busy the log looks.</p>
+<p>The measure is a simple comparison of rates. The counts below are hypothetical, chosen only to show the arithmetic, and are not from any study. Suppose 100 learners used a MicroSim, 40 of whom entered a prediction before running it. Of those 40, 30 passed the held-out item, a rate of 0.75. Of the other 60, 18 passed, a rate of 0.30. The ratio of the two rates is 2.5, so making a prediction first would look strongly diagnostic. Whether that survives a check for confounders, such as stronger learners being more willing to predict, is exactly what the previous section warns about.</p>
+<h2 id="fidelity-driven-instrumentation">Fidelity-Driven Instrumentation</h2>
+<p><strong>Fidelity-driven instrumentation</strong> means designing what a MicroSim emits according to what the evaluation will need, instead of emitting whatever is easy. Working backward from the protocol gives concrete requirements. Each item must carry the concept identifier that the held-out assessment also uses, so events and outcomes can be joined. Answers must keep their attempt order, which the runtime supports by passing answers through unchanged even in compact mode while folding other events. And events below the runtime's noise thresholds must be left out, as Chapter 16 explains: a hover under 600 milliseconds, a click under 250 milliseconds and a page glance under one second are not treated as evidence.</p>
+<p>Two additions come from the evaluation itself. First, record enough context to check confounders, such as the section or session, using the identifiers the design already permits and honoring its privacy rules. Second, include at least one transfer item per concept so the held-out assessment can be built from material the stream did not train on. Chapter 17 shows how to add the instrumentation itself; this chapter supplies the reasons for choosing what to add.</p>
+<h2 id="concept-coverage-gap">Concept Coverage Gap</h2>
+<p>A <strong>concept coverage gap</strong> is a concept for which the evaluation lacks either stream evidence or a held-out outcome, so its fidelity cannot be measured at all. It is a different problem from poor fidelity. Poor fidelity is a measured result; a gap is an absence, and it is easy to miss because the concept simply disappears from every summary table.</p>
+<p>Detecting gaps needs a cross-check. For each concept in the learning graph, count the instrumented interactions and the held-out items, and flag any concept with none of either. The table below shows the check on a hypothetical three-concept book.</p>
+<table>
+<thead>
+<tr>
+<th>Concept (hypothetical)</th>
+<th>Instrumented answers</th>
+<th>Held-out items</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concept A</td>
+<td>40</td>
+<td>3</td>
+<td>Measurable</td>
+</tr>
+<tr>
+<td>Concept B</td>
+<td>0</td>
+<td>2</td>
+<td>Gap: no stream evidence</td>
+</tr>
+<tr>
+<td>Concept C</td>
+<td>25</td>
+<td>0</td>
+<td>Gap: no outcome to predict</td>
+</tr>
+</tbody>
+</table>
+<p>Report the gaps alongside the metrics. A fidelity claim about "the book" that quietly covers only concept A is not a claim about the book.</p>
+<h2 id="measured-versus-designed-claims">Measured Versus Designed Claims</h2>
+<p>This book's honesty rules divide statements into three kinds. <strong>Measured versus designed claims</strong> is the discipline of labeling each statement as one of them. A measured claim states a result that was actually observed and can be repeated. A designed claim states what a system is built or specified to do. A hoped-for claim states what its authors expect but have not tested. Chapter 18 applied this three-way split to the mastery pipeline, and the same test applies here to every sentence about prediction quality.</p>
+<p>Applying it to this chapter shows how much is missing. The synthetic AUC of 0.743 is a measured result, but about a simulation whose rules we wrote, so it says the evaluation code works, not that real learners behave that way. The specification of the held-out protocol is designed. That real MicroSim streams predict real mastery is hoped for. The interactive below lets you practice sorting sentences.</p>
+<h4 id="diagram-claim-sorter">Diagram: Claim Sorter</h4>
+<iframe src="../../sims/fidelity-claim-sorter/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/fidelity-claim-sorter/main.html">Run the Claim Sorter MicroSim Fullscreen</a></p>
+<details>
+<summary>Claim Sorter</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> fidelity-claim-sorter<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Bloom Level: Evaluate (L5)
+Bloom Verb: classify</p>
+<p>Learning objective: Learners will classify statements about the xAPI stream as measured, designed or hoped for, and justify the classification by pointing to the evidence that would be required.</p>
+<p>Layout: A stack of sentence cards at the top and three labeled drop zones below: "Measured", "Designed" and "Hoped for". A feedback panel on the right shows an explanation for the last card placed.</p>
+<p>Controls: Drag a card into a zone, or select a card and press a zone button for keyboard use; a "Check all" button; a "Shuffle" button; a "Reset" button.</p>
+<p>Data: About ten cards, each with a correct label and a one-sentence explanation. Examples include "The synthetic cohort's AUC is 0.743" (measured, about a simulation), "The LRS design chooses Bayesian knowledge tracing" (designed), "MicroSim streams predict real mastery" (hoped for), and "No emitter sends statements to a store yet" (measured, as recorded in the repository's TODO file).</p>
+<p>Interactions: A correct placement turns the card green and shows its explanation. An incorrect placement returns the card and shows a hint naming the evidence a measured claim would need. A counter shows how many cards are correctly placed.</p>
+<p>Responsive design: Cards and zones reflow to a single column on narrow screens, and the canvas width follows the container on window resize.</p>
+<p>Implementation: p5.js with drag-and-drop and a keyboard-accessible fallback using buttons.</p>
+</details>
+<h2 id="reporting-prediction-quality">Reporting Prediction Quality</h2>
+<p><strong>Reporting prediction quality</strong> is writing up a fidelity result so that a reader can interpret and check it. The protocol supplies most of the content. A complete report states, in order:</p>
+<ol>
+<li>The prediction target, the evidence window and the held-out assessment, including how it was separated from practice.</li>
+<li>The sample: how many learners and answers, who was included, and how many were excluded and why.</li>
+<li>The baseline forecast and the model's accuracy, Brier score, AUC and calibration table, with bin counts.</li>
+<li>Uncertainty for each metric, such as bootstrap intervals, and stability across sessions.</li>
+<li>Confounders examined and threats that remain.</li>
+<li>Concept coverage gaps.</li>
+<li>A plain statement of what is measured, designed and hoped for.</li>
+</ol>
+<p>A sentence built from those parts might read, using only this chapter's synthetic figures: "On a synthetic cohort of 200 simulated learners, BKT with the generating parameters reached an AUC of 0.743 (bootstrap 95 percent interval 0.676 to 0.810) and a Brier score of 0.195 against 0.232 for the base-rate baseline; this demonstrates the evaluation procedure and says nothing about real learners." The final clause is not optional: it is what keeps a correct number from becoming a false claim.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Write the Limits Sentence First</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Before you write the results, write the sentence that says what the results cannot show. It is easier to be honest before you know whether the numbers look good.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>An <strong>evaluation protocol</strong> fixes the target, evidence window, held-out outcome, metrics, sample plan and validity checks before anyone looks at results.</li>
+<li>A <strong>held-out assessment</strong> is never used by the model, and a <strong>transfer item</strong> tests the concept with wording the learner has not practiced.</li>
+<li><strong>Prediction accuracy</strong> must be reported next to a base-rate baseline, because a model that says "correct" for everyone can score well when most learners succeed.</li>
+<li>The <strong>Brier score</strong> rewards honest probabilities; <strong>calibration</strong> checks that forecasts match observed rates, with bin counts shown; <strong>discrimination</strong> checks ranking, and <strong>AUC</strong> is the chance a random success outranks a random failure.</li>
+<li><strong>Correlation with assessment</strong> is a quick check that ignores calibration, and <strong>stability across sessions</strong> checks that results hold from one class to the next.</li>
+<li>The <strong>sample size requirement</strong> can be studied by bootstrap: in the synthetic example the 95 percent AUC interval narrowed from 0.27 wide at 50 learners to about 0.06 at 1000.</li>
+<li><strong>Confounding factors</strong> and other <strong>threats to validity</strong> can create apparent prediction where none exists; <strong>interaction diagnosticity</strong> compares success rates with and without an interaction, and <strong>fidelity-driven instrumentation</strong> designs what MicroSims emit around the protocol.</li>
+<li>A <strong>concept coverage gap</strong> is an absence of evidence or outcomes, not a poor result, and <strong>measured versus designed claims</strong> must be labeled, since no real learner data exist yet.</li>
+<li><strong>Reporting prediction quality</strong> means giving the sample, baseline, metrics with uncertainty, threats, gaps and the measured-designed-hoped-for split.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Test a Prediction Honestly</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now design a held-out evaluation, score it with accuracy against a baseline, Brier score, calibration and AUC, and report the result with its limits. Every bounce leaves evidence, and now you know how to check what it is worth.</p>
+</div>
+<p>The next chapter turns from evaluating the stream to storing it, beginning with the architecture and ingestion path of the full Learning Record Store.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 18. Mastery Prediction and Knowledge Tracing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                18. Mastery Prediction and Knowledge Tracing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-footer__link md-footer__link--next" aria-label="Next: 20. The Full LRS: Architecture and Ingestion">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                20. The Full LRS: Architecture and Ingestion
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

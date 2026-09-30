@@ -1,0 +1,3119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explains what the full LRS shows teachers, authors and administrators, what it costs to run, how it fails, and what compliance requires, and says which pieces are built.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/21-the-full-lrs-dashboards-operations-and-compliance/">
+      
+      
+        <link rel="prev" href="../20-the-full-lrs-architecture-and-ingestion/">
+      
+      
+        <link rel="next" href="../22-lrs-lite-compact-summaries-and-browser-storage/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The Full LRS: Dashboards, Operations and Compliance - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Full LRS: Dashboards, Operations and Compliance - Micro Simulations for Education" />
+<meta property="og:description" content="Explains what the full LRS shows teachers, authors and administrators, what it costs to run, how it fails, and what compliance requires, and says which pieces are built." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/21-the-full-lrs-dashboards-operations-and-compliance/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/21-the-full-lrs-dashboards-operations-and-compliance/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="The Full LRS: Dashboards, Operations and Compliance - Micro Simulations for Education" />
+<meta property="twitter:description" content="Explains what the full LRS shows teachers, authors and administrators, what it costs to run, how it fails, and what compliance requires, and says which pieces are built." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/21-the-full-lrs-dashboards-operations-and-compliance/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-full-lrs-dashboards-operations-and-compliance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Full LRS: Dashboards, Operations and Compliance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-person-needs-to-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Each Person Needs to See
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-teacher-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Teacher Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Teacher Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-class-mastery-heatmap-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Class Mastery Heatmap Reader
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-author-dashboard-and-content-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Author Dashboard and Content Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-suppression-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Suppression Threshold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Suppression Threshold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-suppression-threshold-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Suppression Threshold Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-capacity-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Capacity Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cost-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cost Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Cost Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-capacity-and-cost-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Capacity and Cost Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-failure-boundary-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Failure Boundary Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance Reporting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deciding-whether-you-need-the-full-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deciding Whether You Need the Full LRS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-each-person-needs-to-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Each Person Needs to See
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-teacher-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Teacher Dashboard
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Teacher Dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-class-mastery-heatmap-reader" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Class Mastery Heatmap Reader
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-author-dashboard-and-content-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Author Dashboard and Content Insights
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-suppression-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Suppression Threshold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Suppression Threshold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-suppression-threshold-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Suppression Threshold Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-capacity-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Capacity Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cost-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cost Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Cost Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-capacity-and-cost-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Capacity and Cost Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Failure Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-failure-boundary-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Failure Boundary Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance Reporting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deciding-whether-you-need-the-full-lrs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deciding Whether You Need the Full LRS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/21-the-full-lrs-dashboards-operations-and-compliance/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="the-full-lrs-dashboards-operations-and-compliance">The Full LRS: Dashboards, Operations and Compliance</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers what the full LRS delivers and costs: teacher, author and admin dashboards, experiments, capacity and cost models, deployment, failure modes and compliance.</p>
+<p>Students learn the mastery heatmap and at-risk roster, content insights, suppression thresholds and reporting duties. After it, they can judge whether a school needs the full LRS.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 13 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Teacher Dashboard</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Admin Interface</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Class Mastery Heatmap</td>
+<td>2</td>
+</tr>
+<tr>
+<td>At-Risk Roster</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Content Insights</td>
+<td>4</td>
+</tr>
+<tr>
+<td>A/B Experiment</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Capacity Model</td>
+<td>72</td>
+</tr>
+<tr>
+<td>Cost Model</td>
+<td>56</td>
+</tr>
+<tr>
+<td>Container Deployment</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Failure Modes</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Compliance Reporting</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Suppression Threshold</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Author Dashboard</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../18-mastery-prediction-and-knowledge-tracing/">Chapter 18: Mastery Prediction and Knowledge Tracing</a></li>
+<li><a href="../20-the-full-lrs-architecture-and-ingestion/">Chapter 20: The Full LRS: Architecture and Ingestion</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">From Stored Evidence to Decisions</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Storing every slider drag is only useful if a teacher, an author or an administrator can act on it. This chapter shows what the full LRS puts on their screens, what it costs to run, and what the law expects of it, so you can tell whether your school needs one. Let's bounce it around!</p>
+</div>
+<p>Chapter 20 followed a statement from a learner's click to durable storage. This chapter asks what happens next, and it stays honest about a limit that Chapter 20 already stated. The companion repository contains a working gateway, database files, a demo seeder and three prototype dashboards, but no MicroSim yet posts statements to a store. Everything below therefore describes a design with some working pieces, and each section says which pieces exist. A table near the end collects that status in one place.</p>
+<h2 id="what-each-person-needs-to-see">What Each Person Needs to See</h2>
+<p>The full LRS serves three audiences from one statement log, and the specification gives each audience a single question. A district administrator asks whether every school is covered, on schedule and compliant. A teacher asks which students need help right now, and on what. A textbook author asks whether a change to the content actually worked. The dashboards, reports and tools in this chapter are different aggregations of the same stored evidence, shaped to answer one of those three questions.</p>
+<p>Separate from the dashboards sits the <strong>Admin Interface</strong>, the set of screens that change how the system is configured instead of reporting what learners did. The specification defines nine of them, among them district management, textbook deployment, credential issuing, user access, privacy and compliance, and audit monitoring. Access to every screen is governed by six roles: system administrator, district administrator, school administrator, teacher (called instructor in the specification), textbook author (called author or curriculum) and auditor. The distinction matters for design. A dashboard shows data to someone with a matching scope, while an admin interface lets someone with an elevated role alter access, deployments and policy, so the two are kept apart and gated differently.</p>
+<h2 id="the-teacher-dashboard">The Teacher Dashboard</h2>
+<p>The <strong>Teacher Dashboard</strong> is the specification's pair of screens for the instructor role. The first, My Classes, is a landing page that summarizes one section. The second, Student Detail, opens when a teacher clicks a name and shows nine reports about that one learner. The teacher's view is scoped to the sections that teacher teaches, which is why the privacy rules later in this chapter treat it specially.</p>
+<p>Two reports on My Classes do most of the daily work. The <strong>Class Mastery Heatmap</strong> is a grid with one row per student and one column per concept, where each cell is shaded by that student's estimated mastery of that concept. The estimate comes from the mastery model of Chapter 18, so a dark or light cell is a model output and not a measured fact. Two patterns matter. A dark column means most of the class is struggling with one concept, which points at the content or the teaching. A dark row means one student is struggling broadly, which points at that student.</p>
+<p>The <strong>At-Risk Roster</strong> ranks students by a composite risk score that combines three signals: low overall mastery, days since the student was last active, and the share of attempted concepts whose prerequisites are unmastered. The specification calls the score a weighted combination without fixing the weights. The prototype teacher dashboard in the repository picks its own, which the code applies as 0.45 for low mastery, 0.30 for inactivity and 0.25 for prerequisite gaps. Treat those numbers as one demonstration's choices, not as a validated standard.</p>
+<p>A worked example shows how the arithmetic ranks two students. Inactivity is scaled so that the longest-idle student in the section scores 1, and suppose that is 10 days.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>risk = 0.45 * (1 - mastery) + 0.30 * (days_idle / max_days_idle) + 0.25 * gap_ratio
+
+Student A: mastery 0.40, idle 8 of 10 days, gap_ratio 0.50
+  0.45 * 0.60 + 0.30 * 0.80 + 0.25 * 0.50 = 0.270 + 0.240 + 0.125 = 0.635
+
+Student B: mastery 0.70, idle 0 days, gap_ratio 0.00
+  0.45 * 0.30 + 0.30 * 0.00 + 0.25 * 0.00 = 0.135
+</code></pre></div></td></tr></table></div>
+<p>Student A ranks far above Student B because all three signals point the same way. The weights also mean a single severe signal can lift a student toward the top, which is why a teacher should read the breakdown and not only the rank.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A Flag Is a Hypothesis</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that both the heatmap shade and the risk score sit on top of a mastery estimate, and Chapter 19 explains that no one has yet shown these estimates predict real mastery. Read each flag as a prompt to look at the student, then check it against what you know from the classroom.</p>
+</div>
+<p>The next specification lets you read a heatmap and find its two patterns.</p>
+<h4 id="diagram-class-mastery-heatmap-reader">Diagram: Class Mastery Heatmap Reader</h4>
+<iframe src="../../sims/class-mastery-heatmap-reader/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/class-mastery-heatmap-reader/main.html">Run the Class Mastery Heatmap Reader MicroSim Fullscreen</a></p>
+<details>
+<summary>Class Mastery Heatmap Reader</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> class-mastery-heatmap-reader<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish a concept that most of a class struggles with from a student who struggles broadly, by reading the dark columns and dark rows of a heatmap and by computing an at-risk score.</p>
+<p>Data: a synthetic section of 12 students and 8 concepts with mastery estimates from 0 to 1, generated once from a fixed seed and labeled as synthetic. One concept column is seeded low for most students, and one student row is seeded low for most concepts.</p>
+<p>Layout: the heatmap fills the drawing region, with student names on the left and concept names across the top. A side panel shows the at-risk roster for the same section, sorted by score. Cells shade from light (low mastery) to dark blue (high mastery), and a legend states that shades are model estimates.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Weight on low mastery" from 0 to 1, default 0.45</li>
+<li>Slider "Weight on inactivity" from 0 to 1, default 0.30</li>
+<li>Slider "Weight on prerequisite gaps" from 0 to 1, default 0.25</li>
+<li>Button "Show the pattern", which outlines the weak column and the weak row</li>
+<li>Button "Quiz me", which asks the learner to click the concept the class most needs re-taught</li>
+</ul>
+<p>Interactions: hovering a cell shows the student, concept and estimate. Changing a weight re-sorts the roster immediately, and clicking a roster row highlights that student's heatmap row and lists the three signal values behind the score.</p>
+<p>Responsive design: the canvas width follows the container on window resize, the side panel moves below the heatmap under 600 pixels, and controls remain reachable at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSlider and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="the-author-dashboard-and-content-insights">The Author Dashboard and Content Insights</h2>
+<p>The <strong>Author Dashboard</strong> turns the camera around. Instead of asking how a student is doing, it asks how the textbook is doing, and it is scoped by content, not by district or roster. The specification's role table gives the author the capabilities of viewing content insights and running experiments, with no student-identifying data. Every author report therefore reads aggregated, de-identified evidence, and cross-district aggregation is subject to the same privacy threshold described below.</p>
+<p><strong>Content Insights</strong> is the author's main dashboard, built from eight reports over the same summary vertices used elsewhere. Three of them show the flavor. The page effectiveness report relates a page's dwell time and scroll depth to later mastery of the concepts it covers. The confusing-content finder looks for pages with high dwell time, many revisits and low success on related questions, which is the signature of rereading without understanding. The question health report flags quiz items that are too easy, too hard or unable to tell strong from weak learners apart. For MicroSims specifically, a MicroSim impact report compares the outcomes of learners who used a MicroSim with those who skipped it. Every one of these is correlational, since students choose what to open, and the source chapter says so plainly.</p>
+<p>Correlation cannot settle whether a change caused an improvement, and randomization can. An <strong>A/B Experiment</strong> randomly assigns learners to two versions of the same content, a control and a treatment, and compares an outcome chosen in advance. The design assigns each learner deterministically, by hashing the experiment and the learner together, so a learner never flips between versions mid-test. A check for sample-ratio mismatch compares the actual split with the intended one, and a planned 50/50 split that lands at 55/45 makes every other statistic suspect. Districts can opt out, and opted-out learners always see the control. The prototype author dashboard computes a readout with Cohen's d, a confidence interval and this mismatch check, but its README states that the three experiments it shows are synthetic and that the tool for designing new experiments is not built.</p>
+<h2 id="the-suppression-threshold">The Suppression Threshold</h2>
+<p>Dashboards that aggregate people can reveal individuals. The <strong>Suppression Threshold</strong> is the minimum group size below which the design refuses to show a number, and its default is 10 students, configurable by each district. A cell built from seven students risks identifying one of them by elimination, so the design's single privacy filter blanks it out.</p>
+<p>Hiding one cell is not enough, and the second rule shows why. A worked example makes the failure concrete. A table reports a row total of 45 students across four mastery bands, with counts of 14, 9, 22 and 0 students. Suppose the threshold is 10, so the cell holding 9 is hidden. A reader who sees 14, 22, 0 and the total of 45 computes the hidden cell as 45 minus 36, which is 9. <strong>Complementary suppression</strong> prevents that by hiding a second cell in the same row, so the total no longer determines either one. The design specification states the stakes bluntly, noting that a single suppressed cell in a row that publishes its total is arithmetic and not suppression.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Check the Total, Not Just the Cell</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A common trap is to blank the small cell and leave the row total visible, which lets anyone recover the hidden value by subtraction. Before you trust a report, add up its visible cells and compare them with the total, and hide a second cell whenever the subtraction works.</p>
+</div>
+<p>One exemption keeps the rule from breaking the basic report. A teacher looking at their own rostered section already knows those students, so the filter exempts that direct scope and applies full suppression to cross-group, benchmark and de-identified views. As far as a search of the repository shows, the prototype dashboards do not implement this filter, since they read the graph directly. The filter is designed and not built, so nothing here should be presented to a school as enforced.</p>
+<h4 id="diagram-suppression-threshold-lab">Diagram: Suppression Threshold Lab</h4>
+<iframe src="../../sims/suppression-threshold-lab/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/suppression-threshold-lab/main.html">Run the Suppression Threshold Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Suppression Threshold Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> suppression-threshold-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: apply): The learner will apply a suppression threshold and complementary suppression to a small table and predict which cells must be hidden so that no hidden count can be recovered by subtraction.</p>
+<p>Data: a table of four mastery bands (Beginning, Developing, Proficient, Advanced) with student counts and a "Row Total" column, loaded from three presets: "All cells safe", "One small cell", and "Complementary suppression needed".</p>
+<p>Layout: the table occupies the drawing region. Cells at or above the threshold are white with black text. A cell below the threshold is red with a lock symbol, and a cell hidden by complementary suppression is amber with a lock symbol. A text line beneath the table states whether any hidden value can still be recovered.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Threshold" from 5 to 20 in steps of 1, default 10</li>
+<li>Dropdown "Scenario" with the three presets</li>
+<li>Checkbox "Apply complementary suppression" (default off), so the learner can first see the leak</li>
+<li>Checkbox "Show the subtraction", which draws the arithmetic that recovers a hidden cell</li>
+<li>Button "Reset"</li>
+</ul>
+<p>Interactions: with complementary suppression off, the learner sees the recoverable cell highlighted and the subtraction displayed. Turning it on hides a second cell and the leak disappears. Clicking any cell asks the learner to predict whether it will be hidden before the answer is shown.</p>
+<p>Responsive design: the canvas width follows the container on window resize, table columns shrink proportionally, and controls wrap below the table under 500 pixels wide.</p>
+<p>Implementation: p5.js with createSlider, createSelect, createCheckbox and createButton controls, and a describe() call for accessibility.</p>
+</details>
+<h2 id="the-capacity-model">The Capacity Model</h2>
+<p>Before choosing hardware, an operator needs a <strong>Capacity Model</strong>, a set of assumptions and arithmetic that turns an expected number of learners into rates and storage. The design's model starts from a target of 10,000 statements per second sustained, bursting to 50,000. It assumes a mean statement size of about 1.5 KB, an active window of about 10 hours a day, and a duty cycle of about 40 percent of peak, because school activity spikes at period boundaries and idles between them. It also uses a ratio of about 0.1 statements per second per active student.</p>
+<p>A worked example applies those stated assumptions to a smaller deployment. This arithmetic is ours and uses the design's ratios, so it is an illustration and not a measurement. Suppose 3,000 students are active at once.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>rate            = 3,000 students * 0.1 stmt/sec       = 300 stmt/sec
+statements/day  = 300 * 0.40 * 36,000 sec (10 hours)  = 4.32 million
+raw JSON/day    = 4.32 million * 1.5 KB               = about 6.5 GB
+ClickHouse/day  = raw / 10  (design's columnar ratio) = about 0.65 GB
+one school year = 0.65 GB * 180 days                  = about 117 GB
+</code></pre></div></td></tr></table></div>
+<p>The design's own tables check the same arithmetic at two other scales. At 10,000 statements per second it gives about 144 million statements and 216 GB of raw JSON per day. At 1,000 per second, the single-server tier, it gives about 14.4 million statements and 21.6 GB per day. Two facts from the design keep the model manageable. Batching means 10,000 statements per second arrive as only about 100 to 400 HTTP requests per second, and the compression of Chapter 20 keeps graph writes near 2,500 per second even through a fivefold burst, so the burst needs no new hardware because the stream absorbs it.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Convert Every Rate Twice</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+When someone quotes a rate, ask for it per second and per day, and ask which resource it loads. The same 10,000 statements per second means 400 requests at the gateway, 2,500 graph writes and 216 GB of daily storage, and only the last one drives your disk bill.</p>
+</div>
+<h2 id="the-cost-model">The Cost Model</h2>
+<p>A <strong>Cost Model</strong> prices the capacity model. The repository's hardware specification, dated 2026-07-15 and marked as a draft, gives two tiers, and it labels every dollar figure a planning-level estimate from public on-demand cloud pricing and not a quote. Reading it as a decision aid needs the comparison below, which quotes the file.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Configuration</th>
+<th>Estimated cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10,000 statements per second</td>
+<td>Kubernetes, three-node Kafka and ClickHouse, Neo4j cluster, managed Redis and PostgreSQL across three availability zones</td>
+<td>About $10,300 per month on demand, infrastructure only; reserved pricing might bring it toward $6,500 to $7,500</td>
+</tr>
+<tr>
+<td>1,000 statements per second</td>
+<td>One server running several virtual machines, no high availability</td>
+<td>About $1,000 to $2,500 per month to rent a large cloud instance, $300 to $800 for dedicated hosting, or $8,000 to $15,000 upfront to buy</td>
+</tr>
+</tbody>
+</table>
+<p>Three cautions from the same file belong beside the table. First, the large-tier figure leaves out the Neo4j license, because Neo4j Community cannot cluster, and the file calls that cost an open question with a rough placeholder of $3,000 to $8,000 per month. Second, the single-server tier can use Community edition, so that line disappears, but the single server is a single point of failure. Third, the estimates exclude engineering time, support contracts and one-time costs such as migration and security review. The file says the smaller tier is roughly 10 to 20 times cheaper, and it advises moving to the distributed design when sustained ingest nears 3,000 to 5,000 statements per second.</p>
+<h4 id="diagram-capacity-and-cost-explorer">Diagram: Capacity and Cost Explorer</h4>
+<iframe src="../../sims/capacity-cost-explorer/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/capacity-cost-explorer/main.html">Run the Capacity and Cost Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Capacity and Cost Explorer</summary>
+<p>Type: chart
+<strong>sim-id:</strong> capacity-cost-explorer<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: judge): The learner will judge which deployment tier fits a school or district by estimating daily statements and storage from the number of active students and comparing the result with the design's two published cost tiers.</p>
+<p>Data: the capacity assumptions quoted in this chapter (0.1 statements per second per active student, 40 percent duty cycle, 10 active hours, 1.5 KB per statement, columnar ratio of 10) and the two cost ranges from the hardware specification, each labeled with its source and date.</p>
+<p>Layout: a controls panel above two charts. The first is a bar chart of statements per day and raw storage per day. The second is a horizontal range chart of monthly cost for the single-server and distributed tiers, with a marker at the learner's estimated rate.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Active students at peak" from 500 to 100,000 on a logarithmic scale, default 3,000</li>
+<li>Slider "Duty cycle" from 20 to 60 percent, default 40</li>
+<li>Checkbox "Include Neo4j license placeholder" (default off) that adds the $3,000 to $8,000 range to the distributed tier</li>
+<li>Checkbox "Show burst (5x)"</li>
+</ul>
+<p>Interactions: a message under the charts reports the derived statements per second and names the tier whose stated limits the load falls inside, and it warns when the load nears the 3,000 to 5,000 statements per second boundary. Hovering a bar shows its arithmetic.</p>
+<p>Responsive design: the charts resize with the container width and stack vertically under 700 pixels, and every control remains visible at 400 pixels wide.</p>
+<p>Implementation: Chart.js with a controls panel built in HTML and event listeners that update both datasets, and an aria-label on each canvas.</p>
+</details>
+<h2 id="container-deployment">Container Deployment</h2>
+<p><strong>Container Deployment</strong> packages the LRS so an operator runs the same artifact everywhere. The repository builds one container image and selects a role by command, so <code>gateway</code>, <code>processor</code> and the other services are the same image started with different arguments. A Compose file defines the stack and a Makefile wraps the common commands. Four commands, each defined in the Makefile, show the developer path.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>make<span class="w"> </span>stores<span class="w">   </span><span class="c1"># start only the backing services: Redpanda, ClickHouse, Neo4j, vault-db, Redis</span>
+make<span class="w"> </span>up<span class="w">       </span><span class="c1"># build the image and start the core stack, with three processor replicas</span>
+make<span class="w"> </span>seed<span class="w">     </span><span class="c1"># load a demo district, textbook and synthetic statements</span>
+make<span class="w"> </span>smoke<span class="w">    </span><span class="c1"># assert the ingest path</span>
+</code></pre></div></td></tr></table></div>
+<p>Two design choices in the Compose file deserve attention. The gateway depends on the stream and on nothing else, so a ClickHouse restart cannot stop ingestion, and the vault database sits on an internal network that only the identity service joins, which keeps the pseudonym mappings apart. Status matters here as well. The Compose file's own header says the analytics, admin and dashboard roles are deferred, and the command-line entry point in <code>src/lrs/cli.py</code> implements only the gateway, bootstrap and seed commands. The processor, summarizer and identity roles the Compose file names are not built. The three dashboards run separately from a <code>dashboards</code> folder with their own Python environment, reading the seeded graph, which is a prototype and not a deployment.</p>
+<h2 id="failure-modes">Failure Modes</h2>
+<p>A production store must say in advance what happens when a part breaks. The design names twelve <strong>Failure Modes</strong>, and for each it commits to how the failure is detected, what the system does while it lasts and what an operator owes. One rule sorts them. A statement already in Kafka is durable, so losing ClickHouse, Neo4j, the summarizer, Redis or the identity service degrades freshness or speed and heals on recovery, because summaries can be rebuilt from the log. Only an unreachable Kafka can lose data, since a statement that never reached durable storage cannot be reconstructed. The gateway buffers briefly, then returns HTTP 503 with a Retry-After header, and the design makes that the one failure that pages a person immediately.</p>
+<p>The practical lesson concerns the vault. The configuration and backup material sets a recovery point of five minutes for the vault database and treats its loss as the one unrecoverable case, because without its salts every stored pseudonym becomes permanently unlinkable to a real learner. The design's stated recovery objectives, such as one hour and four hours for ClickHouse, are design targets, since no store in the repository yet receives learner data to back up.</p>
+<h4 id="diagram-failure-boundary-explorer">Diagram: Failure Boundary Explorer</h4>
+<iframe src="../../sims/failure-boundary-explorer/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/failure-boundary-explorer/main.html">Run the Failure Boundary Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Failure Boundary Explorer</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> failure-boundary-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the one failure that can lose data from the failures that only degrade freshness or speed, by locating each failing component relative to the durability boundary at Kafka.</p>
+<p>Nodes and edges: seven nodes left to right: Learning Record Provider, Ingestion Gateway, Kafka, Processor, ClickHouse, Summarizer and Neo4j, with a Redis cache attached to the read path. A dashed red line after Kafka is labeled "Only failures before this line can lose data".</p>
+<p>Controls: a dropdown "Fail this component" lists each node, and a button "Restore all" resets the view.</p>
+<p>Interactions: choosing a component turns it gray and shows a panel with what is detected, what the system does meanwhile, and whether data is lost. Choosing Kafka turns the panel red and shows the 503 and Retry-After behavior. Clicking any node shows its role and its status as built or designed.</p>
+<p>Responsive design: the network re-fits to the container width on window resize, and the information panel moves below the network under 600 pixels.</p>
+<p>Implementation: vis-network with fixed positions, physics disabled, and click handlers on every node.</p>
+</details>
+<h2 id="compliance-reporting">Compliance Reporting</h2>
+<p><strong>Compliance Reporting</strong> is the ability of a district to show, on request, who was allowed to see a student's data and how that data can be removed. The design addresses three laws. FERPA, the United States law on education records, makes the district the responsible party. COPPA requires verifiable parental consent before collecting personal information from children under 13. GDPR, the European data protection regulation, popularized the right to erasure. This book gives no legal advice, and a district needs its own counsel to choose a policy profile.</p>
+<p>Two mechanisms make the reporting concrete. The privacy access audit is a report of who queried which student's data and when, drawn from an append-only audit log, and it is a system administrator and auditor screen, not a district administrator's. Erasure follows three steps: void the student's statements, purge the rows and per-student summaries, and delete the pseudonym mapping so the identity can never be re-derived. Only de-identified aggregates survive. All of this is a specification, and no audit log or erasure path has run against real learner data.</p>
+<h2 id="deciding-whether-you-need-the-full-lrs">Deciding Whether You Need the Full LRS</h2>
+<p>The evidence in this chapter suggests a rough test, one that the next two chapters refine. The full LRS earns its cost when many schools or a district need role-scoped dashboards, a system of record, audit trails and formal compliance reporting. It is heavy for one classroom or one author who wants simple feedback, and the design's own smaller tier still assumes a server, backups and someone on call. Chapter 22 describes a lighter alternative that keeps summaries in the learner's browser.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Three Dash prototype dashboards over a seeded graph</td>
+<td>Built as prototypes, with synthetic data and documented scope cuts</td>
+</tr>
+<tr>
+<td>Container image, Compose stack, Makefile</td>
+<td>Built for a laptop; several roles named in it are not built</td>
+</tr>
+<tr>
+<td>Suppression filter, audit log, erasure path, single sign-on</td>
+<td>Designed, not built</td>
+</tr>
+<tr>
+<td>Capacity and cost figures</td>
+<td>Design estimates, not measurements</td>
+</tr>
+<tr>
+<td>Dashboards driven by real MicroSim events</td>
+<td>Not built, since no emitter posts statements yet</td>
+</tr>
+<tr>
+<td>Flags that predict who needs help</td>
+<td>Hoped for, and awaiting the evaluation of Chapter 19</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>The full LRS serves three questions from one statement log: administrators ask about coverage and compliance, teachers ask who needs help, and authors ask whether content worked.</li>
+<li>The <strong>Admin Interface</strong> changes configuration under six roles, and it is kept separate from the dashboards that report on learning.</li>
+<li>The <strong>Teacher Dashboard</strong> offers the <strong>Class Mastery Heatmap</strong> for spotting weak concepts versus weak students and the <strong>At-Risk Roster</strong> for ranking students by a weighted composite score, all resting on unvalidated mastery estimates.</li>
+<li>The <strong>Author Dashboard</strong> and <strong>Content Insights</strong> evaluate content without student identity, and an <strong>A/B Experiment</strong> uses random assignment to support causal claims that correlation cannot.</li>
+<li>A <strong>Suppression Threshold</strong> of 10 students by default, plus complementary suppression, protects small groups, and it is designed but not built.</li>
+<li>The <strong>Capacity Model</strong> and <strong>Cost Model</strong> turn learner counts into rates, storage and monthly estimates, with about $10,300 per month for the large tier and $300 to $2,500 for the single-server tier.</li>
+<li><strong>Container Deployment</strong> uses one image with many roles, and <strong>Failure Modes</strong> are organized around the durability boundary at Kafka.</li>
+<li><strong>Compliance Reporting</strong> rests on an audit log and an erasure path, and it is not legal advice.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Judge the Full LRS</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now read a class heatmap and at-risk roster with the right caution, apply a suppression threshold to a table, size a deployment from a student count, and say which parts of the full LRS are built. That is exactly the evidence you need to decide whether a school should run one.</p>
+</div>
+<p>The next chapter turns to LRS-Lite, the compact alternative that summarizes evidence in the learner's own browser.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 20. The Full LRS: Architecture and Ingestion">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                20. The Full LRS: Architecture and Ingestion
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-footer__link md-footer__link--next" aria-label="Next: 22. LRS-Lite: Compact Summaries and Browser Storage">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                22. LRS-Lite: Compact Summaries and Browser Storage
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

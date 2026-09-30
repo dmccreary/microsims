@@ -1,0 +1,195 @@
+{
+  "title": "Gateway Request Simulator",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "xAPI",
+    "Ingestion Gateway",
+    "Statement Validation",
+    "HTTP"
+  ],
+  "description": "A p5.js simulator in which learners build a batch of up to five xAPI statements, set the bearer token and broker state, predict whether the ingestion gateway accepts or rejects the batch, and watch the five request steps return 200, 400 with every violation, 401 or 503 with Retry-After.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/gateway-request-simulator/",
+  "canvasHeight": 620,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The ingestion gateway's five request steps and the all-or-nothing batch",
+    "learningObjectives": [
+      "The learner will demonstrate the gateway's five request steps and predict whether a batch is accepted or rejected in full."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "demonstrate",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The parts of an xAPI statement and the three MicroSim verbs (Chapter 16)",
+      "The producer contract rules on verbs, results, grouping and page IRIs (Chapter 16)",
+      "HTTP status codes 200, 400, 401 and 503"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "All actions use native buttons, a select and checkboxes; pass and fail are shown with check and cross marks and text as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "addValidButton",
+        "type": "button",
+        "label": "Add valid statement",
+        "purpose": "Add a contract-conformant statement card"
+      },
+      {
+        "id": "addBrokenButton",
+        "type": "button",
+        "label": "Add broken statement",
+        "purpose": "Add a card with the chosen defect"
+      },
+      {
+        "id": "defectSelect",
+        "type": "select",
+        "label": "Defect",
+        "options": [
+          "wrong verb",
+          "answered without success",
+          "missing grouping",
+          "page IRI with a fragment"
+        ],
+        "purpose": "Choose the contract violation"
+      },
+      {
+        "id": "tokenBox",
+        "type": "checkbox",
+        "label": "Token is valid",
+        "default": true,
+        "purpose": "Control the authenticate step"
+      },
+      {
+        "id": "brokerBox",
+        "type": "checkbox",
+        "label": "Broker reachable",
+        "default": true,
+        "purpose": "Control the produce step"
+      },
+      {
+        "id": "predictBox",
+        "type": "checkbox",
+        "label": "Predict first",
+        "default": true,
+        "purpose": "Require a prediction before the result is revealed"
+      },
+      {
+        "id": "sendButton",
+        "type": "button",
+        "label": "Send batch",
+        "purpose": "Run the batch through the five steps"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Clear the batch and the queue"
+      },
+      {
+        "id": "acceptedButton",
+        "type": "button",
+        "label": "Accepted",
+        "purpose": "Predict that the batch will be accepted"
+      },
+      {
+        "id": "rejectedButton",
+        "type": "button",
+        "label": "Rejected",
+        "purpose": "Predict that the batch will be rejected"
+      },
+      {
+        "id": "cardClick",
+        "type": "clickable canvas cards",
+        "label": "Statement cards",
+        "purpose": "Remove a card from the batch"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-observe-explain with immediate feedback",
+    "interactionPattern": "Build a batch, predict the outcome, step through the pipeline, fix and resend",
+    "keyQuestions": [
+      "Why is a batch with one broken statement rejected in full?",
+      "Why does authentication come before validation?",
+      "When may the gateway answer 503, and why is that the one page-worthy failure?"
+    ],
+    "commonMisconceptions": [
+      "Valid statements in a rejected batch are stored anyway",
+      "The gateway stops at the first violation",
+      "A 200 means the statement is already in the analytics database"
+    ],
+    "assessmentOpportunities": [
+      "Prediction accuracy across several batches",
+      "Naming the index, field and contract section of each violation",
+      "Explaining the order of the five steps"
+    ]
+  },
+  "search": {
+    "tags": [
+      "LRS",
+      "ingestion gateway",
+      "xAPI",
+      "all-or-nothing batch",
+      "HTTP status codes",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "flowchart"
+    ]
+  },
+  "chapter": "20-the-full-lrs-architecture-and-ingestion",
+  "simulation": {
+    "modelType": "Rule-based state machine",
+    "variables": [
+      "batch of statements",
+      "token validity",
+      "broker reachability",
+      "response code"
+    ],
+    "equations": [
+      "accepted if token valid AND every statement passes the contract AND the queue acknowledges"
+    ],
+    "assumptions": [
+      "Rules and messages mirror the repository gateway's validation.py and app.py",
+      "A down broker is modeled as a local producer queue that fills and cannot drain"
+    ],
+    "limitations": [
+      "Only four defects and five templates are modeled",
+      "Statement ids are illustrative, not real UUIDv7 values",
+      "The version-header check is not modeled"
+    ]
+  }
+}

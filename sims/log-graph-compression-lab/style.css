@@ -1,0 +1,79 @@
+/* Log and Graph Compression Lab - layout
+   Fixed total height (CANVAS_HEIGHT 660): title, two charts, controls, note.
+   The charts take whatever height is left, so the controls and note can wrap on narrow screens.
+   Under 600 px the two charts stack vertically. */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+main { display: block; }
+
+#app {
+    height: 660px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+    background: white;
+}
+#title-row {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2px 10px;
+    padding: 7px 10px 3px 10px;
+    background: aliceblue;
+}
+#title { font-size: 19px; font-weight: bold; }
+#badge { font-size: 12px; color: #6b4a00; background: #fff4d6; border: 1px solid #e0b64c; border-radius: 10px; padding: 1px 8px; }
+
+#charts {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    padding: 2px 6px 4px 4px;
+    background: aliceblue;
+    border-bottom: 1px solid silver;
+}
+.chart-box { flex: 1 1 0; min-width: 0; min-height: 0; position: relative; }
+.chart-box canvas { width: 100% !important; height: 100% !important; }
+
+#controls {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 18px;
+    padding: 6px 10px 2px 10px;
+}
+.ctl { display: flex; align-items: center; gap: 8px; min-height: 32px; font-size: 15px; flex: 1 1 340px; }
+.ctl label { flex: 0 0 auto; font-weight: bold; }
+.ctl .val { flex: 0 0 72px; text-align: right; }
+.ctl input[type="range"] { flex: 1 1 auto; min-width: 90px; }
+.ctl select { flex: 1 1 auto; min-width: 0; max-width: 100%; font-size: 14px; }
+.ctl label.check { font-weight: normal; }
+input:focus-visible, select:focus-visible { outline: 3px solid orange; outline-offset: 1px; }
+
+#note {
+    flex: 0 0 auto;
+    margin: 4px 10px 8px 10px;
+    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 1.35;
+    background: white;
+    border: 1px solid lightsteelblue;
+    border-left: 6px solid #0072B2;
+    border-radius: 6px;
+}
+#note b { color: #003f63; }
+#note .src { color: #555; font-size: 12px; font-style: italic; }
+
+@media (max-width: 599px) {
+    #charts { flex-direction: column; }
+    #title { font-size: 16px; }
+    #badge { font-size: 11px; }
+    #controls { gap: 0 12px; }
+    .ctl { flex: 1 1 100%; font-size: 14px; min-height: 30px; }
+    .ctl .val { flex: 0 0 66px; }
+    #note { font-size: 13px; }
+}

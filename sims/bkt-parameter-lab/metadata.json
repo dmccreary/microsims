@@ -1,0 +1,199 @@
+{
+  "title": "BKT Parameter Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "Knowledge Tracing",
+    "Bayesian Statistics",
+    "Mastery Prediction",
+    "Probability"
+  ],
+  "description": "A p5.js lab in which learners set the four Bayesian knowledge tracing parameters and a sequence of correct and incorrect answers, watch the mastery estimate P(L) update after each answer with the conditioning and learning-step values shown, and judge when it first reaches a mastery threshold.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/bkt-parameter-lab/",
+  "canvasHeight": 770,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Bayesian knowledge tracing parameters, update and mastery threshold",
+    "learningObjectives": [
+      "The learner will calculate the mastery estimate after each answer in a sequence by choosing the four BKT parameters, and will judge when the estimate first reaches a chosen mastery threshold."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "20-25 minutes",
+    "prerequisites": [
+      "Introductory probability and Bayes' rule",
+      "BKT parameters and the two-step update (Chapter 18)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 770
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Native sliders, buttons and checkbox; arrow keys select an attempt and F flips it; tiles carry check/cross glyphs as well as color-blind-safe colors"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "l0Slider",
+        "type": "slider",
+        "label": "Initial knowledge P(L0)",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "default": 0.3,
+        "purpose": "Probability of mastery before any evidence"
+      },
+      {
+        "id": "tSlider",
+        "type": "slider",
+        "label": "Learning rate p_t",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "default": 0.15,
+        "purpose": "Chance an unmastered learner masters the concept between opportunities"
+      },
+      {
+        "id": "gSlider",
+        "type": "slider",
+        "label": "Guess p_g",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "default": 0.2,
+        "purpose": "Chance of a correct answer without mastery"
+      },
+      {
+        "id": "sSlider",
+        "type": "slider",
+        "label": "Slip p_s",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "default": 0.1,
+        "purpose": "Chance of an incorrect answer despite mastery"
+      },
+      {
+        "id": "thrSlider",
+        "type": "slider",
+        "label": "Mastery threshold",
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "default": 0.95,
+        "purpose": "Estimate at which the concept is treated as mastered"
+      },
+      {
+        "id": "tiles",
+        "type": "clickable canvas tiles",
+        "label": "Answer tiles",
+        "purpose": "Flip an answer between correct and incorrect"
+      },
+      {
+        "id": "addRightButton",
+        "type": "button",
+        "label": "Add correct",
+        "purpose": "Append a correct answer"
+      },
+      {
+        "id": "addWrongButton",
+        "type": "button",
+        "label": "Add incorrect",
+        "purpose": "Append an incorrect answer"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Restore the default sequence and parameters"
+      },
+      {
+        "id": "showBox",
+        "type": "checkbox",
+        "label": "Show intermediate numbers",
+        "default": false,
+        "purpose": "Show conditioning and learning-step values for the selected attempt"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Calculate-then-check with worked intermediate values",
+    "interactionPattern": "Parameter sliders with an editable answer sequence and live chart",
+    "keyQuestions": [
+      "How does a higher guess parameter change the effect of a correct answer?",
+      "Why does one wrong answer lower but not zero the estimate?",
+      "At which attempt does the estimate first reach the threshold, and how does the threshold choice change that?"
+    ],
+    "commonMisconceptions": [
+      "The estimate is the fraction of correct answers",
+      "A single wrong answer proves the concept is not mastered",
+      "The mastery threshold is a fact about the learner rather than a policy"
+    ],
+    "assessmentOpportunities": [
+      "Hand calculation of one update, checked against the lab",
+      "Stating the first attempt at which a threshold is reached"
+    ]
+  },
+  "search": {
+    "tags": [
+      "Bayesian knowledge tracing",
+      "BKT",
+      "mastery threshold",
+      "guess",
+      "slip",
+      "learning rate",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "chart",
+      "simulation"
+    ]
+  },
+  "chapter": "18-mastery-prediction-and-knowledge-tracing",
+  "simulation": {
+    "model": "Standard four-parameter Bayesian knowledge tracing (two-state hidden Markov model, no forgetting)",
+    "variables": [
+      "P(L0)",
+      "p_t",
+      "p_g",
+      "p_s",
+      "mastery threshold",
+      "answer sequence"
+    ],
+    "equations": [
+      "P(L|correct) = P(L)(1-p_s) / (P(L)(1-p_s) + (1-P(L))p_g)",
+      "P(L|incorrect) = P(L)p_s / (P(L)p_s + (1-P(L))(1-p_g))",
+      "P(L_next) = P(L|obs) + (1 - P(L|obs)) p_t"
+    ],
+    "assumptions": [
+      "Illustrative default parameters, not fitted to data",
+      "No forgetting parameter"
+    ]
+  }
+}

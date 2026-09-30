@@ -1,0 +1,134 @@
+{
+  "title": "Faceted Filter Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Faceted Search",
+    "Metadata",
+    "Search",
+    "Boolean Logic"
+  ],
+  "description": "A p5.js faceted search lab over a 300-record sample of the MicroSim catalog. Learners toggle Subject, Framework and Bloom level chips with live counts, switch within-facet logic between OR and AND, watch the records-remaining bar and title list, and predict the count before each change. Records with no value appear under (missing).",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/faceted-filter-lab/",
+  "canvasHeight": 650,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Using facets and within-facet OR/AND logic to narrow a catalog",
+    "learningObjectives": [
+      "The learner will use facet selections to narrow a sample of the MicroSim catalog to a short list, and will predict how switching a facet between OR and AND logic changes the count before checking the result."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "use",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Faceted search and the search index (Chapter 15)",
+      "Bloom's taxonomy levels (Chapter 3)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 650
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)",
+      "sample.json (300 records from search-microsims docs/search/microsims-data.json)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "The canvas is focusable: Tab and Shift+Tab move between chips, Space toggles; selected chips differ by fill, border and text color; counts are shown as numbers"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "chips",
+        "type": "clickable canvas chips",
+        "label": "Facet value chips",
+        "purpose": "Toggle a value in the Subject, Framework or Bloom level facet"
+      },
+      {
+        "id": "modeButton",
+        "type": "toggle button",
+        "label": "Within a facet: OR / AND",
+        "purpose": "Choose OR or AND logic inside each facet (facets always combine with AND)"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset filters",
+        "purpose": "Clear every selection"
+      },
+      {
+        "id": "predictButton",
+        "type": "button",
+        "label": "Predict first",
+        "purpose": "Hide counts until the learner types an expected count and makes one change"
+      },
+      {
+        "id": "predictInput",
+        "type": "number input",
+        "label": "Predicted count",
+        "purpose": "The learner's expected number of records"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Hands-on practice with real catalog data and a predict-then-check gate",
+    "interactionPattern": "Faceted filter with live counts and prediction",
+    "keyQuestions": [
+      "What happens to the count when two values in one facet switch from OR to AND?",
+      "Why does AND within Framework always give zero?",
+      "How many records does a Bloom level filter hide because the field is missing?"
+    ],
+    "commonMisconceptions": [
+      "Selecting more values always narrows the result",
+      "A facet count is the size of the whole result",
+      "Missing metadata is harmless for search"
+    ],
+    "assessmentOpportunities": [
+      "Reaching a short list with two or more facets",
+      "Direction of predicted change for OR to AND",
+      "Explaining zero results for AND within a single-valued facet"
+    ]
+  },
+  "search": {
+    "tags": [
+      "faceted search",
+      "facets",
+      "OR",
+      "AND",
+      "catalog",
+      "metadata quality",
+      "prediction",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "data-visualization",
+      "simulation"
+    ]
+  },
+  "chapter": "15-metadata-search-and-reuse",
+  "dataSources": [
+    "search-microsims repository, docs/search/microsims-data.json (3,764 records on 2026-09-30); 300-record sample with seed 2026 in sample.json"
+  ]
+}

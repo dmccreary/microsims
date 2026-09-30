@@ -1,0 +1,85 @@
+{
+  "title": "Canvas Height Calculator",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["MicroSim Anatomy", "Canvas Height", "Iframe Embedding", "Width-Responsive Design"],
+  "description": "Interactive p5.js calculator in which learners set a model MicroSim's drawHeight, controlHeight and graphHeight, compute CANVAS_HEIGHT and the iframe height (CANVAS_HEIGHT + 2), and see how many pixels and which controls a too-short iframe hides.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/canvas-height-calculator/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 660,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Technology",
+    "topic": "Canvas height constant and iframe height",
+    "learningObjectives": [
+      "Calculate the canvas height and the iframe height for a MicroSim from its region heights.",
+      "Detect when an iframe is too short to show a MicroSim's controls and state how many pixels are hidden."
+    ],
+    "bloomsTaxonomy": ["Apply"],
+    "bloomVerb": "calculate",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Draw region and control region of a MicroSim canvas",
+      "Basic understanding of HTML iframes"
+    ],
+    "concepts": ["Canvas Height Constant", "Draw Region", "Control Region", "Iframe Height"],
+    "chapter": "02-anatomy-of-a-microsim"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 660
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "slider", "label": "drawHeight", "min": 200, "max": 700, "step": 10, "default": 480},
+      {"type": "slider", "label": "controlHeight", "min": 30, "max": 150, "step": 5, "default": 50},
+      {"type": "slider", "label": "graphHeight", "min": 0, "max": 250, "step": 10, "default": 0},
+      {"type": "slider", "label": "iframe height", "min": 200, "max": 1110, "step": 1, "default": 532},
+      {"type": "button", "label": "Set iframe correctly"},
+      {"type": "checkbox", "label": "Show H-Bridge numbers", "default": false}
+    ]
+  },
+  "simulation": {
+    "modelType": "Arithmetic calculator with visual clipping model",
+    "variables": ["drawHeight", "controlHeight", "graphHeight", "iframeHeight"],
+    "equations": [
+      "CANVAS_HEIGHT = drawHeight + controlHeight + graphHeight",
+      "iframe height = CANVAS_HEIGHT + 2",
+      "hidden pixels = max(0, CANVAS_HEIGHT + 2 - iframe height)"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked example followed by predict-then-check practice",
+    "interactionPattern": "Parameter sliders with a calculator readout",
+    "keyQuestions": [
+      "Where do the numbers 530 and 532 in the H-Bridge MicroSim come from?",
+      "What does a reader lose when the iframe is 40 pixels shorter than CANVAS_HEIGHT + 2?"
+    ],
+    "commonMisconceptions": [
+      "The iframe height equals the drawHeight alone.",
+      "The iframe will grow to fit the MicroSim automatically.",
+      "The 2 extra pixels can be dropped without consequence."
+    ],
+    "assessmentOpportunities": [
+      "Calculate CANVAS_HEIGHT and the iframe height for three new designs before pressing Set iframe correctly.",
+      "State how many pixels are hidden for a given canvas and iframe height."
+    ]
+  }
+}

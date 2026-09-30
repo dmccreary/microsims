@@ -1,0 +1,15 @@
+{
+  "sim_id": "partition-key-simulator",
+  "diagram_name": "Partition Key Simulator",
+  "chapter_number": 20,
+  "chapter_title": "\"The Full LRS: Architecture and Ingestion\"",
+  "chapter_dir": "20-the-full-lrs-architecture-and-ingestion",
+  "chapter_rel_dir": "chapters/20-the-full-lrs-architecture-and-ingestion",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Compare",
+  "learning_objective": "The learner will compare keying by district with keying by district and learner, in terms of per-partition load and per-learner ordering.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** partition-key-simulator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: compare): The learner will compare keying by district with keying by district and learner, in terms of per-partition load and per-learner ordering.\n\nLayout: the drawing region shows a stream of colored statement dots (one color per learner) entering from the left, a row of partition lanes in the middle (default 6) and a consumer on the right that reads each lane in order. A load bar under each lane shows how many statements it holds. The control region is below.\n\nControls:\n\n- Radio buttons \"Key: district only\" and \"Key: district and learner\" (default the second)\n- Slider \"Learners\" from 3 to 60, default 12, and slider \"Districts\" from 1 to 4, default 2\n- Slider \"Partitions\" from 2 to 12, default 6\n- Button \"Send burst\" that emits 60 statements, and a \"Pause\" button\n\nBehavior: each dot is routed by hashing the chosen key. With the district-only key, all of a district's dots land in one lane and its load bar overflows a red threshold line. With the learner key, load spreads evenly, and each learner's dots stay in one lane in their original order. Clicking a learner highlights the order in which the consumer read that learner's statements.\n\nResponsive design: the canvas width follows the container width on every window resize, lane count adapts to the width, and controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createRadio, createSlider and createButton positioned relative to the drawing height, and a simple deterministic string hash. Include describe() for accessibility."
+}

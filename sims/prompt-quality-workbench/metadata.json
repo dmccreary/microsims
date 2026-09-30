@@ -1,0 +1,78 @@
+{
+  "title": "Prompt Quality Workbench",
+  "description": "Learners toggle the six clauses of a MicroSim generation prompt (skill, specification, version pin, output files, layout, tie-breaking rule) and see which decisions each omission hands to the model and which Chapter 5 failure modes it makes more likely, weighted by the difficulty of the request.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Prompt Design", "AI-Assisted Code Generation", "MicroSim Generation", "Instructional Technology"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/prompt-quality-workbench/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 655,
+  "chapter": "05-generating-microsims-with-ai-skills",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Instructional Technology",
+    "topic": "Prompt design for MicroSim generation",
+    "learningObjectives": [
+      "The learner will critique a prompt by identifying which decisions it leaves to the model and which failure modes those open decisions make more likely."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "critique",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Specification blocks and prompt design (Chapter 5)",
+      "Generation failure modes table (Chapter 5)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 655},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "dataFiles": ["data.json"],
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": true}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Scenario", "options": ["Easy: bouncing ball, one slider", "Medium: pendulum period explorer", "Hard: projectile lab with a live chart"], "default": "Medium: pendulum period explorer"},
+      {"type": "button", "label": "Reset", "action": "Restore the starting prompt (skill, specification and layout clauses on)"},
+      {"type": "checkbox", "label": "Skill", "default": true},
+      {"type": "checkbox", "label": "Spec", "default": true},
+      {"type": "checkbox", "label": "Version pin", "default": false},
+      {"type": "checkbox", "label": "Output files", "default": false},
+      {"type": "checkbox", "label": "Layout", "default": true},
+      {"type": "checkbox", "label": "Tie-break", "default": false}
+    ],
+    "hover": "Hovering a clause card shows an example of the clause; clicking a card toggles it."
+  },
+  "simulation": {
+    "modelType": "Rule-based lookup",
+    "variables": ["clause on/off states", "scenario", "per-scenario risk level for each decision"],
+    "assumptions": ["Each clause removes exactly one decision from the model", "Links from decisions to failure modes are a teaching heuristic, not measured probabilities"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Critique by manipulation: remove a clause and observe which decisions and risks open up",
+    "keyQuestions": [
+      "Which decision does this prompt leave to the model?",
+      "Which failure mode would you test for first, and why?",
+      "Why does a missing clause matter more for a harder request?"
+    ],
+    "commonMisconceptions": [
+      "A longer prompt is always a better prompt",
+      "An open decision guarantees the linked failure",
+      "The specification block alone makes the other clauses unnecessary"
+    ],
+    "assessmentOpportunities": [
+      "Name the open decisions in a given prompt and their linked failure modes",
+      "Justify which clause to add first for a given request"
+    ]
+  }
+}

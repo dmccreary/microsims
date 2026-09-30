@@ -1,0 +1,15 @@
+{
+  "sim_id": "lite-semester-storage-estimator",
+  "diagram_name": "Semester Storage Estimator",
+  "chapter_number": 22,
+  "chapter_title": "\"LRS-Lite: Compact Summaries and Browser Storage\"",
+  "chapter_dir": "22-lrs-lite-compact-summaries-and-browser-storage",
+  "chapter_rel_dir": "chapters/22-lrs-lite-compact-summaries-and-browser-storage",
+  "library": "Chart.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "the learner will calculate the statement count and storage footprint of a semester from activity assumptions, and judge how much headroom remains under a 10 MB limit.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: chart\n**sim-id:** lite-semester-storage-estimator<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Apply, calculate): the learner will calculate the statement count and storage footprint of a semester from activity assumptions, and judge how much headroom remains under a 10 MB limit.\n\nControls:\n\n- Slider: page reads per active day (0 to 20, default 6).\n- Slider: sim sessions per active day (0 to 12, default 4).\n- Slider: quiz answers per active day (0 to 40, default 15).\n- Slider: active study days (10 to 120, default 90).\n- Slider: slider drags per sim session, used only in Full mode (0 to 100, default 40).\n- Toggle: emission mode, Summary or Full.\n\nData and calculation:\n\n- Summary mode statements per day equals reads plus sim sessions plus answers.\n- Full mode statements per day equals reads plus answers plus sim sessions times (drags plus 2), an approximation matching the design's model.\n- Raw size equals statements times 980 bytes. Gzip size equals raw size divided by 10, labelled as the design's approximate ratio.\n\nChart: a bar chart with two bars, raw MB and gzipped MB, and a horizontal reference line at 10 MB. Hovering a bar shows the exact value and the formula that produced it. A caption states that the figures are modelled from synthetic statements and not from real learners.\n\nInteraction: every control change re-renders the chart and shows the headroom multiple (10 MB divided by gzipped MB). A \"Load design cases\" button snaps the controls to each of the four cases in the table.\n\nLayout: chart above, controls below, with the readout to the right on wide screens and beneath on narrow ones. The layout must be width-responsive and redraw on window resize.\n\nImplementation: Chart.js with plain JavaScript controls."
+}

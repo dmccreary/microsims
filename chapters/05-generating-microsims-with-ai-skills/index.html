@@ -1,0 +1,3764 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how the MicroSim generator skill turns specification blocks and prompts into working MicroSims, and how to refine, review and debug the results.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/05-generating-microsims-with-ai-skills/">
+      
+      
+        <link rel="prev" href="../04-choosing-a-microsim-type/">
+      
+      
+        <link rel="next" href="../06-p5js-microsims/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Generating MicroSims with AI Skills - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Generating MicroSims with AI Skills - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how the MicroSim generator skill turns specification blocks and prompts into working MicroSims, and how to refine, review and debug the results." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/05-generating-microsims-with-ai-skills/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/05-generating-microsims-with-ai-skills/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Generating MicroSims with AI Skills - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how the MicroSim generator skill turns specification blocks and prompts into working MicroSims, and how to refine, review and debug the results." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/05-generating-microsims-with-ai-skills/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#generating-microsims-with-ai-skills" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generating MicroSims with AI Skills
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-generator-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Generator Skill
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Generator Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-generator-skill-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Generator Skill Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code-and-skill-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code and Skill Invocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-agent-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agent Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Agent Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-batch-generation-workflow-stepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Batch Generation Workflow Stepper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-in-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human in the Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generation-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-specification-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Specification Block
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Specification Block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-specification-and-drawing-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram Specification and Drawing Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagram Specification and Drawing Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-specification-block-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Specification Block Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompt Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-prompt-and-rules-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Prompt and Rules File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Prompt and Rules File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prompt-quality-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Prompt Quality Workbench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iterative Refinement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-generated-code-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where Generated Code Goes Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where Generated Code Goes Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-generation-failure-mode-triage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Generation Failure Mode Triage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hallucinated-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hallucinated API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-version-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Version Drift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p5js-2x-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        p5.js 2.x Migration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="p5.js 2.x Migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-p5js-2x-migration-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: p5.js 2.x Migration Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-ai-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging AI Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging AI Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-p5js-web-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The p5.js Web Editor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-review-of-ai-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Review of AI Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducible-generation-and-token-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproducible Generation and Token Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-the-chapter-to-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting the Chapter to Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-generator-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Generator Skill
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Generator Skill">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-generator-skill-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Generator Skill Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code-and-skill-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code and Skill Invocation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-agent-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agent Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Agent Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-batch-generation-workflow-stepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Batch Generation Workflow Stepper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-in-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human in the Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generation-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generation Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-specification-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Specification Block
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Specification Block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-specification-and-drawing-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram Specification and Drawing Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diagram Specification and Drawing Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-specification-block-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Specification Block Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prompt Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-prompt-and-rules-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Prompt and Rules File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Prompt and Rules File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prompt-quality-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Prompt Quality Workbench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterative-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iterative Refinement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-generated-code-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where Generated Code Goes Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Where Generated Code Goes Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-generation-failure-mode-triage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Generation Failure Mode Triage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hallucinated-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hallucinated API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#library-version-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Version Drift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p5js-2x-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        p5.js 2.x Migration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="p5.js 2.x Migration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-p5js-2x-migration-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: p5.js 2.x Migration Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-ai-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging AI Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging AI Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-p5js-web-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The p5.js Web Editor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-review-of-ai-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Review of AI Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reproducible-generation-and-token-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reproducible Generation and Token Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-the-chapter-to-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting the Chapter to Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/05-generating-microsims-with-ai-skills/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="generating-microsims-with-ai-skills">Generating MicroSims with AI Skills</h1>
+<h2 id="summary">Summary</h2>
+<p>Explains how AI skills and agents generate MicroSims from prompts and specifications, and how to refine, review and debug the results.</p>
+<p>The chapter covers the generator skill, specification blocks, prompt design, iterative refinement and the failure modes of AI-written code such as hallucinated APIs and library drift. After it, students can generate and repair a MicroSim reliably.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 24 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MicroSim Generator Skill</td>
+<td>73</td>
+</tr>
+<tr>
+<td>Skill Reference Guide</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Skill Template Asset</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Specification Block</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Diagram Specification</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Drawing Specification</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Prompt Design</td>
+<td>12</td>
+</tr>
+<tr>
+<td>System Prompt</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Rules File</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Iterative Refinement</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Debugging AI Code</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Code Review of AI Output</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Skill Invocation</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Agent Workflow</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Human in the Loop</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Generation Log</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hallucinated API</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Library Version Drift</td>
+<td>3</td>
+</tr>
+<tr>
+<td>p5.js 2.x Migration</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Reproducible Generation</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Generation Failure Mode</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Token Cost</td>
+<td>2</td>
+</tr>
+<tr>
+<td>p5.js Web Editor</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">From Idea to Working MicroSim</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Up to now you have learned what a MicroSim is, what it is made of, what it should teach and which type fits. This chapter is where you actually make one, and where you learn to fix the odd mistakes your AI partner will make along the way. Let's bounce it around!</p>
+</div>
+<p>The earlier chapters gave you a design vocabulary. This chapter turns that vocabulary into a working procedure: you write a precise specification, hand it to an AI agent that carries a generator skill, inspect what comes back, and repair it. We begin with the skill itself, then look at the agent that runs it and the specification it reads. We then turn to the prompts that steer the agent, the loop of refinement that follows, and the specific ways in which AI-written code fails. The chapter closes with the bookkeeping that makes generation repeatable and affordable.</p>
+<h2 id="the-generator-skill">The Generator Skill</h2>
+<p>Chapter 1 defined an AI skill as a packaged set of instructions and reference material that an AI agent loads to perform a specialized task. The <strong>MicroSim Generator Skill</strong> is the skill this book relies on to create MicroSims. It lives in the <code>ibook-skills</code> repository as the <code>microsim-generator</code> skill, and its own description calls it a meta-skill: it does not know how to draw every kind of MicroSim itself, but it routes a request to the specialized generator that does. The routing step is the one you studied in Chapter 4. The skill states that it consolidates 17 individual generator skills into one entry point, and it adds six Python utilities that automate the repetitive parts of a batch run, such as parsing specifications and scaffolding directories.</p>
+<p>A skill is not one file but a small folder with three kinds of parts, and the names matter because you will refer to them when you debug or extend the skill.</p>
+<ul>
+<li>The <strong>entry file</strong>, <code>SKILL.md</code>, holds the skill's name, its description and the numbered procedure the agent follows.</li>
+<li>A <strong>skill reference guide</strong> is a document in the skill's <code>references/</code> folder that teaches the agent how to build one family of MicroSims. The p5.js guide, <code>p5-guide.md</code>, runs to 1,238 lines and covers layout formulas, control patterns and common bugs. Other guides cover charts, timelines, maps and the remaining types.</li>
+<li>A <strong>skill template asset</strong> is a working example file in the skill's <code>assets/</code> folder that the agent copies structurally. For p5.js, the templates folder holds <code>bouncing-ball.js</code>, <code>main-template.html</code>, <code>index-template.md</code> and <code>metadata-template.json</code>. The p5.js guide marks reading these files as required before generating any p5.js MicroSim and tells the agent to copy the structural patterns of <code>bouncing-ball.js</code> exactly.</li>
+</ul>
+<p>Reference guides and template assets do different jobs. A guide states rules in prose, and a template shows those rules working in code. Together they push the agent toward the layout and naming conventions you met in Chapter 2, such as <code>canvasWidth</code>, <code>drawHeight</code> and <code>controlHeight</code>, instead of letting it invent a new structure each time. The table below summarizes the parts.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Where it lives</th>
+<th>What it gives the agent</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entry file</td>
+<td><code>SKILL.md</code></td>
+<td>The procedure and the routing table</td>
+<td>Steps 0 to 9 of the batch workflow</td>
+</tr>
+<tr>
+<td>Reference guide</td>
+<td><code>references/</code></td>
+<td>Rules and patterns for one MicroSim family</td>
+<td><code>p5-guide.md</code>, <code>chartjs-guide.md</code></td>
+</tr>
+<tr>
+<td>Template asset</td>
+<td><code>assets/templates/</code></td>
+<td>Working code to copy structurally</td>
+<td><code>bouncing-ball.js</code>, <code>main-template.html</code></td>
+</tr>
+<tr>
+<td>Utility scripts</td>
+<td>The <code>microsim-utils</code> folder</td>
+<td>Deterministic batch steps</td>
+<td><code>extract-sim-specs.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>worked example</strong> shows the parts cooperating. Suppose you ask for a custom simulation of a swinging pendulum. The entry file's routing table matches trigger words such as "simulation" and "physics" to the p5.js guide. The agent loads that guide and the p5.js templates, and only then writes <code>pendulum.js</code> in the standard structure. The Chart.js, map and timeline guides are never read, which keeps the agent's working context small. The interactive diagram below lets you trace this path for other requests.</p>
+<h4 id="diagram-generator-skill-anatomy-explorer">Diagram: Generator Skill Anatomy Explorer</h4>
+<iframe src="../../sims/generator-skill-anatomy-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/generator-skill-anatomy-explorer/main.html">Run the Generator Skill Anatomy Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Generator Skill Anatomy Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> generator-skill-anatomy-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the entry file, reference guides, template assets and utility scripts of the generator skill by tracing which parts an agent reads for a given request.</p>
+<p>Layout: a drawing region above a control region. The drawing region shows a folder tree with four labeled boxes: SKILL.md, references, assets/templates and microsim-utils scripts, each connected by a line to a box labeled "Agent working context" on the right.</p>
+<p>Controls: a dropdown "Request" with six sample requests (a bouncing ball simulation, a bar chart of survey results, a timeline of Unix history, a map of trade routes, a concept dependency network, a sorting quiz). A button "Trace" and a button "Reset".</p>
+<p>Interactions: choosing a request and pressing Trace highlights the path the agent follows, in order: SKILL.md routing table, then the one matching guide, then the matching templates, then the utilities used. Boxes that are not read stay grey. Hovering a box shows a tooltip that says what it contains. Clicking a highlighted box opens a panel with one sentence explaining why the agent needs it for this request. A counter shows how many of the skill's guides were loaded out of the total shown.</p>
+<p>Data: the request-to-guide mapping is taken from the routing table in the skill's SKILL.md file; the number of template files is read from a small JSON data file in the sim folder.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the folder tree stacks vertically below 500 pixels, and controls stay inside the control region at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSelect and createButton controls positioned relative to drawHeight, a describe() call for accessibility, and mouse hover and click handling on the boxes.</p>
+</details>
+<h2 id="claude-code-and-skill-invocation">Claude Code and Skill Invocation</h2>
+<p><strong>Claude Code</strong> is a command-line tool, run from a terminal, that lets Claude act as a software agent inside your project directory: it can read files, write files and run commands there. The generator skill was designed to run in it. The p5.js guide recommends starting Claude Code from the root of your repository checkout, the directory that contains both a <code>.git</code> folder and the <code>mkdocs.yml</code> file, and it tells the agent to warn you if either is missing because the automatic installation steps may then fail.</p>
+<p><strong>Skill invocation</strong> is the act of asking the agent to use a named skill for a task, so that the skill's instructions are loaded into the agent's context. The prompts recorded in this repository's <code>docs/prompts</code> folder show the plain-language form. One reads, in part, "Use the microsim-p5 skill to create a new microsim called 'ooda'", followed by the topic. The recorded transcript then shows Claude Code reporting that the skill is running. You name the skill, the MicroSim's directory name and the subject, and the agent does the rest.</p>
+<p>A <strong>worked example</strong> is that recorded OODA-loop session, which came from an earlier generator skill named <code>microsim-p5</code>. It shows an agent workflow in miniature. The agent first tried to fetch a Wikipedia article and received a 403 error, so it fell back to a web search for background. It then invoked the skill, created a directory under <code>docs/sims</code>, and wrote a JavaScript file and a <code>main.html</code> file. Notice that the transcript's <code>main.html</code> pins p5.js version 1.11.10, whereas the current template pins 2.3.2. That difference is a small, real instance of a problem we treat later in this chapter.</p>
+<p>Naming the skill is the reliable route, because it removes guesswork about which instructions the agent should follow. If you simply say "make me a simulation," the agent may write code from general knowledge and skip the conventions in the guides and templates.</p>
+<h2 id="the-agent-workflow">The Agent Workflow</h2>
+<p>Chapter 1 defined an AI agent as a language-model-based program that can plan, use tools and act toward a goal. An <strong>agent workflow</strong> is the ordered sequence of steps such an agent follows to complete one job, mixing its own judgment with tool calls. For MicroSim generation, the skill's batch workflow is the workflow of record. Before reading the list, note two terms. A <em>scaffold</em> is the set of boilerplate files created for a new MicroSim, namely <code>main.html</code>, <code>index.md</code> and <code>metadata.json</code>. A <em>lifecycle state</em> is a label recording how far a MicroSim has progressed: specified, scaffolded, implemented, validated or deployed.</p>
+<p>The skill's batch route for a whole chapter runs in these steps.</p>
+<ol>
+<li>Extract every specification in the chapter into a JSON file with <code>extract-sim-specs.py</code>, along with a status file that records each MicroSim's lifecycle state.</li>
+<li>Scaffold each MicroSim directory with <code>generate-sim-scaffold.py</code>.</li>
+<li>Run the instructional design checkpoint, which matches the interaction pattern to the objective's Bloom level.</li>
+<li>Write the JavaScript file, the one creative step, using the matched reference guide.</li>
+<li>Insert iframe embeds into the chapter with <code>add-iframes-to-chapter.py</code>.</li>
+<li>Score quality with <code>validate-sims.py</code>, sync iframe heights with <code>sync-iframe-heights.py</code>, and check that controls stay visible with <code>test-iframe-heights.py</code>.</li>
+<li>Update the site navigation with <code>update-mkdocs-nav.py</code>.</li>
+<li>Capture a screenshot and run a visual layout review, with at most three review-and-patch cycles.</li>
+</ol>
+<p>The design principle is a division of labor. Deterministic work, such as creating directories and calculating iframe heights, is done by scripts that give the same answer every time. The agent's language model is reserved for the step that needs creativity, writing the sketch. The skill itself states that after scaffolding "the agent ONLY writes .js files," and it estimates that the utilities save about 430,000 tokens per batch run. That figure is the skill's own estimate, not a measurement we made.</p>
+<h4 id="diagram-batch-generation-workflow-stepper">Diagram: Batch Generation Workflow Stepper</h4>
+<iframe src="../../sims/batch-generation-workflow-stepper/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/batch-generation-workflow-stepper/main.html">Run the Batch Generation Workflow Stepper MicroSim Fullscreen</a></p>
+<details>
+<summary>Batch Generation Workflow Stepper</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> batch-generation-workflow-stepper<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain what each step of the batch generation workflow does and why it is done by a script or by the agent.</p>
+<p>Layout: a horizontal row of eight numbered step boxes in the drawing region, one per step of the workflow listed above, with an arrow between boxes. Boxes done by a script are steel blue, the one creative step is orange, and the human checkpoints are green. A detail panel sits below the row.</p>
+<p>Controls: buttons "Previous" and "Next" to step through the workflow, a button "Reset", and a checkbox "Predict first". With Predict first on, the sim hides the step's actor and asks "Script, agent or human?" with three buttons before revealing the answer.</p>
+<p>Interactions: clicking any box selects it and fills the detail panel with the command or action, its input file, its output file, and the lifecycle state it produces. Hovering a box shows a tooltip with a one-line purpose. A small lifecycle bar at the top advances from specified to deployed as steps complete.</p>
+<p>Data: step names, tools and lifecycle states come from the generator skill's batch workflow as described in this chapter.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the step row wraps into two rows below 600 pixels, and the buttons stay inside the control region at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton and createCheckbox controls positioned relative to drawHeight, and a describe() call for accessibility.</p>
+</details>
+<h3 id="human-in-the-loop">Human in the Loop</h3>
+<p>The phrase <strong>human in the loop</strong> describes a design in which a person reviews or decides at defined points of an automated process, rather than only at the start and the end. The generator skill builds in several such points. In its instructional design checkpoint, if a specification asks for animation on an objective whose verb is "explain," the skill tells the agent to flag the mismatch, recommend a step-through design and ask you whether to proceed. When a request could match several generators, the skill tells the agent to score the top three and present the options to you. The visual layout review stops after three cycles and reports what remains, instead of tweaking without end.</p>
+<p>These are points where your judgment carries something the agent lacks: knowledge of your learners and your course. An agent can check whether a slider sits inside the control region. It cannot decide whether the slider helps a particular student notice the concept, so keep that decision for yourself.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">The Agent Does Not Own the Objective</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the agent as a fast builder and yourself as the architect. The builder can follow the plan to the millimeter, but only the architect knows what the building is for. Every checkpoint in the workflow is a place where the plan can be corrected before it is built.</p>
+</div>
+<h3 id="generation-log">Generation Log</h3>
+<p>A <strong>generation log</strong> is a written record, kept with the MicroSim, of how it was produced: the specification it came from, the skill and library versions in use, the prompts you gave, the decisions you made and the checks it passed. The skill already produces two pieces of such a record. The status file tracks each MicroSim's lifecycle state, and the instructional design checkpoint asks the agent to write a short "Instructional Design Check" naming the Bloom level, the recommended pattern and the rationale. This repository also keeps a log per chapter under <code>logs/</code> with start and end timestamps.</p>
+<p>The generation log we recommend below is our own suggested format, not one the skill produces. Every field is something you can fill in without guessing, and the bracketed values are placeholders to replace with what your tool reports.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">sim-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pendulum-period-explorer</span>
+<span class="nt">generated</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">date and time</span><span class="p p-Indicator">]</span>
+<span class="nt">spec-source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs/chapters/[chapter]/index.md, block "Pendulum Period Explorer"</span>
+<span class="nt">skill</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microsim-generator, version 1.0</span>
+<span class="nt">library-pin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">p5.js 2.3.2</span>
+<span class="nt">model-and-tool</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">model name and tool version as reported by the tool</span><span class="p p-Indicator">]</span>
+<span class="nt">prompt</span><span class="p">:</span><span class="w"> </span><span class="s">"Use</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">microsim-generator</span><span class="nv"> </span><span class="s">skill</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">create</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MicroSim</span>
+<span class="w">  </span><span class="s">specified</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">block</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">sim-id</span><span class="nv"> </span><span class="s">pendulum-period-explorer."</span>
+<span class="nt">human-decisions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kept the step-through pattern instead of continuous animation.</span>
+<span class="nt">checks-run</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">validate-sims.py</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">score</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">test-iframe-heights.py</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pass or fail</span><span class="p p-Indicator">]</span>
+</code></pre></div></td></tr></table></div>
+<p>The value of the log appears months later, when a MicroSim misbehaves after a library upgrade and you need to know what it was generated against. The next sections build the pieces that a log records, starting with the specification.</p>
+<h2 id="the-specification-block">The Specification Block</h2>
+<p>Each MicroSim in this book begins as a <strong>specification block</strong>: a structured passage in a chapter's markdown file that describes one interactive element completely enough for a person or an agent to build it without further explanation. You have already seen many of them, in Chapters 1 to 4, in the collapsible blocks headed <code>#### Diagram:</code>. Chapter 2 described the MicroSim directory the skill creates, and Chapter 3 described how to write the objective that drives it. The specification block is where those two ideas meet: it is the contract between the author and the generator.</p>
+<p>A specification block has a fixed skeleton. Before we look at an example, define the fields it contains.</p>
+<ul>
+<li>The <strong>heading</strong> is a line that begins <code>#### Diagram:</code> or <code>#### Drawing:</code> followed by a title. Tools find blocks by this line.</li>
+<li>The <strong>type</strong> names the kind of element, such as microsim or diagram.</li>
+<li>The <strong>sim-id</strong> is the kebab-case name that becomes the MicroSim's directory name under <code>docs/sims</code>. It must be unique across the whole book.</li>
+<li>The <strong>library</strong> names the JavaScript library, for example p5.js or vis-network, which the routing decision of Chapter 4 selects.</li>
+<li>The <strong>status</strong> records the lifecycle state. New specifications are marked Specified.</li>
+<li>The <strong>learning objective</strong> states a Bloom level and verb, as in Chapter 3.</li>
+<li>The <strong>body</strong> describes layout, controls, data, interactions and responsive behavior, and ends with an implementation line.</li>
+</ul>
+<p>The extraction script reads exactly these fields. According to its documentation, <code>extract-sim-specs.py</code> parses both kinds of heading, pulls out the details block, the sim identifiers, the Bloom levels and the library hints, and can write a status file. The command takes the options <code>--project-dir</code>, <code>--chapter</code>, <code>--output</code>, <code>--status-file</code> and <code>--verbose</code>. Because the fields are machine-readable, a chapter's specifications can be processed as a batch, a topic Chapter 14 develops.</p>
+<p>A <strong>worked example</strong> follows. It shows the fields, without its heading line, for a new MicroSim about the period of a pendulum. Read the annotations after each field name as your checklist for writing your own.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>Type: microsim
+sim-id: pendulum-period-explorer          (unique, kebab-case)
+Library: p5.js                            (from routing)
+Status: Specified
+
+Learning objective (Bloom level: Apply; verb: predict): The learner will
+predict how the period of a pendulum changes when length changes, then
+test the prediction.
+
+Layout: drawing region above a control region; canvas 400 wide by 450 high.
+Controls: slider "Length" 0.2 to 2.0 in steps of 0.1; button "Release".
+Behavior: on release, the bob swings; a readout shows the measured period.
+Responsive design: canvas width follows the container on resize.
+Implementation: p5.js, createSlider positioned relative to drawHeight.
+</code></pre></div></td></tr></table></div>
+<p>Two habits separate strong specifications from weak ones. First, state the objective with a measurable verb, because the skill's instructional design checkpoint reads the Bloom level to choose the interaction pattern. Second, give exact numbers for ranges, defaults and sizes, because every number you omit is a decision the agent will make for you.</p>
+<h3 id="diagram-specification-and-drawing-specification">Diagram Specification and Drawing Specification</h3>
+<p>A <strong>diagram specification</strong> is a specification block introduced by a <code>#### Diagram:</code> heading. In this book it is the general form: every interactive element, whether a p5.js simulation, a network or a chart, is specified under that heading. A <strong>drawing specification</strong> is a specification block introduced by a <code>#### Drawing:</code> heading. The extraction script recognizes both headings in the same way, and the project's MicroSims 2.0 plan tells authors to write both kinds so that batch generation can find them.</p>
+<p>We should be candid about a gap: the skill's documentation does not define a behavioral difference between the two. Our suggestion, which is a convention and not a rule of the tools, is to reserve <code>#### Drawing:</code> for elements that are mainly illustrations or labeled pictures and to use <code>#### Diagram:</code> for everything else. Whatever you choose, use it consistently, because a heading that neither pattern matches will not be extracted at all.</p>
+<h4 id="diagram-specification-block-anatomy-explorer">Diagram: Specification Block Anatomy Explorer</h4>
+<iframe src="../../sims/spec-block-anatomy-explorer/main.html" width="100%" height="612px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/spec-block-anatomy-explorer/main.html">Run the Specification Block Anatomy Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Specification Block Anatomy Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> spec-block-anatomy-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: deconstruct): The learner will deconstruct a specification block into its fields and identify which field a given generation defect traces back to.</p>
+<p>Layout: the drawing region shows a specification block as a stack of labeled bands: heading, type, sim-id, library, status, learning objective, body and implementation. A panel on the right shows what a tool extracts from the highlighted band.</p>
+<p>Controls: a dropdown "Example spec" offering three specifications (one complete, one missing a Bloom verb, one with no numeric ranges), a button "Extract", and a checkbox "Show defects".</p>
+<p>Interactions: hovering a band shows a tooltip defining the field. Clicking Extract runs a simulated extraction and fills the panel with the fields a parser would find, marking missing fields in red. With Show defects on, the learner is asked, for a described generated defect such as "slider range not what I wanted," to click the band that caused it, and the sim confirms or explains.</p>
+<p>Data: the three example specifications are stored in a JSON file in the sim folder.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, and the panel moves below the stack under 600 pixels.</p>
+<p>Implementation: p5.js with createSelect, createButton and createCheckbox controls positioned relative to drawHeight, and a describe() call.</p>
+</details>
+<h2 id="prompt-design">Prompt Design</h2>
+<p>Chapter 1 defined a prompt as the text you give a language model to steer its output. <strong>Prompt design</strong> is the deliberate structuring of that text so that the output meets your needs on the first try, or fails in ways that are easy to diagnose. In a skill-based workflow you write far fewer long prompts than in a chat, because the specification block carries the detail. The prompt becomes a short instruction that names the skill and points to the specification. Prompt design still matters, however, for the times you work outside a specification, such as a quick experiment in the p5.js editor or a targeted repair.</p>
+<p>The earlier prompts kept in this repository's <code>docs/prompts</code> folder show the structure that works. The basic prompt asks for a p5.js sketch, says to generate only the sketch file and not the HTML file, and then describes the simulation. The refined prompts add the layout: two regions, a drawing area at the top and a control area at the bottom, with all drawing in the first and all controls in the second, followed by lists of the controls and a description of the behavior. The responsive version adds a pointer to a template file. Notice the pattern: each layer of the prompt removes one decision from the model.</p>
+<p>A <strong>worked example</strong> contrasts two prompts for the same MicroSim. The first is vague: "Make a simulation about pendulums." The second is structured:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>Use the microsim-generator skill to create the MicroSim specified in the
+block with sim-id pendulum-period-explorer in
+docs/chapters/[chapter]/index.md. Use the pinned library version in the
+skill's main.html template. Generate only the JavaScript file; the scaffold
+already exists. If the specification and the skill's conventions conflict,
+stop and ask me.
+</code></pre></div></td></tr></table></div>
+<p>The second prompt names the skill, the specification, the library version, the scope of output and the tie-breaking rule. Each clause closes off a way for the agent to go wrong. The vague prompt leaves the layout, the controls, the range of every slider and the library version to chance.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Name the Output You Do Not Want</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Add one clause that says what to leave out, such as "do not generate the HTML file." Models tend to be helpful by doing extra work, and extra files are extra things for you to review.</p>
+</div>
+<h3 id="system-prompt-and-rules-file">System Prompt and Rules File</h3>
+<p>A <strong>system prompt</strong> is a block of standing instructions supplied to the model before any user request, which shapes every response in the session. You do not type it each time. In Claude Code, the closest thing you control is the project instruction file. This repository's <code>CLAUDE.md</code> is an example: it lists development commands, the standard layout variables and the canvas creation pattern, and it is loaded so the agent starts each session already knowing them.</p>
+<p>A <strong>rules file</strong> is a file of standing rules for code generation that lives in the repository and is applied to matching files. The repository's <code>.cursor/rules/microsims.mdc</code> is one. Its header describes it as rules for generating educational MicroSims based on p5.js, gives a file pattern for JavaScript files and sets <code>alwaysApply: false</code>, so it attaches when it matches rather than in every session. Its body tells the generator to always use p5.js unless told otherwise, to make sure the code works in the p5.js editor without changes, and to add a <code>describe()</code> call at the end of <code>setup()</code>.</p>
+<p>The three sources of instructions, plus your own request, differ in when they act. The table below summarizes it. Read it after the definitions above, as a comparison, not an introduction.</p>
+<table>
+<thead>
+<tr>
+<th>Instruction source</th>
+<th>Scope</th>
+<th>Loaded when</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System prompt or project instruction file</td>
+<td>Every request in the project</td>
+<td>The session starts</td>
+<td>Layout variables, code style, standing commands</td>
+</tr>
+<tr>
+<td>Rules file</td>
+<td>Files that match a pattern</td>
+<td>A matching file is in play</td>
+<td>Rules specific to one kind of file</td>
+</tr>
+<tr>
+<td>Skill</td>
+<td>One family of tasks</td>
+<td>The skill is invoked</td>
+<td>Procedures, guides and templates</td>
+</tr>
+<tr>
+<td>Prompt</td>
+<td>One request</td>
+<td>You send it</td>
+<td>The specific MicroSim and its specification</td>
+</tr>
+</tbody>
+</table>
+<p>The rule of thumb that follows is to put a constraint at the widest scope where it is always true. The "no HTML file" instruction from the last tip belongs in a prompt, because it applies to one request. The rule that every canvas is parented to the <code>main</code> element belongs in the project instructions or a rules file, because it applies to every MicroSim.</p>
+<h4 id="diagram-prompt-quality-workbench">Diagram: Prompt Quality Workbench</h4>
+<iframe src="../../sims/prompt-quality-workbench/main.html" width="100%" height="657px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/prompt-quality-workbench/main.html">Run the Prompt Quality Workbench MicroSim Fullscreen</a></p>
+<details>
+<summary>Prompt Quality Workbench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> prompt-quality-workbench<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: critique): The learner will critique a prompt by identifying which decisions it leaves to the model and which failure modes those open decisions make more likely.</p>
+<p>Layout: the drawing region shows a prompt built from six togglable clauses stacked as cards: names the skill, points to the specification, pins the library version, limits the output files, states the layout, and gives a tie-breaking rule. Beside them is a panel titled "Decisions left to the model".</p>
+<p>Controls: six checkboxes, one per clause, a button "Reset", and a dropdown "Scenario" with three requests of different difficulty.</p>
+<p>Interactions: toggling a clause updates the assembled prompt text and the panel. The panel lists each decision the model must now make itself, for example "which library version" when the pin clause is off. Beside each open decision the panel names the failure mode from this chapter it makes more likely, such as library version drift. This is a teaching heuristic, and the panel says so in a footnote. Hovering a card shows an example of the clause.</p>
+<p>Data: the clauses, open decisions and linked failure modes are stored in a JSON file in the sim folder.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the panel moves below the cards under 600 pixels, and checkboxes wrap to a second row at 400 pixels wide.</p>
+<p>Implementation: p5.js with createCheckbox, createSelect and createButton controls positioned relative to drawHeight, and a describe() call.</p>
+</details>
+<h2 id="iterative-refinement">Iterative Refinement</h2>
+<p>The first output of a generation is rarely the last. <strong>Iterative refinement</strong> is the practice of improving a MicroSim through repeated cycles of test, observe and modify, where each cycle sends one targeted change request back to the agent. The p5.js guide gives sample refinement prompts, such as "Add a slider to control the parameter," "Show the current velocity value" and "Add a grid to help students measure distances." Each of them is small, specific and testable.</p>
+<p>The cycle has four beats. First, run the MicroSim and compare what you see with the learning objective, not with your memory of what you asked for. Second, write down one difference. Third, describe that one difference to the agent, together with what must not change. Fourth, run it again. A <strong>worked example</strong> with the pendulum shows the rhythm in three rounds.</p>
+<ol>
+<li>Round 1 result: the pendulum swings, but the period readout has six decimal places. Prompt: "Show the period with two decimal places. Change nothing else."</li>
+<li>Round 2 result: the readout is right, but the slider label overlaps the slider at narrow widths. Prompt: "The Length label overlaps the slider below 500 pixels wide. Move the label left of the slider and keep the slider width rule."</li>
+<li>Round 3 result: correct at all widths, but learners cannot tell which length produced which period. Prompt: "Keep a table of the last five releases with length and measured period."</li>
+</ol>
+<p>Notice that the third round changes the design, not merely the code. That is a signal to go back to the specification and update it too, so that the block and the MicroSim never disagree.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">One Change Per Round</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Ask for a single change and name the variable or control it touches. If two changes arrive together and something breaks, you will not know which request caused it.</p>
+</div>
+<h2 id="where-generated-code-goes-wrong">Where Generated Code Goes Wrong</h2>
+<p>AI-written code fails in patterns, not at random. A <strong>generation failure mode</strong> is a recurring, nameable way in which generated MicroSim code goes wrong, described by its symptom and its usual cause. Naming the pattern is useful because it turns a vague complaint, "it looks broken," into a question you can answer: which failure mode is this? The p5.js guide catalogs several of them as "common bug patterns," and this chapter adds two that arise from the way language models work.</p>
+<p>The table below lists the failure modes we cover. We define the two library-related ones in the following sections, and the layout ones were introduced in Chapter 2, so treat the table as a summary for later use.</p>
+<table>
+<thead>
+<tr>
+<th>Failure mode</th>
+<th>Typical symptom</th>
+<th>Usual cause</th>
+<th>First repair</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hallucinated API</td>
+<td>Console error about an unknown function</td>
+<td>The model wrote a call that the library does not have</td>
+<td>Check the name in the library's reference</td>
+</tr>
+<tr>
+<td>Library version drift</td>
+<td>Code that once worked now errors or draws differently</td>
+<td>Code and library versions no longer match</td>
+<td>Compare the pin with the code's assumptions</td>
+</tr>
+<tr>
+<td>Control in drawing area</td>
+<td>A slider or button floats over the drawing</td>
+<td>A hard-coded y position</td>
+<td>Position relative to <code>drawHeight</code></td>
+</tr>
+<tr>
+<td>Non-responsive canvas</td>
+<td>Canvas stays one width when the window resizes</td>
+<td>A hard-coded width and no <code>updateCanvasSize()</code></td>
+<td>Restore the standard resize pattern</td>
+</tr>
+<tr>
+<td>Wrong iframe height</td>
+<td>Controls are clipped in the chapter</td>
+<td>Iframe height differs from canvas height plus 2</td>
+<td>Run the height sync utility</td>
+</tr>
+<tr>
+<td>Text with an outline</td>
+<td>Labels look fuzzy or heavy</td>
+<td>A stroke was still active when text was drawn</td>
+<td>Call <code>noStroke()</code> before <code>text()</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-generation-failure-mode-triage">Diagram: Generation Failure Mode Triage</h4>
+<iframe src="../../sims/generation-failure-mode-triage/main.html" width="100%" height="612px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/generation-failure-mode-triage/main.html">Run the Generation Failure Mode Triage MicroSim Fullscreen</a></p>
+<details>
+<summary>Generation Failure Mode Triage</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> generation-failure-mode-triage<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish generation failure modes by matching a described symptom to its most likely cause and first repair.</p>
+<p>Layout: the drawing region shows a defective MicroSim thumbnail on the left (drawn by the sketch, with the defect visible) and six failure-mode cards on the right. The control region holds the controls.</p>
+<p>Controls: a button "Next case" that loads one of eight defective-MicroSim cases, a button "Show console" that reveals a simulated browser console message for the case, and a button "Check" that confirms the learner's selected card.</p>
+<p>Interactions: the learner reads the symptom, optionally opens the console message, clicks the failure-mode card they think applies and presses Check. The sim answers with the cause and the first repair and, for wrong choices, explains what evidence would have distinguished the two modes. Hovering a card shows its definition. A score line counts correct first tries.</p>
+<p>Data: the eight cases, console messages and answers are stored in a JSON file in the sim folder; every case is drawn from the failure modes in the table above.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the cards move below the thumbnail under 600 pixels, and the three buttons stay visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton controls positioned relative to drawHeight, a describe() call for accessibility, and interaction events logged through a single function so Chapter 17 can attach xAPI statements to it.</p>
+</details>
+<h3 id="hallucinated-api">Hallucinated API</h3>
+<p>A <strong>hallucinated API</strong> is a call to a function, method or option that does not exist in the library, written by the model because it looks plausible. Language models generate the text that best fits the pattern of their training material and your prompt; they do not consult a list of what a library contains. A function name that follows the library's naming habits can therefore appear in the output as confidently as a real one.</p>
+<p>The symptom is usually an error in the browser console reporting that something is not a function, or a control that silently does nothing. The defense is a habit rather than a tool: for any call you do not recognize, check the name against the library's reference documentation. The p5.js guide links to the reference pages for the controls it recommends, <code>createButton</code>, <code>createSlider</code>, <code>createSelect</code>, <code>createCheckbox</code> and <code>createInput</code>, for exactly this purpose.</p>
+<p>A <strong>worked example</strong> with an invented name shows the routine. Suppose generated code contains <code>createRangeSlider(0, 10, 5)</code>, a name we made up for this illustration. First, search the p5.js reference for the name. Finding nothing, conclude that the model has confused <code>createSlider</code>, which does exist, with a plausible variant. Second, replace it with the documented call and its documented arguments. Third, tell the agent what you found, so the next round does not reintroduce the mistake: "p5.js has no createRangeSlider. Use createSlider(min, max, value, step)."</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Confident Does Not Mean Correct</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Watch out for fluent code that runs partway and then stalls: a nonexistent function often fails only when the line executes. Look up any unfamiliar function name in the library's reference before you debug anything else, and paste the exact console message into your next prompt.</p>
+</div>
+<h3 id="library-version-drift">Library Version Drift</h3>
+<p><strong>Library version drift</strong> is the growing mismatch between the library release that code was written for and the release it actually runs on, which turns once-correct calls into errors or changed behavior. It is a close cousin of the hallucinated API with one important difference: the drifted call did exist, in another release. Chapter 2 introduced the pinned library version, the exact release named in the script address of <code>main.html</code>, as the anchor against which generated code should be checked. Drift is what happens when the pin, the code and the tools in use stop agreeing.</p>
+<p>Drift has several sources. The model may write in the style of an older release. The pin in <code>main.html</code> may be older than the template's current default. The p5.js Web Editor, which we meet below, may run a different release than your pin. This repository shows the second source in real files. The recorded OODA session pinned p5.js 1.11.10, while the skill's current template pins 2.3.2.</p>
+<p>Three practices reduce drift. State the pinned version in your prompt so the model writes for it. Keep the version in <code>main.html</code>, in the page title and in <code>metadata.json</code> in agreement, as Chapter 2 advised. And when you change a pin, test every MicroSim that uses it, which is why a migration is a project and not a one-line edit.</p>
+<h3 id="p5js-2x-migration">p5.js 2.x Migration</h3>
+<p>The <strong>p5.js 2.x migration</strong> is the work of updating existing p5.js MicroSims so they run correctly on p5.js release 2.x, the major version that the skill's templates now default to. The p5.js guide describes 2.x as largely backward compatible with 1.x sketches that use global mode, but it also says to consult the official migration guide if a sketch misbehaves after the upgrade. This repository's <code>TODO.md</code> records a static scan dated 2026-09-05 that found five MicroSims using v1-only calls, out of the many in <code>docs/sims</code>. Those findings are the best available example of what migration involves, so we use them.</p>
+<p>Before reading the table, define the calls involved. <code>preload()</code> is a special function in v1 that runs before <code>setup()</code> to load images and other files. A <em>Bezier curve</em> call such as <code>bezierVertex()</code> adds a curved segment to a shape you are drawing between <code>beginShape()</code> and <code>endShape()</code>. <code>curveVertex()</code> adds a smooth curve through points, and <code>quadraticVertex()</code> adds a curve with one control point. The table summarizes the audit's findings.</p>
+<table>
+<thead>
+<tr>
+<th>v1 call found</th>
+<th>What v2 does, per the audit</th>
+<th>Affected MicroSims</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>preload()</code></td>
+<td>Removed. Load files inside <code>async function setup()</code> with <code>await</code> before <code>createCanvas()</code></td>
+<td>breadboard (four sketch files)</td>
+</tr>
+<tr>
+<td>Multi-control-point <code>bezierVertex(...)</code></td>
+<td>Takes one control point per call. Chain several calls; use <code>bezierOrder()</code> for a quadratic curve</td>
+<td>book-gen-workflow, temp-and-pressure</td>
+</tr>
+<tr>
+<td><code>curveVertex(...)</code></td>
+<td>Renamed <code>splineVertex()</code> with changed anchor-point rules; drop the duplicated first and last anchors and rely on <code>endShape(CLOSE)</code></td>
+<td>curve</td>
+</tr>
+<tr>
+<td><code>quadraticVertex(...)</code></td>
+<td>Folded into <code>bezierVertex()</code>; use <code>bezierOrder(2)</code> and single-control-point calls</td>
+<td>flower-petal</td>
+</tr>
+</tbody>
+</table>
+<p>The most mechanical change is <code>preload()</code>. In v1, a sketch loads a file before setup runs. In v2 the loading moves into an asynchronous setup, as sketched below. The file name is a placeholder for whatever your sketch loads.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// p5.js 1.x style: removed in 2.x</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">boardImage</span><span class="p">;</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">preload</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">boardImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="s1">'board.png'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// p5.js 2.x style: load inside an async setup, then create the canvas</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">boardImage</span><span class="p">;</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">boardImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="s1">'board.png'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The migration sequence follows from the audit. Fix the five listed MicroSims first, as the TODO says to do before bumping any pin past 1.x. Then change the pin in <code>main.html</code>, the title and <code>metadata.json</code> together. Finally, rerun the validation, height and layout checks from the workflow, because a MicroSim that runs without errors can still draw differently.</p>
+<h4 id="diagram-p5js-2x-migration-mapper">Diagram: p5.js 2.x Migration Mapper</h4>
+<iframe src="../../sims/p5-2x-migration-mapper/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/p5-2x-migration-mapper/main.html">Run the p5.js 2.x Migration Mapper MicroSim Fullscreen</a></p>
+<details>
+<summary>p5.js 2.x Migration Mapper</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> p5-2x-migration-mapper<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: use): The learner will use the migration table to convert a short p5.js 1.x snippet into its 2.x form and identify which call in it is no longer valid.</p>
+<p>Layout: the drawing region shows a code panel on the left with a 1.x snippet and a result panel on the right for the learner's 2.x version, each line clickable. A row of four call chips (preload, bezierVertex, curveVertex, quadraticVertex) runs across the top.</p>
+<p>Controls: a dropdown "Snippet" with four snippets, each using one legacy call; a button "Flag legacy calls"; a button "Show 2.x form"; and a button "Reset".</p>
+<p>Interactions: clicking Flag legacy calls highlights the lines that use a v1-only call and names the call. Clicking a highlighted line offers three candidate replacements, and the learner picks one. The sim confirms or explains the choice by quoting the migration guidance in this chapter, then Show 2.x form reveals the corrected snippet. Hovering a chip shows the one-line rule for that call.</p>
+<p>Data: snippets and replacements are stored in a JSON file in the sim folder and must match the migration table in this chapter.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the two panels stack vertically below 600 pixels, and buttons remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSelect and createButton controls positioned relative to drawHeight, and a describe() call.</p>
+</details>
+<h2 id="debugging-ai-code">Debugging AI Code</h2>
+<p><strong>Debugging AI code</strong> is the systematic process of finding and fixing faults in code that an AI wrote, using the same evidence you would use for human-written code but with extra suspicion for the specific failure modes above. The process has five moves.</p>
+<ol>
+<li>Reproduce the fault by opening the MicroSim's <code>main.html</code> in a browser, or by pasting the sketch into the p5.js editor, and note exactly what happens.</li>
+<li>Read the browser's developer console for the first error message, because later errors are often consequences of the first.</li>
+<li>Classify the fault against the failure-mode table: hallucinated call, version drift, layout defect or logic error.</li>
+<li>Repair the smallest thing that explains the fault, by hand or by giving the agent the exact message and the surrounding lines.</li>
+<li>Retest at several widths, then record the cause in the generation log.</li>
+</ol>
+<p>A <strong>worked example</strong> comes straight from the p5.js guide. Suppose the canvas fails to appear and the console reports a null error. The generated code contains the following pair of lines. The reason is that the string form of <code>parent()</code> looks for an element with the id "main", and our <code>main.html</code> template deliberately has a <code>main</code> element with no id.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Fails: the string form searches for an element whose id is "main"</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+
+<span class="c1">// Works: select the &lt;main&gt; element by its tag name</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">));</span>
+</code></pre></div></td></tr></table></div>
+<p>The repair is one line, and the follow-up is to add it to your project instructions so that no future generation repeats it. This is the pattern for every fault: fix it once in the code and once in the standing instructions.</p>
+<h3 id="the-p5js-web-editor">The p5.js Web Editor</h3>
+<p>The <strong>p5.js Web Editor</strong> is the free in-browser editor at editor.p5js.org where you can paste a sketch and run it immediately. The p5.js guide says the skill's JavaScript is designed to run there without changes, which is why every MicroSim keeps its canvas inside a <code>main</code> element, the same element the editor's own page provides. This makes the editor the fastest place to reproduce a fault and to try a fix before you touch the repository.</p>
+<p>Use it with one caution taken from the guide: the editor may not run the same p5.js release as your pin, so a sketch that works there may still drift on your site. Compare the editor's library version with the one in <code>main.html</code> before you conclude the code is correct.</p>
+<h2 id="code-review-of-ai-output">Code Review of AI Output</h2>
+<p><strong>Code review of AI output</strong> is a human inspection of generated code against a checklist before it is accepted, even when it runs. Running is a low bar: a MicroSim can execute without errors and still hide controls, break at narrow widths or teach the wrong thing. The p5.js guide supplies a post-generation validation checklist that doubles as a review list. Its structural checks include:</p>
+<ul>
+<li><code>canvasHeight</code> equals <code>drawHeight + controlHeight</code>.</li>
+<li>The iframe height in <code>index.md</code> equals the canvas height plus 2.</li>
+<li>The first line of <code>setup()</code> calls <code>updateCanvasSize()</code>.</li>
+<li>A <code>windowResized()</code> function exists and calls <code>resizeCanvas()</code>.</li>
+<li>A <code>describe()</code> call is present for accessibility.</li>
+<li>The canvas is parented with <code>document.querySelector('main')</code>.</li>
+</ul>
+<p>Its control checks confirm that every control sits below <code>drawHeight</code> and that every slider is resized in <code>windowResized()</code>. Its code quality checks include calling <code>noStroke()</code> before text and using the standard variable names. The guide also proposes a quick mental test at 400, 800 and 1200 pixels wide.</p>
+<p>Add two checks that only a person can make. First, does the MicroSim serve the learning objective in the specification, or has the agent quietly changed the design? Second, does the interaction pattern fit the Bloom level, for instance a step-through for an "explain" objective rather than a continuous animation? Chapter 13 automates many of the mechanical checks; the judgment checks stay with you.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Reviewing Code You Did Not Write</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+Reading generated code you could not have written yourself can feel like a lot. You already checked specifications against objectives in Chapter 3, so start there: run the checklist above one row at a time, and look up any line you do not recognize before moving on.</p>
+</div>
+<h2 id="reproducible-generation-and-token-cost">Reproducible Generation and Token Cost</h2>
+<p><strong>Reproducible generation</strong> is the property that a MicroSim's origin is recorded well enough that someone else, or you next year, can regenerate it or explain why it looks the way it does. Be careful about what this promises. Language models do not guarantee the same output twice from the same prompt, so we should not assume that rerunning a generation yields identical code. What you can make reproducible is the set of inputs and the checks: the specification block, the skill and version, the library pin, the prompt and the validation results. Those are exactly the fields of the generation log shown earlier. The committed JavaScript file is the artifact of record, and the log explains how it got there.</p>
+<p><strong>Token cost</strong> is the amount of model text, counted in tokens, that a generation reads and writes, which drives the time and money it consumes. A <em>token</em> is a small piece of text, often part of a word, that a language model processes as a unit. Cost grows with everything the agent reads, including the entry file, a matched guide and the templates, and with everything it writes. We give no prices here because they change and vary by provider.</p>
+<p>The skill contains several design choices that control cost. It loads only the guide matched to your request, and the p5.js guide alone is 1,238 lines, so loading every guide for every request would be wasteful. It moves deterministic work into scripts, which the skill estimates saves about 430,000 tokens per batch run. And its companion chapter-writing skill warns that running chapters in parallel uses about 38 percent more tokens than running them one at a time, which is why this book generates chapters sequentially. Both figures are the skills' own statements, not our measurements.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Inputs Are the Reproducible Part</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of a generation like a bounce: you cannot promise the exact landing spot, but you can record the height, the angle and the floor. Record the specification, versions and prompt, and every later question about a MicroSim starts from evidence.</p>
+</div>
+<h2 id="putting-the-chapter-to-work">Putting the Chapter to Work</h2>
+<p>The steps below pull the chapter together into one procedure that you can run on any new MicroSim idea. The chapters that follow fill in the type-specific details.</p>
+<ol>
+<li>Write the learning objective with a Bloom level and verb, and route it to a type (Chapters 3 and 4).</li>
+<li>Write a specification block under a <code>#### Diagram:</code> heading with a unique sim-id, a library and exact numbers.</li>
+<li>Invoke the generator skill by name in Claude Code, pointing to the specification, the pinned library version and the output you want.</li>
+<li>Run the checkpoints and utilities: extraction, scaffold, validation, height sync and layout review.</li>
+<li>Review the code against the checklist, and reproduce any fault in the p5.js Web Editor.</li>
+<li>Refine one change at a time, updating the specification whenever the design changes.</li>
+<li>Record a generation log entry and commit the MicroSim.</li>
+</ol>
+<p>Try it on a small idea of your own, such as a MicroSim that lets a learner change one quantity and watch one result. If a step fails, the failure-mode table tells you where to look first.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Now Generate and Repair a MicroSim</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You just learned to write a specification block, steer the generator skill with a precise prompt, refine one change at a time, and diagnose hallucinated calls and library drift. That is the whole loop from idea to a MicroSim you can trust.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>The MicroSim generator skill is a meta-skill made of an entry file, reference guides, template assets and utility scripts. It routes a request to one specialized guide and templates, keeping the agent's context small.</li>
+<li>Claude Code runs the skill. Skill invocation means naming the skill, the MicroSim and the subject in the request.</li>
+<li>An agent workflow splits work between scripts, which do deterministic steps, and the agent, which writes the sketch. Humans stay in the loop at design checkpoints, ambiguity and review.</li>
+<li>A specification block is the contract between author and generator. Diagram and drawing specifications differ only by heading, and both can be extracted by tool.</li>
+<li>Prompt design removes decisions from the model. Standing rules belong in a system prompt or rules file, procedures in the skill and one-off details in the prompt.</li>
+<li>Iterative refinement changes one thing per round, and design changes go back into the specification.</li>
+<li>Generation failure modes include hallucinated APIs and library version drift. The p5.js 2.x migration is a concrete example, with <code>preload()</code>, Bezier calls and <code>curveVertex()</code> among the changes.</li>
+<li>Debugging AI code means reproducing, reading the console, classifying, repairing the smallest cause and recording it. The p5.js Web Editor is the fastest place to reproduce, but its library version may differ from yours.</li>
+<li>Code review of AI output uses the guide's checklist plus two human checks: objective fit and interaction pattern.</li>
+<li>Reproducible generation records inputs in a generation log instead of promising identical output, and token cost is managed by loading only what is needed and using scripts for deterministic work.</li>
+</ul>
+<p>Chapter 6 takes the p5.js type you have been generating and studies its code in depth, so that you can read and adjust what the agent writes.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04-choosing-a-microsim-type/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Choosing a MicroSim Type">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                4. Choosing a MicroSim Type
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-p5js-microsims/" class="md-footer__link md-footer__link--next" aria-label="Next: 6. p5.js MicroSims">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                6. p5.js MicroSims
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

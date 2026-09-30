@@ -1,0 +1,15 @@
+{
+  "sim_id": "metadata-section-explorer",
+  "diagram_name": "Metadata Section Explorer",
+  "chapter_number": 15,
+  "chapter_title": "Metadata, Search and Reuse",
+  "chapter_dir": "15-metadata-search-and-reuse",
+  "chapter_rel_dir": "chapters/15-metadata-search-and-reuse",
+  "library": "vis-network",
+  "bloom_level": "Understand",
+  "bloom_verb": "Classify",
+  "learning_objective": "The learner will classify each field of the H-Bridge `metadata.json` under the correct section (`dublinCore`, `search`, `educational`, `technical`, `userInterface`) and tell required fields from optional ones.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** metadata-section-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: classify): The learner will classify each field of the H-Bridge `metadata.json` under the correct section (`dublinCore`, `search`, `educational`, `technical`, `userInterface`) and tell required fields from optional ones.\n\nData: nodes and edges are built from a copy of the H-Bridge metadata file stored as `data.json` beside the MicroSim, with the required-field lists taken from `microsim-schema.json`. Do not invent field values; every value shown is read from those two files.\n\nVisual elements: a root node labeled `microsim` in the center, five section nodes around it (the five required sections, each in a different color), and three smaller gray nodes for the optional sections `simulation`, `analytics` and `usage`. Clicking a section node expands it into field nodes; required fields have a solid border and optional fields a dashed border.\n\nInteractions:\n\n- Click a section node: expand or collapse its fields, and show an infobox at the right with the section's purpose in one sentence and the H-Bridge values for that section\n- Click a field node: show the field's type, whether the schema requires it, and its H-Bridge value\n- Hover any node: show a tooltip with the schema description of the field\n- Checkbox \"Required fields only\": hide optional fields\n- Button \"Quiz me\": hide the section labels on field nodes and ask the learner to click the section a highlighted field belongs to; report correct or incorrect immediately\n\nLayout: a network canvas 700 pixels wide by 450 pixels tall with an infobox region below it. Physics is on for the initial layout and off after the first stabilization so that nodes stay where the learner drags them.\n\nResponsive design: the canvas width follows the container width on every window resize, the infobox moves below the canvas at widths under 500 pixels, and node labels never fall below 12 pixels.\n\nImplementation: vis-network with click and hover handlers, plain HTML for the infobox and checkbox, and an aria-label on each interactive element for accessibility."
+}

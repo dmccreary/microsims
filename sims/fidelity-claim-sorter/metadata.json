@@ -1,0 +1,89 @@
+{
+  "title": "Claim Sorter",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Measured Versus Designed Claims", "Evidence", "Reporting Prediction Quality", "Learning Record Store"],
+  "description": "A p5.js drag-and-drop sorter in which learners classify ten sentences about the xAPI stream and the Learning Record Store as measured, designed or hoped for, with explanations for correct placements and hints naming the evidence a measured claim would need.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/fidelity-claim-sorter/",
+  "canvasHeight": 580,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics",
+    "topic": "Labeling claims as measured, designed or hoped for",
+    "learningObjectives": [
+      "Classify statements about the xAPI stream as measured, designed or hoped for, and justify the classification by pointing to the evidence that would be required."
+    ],
+    "bloomsTaxonomy": ["Evaluate"],
+    "bloomVerb": "classify",
+    "duration": "15-20 minutes",
+    "prerequisites": ["Measured versus designed claims", "Built, designed and hoped-for status tables in Chapters 18 and 20"],
+    "concepts": ["Measured Versus Designed Claims", "Reporting Prediction Quality", "Synthetic Cohort", "Held-Out Assessment"],
+    "chapter": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 580
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "keyboardNotes": "Zone buttons place the top card, so the activity can be completed without dragging.",
+      "colorBlindSafePalette": "Okabe-Ito zone colors with text labels"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "drag", "label": "Top card of the stack (drag onto a zone)"},
+      {"type": "button", "label": "→ Measured"},
+      {"type": "button", "label": "→ Designed"},
+      {"type": "button", "label": "→ Hoped for"},
+      {"type": "button", "label": "Check all"},
+      {"type": "button", "label": "Shuffle"},
+      {"type": "button", "label": "Reset"},
+      {"type": "canvas-click", "label": "Click a placed chip to review its explanation"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Classification practice with explanatory feedback",
+    "variables": ["card", "chosen zone", "correct zone", "attempts", "first-try correct"],
+    "assumptions": [
+      "Card labels follow the book's status statements as of the LRS repository TODO.md dated 2026-09-26.",
+      "Results computed on the synthetic cohort count as measured, but about a simulation."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classify, then justify by naming the required evidence",
+    "interactionPattern": "Sorting into category zones with immediate feedback",
+    "keyQuestions": [
+      "Was this observed, and could someone repeat it?",
+      "Does the sentence describe a plan or specification rather than a result?",
+      "What evidence would turn a hoped-for claim into a measured one?"
+    ],
+    "commonMisconceptions": [
+      "A precise number is always a measured claim about real learners.",
+      "A detailed design means the system is built and working.",
+      "A result about a simulation is evidence about real learners."
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy across the ten cards.",
+      "Written evidence requirements for hoped-for cards."
+    ]
+  },
+  "search": {
+    "keywords": ["measured claims", "designed claims", "hoped for", "evidence", "honesty", "classification"]
+  }
+}

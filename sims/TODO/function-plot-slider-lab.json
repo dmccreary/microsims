@@ -1,0 +1,15 @@
+{
+  "sim_id": "function-plot-slider-lab",
+  "diagram_name": "Function Plot Slider Lab",
+  "chapter_number": 7,
+  "chapter_title": "Charts, Plots and Tables",
+  "chapter_dir": "07-charts-plots-and-tables",
+  "chapter_rel_dir": "chapters/07-charts-plots-and-tables",
+  "library": "Plotly",
+  "bloom_level": "Apply",
+  "bloom_verb": "Locate",
+  "learning_objective": "The learner will locate the x values where a chosen function reaches a given output, by moving a marker along the curve and reading the tooltip.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** function-plot-slider-lab<br/>\n**Library:** Plotly<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: locate): The learner will locate the x values where a chosen function reaches a given output, by moving a marker along the curve and reading the tooltip.\n\nData and layout: a Plotly plot with one line trace of 500 samples over the domain -6.28 to 6.28 and one red marker trace. The y range is padded by 10 percent beyond the function's extreme values. A readout line above the plot shows x and \\( f(x) \\).\n\nControls:\n\n- Dropdown \"Function\" with sin(x), cos(x), \\( x^2 \\) and \\( e^{-x^2} \\)\n- Slider \"x\" spanning the full domain in steps of 0.01, keyboard accessible\n- Number field \"Target y\" and button \"Show matches\", which marks every x where the curve crosses the target within the domain\n\nInteractions: hovering the curve shows a tooltip in the form \"x = 1.571, f(x) = 1.000 (maximum of sin)\". The marker follows the slider. Changing the function keeps the slider position and redraws the curve.\n\nResponsive design: the plot height is 400 pixels on desktop and 300 on narrow screens, the body has no margin, and the plot fills the container width.\n\nImplementation: Plotly.js 2.27.0 from a CDN, with the plot redrawn by a `createPlot(pointX)` function called from the slider's input event."
+}

@@ -1,0 +1,149 @@
+{
+  "title": "Portfolio Milestone Planner",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Capstone Portfolio",
+    "Project Planning",
+    "MicroSim Development Workflow",
+    "Quality Gates"
+  ],
+  "description": "A p5.js Gantt-style planner of the seven capstone milestones from Chapter 25. Sliders for the number of MicroSims, test participants and weeks available stretch the generation, instrumentation and testing bars; bars that finish after the deadline or whose gate is at risk turn amber with a one-sentence warning, and clicking a bar shows its deliverable and gate. Durations are illustrative estimates, not measured effort data.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/portfolio-milestone-planner/",
+  "canvasHeight": 680,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Scheduling a capstone MicroSim portfolio",
+    "learningObjectives": [
+      "The learner will design a week-by-week schedule for their own portfolio and identify which milestone gates put the schedule at risk."
+    ],
+    "bloomsTaxonomy": "Create",
+    "bloomVerb": "design",
+    "duration": "20-30 minutes",
+    "prerequisites": [
+      "Capstone brief, milestones and gates (Chapter 25)",
+      "Quality gate (Chapter 13) and instrumentation check (Chapter 17)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 680
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Sliders have aria-labels; the chart is a Tab stop and the arrow keys select bars; at-risk bars are marked by a dashed outline and an exclamation mark as well as amber; describe() summarizes the whole schedule and the selected milestone"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "simSlider",
+        "type": "slider",
+        "label": "Number of MicroSims",
+        "range": "3-8, default 5",
+        "purpose": "Stretch or shrink the generation, instrumentation and testing bars"
+      },
+      {
+        "id": "peopleSlider",
+        "type": "slider",
+        "label": "Test participants",
+        "range": "1-8, default 3",
+        "purpose": "Stretch or shrink the testing bar; fewer than 3 puts the usability gate at risk"
+      },
+      {
+        "id": "weeksSlider",
+        "type": "slider",
+        "label": "Weeks available",
+        "range": "6-12, default 8",
+        "purpose": "Move the deadline"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset to suggested schedule",
+        "purpose": "Return to 5 MicroSims, 3 participants, 8 weeks"
+      },
+      {
+        "id": "milestoneBars",
+        "type": "clickable canvas bars",
+        "label": "Milestone bars",
+        "purpose": "Open the deliverable, gate, estimate and warning for a milestone"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Sequential milestone schedule with illustrative linear effort estimates",
+    "variables": [
+      "number of MicroSims",
+      "test participants",
+      "weeks available"
+    ],
+    "equations": [
+      "generate = 0.4 x MicroSims weeks",
+      "instrument = 0.2 x MicroSims weeks",
+      "test and review = 0.25 + 0.15 x participants + 0.06 x MicroSims weeks",
+      "plan, protect, evaluate, present = 1 week each"
+    ],
+    "assumptions": [
+      "Stages run one after another, as the chapter orders them",
+      "Estimates are calibrated only to reproduce the chapter's suggested 8-week schedule; they are not measured effort data"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Constraint-based design with immediate feedback on risk",
+    "interactionPattern": "Parameter sliders driving a Gantt chart with clickable bars",
+    "keyQuestions": [
+      "Which stages grow with the size of the portfolio?",
+      "Which gate falls past the deadline first when time is short?",
+      "What would you cut to make the plan fit?"
+    ],
+    "commonMisconceptions": [
+      "Adding MicroSims only adds generation time",
+      "Testing with one or two people is enough evidence",
+      "Planning estimates are measurements"
+    ],
+    "assessmentOpportunities": [
+      "A schedule with no at-risk gates",
+      "Naming the gate most at risk and a mitigation",
+      "Critique of the effort estimates"
+    ]
+  },
+  "search": {
+    "tags": [
+      "capstone",
+      "portfolio",
+      "Gantt chart",
+      "milestones",
+      "quality gate",
+      "planning",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "interactive-demo",
+      "gantt-chart"
+    ]
+  },
+  "chapter": "25-capstone-building-an-instrumented-microsim-portfolio"
+}

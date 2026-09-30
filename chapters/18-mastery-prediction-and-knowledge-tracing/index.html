@@ -1,0 +1,3313 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explains how an xAPI evidence stream becomes an estimate of concept mastery, using Bayesian knowledge tracing and its four parameters, and states honestly what is designed, built and untested.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/18-mastery-prediction-and-knowledge-tracing/">
+      
+      
+        <link rel="prev" href="../17-instrumenting-microsims-with-the-xapi-runtime/">
+      
+      
+        <link rel="next" href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Mastery Prediction and Knowledge Tracing - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mastery Prediction and Knowledge Tracing - Micro Simulations for Education" />
+<meta property="og:description" content="Explains how an xAPI evidence stream becomes an estimate of concept mastery, using Bayesian knowledge tracing and its four parameters, and states honestly what is designed, built and untested." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/18-mastery-prediction-and-knowledge-tracing/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/18-mastery-prediction-and-knowledge-tracing/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Mastery Prediction and Knowledge Tracing - Micro Simulations for Education" />
+<meta property="twitter:description" content="Explains how an xAPI evidence stream becomes an estimate of concept mastery, using Bayesian knowledge tracing and its four parameters, and states honestly what is designed, built and untested." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/18-mastery-prediction-and-knowledge-tracing/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mastery-prediction-and-knowledge-tracing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mastery Prediction and Knowledge Tracing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-mastery-the-quantity-we-want" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Mastery: The Quantity We Want
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-concept-mastery-and-the-conceptmastery-vertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Concept Mastery and the ConceptMastery Vertex
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-evidence-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Evidence Stream
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Evidence Stream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-interaction-to-mastery-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: From Interaction to Mastery Prediction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-versus-noise-and-diagnostic-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Versus Noise and Diagnostic Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mastery-prediction-and-predictive-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mastery Prediction and Predictive Fidelity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bayesian-knowledge-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bayesian Knowledge Tracing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bayesian Knowledge Tracing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-update-in-two-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Update in Two Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Update in Two Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bkt-parameter-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: BKT Parameter Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mastery-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mastery Threshold
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attempt-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attempt Order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attempt Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-attempt-order-swap-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Attempt Order Swap Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soft-correctness-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soft Correctness Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisite Propagation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisite Propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prerequisite-propagation-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Prerequisite Propagation Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item-response-theory-and-deep-knowledge-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Item Response Theory and Deep Knowledge Tracing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-built-designed-and-hoped-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Built, Designed and Hoped For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-mastery-the-quantity-we-want" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Mastery: The Quantity We Want
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#per-concept-mastery-and-the-conceptmastery-vertex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Concept Mastery and the ConceptMastery Vertex
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-evidence-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Evidence Stream
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Evidence Stream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-interaction-to-mastery-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: From Interaction to Mastery Prediction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-versus-noise-and-diagnostic-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signal Versus Noise and Diagnostic Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mastery-prediction-and-predictive-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mastery Prediction and Predictive Fidelity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bayesian-knowledge-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bayesian Knowledge Tracing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bayesian Knowledge Tracing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-update-in-two-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Update in Two Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Update in Two Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bkt-parameter-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: BKT Parameter Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mastery-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mastery Threshold
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attempt-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attempt Order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attempt Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-attempt-order-swap-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Attempt Order Swap Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soft-correctness-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soft Correctness Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite-propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisite Propagation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisite Propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prerequisite-propagation-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Prerequisite Propagation Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item-response-theory-and-deep-knowledge-tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Item Response Theory and Deep Knowledge Tracing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-built-designed-and-hoped-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Built, Designed and Hoped For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/18-mastery-prediction-and-knowledge-tracing/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="mastery-prediction-and-knowledge-tracing">Mastery Prediction and Knowledge Tracing</h1>
+<h2 id="summary">Summary</h2>
+<p>Explains how an evidence stream becomes a prediction of concept mastery, using Bayesian knowledge tracing and its guess, slip and learning parameters.</p>
+<p>Students learn why attempt order matters, how soft correctness and per-concept mastery work, and how mastery propagates across prerequisites. After it, they can trace a prediction from events to a mastery estimate.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concept Mastery</td>
+<td>140</td>
+</tr>
+<tr>
+<td>Evidence Stream</td>
+<td>147</td>
+</tr>
+<tr>
+<td>Signal Versus Noise</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Diagnostic Value</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Guessing</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Slipping</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Attempt Order</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Mastery Prediction</td>
+<td>138</td>
+</tr>
+<tr>
+<td>Predictive Fidelity</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Bayesian Knowledge Tracing</td>
+<td>17</td>
+</tr>
+<tr>
+<td>BKT Initial Knowledge</td>
+<td>1</td>
+</tr>
+<tr>
+<td>BKT Learning Rate</td>
+<td>1</td>
+</tr>
+<tr>
+<td>BKT Guess Parameter</td>
+<td>1</td>
+</tr>
+<tr>
+<td>BKT Slip Parameter</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Mastery Threshold</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Soft Correctness Mapping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Item Response Theory</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Deep Knowledge Tracing</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Per-Concept Mastery</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Prerequisite Propagation</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../16-xapi-statements-and-evidence/">Chapter 16: xAPI Statements and Evidence</a></li>
+<li><a href="../17-instrumenting-microsims-with-the-xapi-runtime/">Chapter 17: Instrumenting MicroSims with the xAPI Runtime</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">From Events to a Forecast</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Your instrumented MicroSims now leave a trail of evidence, and this chapter shows how a model can read that trail and forecast whether a learner has mastered a concept. By the end you can trace a prediction by hand, from a list of answers to a single probability, and explain what it does and does not tell you. Let's bounce it around!</p>
+</div>
+<p>Chapter 16 defined the statements a MicroSim emits, and Chapter 17 showed how to wire a MicroSim to produce them. Neither chapter said what a store should do with those statements once it has them. This chapter answers that question. We begin with the thing being estimated, concept mastery, and the raw material used to estimate it, the evidence stream. We then ask which parts of that stream are worth reading, and build up the standard model for reading it, Bayesian knowledge tracing, one parameter at a time.</p>
+<p>A note on status, which the rest of the chapter keeps in view. Everything here describes a model and a design. As of the <code>learning-record-store</code> repository's <code>TODO.md</code> dated 2026-09-26, no emitter sends statements to a store, and no learner data has been collected through MicroSims. So every claim that the stream predicts mastery is a hypothesis with an evaluation method, which Chapter 19 describes. The arithmetic in this chapter is real and checkable; whether it describes real learners is not yet known.</p>
+<h2 id="concept-mastery-the-quantity-we-want">Concept Mastery: The Quantity We Want</h2>
+<p>The learning graph in this book divides a subject into concepts, and each concept has a learning objective attached to it, as Chapter 3 described. <strong>Concept mastery</strong> is the state in which a learner can reliably do what that concept's objective says, at the Bloom level the objective names. A learner who has mastered the concept of a guarded call, for example, can apply it to a new MicroSim, not merely recite its definition.</p>
+<p>Mastery has one awkward property: nobody can observe it directly. We see what a learner does, such as clicking an answer, and we infer the hidden state from that. Statisticians call an unobserved quantity a <strong>latent variable</strong>, and every model in this chapter treats mastery as one. It is also usually modelled as binary: at a given moment the learner either has the concept or does not. That is a simplification, since real understanding comes in degrees, but it keeps the mathematics small and the output easy to read.</p>
+<p>Because the state is hidden, four different things are easy to confuse. The table below separates them, using a single learner and the concept of a guarded call as the example.</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Can we observe it?</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mastery (latent state)</td>
+<td>No</td>
+<td>The learner can apply a guarded call to a new MicroSim</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td>Yes</td>
+<td>The learner answers the guarded-call question wrongly, then correctly</td>
+</tr>
+<tr>
+<td>Mastery estimate</td>
+<td>Computed</td>
+<td>"Under the chapter's illustrative parameters, there is a 0.59 probability this learner has mastered the concept"</td>
+</tr>
+<tr>
+<td>Mastery prediction</td>
+<td>Computed, about the future</td>
+<td>"This learner will probably answer a new guarded-call item correctly"</td>
+</tr>
+</tbody>
+</table>
+<p>The worked example makes the distinction concrete. Suppose a learner answers a question on a concept wrongly on the first attempt and correctly on the second. The evidence is two facts. The estimate is a probability that combines those facts with the model's assumptions about slips and guesses. The mastery itself remains unknown. A dashboard that prints "mastered" next to this learner has quietly turned an estimate into a claim about the latent state.</p>
+<h2 id="per-concept-mastery-and-the-conceptmastery-vertex">Per-Concept Mastery and the ConceptMastery Vertex</h2>
+<p><strong>Per-concept mastery</strong> means keeping one separate estimate for each concept, for each learner. A learner is not "good" or "bad" at a whole chapter; they may have mastered concept A and not concept B. The Learning Record Store design records this as a <code>ConceptMastery</code> vertex at the grain of one student and one concept, carrying properties such as <code>mastery_score</code>, <code>evidence_count</code>, <code>attempts</code> and <code>successes</code>. Every vertex also carries <code>statements_compressed</code>, the number of statements it represents, so a report can always say how much evidence a number rests on.</p>
+<p>The design specification also names the two tools that make per-concept estimates possible. The <code>COVERS</code> edge ties a question or MicroSim to a concept, and Chapter 16 explained how a statement carries one concept identifier. The <code>DEPENDS_ON</code> edges are the learning graph itself, which later sections use. Separate estimates are useful because they let a teacher see which concept to reteach, and a model can update each one independently as its own evidence arrives.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Estimate, Not Verdict</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that the model never sees mastery, only its footprints. Every number in this chapter is a degree of belief about a hidden state, which is why it can move up or down as new evidence arrives.</p>
+</div>
+<h2 id="the-evidence-stream">The Evidence Stream</h2>
+<p>The <strong>evidence stream</strong> is the ordered sequence of statements a learner produces for one concept, read in the order they happened. It is the input to every model in this chapter. Chapter 16 sorted MicroSim interactions into evidence classes, and those classes now matter, because they decide what a model can do with each event.</p>
+<p>Two facts from that chapter carry the load. First, only the <code>answered</code> verb reports <code>result.success</code>, so only assessment evidence can say whether the learner was right. Second, exposure evidence, meaning slider drags, hovers, runs and page dwell, contributes zero attempts to a mastery estimate by design. A model that needs a right-or-wrong answer has nothing to condition on when it meets a slider drag. The stream still contains those events, and they may turn out to be useful in other ways, but as the evidence-class reference puts it, hover data does not measure knowledge unless something checks an answer.</p>
+<p>Before the diagram below, three terms need defining. A <strong>stage</strong> is one step in the path from a learner's action to a prediction. A <strong>filter</strong> is a rule that drops events that are not evidence, such as those fired by a program rather than the learner. A <strong>model</strong> is the procedure that turns the filtered stream into an estimate. The diagram lets you click each stage and see what enters and leaves it.</p>
+<h4 id="diagram-from-interaction-to-mastery-prediction">Diagram: From Interaction to Mastery Prediction</h4>
+<iframe src="../../sims/evidence-stream-to-prediction-pipeline/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/evidence-stream-to-prediction-pipeline/main.html">Run the From Interaction to Mastery Prediction MicroSim Fullscreen</a></p>
+<details>
+<summary>From Interaction to Mastery Prediction</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> evidence-stream-to-prediction-pipeline<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain what enters and leaves each stage between a learner's action and a mastery prediction, and identify which stage discards exposure evidence.</p>
+<p>Layout: a left-to-right chain of six boxes in the drawing region: "Learner action", "xAPI statement", "Evidence stream (per concept)", "Filter", "Model", "Estimate and prediction". A white control region sits below the drawing region.</p>
+<p>Controls:</p>
+<ul>
+<li>Click any box to open an infobox below the chain with its definition, its input, its output and one example</li>
+<li>Radio buttons "Assessment answer" and "Slider drag" that send a sample event down the chain</li>
+<li>Button "Reset"</li>
+</ul>
+<p>Data: an assessment answer travels to the end and raises the value shown in the estimate box. A slider drag stops at the Filter box for a model that needs <code>success</code>, with the infobox text "attempts = 0: no right-or-wrong to condition on".</p>
+<p>Interactions: hovering a box highlights its inputs and outputs. Every infobox text is written to the console as a log line so it can later feed an activity log.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; below 600 pixels the boxes stack vertically and the infobox moves below them.</p>
+<p>Implementation: p5.js with createRadio and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<p>The stream has two structural properties that later sections lean on. It is ordered, which is why the sequence of attempts matters, and it is noisy, which is why the model must be careful about how much to believe any one event. We take noise first.</p>
+<h2 id="signal-versus-noise-and-diagnostic-value">Signal Versus Noise and Diagnostic Value</h2>
+<p>In an evidence stream, <strong>signal versus noise</strong> is the distinction between variation caused by what the learner knows and variation caused by anything else. A correct answer that the learner earned by understanding is signal. A correct answer earned by a lucky guess, an incorrect answer caused by a misread question, and a hover that happened because the mouse crossed a diagram on the way to a button are noise.</p>
+<p>Chapter 16 already built noise filters into the evidence classes. A hover under 600 ms is a crossing, a run under 250 ms is a mis-click, and a page visit under one second is a glance. Those thresholds are design decisions that have not been tested against learner data, so they are best read as a first guess at where noise ends. The producer contract also names a noise source that no threshold can remove: a learner who skims a page because they already met the material elsewhere looks identical to one who did not engage. Low engagement is therefore not evidence of low mastery.</p>
+<p><strong>Diagnostic value</strong> is how much a single observation changes the estimate, and so how useful it is for telling a learner who has mastered a concept from one who has not. An observation that a masterful learner and an unmastered learner produce equally often has no diagnostic value. An observation that only one of them tends to produce has a lot.</p>
+<p>A worked example uses the update equation introduced later in this chapter, so treat the numbers as a preview. Start from an estimate of 0.50 and a slip rate of 0.10. If the chance of guessing a correct answer is 0.20, a correct answer moves the estimate to 0.82. If the item is easy to guess, with a guess rate of 0.50, the same correct answer moves it only to 0.64. The second item is less diagnostic because a correct answer is nearly as likely from a learner who lacks the concept. An exposure event, with no <code>success</code> at all, has a diagnostic value of zero for this kind of model.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Audit Your Guess Rate</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Before you ship a quiz item, ask how a learner with no knowledge could still get it right. If they can eliminate options easily or brute-force the answer, the item has a high guess rate and low diagnostic value, so rewrite it or add distractors.</p>
+</div>
+<h2 id="mastery-prediction-and-predictive-fidelity">Mastery Prediction and Predictive Fidelity</h2>
+<p>A mastery estimate describes the present. <strong>Mastery prediction</strong> turns it into a statement about the future: given what the model believes now, how likely is the learner to succeed on the next item for this concept? This is the step that makes an estimate testable, because a prediction can be checked against what the learner actually does next. It also carries the thesis behind this book, that a textbook earns the word "intelligent" by forecasting how each learner will do, not merely by containing generated text.</p>
+<p>Bayesian knowledge tracing, introduced in the next section, gives a direct formula for the prediction. Write <span class="arithmatex">\(P(L)\)</span> for the probability that the learner has mastered the concept, <span class="arithmatex">\(p_s\)</span> for the slip rate (a mastered learner answering wrongly) and <span class="arithmatex">\(p_g\)</span> for the guess rate (an unmastered learner answering correctly). A correct answer can then arise in two ways, so the predicted chance of a correct next answer is:</p>
+<div class="arithmatex">\[
+P(\text{correct}) = P(L)\,(1 - p_s) + \bigl(1 - P(L)\bigr)\,p_g
+\]</div>
+<p>The worked example uses a slip rate of 0.10 and a guess rate of 0.20, the same illustrative values the rest of the chapter uses. If the estimate is 0.71, the predicted chance of a correct answer is <span class="arithmatex">\(0.71 \times 0.90 + 0.29 \times 0.20 = 0.697\)</span>, or about 0.70. The prediction is always squeezed toward the middle compared with the estimate, because even a fully mastered learner can slip and even an unmastered one can guess. The table below shows the effect for four estimates.</p>
+<table>
+<thead>
+<tr>
+<th>Mastery estimate <span class="arithmatex">\(P(L)\)</span></th>
+<th>Predicted chance of a correct next answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.20</td>
+<td>0.34</td>
+</tr>
+<tr>
+<td>0.50</td>
+<td>0.55</td>
+</tr>
+<tr>
+<td>0.80</td>
+<td>0.76</td>
+</tr>
+<tr>
+<td>0.95</td>
+<td>0.87</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Predictive fidelity</strong> is how closely such predictions match what learners do afterwards. A model with high predictive fidelity says 0.70 and is right about seven times in ten; one with low fidelity says 0.70 whatever happens. Chapter 19 covers how to measure it with held-out assessments, calibration and discrimination. Here we only need the definition, because it explains why the rest of this chapter is careful about status: until predictions are compared with outcomes from real learners, the fidelity of this stream is unknown.</p>
+<h2 id="bayesian-knowledge-tracing">Bayesian Knowledge Tracing</h2>
+<p><strong>Bayesian knowledge tracing</strong>, abbreviated BKT, is a model that keeps one probability of mastery per learner and concept and updates it after every observed answer. Formally it is a two-state hidden Markov model: the hidden state is mastered or not mastered, the observation is correct or incorrect, and the four parameters below govern how the state produces observations and how it changes over time. Intelligent tutoring systems have used it for decades, and the Learning Record Store design selects it for mastery computation (its ADR-006) over a weighted moving average, an Elo rating and item response theory. The design's stated reasons are that BKT outputs a probability a teacher can read at face value, and that its update needs only one number of state per learner and concept.</p>
+<p>Two behaviours need names before the parameters do, because the parameters are just those behaviours expressed as probabilities. <strong>Slipping</strong> is a mastered learner answering incorrectly through carelessness, a misread question or a mis-click. <strong>Guessing</strong> is an unmastered learner answering correctly by chance, by eliminating options or by brute force. Without them a single wrong answer would prove ignorance and a single lucky click would prove mastery, and real learners do not behave that way.</p>
+<p>Four numbers, all fitted or assumed per concept, define the model. The names below follow this book's concept list; the Learning Record Store's own chapter calls the first a prior mastery probability and the third a transit parameter, and they mean the same things.</p>
+<ul>
+<li><strong>BKT initial knowledge</strong>, written <span class="arithmatex">\(P(L_0)\)</span>, is the probability the learner already mastered the concept before any evidence. It is the starting estimate.</li>
+<li><strong>BKT learning rate</strong>, written <span class="arithmatex">\(p_t\)</span>, is the probability that a learner who has not mastered the concept masters it between one opportunity and the next. It is the only place where learning enters the model.</li>
+<li><strong>BKT guess parameter</strong>, written <span class="arithmatex">\(p_g\)</span>, is the probability of a correct answer given that the concept is not mastered.</li>
+<li><strong>BKT slip parameter</strong>, written <span class="arithmatex">\(p_s\)</span>, is the probability of an incorrect answer given that the concept is mastered.</li>
+</ul>
+<p>The LRS design notes one further practical point: a brand-new concept has no history to fit, so it borrows starting values from its taxonomy category until enough of its own evidence accumulates. Those borrowed values are a guess, and the LRS design lists testing them against held-out quiz outcomes as future work.</p>
+<h3 id="the-update-in-two-steps">The Update in Two Steps</h3>
+<p>Each new answer is processed in two steps. The first step conditions the current estimate on the observation using Bayes' rule. If the answer was correct, the new estimate is the share of all the ways a correct answer could occur that come from a mastered learner:</p>
+<div class="arithmatex">\[
+P(L_n \mid \text{correct}) = \frac{P(L_n)\,(1 - p_s)}{P(L_n)\,(1 - p_s) + \bigl(1 - P(L_n)\bigr)\,p_g}
+\]</div>
+<p>If the answer was incorrect, the roles swap. The numerator is a mastered learner who slipped, and the denominator adds an unmastered learner who did not guess correctly:</p>
+<div class="arithmatex">\[
+P(L_n \mid \text{incorrect}) = \frac{P(L_n)\,p_s}{P(L_n)\,p_s + \bigl(1 - P(L_n)\bigr)\,(1 - p_g)}
+\]</div>
+<p>The second step applies learning. Whatever probability remains on "not mastered" after step one has a chance <span class="arithmatex">\(p_t\)</span> of moving to "mastered" before the next opportunity, and that result becomes the estimate for the next observation:</p>
+<div class="arithmatex">\[
+P(L_{n+1}) = P(L_n \mid \text{evidence}) + \bigl(1 - P(L_n \mid \text{evidence})\bigr)\,p_t
+\]</div>
+<p>This basic form has no forgetting: once the model believes a learner has mastered a concept, the learning step only moves probability toward mastery, so a later drop can come only from incorrect answers.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Three Equations, Two Ideas</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If the fractions feel dense, that is normal, because most people need two passes through Bayes' rule. You already know the two ideas: weigh how each answer could have happened, then allow some learning. Try the numbers in the table below before rereading the algebra.</p>
+</div>
+<p>The worked example applies the update to one learner and four answers, with <span class="arithmatex">\(P(L_0) = 0.30\)</span>, <span class="arithmatex">\(p_t = 0.15\)</span>, <span class="arithmatex">\(p_g = 0.20\)</span> and <span class="arithmatex">\(p_s = 0.10\)</span>. These are illustrative values, the same ones the Learning Record Store's mastery-trace MicroSim uses, and not fitted to any data. The first correct answer gives <span class="arithmatex">\(P(L_0 \mid \text{correct}) = 0.27 / (0.27 + 0.14) = 0.66\)</span>, and the learning step lifts that to <span class="arithmatex">\(0.66 + 0.34 \times 0.15 = 0.71\)</span>. The table records every step.</p>
+<table>
+<thead>
+<tr>
+<th>Attempt</th>
+<th>Observed</th>
+<th>Estimate before</th>
+<th>After conditioning</th>
+<th>After learning step</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>correct</td>
+<td>0.30</td>
+<td>0.66</td>
+<td>0.71</td>
+</tr>
+<tr>
+<td>2</td>
+<td>incorrect</td>
+<td>0.71</td>
+<td>0.23</td>
+<td>0.35</td>
+</tr>
+<tr>
+<td>3</td>
+<td>correct</td>
+<td>0.35</td>
+<td>0.71</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>4</td>
+<td>correct</td>
+<td>0.75</td>
+<td>0.93</td>
+<td>0.94</td>
+</tr>
+</tbody>
+</table>
+<p>Read the second row. One wrong answer pulls the estimate from 0.71 to 0.35, so the evidence matters, but it does not fall to zero, because a slip is possible. The learning step then lifts it again, and two correct answers restore most of the loss. The next MicroSim lets you change the four parameters and the sequence and watch the trajectory move.</p>
+<h4 id="diagram-bkt-parameter-lab">Diagram: BKT Parameter Lab</h4>
+<iframe src="../../sims/bkt-parameter-lab/main.html" width="100%" height="772px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/bkt-parameter-lab/main.html">Run the BKT Parameter Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>BKT Parameter Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> bkt-parameter-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will calculate the mastery estimate after each answer in a sequence by choosing the four BKT parameters, and will judge when the estimate first reaches a chosen mastery threshold.</p>
+<p>Layout: the drawing region shows a line chart of the estimate <span class="arithmatex">\(P(L_n)\)</span> from 0 to 1 against attempt number, with a dashed horizontal line for the threshold. Below the chart, a row of small tiles shows each attempt as a green (correct) or red (incorrect) square. The control region is white below the drawing region.</p>
+<p>Controls:</p>
+<ul>
+<li>Four sliders: initial knowledge (default 0.30), learning rate (default 0.15), guess (default 0.20) and slip (default 0.10), each from 0.00 to 1.00 in steps of 0.01</li>
+<li>Slider "Mastery threshold" (default 0.95)</li>
+<li>Click a tile to flip it between correct and incorrect; buttons "Add correct", "Add incorrect" and "Reset"</li>
+<li>Checkbox "Show intermediate numbers" that prints the conditioning and learning-step values for the selected attempt</li>
+</ul>
+<p>Data: the initial sequence is correct, incorrect, correct, correct, which reproduces the table in the text (0.71, 0.35, 0.75, 0.94). Every number is computed live from the update equations, never pre-baked.</p>
+<p>Interactions: hovering a point on the line shows its attempt, observation and value. Every tooltip text is also written to the console as a log line so it can later feed an activity log.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; sliders resize with it and the tiles wrap onto a second row below 500 pixels.</p>
+<p>Implementation: p5.js with createSlider and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="mastery-threshold">Mastery Threshold</h2>
+<p>A <strong>mastery threshold</strong> is the estimate at or above which a system treats a concept as mastered and acts on that, for example by marking it complete or moving the learner on. It converts a probability into a decision, and so it is a policy, not a fact about the learner. A high threshold demands more evidence and risks keeping a learner on material they already know; a low one moves faster and risks crediting mastery that is not there.</p>
+<p>The worked example reuses the four-answer table. With every answer correct and the same illustrative parameters, the estimate after each answer is 0.71, 0.93, 0.99 and 1.00. Against a threshold of 0.95 the concept is declared mastered after the third answer, and against 0.90 after the second. Which value is right depends on the cost of each kind of mistake, and that cost is a judgment for the instructor. The LRS design documents consulted for this chapter do not fix one value, so treat any figure in this chapter as an example.</p>
+<h2 id="attempt-order">Attempt Order</h2>
+<p><strong>Attempt order</strong> is the sequence in which a learner's answers arrive, and in BKT it changes the result. The update is sequential: each answer conditions the estimate left by the previous one, and the learning step interleaves with the conditioning. Two streams containing the same answers in a different order therefore end in different places.</p>
+<p>The worked example uses the same illustrative parameters and two answers correct, two incorrect. If the correct answers come first (correct, correct, incorrect, incorrect), the final estimate is 0.33, because the learner ends on two failures. If the incorrect answers come first (incorrect, incorrect, correct, correct), the final estimate is 0.88, because the learner ends on two successes. Same evidence, very different conclusions, and a model that only counted successes and failures would see no difference.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Sort or Deduplicate Attempts</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+It is tempting to summarize a learner's answers as "4 attempts, 2 correct", but that summary erases the order, and BKT needs the order. Keep every attempt with its timestamp and let the model do the counting.</p>
+</div>
+<p>The order that the model sees depends on what the producer emits. Chapter 16 already argued that every deliberate attempt should be emitted, wrong ones included, so that a learner who brute-forces a six-option quiz does not look like one who knew the answer. Order gives that argument its arithmetic. With the illustrative parameters, a learner who answers correctly on the first try has an estimate of 0.71; a learner who answers wrongly five times and then correctly ends at 0.56. If only the final success were emitted, both would look the same.</p>
+<p>The producer contract leaves one question open: whether retries within one presentation of a question should count as one opportunity or several for mastery estimation, since a guess-then-correct sequence in one minute is not the same evidence as two attempts a week apart. The Learning Record Store's design also keeps one learner's statements on one queue partition so they are consumed in order, which is a design decision motivated by this section, not a measured result.</p>
+<h4 id="diagram-attempt-order-swap-lab">Diagram: Attempt Order Swap Lab</h4>
+<iframe src="../../sims/attempt-order-swap-lab/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/attempt-order-swap-lab/main.html">Run the Attempt Order Swap Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Attempt Order Swap Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> attempt-order-swap-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: compare): The learner will compare the final mastery estimates produced by two orderings of the same set of answers, and will distinguish what order changes from what a simple success count would show.</p>
+<p>Layout: two stacked line charts share one vertical axis from 0 to 1. The top chart shows the estimate for the learner's chosen order and the bottom chart for a second order. A summary strip between them reads "Successes: 2 of 4" in both, with the two final estimates beside it. A white control region sits below the drawing region.</p>
+<p>Controls:</p>
+<ul>
+<li>Two rows of four draggable tiles, green for correct and red for incorrect; dragging a tile reorders that row</li>
+<li>Buttons "Preset: successes first", "Preset: failures first", "Preset: brute force (five wrong, then right)" and "Reset"</li>
+<li>Checkbox "Show a success-count-only model" that overlays a flat line at the success rate</li>
+<li>Four small sliders for the parameters, defaulting to 0.30, 0.15, 0.20 and 0.10</li>
+</ul>
+<p>Data: presets reproduce the chapter's numbers, about 0.33 for successes first and 0.88 for failures first. All values are computed live from the update equations.</p>
+<p>Interactions: hovering a tile shows its position, observation and the estimate after it. Every tooltip text is also written to the console as a log line so it can later feed an activity log.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; below 500 pixels the tile rows shrink and the two charts keep their full width.</p>
+<p>Implementation: p5.js with mouse-drag handling on the tiles, controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="soft-correctness-mapping">Soft Correctness Mapping</h2>
+<p>The two update equations expect a binary input, correct or incorrect, but most of a MicroSim's evidence is not binary. A slider drag, a hover or a page visit has no <code>success</code>. <strong>Soft correctness mapping</strong> is the proposed step that converts such non-binary evidence into a value between 0 and 1 that the update can treat as a partial "how correct was this", blended in with less weight than a graded answer. The Learning Record Store's design states the reason plainly: reading a page is weak evidence of mastery, and the model should say so.</p>
+<p>The worked example comes from the Learning Record Store's mapping MicroSim, whose numbers are illustrative defaults, not fitted values. In that MicroSim a graded answer carries a weight of 1.0, while page dwell time and interaction depth each carry a capped weight of 0.30. The chapter does not present a blending formula, because the design has not chosen one.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Engagement Is Not Understanding</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A soft score built from dwell or interaction counts measures attention, and a learner can attend to something without understanding it. Keep such evidence at a low weight, and prefer adding a checked prediction to the MicroSim when you need real evidence.</p>
+</div>
+<p>The design is candid that one question about this mapping is unresolved: which component computes the value. A stream-side component could derive it from engagement summaries using a registry with one entry per MicroSim, which keeps scoring logic on the server but requires every new MicroSim to be registered. Alternatively, the MicroSim's own code could compute a proxy and embed it in the statement's <code>result.score</code>, which needs no new component but means the same scoring logic must be kept consistent in two places. Neither has been built, and the LRS repository's <code>TODO.md</code> lists it as an open question.</p>
+<h2 id="prerequisite-propagation">Prerequisite Propagation</h2>
+<p>Concepts in the learning graph depend on one another, and evidence about one concept says something about its neighbours. <strong>Prerequisite propagation</strong> is the use of those dependency edges to carry information between per-concept estimates. It has two directions. Looking upstream, a learner who answers a hard question correctly has probably mastered its prerequisites too. Looking down a chain, a learner who struggles with a concept may be failing because a prerequisite is weak.</p>
+<p>The Learning Record Store's design specifies the second direction as a report, not a probability update. Its Prerequisite Gap Analysis walks the <code>DEPENDS_ON</code> edges upstream from a weak concept and flags unmastered prerequisites. The sources consulted for this chapter do not specify any rule that propagates probability along edges, so treat automatic propagation as a hypothesis: it is attractive because one answer would inform several estimates, and risky because a wrong edge in the graph would spread a wrong inference.</p>
+<p>A short illustrative chain shows the idea. Suppose the graph says Rates depends on Ratios, and Ratios depends on Fractions. A learner's Rates estimate is low, their Ratios estimate is low and their Fractions estimate is high. The gap analysis would point at Ratios as the first unmastered concept in the chain, since Fractions is already mastered, and that is where reteaching should begin.</p>
+<h4 id="diagram-prerequisite-propagation-explorer">Diagram: Prerequisite Propagation Explorer</h4>
+<iframe src="../../sims/prerequisite-propagation-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/prerequisite-propagation-explorer/main.html">Run the Prerequisite Propagation Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Prerequisite Propagation Explorer</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> prerequisite-propagation-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate a struggling concept whose own evidence is weak from one whose weakness traces to an unmastered prerequisite, by walking dependency edges upstream.</p>
+<p>Layout: a small directed graph of seven concepts, with edges pointing from each concept to its prerequisites, matching the direction of the learning graph. Node fill runs from red (estimate 0.0) through yellow to green (estimate 1.0). A side panel shows the selected concept's estimate and its list of prerequisites.</p>
+<p>Controls:</p>
+<ul>
+<li>Click a node to select it and open its infobox</li>
+<li>Slider "Estimate for selected concept" from 0.00 to 1.00</li>
+<li>Button "Find first gap" that highlights the deepest unmastered prerequisite reachable upstream from the selected concept</li>
+<li>Toggle "Threshold for mastered" (default 0.95) and button "Reset"</li>
+</ul>
+<p>Data: seven illustrative concepts in a chain and a small branch, with hand-chosen starting estimates that include one weak middle concept.</p>
+<p>Interactions: hovering an edge shows the text "depends on"; clicking a node lists which prerequisites are below the threshold. The tool does not change any estimate by propagation; it only reads them, matching the gap-analysis report. Every infobox text is also written to the console as a log line so it can later feed an activity log.</p>
+<p>Responsive design: the network canvas follows the container width on every window resize, the side panel moves below the graph under 600 pixels, and physics is disabled after the layout settles.</p>
+<p>Implementation: vis-network with a hierarchical layout and click and hover event handlers, plus a describe-style text summary for accessibility.</p>
+</details>
+<h2 id="item-response-theory-and-deep-knowledge-tracing">Item Response Theory and Deep Knowledge Tracing</h2>
+<p>Two other families of models are worth knowing so you can say why BKT is the one this design uses.</p>
+<p><strong>Item response theory</strong>, abbreviated IRT, models the probability of a correct answer as a function of the learner's ability and properties of the item, such as its difficulty. It is well suited to designing and scoring calibrated tests. The Learning Record Store's design passed over it because it needs item-difficulty parameters calibrated across a large item bank, which is heavier than the state a stream processor can afford per statement. Standard IRT also treats ability as fixed during a test, whereas BKT models learning between opportunities; that second point is general background, not a claim from the design documents.</p>
+<p><strong>Deep knowledge tracing</strong> replaces the four-parameter model with a neural network trained on many learners' sequences of answers, and it predicts the next answer directly. Its appeal is that it can pick up patterns a four-parameter model cannot. Its costs are that it needs a large volume of training data, which this project does not have, and that its output is harder to explain to a teacher than "the chance of slipping is 0.10". It is not part of the Learning Record Store design, and this book mentions it for completeness only.</p>
+<h2 id="what-is-built-designed-and-hoped-for">What Is Built, Designed and Hoped For</h2>
+<p>The honesty rules of this book apply with particular force here, so the table below separates three kinds of claim. It summarizes statements made earlier in the chapter and adds no new ones.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of claim</th>
+<th>Item</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Measured</td>
+<td>The Learning Record Store's repository records that a quiz retried three times emitted three <code>answered</code> statements with success false, false, true on one identifier, verified in a browser in July 2026. The chapter's arithmetic can be checked by hand.</td>
+</tr>
+<tr>
+<td>Designed</td>
+<td>BKT as the mastery model (ADR-006), a per-statement streaming update, per-concept parameters with taxonomy-category starting values, per-learner ordering, and the <code>ConceptMastery</code> vertex. Soft correctness and prerequisite propagation are proposals only.</td>
+</tr>
+<tr>
+<td>Hoped for</td>
+<td>That the stream from real learners predicts their later performance well enough to be useful. No learner data has been collected, so this is a hypothesis.</td>
+</tr>
+</tbody>
+</table>
+<p>Two cautions follow. As of <code>TODO.md</code> dated 2026-09-26, no emitter sends statements to a store, so the mastery pipeline described here has no live input. The repository's smoke test also contains an assertion that every <code>ConceptMastery</code> vertex carries a non-null BKT score, and its own comments say the join that would supply the score was not yet wired when it was written; check the repository for the current state before relying on any mastery figure. Chapter 19 describes how to evaluate the stream once real data exists.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li><strong>Concept mastery</strong> is a hidden state, not directly observable; <strong>per-concept mastery</strong> keeps one estimate per learner and concept, stored as a <code>ConceptMastery</code> vertex in the design.</li>
+<li>The <strong>evidence stream</strong> is the ordered per-concept sequence of statements; only <code>answered</code> statements carry right or wrong, and exposure evidence contributes no attempts.</li>
+<li><strong>Signal versus noise</strong> separates variation caused by knowledge from everything else, and <strong>diagnostic value</strong> measures how much one observation moves the estimate; a hard-to-guess item is more diagnostic.</li>
+<li><strong>Mastery prediction</strong> turns an estimate into the chance of a correct next answer, and <strong>predictive fidelity</strong> measures how well those chances match outcomes, which Chapter 19 evaluates.</li>
+<li><strong>Bayesian knowledge tracing</strong> updates a mastery probability in two steps, conditioning on the answer and then applying learning, using <strong>BKT initial knowledge</strong>, <strong>BKT learning rate</strong>, the <strong>BKT guess parameter</strong> and the <strong>BKT slip parameter</strong>; <strong>guessing</strong> and <strong>slipping</strong> are the behaviours those last two parameters describe.</li>
+<li>A <strong>mastery threshold</strong> is a policy, and <strong>attempt order</strong> changes the result, so producers must keep every attempt in sequence.</li>
+<li><strong>Soft correctness mapping</strong> and <strong>prerequisite propagation</strong> are designed or proposed, not built; <strong>item response theory</strong> and <strong>deep knowledge tracing</strong> are alternatives this design did not choose.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Trace a Mastery Prediction</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now take a sequence of answers and compute, step by step, a BKT mastery estimate and the predicted chance of a correct next answer, and you know why order and honest labelling matter. Every bounce leaves evidence, and you can now read what it says.</p>
+</div>
+<p>The next chapter asks how to test whether estimates like these actually predict what learners do, and how to report the result honestly.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 17. Instrumenting MicroSims with the xAPI Runtime">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                17. Instrumenting MicroSims with the xAPI Runtime
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-footer__link md-footer__link--next" aria-label="Next: 19. Evaluating the Predictive Fidelity of the xAPI Stream">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                19. Evaluating the Predictive Fidelity of the xAPI Stream
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

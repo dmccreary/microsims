@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://dmccreary.github.io/microsims/appendices/microsims-2-plan/">
       
       
-        <link rel="prev" href="../../learning-graph/chapter-metrics/">
+        <link rel="prev" href="../../learning-graph/mascot-test/">
       
       
         <link rel="next" href="../../shared-microsims-linking-guide/">
@@ -53,6 +53,8 @@
     
     
       <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -113,7 +115,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
       
-  <img src="../../img/logo.png" alt="logo">
+  <img src="../../img/mascot/welcome.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -222,7 +224,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
       
-  <img src="../../img/logo.png" alt="logo">
+  <img src="../../img/mascot/welcome.png" alt="logo">
 
     </a>
     Micro Simulations for Education
@@ -398,6 +400,28 @@
       
         
           
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
         
       
         
@@ -842,6 +866,8 @@
       
         
       
+        
+      
     
     
     
@@ -954,6 +980,8 @@
       
         
           
+        
+      
         
       
         
@@ -2329,7 +2357,7 @@
 <ol>
 <li><strong>Write specs first.</strong> Each new chapter carries <code>#### Diagram:</code> and <code>#### Drawing:</code> specification blocks, so <code>extract-sim-specs.py</code> can drive batch generation (see Chapter 14).</li>
 <li><strong>Reuse before build.</strong> For every spec, query the search index (§2.3) and the v1.0 pool. Record one of: reused as-is, adapted, or built new.</li>
-<li><strong>Harvest v1.0 sims only if they reach the bar.</strong> Decision: a v1.0 sim is reused only when its <code>validate-sims.py</code> score can be raised to <strong>85 (grade A)</strong>, it is width-responsive, and its iframe height is correct. If it cannot be raised that high, it is <strong>not</strong> in the new textbook, and it stays in git at the <code>v1.0</code> tag. The per-sim upgrade list is in <a href="../../TODO.md"><code>TODO.md</code></a> (section "MicroSims 2.0: Per-Sim Quality Upgrades"), with each sim's score and its rubric issues. Upgrades are done <strong>on demand</strong>: when a new chapter's spec adopts a sim, we work through its checklist, re-score, and tick it off. Sims that no chapter adopts are not upgraded. The 2026-09-30 baseline is 116 sims scored, mean 60.6, with 18 at grade A, 27 at B, 30 at C and 41 at D.</li>
+<li><strong>Harvest v1.0 sims only if they reach the bar.</strong> Decision: a v1.0 sim is reused only when its <code>validate-sims.py</code> score can be raised to <strong>85 (grade A)</strong>, it is width-responsive, and its iframe height is correct. If it cannot be raised that high, it is <strong>not</strong> in the new textbook, and it stays in git at the <code>v1.0</code> tag. The per-sim upgrade list is in <a href="https://github.com/dmccreary/microsims/blob/main/TODO.md"><code>TODO.md</code></a> (section "MicroSims 2.0: Per-Sim Quality Upgrades"), with each sim's score and its rubric issues. Upgrades are done <strong>on demand</strong>: when a new chapter's spec adopts a sim, we work through its checklist, re-score, and tick it off. Sims that no chapter adopts are not upgraded. The 2026-09-30 baseline is 116 sims scored, mean 60.6, with 18 at grade A, 27 at B, 30 at C and 41 at D.</li>
 <li><strong>Regenerate the rest</strong> from specs with the meta-skill, then run the full QA chain (scaffold, validate, height sync, Playwright height test, screenshot, layout review, nav update).</li>
 <li><strong>Showcase set.</strong> Build 4–6 sims in the H-Bridge style, one per major family (a physics animation, a chart explorer, a network, an overlay, and a comparison poster). The six stem-robots posters cover the poster family; add one or two posters on this book's own topics (for example the MicroSim types, or p5 vs Chart.js vs Plotly).</li>
 <li><strong>xAPI pilot.</strong> Instrument about 10 sims covering every evidence class and at least the p5, Chart.js and Mermaid adapters, using the <code>lrs-*.js</code> runtime and a generated <code>lrs-config.js</code>, and using the coordinator-plus-workers pattern proven on eight-hour-entrepreneur (20 sims).</li>
@@ -2624,7 +2652,7 @@ open<span class="w"> </span>main.pdf
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../learning-graph/chapter-metrics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter Metrics">
+          <a href="../../learning-graph/mascot-test/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mascot Test">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2634,7 +2662,7 @@ open<span class="w"> </span>main.pdf
                 Previous
               </span>
               <div class="md-ellipsis">
-                Chapter Metrics
+                Mascot Test
               </div>
             </div>
           </a>

@@ -1,0 +1,125 @@
+/* Prerequisite Propagation Explorer - layout for a fixed-height iframe.
+   The .app column fills the iframe (100vh); the graph takes whatever height is left
+   after the title, the side panel (below the graph under 600 px) and the controls. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+body { background: aliceblue; }
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+}
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px 8px 2px 8px;
+}
+.content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+}
+.graph-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+}
+#network {
+    position: absolute;
+    inset: 0;
+}
+.legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+    padding: 2px 10px 4px 10px;
+    font-size: 13px;
+    color: #222;
+}
+.legend-bar {
+    position: relative;
+    width: 150px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid #888;
+    /* ColorBrewer RdYlBu: color-blind-safe diverging scale */
+    background: linear-gradient(to right, #d73027, #fc8d59, #fee090, #91bfdb, #4575b4);
+}
+.legend-threshold {
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    width: 3px;
+    background: black;
+}
+.legend-note { color: #333; }
+
+.panel {
+    width: 280px;
+    margin: 4px 6px 4px 0;
+    padding: 8px 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.35;
+    overflow-y: auto;
+}
+.panel h2 { font-size: 17px; margin: 0 0 4px 0; }
+.panel h3 { font-size: 14px; margin: 8px 0 2px 0; }
+.panel ul { margin: 2px 0; padding-left: 18px; }
+.panel li { margin: 1px 0; }
+.panel .muted { color: #555; font-size: 13px; }
+.status-ok { color: #1f4e8c; font-weight: bold; }
+.status-low { color: #a1261b; font-weight: bold; }
+.gap-box {
+    margin-top: 6px;
+    padding: 6px 8px;
+    border: 2px solid #5b2a86;
+    border-radius: 6px;
+    background: #f5eefb;
+}
+
+.controls {
+    background: white;
+    border-top: 1px solid silver;
+    padding: 6px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    align-items: center;
+    font-size: 15px;
+}
+.control-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+#est-slider { width: 170px; }
+.controls button, .controls select { font-size: 14px; padding: 3px 8px; }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+    .title { font-size: 17px; }
+    .content { flex-direction: column; }
+    .panel {
+        width: auto;
+        height: 142px;
+        flex: none;
+        margin: 0 6px 4px 6px;
+        font-size: 13px;
+    }
+    .panel h2 { font-size: 15px; }
+    .legend { font-size: 12px; }
+    .legend-bar { width: 110px; }
+    .controls { font-size: 14px; gap: 4px 12px; }
+    #est-slider { width: 120px; }
+}

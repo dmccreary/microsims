@@ -1,0 +1,3407 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Takes a MicroSim apart into its directory, files, regions and metadata so you can read, modify and package any MicroSim you meet.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/02-anatomy-of-a-microsim/">
+      
+      
+        <link rel="prev" href="../01-what-is-a-microsim/">
+      
+      
+        <link rel="next" href="../03-learning-objectives-and-blooms-taxonomy/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Anatomy of a MicroSim - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Anatomy of a MicroSim - Micro Simulations for Education" />
+<meta property="og:description" content="Takes a MicroSim apart into its directory, files, regions and metadata so you can read, modify and package any MicroSim you meet." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/02-anatomy-of-a-microsim/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/02-anatomy-of-a-microsim/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Anatomy of a MicroSim - Micro Simulations for Education" />
+<meta property="twitter:description" content="Takes a MicroSim apart into its directory, files, regions and metadata so you can read, modify and package any MicroSim you meet." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/02-anatomy-of-a-microsim/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#anatomy-of-a-microsim" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Anatomy of a MicroSim
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-microsim-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MicroSim Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The MicroSim Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-directory-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Directory Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-html-wrapper-mainhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The HTML Wrapper: main.html
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinned-library-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinned Library Version
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-microsim-javascript-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MicroSim JavaScript File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-regions-draw-and-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Two Regions: Draw and Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Two Regions: Draw and Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-canvas-height-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Canvas Height Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-canvas-height-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Canvas Height Constant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-documentation-page-indexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Documentation Page: index.md
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-front-matter-and-the-preview-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Front Matter and the Preview Image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-file-metadatajson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Metadata File: metadata.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-microsim-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MicroSim Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditing-a-microsim-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditing a MicroSim Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditing a MicroSim Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-directory-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Directory Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-microsim-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MicroSim Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The MicroSim Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-directory-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Directory Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-html-wrapper-mainhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The HTML Wrapper: main.html
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pinned-library-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinned Library Version
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-microsim-javascript-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MicroSim JavaScript File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-regions-draw-and-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Two Regions: Draw and Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Two Regions: Draw and Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-canvas-height-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Canvas Height Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-canvas-height-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Canvas Height Constant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-documentation-page-indexmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Documentation Page: index.md
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-front-matter-and-the-preview-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Front Matter and the Preview Image
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-file-metadatajson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Metadata File: metadata.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-microsim-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The MicroSim Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditing-a-microsim-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditing a MicroSim Directory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auditing a MicroSim Directory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-directory-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Directory Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/02-anatomy-of-a-microsim/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="anatomy-of-a-microsim">Anatomy of a MicroSim</h1>
+<h2 id="summary">Summary</h2>
+<p>Takes a MicroSim apart into its files, regions and metadata so students can read, modify and package any MicroSim they meet.</p>
+<p>Students learn the directory convention, the HTML wrapper, the JavaScript file, the documentation page and the metadata file, and how the draw and control regions fix a MicroSim's height. After it, they can start from the template and explain each part.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 12 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MicroSim Directory</td>
+<td>347</td>
+</tr>
+<tr>
+<td>main.html</td>
+<td>22</td>
+</tr>
+<tr>
+<td>MicroSim JavaScript File</td>
+<td>98</td>
+</tr>
+<tr>
+<td>index.md Documentation Page</td>
+<td>26</td>
+</tr>
+<tr>
+<td>metadata.json</td>
+<td>193</td>
+</tr>
+<tr>
+<td>Draw Region</td>
+<td>54</td>
+</tr>
+<tr>
+<td>Control Region</td>
+<td>33</td>
+</tr>
+<tr>
+<td>Canvas Height Constant</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Page Front Matter</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Preview Image</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pinned Library Version</td>
+<td>4</td>
+</tr>
+<tr>
+<td>MicroSim Template</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Open the Hood</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Every MicroSim you will ever meet is built from the same handful of parts, and once you can name them you can fix, restyle or repackage any of them in minutes. By the end of this chapter you will be able to start from a blank directory and explain what every file is for. Let's bounce it around!</p>
+</div>
+<p>Chapter 1 defined a MicroSim as a small, described, embeddable interactive simulation. This chapter takes one apart. We use a real MicroSim as our specimen throughout: the H-Bridge Circuit from the STEM Robots textbook, which lets a learner click four knife switches to send current through a motor in either direction. It is a good specimen because it follows the current MicroSims 2.0 conventions, and we contrast it with the older Bouncing Ball MicroSim from version 1.0 where the two differ. The electronics do not matter here. What matters is the container: the files, the regions of the drawing and the metadata that make the simulation findable and safe to embed.</p>
+<h2 id="the-microsim-directory">The MicroSim Directory</h2>
+<p>A <strong>MicroSim directory</strong> is the single folder that holds everything belonging to one MicroSim. In a MkDocs textbook it lives at <code>docs/sims/&lt;sim-id&gt;/</code>, where the folder name, called the <em>sim-id</em>, is written in kebab-case: lowercase letters and dashes only, such as <code>h-bridge</code> or <code>bouncing-ball</code>. The name is not decoration. The same string becomes part of the published URL, the value the metadata file uses to identify the MicroSim, and the key that batch tools use to find it. Rename the folder and you change all three.</p>
+<p>The convention exists so that both people and programs can find every part of a MicroSim without a search. Listing the H-Bridge directory shows five files:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/sims/h-bridge/
+    h-bridge.js      the p5.js sketch: all behavior and drawing
+    h-bridge.png     the preview image
+    index.md         the documentation page
+    main.html        the HTML wrapper that loads the library and the sketch
+    metadata.json    the machine-readable description
+</code></pre></div></td></tr></table></div>
+<p>The microsim-generator skill lists the same layout in its shared standards: a <code>main.html</code> visualization file, an <code>index.md</code> documentation page, supporting <code>.js</code> or <code>.css</code> files, and a <code>metadata.json</code> file. Each file has one job, and each job is different from the others. The table below summarizes the five roles. We define each file in the sections that follow, so treat this table as a map to return to.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Who reads it</th>
+<th>What it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main.html</code></td>
+<td>The browser</td>
+<td>Which library to load, and which script to run</td>
+</tr>
+<tr>
+<td><code>&lt;sim-id&gt;.js</code></td>
+<td>The browser</td>
+<td>What the MicroSim draws and how it responds</td>
+</tr>
+<tr>
+<td><code>index.md</code></td>
+<td>Readers and MkDocs</td>
+<td>How do I use this, and how do I embed it?</td>
+</tr>
+<tr>
+<td><code>metadata.json</code></td>
+<td>Search tools and validators</td>
+<td>What is this, who is it for, and how is it built?</td>
+</tr>
+<tr>
+<td><code>&lt;sim-id&gt;.png</code></td>
+<td>Gallery pages and social previews</td>
+<td>What does it look like at a glance?</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>worked example</strong> shows why the convention pays off. Suppose you want to embed the H-Bridge in a chapter of your own textbook. Because the directory is named <code>h-bridge</code>, the address of the running simulation is predictable: from a chapter file the iframe path is <code>../../sims/h-bridge/main.html</code>, as the generator skill prescribes. Paths inside a chapter must always be relative, never absolute, because an absolute path like <code>/sims/h-bridge/main.html</code> breaks when a site is published under a subdirectory on GitHub Pages. The identifier inside its metadata, <code>https://dmccreary.github.io/stem-robots/sims/h-bridge/</code>, ends in the same folder name. A batch tool that must update the height of every embedded MicroSim can match the pattern <code>sims/&lt;id&gt;/main.html</code> in any page and know exactly which folder to consult. One name, used consistently, lets the whole toolchain work without configuration.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Name, Four Jobs</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that the folder name is the URL, the identifier and the lookup key all at once. Think of it like a mailing address: change it and everything that pointed at the old one goes missing.</p>
+</div>
+<p>The directory is also how AI skills scaffold new work. The microsim-generator skill's scaffold step creates the directory and writes <code>main.html</code>, <code>index.md</code> and <code>metadata.json</code> from templates, skips any directory that already exists, and then leaves the agent to write only the JavaScript file. Chapter 5 explains that workflow, and Chapter 14 scales it to whole batches. For now, the point is that the convention is what makes such automation possible.</p>
+<p>The diagram below lets you explore a MicroSim directory interactively. Before you use it, recall the five files defined above and the fact that a MicroSim directory sits inside <code>docs/sims/</code> of a MkDocs book.</p>
+<h4 id="diagram-microsim-directory-explorer">Diagram: MicroSim Directory Explorer</h4>
+<iframe src="../../sims/microsim-directory-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/microsim-directory-explorer/main.html">Run the MicroSim Directory Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>MicroSim Directory Explorer</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> microsim-directory-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain the role of each file in a MicroSim directory and predict which file to edit to make a given change.</p>
+<p>Nodes and edges: a tree with a root node <code>docs/sims/h-bridge/</code> and five child nodes, one per file: <code>main.html</code> (orange), <code>h-bridge.js</code> (steel blue), <code>index.md</code> (green), <code>metadata.json</code> (purple) and <code>h-bridge.png</code> (gray). Node shapes are boxes with the filename as the label. Edges are plain lines from the root to each file. Layout is a fixed hierarchical layout with the root at the top and physics disabled.</p>
+<p>Interactions: hovering a node shows a tooltip with its one-sentence job. Clicking a node opens an information panel on the right with three parts: what the file contains, who reads it, and one change a person would make there. A "Which file?" button hides the labels and shows a change request such as "Make the slider start at 0.5" or "Add a learning objective", and the learner clicks the file to edit. The score shows correct picks out of attempts.</p>
+<p>Responsive design: the network re-fits to the container width on window resize, and the information panel moves below the tree when the width is under 600 pixels.</p>
+<p>Implementation: vis-network with fixed hierarchical positions and click and hover handlers on the nodes.</p>
+</details>
+<h2 id="the-html-wrapper-mainhtml">The HTML Wrapper: main.html</h2>
+<p>The file <strong>main.html</strong> is the HTML wrapper that a browser opens to run the MicroSim. It is short on purpose. It declares the page, loads a JavaScript library from a content delivery network (CDN, the hosted copies described in Chapter 1), loads the MicroSim's own script, and provides an empty <code>&lt;main&gt;</code> element that the script fills. It contains no simulation logic at all, which keeps every MicroSim's wrapper nearly identical and easy to generate.</p>
+<p>Two lines deserve attention before we read the file. The first is a <code>&lt;meta name="schema"&gt;</code> tag whose content is the URI <code>https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1</code>. The generator skill requires it in every MicroSim HTML file so that MicroSims can be counted and discovered across GitHub by code search. The second is the <code>&lt;main&gt;</code> element. The sketch attaches its canvas inside <code>&lt;main&gt;</code> and measures the element's width to stay responsive, as we see later in this chapter.</p>
+<p>Here is the complete <code>main.html</code> of the H-Bridge MicroSim.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"schema"</span> <span class="na">content</span><span class="o">=</span><span class="s">"https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>H-Bridge Circuit MicroSim using p5.js 1.11.10<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">            </span><span class="k">font-family</span><span class="p">:</span><span class="w"> </span><span class="n">Arial</span><span class="p">,</span><span class="w"> </span><span class="n">Helvetica</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"h-bridge.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"."</span><span class="p">&gt;</span>Back to Documentation<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Read it top to bottom. The <code>viewport</code> tag tells phones to use the device width. The <code>title</code> names the MicroSim and the library version. The first <code>script</code> line loads p5.js from a CDN, and the second loads the sketch from the same directory by relative name. The <code>style</code> block removes the default page margin so the canvas touches the edges of the iframe that will hold it. The final link returns to the documentation page, which sits in the same directory as <code>main.html</code>.</p>
+<p>The old Bouncing Ball wrapper from MicroSims 1.0 is a useful contrast. It has the same library and script lines, but it lacks both the <code>viewport</code> tag and the schema tag, and its back link reads "Back to Bouncing Ball Lesson Plan". Both wrappers work in a browser. Only the newer one is discoverable by the code-search scheme.</p>
+<h2 id="pinned-library-version">Pinned Library Version</h2>
+<p>A <strong>pinned library version</strong> is a library address that names one exact release, so the same code runs the same way every time. In the wrapper above, <code>p5@1.11.10</code> in the script address pins p5.js to release 1.11.10. Without the version, or with one that floats, the CDN could serve a newer release than the one the sketch was tested against, and a working MicroSim could change behavior or break the day the library updates.</p>
+<p>The version number appears in three places in the H-Bridge directory: the script address in <code>main.html</code>, the <code>&lt;title&gt;</code> text, and the <code>dependencies</code> entry of <code>metadata.json</code>, which reads <code>p5.js 1.11.10 (jsDelivr CDN)</code>. Keeping the three in agreement lets a person or a tool see the library version without running the MicroSim. It also gives a maintainer a precise place to start when a newer library release is worth testing. Chapter 1 noted that a generative model may write code for an outdated library version, so the pinned version is also the standard against which generated code should be checked.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Float the Version</p>
+<p><img alt="Bounce giving a warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Copying a script address from an old example can silently give you a different library release than your sketch expects. Always keep the full version in the address, and update the title and metadata in the same edit.</p>
+</div>
+<h2 id="the-microsim-javascript-file">The MicroSim JavaScript File</h2>
+<p>The <strong>MicroSim JavaScript file</strong> is the sketch that holds all of a MicroSim's behavior: what it draws, how it responds to the learner, and how it resizes. It is named <code>&lt;sim-id&gt;.js</code>, so the H-Bridge's is <code>h-bridge.js</code>, and it is the only file in the directory that contains real simulation logic. When you ask an AI skill for a MicroSim, this is the file the model writes. Everything else is scaffolding around it.</p>
+<p>A p5.js sketch follows a fixed reading order that the repository's style guide states: global variables, then <code>setup()</code>, then <code>draw()</code>, then helper functions, then event handlers. Three terms are needed before we read the code. <code>setup()</code> is a function p5.js calls once when the page loads, and it creates the canvas, the rectangular drawing surface. <code>draw()</code> is called again and again, many times per second, to repaint the canvas. An <em>event handler</em> is a function that p5.js calls when something happens, such as <code>windowResized()</code>, which runs when the browser window changes size.</p>
+<p>The first lines of the H-Bridge sketch set up the numbers that describe its layout. Three of them matter most. <code>drawHeight</code> is the height in pixels of the region where the simulation is drawn, <code>controlHeight</code> is the height of the strip below it that holds the controls, and <code>canvasHeight</code> is their sum. We explain these regions fully in the next sections. The comment on line 2, <code>CANVAS_HEIGHT</code>, is a declaration for tools, and we return to it shortly.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// H-Bridge Circuit MicroSim</span>
+<span class="c1">// CANVAS_HEIGHT: 530</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w">          </span><span class="c1">// replaced by the container width</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">480</span><span class="p">;</span><span class="w">           </span><span class="c1">// drawing region - no controls in here</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w">         </span><span class="c1">// control region - one row of buttons</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">margin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">defaultTextSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">16</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>The width starts at a placeholder of 400 because the real width is not known until the page exists. The sketch measures it and replaces the value. That measurement, and the response to a window resize, come from two short functions that appear in the sketch. The function <code>updateCanvasSize()</code> reads the current width of the <code>&lt;main&gt;</code> element and stores it, and <code>windowResized()</code> calls it and then resizes the canvas to match.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">mainElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">mainElement</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// ... buttons and the describe() text are created here</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">positionControls</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Trace the flow once. On load, <code>setup()</code> measures the width, creates a canvas of that width and the fixed <code>canvasHeight</code>, and attaches it inside <code>&lt;main&gt;</code>. When the window changes size, <code>windowResized()</code> measures again and resizes only the width, since the height is a constant. Width follows the container, and height stays fixed. That pairing is what the book calls a width-responsive MicroSim, and Chapter 12 examines it in depth. The <code>describe()</code> call inside <code>setup()</code> supplies a text description of the canvas for screen readers, which Chapter 24 returns to under accessibility.</p>
+<p>The table below summarizes what each named part of the sketch is responsible for.</p>
+<table>
+<thead>
+<tr>
+<th>Part of the sketch</th>
+<th>Runs</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global variables</td>
+<td>Once, at load</td>
+<td>Region heights, margins, colors, simulation state</td>
+</tr>
+<tr>
+<td><code>setup()</code></td>
+<td>Once</td>
+<td>Create the canvas and controls, attach them to <code>&lt;main&gt;</code></td>
+</tr>
+<tr>
+<td><code>draw()</code></td>
+<td>Repeatedly</td>
+<td>Paint both regions and advance the animation</td>
+</tr>
+<tr>
+<td><code>windowResized()</code></td>
+<td>On resize</td>
+<td>Re-measure the width and resize the canvas</td>
+</tr>
+<tr>
+<td>Helper functions</td>
+<td>When called</td>
+<td>Geometry, drawing pieces, rule checks such as short-circuit detection</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>worked example</strong> shows how a maintainer uses this structure. A teacher asks for a taller drawing area so a projected circuit is easier to read. The maintainer changes <code>drawHeight</code> from 480 to 540. Because <code>canvasHeight</code> is computed from it, the canvas grows automatically. But the declaration comment and the iframe that embeds the MicroSim must also change, or the taller canvas will be clipped. The sections on the canvas height constant explain how to keep those in step.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Change One Number, Then Grep</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+After you edit a region height, recompute the total and search the directory for the old one. In the H-Bridge the total 530 appears in the script comment and the metadata, and 532 appears in the page's iframe.</p>
+</div>
+<h2 id="the-two-regions-draw-and-control">The Two Regions: Draw and Control</h2>
+<p>Every MicroSim canvas is divided into two stacked rectangles, and the standard fixes their roles. The <strong>draw region</strong> is the upper rectangle where the simulation itself is rendered: shapes, animation, labels and readouts. The style guide colors it <code>aliceblue</code> and outlines it in <code>silver</code>. The sketch's own comment states the rule for it: do not place controls such as buttons or sliders in the drawing region. Keeping the region free of controls means learners always know where to look for the model and where to look for the knobs.</p>
+<p>The <strong>control region</strong> is the lower rectangle that holds the user-interface controls: sliders, buttons, checkboxes, their labels and their current values. It is white with the same silver outline. Its height depends on what it contains. The Bouncing Ball sketch's comment suggests 30 pixels for each slider, so its single speed slider gets <code>controlHeight = 30</code>. The H-Bridge has one row of three buttons and a status label, so it uses 50. A sketch with several sliders needs proportionally more, and the generator skill's own example uses a 115-pixel control region.</p>
+<p>The excerpt below is the code in <code>draw()</code> that paints the two regions. It sets the outline color and weight, then fills and draws each rectangle. The first rectangle starts at the top and is <code>drawHeight</code> tall. The second starts exactly at <code>drawHeight</code> and is <code>controlHeight</code> tall, so the two fit together with no gap.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">stroke</span><span class="p">(</span><span class="s1">'silver'</span><span class="p">);</span>
+<span class="nx">strokeWeight</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<span class="nx">fill</span><span class="p">(</span><span class="s1">'aliceblue'</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">);</span>
+<span class="nx">fill</span><span class="p">(</span><span class="s1">'white'</span><span class="p">);</span>
+<span class="nx">rect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Controls are positioned relative to <code>drawHeight</code>, not with fixed numbers. The H-Bridge's <code>positionControls()</code> places each button at <code>drawHeight + 10</code>, ten pixels into the control region. If <code>drawHeight</code> changes, the buttons move with it. Some MicroSims add a third region, a chart or graph panel, and its height is called <code>graphHeight</code>. The generator skill's predator-prey example uses a drawing height of 400, a graph height of 180 and a control height of 115.</p>
+<p>The diagram below lets you build a canvas by changing region heights. Before using it, remember two facts from this section: the two regions stack vertically, and their heights add up to the canvas height.</p>
+<h4 id="diagram-canvas-height-calculator">Diagram: Canvas Height Calculator</h4>
+<iframe src="../../sims/canvas-height-calculator/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/canvas-height-calculator/main.html">Run the Canvas Height Calculator MicroSim Fullscreen</a></p>
+<details>
+<summary>Canvas Height Calculator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> canvas-height-calculator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will calculate the canvas height and the iframe height for a MicroSim from its region heights, and will detect when an iframe is too short to show the controls.</p>
+<p>Layout: a drawing region above a control region, following the standard MicroSim layout. The drawing region is aliceblue and the control region is white, separated by a silver line.</p>
+<p>Visual elements: on the left, a scaled stacked rectangle showing a draw region and a control region with labeled heights; on the right, a rounded frame representing an iframe whose height can differ from the canvas. Below the drawing, a readout shows "canvasHeight = drawHeight + controlHeight" filled in with the current numbers, and "iframe height = CANVAS_HEIGHT + 2" filled in as well.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "drawHeight" from 200 to 700 in steps of 10, default 480</li>
+<li>Slider "controlHeight" from 30 to 150 in steps of 5, default 50</li>
+<li>Slider "graphHeight" from 0 to 250 in steps of 10, default 0</li>
+<li>Slider "iframe height" from 200 to 900 in steps of 2, default 532</li>
+<li>Button "Set iframe correctly" that snaps the iframe height to the calculated value, and a checkbox "Show H-Bridge numbers" that loads 480, 50, 0 and 532</li>
+</ul>
+<p>Behavior: when the iframe height is smaller than the calculated value, the bottom of the canvas is clipped in the picture, the clipped controls turn red, and a message says how many pixels are hidden. When the iframe is equal to or taller than the calculated value, the message says the MicroSim fits. The calculated value is always the sum of the three heights plus 2.</p>
+<p>Responsive design: the drawing scales to the container width on window resize while heights in pixels stay proportional, and the sliders resize with the container.</p>
+<p>Implementation: p5.js with the standard drawHeight and controlHeight variables, a windowResized function, and describe() text for screen readers.</p>
+</details>
+<h2 id="the-canvas-height-constant">The Canvas Height Constant</h2>
+<p>The <strong>canvas height constant</strong> is the single number, written <code>CANVAS_HEIGHT</code>, that records the full rendered height of a MicroSim in pixels: the draw region plus the control region plus any graph panel or legend. It exists for a practical reason. A MicroSim is shown inside an iframe, and an iframe does not resize itself to fit its content. If the iframe is shorter than the MicroSim, the bottom is cut off, usually the controls. If it is much taller, the page shows wasted blank space. Every place that embeds the MicroSim needs the right height, and the constant is where that height is declared once.</p>
+<p>The rule that turns the constant into an iframe height is simple: <code>iframe height = CANVAS_HEIGHT + 2</code>, where the extra two pixels account for the iframe border. The canvas-height strategy document applies this rule identically on the MicroSim's own documentation page and on every chapter page that embeds it, so a MicroSim is never a different height in two places.</p>
+<p>The H-Bridge shows the rule in action. Its sketch declares <code>// CANVAS_HEIGHT: 530</code>, which equals <code>drawHeight</code> 480 plus <code>controlHeight</code> 50. The iframe in its documentation page is therefore 532 pixels tall, and the metadata records the same canvas height of 530.</p>
+<p>Where is the constant stored? The strategy document lists four sources, and tools read the first one that has a value.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Source</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A <code>// CANVAS_HEIGHT: &lt;n&gt;</code> comment in the first lines of <code>&lt;sim-id&gt;.js</code></td>
+<td>Any MicroSim with a script, the primary home</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A <code>"canvasHeight": &lt;n&gt;</code> field in <code>metadata.json</code></td>
+<td>MicroSims with no script, such as pure diagram pages</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A <code>&lt;!-- CANVAS_HEIGHT: &lt;n&gt; --&gt;</code> comment in <code>main.html</code></td>
+<td>Older MicroSims, kept for compatibility</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The computed sum <code>drawHeight + controlHeight (+ graphHeight)</code></td>
+<td>Last resort, and the comment is then written back to the script</td>
+</tr>
+</tbody>
+</table>
+<p>Three rules govern the comment. It must appear within the first ten lines of the script, its value must be a plain integer with no <code>px</code> suffix, and it must be updated whenever a height-related value changes. A hand-typed height in an iframe tag is never the source of truth. It is derived, and the synchronization script overwrites it.</p>
+<p>That script, <code>sync-iframe-heights.py</code> in the microsim-utils skill, reads each MicroSim's constant and rewrites every embedding iframe under <code>docs/</code>. Its flags include <code>--project-dir</code>, <code>--dry-run</code>, <code>--verbose</code> and <code>--write-metadata</code>. Running with <code>--dry-run --verbose</code> first reports what would change without writing anything. Chapter 12 covers the script and the runtime alternative in detail.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Template Height Trap</p>
+<p><img alt="Bounce giving a warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The repository's <code>responsive-template.js</code> sets <code>drawHeight</code> to 400 and <code>controlHeight</code> to 50 but creates the canvas from a separate <code>containerHeight</code> of 400, so the 50-pixel control region is cut off. Always create the canvas from <code>canvasHeight</code>, as the H-Bridge does.</p>
+</div>
+<h2 id="the-documentation-page-indexmd">The Documentation Page: index.md</h2>
+<p>The <strong>index.md documentation page</strong> is the Markdown page that presents the MicroSim inside the textbook site. MkDocs turns it into the web page a reader sees at the MicroSim's address. It has two jobs. It runs the MicroSim by embedding <code>main.html</code> in an iframe, and it explains the MicroSim to a teacher or student: what it shows, how to use it, and how to teach with it.</p>
+<p>A standard page is built from a fixed sequence of parts, which the standardization checklist in the microsim-utils skill enumerates. First comes a block of front matter, defined in the next section. Then a level 1 heading with the title, then the iframe that runs the MicroSim, then a copy-and-paste iframe snippet that other people can place on their own sites, then a fullscreen button. After those come a description section, a lesson plan with objectives, audience, prerequisites, activities and assessment, and a references section.</p>
+<p>The H-Bridge page shows the embedding parts. The page's own iframe uses a relative path and a height taken from the constant, while the snippet offered for copying uses the full published address, because a visitor's site cannot resolve a relative path into your repository.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"main.html"</span> <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span> <span class="na">height</span><span class="o">=</span><span class="s">"532px"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>The attribute <code>width="100%"</code> lets the iframe take the width of the page, which is what the width-responsive sketch measures. The attribute <code>scrolling="no"</code> prevents a scrollbar inside the iframe, since the height was set to fit exactly. The standardization skill also asks that iframes not carry a <code>frameborder</code> attribute, because the site's stylesheet styles all iframes. The fullscreen button is a plain Markdown link decorated with MkDocs Material classes: <code>[Run the H-Bridge Circuit MicroSim Fullscreen](main.html){ .md-button .md-button--primary }</code>.</p>
+<p>The standardization skill turns this checklist into a scored rubric. It awards points for each present element: for example, 10 points for <code>main.html</code>, 10 for the iframe, 10 for <code>metadata.json</code>, 20 for the Dublin Core fields, and 10 for a lesson plan, with the full rubric totaling 100. The resulting number is written to the page's front matter as <code>quality_score</code>. The skill suggests that a MicroSim scoring 85 or above can be left alone. Those point values are the skill's own weights, a checklist for consistency and not a measure of how well anyone learns from the MicroSim.</p>
+<h2 id="page-front-matter-and-the-preview-image">Page Front Matter and the Preview Image</h2>
+<p><strong>Page front matter</strong> is the block of YAML, a simple key-and-value text format, delimited by lines of three dashes at the very top of <code>index.md</code>. MkDocs reads it as data about the page rather than as text to display. The site uses it for the page title, the description shown in search results, and the social preview. This chapter's own first lines are an example. The H-Bridge page carries these fields:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">"H-Bridge</span><span class="nv"> </span><span class="s">Circuit"</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">"Click</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">four</span><span class="nv"> </span><span class="s">knife</span><span class="nv"> </span><span class="s">switches</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">H-bridge,</span><span class="nv"> </span><span class="s">..."</span>
+<span class="nt">quality_score</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">95</span>
+<span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sims/h-bridge/h-bridge.png</span>
+<span class="nt">og:image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sims/h-bridge/h-bridge.png</span>
+<span class="nt">twitter:image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sims/h-bridge/h-bridge.png</span>
+<span class="nt">social</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">cards</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">implemented</span>
+<span class="nn">---</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>title</code> and <code>description</code> name the page. The three image fields point to the preview image, and <code>quality_score</code> records the rubric result. The <code>social: cards: false</code> setting appears in the repository's examples and is configured by the site's social-card handling, which this chapter does not cover. The <code>status</code> field is a lifecycle marker, here <code>implemented</code>.</p>
+<p>The <strong>preview image</strong> is a screenshot of the running MicroSim, saved as <code>&lt;sim-id&gt;.png</code> in the MicroSim directory. Three front matter fields reference it, always with the path pattern <code>/sims/NAME/NAME.png</code> where NAME is the sim-id. It serves two purposes: it is the image shown when the page is shared on social media, and it is the picture the gallery generator scales down to a 128 by 128 pixel thumbnail for the gallery page.</p>
+<p>The microsim-utils skill captures the image with a headless browser using <code>~/.local/bin/bk-capture-screenshot &lt;microsim-directory-path&gt; [delay-seconds] [height]</code>. The delay gives the sketch time to render, and the height argument should equal the iframe height so the screenshot matches what readers see.</p>
+<p>There is one crucial distinction to keep straight. The standardization skill separates two kinds of metadata: the YAML header in <code>index.md</code>, which supports the site and social previews, and the Dublin Core metadata, which lives only in <code>metadata.json</code>. It states plainly that Dublin Core fields never go in the YAML header.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Two Kinds of Metadata</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the front matter as the label on the box, written for the website, and metadata.json as the catalog card, written for search tools. They describe the same MicroSim to two different audiences, so they must not be merged.</p>
+</div>
+<h2 id="the-metadata-file-metadatajson">The Metadata File: metadata.json</h2>
+<p>The file <strong>metadata.json</strong> is the machine-readable description of a MicroSim, structured so that programs can search, filter, validate and compare MicroSims without running them. It is the most information-dense file in the directory. Recall from Chapter 1 that a learning object without a description works, but only for someone who already knows it exists. This file is the description.</p>
+<p>The structure is defined by a JSON Schema in the repository, <code>src/microsim-schema/microsim-schema.json</code>. A schema is a formal specification of which fields a JSON document must and may contain. Everything sits under a top-level <code>microsim</code> object with five required sections and three optional ones. The table below summarizes them with the fields the schema requires, after which we look at a real file.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Required?</th>
+<th>Required fields</th>
+<th>What it describes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dublinCore</code></td>
+<td>Yes</td>
+<td>title, creator, subject, description, date, type, format, rights</td>
+<td>Standard resource description</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Yes</td>
+<td>tags, visualizationType</td>
+<td>How to find it</td>
+</tr>
+<tr>
+<td><code>educational</code></td>
+<td>Yes</td>
+<td>gradeLevel, subjectArea, topic, learningObjectives</td>
+<td>Who it is for and what it teaches</td>
+</tr>
+<tr>
+<td><code>technical</code></td>
+<td>Yes</td>
+<td>framework, canvasDimensions</td>
+<td>How it is built</td>
+</tr>
+<tr>
+<td><code>userInterface</code></td>
+<td>Yes</td>
+<td>controls</td>
+<td>What the learner can operate</td>
+</tr>
+<tr>
+<td><code>simulation</code>, <code>analytics</code>, <code>usage</code></td>
+<td>No</td>
+<td>none</td>
+<td>Model details, event collection, classroom use</td>
+</tr>
+</tbody>
+</table>
+<p>Dublin Core is a small, widely used vocabulary for describing any resource, with fields such as title, creator and rights. The other sections extend it for teaching and searching. The optional <code>analytics</code> section is reserved for the event collection that Chapters 16 and 17 design. As of this writing, no learner data has been collected through MicroSims, so treat that section as a plan, not a record.</p>
+<p>The following excerpt is abridged from the H-Bridge file. It keeps real values and drops the keys not shown, so it shows the shape of all five required sections.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"microsim"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"dublinCore"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H-Bridge Circuit"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Dan McCreary"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"H-Bridge"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DC Motors"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Robotics"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interactive Simulation"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/html"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmccreary.github.io/stem-robots/sims/h-bridge/"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"rights"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC BY-NC-SA 4.0"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"search"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"h-bridge"</span><span class="p">,</span><span class="w"> </span><span class="s2">"motor driver"</span><span class="p">,</span><span class="w"> </span><span class="s2">"short circuit"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"visualizationType"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"simulation"</span><span class="p">,</span><span class="w"> </span><span class="s2">"animation"</span><span class="p">,</span><span class="w"> </span><span class="s2">"diagram"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"educational"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"gradeLevel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w"> </span><span class="s2">"12"</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"learningObjectives"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"Explain how closing diagonally opposite switches sets the direction of current through a DC motor."</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">"bloomsTaxonomy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Understand"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Apply"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Analyze"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"technical"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"framework"</span><span class="p">:</span><span class="w"> </span><span class="s2">"p5.js"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"canvasDimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span><span class="w"> </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w"> </span><span class="nt">"responsive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"p5.js 1.11.10 (jsDelivr CDN)"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"userInterface"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"controls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"forwardButton"</span><span class="p">,</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w"> </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Forward"</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A <strong>worked example</strong> shows how the file is used. A teacher searches a catalog for "grade 9 simulations where the learner analyzes a circuit". A tool can filter on <code>gradeLevel</code>, on <code>bloomsTaxonomy</code> containing Analyze, and on <code>tags</code>, and it never opens <code>main.html</code>. The same file tells a maintainer that the MicroSim depends on p5.js 1.11.10 and that its canvas is 530 pixels tall.</p>
+<p>To check a file against the schema, the repository provides <code>src/microsim-schema/validate.py</code>, run as <code>python validate.py path/to/metadata.json</code>. It requires the Python <code>jsonschema</code> package and exits with status 0 when every file is valid. Chapter 15 develops metadata into search and reuse, so here the goal is only to read one.</p>
+<p>Not every MicroSim in the repository follows this layout. The older Bouncing Ball and template <code>metadata.json</code> files list their fields flat, without the <code>microsim</code> wrapper and its sections. They contain Dublin Core fields but not the nested structure the current schema and validator expect.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">It Is a Long File</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+A metadata file with dozens of fields looks daunting the first time. You have already read files longer than this one, so start with the five required sections and let the AI skill fill in the rest.</p>
+</div>
+<h2 id="the-microsim-template">The MicroSim Template</h2>
+<p>The <strong>MicroSim template</strong> is the starter directory an author copies to begin a new MicroSim by hand. In this repository it is <code>docs/sims/template/</code>. It contains a <code>main.html</code>, an <code>index.md</code>, a <code>metadata.json</code>, and several sketch files: <code>sketch.js</code>, <code>responsive-template.js</code>, an empty <code>resize-width.js</code>, and a local test page <code>00-template-local.html</code>. All contain placeholder values such as the title "Title" and the description "Description."</p>
+<p>The CLAUDE.md steps for a new simulation say to copy the template, create <code>docs/sims/{sim-name}/</code>, add the required files, add metadata, add a navigation entry to <code>mkdocs.yml</code>, regenerate the gallery, and validate. Those steps are correct in outline, but the template directory has aged, and a <strong>worked example</strong> of using it shows why you should inspect what you copy. <code>sketch.js</code> begins with a Git merge-conflict marker on line 1 and a divider marker on line 44, so two versions of the sketch are interleaved, and one of them declares <code>function setup {</code> without parentheses. It will not run as it stands. The template's <code>metadata.json</code> uses the older flat layout, and <code>responsive-template.js</code> has the height mismatch noted earlier.</p>
+<p>Two lessons follow. First, in MicroSims 2.0 the preferred starting point is not a hand copy but the scaffold step of the generator skill, which writes fresh <code>main.html</code>, <code>index.md</code> and <code>metadata.json</code> files from current templates. Second, a mature MicroSim like the H-Bridge is a better reference than the template for what a finished directory should look like. Use the template to see the file list and the placeholder pattern, and use a current showcase to see the conventions applied.</p>
+<h2 id="auditing-a-microsim-directory">Auditing a MicroSim Directory</h2>
+<p>We can now combine every part into one inspection routine. Given an unfamiliar MicroSim directory, an experienced maintainer checks these items in about a minute.</p>
+<ul>
+<li>The folder name is kebab-case and matches the name used in the page's iframe path.</li>
+<li><code>main.html</code> has the schema tag, the viewport tag, a pinned library address and a script line that names the sketch.</li>
+<li>The sketch declares <code>CANVAS_HEIGHT</code> in its first lines, equal to <code>drawHeight + controlHeight</code>, and creates the canvas from <code>canvasHeight</code>.</li>
+<li>The drawing region has no controls, and controls are positioned relative to <code>drawHeight</code>.</li>
+<li><code>index.md</code> has front matter with image fields, an iframe at the constant plus 2, a fullscreen button, and a lesson plan.</li>
+<li><code>metadata.json</code> validates against the schema and its <code>canvasDimensions</code> and <code>dependencies</code> agree with the sketch and the wrapper.</li>
+<li>The preview image exists at the path the front matter names.</li>
+</ul>
+<p>Try this routine on the interactive audit below. Before you begin, review the failure modes covered in this chapter: a floating library version, a height mismatch, a missing schema tag, and Dublin Core fields in the wrong place.</p>
+<h4 id="diagram-microsim-directory-audit">Diagram: MicroSim Directory Audit</h4>
+<iframe src="../../sims/microsim-directory-audit/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/microsim-directory-audit/main.html">Run the MicroSim Directory Audit MicroSim Fullscreen</a></p>
+<details>
+<summary>MicroSim Directory Audit</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> microsim-directory-audit<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: critique): The learner will critique a MicroSim directory by finding planted defects and judging which ones would break embedding, discovery or display.</p>
+<p>Layout: a drawing region above a control region. The drawing region shows a file tree on the left and a viewer pane on the right that displays the selected file's text. The control region holds the buttons.</p>
+<p>Data: three sample directories, each with three to five planted defects drawn from this chapter: a script address with no version, a <code>CANVAS_HEIGHT</code> comment that does not equal drawHeight plus controlHeight, an iframe height that is not the constant plus 2, a missing schema meta tag, a missing preview image, a folder name with an uppercase letter, and Dublin Core fields placed in the front matter.</p>
+<p>Interactions: the learner clicks a file to read it and clicks a line to flag it as a defect. The "Check audit" button marks each flag correct or a false alarm, lists the defects still missing, and for each found defect shows a one-sentence explanation of what would go wrong. A "Severity" dropdown on each flag lets the learner rate it as cosmetic, discovery, display or breaks-embedding, and the checker compares the rating to the rubric.</p>
+<p>Behavior: the score shows defects found, false alarms and rating accuracy. "Next directory" loads the next sample in a shuffled order.</p>
+<p>Responsive design: the file tree and viewer pane stack vertically when the width is under 600 pixels, and text wraps inside the viewer on window resize.</p>
+<p>Implementation: p5.js with mouse click handlers, a data array of sample files with planted defects, and describe() text for screen readers.</p>
+</details>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Read Any MicroSim</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now open any MicroSim directory and say what its five files do, how its draw and control regions fix the canvas height, and how the constant, the iframe and the metadata must agree. That is the skill that every later chapter builds on.</p>
+</div>
+<p>The key ideas of this chapter are:</p>
+<ul>
+<li>A MicroSim directory at <code>docs/sims/&lt;sim-id&gt;/</code> holds every part of one MicroSim, and its kebab-case name is the URL, the identifier and the lookup key.</li>
+<li><code>main.html</code> is a short wrapper that loads a pinned library version and the sketch, and it carries the schema tag that makes MicroSims discoverable.</li>
+<li>The MicroSim JavaScript file holds all behavior, in the order of globals, <code>setup()</code>, <code>draw()</code>, helpers and event handlers, and it keeps width responsive while height stays fixed.</li>
+<li>The draw region holds the simulation and no controls, the control region holds the controls, and their heights sum to the canvas height.</li>
+<li>The canvas height constant <code>CANVAS_HEIGHT</code> is declared once, and the iframe height is that constant plus 2.</li>
+<li><code>index.md</code> documents and embeds the MicroSim, its page front matter serves the site, and its preview image is a <code>&lt;sim-id&gt;.png</code> screenshot.</li>
+<li><code>metadata.json</code> holds Dublin Core and educational, technical and interface metadata under a <code>microsim</code> object, validated against a schema, and it is separate from the front matter.</li>
+<li>The template directory is a starting point that should be inspected before use, and the generator's scaffold step is the preferred route.</li>
+</ul>
+<p>The next chapter turns from the parts of a MicroSim to its purpose, and shows how to write learning objectives with Bloom's Taxonomy so every MicroSim you build has a measurable goal.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-what-is-a-microsim/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. What Is a MicroSim">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. What Is a MicroSim
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Learning Objectives and Bloom&#39;s Taxonomy">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Learning Objectives and Bloom's Taxonomy
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

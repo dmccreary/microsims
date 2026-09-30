@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Audit Baseline Explorer using Chart.js 4.4.4</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <style>
+        /* Fixed total height (CANVAS_HEIGHT 570): title 40 + top row 176 + issue chart (flex) + controls 46 */
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background: white; }
+        main { display: block; width: 100%; }
+        #app { height: 570px; display: flex; flex-direction: column; border: 1px solid silver; overflow: hidden; }
+        #draw { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: aliceblue; padding: 6px 10px 8px 10px; gap: 8px; }
+        #titlebar { flex: 0 0 auto; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+        #title { font-size: 19px; font-weight: bold; }
+        #subtitle { font-size: 13px; color: dimgray; }
+        #toprow { flex: 0 0 176px; display: flex; gap: 8px; min-height: 0; }
+        .panel { background: white; border: 1px solid silver; border-radius: 8px; position: relative; min-height: 0; }
+        #grade-panel { flex: 0 0 44%; padding: 4px 6px; }
+        #info { flex: 1 1 auto; padding: 8px 10px; font-size: 13.5px; line-height: 1.38; overflow: hidden; }
+        #info h3 { margin: 0 0 4px 0; font-size: 15px; }
+        #info p { margin: 3px 0; }
+        #info .src { color: dimgray; font-size: 12px; }
+        #info .swatch { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+        #issue-panel { flex: 1 1 auto; padding: 4px 6px; }
+        .chart-box { position: relative; width: 100%; height: 100%; }
+        #controls {
+            flex: 0 0 46px; display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap;
+            padding: 6px 10px; background: white; border-top: 1px solid silver; font-size: 15px;
+        }
+        #controls label { font-weight: bold; }
+        #controls select { font-size: 14px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        @media (max-width: 599px) {
+            #toprow { flex: 0 0 212px; flex-direction: column; }
+            #grade-panel { flex: 0 0 122px; }
+            #info { flex: 1 1 auto; font-size: 12px; padding: 5px 8px; line-height: 1.3; }
+            #info h3 { font-size: 13px; }
+            #subtitle { display: none; }
+            #info .wide-only, #info .src { display: none; }
+            #controls { flex-basis: 70px; font-size: 13px; }
+            #controls select { font-size: 12px; }
+        }
+    </style>
+    <script src="audit-baseline-explorer.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="draw">
+                <div id="titlebar">
+                    <span id="title">Audit Baseline Explorer</span>
+                    <span id="subtitle">validate-sims.py audit of 116 MicroSims, 2026-09-30</span>
+                </div>
+                <div id="toprow">
+                    <div id="grade-panel" class="panel">
+                        <div class="chart-box"><canvas id="grade-chart" role="img" aria-label="Bar chart of MicroSims per grade">
+                            Grades in the 2026-09-30 audit: A 18, B 27, C 30, D 41.
+                        </canvas></div>
+                    </div>
+                    <div id="info" class="panel" aria-live="polite"></div>
+                </div>
+                <div id="issue-panel" class="panel">
+                    <div class="chart-box"><canvas id="issue-chart" role="img" aria-label="Horizontal bar chart of rubric issue frequency">
+                        Issue counts: educational section 110, Lesson Plan 76, References 74, schema meta tag 73,
+                        copy-paste iframe example 68, description or about 60, screenshot 54, no main.html 43.
+                    </canvas></div>
+                </div>
+            </div>
+            <div id="controls">
+                <span><label for="grade-select">Grades:</label>
+                <select id="grade-select">
+                    <option value="all">All grades</option>
+                    <option value="belowA">Below A (B, C, D)</option>
+                    <option value="A">A only</option>
+                    <option value="B">B only</option>
+                    <option value="C">C only</option>
+                    <option value="D">D only</option>
+                </select></span>
+                <span><label for="metric-select">Issue chart shows:</label>
+                <select id="metric-select">
+                    <option value="count">Counts</option>
+                    <option value="points">Total points lost</option>
+                </select></span>
+            </div>
+        </div>
+        <div id="chart-summary" class="sr-only" aria-live="polite"></div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

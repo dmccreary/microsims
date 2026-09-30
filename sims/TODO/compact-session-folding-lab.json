@@ -1,0 +1,15 @@
+{
+  "sim_id": "compact-session-folding-lab",
+  "diagram_name": "Compact Session Folding Lab",
+  "chapter_number": 22,
+  "chapter_title": "\"LRS-Lite: Compact Summaries and Browser Storage\"",
+  "chapter_dir": "22-lrs-lite-compact-summaries-and-browser-storage",
+  "chapter_rel_dir": "chapters/22-lrs-lite-compact-summaries-and-browser-storage",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "the learner will distinguish which interactions Compact mode folds into a session summary, which pass through as their own statements, and which Loss of Focus Event ends the session.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** compact-session-folding-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Analyze, distinguish): the learner will distinguish which interactions Compact mode folds into a session summary, which pass through as their own statements, and which Loss of Focus Event ends the session.\n\nCanvas layout: a left pane holds a small practice MicroSim (one slider, a Start/Pause button, a two-choice question with a Check button). Two columns to the right list statements as they arrive, headed \"Full mode stream\" and \"Compact mode stream\". A row of buttons beneath the practice sim triggers focus-loss signals.\n\nControls:\n\n- The slider, Start/Pause and Check button in the practice sim.\n- Buttons: \"Hide tab\", \"Scroll away 10 s\", \"Sit idle 90 s\", \"Click Done\".\n- Button: \"Reset lab\".\n\nBehavior:\n\n- Every slider step past a deadband, every press and every run appends a statement to the Full column. The same events increase counters inside a visible open-session card in the Compact column (interaction count, per-control n, min and max, run count).\n- A Check press appends an `answered` statement to both columns immediately, showing its success value. It is never added to the session card, and the card's statements_represented counter does not change.\n- A focus-loss button closes the session: the session card becomes one `experienced` summary with its end_reason and statements_represented, and a running total compares statement counts (for example, 8 versus 1).\n- If the learner only pressed Check and never touched a control, ending the session produces a summary with statements_represented 0, matching the runtime's behavior.\n- Hovering any statement shows a tooltip explaining its verb and why it was or was not folded.\n\nDefault state: session closed, both columns empty.\n\nInstructional Rationale: a side-by-side step-through with concrete statements is appropriate because the Analyze objective needs learners to see what disappears and what survives; a description alone would hide the difference.\n\nResponsive design: the panes stack vertically below 700 px width, and the canvas redraws on window resize.\n\nImplementation: p5.js with DOM buttons; no network calls."
+}

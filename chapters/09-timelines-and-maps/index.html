@@ -1,0 +1,2862 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to present events over time with vis-timeline and data over geography with Leaflet, including markers, popups, tile sources, choropleths and scroll-zoom control.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/09-timelines-and-maps/">
+      
+      
+        <link rel="prev" href="../08-diagrams-networks-and-systems/">
+      
+      
+        <link rel="next" href="../10-image-overlays-and-comparison-posters/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Timelines and Maps - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Timelines and Maps - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to present events over time with vis-timeline and data over geography with Leaflet, including markers, popups, tile sources, choropleths and scroll-zoom control." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/09-timelines-and-maps/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/09-timelines-and-maps/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Timelines and Maps - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to present events over time with vis-timeline and data over geography with Leaflet, including markers, popups, tile sources, choropleths and scroll-zoom control." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/09-timelines-and-maps/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#timelines-and-maps" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Timelines and Maps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timelines-with-vis-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timelines with vis-timeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timelines with vis-timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-timeline-item-and-date-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Timeline Item and Date Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maps-with-leaflet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maps with Leaflet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maps with Leaflet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-marker-popup-and-tile-source-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Marker, Popup and Tile Source Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-the-page-scrollable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping the Page Scrollable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choropleth-maps-and-their-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choropleth Maps and Their Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Choropleth Maps and Their Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-choropleth-threshold-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Choropleth Threshold Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timelines-with-vis-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timelines with vis-timeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Timelines with vis-timeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-timeline-item-and-date-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Timeline Item and Date Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maps-with-leaflet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maps with Leaflet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maps with Leaflet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-marker-popup-and-tile-source-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Marker, Popup and Tile Source Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-the-page-scrollable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping the Page Scrollable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choropleth-maps-and-their-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choropleth Maps and Their Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Choropleth Maps and Their Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-choropleth-threshold-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Choropleth Threshold Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/09-timelines-and-maps/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="timelines-and-maps">Timelines and Maps</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers vis-timeline and Leaflet for presenting events over time and data over geography.</p>
+<p>Students learn timeline items, grouping and dates, and map markers, popups, tile sources and choropleths, including how to avoid scroll-zoom hijacking. After it, they can build a timeline or map MicroSim.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 11 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vis-timeline Library</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Timeline Event Item</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Timeline Grouping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Timeline Date Handling</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Leaflet Library</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Map Marker</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Map Popup</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Map Tile Source</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Scroll Zoom Hijacking</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Geographic Data Source</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Choropleth Map</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Time and Place in One Page</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Some ideas only make sense when you can see <em>when</em> they happened or <em>where</em> they are. By the end of this chapter you will be able to build a clickable timeline and an explorable map that a learner can poke at. Let's bounce it around!</p>
+</div>
+<p>Chapters 7 and 8 covered charts and networks, which answer questions about quantities and relationships. This chapter covers two more MicroSim types from the choice guide in <a href="../04-choosing-a-microsim-type/">Chapter 4</a>: the <strong>timeline</strong>, which places events along a time axis, and the <strong>map</strong>, which places data on geography. Both are built from a JavaScript library that already handles the hard parts (axis scaling, tile loading, panning), so your job is mostly to supply well-structured data and to configure the interaction sensibly.</p>
+<h2 id="timelines-with-vis-timeline">Timelines with vis-timeline</h2>
+<p>The <strong>vis-timeline Library</strong> is an open-source JavaScript library that draws an interactive, zoomable time axis with items placed on it. The book's timeline template loads version 7.7.3 from the unpkg CDN as a script plus a stylesheet, and then creates a timeline with <code>new vis.Timeline(container, dataSet, options)</code>. The three arguments are the page element that will hold the timeline, a <code>vis.DataSet</code> holding the items, and an options object that controls height, margins, zoom limits and whether the learner may drag or zoom.</p>
+<p>A <strong>timeline event item</strong> is one record on that axis: a label, a start date, and any extra text you attach. In the template, each item is built from a JSON event with a <code>start_date</code>, a <code>text</code> block (headline and description), a <code>group</code> and optional <code>notes</code>. The template converts each event into an object with these vis-timeline fields:</p>
+<ul>
+<li><code>content</code>: the label drawn on the item, taken from the headline.</li>
+<li><code>start</code>: a JavaScript <code>Date</code> object that fixes the item's position on the axis.</li>
+<li><code>title</code>: the tooltip text shown on hover, taken from the notes (or the description if there are no notes).</li>
+<li><code>category</code> and <code>description</code>: custom fields the template keeps for its own filter buttons and its click-to-read details panel.</li>
+</ul>
+<p>A <strong>worked example</strong> shows the data half of this. The JSON below is one event in the template's format. Only <code>year</code> is required inside <code>start_date</code>; the template treats a missing month or day as 1.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"year"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1975"</span><span class="p">,</span><span class="w"> </span><span class="nt">"month"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"headline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Third Event"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description shown in the details panel after a click."</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category1"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Context shown in the hover tooltip."</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The next concept is easy to get wrong, so it gets its own passage. <strong>Timeline date handling</strong> means turning the JSON's date fields into the <code>Date</code> objects vis-timeline needs. JSON months are written 1 to 12, but the JavaScript <code>Date</code> constructor counts months from 0 to 11. The template therefore subtracts 1 from the month before building the date, and the timeline guide lists an off-by-one month as a common cause of dates parsing incorrectly.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Month Off-By-One</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+If every event lands one month late, you probably passed a 1-to-12 month straight to <code>new Date()</code>, which expects 0 to 11. Subtract 1 in one conversion function and never anywhere else, then spot-check an event whose date you know.</p>
+</div>
+<p>A related silent failure involves the <code>min</code> and <code>max</code> options. The timeline guide reports that these "pan limits" also clamp the visible window without any warning, so a <code>setWindow()</code> call that asks for an earlier start can quietly produce a later one. When a label at the edge looks clipped, check <code>timeline.getWindow()</code> against the date you requested before adjusting any CSS.</p>
+<p><strong>Timeline grouping</strong> organizes events into categories. In the template, each event carries a <code>group</code> string such as "Category1", and the script uses it in two ways: it looks up a color for the item, and it powers filter buttons that clear the dataset and re-add only the matching events. The guide recommends 3 to 6 categories with consistent names, because a filter button whose label does not exactly match the data value silently shows nothing.</p>
+<p>Before you read the specification, note the terms it uses. A <em>detail panel</em> is the region below the axis that shows an event's full description after the learner clicks it. A <em>filter button</em> limits the display to one group.</p>
+<h4 id="diagram-timeline-item-and-date-explorer">Diagram: Timeline Item and Date Explorer</h4>
+<iframe src="../../sims/timeline-item-date-explorer/main.html" width="100%" height="652px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/timeline-item-date-explorer/main.html">Run the Timeline Item and Date Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Timeline Item and Date Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> timeline-item-date-explorer<br/>
+<strong>Library:</strong> vis-timeline<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: use): The learner will use the JSON event format to place events on a timeline and will identify how month numbering and group values change what is displayed.</p>
+<p>Layout: a timeline region (height 300 pixels) above a detail panel, above a control region.</p>
+<p>Data: eight events in the template's JSON format across three groups, with a mix of year-only, year-and-month and full dates. Use invented, clearly labeled sample events about a fictional course schedule, not real history.</p>
+<p>Interactions:</p>
+<ul>
+<li>Hover an item to show its <code>notes</code> text as a tooltip.</li>
+<li>Click an item to show its headline, formatted date and description in the detail panel.</li>
+<li>Filter buttons "All", and one per group, clear and re-add matching items.</li>
+<li>A checkbox "Show month numbering bug" rebuilds the dates without subtracting 1 from the month, so the learner sees events shift by one month, with a caption explaining why.</li>
+<li>A text field lets the learner edit one event's <code>month</code> value (1 to 12) and press "Update" to see the item move.</li>
+</ul>
+<p>Controls for navigation: buttons for pan left, pan right, zoom in, zoom out and "Fit All", because wheel zoom is disabled (see the scroll-zoom section).</p>
+<p>Responsive design: the timeline width is 100 percent of the container, listens for window resize events, and stacks the detail panel below the axis on narrow screens.</p>
+<p>Implementation: vis-timeline 7.7.3 from a CDN, with the data in a local <code>data.json</code> and styling in <code>style.css</code>.</p>
+</details>
+<h2 id="maps-with-leaflet">Maps with Leaflet</h2>
+<p>The <strong>Leaflet Library</strong> is an open-source JavaScript library for interactive maps. The map template loads Leaflet 1.9.4 from unpkg, creates a map in a page element with <code>L.map('map')</code>, and positions it with <code>setView([lat, lng], zoom)</code>. Coordinates are always latitude first, then longitude, and zoom runs from 1 (world view) to 18 (building level), according to the map guide. Leaflet draws nothing by itself; every visible thing on the map is a layer that you add, and this chapter's remaining concepts are the layers you will use most.</p>
+<p>A <strong>map marker</strong> is a pin placed at a latitude and longitude. A <strong>map popup</strong> is the small window that opens when the learner clicks or hovers a marker, and it is how a map shows details without cluttering the view. The guide's basic pattern creates a marker with <code>L.marker([lat, lng])</code>, attaches a popup with <code>bindPopup()</code>, and adds it with <code>addTo(map)</code>. The template's marker data uses these fields: <code>lat</code>, <code>lng</code>, <code>title</code> or <code>name</code>, <code>description</code>, and an optional <code>category</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">markers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">40.7128</span><span class="p">,</span><span class="w"> </span><span class="nx">lng</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">74.0060</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">"New York"</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">"The Big Apple"</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+<span class="nx">markers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="nx">m</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">lng</span><span class="p">])</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="sb">`&lt;b&gt;</span><span class="si">${</span><span class="nx">m</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">&lt;/b&gt;&lt;br&gt;</span><span class="si">${</span><span class="nx">m</span><span class="p">.</span><span class="nx">description</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>The loop reads each record, builds a marker, gives it popup text that may contain simple HTML, and puts it on the map. The guide suggests keeping markers under 100 for good performance and using marker clustering beyond that. It also advises writing descriptive popup text, since the popup is often the only textual alternative to the map.</p>
+<p>A map needs a background, and a <strong>map tile source</strong> supplies it. Tiles are small square images, fetched on demand for the region and zoom level in view, and a tile layer is defined by a URL template containing <code>{z}</code>, <code>{x}</code> and <code>{y}</code> placeholders. The template uses the OpenStreetMap tile URL and an attribution string crediting OpenStreetMap contributors. The guide also lists a satellite source and a terrain source, and it links the OpenStreetMap tile usage policy, which you should read before publishing a map that many learners will load. Attribution is part of the tile source, so keep it whenever you change providers.</p>
+<p>Before the next specification, define its control terms. A <em>layer control</em> is a Leaflet widget that lets the learner switch between base maps, created with <code>L.control.layers()</code>.</p>
+<h4 id="diagram-marker-popup-and-tile-source-map">Diagram: Marker, Popup and Tile Source Map</h4>
+<iframe src="../../sims/marker-popup-tile-map/main.html" width="100%" height="582px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/marker-popup-tile-map/main.html">Run the Marker, Popup and Tile Source Map MicroSim Fullscreen</a></p>
+<details>
+<summary>Marker, Popup and Tile Source Map</summary>
+<p>Type: map
+<strong>sim-id:</strong> marker-popup-tile-map<br/>
+<strong>Library:</strong> Leaflet<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish the roles of the marker, the popup and the tile source by changing each one independently and observing the result.</p>
+<p>Geographic scope: a campus or city of the author's choice, with 6 to 8 markers in two categories.</p>
+<p>Layout: a map region 420 pixels high with an info panel in the top-right corner, and a control region below.</p>
+<p>Interactions:</p>
+<ul>
+<li>Click a marker to open its popup with title and description; the info panel repeats the marker's category.</li>
+<li>A layer control switches the base map between at least two tile sources; the attribution text at the bottom changes with the source.</li>
+<li>A toggle "Show category" recolors marker labels by the <code>category</code> field.</li>
+<li>A "Swap lat/lng" button deliberately reverses the coordinates of one marker so the learner sees it land in the wrong place, with a caption explaining latitude-first order.</li>
+</ul>
+<p>Responsive design: the map fills 100 percent of the container width, fires a size refresh on window resize, and reduces the map height on screens under 600 pixels wide.</p>
+<p>Implementation: Leaflet 1.9.4 from a CDN, data in <code>data.json</code>, plus <code>style.css</code> and <code>script.js</code> following the map template.</p>
+</details>
+<h2 id="keeping-the-page-scrollable">Keeping the Page Scrollable</h2>
+<p>Embedding a map or timeline in a chapter page creates a subtle usability problem. <strong>Scroll zoom hijacking</strong> happens when an embedded interactive captures the mouse wheel for its own zooming, so a reader who is simply scrolling down the page suddenly finds the map zooming instead and cannot get past it.</p>
+<p>The book's templates address this in three ways. The Leaflet template creates the map with <code>scrollWheelZoom: false</code>, with a comment about avoiding iframe scroll hijacking. The timeline template sets <code>zoomable</code> and <code>moveable</code> to false unless the page URL contains <code>?enable-interaction=true</code>, and supplies explicit pan and zoom buttons instead. The timeline guide adds a third option: register a <code>wheel</code> listener in the capture phase on the container. For vertical wheel movement it calls <code>stopImmediatePropagation()</code> without <code>preventDefault()</code>, so vis-timeline never sees the event and the page scrolls normally, while horizontal movement pans the timeline.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Trap the Scroll Wheel</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A map that swallows the wheel makes readers feel stuck in the middle of your chapter. Turn wheel zoom off by default and offer buttons, so the page keeps scrolling and the learner can still zoom on purpose.</p>
+</div>
+<h2 id="choropleth-maps-and-their-data">Choropleth Maps and Their Data</h2>
+<p>A <strong>geographic data source</strong> is the file or service that supplies the shapes or points a map draws. The map template uses two: a GeoJSON file of boundaries, and a local <code>data.json</code> of values. GeoJSON is an open format for encoding geographic features such as points and polygons, and the guide links its specification. The template's default boundary URL points to a public us-states.json file on raw.githubusercontent.com, and <code>data.json</code> supplies a value for each state under a <code>features</code> object keyed by state name. Keeping shapes and values separate lets you reuse one boundary file for many datasets.</p>
+<p>A <strong>choropleth map</strong> shades each region according to a data value, so the learner sees geographic patterns at a glance. The template builds one in four steps: fetch the GeoJSON, look up each region's value by name, convert the value to a color, and draw the region with <code>L.geoJSON()</code> using that color as its <code>fillColor</code>. The conversion is a threshold function: values above 80 are dark green, above 60 green, above 40 yellow, above 20 orange, and everything else dark red. Hovering a region highlights it and fills the info panel, and clicking zooms to it.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Colors Are Bins, Not Values</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A choropleth turns a continuous number into one of five colors, so a region at 61 and a region at 99 look almost alike. Where you put the thresholds is a design decision that can make a pattern appear or vanish.</p>
+</div>
+<p>A worked example of that decision: with the template thresholds, a region valued 61 and one valued 80 share a color, while 80 and 81 differ. If the learning goal is to compare regions near 80, you would move a threshold there. The template's own thresholds are a starting point for illustration, so treat the values in any sample data as placeholders and cite a real source before publishing real statistics.</p>
+<h4 id="diagram-choropleth-threshold-lab">Diagram: Choropleth Threshold Lab</h4>
+<iframe src="../../sims/choropleth-threshold-lab/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/choropleth-threshold-lab/main.html">Run the Choropleth Threshold Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Choropleth Threshold Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> choropleth-threshold-lab<br/>
+<strong>Library:</strong> Leaflet<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: judge): The learner will judge whether a set of color thresholds reveals or hides a geographic pattern in a dataset.</p>
+<p>Data: a GeoJSON boundary file of regions and a <code>data.json</code> with one clearly labeled placeholder value per region. Do not present the values as real statistics.</p>
+<p>Layout: a map region 420 pixels high with a hover info panel, a legend below the map, and a control region.</p>
+<p>Controls:</p>
+<ul>
+<li>Four sliders set the thresholds between the five color classes, kept in increasing order.</li>
+<li>A preset menu with "Template thresholds", "Equal intervals" and "Cluster near 80".</li>
+<li>A checkbox "Show values on hover" toggles the numeric value in the info panel.</li>
+</ul>
+<p>Interactions: hovering a region highlights it and shows its name, value and color class; clicking zooms to the region; moving a slider recolors the map immediately and updates the legend. A readout counts how many regions fall in each class.</p>
+<p>Responsive design: the map and legend resize with the container width, and the sliders stack below the map on narrow screens.</p>
+<p>Implementation: Leaflet 1.9.4 with L.geoJSON and a getColor threshold function driven by the slider values.</p>
+</details>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>The <strong>vis-timeline Library</strong> draws an interactive time axis from a <code>vis.DataSet</code> of items, configured by an options object.</li>
+<li>A <strong>timeline event item</strong> has a label, a <code>Date</code> start, a tooltip and optional custom fields; only the year is required in the template's JSON.</li>
+<li><strong>Timeline date handling</strong> must convert 1-to-12 JSON months to the 0-to-11 months of JavaScript dates, and <code>min</code> and <code>max</code> can silently clamp the window.</li>
+<li><strong>Timeline grouping</strong> uses a <code>group</code> value per event for color and filter buttons, and names must match exactly.</li>
+<li>The <strong>Leaflet Library</strong> builds maps from layers; coordinates are latitude first, and each <strong>map marker</strong> can carry a <strong>map popup</strong>.</li>
+<li>A <strong>map tile source</strong> supplies the background images; keep its attribution and respect its usage policy.</li>
+<li><strong>Scroll zoom hijacking</strong> is avoided by disabling wheel zoom by default and offering buttons.</li>
+<li>A <strong>geographic data source</strong> such as GeoJSON supplies shapes, and a <strong>choropleth map</strong> shades them by thresholded values.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Time and Place Handled</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now structure timeline events with correct date handling, place markers and popups on a Leaflet map, and design a choropleth whose thresholds you can defend. That is two more MicroSim types in your toolkit.</p>
+</div>
+<p>The next chapter, <a href="../10-image-overlays-and-comparison-posters/">Image Overlays and Comparison Posters</a>, moves from geography to annotated images.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../08-diagrams-networks-and-systems/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 8. Diagrams, Networks and Systems">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                8. Diagrams, Networks and Systems
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../10-image-overlays-and-comparison-posters/" class="md-footer__link md-footer__link--next" aria-label="Next: 10. Image Overlays and Comparison Posters">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                10. Image Overlays and Comparison Posters
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

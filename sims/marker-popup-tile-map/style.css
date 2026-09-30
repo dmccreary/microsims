@@ -1,0 +1,103 @@
+/* Marker, Popup and Tile Source Map - styles (based on the map template) */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: #222;
+}
+
+main {
+    background: aliceblue;
+    border: 1px solid silver;
+}
+
+h2 {
+    text-align: center;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0;
+    padding: 7px 8px 5px 8px;
+}
+
+#map {
+    width: 100%;
+    height: 420px;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+}
+
+/* ---------- info panel (top-right Leaflet control) ---------- */
+.info {
+    padding: 7px 10px;
+    font-size: 14px;
+    line-height: 1.35;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    width: 230px;
+}
+.info h4 { margin: 0 0 4px 0; font-size: 15px; }
+.info .role { font-size: 13px; margin-top: 3px; }
+.info .role b { display: inline-block; min-width: 52px; }
+.info .cat { font-weight: bold; }
+
+/* ---------- markers: a teardrop pin drawn with CSS ---------- */
+.pin-icon { background: none; border: none; }
+.pin {
+    width: 22px;
+    height: 22px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 2px solid white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.pin.swapped { outline: 3px dashed #b91c1c; outline-offset: 2px; }
+.leaflet-tooltip.place-label {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 1px 6px;
+    border-width: 2px;
+    color: #222;
+    border-color: #777;
+}
+.leaflet-popup-content { font-size: 14px; line-height: 1.4; margin: 10px 12px; }
+.popup-title { font-weight: bold; font-size: 15px; margin-bottom: 4px; }
+
+/* ---------- controls and caption ---------- */
+.controls {
+    background: white;
+    padding: 6px 8px 8px 8px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+}
+button { font-size: 14px; padding: 3px 9px; cursor: pointer; }
+label { font-size: 14px; }
+.legend { display: inline-flex; gap: 10px; font-size: 14px; align-items: center; }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 4px; vertical-align: -2px; }
+.legend.off { color: #666; }
+#caption {
+    margin-top: 6px;
+    min-height: 78px;
+    font-size: 14px;
+    line-height: 1.38;
+    padding: 5px 8px;
+    border: 1px solid silver;
+    border-radius: 6px;
+    background: aliceblue;
+}
+#caption.warn { background: #fef2f2; border-color: #fca5a5; color: #7f1d1d; }
+
+/* narrow screens: a shorter map */
+@media (max-width: 599px) {
+    #map { height: 320px; }
+    h2 { font-size: 16px; }
+    .info { width: 180px; font-size: 13px; }
+    .info .role { font-size: 12px; }
+}

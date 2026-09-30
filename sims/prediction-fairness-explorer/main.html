@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Prediction Fairness Explorer using Chart.js</title>
+    <style>
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; color: #1e1e1e; }
+        main { box-sizing: border-box; }
+        .app { box-sizing: border-box; height: 600px; display: flex; flex-direction: column;
+               gap: 6px; padding: 8px 10px; background: aliceblue; border: 1px solid silver; }
+        .banner { background: #fff4d6; border: 1px solid #c9a227; border-radius: 6px;
+                  padding: 5px 9px; font-size: 13px; line-height: 1.35; }
+        .chart-wrap { position: relative; flex: 1 1 auto; min-height: 0; background: white;
+                      border: 1px solid silver; border-radius: 6px; padding: 4px; }
+        .message { background: white; border: 1px solid silver; border-radius: 6px;
+                   padding: 6px 9px; font-size: 14px; line-height: 1.35; min-height: 38px; }
+        .message b { color: #1e1e1e; }
+        .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;
+                    background: white; border: 1px solid silver; border-radius: 6px; padding: 7px 9px;
+                    font-size: 14px; }
+        .controls label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+        .controls input[type=range] { width: 150px; }
+        .controls select, .controls button { font-size: 14px; }
+        .controls button { padding: 4px 12px; }
+        button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #003c82; outline-offset: 2px; }
+        .sr-only { position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+                   clip: rect(0 0 0 0); white-space: nowrap; }
+        @media (max-width: 520px) {
+            .controls input[type=range] { width: 110px; }
+            .message, .banner { font-size: 13px; }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="app">
+            <div class="banner" role="note"><b>Synthetic data.</b> Every number here is invented to
+                illustrate the method. No real learner data has been collected.</div>
+            <div class="chart-wrap">
+                <canvas id="fairness-chart" role="img" aria-label="Bar chart of prediction error by learner group"></canvas>
+            </div>
+            <div class="message" id="message" aria-live="polite"></div>
+            <div class="controls">
+                <label for="scenario">Scenario
+                    <select id="scenario">
+                        <option value="even">Even error</option>
+                        <option value="gap" selected>Hidden gap</option>
+                        <option value="small">Small group</option>
+                    </select>
+                </label>
+                <label for="threshold">Threshold: <span id="threshold-value">10</span>
+                    <input type="range" id="threshold" min="5" max="20" step="1" value="10"
+                           aria-describedby="threshold-help">
+                </label>
+                <span id="threshold-help" class="sr-only">Groups with fewer learners than the threshold are hidden.</span>
+                <label><input type="checkbox" id="pooled" checked> Show pooled average</label>
+                <button type="button" id="reset">Reset</button>
+            </div>
+            <div class="sr-only"><table id="data-table">
+                <caption>Synthetic prediction error by learner group</caption>
+                <thead><tr><th scope="col">Group</th><th scope="col">Learners</th>
+                    <th scope="col">Under-estimated</th><th scope="col">Over-estimated</th><th scope="col">Shown</th></tr></thead>
+                <tbody></tbody>
+            </table></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+    <script src="prediction-fairness-explorer.js"></script>
+</body>
+</html>

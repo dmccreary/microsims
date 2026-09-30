@@ -1,0 +1,15 @@
+{
+  "sim_id": "two-browser-convergence-lab",
+  "diagram_name": "Two-Browser Convergence Lab",
+  "chapter_number": 23,
+  "chapter_title": "\"LRS-Lite: Sync, Dashboards and Choosing Full or Lite\"",
+  "chapter_dir": "23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "chapter_rel_dir": "chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Compare",
+  "learning_objective": "The learner will compare a last-writer-wins merge with an append-only event-set merge by running the Chromebook and laptop scenario and identifying which attempts each approach loses.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** two-browser-convergence-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: compare): The learner will compare a last-writer-wins merge with an append-only event-set merge by running the Chromebook and laptop scenario and identifying which attempts each approach loses.\n\nLayout: three columns on an aliceblue drawing region: \"Chromebook (c7)\" on the left, \"S3 student prefix\" in the center, \"Home laptop (f2)\" on the right. Each device column shows its local event list as small tiles, each tile labeled with an HLC value, a device ID and a green check or red cross for the answer. The S3 column shows uploaded segment tiles. Below each device is a summary readout: attempts counted and successes counted. A white control region sits below with a silver border line.\n\nControls:\n\n- Button \"Chromebook: answer 3 (2 right)\" and button \"Laptop: answer 4 (4 right)\", each adding tiles to that device only\n- Toggle \"Chromebook offline\" that blocks that device's Sync button (default off)\n- Buttons \"Sync Chromebook\" and \"Sync laptop\" that run one push then pull, animating tiles moving to or from S3\n- Radio \"Merge rule\": \"Last writer wins\" or \"Event set (union)\" (default event set)\n- Button \"Reset\"\n\nInteractions: hovering a tile shows its `id`, `device_id`, `seq` and `hlc`. Hovering a summary readout explains how it was computed. After both devices have synced, a banner states whether the two summaries are identical and how many of the seven attempts each device counts.\n\nData: the seven attempts from the Monday and Tuesday scenario. The HLC values are illustrative, chosen so the laptop's answers sort after the Chromebook's first three.\n\nResponsive design: the three columns scale to the container width on every window resize and stack vertically below 500 pixels wide. Text stays at least 14 pixels, and the canvas height is a fixed drawing height plus a control region.\n\nImplementation: p5.js with createButton and createRadio controls positioned relative to drawHeight. Include a describe() call for accessibility."
+}

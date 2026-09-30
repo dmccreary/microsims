@@ -1,0 +1,15 @@
+{
+  "sim_id": "prompt-text-rule-checker",
+  "diagram_name": "Prompt Text Rule Checker",
+  "chapter_number": 10,
+  "chapter_title": "Image Overlays and Comparison Posters",
+  "chapter_dir": "10-image-overlays-and-comparison-posters",
+  "chapter_rel_dir": "chapters/10-image-overlays-and-comparison-posters",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Judge",
+  "learning_objective": "The learner will judge whether a line of an image prompt is safe for a callout overlay or violates the text-free image rule, and will justify the judgment.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** prompt-text-rule-checker<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: judge): The learner will judge whether a line of an image prompt is safe for a callout overlay or violates the text-free image rule, and will justify the judgment.\n\nLayout: a drawing region showing a draft image prompt as a list of eight to ten lines, one per row, above a control region with buttons \"Keeps image text-free\" and \"Risks text in image\".\n\nData: at least twelve prompt lines, half safe (for example \"Background: clean white\") and half risky (for example \"Add the title Animal Cell across the top\", \"Label each organelle with its name\", \"Draw arrows pointing to the nucleus\"). Each line has a one-sentence explanation of why it is safe or risky.\n\nInteractions: the learner clicks a line and then a judgment button. The line turns green or red and its explanation appears. A \"Rewrite\" button on each risky line shows a safe replacement. A score readout shows correct judgments out of attempts, and the lines are shuffled on each run.\n\nResponsive design: line text wraps inside its row, and row height and button size scale with the container width on window resize.\n\nImplementation: p5.js with mousePressed hit testing on rows, a describe() call, and lines stored in an array of objects."
+}

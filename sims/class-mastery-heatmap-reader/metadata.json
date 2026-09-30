@@ -1,0 +1,169 @@
+{
+  "title": "Class Mastery Heatmap Reader",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "Teacher Dashboard",
+    "Mastery Heatmap",
+    "At-Risk Roster",
+    "Data Literacy"
+  ],
+  "description": "A p5.js reader for a synthetic class mastery heatmap in which learners tell a concept the whole class struggles with (a dark column) from a student who struggles broadly (a dark row), and reweight the at-risk roster's three signals to see how the ranking changes.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/class-mastery-heatmap-reader/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Reading a class mastery heatmap and computing an at-risk score",
+    "learningObjectives": [
+      "The learner will distinguish a concept that most of a class struggles with from a student who struggles broadly, by reading the dark columns and dark rows of a heatmap and by computing an at-risk score."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Mastery estimates as model outputs (Chapters 18 and 19)",
+      "The Teacher Dashboard section (Chapter 21)",
+      "Weighted sums"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "notes": "Cell values are printed in the cells as well as shaded; sequential single-hue blue scale; patterns are marked with dashed outlines and text; sliders are native controls with aria labels"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "wMastery",
+        "type": "slider",
+        "label": "Weight on low mastery",
+        "min": 0,
+        "max": 1,
+        "default": 0.45,
+        "purpose": "Weight of (1 - mean mastery) in the risk score"
+      },
+      {
+        "id": "wIdle",
+        "type": "slider",
+        "label": "Weight on inactivity",
+        "min": 0,
+        "max": 1,
+        "default": 0.3,
+        "purpose": "Weight of days idle / max days idle"
+      },
+      {
+        "id": "wGap",
+        "type": "slider",
+        "label": "Weight on prerequisite gaps",
+        "min": 0,
+        "max": 1,
+        "default": 0.25,
+        "purpose": "Weight of the prerequisite gap ratio"
+      },
+      {
+        "id": "patternButton",
+        "type": "button",
+        "label": "Show the pattern",
+        "purpose": "Outline the weak column and the weak row"
+      },
+      {
+        "id": "quizButton",
+        "type": "button",
+        "label": "Quiz me",
+        "purpose": "Ask for the concept to re-teach, then the broadly struggling student"
+      },
+      {
+        "id": "heatmapCells",
+        "type": "hover and click canvas cells",
+        "label": "Heatmap cells and roster rows",
+        "purpose": "Show estimates; select a student; answer the quiz"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Pattern recognition with a two-question check and a transparent score breakdown",
+    "interactionPattern": "Scan, quiz, reveal the pattern, inspect one student's signals, reweight",
+    "keyQuestions": [
+      "What does a dark column suggest a teacher change, compared with a dark row?",
+      "Which three signals make up the risk score, and how much does each contribute?",
+      "Can a single severe signal push a student to the top of the roster?"
+    ],
+    "commonMisconceptions": [
+      "A dark cell is a measured fact about the student",
+      "The top of the roster is always the weakest student academically",
+      "The default weights are a validated standard"
+    ],
+    "assessmentOpportunities": [
+      "Quiz: choose the concept to re-teach and the broadly struggling student",
+      "Hand calculation of a risk score checked against the breakdown",
+      "Written caution about acting on model estimates"
+    ]
+  },
+  "search": {
+    "tags": [
+      "teacher dashboard",
+      "mastery heatmap",
+      "at-risk roster",
+      "learning analytics",
+      "LRS",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "heatmap",
+      "chart",
+      "quiz"
+    ]
+  },
+  "chapter": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "simulation": {
+    "modelType": "Weighted composite score over synthetic data",
+    "variables": [
+      "mastery estimate per student and concept",
+      "mean mastery",
+      "days idle",
+      "prerequisite gap ratio",
+      "risk score"
+    ],
+    "equations": [
+      "risk = wM x (1 - mean mastery) + wI x (days idle / 10) + wP x gap ratio",
+      "gap ratio = concepts with a prerequisite below 0.6 / 8"
+    ],
+    "assumptions": [
+      "Synthetic section of 12 students and 8 concepts from a fixed seed",
+      "0.6 is the prototype dashboard's pass line",
+      "Default weights 0.45/0.30/0.25 are the prototype's choices"
+    ],
+    "limitations": [
+      "Shades are model estimates, not measured facts",
+      "No real learner data",
+      "Weights are not validated"
+    ]
+  }
+}

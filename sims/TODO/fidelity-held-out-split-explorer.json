@@ -1,0 +1,15 @@
+{
+  "sim_id": "fidelity-held-out-split-explorer",
+  "diagram_name": "Held-Out Split Explorer",
+  "chapter_number": 19,
+  "chapter_title": "Evaluating the Predictive Fidelity of the xAPI Stream",
+  "chapter_dir": "19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "chapter_rel_dir": "chapters/19-evaluating-the-predictive-fidelity-of-the-xapi-stream",
+  "library": "p5.js",
+  "bloom_level": "Analyze (L4)",
+  "bloom_verb": "distinguish",
+  "learning_objective": "Learners will distinguish statements that may legitimately feed a forecast from those that leak the held-out assessment, by placing a forecast cutoff on a learner's timeline and judging each statement.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** fidelity-held-out-split-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBloom Level: Analyze (L4)\nBloom Verb: distinguish\n\nLearning objective: Learners will distinguish statements that may legitimately feed a forecast from those that leak the held-out assessment, by placing a forecast cutoff on a learner's timeline and judging each statement.\n\nLayout: A horizontal timeline for one synthetic learner shows about twelve statements as small markers, colored by type (practice answer, exposure event, held-out assessment answer). A draggable vertical line marks the forecast cutoff. A right panel lists the statements the model may use.\n\nControls: A draggable cutoff line; a checkbox \"Allow the model to see assessment answers\" that intentionally introduces leakage; a \"Reset\" button.\n\nData: The learner's timeline is fixed and hand-written with timestamps. A readout shows a mock predicted probability computed only from the permitted statements, and a second mock accuracy that jumps upward when leakage is enabled.\n\nInteractions: Hovering a marker shows its type and timestamp. Dragging the cutoff updates the usable-evidence list and flags any statement after the cutoff that is still in use with a red outline. Turning on leakage displays the message \"Score is inflated: the forecast saw its own answer key.\"\n\nResponsive design: The canvas width follows the container and re-lays out on window resize; the side panel drops below the timeline on narrow screens.\n\nImplementation: p5.js with a single sketch, a timeline drawn in draw(), and DOM controls for the checkbox and reset button."
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Semester Storage Estimator using Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="lite-semester-storage-estimator.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="title-row">
+                <span id="title">Semester Storage Estimator</span>
+                <span id="caption">Modelled from synthetic statements (980 bytes each), not from real learners</span>
+            </div>
+            <div id="chart-wrap">
+                <canvas id="chart" role="img"
+                        aria-label="Bar chart of raw and gzipped semester storage in megabytes, with a reference line at the 10 MB budget"></canvas>
+            </div>
+            <div id="bottom">
+                <div id="controls">
+                    <div class="row">
+                        <label for="reads">Page reads / day</label>
+                        <span class="val" id="reads-val">6</span>
+                        <input type="range" id="reads" min="0" max="20" step="1" value="6">
+                    </div>
+                    <div class="row">
+                        <label for="sessions">Sim sessions / day</label>
+                        <span class="val" id="sessions-val">4</span>
+                        <input type="range" id="sessions" min="0" max="12" step="1" value="4">
+                    </div>
+                    <div class="row">
+                        <label for="answers">Quiz answers / day</label>
+                        <span class="val" id="answers-val">15</span>
+                        <input type="range" id="answers" min="0" max="40" step="1" value="15">
+                    </div>
+                    <div class="row">
+                        <label for="days">Active study days</label>
+                        <span class="val" id="days-val">90</span>
+                        <input type="range" id="days" min="10" max="120" step="1" value="90">
+                    </div>
+                    <div class="row" id="drags-row">
+                        <label for="drags">Drags / session <em>(Full)</em></label>
+                        <span class="val" id="drags-val">40</span>
+                        <input type="range" id="drags" min="0" max="100" step="1" value="40">
+                    </div>
+                    <div class="row buttons">
+                        <span class="mode-label">Emission mode:</span>
+                        <button type="button" id="mode-summary" class="seg" aria-pressed="true">Summary</button>
+                        <button type="button" id="mode-full" class="seg" aria-pressed="false">Full</button>
+                        <button type="button" id="cases-btn" class="btn">Load design cases</button>
+                    </div>
+                </div>
+                <div id="readout" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

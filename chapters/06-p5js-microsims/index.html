@@ -1,0 +1,4056 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Teaches the p5.js sketch structure, drawing, animation, physics and controls behind the most flexible MicroSim type, including showcase-quality animation techniques.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/06-p5js-microsims/">
+      
+      
+        <link rel="prev" href="../05-generating-microsims-with-ai-skills/">
+      
+      
+        <link rel="next" href="../07-charts-plots-and-tables/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>p5.js MicroSims - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="p5.js MicroSims - Micro Simulations for Education" />
+<meta property="og:description" content="Teaches the p5.js sketch structure, drawing, animation, physics and controls behind the most flexible MicroSim type, including showcase-quality animation techniques." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/06-p5js-microsims/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/06-p5js-microsims/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="p5.js MicroSims - Micro Simulations for Education" />
+<meta property="twitter:description" content="Teaches the p5.js sketch structure, drawing, animation, physics and controls behind the most flexible MicroSim type, including showcase-quality animation techniques." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/06-p5js-microsims/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#p5js-microsims" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              p5.js MicroSims
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-anatomy-of-a-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Anatomy of a Sketch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Anatomy of a Sketch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-p5js-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The p5.js Sketch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-setup-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The setup() Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-draw-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The draw() Function
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The draw() Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sketch-lifecycle-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Sketch Lifecycle Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-canvas-and-its-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Canvas and Its Coordinates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Canvas and Its Coordinates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canvas Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Coordinate System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-coordinate-system-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Coordinate System Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-the-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drawing the Picture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drawing the Picture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shape-drawing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shape Drawing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Rendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-things-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Things Move
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Things Move">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-animation-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Animation Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frame Rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vectors-physics-and-collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vectors, Physics and Collisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vectors, Physics and Collisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vectors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physics-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collision Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Particle System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Particle System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-vector-and-particle-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Vector and Particle Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controls-and-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controls and Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controls and Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slider-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slider Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Button Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mouse-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-assets-in-p5js-2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading Assets in p5.js 2.x
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading Assets in p5.js 2.x">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#showcase-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Showcase Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Showcase Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flowing-current-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowing Current Animation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pause-when-idle-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pause-When-Idle Animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pause-When-Idle Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-flowing-current-and-idle-pause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Flowing Current and Idle Pause
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-anatomy-of-a-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Anatomy of a Sketch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Anatomy of a Sketch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-p5js-sketch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The p5.js Sketch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-setup-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The setup() Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-draw-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The draw() Function
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The draw() Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sketch-lifecycle-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Sketch Lifecycle Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-canvas-and-its-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Canvas and Its Coordinates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Canvas and Its Coordinates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canvas Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Coordinate System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Coordinate System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-coordinate-system-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Coordinate System Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-the-picture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drawing the Picture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drawing the Picture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shape-drawing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shape Drawing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Color Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Rendering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-things-move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Things Move
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Things Move">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-animation-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Animation Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frame Rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vectors-physics-and-collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vectors, Physics and Collisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vectors, Physics and Collisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vectors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physics-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Physics Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collision-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collision Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#particle-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Particle System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Particle System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-vector-and-particle-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Vector and Particle Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controls-and-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controls and Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controls and Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slider-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slider Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#button-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Button Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mouse-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard Events
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-assets-in-p5js-2x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading Assets in p5.js 2.x
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading Assets in p5.js 2.x">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#showcase-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Showcase Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Showcase Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flowing-current-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flowing Current Animation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pause-when-idle-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pause-When-Idle Animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pause-When-Idle Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-flowing-current-and-idle-pause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Flowing Current and Idle Pause
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/06-p5js-microsims/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="p5js-microsims">p5.js MicroSims</h1>
+<h2 id="summary">Summary</h2>
+<p>Teaches the p5.js sketch structure, drawing, animation, physics and controls that power the most flexible MicroSim type, including showcase-quality animation.</p>
+<p>Students build up from setup and draw to vectors, collisions, particles and interactive controls. After it, they can create an animated, controllable simulation and apply the pause-when-idle and flowing-current techniques.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p5.js Sketch</td>
+<td>52</td>
+</tr>
+<tr>
+<td>setup() Function</td>
+<td>21</td>
+</tr>
+<tr>
+<td>draw() Function</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Global Variables</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Canvas Creation</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Coordinate System</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Shape Drawing</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Color Model</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Animation Loop</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Frame Rate</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Vectors</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Physics Simulation</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Collision Detection</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Particle System</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Slider Control</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Button Control</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Mouse Events</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Keyboard Events</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Text Rendering</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Async Setup</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Flowing Current Animation</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pause-When-Idle Animation</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+<li><a href="../05-generating-microsims-with-ai-skills/">Chapter 5: Generating MicroSims with AI Skills</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Time to Make Things Move</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+p5.js is where a MicroSim stops being a picture and starts being a machine you can push on. By the end of this chapter you will be able to build an animated simulation with sliders, buttons, physics, and a showcase-quality touch or two. Let's bounce it around!</p>
+</div>
+<p><a href="../04-choosing-a-microsim-type/">Chapter 4</a> presented p5.js as the most flexible MicroSim type and the default for anything that behaves like a system, such as a model that moves, collides, or responds to a click. This chapter teaches the parts of p5.js that a MicroSim author needs, in the order a sketch uses them. We begin with the structure of a sketch, move to drawing and animation, add vectors and physics, then wire in the controls that make a simulation interactive. We finish with two techniques borrowed from the H-Bridge showcase MicroSim of Chapter 1: flowing current and pause-when-idle animation.</p>
+<p>You do not have to type all of this by hand, since Chapter 5 showed how the generator skill writes p5.js from a specification. You do have to read it fluently. A reader who understands the structure can review generated code, spot the hallucinated function, and change a parameter without asking the model again.</p>
+<h2 id="the-anatomy-of-a-sketch">The Anatomy of a Sketch</h2>
+<h3 id="the-p5js-sketch">The p5.js Sketch</h3>
+<p>A <strong>p5.js Sketch</strong> is a JavaScript program that uses the p5.js library to draw graphics and respond to the user, organized around two special functions that the library calls for you: <code>setup()</code>, which runs once, and <code>draw()</code>, which runs over and over. In this book, every p5.js MicroSim is one sketch stored in a single <code>.js</code> file, loaded by a small <code>main.html</code> page like the one you met in Chapter 1 and dissected in <a href="../02-anatomy-of-a-microsim/">Chapter 2</a>.</p>
+<p>p5.js can run in two modes, and the difference matters for reading code. In <em>global mode</em>, the functions you write and the p5.js functions you call, such as <code>circle()</code> and <code>createSlider()</code>, all live at the top level of the file, so no library prefix is needed. Every MicroSim template in this book uses global mode. The benefit is that the same file runs unchanged when pasted into the online p5.js editor, a compatibility requirement stated in the generator skill's p5.js guide.</p>
+<p>The version matters too. The generator skill's <code>main.html</code> template loads p5.js 2.3.2 from a CDN with a pinned version number. The p5.js 2.x line changed a few functions, which we list near the end of the chapter, so a sketch written for 1.x can fail under 2.x.</p>
+<p>A <strong>worked example</strong> shows the whole idea in nine lines. The sketch below drops a circle down the canvas. Before reading it, note the four functions it calls: <code>createCanvas(w, h)</code> makes the drawing surface, <code>background(color)</code> paints it, <code>circle(x, y, d)</code> draws a circle of diameter <code>d</code> centered at the point <code>(x, y)</code>, and <code>ballY</code> is a variable that we change on every pass.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">ballY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">300</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="s1">'aliceblue'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">ballY</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">ballY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ballY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Nothing in this file calls <code>setup()</code> or <code>draw()</code>. The p5.js library finds them by name and calls them at the right moments, which is why the two names are fixed. Everything else in a sketch exists to support these two functions.</p>
+<h3 id="the-setup-function">The setup() Function</h3>
+<p>The <strong>setup() Function</strong> runs exactly once, when the page loads, before the first frame is drawn. Its job is to create things that must exist a single time: the canvas, the sliders and buttons, and any starting values that depend on the canvas size.</p>
+<p>Three tasks belong in <code>setup()</code> in this book's MicroSims. First, measure the container width and create the canvas. Second, create every control, because creating a slider inside <code>draw()</code> would make a new slider on every frame. Third, call <code>describe()</code>, which gives screen readers a text description of the canvas. The template from the generator skill follows this order and begins with a call to its width helper.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span><span class="w">                        </span><span class="c1">// measure the container first</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">));</span>
+
+<span class="w">  </span><span class="nx">startButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createButton</span><span class="p">(</span><span class="s1">'Start'</span><span class="p">);</span><span class="w">       </span><span class="c1">// controls are created once</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">describe</span><span class="p">(</span><span class="s1">'A ball bounces inside a box; a slider sets its speed.'</span><span class="p">,</span><span class="w"> </span><span class="nx">LABEL</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>LABEL</code> argument asks p5.js to expose the description as a text label next to the canvas, so assistive technology has something to announce. The functions <code>updateCanvasSize()</code> and <code>canvas.parent()</code> appear again in the canvas section below.</p>
+<h3 id="the-draw-function">The draw() Function</h3>
+<p>The <strong>draw() Function</strong> runs after <code>setup()</code> finishes and then repeats. Each pass is one <em>frame</em>: the sketch erases the previous picture, updates the state of the model, and draws the new picture. In this book's MicroSims, <code>draw()</code> is where the simulation's rules live.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A Movie Made of Redraws</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of <code>draw()</code> as a flip book. Nothing on the canvas actually moves; the whole picture is repainted each frame with the objects a little further along, and the motion is your eye's interpretation.</p>
+</div>
+<p>The order inside <code>draw()</code> is a convention that prevents visual bugs. The generator skill's guide gives the order below, and it exists because later drawing paints over earlier drawing.</p>
+<ol>
+<li>Draw the background regions: the drawing area in <code>'aliceblue'</code>, then the control area in <code>'white'</code>.</li>
+<li>Draw any grid and axes.</li>
+<li>Draw the title, after the grid so that the grid cannot cover it.</li>
+<li>Update the model and draw the main visualization.</li>
+<li>Draw annotation panels, and finally the labels and values for the controls.</li>
+</ol>
+<p>A <strong>worked example</strong> shows why the order matters. If the sketch paints the background after drawing the ball, the ball disappears, because the background covers it. If the sketch never repaints the background, each frame's circle stays on screen and the ball smears into a long streak. Both are common in first drafts, and both come from the order of statements in <code>draw()</code>.</p>
+<h4 id="diagram-sketch-lifecycle-explorer">Diagram: Sketch Lifecycle Explorer</h4>
+<iframe src="../../sims/p5-sketch-lifecycle-explorer/main.html" width="100%" height="557px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/p5-sketch-lifecycle-explorer/main.html">Run the Sketch Lifecycle Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Sketch Lifecycle Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> p5-sketch-lifecycle-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain when setup() and draw() run and why the order of statements inside draw() changes what appears on the canvas.</p>
+<p>Layout: a drawing region above a control region. The left half of the drawing region shows a small ball falling from a sketch like the one in this section. The right half shows a live counter panel with the lines "setup() calls: 1", "draw() calls: N", and "frameCount: N", plus a numbered list of the five draw() steps with the currently executing step highlighted.</p>
+<p>Controls: a "Start / Pause" button (default paused), a "Step one frame" button, a checkbox "Clear background each frame" (default on), a checkbox "Draw ball before background" (default off), and a slider "Frame rate" from 1 to 60 frames per second, default 5 so the learner can watch each step.</p>
+<p>Behavior: pressing Step runs exactly one draw() call and advances the highlighted step through the list. Turning off "Clear background" shows the streak. Turning on "Draw ball before background" makes the ball vanish. A one-sentence caption under the canvas explains each result.</p>
+<p>Instructional rationale: a slowed, steppable loop lets the learner predict the next frame before seeing it, which suits an Understand-level objective better than continuous animation at full speed.</p>
+<p>Responsive design: the canvas width follows the container on window resize, the counter panel moves below the ball at widths under 500 pixels, and the slider width is recalculated on every resize.</p>
+<p>Implementation: p5.js with createButton, createCheckbox, and createSlider controls positioned relative to drawHeight, and a describe() call for accessibility.</p>
+</details>
+<h3 id="global-variables">Global Variables</h3>
+<p><strong>Global Variables</strong> are variables declared at the top level of the sketch file, outside any function, so that <code>setup()</code>, <code>draw()</code>, and every event handler can share them. A simulation is a model that changes over time, and the values that persist from one frame to the next need a home that survives when a function returns. Global variables are that home.</p>
+<p>Variables declared inside <code>draw()</code> with <code>let</code> are recreated on every frame, so they cannot hold state. This is the source of a classic beginner bug: a ball whose position is declared inside <code>draw()</code> never moves, because it restarts at its initial value each frame.</p>
+<p>The MicroSim template groups globals into three families, and following the grouping makes generated code easy to review.</p>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Examples from the template</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout</td>
+<td><code>canvasWidth</code>, <code>drawHeight</code>, <code>controlHeight</code>, <code>canvasHeight</code>, <code>margin</code>, <code>sliderLeftMargin</code></td>
+<td>Fix where everything goes</td>
+</tr>
+<tr>
+<td>Model state</td>
+<td><code>x</code>, <code>y</code>, <code>dx</code>, <code>dy</code>, <code>speed</code>, <code>r</code></td>
+<td>Hold the simulation between frames</td>
+</tr>
+<tr>
+<td>Controls and flags</td>
+<td><code>speedSlider</code>, <code>startButton</code>, <code>isRunning</code></td>
+<td>Let functions outside <code>setup()</code> reach the controls</td>
+</tr>
+</tbody>
+</table>
+<p>The third row explains a detail of the template: the slider is declared globally even though it is created in <code>setup()</code>, because <code>windowResized()</code> and <code>draw()</code> must both reach it later. The <code>isRunning</code> flag records whether the simulation is animating, and the template sets it to <code>false</code> so a MicroSim starts paused.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Name Every Tunable Number</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+When you spot a literal such as <code>0.8</code> inside a formula, lift it into a named global like <code>gravity</code>. A named global can become a slider in one line, while a buried literal has to be found and rewritten.</p>
+</div>
+<h2 id="the-canvas-and-its-coordinates">The Canvas and Its Coordinates</h2>
+<h3 id="canvas-creation">Canvas Creation</h3>
+<p><strong>Canvas Creation</strong> is the step in which <code>createCanvas(width, height)</code> makes the rectangular drawing surface, and in a MicroSim it also attaches that surface to the page and sizes it to its container. The canvas holds both regions from Chapter 2: the drawing region of height <code>drawHeight</code> and the control region of height <code>controlHeight</code> beneath it. The total is <code>canvasHeight</code>, and the generator skill's guide says the iframe height should be the canvas height plus 2 pixels for the border.</p>
+<p>The width is not fixed. The skill's guide requires the sketch to read the width of the <code>&lt;main&gt;</code> element at the start of <code>setup()</code> and again on every resize, so the same file fits a phone and a wide monitor. Chapter 12 develops responsive design in depth. Here we need only the pattern, which uses two functions.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">container</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="p">;</span><span class="w">       </span><span class="c1">// the container sets the width</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                     </span><span class="c1">// p5.js calls this when the window resizes</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span><span class="w">     </span><span class="c1">// height stays fixed</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Read the second function line by line. <code>windowResized()</code> is another name that p5.js looks for and calls whenever the browser window changes size. It re-measures the container, resizes the canvas to the new width with <code>resizeCanvas()</code>, and resizes each slider, because a slider does not shrink on its own.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Pass an Element, Not the Word 'main'</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Writing <code>canvas.parent('main')</code> looks right but fails, because the string form searches for an element whose id is <code>main</code>, and our <code>&lt;main&gt;</code> tag has no id. Pass the element itself, as in <code>canvas.parent(document.querySelector('main'))</code>, and do the same for sliders and buttons.</p>
+</div>
+<h3 id="the-coordinate-system">The Coordinate System</h3>
+<p>The <strong>Coordinate System</strong> of p5.js measures positions in pixels from the top-left corner of the canvas. The point <code>(0, 0)</code> is the top-left corner. The x value grows to the right, and, unlike the graphs of a mathematics class, the y value grows <em>downward</em>. The system variables <code>width</code> and <code>height</code> hold the canvas size, so <code>(width / 2, height / 2)</code> is the center.</p>
+<p>The downward y axis explains two things in the code you have already seen. The bouncing ball in Chapter 1 tests <code>y &gt; height - 20</code> to find the floor, because larger y is lower on the screen. And the control region sits at <code>drawHeight + 5</code> and beyond, because the controls are below the drawing area and therefore have larger y values.</p>
+<p>A <strong>worked example</strong> shows the flip that every plotting MicroSim performs. Suppose a simulation tracks a height between 0 and 10 meters and must draw it in a drawing region that is <code>drawHeight</code> pixels tall. Height 0 belongs at the bottom, at y equal to <code>drawHeight</code>, and height 10 belongs at the top, at y equal to 0. The <code>map()</code> function converts one range into another, so reversing the two output values does the flip.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// map(value, fromLow, fromHigh, toLow, toHigh)</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">py</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">(</span><span class="nx">heightMeters</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w">   </span><span class="c1">// 0 m -&gt; bottom, 10 m -&gt; top</span>
+<span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">py</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>If the output range were written <code>0, drawHeight</code> instead, the ball would appear upside down: rising values would move it down the screen. When a simulation's graph seems mirrored, check the direction of the mapping first.</p>
+<h4 id="diagram-coordinate-system-explorer">Diagram: Coordinate System Explorer</h4>
+<iframe src="../../sims/p5-coordinate-system-explorer/main.html" width="100%" height="517px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/p5-coordinate-system-explorer/main.html">Run the Coordinate System Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Coordinate System Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> p5-coordinate-system-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will calculate the pixel coordinates of a target point, including the y flip used when plotting a value, and confirm the result by placing a marker.</p>
+<p>Layout: an aliceblue drawing region with a light grid every 50 pixels, labeled with pixel coordinates, and a white control region below.</p>
+<p>Interactions: moving the mouse over the drawing region shows a readout of mouseX and mouseY next to the pointer. Clicking places a marker and lists its coordinates. A "Challenge" button shows a target such as "Place a marker at the point that is 3 meters high on a 0 to 10 meter scale", and the learner clicks where they think it belongs. The sim then draws the correct point and shows the map() call that produces it, with the numbers filled in.</p>
+<p>Controls: a slider "Scale maximum (m)" from 5 to 20, default 10, that changes the challenge scale; buttons "Challenge" and "Clear markers"; a checkbox "Show origin and axes directions" that draws arrows from the top-left origin labeled "x grows right" and "y grows down".</p>
+<p>Responsive design: the grid and target positions are computed from the current canvas width and drawHeight on every frame, so the sim adapts when the window resizes.</p>
+<p>Implementation: p5.js using mouseX, mouseY, mousePressed(), and map(), with a describe() call.</p>
+</details>
+<h2 id="drawing-the-picture">Drawing the Picture</h2>
+<p>Now that positions are clear, we can define how to put shapes, colors, and words at those positions. These three concepts are brief: each is a small vocabulary of functions.</p>
+<h3 id="shape-drawing">Shape Drawing</h3>
+<p><strong>Shape Drawing</strong> in p5.js uses one function call per primitive shape, and each call takes its position and size in canvas coordinates. The primitives used most in MicroSims are <code>rect(x, y, w, h)</code> for rectangles, <code>circle(x, y, d)</code> for circles, <code>line(x1, y1, x2, y2)</code> for lines, and <code>triangle()</code> for triangles. For custom outlines, <code>beginShape()</code>, then a series of <code>vertex(x, y)</code> calls, then <code>endShape()</code> trace a polygon. The H-Bridge showcase draws its motor spiral this way, by computing a point for each small angle step.</p>
+<p>Two settings apply to the shapes drawn after them: <code>fill()</code> sets the interior color, and <code>stroke()</code> sets the outline color, with <code>noFill()</code> and <code>noStroke()</code> turning either off. The <code>push()</code> and <code>pop()</code> functions save and restore these settings together with any <code>translate()</code> or <code>rotate()</code> transformation, so a helper function can rotate one object without disturbing the rest. The H-Bridge sketch wraps its motor drawing in <code>push()</code> and <code>pop()</code> for exactly this reason.</p>
+<h3 id="color-model">Color Model</h3>
+<p>The <strong>Color Model</strong> in p5.js is the way a color is specified: by a name, by numbers, or by a color object. This book's standard is <em>named colors</em> such as <code>'aliceblue'</code>, <code>'silver'</code>, <code>'orangered'</code>, and <code>'gold'</code>, because the generator skill's guide says named colors are far easier for a reader to understand than hexadecimal codes, and it forbids the hexadecimal form. Numeric forms exist as well: <code>fill(255, 255, 255, 230)</code> gives red, green, blue, and an alpha (transparency) value, and the guide uses that form for semi-transparent annotation panels. To fade a named color, the H-Bridge sketch creates a color object with <code>color()</code> and calls its <code>setAlpha()</code> method.</p>
+<h3 id="text-rendering">Text Rendering</h3>
+<p><strong>Text Rendering</strong> draws words on the canvas with <code>text(string, x, y)</code>, with <code>textSize()</code> and <code>textAlign()</code> controlling how they appear. Three rules from the generator skill's guide prevent the most common defects. Call <code>noStroke()</code> before every <code>text()</code>, so a leftover outline does not make letters look smeared. Keep text at 16 pixels or larger so it can be read from the back of a classroom. And combine each control's label and value in one string, as in <code>text('Speed: ' + speed, 70, drawHeight + 15)</code>.</p>
+<p>When a message may be long, <code>text(message, x, y, w, h)</code> wraps the words inside a box. The H-Bridge sketch uses that four-number form for its status message, so the explanation stays inside the drawing region as the canvas narrows.</p>
+<h2 id="making-things-move">Making Things Move</h2>
+<h3 id="the-animation-loop">The Animation Loop</h3>
+<p>The <strong>Animation Loop</strong> is the cycle in which p5.js calls <code>draw()</code> once per frame, and the sketch changes its state a little each time so that repeated redrawing looks like motion. The loop starts by itself after <code>setup()</code> and continues until the page closes, unless the sketch stops it. The functions <code>noLoop()</code> and <code>loop()</code> stop and restart it, and <code>redraw()</code> runs a single pass while it is stopped. The template's <code>windowResized()</code> uses <code>redraw()</code> for this reason.</p>
+<p>Every animated MicroSim follows one pattern: update, then draw. The template's bouncing ball shows it, with the update guarded by a state flag.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... draw the background regions ...</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">           </span><span class="c1">// update the model only while running</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">dx</span><span class="p">;</span><span class="w">                 </span><span class="c1">// move by the current velocity</span>
+<span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">dy</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="nx">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">dx</span><span class="p">;</span><span class="w">   </span><span class="c1">// bounce off left and right edges</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w">       </span><span class="c1">// always draw the current state</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The guard makes the simulation <em>pausable</em>. The canvas is still redrawn every frame, so the picture stays visible, but the model stops advancing. The template sets <code>isRunning</code> to <code>false</code> at the start because a simulation that moves while a learner scrolls past it in a chapter is a distraction.</p>
+<h3 id="frame-rate">Frame Rate</h3>
+<p><strong>Frame Rate</strong> is the number of frames drawn per second. By default p5.js aims for about sixty. Calling <code>frameRate(30)</code> in <code>setup()</code> lowers the target, and calling <code>frameRate()</code> with no argument reports the current rate. A lower target saves battery on a laptop or tablet, at the cost of choppier motion.</p>
+<p>Because the examples in this chapter move an object by a fixed number of pixels per frame, their apparent speed depends on the frame rate: a slow computer draws fewer frames and the ball moves more slowly. The p5.js system variable <code>deltaTime</code>, the milliseconds since the previous frame, lets a sketch scale each step so speed stays constant. For classroom MicroSims the per-frame approach is the norm, and the simplicity is worth the small variation.</p>
+<h2 id="vectors-physics-and-collisions">Vectors, Physics and Collisions</h2>
+<h3 id="vectors">Vectors</h3>
+<p>A <strong>vector</strong> in p5.js is an object that stores two numbers, an x part and a y part, and provides methods to combine them. In a simulation, a vector naturally represents a position, a velocity, or an acceleration. <code>createVector(x, y)</code> makes one, and the properties <code>.x</code> and <code>.y</code> read its parts. The method <code>add()</code> adds another vector, <code>mult()</code> scales a vector by a number, and <code>mag()</code> returns its length.</p>
+<p>The benefit is that physics reads like its description. A ball has a position vector and a velocity vector. Each frame, the velocity adds gravity, and the position adds the velocity. The code in the next section uses exactly those two <code>add()</code> calls, and it replaces the four separate variables <code>x</code>, <code>y</code>, <code>dx</code>, and <code>dy</code> from the template with two vector objects.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Object, Two Numbers</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A vector is worth learning because it lets you treat "how fast, and which way" as a single thing. Once velocity is one object, adding gravity to it is one line, whatever direction the ball happens to be moving.</p>
+</div>
+<h3 id="physics-simulation">Physics Simulation</h3>
+<p>A <strong>Physics Simulation</strong> in a MicroSim is a small model in which each frame updates velocities from forces or accelerations and then updates positions from velocities. The generator skill's guide shows the core in three lines: <code>velocity.y += gravity</code>, then <code>position.add(velocity)</code>, then, on hitting the floor, <code>velocity.y *= -elasticity</code>. This approach, stepping forward by one small increment per frame, is called <em>Euler integration</em>, and it is accurate enough for teaching when the step is small.</p>
+<p>A <strong>worked example</strong> runs the model with numbers. Start the ball at <code>y = 50</code> with velocity 0 and gravity 0.5. Frame one: velocity becomes 0.5 and position 50.5. Frame two: velocity 1.0 and position 51.5. Frame three: velocity 1.5 and position 53. The velocity grows by a constant amount each frame, so the distance fallen per frame grows too, and that is acceleration, produced by two additions.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">position</span><span class="p">,</span><span class="w"> </span><span class="nx">velocity</span><span class="p">,</span><span class="w"> </span><span class="nx">gravity</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createVector</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span><span class="w">       </span><span class="c1">// start near the top, centered</span>
+<span class="w">  </span><span class="nx">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createVector</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w">          </span><span class="c1">// drifting right</span>
+<span class="w">  </span><span class="nx">gravity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createVector</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w">         </span><span class="c1">// pulls down each frame</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="s1">'aliceblue'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">velocity</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">gravity</span><span class="p">);</span><span class="w">                  </span><span class="c1">// acceleration changes velocity</span>
+<span class="w">  </span><span class="nx">position</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">velocity</span><span class="p">);</span><span class="w">                 </span><span class="c1">// velocity changes position</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">         </span><span class="c1">// floor: 20 pixels is the ball radius</span>
+<span class="w">    </span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span><span class="w">             </span><span class="c1">// put the ball back on the floor</span>
+<span class="w">    </span><span class="nx">velocity</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.8</span><span class="p">;</span><span class="w">                   </span><span class="c1">// reverse and keep 80 percent</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Notice that the code resets <code>position.y</code> to the floor before reversing the velocity. Without that line, a fast ball can end a frame below the floor, and the next frame it may still be below the floor and reverse again, so the ball jitters underground. The Chapter 1 mentions this kind of defect, a ball sinking through the floor at high gravity, as something testing catches in generated code.</p>
+<h3 id="collision-detection">Collision Detection</h3>
+<p><strong>Collision Detection</strong> is the test that decides whether two objects touch, so the simulation can respond. The simplest tests use geometry. A ball hits a wall when its center is closer to the wall than its radius, which is the floor test above. Two circles collide when the distance between their centers is less than the sum of their radii, and the <code>dist()</code> function computes that distance.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">circlesCollide</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">           </span><span class="c1">// a and b each have x, y and r</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">dist</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">r</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Detection only answers yes or no. The <em>response</em>, such as reversing a velocity or changing a color, is a separate step that you write. Keeping the two steps distinct makes both easier to test.</p>
+<h3 id="particle-system">Particle System</h3>
+<p>A <strong>Particle System</strong> is a collection of many small objects, each with its own position, velocity, and lifetime, that together produce an effect such as sparks, smoke, or a fountain. The technique is to store the particles in an array, and on each frame to add new ones, update every one with the same physics, draw them, and remove the ones whose lifetime has ended.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">particles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">spawnParticle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">particles</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">pos</span><span class="o">:</span><span class="w"> </span><span class="nx">createVector</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">vel</span><span class="o">:</span><span class="w"> </span><span class="nx">createVector</span><span class="p">(</span><span class="nx">random</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">),</span><span class="w"> </span><span class="nx">random</span><span class="p">(</span><span class="o">-</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">3</span><span class="p">)),</span><span class="w">   </span><span class="c1">// upward, slightly sideways</span>
+<span class="w">    </span><span class="nx">life</span><span class="o">:</span><span class="w"> </span><span class="mf">120</span><span class="w">                                               </span><span class="c1">// frames to live</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateParticles</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">particles</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">vel</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w">                  </span><span class="c1">// gravity</span>
+<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">pos</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">vel</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">p</span><span class="p">.</span><span class="nx">life</span><span class="o">--</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">particles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">particles</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">life</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span><span class="w">   </span><span class="c1">// drop expired particles</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Calling <code>spawnParticle</code> a few times per frame, and <code>updateParticles</code> once, gives a fountain. The lesson for a MicroSim author is the pattern of updating a whole population with one rule, since complex-looking behavior comes from many simple objects. Chapter 4 lists celebration effects under the p5.js custom-simulation type, and such effects are typically particle systems. Chapter 3 gives the counterweight: for an Understand-level objective, particle effects add extraneous load, so use them for feedback and reward, not as decoration.</p>
+<h4 id="diagram-vector-and-particle-lab">Diagram: Vector and Particle Lab</h4>
+<iframe src="../../sims/p5-vector-particle-lab/main.html" width="100%" height="552px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/p5-vector-particle-lab/main.html">Run the Vector and Particle Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Vector and Particle Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> p5-vector-particle-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish the roles of position, velocity, and acceleration vectors, and of collision detection versus collision response, by changing parameters and observing the labeled arrows.</p>
+<p>Layout: a drawing region above a control region. A mode switch at the top of the controls selects "One ball" or "Fountain".</p>
+<p>One ball mode: a ball with a green arrow for velocity, a red arrow for gravity, and a small readout of position, velocity, and speed. A second, fixed ball can be dragged into the path; when the circles collide, both flash and the readout shows "dist &lt; r1 + r2" with the actual numbers.</p>
+<p>Fountain mode: particles spawn at the bottom center, each drawn with an alpha that fades with its remaining life, and a counter shows how many particles are alive.</p>
+<p>Controls: sliders "Gravity" (0.1 to 1.0, default 0.5), "Bounciness" (0.3 to 0.95, default 0.8), and "Spawn rate" (1 to 10 per frame, default 3); buttons "Start / Pause" (default paused) and "Reset"; a checkbox "Show vectors" (default on).</p>
+<p>Behavior: changing gravity changes the red arrow length at once. Turning on "Show vectors" in fountain mode draws the velocity arrow for a few sampled particles. Pausing freezes the model but keeps the picture on screen.</p>
+<p>Responsive design: canvas width follows the container on resize, sliders are resized in windowResized(), and the fixed ball and the fountain origin are positioned as fractions of the canvas width.</p>
+<p>Implementation: p5.js with createVector(), p5.Vector methods, dist(), mouse dragging, and an array of particle objects; include a describe() call.</p>
+</details>
+<h2 id="controls-and-events">Controls and Events</h2>
+<p>A MicroSim is interactive because the learner can change something. p5.js provides two mechanisms: DOM controls such as sliders and buttons, which the library creates and manages, and event functions such as <code>mousePressed()</code>, which the library calls when the user acts. The generator skill's guide is emphatic on one point: use the native built-in controls of p5.js, and never draw your own controls with drawing commands.</p>
+<h3 id="slider-control">Slider Control</h3>
+<p>A <strong>Slider Control</strong> is a horizontal control that sets a numeric value within a range. <code>createSlider(min, max, default, step)</code> makes one, <code>.value()</code> reads it, <code>.position(x, y)</code> places it, and <code>.size(w)</code> sets its width. The skill's guide adds a rule that is easy to forget: set the width with <code>size()</code>, never with <code>style()</code>, so the resize code has one consistent way to change it.</p>
+<p>Sliders can be read in two ways. The simple way reads <code>.value()</code> inside <code>draw()</code> every frame, which is what the template does. The other way attaches a function with <code>.input(fn)</code>, and p5.js calls that function only when the learner moves the slider. The second way suits a change that must trigger something once, such as resetting a simulation, and it is the form the skill's guide shows for a slider that calls <code>resetSimulation</code>.</p>
+<p>A <strong>worked example</strong> wires a gravity slider into the falling-ball model above. The slider goes in the control region, the value is read each frame, and a label shows the current number.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... create the canvas, then:</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createSlider</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">);</span><span class="w">        </span><span class="c1">// min, max, default, step</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">sliderLeftMargin</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span><span class="w"> </span><span class="c1">// below the drawing region</span>
+<span class="w">  </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... draw the background regions ...</span>
+<span class="w">  </span><span class="nx">gravity</span><span class="p">.</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span><span class="w">                         </span><span class="c1">// read each frame</span>
+<span class="w">  </span><span class="c1">// ... update and draw the ball ...</span>
+<span class="w">  </span><span class="nx">noStroke</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">'black'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">text</span><span class="p">(</span><span class="s1">'Gravity: '</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gravitySlider</span><span class="p">.</span><span class="nx">value</span><span class="p">(),</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">15</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The slider is placed at <code>sliderLeftMargin</code> so that the label, which starts at x equal to 10, does not overlap it. The template uses 160 pixels when a button precedes the slider, and the guide notes that the margin must be widened when more controls come first. The width <code>canvasWidth - sliderLeftMargin - margin</code> makes the slider fill the rest of the row, and the resize function repeats that line.</p>
+<h3 id="button-control">Button Control</h3>
+<p>A <strong>Button Control</strong> triggers a single action when clicked. <code>createButton(label)</code> makes one, and <code>.mousePressed(fn)</code> names the function to run. The template's start button shows the standard pattern, in which one function flips the <code>isRunning</code> flag and rewrites the label with <code>.html()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">toggleSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">isRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isRunning</span><span class="p">;</span><span class="w">                       </span><span class="c1">// flip between running and paused</span>
+<span class="w">  </span><span class="nx">startButton</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">isRunning</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">'Pause'</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">'Start'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Buttons suit discrete actions such as Start, Reset, and Drop Again. Continuous quantities belong to sliders, and on-off options belong to checkboxes, created with <code>createCheckbox(label, initialState)</code>. The guide suggests one to three sliders and up to two buttons per MicroSim, and it asks whether each control is essential to the learning objective.</p>
+<h3 id="mouse-events">Mouse Events</h3>
+<p><strong>Mouse Events</strong> are the moments the user presses, drags, releases, or moves the mouse over the canvas, and p5.js reports them by calling functions with fixed names: <code>mousePressed()</code>, <code>mouseDragged()</code>, <code>mouseReleased()</code>, and <code>mouseMoved()</code>. Inside any of them, the system variables <code>mouseX</code> and <code>mouseY</code> give the pointer position in canvas coordinates. That is why the coordinate system comes first in this chapter.</p>
+<p>Reacting to a click usually means a <em>hit test</em>: deciding which object lies under the pointer. The H-Bridge sketch does this for its four switches with a rectangle test, and for a round object the same <code>dist()</code> function from the collision section serves.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">mousePressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mouseY</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">drawHeight</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w">                     </span><span class="c1">// ignore clicks in the control region</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dist</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">,</span><span class="w"> </span><span class="nx">position</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">position</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">dragging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">                                   </span><span class="c1">// the pointer is on the ball</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseDragged</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dragging</span><span class="p">)</span><span class="w"> </span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span><span class="w"> </span><span class="nx">mouseY</span><span class="p">);</span><span class="w">          </span><span class="c1">// the ball follows the pointer</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">mouseReleased</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">dragging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The early return in <code>mousePressed()</code> matters because the canvas covers both regions. Without it, a click on a control could also count as a click in the simulation. The H-Bridge sketch has a similar guard, and it also ignores a second event that arrives within 300 milliseconds of the first, because its comments note that a single tap on a touch screen can fire both a touch event and a mouse event.</p>
+<p>Hover is a mouse event without a click. The p5.js canvas object has <code>mouseOver()</code> and <code>mouseOut()</code> methods, which the pause-when-idle section uses.</p>
+<h3 id="keyboard-events">Keyboard Events</h3>
+<p><strong>Keyboard Events</strong> let the learner control a MicroSim from the keyboard, which helps users who cannot operate a mouse and lets anyone work faster. p5.js calls <code>keyPressed()</code> when a key goes down, and the variable <code>key</code> holds the character. The H-Bridge sketch maps keys 1 to 4 to its four switches and <code>F</code>, <code>S</code>, and <code>R</code> to its Forward, Stop, and Reverse presets.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">keyPressed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'f'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'F'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="c1">// accept upper and lower case</span>
+<span class="w">    </span><span class="nx">setSwitches</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">]);</span><span class="w"> </span><span class="c1">// the same action as the Forward button</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Every Shortcut Mirrors a Button</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Let each key call the same function as the matching button, as the H-Bridge does, and test both upper and lower case. Then the keyboard path can never drift out of step with the mouse path.</p>
+</div>
+<p>The table below summarizes the four control mechanisms and when each fits. It restates the guidance above rather than adding to it.</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>p5.js call</th>
+<th>Best for</th>
+<th>Read by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slider</td>
+<td><code>createSlider()</code></td>
+<td>A continuous parameter</td>
+<td><code>.value()</code> in <code>draw()</code> or <code>.input(fn)</code></td>
+</tr>
+<tr>
+<td>Button</td>
+<td><code>createButton()</code></td>
+<td>A discrete action</td>
+<td><code>.mousePressed(fn)</code></td>
+</tr>
+<tr>
+<td>Mouse event</td>
+<td><code>mousePressed()</code> and related</td>
+<td>Direct manipulation of drawn objects</td>
+<td><code>mouseX</code>, <code>mouseY</code></td>
+</tr>
+<tr>
+<td>Keyboard event</td>
+<td><code>keyPressed()</code></td>
+<td>Shortcuts and accessibility</td>
+<td><code>key</code></td>
+</tr>
+</tbody>
+</table>
+<p>Later chapters treat each of these interactions as a candidate for reporting, since a slider change or a button press is the evidence an instrumented MicroSim collects.</p>
+<h2 id="loading-assets-in-p5js-2x">Loading Assets in p5.js 2.x</h2>
+<h3 id="async-setup">Async Setup</h3>
+<p><strong>Async Setup</strong> is the p5.js 2.x way to load images, fonts, and data before the sketch starts: declare <code>setup()</code> as an <code>async function</code> and <code>await</code> each loading call. In p5.js 1.x, a separate <code>preload()</code> function loaded assets before <code>setup()</code>. The 2.x line removed <code>preload()</code>, and this repository's upgrade list tells authors to move the loading calls into <code>async function setup()</code> and to await each <code>load*()</code> call before <code>createCanvas()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">diagram</span><span class="p">;</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">diagram</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="s1">'circuit.png'</span><span class="p">);</span><span class="w">   </span><span class="c1">// wait until the image has loaded</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>await</code> keyword pauses <code>setup()</code> until the image arrives, so <code>draw()</code> never runs with a missing picture. Four sketch files from the MicroSims 1.0 collection, three breadboard sketches and <code>push-buttons.js</code>, still use <code>preload()</code> and appear on that upgrade list.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">A 1.x Sketch May Not Run on 2.x</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Old sketches can hide three breakages under p5.js 2.x: <code>preload()</code> is gone, <code>curveVertex()</code> is now <code>splineVertex()</code>, and <code>quadraticVertex()</code> is folded into <code>bezierVertex()</code>. When an AI model hands you 1.x-style code, check for those names first, and pin the version in <code>main.html</code> so it cannot change underneath you.</p>
+</div>
+<p>The same upgrade list records two curve changes. In 2.x, <code>bezierVertex()</code> takes one control point per call, so several points are chained across calls, and <code>bezierOrder(2)</code> selects a quadratic curve in place of the old <code>quadraticVertex()</code>. The old <code>curveVertex()</code> was renamed <code>splineVertex()</code>, and it no longer needs duplicated first and last points. Most MicroSims use only circles, lines, and rectangles, so these changes touch a small fraction of sketches.</p>
+<h2 id="showcase-techniques">Showcase Techniques</h2>
+<p>The techniques below come from the H-Bridge simulation in the STEM Robots book, which Chapter 1 named as a showcase MicroSim. Neither technique is required for a working MicroSim, and both raise the perceived quality noticeably. Each combines the concepts you have already learned.</p>
+<h3 id="flowing-current-animation">Flowing Current Animation</h3>
+<p><strong>Flowing Current Animation</strong> moves a row of evenly spaced dots along a path so that the eye reads them as a stream of current. The H-Bridge sketch stores each current path as a list of corner points. On every frame, it walks along the path by a distance measured in pixels, places a dot every 24 pixels, and shifts all the dots forward together.</p>
+<p>The trick is a single number, <code>flowOffset</code>, that grows a little each frame. The sketch starts placing dots at <code>flowOffset % spacing</code>, the remainder after dividing by the spacing, so the pattern repeats every 24 pixels and the dots seem to travel without end. To find where a dot at distance <code>d</code> sits, the code steps through the path's segments, subtracts each segment's length until the remaining distance fits inside one, and uses <code>lerp()</code> to interpolate along that segment. The sketch also skips dots that fall inside the motor circle, so the current appears to pass into the motor and out again.</p>
+<p>Direction is color and path together: green dots follow the forward path and purple dots follow the reverse path, so the learner sees the current change direction when the switches change. Because the offset advances by a fixed amount per frame, the flow speed follows the frame rate, exactly as discussed for frame rate.</p>
+<h3 id="pause-when-idle-animation">Pause-When-Idle Animation</h3>
+<p><strong>Pause-When-Idle Animation</strong> advances animation only while the mouse is over the MicroSim. The generator skill's guide gives three reasons: it saves CPU and battery, it reduces distraction while the reader reads the surrounding text, and the simulation feels responsive because it wakes when the pointer arrives. The canvas is still redrawn every frame, so the current picture stays visible. Only the <em>progress</em> variables, such as <code>flowOffset</code>, stop growing.</p>
+<p>The guide's pattern has three parts. A flag, <code>mouseOverCanvas</code>, starts as <code>false</code>. Two listeners in <code>setup()</code> set it to <code>true</code> and <code>false</code> when the pointer enters and leaves. And <code>draw()</code> advances the animation phases only when the flag is <code>true</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">mouseOverSim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">flowOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... create the canvas and controls ...</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">mainElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">mainElement</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">mouseOverSim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">mainElement</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseleave'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">mouseOverSim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// ... draw the background regions ...</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mouseOverSim</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">flowOffset</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1.5</span><span class="p">;</span><span class="w">          </span><span class="c1">// progress advances only while the pointer is here</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// ... draw the dots from flowOffset, always ...</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The guide attaches its listeners to the canvas with <code>canvas.mouseOver()</code> and <code>canvas.mouseOut()</code>, while the H-Bridge listens on the <code>&lt;main&gt;</code> element that contains the canvas and the controls. Either works. The H-Bridge also sets its flag to <code>true</code> inside <code>mousePressed()</code>, since a touch screen has no hover, and a tap must wake the animation.</p>
+<p>This rule complements the paused-by-default rule from the template. The template's <code>isRunning</code> flag gives the learner explicit control through a Start button. Pause-when-idle adds an automatic control tied to the pointer. A MicroSim can use either or both, and you should choose deliberately.</p>
+<p>The H-Bridge shows one more habit worth copying. Its short-circuit warning flashes the wires red about twice per second, and its comments state that this rate is safe for photosensitive viewers. Attention-grabbing animation should be checked against accessibility concerns, a subject Chapter 24 returns to.</p>
+<h4 id="diagram-flowing-current-and-idle-pause">Diagram: Flowing Current and Idle Pause</h4>
+<iframe src="../../sims/p5-flowing-current-idle-pause/main.html" width="100%" height="507px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/p5-flowing-current-idle-pause/main.html">Run the Flowing Current and Idle Pause MicroSim Fullscreen</a></p>
+<details>
+<summary>Flowing Current and Idle Pause</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> p5-flowing-current-idle-pause<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Create; verb: design): The learner will design a flowing-current animation by choosing path, spacing, and speed, and will decide whether pause-when-idle should be on, by observing the effect on the animation and on a live step counter.</p>
+<p>Layout: a drawing region containing a rectangular loop of wire with a battery on the left and a lamp on the right, and a control region beneath it.</p>
+<p>Visual elements: green dots flowing along the loop, spaced evenly, hidden while inside the lamp circle; a text readout "Animation advancing: yes or no" and a counter "Animation steps since load".</p>
+<p>Controls: sliders "Dot spacing (pixels)" from 12 to 48, default 24, and "Flow speed (pixels per frame)" from 0.5 to 4, default 1.5; a checkbox "Pause when idle" (default on); a checkbox "Reverse direction"; a button "Start / Pause" (default paused).</p>
+<p>Behavior: with "Pause when idle" on, the dots move only while the pointer is over the sim, and the step counter stops when the pointer leaves. With it off, the dots move whenever the Start button has been pressed. Reversing direction changes the dot color from green to purple and runs the offset backward.</p>
+<p>Responsive design: the loop's corner points are computed from the canvas width on every frame, so the loop stretches with the container, and sliders are resized in windowResized().</p>
+<p>Implementation: p5.js using a list of corner points, an offset modulo the spacing, lerp() to place dots, and mouse enter and leave listeners on the main element; include a describe() call.</p>
+</details>
+<h2 id="putting-it-together">Putting It Together</h2>
+<p>A complete MicroSim now reads as a short checklist. The sketch declares layout and state as <strong>Global Variables</strong>. Its <code>setup()</code> measures the container, creates the canvas and the controls, and describes the canvas for screen readers. Its <code>draw()</code> repaints the two regions, updates the model only while running, and draws the result. Event functions react to the mouse and keyboard, and <code>windowResized()</code> keeps the width and the sliders responsive. Starting from the template and changing the model is the fastest route, and Chapter 2 shows the files that surround it.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Read and Build a Sketch</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now build an animated p5.js MicroSim with a pausable animation loop, vector-based physics, sliders, buttons, and mouse and keyboard handlers, and you can explain the pause-when-idle technique. That is the toolkit behind the most flexible MicroSim type.</p>
+</div>
+<p>The key ideas of this chapter are:</p>
+<ul>
+<li>A p5.js sketch is organized around <code>setup()</code>, which runs once to create the canvas and controls, and <code>draw()</code>, which runs every frame to update and paint.</li>
+<li>Global variables hold layout, model state, and control references between frames, and the canvas is sized from its container and resized on every window change.</li>
+<li>p5.js positions use pixels from the top-left corner with y growing downward, and <code>map()</code> performs the flip when plotting values.</li>
+<li>Shapes, named colors, and text use short function calls, with <code>noStroke()</code> before text and named colors instead of hexadecimal codes.</li>
+<li>The animation loop redraws every frame while the model advances only when running, and the frame rate sets the pace of per-frame motion.</li>
+<li>Vectors let velocity and position be updated with <code>add()</code>, and simple distance tests detect collisions, while particle systems apply one rule to many short-lived objects.</li>
+<li>Sliders, buttons, mouse events, and keyboard events give the learner control, and guards keep clicks and shortcuts consistent with the controls.</li>
+<li>In p5.js 2.x, assets load through an async <code>setup()</code>, and old <code>preload()</code>, <code>curveVertex()</code>, and <code>quadraticVertex()</code> code must be updated.</li>
+<li>Flowing current and pause-when-idle animation are showcase techniques that make motion legible and keep pages calm.</li>
+</ul>
+<p>The next chapter leaves free-form drawing behind and turns to charts, plots, and tables, where a library does the drawing and the author supplies the data.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-generating-microsims-with-ai-skills/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Generating MicroSims with AI Skills">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Generating MicroSims with AI Skills
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-charts-plots-and-tables/" class="md-footer__link md-footer__link--next" aria-label="Next: 7. Charts, Plots and Tables">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                7. Charts, Plots and Tables
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

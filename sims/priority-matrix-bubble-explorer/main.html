@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Priority Matrix Bubble Explorer using Chart.js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="top">
+            <div class="chart-col">
+                <div class="chart-wrap">
+                    <canvas id="chart" role="img" aria-label="Priority matrix bubble chart of eight MicroSim types plotted by effort and impact"></canvas>
+                </div>
+            </div>
+            <aside class="quad-list" id="quad-list" aria-live="polite"></aside>
+        </div>
+        <div class="controls">
+            <div class="selected" id="selected-label">Selected: none</div>
+            <label class="slider">Effort: <span id="effort-val">0</span>
+                <input type="range" id="effort-slider" min="0" max="10" step="0.5" value="0" aria-label="Effort of selected item">
+            </label>
+            <label class="slider">Impact: <span id="impact-val">0</span>
+                <input type="range" id="impact-slider" min="0" max="10" step="0.5" value="0" aria-label="Impact of selected item">
+            </label>
+            <label class="slider">Bubble scale: <span id="scale-val">2</span>
+                <input type="range" id="scale-slider" min="1" max="3" step="0.5" value="2" aria-label="Bubble scale">
+            </label>
+            <label class="check"><input type="checkbox" id="labels-check" checked> Show quadrant labels</label>
+            <button type="button" id="reset-btn">Reset</button>
+        </div>
+        <p class="why" id="why"></p>
+    </main>
+    <script src="priority-matrix-bubble-explorer.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Capacity and Cost Explorer using Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="capacity-cost-explorer.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="title-row">
+                <span id="title">Capacity and Cost Explorer</span>
+                <span id="badge">planning estimates, not quotes</span>
+            </div>
+            <div id="controls">
+                <div class="ctl">
+                    <label for="students">Active students at peak</label>
+                    <span class="val" id="students-val">3,000</span>
+                    <input type="range" id="students" min="0" max="1000" step="1" value="338"
+                           aria-describedby="students-val">
+                </div>
+                <div class="ctl">
+                    <label for="duty">Duty cycle</label>
+                    <span class="val" id="duty-val">40%</span>
+                    <input type="range" id="duty" min="20" max="60" step="5" value="40">
+                </div>
+                <div class="ctl checks">
+                    <label class="check"><input type="checkbox" id="neo4j"> Include Neo4j license placeholder</label>
+                    <label class="check"><input type="checkbox" id="burst"> Show burst (5x)</label>
+                </div>
+            </div>
+            <div id="charts">
+                <div class="chart-box">
+                    <canvas id="loadChart" role="img"
+                            aria-label="Bar chart of statements per day and raw storage per day for the chosen number of students"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="costChart" role="img"
+                            aria-label="Horizontal range chart of monthly cost for the single-server and distributed tiers"></canvas>
+                </div>
+            </div>
+            <div id="message" aria-live="polite"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

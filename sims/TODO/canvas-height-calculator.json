@@ -1,0 +1,15 @@
+{
+  "sim_id": "canvas-height-calculator",
+  "diagram_name": "Canvas Height Calculator",
+  "chapter_number": 2,
+  "chapter_title": "Anatomy of a MicroSim",
+  "chapter_dir": "02-anatomy-of-a-microsim",
+  "chapter_rel_dir": "chapters/02-anatomy-of-a-microsim",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "The learner will calculate the canvas height and the iframe height for a MicroSim from its region heights, and will detect when an iframe is too short to show the controls.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** canvas-height-calculator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: calculate): The learner will calculate the canvas height and the iframe height for a MicroSim from its region heights, and will detect when an iframe is too short to show the controls.\n\nLayout: a drawing region above a control region, following the standard MicroSim layout. The drawing region is aliceblue and the control region is white, separated by a silver line.\n\nVisual elements: on the left, a scaled stacked rectangle showing a draw region and a control region with labeled heights; on the right, a rounded frame representing an iframe whose height can differ from the canvas. Below the drawing, a readout shows \"canvasHeight = drawHeight + controlHeight\" filled in with the current numbers, and \"iframe height = CANVAS_HEIGHT + 2\" filled in as well.\n\nControls:\n\n- Slider \"drawHeight\" from 200 to 700 in steps of 10, default 480\n- Slider \"controlHeight\" from 30 to 150 in steps of 5, default 50\n- Slider \"graphHeight\" from 0 to 250 in steps of 10, default 0\n- Slider \"iframe height\" from 200 to 900 in steps of 2, default 532\n- Button \"Set iframe correctly\" that snaps the iframe height to the calculated value, and a checkbox \"Show H-Bridge numbers\" that loads 480, 50, 0 and 532\n\nBehavior: when the iframe height is smaller than the calculated value, the bottom of the canvas is clipped in the picture, the clipped controls turn red, and a message says how many pixels are hidden. When the iframe is equal to or taller than the calculated value, the message says the MicroSim fits. The calculated value is always the sum of the three heights plus 2.\n\nResponsive design: the drawing scales to the container width on window resize while heights in pixels stay proportional, and the sliders resize with the container.\n\nImplementation: p5.js with the standard drawHeight and controlHeight variables, a windowResized function, and describe() text for screen readers."
+}

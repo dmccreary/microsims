@@ -1,0 +1,100 @@
+/* Failure Boundary Explorer - layout
+   Fixed total height (CANVAS_HEIGHT 600): toolbar + body.
+   Wide (900px and up): network on the left, information panel on the right (320px).
+   Narrower: the panel moves below the network, so the seven-node row keeps readable labels
+   at a typical 700px textbook column. Total height is unchanged. */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+main { display: block; }
+
+#app {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+    background: aliceblue;
+}
+#toolbar {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    padding: 7px 10px;
+    background: white;
+    border-bottom: 1px solid silver;
+}
+#title { font-size: 18px; font-weight: bold; }
+.spacer { flex: 1; }
+.ctl-label { font-size: 15px; }
+#fail-select { font-size: 15px; padding: 3px 4px; max-width: 165px; }
+.btn {
+    font-size: 15px;
+    padding: 4px 12px;
+    border: 1px solid steelblue;
+    border-radius: 6px;
+    cursor: pointer;
+    background: white;
+    color: #1f4f7a;
+}
+.btn:hover { background: #eef5fb; }
+select:focus-visible, .btn:focus-visible { outline: 3px solid orange; outline-offset: 1px; }
+
+#body { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+#network-wrap { flex: 0 0 255px; position: relative; min-width: 0; }
+#network { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+
+#panel {
+    flex: 1 1 auto;
+    background: white;
+    border-top: 1px solid silver;
+    padding: 8px 12px;
+    font-size: 15px;
+    line-height: 1.35;
+    overflow-y: auto;
+}
+#panel h3 { margin: 0 0 5px 0; font-size: 17px; }
+#panel p { margin: 0 0 5px 0; }
+#panel .lbl { font-weight: bold; }
+#panel .hint { color: #444; }
+#panel .status { color: #444; font-style: italic; }
+#panel .verdict { font-weight: bold; padding: 3px 7px; border-radius: 5px; display: inline-block; margin: 2px 0 5px 0; }
+#panel .v-lost { background: #b00020; color: white; }
+#panel .v-risk { background: #fde9c4; color: #6b3d00; border: 1px solid #d99a2b; }
+#panel .v-safe { background: #dff0e4; color: #1a5e20; border: 1px solid #7fb98b; }
+#panel code, #panel pre { font-family: Menlo, Consolas, monospace; font-size: 13px; }
+#panel pre { background: #fff4f4; border: 1px solid #e3a3a3; border-radius: 5px; padding: 4px 7px; margin: 3px 0 6px 0; white-space: pre-wrap; }
+#panel .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 18px; }
+#panel .legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; font-size: 14px; }
+.sw { display: inline-block; width: 26px; height: 14px; border-radius: 3px; border: 2px solid #555; flex: 0 0 auto; }
+.sw.dashed { border-style: dashed; }
+
+/* Kafka failure: the panel turns red */
+#panel.danger { background: #fdecec; border-top: 3px solid #b00020; }
+#panel.danger h3 { color: #8b0016; }
+
+@media (min-width: 900px) {
+    #body { flex-direction: row; }
+    #network-wrap { flex: 1 1 auto; }
+    #panel { flex: 0 0 320px; width: 320px; border-top: none; border-left: 1px solid silver; }
+    #panel.danger { border-top: none; border-left: 4px solid #b00020; }
+    #panel .grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 519px) {
+    #title { font-size: 17px; flex-basis: 100%; }
+    .spacer { display: none; }
+    .ctl-label { font-size: 14px; }
+    #fail-select { max-width: 130px; font-size: 14px; }
+    .btn { padding: 4px 8px; font-size: 14px; }
+    #panel { font-size: 14px; }
+    #panel .grid { grid-template-columns: 1fr; }
+    #network-wrap { flex-basis: 250px; }
+}
+
+div.vis-tooltip {
+    max-width: 240px;
+    white-space: normal !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    z-index: 20;
+}

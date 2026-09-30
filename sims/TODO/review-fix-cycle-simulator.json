@@ -1,0 +1,15 @@
+{
+  "sim_id": "review-fix-cycle-simulator",
+  "diagram_name": "Review and Fix Cycle Simulator",
+  "chapter_number": 13,
+  "chapter_title": "Quality Assurance and Automated Layout Review",
+  "chapter_dir": "13-quality-assurance-and-automated-layout-review",
+  "chapter_rel_dir": "chapters/13-quality-assurance-and-automated-layout-review",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Judge",
+  "learning_objective": "The learner will judge whether each proposed patch follows the smallest patch rule and decide when the fix cycle limit requires stopping and reporting.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** review-fix-cycle-simulator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: judge): The learner will judge whether each proposed patch follows the smallest patch rule and decide when the fix cycle limit requires stopping and reporting.\n\nLayout: a drawing region split in two. The left half shows a mock screenshot of a MicroSim with up to three seeded defects (a clipped row label, a residual text stroke and a title overlapping a panel). The right half shows a cycle tracker with three numbered boxes, a checklist strip with items PASS, FAIL or unchecked, and a log of edits. A control region sits below.\n\nControls:\n\n- Dropdown \"Choose a patch\" listing three candidate patches for the selected defect: the smallest correct patch, an over-broad patch that also changes an unrelated value, and a patch aimed at the wrong cause.\n- Button \"Apply patch and re-capture\", which redraws the mock screenshot with the effect of the chosen patch and consumes one cycle.\n- Button \"Stop and report\", and a \"Reset\".\n- Checkbox \"Show hint from the fixes catalog\".\n\nBehavior: the smallest correct patch clears its defect and introduces nothing; the over-broad patch clears the defect and creates a new one; the wrong-cause patch changes nothing visible. After three cycles the simulator locks and requires \"Stop and report\". The final panel scores the run on defects fixed, new defects introduced and cycles used, and explains each choice.\n\nResponsive design: the canvas width follows the container width on every window resize; the two halves stack vertically under 600 pixels wide. Include a describe() call.\n\nImplementation: p5.js with createSelect, createButton and createCheckbox controls positioned relative to the drawing height, and a CANVAS_HEIGHT comment for the height sync tool."
+}

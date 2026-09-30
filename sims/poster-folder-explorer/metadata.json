@@ -1,0 +1,122 @@
+{
+  "title": "Poster Folder Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Poster Folder Convention",
+    "Shared Overlay Library",
+    "Grid Overlay",
+    "data.json",
+    "Comparison Poster"
+  ],
+  "description": "A vis-network tree of a poster collection: docs/posters/ with its landing page, the shared-libs engine files and one robot-kits poster folder. Click a file for its role and a problem it fixes, hover dependency arrows, and play Fix it to choose the file to edit for a symptom.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/poster-folder-explorer/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Roles of the files in a poster folder and the shared overlay library",
+    "learningObjectives": [
+      "The learner will describe the role of each file in a poster folder and of the shared overlay library, and will identify which file to edit to fix a given problem."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "describe",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Poster Folder Convention and Shared Overlay Library sections of Chapter 10",
+      "Grid overlay data file fields from Chapter 10"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)",
+      "vis-network 9.1.9 CSS for navigation buttons"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Information panel is an aria-live region; every node shows its file name as text"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "tree-nodes",
+        "type": "clickable nodes",
+        "label": "Folders and files",
+        "purpose": "Show each item's role and one problem it fixes, or answer in Fix it mode"
+      },
+      {
+        "id": "dependency-edges",
+        "type": "hover tooltips",
+        "label": "loads, fetches, names",
+        "purpose": "Show what passes along each dashed arrow"
+      },
+      {
+        "id": "mode-btn",
+        "type": "button",
+        "label": "Fix it / Explore",
+        "purpose": "Start a round of six symptoms or return to the roles"
+      },
+      {
+        "id": "next-btn",
+        "type": "button",
+        "label": "Next symptom",
+        "purpose": "Advance after a correct pick"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore-then-diagnose with symptom cards",
+    "interactionPattern": "Network explorer with click-to-inspect, edge tooltips and a which-file quiz",
+    "keyQuestions": [
+      "Which two shared files does a grid poster's main.html load?",
+      "Why does a broken image usually point to data.json?",
+      "How can you tell a one-poster fault from an every-poster fault?"
+    ],
+    "commonMisconceptions": [
+      "The poster PNG can be edited to fix a printed number",
+      "Every poster folder has its own copy of the engine",
+      "main.html contains the zones and facts"
+    ],
+    "assessmentOpportunities": [
+      "First-try score over six symptoms",
+      "Explaining one-poster versus every-poster faults"
+    ]
+  },
+  "search": {
+    "tags": [
+      "poster folder",
+      "shared-libs",
+      "grid-diagram.js",
+      "data.json",
+      "image-prompt.md",
+      "vis-network"
+    ],
+    "visualizationType": [
+      "diagram",
+      "network",
+      "tree"
+    ]
+  },
+  "chapter": "10-image-overlays-and-comparison-posters"
+}

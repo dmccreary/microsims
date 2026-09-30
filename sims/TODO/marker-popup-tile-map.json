@@ -1,0 +1,15 @@
+{
+  "sim_id": "marker-popup-tile-map",
+  "diagram_name": "Marker, Popup and Tile Source Map",
+  "chapter_number": 9,
+  "chapter_title": "Timelines and Maps",
+  "chapter_dir": "09-timelines-and-maps",
+  "chapter_rel_dir": "chapters/09-timelines-and-maps",
+  "library": "Leaflet",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish the roles of the marker, the popup and the tile source by changing each one independently and observing the result.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: map\n**sim-id:** marker-popup-tile-map<br/>\n**Library:** Leaflet<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish the roles of the marker, the popup and the tile source by changing each one independently and observing the result.\n\nGeographic scope: a campus or city of the author's choice, with 6 to 8 markers in two categories.\n\nLayout: a map region 420 pixels high with an info panel in the top-right corner, and a control region below.\n\nInteractions:\n\n- Click a marker to open its popup with title and description; the info panel repeats the marker's category.\n- A layer control switches the base map between at least two tile sources; the attribution text at the bottom changes with the source.\n- A toggle \"Show category\" recolors marker labels by the `category` field.\n- A \"Swap lat/lng\" button deliberately reverses the coordinates of one marker so the learner sees it land in the wrong place, with a caption explaining latitude-first order.\n\nResponsive design: the map fills 100 percent of the container width, fires a size refresh on window resize, and reduces the map height on screens under 600 pixels wide.\n\nImplementation: Leaflet 1.9.4 from a CDN, data in `data.json`, plus `style.css` and `script.js` following the map template."
+}

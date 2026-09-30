@@ -1,0 +1,15 @@
+{
+  "sim_id": "bouncing-ball-gravity-lab",
+  "diagram_name": "Bouncing Ball Gravity Lab",
+  "chapter_number": 1,
+  "chapter_title": "What Is a MicroSim",
+  "chapter_dir": "01-what-is-a-microsim",
+  "chapter_rel_dir": "chapters/01-what-is-a-microsim",
+  "library": "p5.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain how changing gravity and bounciness changes the motion of a falling ball, by predicting an outcome and then testing it.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** bouncing-ball-gravity-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain how changing gravity and bounciness changes the motion of a falling ball, by predicting an outcome and then testing it.\n\nLayout: a drawing region above a control region, following the standard MicroSim layout. The drawing region is aliceblue with a white floor line near the bottom. The control region is white, separated by a silver line.\n\nVisual elements: one orange-red ball of radius 20 pixels that starts at the top and falls under gravity, a horizontal floor, a faint dotted trail of the last 40 ball positions, and a small text readout showing the current height and speed.\n\nControls:\n\n- Slider \"Gravity\" from 0.1 to 2.0 in steps of 0.1, default 0.8\n- Slider \"Bounciness\" from 0.3 to 0.95 in steps of 0.05, default 0.8\n- Button \"Start / Pause\", and button \"Drop Again\" that resets the ball to the top\n- Checkbox \"Predict first\" (default on). When on, the sim pauses after each slider change and asks \"Will the ball bounce higher, lower, or the same?\" with three buttons, then reveals the answer after the next drop\n\nBehavior: on each frame, add gravity to the vertical speed, move the ball, and when the ball reaches the floor, reverse its speed multiplied by bounciness. Stop the bounce when the speed is below a small threshold.\n\nResponsive design: the canvas width follows the container width on every window resize. Sliders and buttons must remain visible at 400 pixels wide, and the canvas height is a fixed constant of 400 plus a 100 pixel control region.\n\nImplementation: p5.js with createSlider and createButton controls positioned relative to the drawing height. Include a describe() call for accessibility."
+}

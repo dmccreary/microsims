@@ -1,0 +1,135 @@
+{
+  "title": "Metadata Section Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Metadata",
+    "Dublin Core",
+    "JSON Schema",
+    "Classification"
+  ],
+  "description": "A vis-network explorer of the H-Bridge metadata.json. A microsim root node links the five required sections and three optional sections; clicking a section fans out its fields with solid borders for required fields and dashed borders for optional ones, and a panel shows each field's type, schema requirement and H-Bridge value. A quiz asks learners to click the section a field belongs to.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/metadata-section-explorer/",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Sections and required fields of MicroSim metadata",
+    "learningObjectives": [
+      "The learner will classify each field of the H-Bridge metadata.json under the correct section (dublinCore, search, educational, technical, userInterface) and tell required fields from optional ones."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "classify",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Sections of metadata.json (Chapter 2)",
+      "Dublin Core elements (Chapter 15)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)",
+      "data.json (copy of the STEM Robots H-Bridge metadata.json)",
+      "microsim-schema.json (copy of src/microsim-schema/microsim-schema.json)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "aria-label on the network, checkbox and buttons; the infobox is an aria-live region; vis-network keyboard navigation is enabled; required versus optional is shown by border style and in words"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "sectionNodes",
+        "type": "clickable network nodes",
+        "label": "Section nodes",
+        "purpose": "Expand or collapse a section's fields and show its purpose and H-Bridge values"
+      },
+      {
+        "id": "fieldNodes",
+        "type": "clickable network nodes",
+        "label": "Field nodes",
+        "purpose": "Show type, schema requirement and H-Bridge value"
+      },
+      {
+        "id": "required-only",
+        "type": "checkbox",
+        "label": "Required fields only",
+        "purpose": "Hide optional fields"
+      },
+      {
+        "id": "quiz-btn",
+        "type": "button",
+        "label": "Quiz me / Stop quiz",
+        "purpose": "Ask the learner to click the section a highlighted field belongs to"
+      },
+      {
+        "id": "collapse-btn",
+        "type": "button",
+        "label": "Collapse all",
+        "purpose": "Fold all sections and fit the whole diagram"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Structured exploration of a real metadata file followed by a classification quiz",
+    "interactionPattern": "Expandable network explorer with detail panel",
+    "keyQuestions": [
+      "Which question does each section answer about a MicroSim?",
+      "Which dublinCore fields does the schema require?",
+      "Why do subject, tags and searchKeywords sit in different sections?"
+    ],
+    "commonMisconceptions": [
+      "All metadata fields are required",
+      "Library versions belong in technical.version",
+      "tags and subject are interchangeable"
+    ],
+    "assessmentOpportunities": [
+      "Quiz score out of eight",
+      "Stating whether a field is required",
+      "Explaining the purpose of each section"
+    ]
+  },
+  "search": {
+    "tags": [
+      "metadata.json",
+      "Dublin Core",
+      "JSON Schema",
+      "H-Bridge",
+      "required fields",
+      "vis-network",
+      "quiz"
+    ],
+    "visualizationType": [
+      "network",
+      "diagram"
+    ]
+  },
+  "chapter": "15-metadata-search-and-reuse",
+  "dataSources": [
+    "https://dmccreary.github.io/stem-robots/sims/h-bridge/ (metadata.json copied unchanged as data.json)",
+    "src/microsim-schema/microsim-schema.json in this repository (copied unchanged)"
+  ]
+}

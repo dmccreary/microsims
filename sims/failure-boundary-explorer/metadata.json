@@ -1,0 +1,132 @@
+{
+  "title": "Failure Boundary Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Record Store",
+    "Operations",
+    "Failure Modes",
+    "Durability"
+  ],
+  "description": "Break one component of the full LRS at a time and see why only a failure before the durability boundary at Kafka can lose data, while every failure after it only degrades freshness or speed.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/failure-boundary-explorer/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Full LRS failure modes and the durability boundary",
+    "learningObjectives": [
+      "The learner will differentiate the one failure that can lose data from the failures that only degrade freshness or speed, by locating each failing component relative to the durability boundary at Kafka."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Full LRS architecture and ingestion (Chapter 20)",
+      "Idempotent ingest (Chapter 20)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": false,
+      "keyboardNavigable": true,
+      "notes": "The failure select and Restore button are keyboard operable and the panel is an aria-live region; node clicks need a pointer, but every component is also reachable through the select."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "select",
+        "label": "Fail this component",
+        "options": [
+          "(none)",
+          "Learning Record Provider",
+          "Ingestion Gateway",
+          "Kafka",
+          "Processor",
+          "ClickHouse",
+          "Summarizer",
+          "Neo4j",
+          "Redis cache"
+        ]
+      },
+      {
+        "type": "button",
+        "label": "Restore all",
+        "action": "Restore every component and show the running findings"
+      },
+      {
+        "type": "node-click",
+        "label": "Click a component",
+        "action": "Show its role and whether it is built or designed"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict, break one component, compare against the durability rule",
+    "keyQuestions": [
+      "Which single failure can lose data, and why?",
+      "Why does a failure after Kafka heal on recovery?",
+      "Why is a gateway failure safe only if producers retry?"
+    ],
+    "commonMisconceptions": [
+      "That losing the database of record (ClickHouse) loses data",
+      "That the gateway holds statements it has not yet queued"
+    ],
+    "assessmentOpportunities": [
+      "Sort the components before and after testing",
+      "Explain the 503 and Retry-After behavior"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "LRS",
+      "failure modes",
+      "durability boundary",
+      "Kafka",
+      "Redpanda",
+      "ClickHouse",
+      "Neo4j",
+      "Redis",
+      "503",
+      "Retry-After"
+    ]
+  },
+  "chapter": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "simulation": {
+    "modelType": "static architecture diagram with scripted failure states",
+    "variables": [
+      "failed component"
+    ],
+    "equations": [],
+    "assumptions": [
+      "Status labels follow the repository TODO dated 2026-09-26 as quoted in Chapters 20-21",
+      "Detection mechanisms are described generically where the chapter does not specify them"
+    ],
+    "limitations": [
+      "Shows one failure at a time; combined failures and the vault/identity service are not modelled"
+    ]
+  }
+}

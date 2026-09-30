@@ -1,0 +1,15 @@
+{
+  "sim_id": "suppression-threshold-lab",
+  "diagram_name": "Suppression Threshold Lab",
+  "chapter_number": 21,
+  "chapter_title": "\"The Full LRS: Dashboards, Operations and Compliance\"",
+  "chapter_dir": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "chapter_rel_dir": "chapters/21-the-full-lrs-dashboards-operations-and-compliance",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Apply",
+  "learning_objective": "The learner will apply a suppression threshold and complementary suppression to a small table and predict which cells must be hidden so that no hidden count can be recovered by subtraction.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** suppression-threshold-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: apply): The learner will apply a suppression threshold and complementary suppression to a small table and predict which cells must be hidden so that no hidden count can be recovered by subtraction.\n\nData: a table of four mastery bands (Beginning, Developing, Proficient, Advanced) with student counts and a \"Row Total\" column, loaded from three presets: \"All cells safe\", \"One small cell\", and \"Complementary suppression needed\".\n\nLayout: the table occupies the drawing region. Cells at or above the threshold are white with black text. A cell below the threshold is red with a lock symbol, and a cell hidden by complementary suppression is amber with a lock symbol. A text line beneath the table states whether any hidden value can still be recovered.\n\nControls:\n\n- Slider \"Threshold\" from 5 to 20 in steps of 1, default 10\n- Dropdown \"Scenario\" with the three presets\n- Checkbox \"Apply complementary suppression\" (default off), so the learner can first see the leak\n- Checkbox \"Show the subtraction\", which draws the arithmetic that recovers a hidden cell\n- Button \"Reset\"\n\nInteractions: with complementary suppression off, the learner sees the recoverable cell highlighted and the subtraction displayed. Turning it on hides a second cell and the leak disappears. Clicking any cell asks the learner to predict whether it will be hidden before the answer is shown.\n\nResponsive design: the canvas width follows the container on window resize, table columns shrink proportionally, and controls wrap below the table under 500 pixels wide.\n\nImplementation: p5.js with createSlider, createSelect, createCheckbox and createButton controls, and a describe() call for accessibility."
+}

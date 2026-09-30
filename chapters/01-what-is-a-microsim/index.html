@@ -1,0 +1,4147 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Defines a MicroSim, its role in an intelligent textbook, and the AI, web and publishing foundations behind it.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/01-what-is-a-microsim/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-anatomy-of-a-microsim/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>What Is a MicroSim - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="What Is a MicroSim - Micro Simulations for Education" />
+<meta property="og:description" content="Defines a MicroSim, its role in an intelligent textbook, and the AI, web and publishing foundations behind it." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/01-what-is-a-microsim/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/01-what-is-a-microsim/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="What Is a MicroSim - Micro Simulations for Education" />
+<meta property="twitter:description" content="Defines a MicroSim, its role in an intelligent textbook, and the AI, web and publishing foundations behind it." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/01-what-is-a-microsim/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-a-microsim" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What Is a MicroSim
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objects-and-the-case-for-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objects and the Case for Interaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Objects and the Case for Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bouncing-ball-gravity-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Bouncing Ball Gravity Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-limits-of-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Limits of Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-microsim-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a MicroSim Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What a MicroSim Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-family-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Family Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-microsims-live-the-intelligent-textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where MicroSims Live: The Intelligent Textbook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsims-10-and-microsims-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MicroSims 1.0 and MicroSims 2.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSims 1.0 and MicroSims 2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsims-milestones-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSims Milestones Timeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showcase-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Showcase MicroSims
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-artificial-intelligence-behind-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Artificial Intelligence Behind Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Artificial Intelligence Behind Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generative AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-language-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Language Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ai-generation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: AI Generation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-web-foundations-of-a-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Web Foundations of a MicroSim
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Web Foundations of a MicroSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iframe Embedding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iframe Embedding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Technology Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-from-files-to-a-live-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing: From Files to a Live Book
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing: From Files to a Live Book">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MkDocs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MkDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-author-to-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: From Author to Learner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Version Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-educational-resources-and-creative-commons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Educational Resources and Creative Commons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrumented-microsims-simulations-that-report-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instrumented MicroSims: Simulations That Report Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrumented MicroSims: Simulations That Report Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-which-kind-of-object-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Which Kind of Object Is It?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objects-and-the-case-for-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objects and the Case for Interaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Objects and the Case for Interaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interactive Simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bouncing-ball-gravity-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Bouncing Ball Gravity Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-limits-of-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Limits of Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-microsim-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a MicroSim Is
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What a MicroSim Is">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-family-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Family Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-microsims-live-the-intelligent-textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where MicroSims Live: The Intelligent Textbook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsims-10-and-microsims-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MicroSims 1.0 and MicroSims 2.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MicroSims 1.0 and MicroSims 2.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsims-milestones-timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSims Milestones Timeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showcase-microsims" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Showcase MicroSims
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-artificial-intelligence-behind-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Artificial Intelligence Behind Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Artificial Intelligence Behind Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generative-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generative AI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-language-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Language Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Skill
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ai-generation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: AI Generation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-web-foundations-of-a-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Web Foundations of a MicroSim
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Web Foundations of a MicroSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTML5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#javascript-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JavaScript Library
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iframe Embedding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="iframe Embedding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-microsim-technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: MicroSim Technology Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-from-files-to-a-live-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publishing: From Files to a Live Book
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing: From Files to a Live Book">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MkDocs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MkDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-author-to-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: From Author to Learner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Version Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-educational-resources-and-creative-commons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Educational Resources and Creative Commons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrumented-microsims-simulations-that-report-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instrumented MicroSims: Simulations That Report Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrumented MicroSims: Simulations That Report Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-which-kind-of-object-is-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Which Kind of Object Is It?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/01-what-is-a-microsim/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="what-is-a-microsim">What Is a MicroSim</h1>
+<h2 id="summary">Summary</h2>
+<p>Defines a MicroSim, explains its role in an intelligent textbook, and introduces the web and AI foundations that the rest of the book builds on.</p>
+<p>This chapter contrasts MicroSims 1.0 with MicroSims 2.0 and tours showcase examples. After it, students can explain what a MicroSim is, what makes one instrumented, and which technologies are involved.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 24 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interactive Simulation</td>
+<td>3475</td>
+</tr>
+<tr>
+<td>Learning Object</td>
+<td>6272</td>
+</tr>
+<tr>
+<td>Generative AI</td>
+<td>143</td>
+</tr>
+<tr>
+<td>Large Language Model</td>
+<td>127</td>
+</tr>
+<tr>
+<td>AI Skill</td>
+<td>82</td>
+</tr>
+<tr>
+<td>AI Agent</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Prompt</td>
+<td>13</td>
+</tr>
+<tr>
+<td>MkDocs</td>
+<td>438</td>
+</tr>
+<tr>
+<td>Git Version Control</td>
+<td>3</td>
+</tr>
+<tr>
+<td>HTML5</td>
+<td>482</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>30</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>409</td>
+</tr>
+<tr>
+<td>JavaScript Library</td>
+<td>182</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>5</td>
+</tr>
+<tr>
+<td>iframe Embedding</td>
+<td>38</td>
+</tr>
+<tr>
+<td>Open Educational Resource</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Creative Commons License</td>
+<td>3</td>
+</tr>
+<tr>
+<td>MicroSim</td>
+<td>2927</td>
+</tr>
+<tr>
+<td>Intelligent Textbook</td>
+<td>47</td>
+</tr>
+<tr>
+<td>MicroSims 1.0</td>
+<td>16</td>
+</tr>
+<tr>
+<td>MicroSims 2.0</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Instrumented MicroSim</td>
+<td>2197</td>
+</tr>
+<tr>
+<td>Showcase MicroSim</td>
+<td>2</td>
+</tr>
+<tr>
+<td>GitHub Pages</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Hi, I'm Bounce!</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+I'm Bounce, a rubber ball who is curious about everything and who treats every mistake as just another bounce. Let's bounce it around! I'll show up in each chapter to do six specific jobs, and nothing else:</p>
+<ol>
+<li>When a chapter opens, I tell you why it matters and what you will be able to build.</li>
+<li>When an idea deserves a pause, I help you think about why it works.</li>
+<li>When there is a shortcut worth knowing, I pass along a tip.</li>
+<li>When there is a trap that catches most newcomers, I warn you and show the way out.</li>
+<li>When a passage is genuinely hard, I encourage you and suggest a way forward.</li>
+<li>When you finish, I celebrate the specific thing you just learned.</li>
+</ol>
+<p>If I am not doing one of those six things, I am not in the chapter.</p>
+</div>
+<p>This book teaches you to create, check, and instrument small interactive simulations called MicroSims, and it teaches you to ask a hard question about them: <em>how well does what a learner does inside a MicroSim predict whether that learner has mastered a concept?</em> This first chapter gives you the vocabulary and the technical foundations you need before we tackle that question. We start from the idea of a learning object, narrow to interactive simulations, define a MicroSim precisely, and then survey the artificial intelligence, web, and publishing technologies that make MicroSims cheap to build and easy to share.</p>
+<h2 id="learning-objects-and-the-case-for-interaction">Learning Objects and the Case for Interaction</h2>
+<p>Every textbook is built from smaller pieces of instructional content. A <strong>learning object</strong> is a self-contained, reusable unit of instructional content that addresses a specific learning goal and can be described, found, and reused independently of the course it was first written for. A diagram with a caption, a five-minute video, a quiz, and a worked example can all be learning objects. What matters is that the unit stands on its own, carries enough description (metadata) to be located, and can be dropped into a new context without being rewritten.</p>
+<p>The idea matters for this book because MicroSims are learning objects. Treating them that way from the start explains many design decisions you will meet later: why every MicroSim has a metadata file, why we search for an existing MicroSim before building a new one, and why a MicroSim must work when embedded in someone else's page.</p>
+<p>A <strong>worked example</strong> shows what "described" means in practice. Suppose a teacher wants to find a simulation about bouncing balls. A learning object about that topic might carry a short description like the one below, written in JSON, a plain-text format that programs can read easily. A search tool can match on any of these fields, and a teacher can tell at a glance whether the object fits their course.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bouncing Ball Gravity Lab"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Physics"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Kinematics"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"gradeLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"College introductory"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"learningObjective"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Explain how gravity and bounciness change a ball's motion"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/html"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC BY-NC-SA 4.0"</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Without such a description, the learning object still works, but only someone who already knows it exists can use it. With the description, it becomes discoverable, which is the first step toward reuse. Chapter 15 develops this idea into a full metadata standard and a search index.</p>
+<p>Learning objects come in a spectrum of interactivity. The table below organizes that spectrum. We define each row in the paragraphs that follow, so treat the table as a summary that you can return to.</p>
+<table>
+<thead>
+<tr>
+<th>Kind of learning object</th>
+<th>What the learner does</th>
+<th>Feedback to the learner</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static text or image</td>
+<td>Reads or looks</td>
+<td>None</td>
+<td>A labeled cross-section of a cell</td>
+</tr>
+<tr>
+<td>Video or animation</td>
+<td>Watches</td>
+<td>None, and the pace is fixed</td>
+<td>A recorded physics lecture</td>
+</tr>
+<tr>
+<td>Quiz item</td>
+<td>Answers</td>
+<td>Correct or incorrect</td>
+<td>A multiple-choice question</td>
+</tr>
+<tr>
+<td>Interactive simulation</td>
+<td>Changes inputs and observes</td>
+<td>Immediate visual response</td>
+<td>A pendulum whose length you can change</td>
+</tr>
+</tbody>
+</table>
+<p>The last row is the focus of this chapter, and it deserves a careful definition.</p>
+<h3 id="interactive-simulation">Interactive Simulation</h3>
+<p>An <strong>interactive simulation</strong> is a computer model of a system that the learner can manipulate, where the system's behavior changes visibly and immediately in response to the learner's actions. Two properties define it. First, there is a <em>model</em>: rules, however simple, that determine how the system behaves, such as gravity pulling a ball downward. Second, there is <em>interaction</em>: the learner controls one or more inputs, such as a slider for gravity, and sees the outcome without waiting.</p>
+<p>This combination is what separates a simulation from an animation. An animation shows one outcome. A simulation lets you ask "what if?" and get an answer. Educational researchers have argued for decades that this kind of exploration helps learners build accurate mental models of physical and abstract systems, and large simulation libraries such as PhET have shown that many students will voluntarily experiment with them. We should be honest about the limits of that evidence, though. Studies of simulations show gains under many conditions, but the gains depend heavily on the design of the activity around the simulation, not merely on its presence.</p>
+<p>A <strong>worked example</strong> makes the distinction concrete. Consider the goal "explain how gravity affects a falling ball." An animation shows a ball dropping and bouncing. A simulation gives the learner a gravity slider and a bounciness slider. Set gravity high and the ball falls fast and rebounds low. Set it low and the ball floats. Ask the learner to predict what happens before moving the slider, and you have turned a passive picture into an experiment. The next diagram lets you try exactly this.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Feedback Is the Point</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the difference between watching someone ride a bike and riding one yourself. The simulation earns its place only if the learner's action changes what they see, so ask of every design: what does the interaction let the learner <em>find out</em> that a picture could not?</p>
+</div>
+<p>Before you look at the first specification below, note the terms it uses. A <em>slider</em> is a control that sets a numeric value along a range. <em>Gravity</em> here means a constant downward acceleration applied to the ball on each animation frame. <em>Bounciness</em> is the fraction of speed the ball keeps after hitting the floor.</p>
+<h4 id="diagram-bouncing-ball-gravity-lab">Diagram: Bouncing Ball Gravity Lab</h4>
+<iframe src="../../sims/bouncing-ball-gravity-lab/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/bouncing-ball-gravity-lab/main.html">Run the Bouncing Ball Gravity Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Bouncing Ball Gravity Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> bouncing-ball-gravity-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain how changing gravity and bounciness changes the motion of a falling ball, by predicting an outcome and then testing it.</p>
+<p>Layout: a drawing region above a control region, following the standard MicroSim layout. The drawing region is aliceblue with a white floor line near the bottom. The control region is white, separated by a silver line.</p>
+<p>Visual elements: one orange-red ball of radius 20 pixels that starts at the top and falls under gravity, a horizontal floor, a faint dotted trail of the last 40 ball positions, and a small text readout showing the current height and speed.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Gravity" from 0.1 to 2.0 in steps of 0.1, default 0.8</li>
+<li>Slider "Bounciness" from 0.3 to 0.95 in steps of 0.05, default 0.8</li>
+<li>Button "Start / Pause", and button "Drop Again" that resets the ball to the top</li>
+<li>Checkbox "Predict first" (default on). When on, the sim pauses after each slider change and asks "Will the ball bounce higher, lower, or the same?" with three buttons, then reveals the answer after the next drop</li>
+</ul>
+<p>Behavior: on each frame, add gravity to the vertical speed, move the ball, and when the ball reaches the floor, reverse its speed multiplied by bounciness. Stop the bounce when the speed is below a small threshold.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize. Sliders and buttons must remain visible at 400 pixels wide, and the canvas height is a fixed constant of 400 plus a 100 pixel control region.</p>
+<p>Implementation: p5.js with createSlider and createButton controls positioned relative to the drawing height. Include a describe() call for accessibility.</p>
+</details>
+<h3 id="the-limits-of-simulation">The Limits of Simulation</h3>
+<p>Simulations are not automatically better than other learning objects. A poorly designed simulation can overload a learner with controls, hide the underlying rule, or reward random clicking. We return to these design questions in Chapter 3, where cognitive load theory and Bloom's taxonomy guide the choice of interaction. For now, keep the two defining properties, a model and immediate interaction, as your test for whether something is truly an interactive simulation.</p>
+<h2 id="what-a-microsim-is">What a MicroSim Is</h2>
+<p>We can now define the central object of this book. A <strong>MicroSim</strong> is a small, self-contained, AI-generated interactive simulation that runs in a web browser, embeds in any web page through an iframe, adapts to the width of its container, and carries metadata that lets it be found, reused, and, in this version of the book, instrumented to report what learners do. Each part of that definition does work:</p>
+<ul>
+<li><strong>Small:</strong> a MicroSim teaches one concept or a tightly related few, not an entire course.</li>
+<li><strong>Self-contained:</strong> it needs nothing but a browser, so it works offline from the author's laptop and online from a school district's server alike.</li>
+<li><strong>AI-generated:</strong> a large language model writes most of the code from a specification, which is what makes producing many MicroSims affordable.</li>
+<li><strong>Embeddable:</strong> any page can include it with a single HTML tag.</li>
+<li><strong>Width-responsive:</strong> it fits phones, tablets, and wide monitors without separate versions.</li>
+<li><strong>Described:</strong> its metadata makes it findable and usable as a learning object.</li>
+</ul>
+<p>A <strong>worked example</strong> shows how the definition sorts real things. A YouTube video of a bouncing ball is not a MicroSim because it is not interactive. A large physics application with hundreds of controls is not a MicroSim because it is not small and does not embed in a page. A single-file simulation with two sliders, a Start button, and a metadata file, built from a prompt and embedded in a chapter, is a MicroSim.</p>
+<p>Size deserves a further word, because it is the property authors most often violate. A small simulation is cheaper to generate, easier for an AI to get right, quicker to test, and lighter on the learner's attention. When a design starts to need many screens, several concepts, and a long manual, that is a signal to split it into several MicroSims that each teach one idea. The checklist below turns the definition into questions you can ask of any candidate.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>If the answer is no</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Does it teach one concept or a tightly related few?</td>
+<td>Split it into several MicroSims</td>
+</tr>
+<tr>
+<td>Does the learner change something and see an immediate result?</td>
+<td>It is an animation or a diagram, not a simulation</td>
+</tr>
+<tr>
+<td>Does it run in a browser with no installation?</td>
+<td>It cannot be embedded in a typical page</td>
+</tr>
+<tr>
+<td>Can it be included with one iframe tag?</td>
+<td>It is not universally embeddable</td>
+</tr>
+<tr>
+<td>Does it fit both a phone and a wide monitor?</td>
+<td>It is not width-responsive</td>
+</tr>
+<tr>
+<td>Does a metadata file describe it?</td>
+<td>It cannot be found or reused reliably</td>
+</tr>
+</tbody>
+</table>
+<p>The following diagram lets you explore how the four kinds of object we have discussed nest inside one another. Click any node to see its definition and the property that distinguishes it from the layer above.</p>
+<h4 id="diagram-microsim-family-tree">Diagram: MicroSim Family Tree</h4>
+<iframe src="../../sims/microsim-family-tree/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/microsim-family-tree/main.html">Run the MicroSim Family Tree MicroSim Fullscreen</a></p>
+<details>
+<summary>MicroSim Family Tree</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> microsim-family-tree<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: classify): The learner will classify an example as a learning object, an interactive simulation, a MicroSim, or an instrumented MicroSim, by identifying the property that distinguishes each level.</p>
+<p>Nodes and edges: four boxes arranged left to right, with arrows pointing from each to the one it specializes: Learning Object (steel blue) to Interactive Simulation (green) to MicroSim (orange) to Instrumented MicroSim (crimson). Each arrow carries the label "adds" followed by the new property: "a model and immediate interaction", "small, embeddable, described, AI-generated", and "reports evidence through xAPI".</p>
+<p>Interactions: clicking a node opens an information panel on the right with a two-sentence definition, one positive example, and one near-miss example that fails the definition. Hovering an arrow shows the property in a tooltip. A "Quiz me" button hides the labels and asks the learner to place four unlabeled examples onto the correct node.</p>
+<p>Responsive design: the network re-fits to the container width on window resize, and the information panel moves below the network when the width is under 600 pixels.</p>
+<p>Implementation: vis-network with fixed left-to-right positions and physics disabled.</p>
+</details>
+<h3 id="where-microsims-live-the-intelligent-textbook">Where MicroSims Live: The Intelligent Textbook</h3>
+<p>An <strong>intelligent textbook</strong> is a textbook whose content is structured so software can reason about it. It has a machine-readable graph of concepts and their dependencies, content organized around those concepts, and interactive elements that can report what learners do. The intelligent textbook is the setting in which MicroSims live. A learning graph, which you will meet in Chapter 3, tells the textbook which concepts exist and which ones depend on which. MicroSims give the textbook things for learners to do. The events that instrumented MicroSims report give the textbook evidence about what each learner has understood.</p>
+<p>This is why the book you are reading is itself an intelligent textbook. Its 26 chapters are assigned from a learning graph of 462 concepts, and the MicroSims embedded in them are the interactive layer.</p>
+<h3 id="microsims-10-and-microsims-20">MicroSims 1.0 and MicroSims 2.0</h3>
+<p>The first version of this book, which we call <strong>MicroSims 1.0</strong>, began in November 2023 as a course on using generative AI to create p5.js simulations. Its central observation was that AI systems could produce working simulations from a good prompt, and that a fixed layout with a drawing region and a control region made the results consistent. Most of the roughly 115 MicroSims in that book were p5.js sketches.</p>
+<p><strong>MicroSims 2.0</strong>, the version you are reading, is a complete rewrite. It reflects several changes that accumulated over the following years:</p>
+<ul>
+<li>MicroSims now come in many types, built with many libraries, chosen by matching a learning objective to an interaction pattern.</li>
+<li>AI generation is organized as skills, batch pipelines, and specifications instead of one-off prompts.</li>
+<li>Automated checks catch layout errors that human review used to miss.</li>
+<li>MicroSims can report what learners do through xAPI, so a MicroSim becomes a source of evidence and not only a teaching tool.</li>
+</ul>
+<p>The table below contrasts the two versions. It summarizes points we develop through the rest of the book.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>MicroSims 1.0</th>
+<th>MicroSims 2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main subject</td>
+<td>Creating p5.js simulations with AI</td>
+<td>Generating, instrumenting, and evaluating many kinds of MicroSims</td>
+</tr>
+<tr>
+<td>Libraries</td>
+<td>Almost entirely p5.js</td>
+<td>p5.js, Chart.js, Plotly, Mermaid, vis-network, vis-timeline, Leaflet, and specialized types</td>
+</tr>
+<tr>
+<td>Generation</td>
+<td>A prompt per simulation</td>
+<td>AI skills, specifications, and batch pipelines</td>
+</tr>
+<tr>
+<td>Quality checks</td>
+<td>Manual review and a checklist</td>
+<td>Automated quality score, browser tests, and layout review</td>
+</tr>
+<tr>
+<td>Learner data</td>
+<td>None</td>
+<td>xAPI events and mastery prediction</td>
+</tr>
+</tbody>
+</table>
+<p>The original book remains available in the project's version history under the tag <code>v1.0</code>, for anyone who wants to see how the approach began.</p>
+<p>The timeline below places these milestones in order. Each item opens a short description when you click it.</p>
+<h4 id="diagram-microsims-milestones-timeline">Diagram: MicroSims Milestones Timeline</h4>
+<iframe src="../../sims/microsims-milestones-timeline/main.html" width="100%" height="482px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/microsims-milestones-timeline/main.html">Run the MicroSims Milestones Timeline MicroSim Fullscreen</a></p>
+<details>
+<summary>MicroSims Milestones Timeline</summary>
+<p>Type: timeline
+<strong>sim-id:</strong> microsims-milestones-timeline<br/>
+<strong>Library:</strong> vis-timeline<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Remember; verb: identify): The learner will identify the major milestones between MicroSims 1.0 and MicroSims 2.0 and order them in time.</p>
+<p>Data: point events with these dates and labels, taken from the project history: 2023-11-21 "First commit of MicroSims 1.0"; 2025-10 "First arXiv-style paper draft (v0.02)"; 2025-11 "Paper draft v0.06"; 2026-09-26 "Skill for adding xAPI events to a MicroSim (v0.2)"; 2026-09-29 "H-Bridge showcase MicroSim created"; 2026-09-30 "Tag v1.0 marks the original book; the rewrite begins".</p>
+<p>Interactions: clicking an event opens a panel with a two-sentence description. A mouse wheel zooms the time axis, and dragging pans it. A "Group by" toggle switches between grouping by theme (book, paper, tools) and a single track.</p>
+<p>Responsive design: the timeline resizes with its container on window resize.</p>
+<p>Implementation: vis-timeline with a DataSet of items and groups.</p>
+</details>
+<h3 id="showcase-microsims">Showcase MicroSims</h3>
+<p>A <strong>showcase MicroSim</strong> is an especially polished MicroSim that demonstrates what the medium can do. The H-Bridge simulation created in the STEM Robots book is an example. It animates current flowing through the wires of a motor-control circuit, spins the motor, flashes a warning when the switches create a short circuit, and lets the learner operate four clickable switches or use keyboard shortcuts. We use showcase MicroSims throughout the book as targets for quality, not as typical output.</p>
+<h2 id="the-artificial-intelligence-behind-generation">The Artificial Intelligence Behind Generation</h2>
+<p>MicroSims are affordable because AI systems write most of their code. This section defines the pieces of that machinery so that later chapters can use the terms without pause.</p>
+<h3 id="generative-ai">Generative AI</h3>
+<p><strong>Generative AI</strong> is a class of machine-learning systems that produce new content, such as text, images, audio, or program code, from a description of what is wanted. The systems learn statistical patterns from very large collections of examples, and they generate output one piece at a time by predicting what should come next. For MicroSims, the content that matters is program code and documentation.</p>
+<p>Generative AI is a powerful assistant and an unreliable authority. It produces fluent output whether or not the output is correct, so everything it writes must be checked. The whole of Chapter 13 is about how to check MicroSims automatically, and the reason is this point.</p>
+<p>A <strong>worked example</strong> shows the strength and the weakness together. Ask a generative model for "a bouncing ball simulation" and it returns working code in seconds. Look closely and you may find that the ball sinks through the floor at high gravity, or the controls vanish when the window is narrow. The model gave you a strong first draft, and testing found the defects.</p>
+<p>The table below sorts what generative AI does well and badly for our purposes. It summarizes the paragraph above.</p>
+<table>
+<thead>
+<tr>
+<th>Strength</th>
+<th>Weakness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Writes a complete first draft quickly</td>
+<td>May invent functions or options that do not exist</td>
+</tr>
+<tr>
+<td>Follows a clear specification closely</td>
+<td>Guesses when the specification is vague</td>
+</tr>
+<tr>
+<td>Explains and refactors its own code</td>
+<td>Cannot see the rendered page unless given a tool to do so</td>
+</tr>
+<tr>
+<td>Adapts the same idea to a new library</td>
+<td>May use an outdated library version</td>
+</tr>
+</tbody>
+</table>
+<h3 id="large-language-model">Large Language Model</h3>
+<p>A <strong>large language model (LLM)</strong> is the kind of generative AI that works with text and code. It is a neural network trained on a very large body of text so that, given some text, it predicts the most likely continuation. Because program code is text, the same model that answers questions can write JavaScript. The names of specific models change quickly, so this book teaches concepts that hold across them.</p>
+<p>Models do not read words the way people do. They read <em>tokens</em>, which are short pieces of text, often a word or part of a word, and both the context window and the price of using a model are measured in tokens. A page of code may cost a few thousand tokens, so a design that asks the model to look at the whole project for every small change wastes both money and attention.</p>
+<p>Two properties of an LLM shape how we use it. The first is the <strong>context window</strong>: the amount of text the model can consider at once, including your instructions, any files you provide, and its own reply. When the context fills, earlier material is dropped or summarized, which is why our batch pipelines record their progress in files that a fresh session can reload. The second is that an LLM is <strong>non-deterministic</strong>: the same prompt can produce different code on different runs. That is why we test the output, and why later chapters treat reproducibility as a design goal.</p>
+<p>A <strong>worked example</strong> illustrates context. Suppose you paste a 3,000-line project into a model and ask for a change. The model may lose track of the first files by the time it reaches the last. Splitting the task so that each request needs only one small file and one clear specification is a workaround you will use again and again.</p>
+<h3 id="prompt">Prompt</h3>
+<p>A <strong>prompt</strong> is the text you give a language model to tell it what to do. A good prompt names the goal, the audience, the constraints, and the form of the output. A weak prompt names only a topic and leaves the model to guess the rest.</p>
+<p>Compare two prompts for the same MicroSim.</p>
+<table>
+<thead>
+<tr>
+<th>Weak prompt</th>
+<th>Stronger prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Make a physics simulation."</td>
+<td>"Create a p5.js MicroSim for a college physics course that lets learners change gravity and bounciness of a ball and predict the result before dropping it. Use a drawing region above a control region and make the canvas width follow the window."</td>
+</tr>
+</tbody>
+</table>
+<p>The stronger prompt states a library, an audience, controls, a learning behavior, and a layout constraint. Each detail removes one guess the model would otherwise make.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Ask for What They Should Learn</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Start your prompt with the learning objective, not the picture. "Help learners predict how gravity changes a bounce" gets you better controls than "draw a ball."</p>
+</div>
+<h3 id="ai-skill">AI Skill</h3>
+<p>A <strong>skill</strong> is a packaged set of instructions, reference guides, and templates that an AI agent loads when a task matches, so the agent does the task the same careful way each time instead of improvising. Where a prompt is one request, a skill is reusable expertise. The MicroSim generator used with this book is a skill: it contains rules for choosing among MicroSim types, templates for each library, and a checklist of quality standards.</p>
+<p>Skills matter because they move knowledge out of your head and out of any single conversation into a shared, versioned file. Two people who invoke the same skill get output that follows the same conventions. When the conventions improve, everyone who invokes the skill benefits.</p>
+<p>Concretely, a skill is a folder of ordinary files. The main file, <code>SKILL.md</code>, begins with a short description that tells the agent when the skill applies, followed by step-by-step instructions. Beside it sit reference guides for specific cases and template files the agent copies and fills in.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>microsim-generator/
+  SKILL.md                 instructions and the rules for choosing a type
+  references/              one guide per MicroSim type
+  assets/templates/        starter files for each library
+</code></pre></div></td></tr></table></div>
+<p>Because these are plain files, you can read them, version them in Git, and improve them like any other part of a project.</p>
+<p>A <strong>worked example</strong> shows a skill in use. Instead of writing a long prompt every time, an author can write a short request such as "Use the microsim-generator skill to create a timeline of the Apollo missions." The skill selects a timeline library, loads the timeline template, follows the layout rules, writes the files, and records the metadata. The author supplied only the topic. The skill supplied the method.</p>
+<p>The diagram below shows how a prompt, a language model, a skill, and an agent fit together. First we define the last term in the picture.</p>
+<h3 id="ai-agent">AI Agent</h3>
+<p>An <strong>AI agent</strong> is a program built around a language model that can take actions, such as reading files, writing files, running commands, and using tools, in a loop until a task is finished. A chat window answers a question and stops. An agent keeps going: it drafts code, runs it, reads the error, and fixes the code. Agents are what make batch generation possible, because one coordinating agent can hand specifications to worker agents and collect their results.</p>
+<p>With prompt, model, skill, and agent defined, the next diagram brings them together. Click each box to see what it contributes.</p>
+<h4 id="diagram-ai-generation-pipeline">Diagram: AI Generation Pipeline</h4>
+<iframe src="../../sims/ai-generation-pipeline/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/ai-generation-pipeline/main.html">Run the AI Generation Pipeline MicroSim Fullscreen</a></p>
+<details>
+<summary>AI Generation Pipeline</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> ai-generation-pipeline<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain the role of a prompt, a large language model, a skill, and an agent in generating a MicroSim.</p>
+<p>Diagram: a left-to-right flowchart with these nodes: "Author writes a prompt or request", "AI agent", "Skill (instructions, guides, templates)", "Large language model", "MicroSim files (HTML, JavaScript, metadata)", and "Automated checks". Arrows: author to agent; agent to skill ("loads"); agent to model ("asks"); model to agent ("code"); agent to files ("writes"); files to checks; checks back to agent ("errors to fix").</p>
+<p>Interactions: every node has a click directive that opens an infobox with a plain-language definition and one example. Hovering a node highlights the arrows in and out of it. The feedback arrow from checks to agent is drawn dashed and its infobox explains why generated code must be tested.</p>
+<p>Responsive design: the diagram scales to the container width, and node text wraps at narrow widths.</p>
+<p>Implementation: Mermaid flowchart with click callbacks that show the infobox below the diagram.</p>
+</details>
+<h3 id="reading-the-pipeline">Reading the Pipeline</h3>
+<p>Follow one request through the pipeline. The author asks for a MicroSim. The agent reads the request and loads the skill, which tells it which files to create and which conventions to follow. The agent sends a specification to the model, receives code, writes it into files, and runs the automated checks. If a check fails, the error goes back to the model and the loop repeats. When the checks pass, the MicroSim is ready for the author's review. The author remains in the loop at both ends: writing the request and approving the result.</p>
+<h2 id="the-web-foundations-of-a-microsim">The Web Foundations of a MicroSim</h2>
+<p>A MicroSim is a small web page. To read, change, or debug one, you need a working knowledge of the technologies a web page is made from. This section defines them in the order they build on each other.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Alphabet Soup Is Normal</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If HTML, CSS, JavaScript, and CDN all blur together on the first read, that is completely normal. You have already learned harder things, and you will not write most of this code by hand, so aim to recognize each piece and know what it is for.</p>
+</div>
+<h3 id="html5">HTML5</h3>
+<p><strong>HTML5</strong> (HyperText Markup Language, version 5) is the standard language for describing the structure and content of a web page. It uses <em>tags</em>, which are names in angle brackets, to mark up text and to embed other things: headings, paragraphs, images, buttons, and the containers where a simulation draws itself. HTML says <em>what is on the page</em>. It does not say how the page looks or behaves.</p>
+<p>Every MicroSim has a file called <code>main.html</code>. Its job is small: load the libraries, create a place for the simulation to draw, and load the simulation's JavaScript. Before we read a sample, note three tags. The <code>&lt;script&gt;</code> tag loads a JavaScript file. The <code>&lt;main&gt;</code> tag marks the main content area of the page. The <code>&lt;meta&gt;</code> tag records information about the page, such as the character set, that the browser uses but the reader does not see.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Bouncing Ball<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"bouncing-ball.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Read this from the top. The first line declares the document type. The <code>&lt;head&gt;</code> section holds information about the page and loads the p5.js library. The <code>&lt;body&gt;</code> section holds what appears on the page: an empty <code>&lt;main&gt;</code> area where the sketch will place its canvas, and a script tag that loads the simulation's own code. That is the entire structure of most MicroSims.</p>
+<p>HTML5 also carries information that is invisible to sighted readers but essential to others. The <code>lang="en"</code> attribute tells a screen reader which language to pronounce, and descriptive text supplied by the simulation, which p5.js provides through a <code>describe()</code> call, gives assistive technology something to announce about a canvas that would otherwise be a silent picture. Accessibility begins in the structure of the page, and Chapter 24 returns to it.</p>
+<p>The table below summarizes the tags used in this file and their roles.</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Role in a MicroSim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;head&gt;</code></td>
+<td>Holds the page title and loads libraries</td>
+</tr>
+<tr>
+<td><code>&lt;script src="..."&gt;</code></td>
+<td>Loads JavaScript from a file or from a library address</td>
+</tr>
+<tr>
+<td><code>&lt;main&gt;</code></td>
+<td>Marks where the simulation draws itself</td>
+</tr>
+<tr>
+<td><code>&lt;body&gt;</code></td>
+<td>Holds everything the reader sees</td>
+</tr>
+</tbody>
+</table>
+<h3 id="css">CSS</h3>
+<p><strong>CSS</strong> (Cascading Style Sheets) is the language that controls the appearance of HTML elements: colors, fonts, spacing, and layout. Where HTML says what is on the page, CSS says how it looks. A CSS <em>rule</em> has a selector that picks which elements it applies to, and a list of properties to set.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">aliceblue</span><span class="p">;</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">silver</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This rule selects the <code>&lt;main&gt;</code> element and gives it a pale blue background and a thin silver border. In this book's standard MicroSim layout, the drawing region is aliceblue and the control region is white, separated by a silver border, so this small rule is the visual convention in miniature. CSS also decides how a layout responds to different screen widths, which is the subject of Chapter 12.</p>
+<h3 id="javascript">JavaScript</h3>
+<p><strong>JavaScript</strong> is the programming language that runs inside web browsers and makes pages interactive. It is where a simulation's model lives: the rules that move the ball, the code that reads a slider, and the code that redraws the picture many times per second. If HTML is the structure and CSS is the appearance, JavaScript is the behavior.</p>
+<p>Before reading the next example, learn its key ideas. A <em>variable</em> stores a value, such as the ball's height. A <em>function</em> is a named block of code that can be run when needed. The p5.js library, which we discuss next, calls a function named <code>draw</code> about sixty times per second, and each call redraws the picture.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w">        </span><span class="c1">// the ball's height from the top, in pixels</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w">     </span><span class="c1">// downward speed, in pixels per frame</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">gravity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span><span class="w"> </span><span class="c1">// how much speed is added each frame</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">createCanvas</span><span class="p">(</span><span class="mf">400</span><span class="p">,</span><span class="w"> </span><span class="mf">400</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">background</span><span class="p">(</span><span class="s1">'aliceblue'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">speed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gravity</span><span class="p">;</span><span class="w">   </span><span class="c1">// gravity increases the speed</span>
+<span class="w">  </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">speed</span><span class="p">;</span><span class="w">             </span><span class="c1">// the speed moves the ball</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">     </span><span class="c1">// the ball has hit the floor</span>
+<span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">speed</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span><span class="w">    </span><span class="c1">// reverse direction and lose some energy</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">fill</span><span class="p">(</span><span class="s1">'orangered'</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">circle</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="mf">40</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The three variables describe the state of the system. The <code>setup</code> function runs once and creates the canvas. The <code>draw</code> function runs repeatedly. Each time, it adds gravity to the speed, moves the ball by the speed, checks whether the ball has reached the floor, and if so reverses the speed while keeping 80 percent of it. That last multiplication is the "bounciness" parameter from our earlier lab. You have just read a complete simulation of falling and bouncing in fourteen lines.</p>
+<p>The <strong>worked example</strong> above also shows why simulations are powerful teaching tools. The rules of the model are visible in the code, and every parameter, such as <code>gravity</code> and <code>0.8</code>, is a candidate for a slider.</p>
+<h3 id="javascript-library">JavaScript Library</h3>
+<p>A <strong>JavaScript library</strong> is a collection of prewritten code that a program can load and reuse, so that developers do not rebuild common capabilities from scratch. The bouncing-ball example calls <code>createCanvas</code>, <code>background</code>, <code>fill</code>, and <code>circle</code>. None of those are built into JavaScript. They come from p5.js, a library for drawing and interaction. MicroSims use different libraries for different jobs:</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>What it provides</th>
+<th>Typical MicroSim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p5.js</td>
+<td>Drawing, animation, and controls</td>
+<td>Physics and custom simulations</td>
+</tr>
+<tr>
+<td>Chart.js</td>
+<td>Bar, line, pie, and other charts</td>
+<td>Data explorers</td>
+</tr>
+<tr>
+<td>Plotly</td>
+<td>Scientific and mathematical plots</td>
+<td>Function plotters</td>
+</tr>
+<tr>
+<td>Mermaid</td>
+<td>Flowcharts and diagrams from text</td>
+<td>Process diagrams</td>
+</tr>
+<tr>
+<td>vis-network</td>
+<td>Interactive graphs of nodes and edges</td>
+<td>Concept maps</td>
+</tr>
+<tr>
+<td>vis-timeline</td>
+<td>Timelines you can zoom and pan</td>
+<td>Historical sequences</td>
+</tr>
+<tr>
+<td>Leaflet</td>
+<td>Interactive maps</td>
+<td>Geographic data</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>worked example</strong> shows how much a library saves. Drawing a bar chart with only the browser's built-in tools takes hundreds of lines to compute scales, draw axes, and place labels. With Chart.js, the author describes the chart and the library does the drawing. Before the code, note its three parts: <code>type</code> chooses the kind of chart, <code>labels</code> names the bars, and <code>data</code> supplies their heights.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ow">new</span><span class="w"> </span><span class="nx">Chart</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'chart'</span><span class="p">),</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'bar'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'p5.js'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Chart.js'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Mermaid'</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Sims built'</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">]</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>The numbers here are placeholders to show the shape of the call. The point is that the author states <em>what</em> the chart contains and the library decides <em>how</em> to draw it.</p>
+<p>We use this table to preview the type families that Chapters 4 through 11 cover in depth. The point for now is that choosing a library is choosing a set of ready-made capabilities, and that the right choice depends on what the learner needs to see.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Pin the Version</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A library changes over time, and a sketch written for an older version can break under a newer one. Write the exact version number into the address, as in <code>p5@2.3.2</code>, and you avoid the surprise that your MicroSim worked yesterday and fails today.</p>
+</div>
+<h3 id="cdn">CDN</h3>
+<p>A <strong>content delivery network (CDN)</strong> is a network of servers that hosts files and delivers them from a location near the reader. MicroSims use CDNs to load libraries: instead of copying p5.js into every project, the page points to its address on a CDN, and the browser downloads it. The address in our earlier example, <code>https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.js</code>, names a CDN host, the library, an exact version, and the file.</p>
+<p>The convenience has a cost that matters for classrooms. A MicroSim that loads its library from a CDN needs an internet connection the first time, and it depends on the CDN staying available. We accept those trade-offs for most books, and Chapter 2 discusses when a local copy is better.</p>
+<h3 id="iframe-embedding">iframe Embedding</h3>
+<p>An <strong>iframe</strong> is an HTML element that displays one web page inside another. An author who wants to include a MicroSim in a chapter does not paste its code into the chapter. Instead, the chapter contains a single tag that points to the MicroSim's page, and the browser shows that page in a rectangular window.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"main.html"</span> <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span> <span class="na">height</span><span class="o">=</span><span class="s">"452"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>src</code> says which page to show. The <code>width</code> of 100 percent makes the frame fill its container, which is what lets a MicroSim adapt to different screens. The <code>height</code> is fixed in pixels, and it must match the MicroSim's own height or the bottom of the simulation is cut off. The <code>scrolling="no"</code> turns off scroll bars so that the frame does not scroll inside the page.</p>
+<p>This one tag is why MicroSims are <em>universally embeddable</em>. The same MicroSim can appear in a MkDocs book, a school learning management system, a slide deck, or a blog post, because every one of those can display an iframe. The embedding page never has to understand the MicroSim's code.</p>
+<p>A <strong>worked example</strong> shows the failure that the height rule prevents. A MicroSim with a 400-pixel drawing region and a 50-pixel control region needs an iframe about 452 pixels tall. If the author sets the height to 400, the sliders sit below the visible edge and the learner can never reach them. Chapter 12 shows how tools measure and fix this automatically.</p>
+<p>The diagram below shows the technology stack from the bottom to the top. Click any layer to see what it adds.</p>
+<h4 id="diagram-microsim-technology-stack">Diagram: MicroSim Technology Stack</h4>
+<iframe src="../../sims/microsim-technology-stack/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/microsim-technology-stack/main.html">Run the MicroSim Technology Stack MicroSim Fullscreen</a></p>
+<details>
+<summary>MicroSim Technology Stack</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> microsim-technology-stack<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: describe): The learner will describe what HTML5, CSS, JavaScript, a JavaScript library, a CDN, and an iframe each contribute to a running MicroSim.</p>
+<p>Layout: a vertical stack of six labeled layers, drawn as rounded rectangles of different colors, with the browser shown as a frame around the top. From bottom to top: CDN (delivers the library), JavaScript library, JavaScript (the model and behavior), CSS (appearance), HTML5 (structure), and iframe (the window into the hosting page).</p>
+<p>Interactions: clicking a layer expands a panel to the right with a one-sentence role, a three-line code sample, and one thing that breaks if the layer is missing. Hovering a layer highlights the layers it depends on. A "Break it" button removes the selected layer and shows what the simulated MicroSim would look like without it (for example, unstyled or blank).</p>
+<p>Responsive design: layers stretch to the container width, and the detail panel moves below the stack under 600 pixels.</p>
+<p>Implementation: p5.js with rectangular hit regions and a text panel drawn on the canvas.</p>
+</details>
+<h2 id="publishing-from-files-to-a-live-book">Publishing: From Files to a Live Book</h2>
+<p>A MicroSim is only useful once learners can reach it. The remaining technologies in this chapter turn a folder of files into a live book.</p>
+<h3 id="mkdocs">MkDocs</h3>
+<p><strong>MkDocs</strong> is a static site generator for documentation: a program that reads a folder of Markdown text files and a configuration file and produces a complete website of plain HTML pages. This book uses MkDocs with the Material theme, which adds navigation, search, admonition boxes such as the mascot's, and a clean responsive design. <em>Markdown</em> is a lightweight text format in which a pound sign starts a heading and asterisks make text bold, so authors write text without HTML tags.</p>
+<p>Two files matter most. The <code>mkdocs.yml</code> file holds the site title, the theme, and the navigation menu. The <code>docs</code> folder holds the Markdown pages and each MicroSim's folder. A fragment of the navigation setting shows how a chapter appears in the menu.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">nav</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Chapters</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">List of Chapters</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chapters/index.md</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"1.</span><span class="nv"> </span><span class="s">What</span><span class="nv"> </span><span class="s">Is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">MicroSim"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chapters/01-what-is-a-microsim/index.md</span>
+</code></pre></div></td></tr></table></div>
+<p>Each line pairs a menu label with the path of a Markdown file. To preview the site while writing, run <code>mkdocs serve</code>, which builds the pages and serves them on your own computer at a local address, updating the display as you save changes. To produce the finished site, run <code>mkdocs build</code>.</p>
+<p>Markdown is deliberately plain. The lines below produce a heading, a bold phrase, a bulleted list, and an embedded MicroSim, and they are all that an author writes.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gu">## The Bouncing Ball</span>
+
+Set <span class="gs">**gravity**</span> and predict the result.
+
+<span class="k">-</span><span class="w"> </span>Move the slider
+<span class="k">-</span><span class="w"> </span>Press Drop Again
+
+&lt;iframe src="../../sims/bouncing-ball-gravity-lab/main.html" width="100%" height="502px"&gt;&lt;/iframe&gt;
+</code></pre></div></td></tr></table></div>
+<p>A <strong>worked example</strong> follows a chapter through MkDocs. You write <code>index.md</code> in a chapter folder. MkDocs converts its Markdown to HTML, applies the theme, adds it to the navigation menu, and builds a search index. The MicroSim iframe in the page then loads <code>main.html</code> from the MicroSim's own folder. You wrote text, and MkDocs produced a website.</p>
+<p>The next diagram traces the whole path from an author's files to a learner's browser.</p>
+<h4 id="diagram-from-author-to-learner">Diagram: From Author to Learner</h4>
+<iframe src="../../sims/author-to-learner-workflow/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/author-to-learner-workflow/main.html">Run the From Author to Learner MicroSim Fullscreen</a></p>
+<details>
+<summary>From Author to Learner</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> author-to-learner-workflow<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: summarize): The learner will summarize the path a MicroSim takes from an author's files to a learner's browser.</p>
+<p>Diagram: a top-to-bottom flowchart. Author writes files (Markdown, HTML, JavaScript) to Local preview with mkdocs serve to Commit to Git to Push to the GitHub repository to mkdocs gh-deploy builds the site to GitHub Pages serves the pages to Learner's browser loads the page, the iframe, and the library from a CDN.</p>
+<p>Interactions: every step has a click directive that opens an infobox naming the command or tool used and what could go wrong at that step. Hovering the arrow between steps shows the artifact passed along (for example "HTML pages" or "commit").</p>
+<p>Responsive design: the diagram scales to the container width, and long labels wrap.</p>
+<p>Implementation: Mermaid flowchart with click callbacks.</p>
+</details>
+<h3 id="git-version-control">Git Version Control</h3>
+<p><strong>Git</strong> is a version control system: software that records every change to a set of files, so that you can see what changed, undo a mistake, and work with others without overwriting their edits. Each saved snapshot is called a <em>commit</em>, and it carries a message explaining why the change was made. The basic cycle is to stage the files you changed, commit them, and push the commits to a shared copy of the repository.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>docs/chapters/01-what-is-a-microsim/index.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Write Chapter 1 content"</span>
+git<span class="w"> </span>push
+</code></pre></div></td></tr></table></div>
+<p>Git is also how this book keeps its history. The original MicroSims 1.0 book is preserved as a tagged version, so a reader can always return to it.</p>
+<h3 id="github-pages">GitHub Pages</h3>
+<p><strong>GitHub Pages</strong> is a hosting service that publishes a repository's static website on the web at no cost for public projects. The command <code>mkdocs gh-deploy</code> builds the site and pushes the result to a special branch that GitHub Pages serves. After a deploy, anyone with the address can read the book and run its MicroSims, with no server for the author to maintain.</p>
+<h3 id="open-educational-resources-and-creative-commons">Open Educational Resources and Creative Commons</h3>
+<p>An <strong>open educational resource (OER)</strong> is teaching and learning material that is free to use and, in most cases, free to adapt and share under an open license. OERs lower the cost of education, and they let teachers customize materials for their own students.</p>
+<p>A <strong>Creative Commons license</strong> is a standard public license that lets an author state, in a simple way, what others may do with a work. This book uses CC BY-NC-SA 4.0, which means that others may copy and adapt the work if they give credit (BY), do not use it commercially (NC), and share their adaptations under the same terms (SA). Because MicroSims are small and self-contained, licensing them clearly is what lets a teacher in one school reuse a simulation built in another.</p>
+<h2 id="instrumented-microsims-simulations-that-report-evidence">Instrumented MicroSims: Simulations That Report Evidence</h2>
+<p>We arrive at the idea that most distinguishes this book from its first edition. An <strong>instrumented MicroSim</strong> is a MicroSim that records meaningful learner interactions, such as changing a control, running a simulation, or answering a question, and reports them as small structured events in a standard format called xAPI, without changing how the MicroSim behaves for the learner. <em>Instrumented</em> is the engineering word for "fitted with sensors."</p>
+<p>Why bother? Because an intelligent textbook needs to know whether learning is happening, and completion checkboxes and page views say little. If a learner moves the gravity slider through a wide range, predicts an outcome, and answers a related question correctly on the first attempt, that sequence is evidence about their understanding. A stream of such events, tied to the concepts in the learning graph, could allow software to estimate which concepts a learner has mastered. That estimate, and how well it can be trusted, is the central question of this book.</p>
+<p>A <strong>worked example</strong> shows the kind of events involved. A learner opens the gravity lab and works through it:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What the learner does</th>
+<th>What kind of event it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Reads the page for several seconds</td>
+<td>Experienced (time spent)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Moves the gravity slider from 0.8 to 1.6 and stops</td>
+<td>Interacted (a control changed)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Predicts "lower" and answers</td>
+<td>Answered (with correct or incorrect)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Presses Drop Again three times</td>
+<td>Experienced (a run of the simulation)</td>
+</tr>
+</tbody>
+</table>
+<p>Later chapters explain which of these count as real evidence and which are noise, such as an accidental click that lasts a fraction of a second.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Evidence, Not Proof</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Every bounce leaves evidence, but evidence is not proof. A learner can change a slider by accident, or guess an answer correctly, so the goal is to combine many small signals and be honest about how far they can be trusted.</p>
+</div>
+<p>We should also be candid about where the field stands. The runtime that produces these events exists, and designs for storing and analyzing them exist. This book has not yet collected data from real learners, so its claims about prediction are hypotheses with an evaluation method attached, not established results. Chapters 18 and 19 show how to test those hypotheses.</p>
+<p>Now test your grasp of the four kinds of object in this chapter with the classifier below.</p>
+<h4 id="diagram-which-kind-of-object-is-it">Diagram: Which Kind of Object Is It?</h4>
+<iframe src="../../sims/which-kind-of-object-classifier/main.html" width="100%" height="492px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/which-kind-of-object-classifier/main.html">Run the Which Kind of Object Is It? MicroSim Fullscreen</a></p>
+<details>
+<summary>Which Kind of Object Is It?</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> which-kind-of-object-classifier<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish learning objects, interactive simulations, MicroSims, and instrumented MicroSims by sorting example descriptions into the correct category.</p>
+<p>Layout: four labeled bins across the bottom of the drawing region (Learning Object, Interactive Simulation, MicroSim, Instrumented MicroSim) and a card in the center that shows one example description at a time. The control region holds a Next button and a score readout.</p>
+<p>Data: at least twelve cards, three per category, such as "A five-minute video on photosynthesis", "A pendulum whose length you can change, in a desktop application", "A two-slider ball simulation embedded in a chapter with a metadata file", and "The same simulation that also sends slider and answer events to a record store".</p>
+<p>Interactions: the learner drags a card to a bin. A correct placement turns the bin green and shows a one-sentence explanation. An incorrect placement shakes the card and shows the property that the example is missing. The score shows correct answers out of attempts, and cards are shuffled on each run.</p>
+<p>Responsive design: bin widths and card size scale with the container width on window resize, and text wraps inside cards.</p>
+<p>Implementation: p5.js with mouse drag events and describe() text for screen readers.</p>
+</details>
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>We can now trace one MicroSim through everything in this chapter. An author states a learning objective and writes a prompt. An AI agent loads a skill, asks a language model for code, and writes an HTML file, a JavaScript file that uses a library from a CDN, and a metadata file. The simulation is a MicroSim because it is small, interactive, embeddable, and described. The author previews it with MkDocs, commits it with Git, and deploys it to GitHub Pages. Readers see it through an iframe in a chapter of an intelligent textbook. If it is instrumented, it also reports events that flow toward a record store. Each part of that story has a chapter of its own later in the book.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Have the Vocabulary</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now tell a learning object from an interactive simulation, a MicroSim, and an instrumented MicroSim, and you know how AI and web technologies combine to produce them. That foundation carries you into every chapter ahead.</p>
+</div>
+<p>The key ideas of this chapter are:</p>
+<ul>
+<li>A learning object is a reusable unit of instruction, and an interactive simulation is a learning object with a model and immediate interaction.</li>
+<li>A MicroSim is a small, AI-generated, embeddable, width-responsive, described interactive simulation, and an instrumented MicroSim also reports learner events through xAPI.</li>
+<li>Generative AI, large language models, prompts, skills, and agents form the machinery that generates MicroSims, and every generated result must be tested.</li>
+<li>HTML5, CSS, and JavaScript make up a web page; libraries add capabilities; CDNs deliver them; iframes embed a MicroSim in any page.</li>
+<li>MkDocs, Git, and GitHub Pages turn files into a published book, and open licenses let others reuse the work.</li>
+<li>The central question of this book is how well the events from MicroSims predict concept mastery, and honest evaluation of that question comes later.</li>
+</ul>
+<p>The next chapter opens a MicroSim and examines its files, regions, and metadata in detail.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of Chapters">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                List of Chapters
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-anatomy-of-a-microsim/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Anatomy of a MicroSim">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Anatomy of a MicroSim
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

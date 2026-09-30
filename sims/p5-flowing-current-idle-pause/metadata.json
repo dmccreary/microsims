@@ -1,0 +1,79 @@
+{
+  "title": "Flowing Current and Idle Pause",
+  "description": "A design lab for two p5.js showcase techniques: evenly spaced dots flow along a battery-and-lamp loop defined by corner points (offset modulo spacing, lerp along each segment, hidden inside the lamp), and pause-when-idle stops the animation's progress when the pointer leaves, as shown by a live animation step counter.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["p5.js", "Animation Design", "Flowing Current Animation", "Pause-When-Idle"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/p5-flowing-current-idle-pause/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 505,
+  "chapter": "06-p5js-microsims",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Computer Science",
+    "topic": "Flowing current animation and pause-when-idle in p5.js MicroSims",
+    "learningObjectives": [
+      "The learner will design a flowing-current animation by choosing path, spacing, and speed, and will decide whether pause-when-idle should be on, by observing the effect on the animation and on a live step counter."
+    ],
+    "bloomsTaxonomy": "Create",
+    "bloomVerb": "design",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Flowing Current Animation and Pause-When-Idle Animation sections (Chapter 6)",
+      "The animation loop and frame rate (Chapter 6)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 505},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": false, "notes": "No flashing; a tap sets the pointer-over flag on touch screens"}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "button", "label": "Start / Pause", "default": "paused"},
+      {"type": "checkbox", "label": "Pause when idle", "default": true},
+      {"type": "checkbox", "label": "Reverse direction", "default": false},
+      {"type": "slider", "label": "Dot spacing (pixels)", "min": 12, "max": 48, "default": 24, "step": 1},
+      {"type": "slider", "label": "Flow speed (pixels per frame)", "min": 0.5, "max": 4, "default": 1.5, "step": 0.1}
+    ]
+  },
+  "simulation": {
+    "modelType": "Path animation",
+    "variables": ["flowOffset", "dot spacing", "flow speed", "mouseOverSim", "animation steps"],
+    "equations": [
+      "first dot at flowOffset mod spacing, then every spacing pixels along the path",
+      "dot position = lerp(corner i, corner i+1, t) inside the segment containing its distance",
+      "advancing = running AND (pause-when-idle off OR pointer over the sim)"
+    ],
+    "assumptions": ["Speed is per frame, so the real speed follows the frame rate (lap time shown at 60 fps)"],
+    "limitations": ["The dots visualize conventional current; they are not a model of electron speed"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Design by iteration with a live measurement (step counter and lap time)",
+    "keyQuestions": [
+      "Which spacing and speed make the direction of flow obvious without blur?",
+      "What exactly stops when the pointer leaves, and what keeps running?",
+      "When should pause-when-idle be off?"
+    ],
+    "commonMisconceptions": [
+      "Pause-when-idle stops draw() entirely",
+      "Faster flow is always clearer",
+      "The dot speed represents the speed of electrons"
+    ],
+    "assessmentOpportunities": [
+      "A justified design choice of spacing, speed and direction",
+      "A written decision on pause-when-idle for a given page"
+    ]
+  }
+}

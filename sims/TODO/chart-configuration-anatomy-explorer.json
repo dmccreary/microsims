@@ -1,0 +1,15 @@
+{
+  "sim_id": "chart-configuration-anatomy-explorer",
+  "diagram_name": "Chart Configuration Anatomy Explorer",
+  "chapter_number": 7,
+  "chapter_title": "Charts, Plots and Tables",
+  "chapter_dir": "07-charts-plots-and-tables",
+  "chapter_rel_dir": "chapters/07-charts-plots-and-tables",
+  "library": "Chart.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain which part of a chart configuration (type, data or options) controls each visible feature of a chart, by editing values and observing the result.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** chart-configuration-anatomy-explorer<br/>\n**Library:** Chart.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain which part of a chart configuration (type, data or options) controls each visible feature of a chart, by editing values and observing the result.\n\nLayout: two panels side by side. The left panel is a text region showing the chart configuration as color-coded blocks, one color each for `type`, `data` and `options`. The right panel is a canvas showing the chart. On narrow screens the panels stack.\n\nControls:\n\n- Dropdown \"Chart type\" with bar, line and pie. Changing it rewrites the `type` block only\n- Editable number fields for each value in the first dataset, which rewrite the `data` block\n- Checkbox \"Responsive\" and dropdown \"Legend position\" (top, bottom, left, right), which rewrite the `options` block\n- Button \"Add dataset\", which appends a second dataset object with its own label and colors\n\nInteractions: hovering a color-coded block highlights the chart features it controls. Hovering any chart element shows a tooltip naming the configuration path that produced it, for example `data.datasets[0].data[1]`. A \"Break it\" button removes one label and shows the resulting mismatch between labels and values.\n\nResponsive design: the canvas width follows the container width on window resize, and the two panels stack vertically below 600 pixels.\n\nImplementation: Chart.js 4.4.0 from a CDN, with the chart rebuilt from the configuration object and `chart.update()` called after each edit."
+}

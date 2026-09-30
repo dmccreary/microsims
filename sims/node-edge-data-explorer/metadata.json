@@ -1,0 +1,81 @@
+{
+  "title": "Node and Edge Data Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Networks; Knowledge Representation",
+  "description": "Interactive vis-network concept map of eight Chapter 8 concepts in which learners add nodes, connect them with labeled relationships, swap edge directions, drag nodes and switch between fixed and physics layouts while a panel shows the JSON data of the selected node or edge.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Node and edge data for concept maps",
+    "learningObjectives": [
+      "The learner will implement a small concept map by editing node and edge data and observing how each change alters the drawn network."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "implement",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Graph vocabulary: nodes, edges, directed edges",
+      "Node and edge data fields from Chapter 8"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "frameworkVersion": "9.1.9",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": [
+      "https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js",
+      "https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "text", "label": "New concept"},
+      {"type": "button", "label": "Add node"},
+      {"type": "select", "label": "Relationship"},
+      {"type": "toggle", "label": "Connect"},
+      {"type": "button", "label": "Swap direction"},
+      {"type": "button", "label": "Reset"},
+      {"type": "radio", "label": "Layout", "options": ["fixed", "physics"]}
+    ]
+  },
+  "graph": {
+    "nodeCount": 8,
+    "edgeCount": 8,
+    "relationships": ["is drawn with", "is a kind of", "is an alternative to", "computes", "raises", "arranges"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Hands-on implementation with immediate visual feedback",
+    "interactionPattern": "Edit data, observe drawing, inspect JSON",
+    "keyQuestions": [
+      "Which field decides where an arrow points?",
+      "When is a fixed layout better than a physics layout?"
+    ],
+    "commonMisconceptions": [
+      "Edge direction is cosmetic and can be reversed without changing meaning.",
+      "A physics layout gives the same picture every time without a seed."
+    ],
+    "assessmentOpportunities": [
+      "Add an edge from a written sentence with the correct from, to and label",
+      "Compare fixed and physics layouts for small and large graphs"
+    ]
+  },
+  "chapter": "08-diagrams-networks-and-systems"
+}

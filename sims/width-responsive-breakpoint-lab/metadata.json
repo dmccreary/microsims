@@ -1,0 +1,144 @@
+{
+  "title": "Width-Responsive Breakpoint Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Width Responsiveness",
+    "Container Width Detection",
+    "windowResized Handler",
+    "Mobile Layout",
+    "p5.js"
+  ],
+  "description": "Drag the edge of a simulated container around a miniature MicroSim and toggle windowResized and slider resizing to see the canvas clip, leave blank space or keep up, and the slider track overshoot or fit.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/width-responsive-breakpoint-lab/",
+  "canvasHeight": 535,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "How container width detection and windowResized keep a MicroSim usable",
+    "learningObjectives": [
+      "The learner will demonstrate how container width detection and the windowResized handler keep a MicroSim usable, by dragging a container edge and switching the handler and slider resizing on and off."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "demonstrate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Width Responsiveness, Container Width Detection and windowResized Handler sections of Chapter 12",
+      "Reading a p5.js setup() and draw() function"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 535
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() reports the container, canvas and slider widths after every change; the drag handle is at least 24 px tall and wide enough for touch"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "container-edge",
+        "type": "drag handle",
+        "label": "Container right edge",
+        "min": 280,
+        "max": 900,
+        "default": 600,
+        "units": "px",
+        "purpose": "Set the simulated container width"
+      },
+      {
+        "id": "call-windowresized",
+        "type": "checkbox",
+        "label": "Call windowResized",
+        "default": true,
+        "purpose": "When off, the mini canvas keeps its load width"
+      },
+      {
+        "id": "resize-sliders",
+        "type": "checkbox",
+        "label": "Resize sliders in the handler",
+        "default": true,
+        "purpose": "When off, the slider track keeps its old length"
+      },
+      {
+        "id": "reload",
+        "type": "button",
+        "label": "Reload page",
+        "purpose": "Re-run setup() and measure the container again"
+      },
+      {
+        "id": "preset",
+        "type": "select",
+        "label": "Preset width",
+        "options": [
+          "Phone 375",
+          "Tablet 768",
+          "Desktop 1024 (clamped to 900)"
+        ],
+        "purpose": "Jump to a common device width"
+      },
+      {
+        "id": "mini-elements",
+        "type": "clickable regions",
+        "label": "Ball, slider, buttons, canvas, container",
+        "purpose": "Name the function responsible for each width"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-toggle parameter exploration",
+    "interactionPattern": "Direct manipulation of a container with independent mechanism toggles and diagnostic readouts",
+    "keyQuestions": [
+      "What breaks if windowResized() is never called?",
+      "Why must every slider be resized in the handler?",
+      "Why does reloading fix the width only until the next resize?"
+    ],
+    "commonMisconceptions": [
+      "A canvas resizes itself when its container changes",
+      "p5.js sliders shrink with the canvas",
+      "Measuring the width once in setup() is enough"
+    ],
+    "assessmentOpportunities": [
+      "Reproducing the clipped, blank-space and overshoot states",
+      "Naming the missing line of code for a given failure"
+    ]
+  },
+  "search": {
+    "tags": [
+      "width responsive",
+      "windowResized",
+      "updateCanvasSize",
+      "resizeCanvas",
+      "slider size",
+      "breakpoint",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "interactive diagram"
+    ]
+  },
+  "chapter": "12-width-responsive-design-and-iframe-heights"
+}

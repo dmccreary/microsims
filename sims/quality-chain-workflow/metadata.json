@@ -1,0 +1,128 @@
+{
+  "title": "Quality Chain Workflow",
+  "description": "A top-to-bottom Mermaid flowchart: Validate score, Capture screenshot, Layout review, Iframe height test and Quality gate, which passes to Carry into the book or fails to Patch source and back to Capture screenshot; Layout review escalates to a person after the third cycle. Every node opens its definition, tool and command, and chapter section; every arrow opens its condition. Trace a failure steps through the path of a MicroSim that fails the height test.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Quality Assurance",
+    "MicroSim Engineering"
+  ],
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/quality-chain-workflow/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The quality chain and the quality gate",
+    "learningObjectives": [
+      "The learner will explain the order of the quality chain, what each step checks, and what happens after a failure."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The quality score, screenshot capture, layout review and height tests (Chapter 13)"
+    ],
+    "concepts": [
+      "Quality Gate",
+      "Validation Script",
+      "Screenshot Capture",
+      "Layout Review",
+      "Iframe Height Test",
+      "Fix Cycle Limit"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "libraryVersion": "10.9.8",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "Mermaid 10.9.8 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Text alternatives are provided with aria-label attributes; controls are native HTML elements."
+    },
+    "diagram": {
+      "type": "flowchart",
+      "direction": "TD",
+      "nodeCount": 8,
+      "edgeCount": 8,
+      "clickDirectives": 8
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "diagram-click",
+        "label": "Any node",
+        "action": "Show definition, tool and command, and chapter section"
+      },
+      {
+        "type": "diagram-click",
+        "label": "Any edge or edge label",
+        "action": "Show the condition for taking it"
+      },
+      {
+        "type": "button",
+        "label": "Trace a failure / Next step",
+        "action": "Step through the path of a MicroSim that fails the height test"
+      },
+      {
+        "type": "button",
+        "label": "Clear"
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Process flowchart with a feedback loop",
+    "variables": [
+      "current step",
+      "gate outcome",
+      "review cycle"
+    ],
+    "equations": [],
+    "assumptions": [
+      "The chain order follows the chapter's recommended sequence."
+    ],
+    "limitations": [
+      "The gate is applied by a person reading the results; no script enforces it yet."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore, then follow a worked failure step by step",
+    "interactionPattern": "Clickable flowchart with step-through trace (Understand level)",
+    "keyQuestions": [
+      "What does each step catch that the others miss?",
+      "Where does a failure send the MicroSim, and why there?",
+      "When does a person take over?"
+    ],
+    "commonMisconceptions": [
+      "A high quality score means the MicroSim is ready for the book.",
+      "After a patch, only the failed check needs to run again.",
+      "The layout review can keep patching until the MicroSim looks right."
+    ],
+    "assessmentOpportunities": [
+      "The learner lists the five checks in order and says what each one catches that the others miss.",
+      "The learner describes the path after a height-test failure, including the patch and the re-capture."
+    ]
+  },
+  "chapter": "13-quality-assurance-and-automated-layout-review",
+  "canvasHeight": 560
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "policy-precedence-resolver",
+  "diagram_name": "Policy Precedence Resolver",
+  "chapter_number": 17,
+  "chapter_title": "Instrumenting MicroSims with the xAPI Runtime",
+  "chapter_dir": "17-instrumenting-microsims-with-the-xapi-runtime",
+  "chapter_rel_dir": "chapters/17-instrumenting-microsims-with-the-xapi-runtime",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Determine",
+  "learning_objective": "The learner will determine the final `compact` and `teaching` values for a MicroSim by applying the five policy layers in order, and will identify which layer supplied each value.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** policy-precedence-resolver<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: determine): The learner will determine the final `compact` and `teaching` values for a MicroSim by applying the five policy layers in order, and will identify which layer supplied each value.\n\nLayout: the drawing region shows five stacked horizontal bars, lowest priority at the bottom (runtime defaults) and highest at the top (URL switch). Each bar shows the two keys `compact` and `teaching` as small boxes reading true, false or \"not set\". To the right, a result box shows the resolved values. The control region is white below the drawing region.\n\nControls:\n\n- Three dropdowns \"Book config\", \"metadata.json\" and \"URL switch\", each with choices for the two keys (not set, true, false, and for the URL the tokens teaching, production, full, compact)\n- Button \"Resolve\" that animates a highlight from the bottom bar upward, overwriting the running value wherever a layer sets a key\n- Button \"Reset\" that returns every layer to its starting state\n- Checkbox \"Show which layer won\" that labels each resolved value with its source layer\n\nData: the runtime defaults are fixed at compact true and teaching false, matching the runtime. One preset button loads the worked example from the text.\n\nInteractions: hovering a bar shows a tooltip naming the layer and its file. Every hover tooltip text is also written to the console as a log line so it can later feed an activity log.\n\nResponsive design: the canvas width follows the container width on every window resize, the bars scale to the width, and the controls wrap onto a second row below 500 pixels.\n\nImplementation: p5.js with createSelect and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

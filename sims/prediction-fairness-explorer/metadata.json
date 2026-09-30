@@ -1,0 +1,140 @@
+{
+  "title": "Prediction Fairness Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics Ethics",
+    "Bias in Prediction",
+    "Mastery Prediction",
+    "Small-Group Suppression",
+    "Data Visualization"
+  ],
+  "description": "A Chart.js grouped bar chart of a mastery prediction's under- and over-estimation rates for three synthetic learner groups (pointer users, keyboard users, shared device), with dashed pooled-average lines, three scenarios (even error, hidden gap, small group) and a suppression threshold that hides small groups. All numbers are synthetic.",
+  "date": "2026-09-30",
+  "type": "Interactive Chart",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/prediction-fairness-explorer/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Comparing prediction error across learner groups",
+    "learningObjectives": [
+      "The learner will critique a mastery prediction by comparing its error across learner groups, and decide whether a pooled average hides a gap."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "critique",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Mastery prediction and held-out assessment (Chapters 18 and 19)",
+      "Bias in prediction and the suppression threshold (Chapters 21 and 24)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native labeled controls; the chart canvas has role=img and an aria-label summarizing current values; a screen-reader-only data table is updated with every change; the message area is an aria-live region; blue and orange series are a color-blind-safe pair and the pooled lines differ in dash pattern"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "scenario",
+        "type": "select",
+        "label": "Scenario",
+        "purpose": "Choose Even error, Hidden gap or Small group"
+      },
+      {
+        "id": "threshold",
+        "type": "range",
+        "label": "Threshold",
+        "range": "5-20, default 10",
+        "purpose": "Hide any group with fewer learners than the threshold"
+      },
+      {
+        "id": "pooled",
+        "type": "checkbox",
+        "label": "Show pooled average",
+        "purpose": "Show or hide the pooled under- and over-estimation lines"
+      },
+      {
+        "id": "reset",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Return to Hidden gap, threshold 10, pooled lines on"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Per-group error rates computed from synthetic counts; pooled rate = total errors / total learners",
+    "variables": [
+      "group size n",
+      "under-estimated count",
+      "over-estimated count",
+      "suppression threshold"
+    ],
+    "equations": [
+      "group rate = errors in group / learners in group",
+      "pooled rate = sum of errors / sum of learners"
+    ],
+    "assumptions": [
+      "All counts are invented to illustrate the method; no real learner data exists",
+      "A gap of 10 or more percentage points above the pooled rate is flagged"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Critique of a summary statistic by disaggregation",
+    "interactionPattern": "Scenario comparison with a threshold slider and feedback messages",
+    "keyQuestions": [
+      "Does the pooled error rate describe every group fairly?",
+      "In which direction is each group mis-estimated?",
+      "What does suppressing a small group protect, and what does it hide?"
+    ],
+    "commonMisconceptions": [
+      "An acceptable pooled error means the model is fair to every group",
+      "Suppression has no cost for fairness analysis",
+      "Under- and over-estimation can be merged into one error number without loss"
+    ],
+    "assessmentOpportunities": [
+      "Stating whether each scenario hides a gap, with group, direction and size",
+      "Explaining the suppression trade-off",
+      "Drafting a limits sentence"
+    ]
+  },
+  "search": {
+    "tags": [
+      "fairness",
+      "bias",
+      "mastery prediction",
+      "pooled average",
+      "suppression",
+      "synthetic data",
+      "Chart.js"
+    ],
+    "visualizationType": [
+      "chart",
+      "bar-chart"
+    ]
+  },
+  "chapter": "24-pedagogy-accessibility-and-ethics"
+}

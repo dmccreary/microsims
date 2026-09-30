@@ -1,0 +1,15 @@
+{
+  "sim_id": "microsim-directory-audit",
+  "diagram_name": "MicroSim Directory Audit",
+  "chapter_number": 2,
+  "chapter_title": "Anatomy of a MicroSim",
+  "chapter_dir": "02-anatomy-of-a-microsim",
+  "chapter_rel_dir": "chapters/02-anatomy-of-a-microsim",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Critique",
+  "learning_objective": "The learner will critique a MicroSim directory by finding planted defects and judging which ones would break embedding, discovery or display.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** microsim-directory-audit<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: critique): The learner will critique a MicroSim directory by finding planted defects and judging which ones would break embedding, discovery or display.\n\nLayout: a drawing region above a control region. The drawing region shows a file tree on the left and a viewer pane on the right that displays the selected file's text. The control region holds the buttons.\n\nData: three sample directories, each with three to five planted defects drawn from this chapter: a script address with no version, a `CANVAS_HEIGHT` comment that does not equal drawHeight plus controlHeight, an iframe height that is not the constant plus 2, a missing schema meta tag, a missing preview image, a folder name with an uppercase letter, and Dublin Core fields placed in the front matter.\n\nInteractions: the learner clicks a file to read it and clicks a line to flag it as a defect. The \"Check audit\" button marks each flag correct or a false alarm, lists the defects still missing, and for each found defect shows a one-sentence explanation of what would go wrong. A \"Severity\" dropdown on each flag lets the learner rate it as cosmetic, discovery, display or breaks-embedding, and the checker compares the rating to the rubric.\n\nBehavior: the score shows defects found, false alarms and rating accuracy. \"Next directory\" loads the next sample in a shuffled order.\n\nResponsive design: the file tree and viewer pane stack vertically when the width is under 600 pixels, and text wraps inside the viewer on window resize.\n\nImplementation: p5.js with mouse click handlers, a data array of sample files with planted defects, and describe() text for screen readers."
+}

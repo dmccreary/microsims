@@ -1,0 +1,142 @@
+{
+  "title": "Quality Score Calculator",
+  "description": "The 100-point rubric of validate-sims.py as a checklist in seven groups (main.html 10, metadata.json 30, index.md 35, screenshot 5, lesson plan 10, references 5, p5.js conventions 5), with the script's gates. The score, a 0-100 bar with ticks at 50, 70 and 85, and a colored grade update as checks are ticked. Presets load Bouncing Ball (82), A-star (74) and a blank folder; Suggest cheapest fix highlights the unticked check worth the most points.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Quality Assurance",
+    "MicroSim Engineering"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/quality-score-calculator/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The 100-point quality rubric and grades",
+    "learningObjectives": [
+      "The learner will calculate the quality score and grade of a MicroSim by ticking which rubric checks it satisfies, and will identify the cheapest change that reaches the 85 threshold."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "The files of a MicroSim folder and the metadata sections (Chapter 2)",
+      "The quality score and rubric table (Chapter 13)"
+    ],
+    "concepts": [
+      "Quality Score",
+      "100-Point Rubric",
+      "Quality Grade",
+      "Validation Script",
+      "Quality Gate"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 620
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() provides a screen-reader description; all controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "checkbox",
+        "label": "One checkbox per rubric check (19) plus \"Not a p5.js MicroSim\""
+      },
+      {
+        "type": "select",
+        "label": "Core fields missing",
+        "options": [
+          "0-1",
+          "2-3",
+          "4-5"
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Load example",
+        "options": [
+          "Bouncing Ball (score 82)",
+          "A-star (score 74)",
+          "Blank folder"
+        ]
+      },
+      {
+        "type": "button",
+        "label": "Suggest cheapest fix"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show gate line",
+        "default": true
+      },
+      {
+        "type": "canvas-click",
+        "label": "Grade letter",
+        "action": "Show the band table and recommended actions"
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Additive scoring rubric with gates",
+    "variables": [
+      "check states",
+      "group scores",
+      "total score",
+      "grade"
+    ],
+    "equations": [
+      "score = main.html + metadata.json + index.md + screenshot + lesson plan + references + p5.js conventions",
+      "grade: A >= 85, B 70-84, C 50-69, D < 50"
+    ],
+    "assumptions": [
+      "The rubric and gates are those of validate-sims.py in microsim-utils."
+    ],
+    "limitations": [
+      "Invalid JSON in metadata.json (10 points only) and a missing index.md are described, not modeled."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked calculation with immediate feedback",
+    "interactionPattern": "Calculator with presets (Apply level)",
+    "keyQuestions": [
+      "Which unticked check is worth the most right now?",
+      "Why can ticking a check sometimes add nothing?",
+      "What else does the gate require besides the score?"
+    ],
+    "commonMisconceptions": [
+      "The quality score measures learning value.",
+      "A score of 85 alone passes the quality gate.",
+      "Every check is worth the same, so the order of fixes does not matter."
+    ],
+    "assessmentOpportunities": [
+      "Given a list of a MicroSim's issues, the learner computes its score and grade correctly.",
+      "The learner names the single change with the largest gain and the fewest changes that reach 85."
+    ]
+  },
+  "chapter": "13-quality-assurance-and-automated-layout-review",
+  "canvasHeight": 620
+}

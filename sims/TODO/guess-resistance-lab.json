@@ -1,0 +1,15 @@
+{
+  "sim_id": "guess-resistance-lab",
+  "diagram_name": "Guess Resistance Lab",
+  "chapter_number": 26,
+  "chapter_title": "The Future of MicroSims",
+  "chapter_dir": "26-the-future-of-microsims",
+  "chapter_rel_dir": "chapters/26-the-future-of-microsims",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Compare",
+  "learning_objective": "The learner will compare the chance of a lucky success and the attempts needed to guarantee success across probe designs by changing option count, chained items and retry policy.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** guess-resistance-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: compare): The learner will compare the chance of a lucky success and the attempts needed to guarantee success across probe designs by changing option count, chained items and retry policy.\n\nLayout: a drawing region above a control region, following the standard MicroSim layout. The drawing region is aliceblue with a row of option tiles on the left and a bar chart on the right showing \"chance of success by pure guessing\" for the current design. The control region is white, separated by a silver line.\n\nVisual elements: a row of option tiles (the hidden correct tile outlined), a counter of attempts used, a sequence strip that shows each attempt as a red or green square in order, and the bar chart described above.\n\nControls:\n\n- Slider \"Options\" from 2 to 12 in steps of 1, default 4\n- Slider \"Chained items\" from 1 to 3 in steps of 1, default 1\n- Checkbox \"Allow retry until correct\" (default off)\n- Button \"Guess randomly\" that simulates one random guesser and draws the attempt sequence\n- Button \"Run 1000 guessers\" that draws a histogram of attempts used and reports the fraction who succeed on the first attempt\n\nBehavior: a guesser picks uniformly at random among the options not yet tried. The bar chart always shows \\( 1/\\text{options}^{\\text{chained}} \\) for a first-attempt pure guess. When retry is on, the tool reports that success is guaranteed within the option count and that only the attempt sequence, not the final success, distinguishes a knower from a guesser.\n\nResponsive design: the canvas width follows the container width on every window resize, the tiles wrap to a second row under 500 pixels, and the sliders and buttons remain visible at 400 pixels wide.\n\nImplementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

@@ -1,0 +1,99 @@
+/* MicroSim Directory Explorer - layout
+   Fixed total height (CANVAS_HEIGHT 500): toolbar 44px + body 456px.
+   Wide: file tree on the left, info panel on the right (255px).
+   Under 600px: info panel moves below the tree, total height unchanged. */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+main { display: block; }
+
+#app {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+    background: aliceblue;
+}
+#toolbar {
+    height: 44px;
+    flex: 0 0 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    background: white;
+    border-bottom: 1px solid silver;
+}
+#title { font-size: 19px; font-weight: bold; }
+.spacer { flex: 1; }
+
+#body { flex: 1; display: flex; min-height: 0; }
+#network-wrap { flex: 1; position: relative; min-width: 0; }
+#network { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+
+#panel {
+    flex: 0 0 255px;
+    width: 255px;
+    background: white;
+    border-left: 1px solid silver;
+    padding: 10px 12px;
+    font-size: 15px;
+    line-height: 1.35;
+    overflow: hidden;
+}
+#panel h3 { margin: 2px 0 6px 0; font-size: 17px; font-family: Menlo, Consolas, monospace; }
+#panel p { margin: 0 0 7px 0; }
+#panel .hint { color: dimgray; font-size: 14px; margin-bottom: 8px; }
+#panel .label { font-weight: bold; }
+#panel .good { color: darkgreen; font-weight: bold; }
+#panel .bad { color: firebrick; font-weight: bold; }
+#panel .request {
+    background: lightyellow;
+    border: 1px solid khaki;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 6px 0 8px 0;
+    font-weight: bold;
+}
+#panel .score { font-weight: bold; margin-top: 6px; }
+.swatch {
+    display: inline-block; width: 12px; height: 12px; border-radius: 3px;
+    vertical-align: middle; margin-right: 6px; border: 1px solid #333;
+}
+
+.btn {
+    font-size: 14px;
+    padding: 6px 12px;
+    border: 1px solid steelblue;
+    border-radius: 6px;
+    cursor: pointer;
+    background: white;
+    color: #1f5f99;
+}
+.btn-primary { background: steelblue; color: white; }
+.btn:hover { filter: brightness(0.95); }
+
+/* vis-network hover tooltips */
+div.vis-tooltip {
+    max-width: 230px;
+    white-space: normal !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.3;
+    z-index: 20;
+}
+
+@media (max-width: 599px) {
+    #body { flex-direction: column; }
+    #network-wrap { flex: 0 0 190px; }
+    #panel {
+        flex: 1 1 auto;
+        width: auto;
+        border-left: none;
+        border-top: 1px solid silver;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    #panel h3 { font-size: 16px; margin-bottom: 4px; }
+    #panel p { margin-bottom: 5px; }
+    #title { font-size: 17px; }
+}

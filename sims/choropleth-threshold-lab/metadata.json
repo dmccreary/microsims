@@ -1,0 +1,179 @@
+{
+  "title": "Choropleth Threshold Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Maps",
+    "Choropleth",
+    "Leaflet",
+    "Data Visualization",
+    "Classification"
+  ],
+  "description": "A Leaflet choropleth of US states with clearly labeled placeholder values. Learners move four ordered color thresholds or pick presets, watch the map and class counts update, and judge whether each setting reveals or hides a south-north gradient and a Great Lakes cluster.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/choropleth-threshold-lab/",
+  "canvasHeight": 700,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Choropleth class thresholds and the patterns they reveal or hide",
+    "learningObjectives": [
+      "The learner will judge whether a set of color thresholds reveals or hides a geographic pattern in a dataset."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "judge",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Choropleth maps and the template threshold function (Chapter 9)",
+      "Reading a legend with value ranges"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Leaflet",
+    "version": "1.9.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": [
+      "Leaflet 1.9.4 JS and CSS (unpkg CDN)",
+      "us-states.json GeoJSON from the map template's public URL (raw.githubusercontent.com, fetched at load)",
+      "OpenStreetMap tiles (network required)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "Sliders, select, checkbox and buttons are native controls with labels; the info panel names the class number and range, and the legend lists ranges and counts, so color is not the only channel; legend and feedback are aria-live"
+    },
+    "dataFiles": [
+      "data.json (placeholder value per state, color scale, presets, cluster list)",
+      "style.css"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "thresholdSliders",
+        "type": "slider",
+        "label": "Threshold 1-4",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": [
+          20,
+          40,
+          60,
+          80
+        ],
+        "purpose": "Class breaks between the five colors, kept in increasing order"
+      },
+      {
+        "id": "presetSelect",
+        "type": "select",
+        "label": "Preset",
+        "options": [
+          "Template thresholds",
+          "Equal intervals",
+          "Cluster near 80"
+        ],
+        "purpose": "Load a named set of thresholds"
+      },
+      {
+        "id": "valuesToggle",
+        "type": "checkbox",
+        "label": "Show values on hover",
+        "default": true,
+        "purpose": "Show or hide the numeric value in the info panel"
+      },
+      {
+        "id": "resetViewBtn",
+        "type": "button",
+        "label": "Reset view",
+        "purpose": "Return to the initial map extent"
+      },
+      {
+        "id": "judgeSelects",
+        "type": "select",
+        "label": "North-south gradient / Great Lakes trend",
+        "options": [
+          "revealed",
+          "hidden"
+        ],
+        "purpose": "The learner's judgment for each pattern"
+      },
+      {
+        "id": "checkBtn",
+        "type": "button",
+        "label": "Check",
+        "purpose": "Compare the judgment with the class counts"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judge-then-check with presets that each reveal one pattern and hide another",
+    "interactionPattern": "Parameter sliders on a choropleth with an evaluation prompt and feedback",
+    "keyQuestions": [
+      "Which preset shows the south-north gradient, and which hides it?",
+      "Why do the template thresholds split the Great Lakes cluster?",
+      "Can one set of five classes reveal both patterns, and at what cost?"
+    ],
+    "commonMisconceptions": [
+      "The map shows the data as it is (the thresholds decide what is visible)",
+      "Equal intervals are always neutral (they can hide variation inside a dense range)",
+      "Two regions with the same color have similar values (61 and 80 can share a class)"
+    ],
+    "assessmentOpportunities": [
+      "Accuracy of the revealed/hidden judgments across presets",
+      "Justification of a custom threshold set"
+    ]
+  },
+  "search": {
+    "tags": [
+      "choropleth",
+      "thresholds",
+      "class breaks",
+      "Leaflet",
+      "GeoJSON",
+      "map",
+      "equal intervals",
+      "placeholder data"
+    ],
+    "visualizationType": [
+      "choropleth map"
+    ]
+  },
+  "chapter": "09-timelines-and-maps",
+  "simulation": {
+    "modelType": "Threshold classification of a continuous value into five classes",
+    "variables": [
+      "value per region",
+      "thresholds t1-t4",
+      "class 1-5"
+    ],
+    "equations": [
+      "class = 5 if v > t4; 4 if v > t3; 3 if v > t2; 2 if v > t1; else 1",
+      "equal intervals: t_k = min + k * (max - min) / 5",
+      "a pattern counts as revealed when its regions span at least 3 classes"
+    ],
+    "assumptions": [
+      "Values are invented placeholders built to contain two patterns"
+    ],
+    "limitations": [
+      "The revealed/hidden rule is a simple class-count heuristic, not a statistical test"
+    ]
+  }
+}

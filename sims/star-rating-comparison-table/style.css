@@ -1,0 +1,222 @@
+/* Star Rating Comparison Table - styling
+   Five-color star scale (5 green ... 1 red), difficulty badges, a JS-positioned
+   row tooltip (first row shows it below the row so the header cannot hide it),
+   and horizontal scrolling with a sticky item column below 600px. */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+    color: #333;
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+main {
+    display: block;
+    padding: 6px 10px;
+}
+
+/* ---------- controls ---------- */
+.controls {
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.need {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+}
+
+.need select {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 14px;
+    padding: 3px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 18px;
+}
+
+.weight {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.weight span {
+    display: inline-block;
+    min-width: 12px;
+    font-weight: bold;
+}
+
+.weight input { width: 120px; }
+
+button {
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 5px;
+    border: 1px solid #1d4ed8;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover { background: #1d4ed8; }
+button[aria-pressed="true"] { background: #1e3a8a; box-shadow: inset 0 2px 4px rgba(0,0,0,0.35); }
+button[aria-pressed="true"]::before { content: "\2713  "; }
+button.secondary { background: #f1f5f9; color: #1f2937; border-color: #64748b; }
+button.secondary:hover { background: #e2e8f0; }
+
+button:focus-visible, select:focus-visible, input:focus-visible, tr:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 1px;
+}
+
+.check { cursor: pointer; white-space: nowrap; }
+
+/* ---------- table ---------- */
+.table-wrap {
+    margin-top: 6px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    height: 46px;
+}
+
+.comparison-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    font-size: 13px;
+    height: 34px;
+}
+
+.comparison-table tbody tr:last-child td { border-bottom: none; }
+.comparison-table tbody tr { cursor: default; transition: background-color 0.2s; }
+.comparison-table tbody tr:hover, .comparison-table tbody tr:focus { background-color: #f0f7ff; }
+
+.item-col {
+    font-weight: bold;
+    white-space: nowrap;
+    background: white;
+}
+
+th.item-col { background: #f8f9fa; }
+
+.rating { white-space: nowrap; font-size: 17px; }
+.best-for { font-size: 13px; color: #444; }
+
+.score-col { text-align: center !important; white-space: nowrap; }
+td.score { font-weight: bold; font-size: 15px; color: #1e3a8a; }
+tr.top-score td.score { color: #15803d; }
+tr.top-score td.score::after { content: " \2605"; color: #15803d; }
+
+.num {
+    display: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: #1f2937;
+    margin-left: 4px;
+}
+
+.show-numbers .num { display: inline; }
+
+/* Star rating color system - 5 color scale */
+.stars { letter-spacing: 1px; }
+.stars-empty { color: #d4d4d4; letter-spacing: 1px; }
+.stars-5 { color: #22c55e; } /* Excellent */
+.stars-4 { color: #84cc16; } /* Very good */
+.stars-3 { color: #f59e0b; } /* Good / average */
+.stars-2 { color: #f97316; } /* Below average */
+.stars-1 { color: #ef4444; } /* Poor */
+
+/* Difficulty badges */
+.difficulty {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.difficulty.easy   { background-color: #15803d; }
+.difficulty.medium { background-color: #b45309; }
+.difficulty.hard   { background-color: #b91c1c; }
+
+/* ---------- legend and source ---------- */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #444;
+}
+
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.stars-key span { font-weight: bold; }
+
+.source {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* ---------- row tooltip ---------- */
+.row-tooltip {
+    position: absolute;
+    display: none;
+    max-width: 300px;
+    background-color: #333;
+    color: white;
+    padding: 7px 11px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.35;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 50;
+    pointer-events: none;
+}
+
+.row-tooltip.visible { display: block; }
+
+/* ---------- narrow screens: horizontal scroll, item column stays fixed ---------- */
+@media (max-width: 599px) {
+    .table-wrap { overflow-x: auto; }
+    .comparison-table { min-width: 780px; }
+    .item-col {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+    }
+    .need { flex-wrap: wrap; }
+}

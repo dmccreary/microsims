@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Class Dashboard Load Estimator using Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="class-dashboard-load-estimator.js"></script>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <div id="title-row">
+                <span id="title">Class Dashboard Load Estimator</span>
+            </div>
+            <div id="controls">
+                <div class="row">
+                    <label for="students">Students</label>
+                    <span class="val" id="students-val">30</span>
+                    <input type="range" id="students" min="10" max="300" step="10" value="30">
+                </div>
+                <div class="row">
+                    <label for="kb">Summary size (KB gzipped)</label>
+                    <span class="val" id="kb-val">11</span>
+                    <input type="range" id="kb" min="5" max="30" step="1" value="11">
+                </div>
+            </div>
+            <div id="chart-wrap">
+                <canvas id="chart" role="img"
+                        aria-label="Bar chart comparing the teacher's total download for all student summaries with a single rollup file, with a reference line at the 100-student threshold"></canvas>
+            </div>
+            <div id="panel" aria-live="polite"></div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

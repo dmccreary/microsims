@@ -1,0 +1,155 @@
+/* Timeline Item and Date Explorer - styles (based on the timeline template) */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    background: white;
+}
+
+main {
+    background: aliceblue;
+    border: 1px solid silver;
+}
+
+.title {
+    font-size: 19px;
+    text-align: center;
+    padding: 7px 8px 3px 8px;
+}
+.title .sample { font-size: 13px; color: #555; }
+
+/* ---------- timeline ---------- */
+#timeline {
+    height: 300px;
+    margin: 0 8px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.vis-timeline { border: none !important; }
+.vis-item {
+    border-radius: 6px !important;
+    font-size: 15px !important;
+    color: white !important;
+}
+.vis-item .vis-item-content {
+    white-space: nowrap !important;
+    padding: 3px 8px !important;
+}
+.vis-item.vis-box { min-width: fit-content !important; }
+.vis-item.vis-selected {
+    box-shadow: 0 0 0 3px #f59e0b !important;
+}
+/* !important: the standalone vis-timeline build injects its own CSS after this file */
+.vis-item.planning   { background-color: #1d4ed8 !important; border-color: #1d4ed8 !important; }
+.vis-item.teaching   { background-color: #15803d !important; border-color: #15803d !important; }
+.vis-item.assessment { background-color: #b45309 !important; border-color: #b45309 !important; }
+.vis-item.vis-dot    { background-color: white !important; }
+.vis-item.vis-dot.planning   { border-color: #1d4ed8; }
+.vis-item.vis-dot.teaching   { border-color: #15803d; }
+.vis-item.vis-dot.assessment { border-color: #b45309; }
+.vis-item.vis-line.planning   { border-color: #1d4ed8; }
+.vis-item.vis-line.teaching   { border-color: #15803d; }
+.vis-item.vis-line.assessment { border-color: #b45309; }
+/* draw every connector line behind every box so lines never cross a label */
+.vis-item.vis-line { z-index: 0 !important; }
+.vis-item.vis-box  { z-index: 1 !important; }
+.vis-item.vis-box.vis-selected { z-index: 3 !important; }
+.vis-item.moved { outline: 2px dashed #b91c1c; outline-offset: 2px; }
+.vis-time-axis .vis-text { font-size: 13px !important; color: #334155 !important; }
+
+.vis-tooltip {
+    background: #1e293b !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    max-width: 280px !important;
+    line-height: 1.4 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+/* ---------- caption and detail panel ---------- */
+#caption {
+    margin: 5px 8px 0 8px;
+    padding: 4px 8px;
+    min-height: 40px;
+    font-size: 14px;
+    line-height: 1.35;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid silver;
+}
+#caption.bug { background: #fef2f2; border-color: #fca5a5; color: #7f1d1d; }
+
+#details {
+    display: flex;
+    gap: 10px;
+    margin: 5px 8px 8px 8px;
+    height: 172px;
+}
+#details .card {
+    flex: 1 1 50%;
+    min-width: 0;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 6px 10px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.35;
+}
+.event-title { font-size: 17px; font-weight: bold; margin-bottom: 2px; }
+.event-date { color: #334155; font-weight: bold; margin-bottom: 4px; }
+.badge { display: inline-block; color: white; border-radius: 10px; padding: 0 8px; font-size: 13px; }
+.badge.planning { background: #1d4ed8; }
+.badge.teaching { background: #15803d; }
+.badge.assessment { background: #b45309; }
+pre.json {
+    margin: 0;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.35;
+    white-space: pre-wrap;
+}
+.json .k { color: #0b5394; }
+.json .s { color: #9a3412; }
+.json .hl { background: #fde68a; }
+.conv { margin-top: 4px; font-family: Menlo, Consolas, monospace; font-size: 12.5px; color: #14532d; }
+.conv.bug { color: #b91c1c; }
+
+/* ---------- controls ---------- */
+.controls {
+    background: white;
+    border-top: 1px solid silver;
+    padding: 4px 8px 6px 8px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 18px;
+    margin-top: 4px;
+}
+.group { display: inline-flex; align-items: center; gap: 5px; }
+button { font-size: 14px; padding: 3px 9px; cursor: pointer; }
+.filter-btn.active { outline: 2px solid #1e293b; font-weight: bold; }
+.filter-btn.planning   { background: #dbeafe; }
+.filter-btn.teaching   { background: #dcfce7; }
+.filter-btn.assessment { background: #ffedd5; }
+#monthInput { width: 48px; font-size: 14px; padding: 2px 4px; }
+#monthMsg { font-size: 13px; color: #b91c1c; }
+label { font-size: 14px; }
+
+/* narrow screens: the detail cards stack, the timeline gives up a little height */
+@media (max-width: 599px) {
+    #timeline { height: 180px; }
+    #details { flex-direction: column; height: 202px; gap: 5px; }
+    #details .card { flex: 1 1 50%; }
+    .title { font-size: 15px; }
+}

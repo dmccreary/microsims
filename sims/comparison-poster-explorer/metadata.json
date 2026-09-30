@@ -1,0 +1,129 @@
+{
+  "title": "Comparison Poster Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Image Overlays",
+    "Comparison Poster",
+    "Poster Column Zone",
+    "Zone Summary and Facts",
+    "Explore Mode",
+    "Quiz Mode"
+  ],
+  "description": "A three-column robot-kit comparison poster drawn with p5.js whose columns are percentage zones: hover and click to open each kit's summary and facts, or answer which-column quiz questions scored on the first try.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/comparison-poster-explorer/",
+  "canvasHeight": 640,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Comparing items across the columns of a comparison poster",
+    "learningObjectives": [
+      "The learner will compare three items across the same attributes by exploring the columns of a poster, and will identify which column matches a described property."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "compare",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Poster Column Zones, Zone Summary and Facts, and Explore Mode and Quiz Mode sections of Chapter 10",
+      "Reading a percentage rectangle zone"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 640
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() names the selected column and its summary; poster text is also available as panel text"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "explore",
+        "type": "button",
+        "label": "Explore",
+        "purpose": "Hover to highlight a column and click to open its summary and facts"
+      },
+      {
+        "id": "quiz",
+        "type": "button",
+        "label": "Quiz Me",
+        "purpose": "Ask the five which-column questions in random order"
+      },
+      {
+        "id": "next",
+        "type": "button",
+        "label": "Next question",
+        "purpose": "Advance after a correct answer"
+      },
+      {
+        "id": "show-edges",
+        "type": "checkbox",
+        "label": "Show zone edges",
+        "default": false,
+        "purpose": "Reveal the x1, y1, x2, y2 percentages of each zone"
+      },
+      {
+        "id": "poster-columns",
+        "type": "clickable zones",
+        "label": "Base Bot, WiFi Bot, Display Bot",
+        "purpose": "Rectangular hit testing from percentage zones"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore-then-quiz comparison with immediate feedback",
+    "interactionPattern": "Poster column zones with explore mode, quiz mode and first-try scoring",
+    "keyQuestions": [
+      "Which attributes do all three kits share?",
+      "What single attribute sets each kit apart?",
+      "Why must each quiz question be true of exactly one column?"
+    ],
+    "commonMisconceptions": [
+      "A poster's printed text and its overlay facts can be edited independently",
+      "A quiz score that counts only correct answers measures first-try understanding",
+      "Wider zones must hold more important items"
+    ],
+    "assessmentOpportunities": [
+      "First-try score over five which-column questions",
+      "Shared-versus-unique attribute table",
+      "A learner-written which-column question"
+    ]
+  },
+  "search": {
+    "tags": [
+      "comparison poster",
+      "poster column zone",
+      "grid overlay",
+      "quiz mode",
+      "robot kits",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "infographic",
+      "interactive diagram"
+    ]
+  },
+  "chapter": "10-image-overlays-and-comparison-posters"
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "class-mastery-heatmap-reader",
+  "diagram_name": "Class Mastery Heatmap Reader",
+  "chapter_number": 21,
+  "chapter_title": "\"The Full LRS: Dashboards, Operations and Compliance\"",
+  "chapter_dir": "21-the-full-lrs-dashboards-operations-and-compliance",
+  "chapter_rel_dir": "chapters/21-the-full-lrs-dashboards-operations-and-compliance",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Distinguish",
+  "learning_objective": "The learner will distinguish a concept that most of a class struggles with from a student who struggles broadly, by reading the dark columns and dark rows of a heatmap and by computing an at-risk score.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** class-mastery-heatmap-reader<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish a concept that most of a class struggles with from a student who struggles broadly, by reading the dark columns and dark rows of a heatmap and by computing an at-risk score.\n\nData: a synthetic section of 12 students and 8 concepts with mastery estimates from 0 to 1, generated once from a fixed seed and labeled as synthetic. One concept column is seeded low for most students, and one student row is seeded low for most concepts.\n\nLayout: the heatmap fills the drawing region, with student names on the left and concept names across the top. A side panel shows the at-risk roster for the same section, sorted by score. Cells shade from light (low mastery) to dark blue (high mastery), and a legend states that shades are model estimates.\n\nControls:\n\n- Slider \"Weight on low mastery\" from 0 to 1, default 0.45\n- Slider \"Weight on inactivity\" from 0 to 1, default 0.30\n- Slider \"Weight on prerequisite gaps\" from 0 to 1, default 0.25\n- Button \"Show the pattern\", which outlines the weak column and the weak row\n- Button \"Quiz me\", which asks the learner to click the concept the class most needs re-taught\n\nInteractions: hovering a cell shows the student, concept and estimate. Changing a weight re-sorts the roster immediately, and clicking a roster row highlights that student's heatmap row and lists the three signal values behind the score.\n\nResponsive design: the canvas width follows the container on window resize, the side panel moves below the heatmap under 600 pixels, and controls remain reachable at 400 pixels wide.\n\nImplementation: p5.js with createSlider and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

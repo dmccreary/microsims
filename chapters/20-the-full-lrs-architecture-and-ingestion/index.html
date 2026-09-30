@@ -1,0 +1,3702 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explains the architecture of the full Learning Record Store, from tenants and pseudonymous identity to the gateway, event stream, processor and storage, and says which pieces are built.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/20-the-full-lrs-architecture-and-ingestion/">
+      
+      
+        <link rel="prev" href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/">
+      
+      
+        <link rel="next" href="../21-the-full-lrs-dashboards-operations-and-compliance/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The Full LRS: Architecture and Ingestion - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Full LRS: Architecture and Ingestion - Micro Simulations for Education" />
+<meta property="og:description" content="Explains the architecture of the full Learning Record Store, from tenants and pseudonymous identity to the gateway, event stream, processor and storage, and says which pieces are built." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/20-the-full-lrs-architecture-and-ingestion/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/20-the-full-lrs-architecture-and-ingestion/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="The Full LRS: Architecture and Ingestion - Micro Simulations for Education" />
+<meta property="twitter:description" content="Explains the architecture of the full Learning Record Store, from tenants and pseudonymous identity to the gateway, event stream, processor and storage, and says which pieces are built." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/20-the-full-lrs-architecture-and-ingestion/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-full-lrs-architecture-and-ingestion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Full LRS: Architecture and Ingestion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-learning-record-store-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Learning Record Store Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-architecture-in-five-planes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Architecture in Five Planes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Architecture in Five Planes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-lrs-architecture-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Full LRS Architecture Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tenants-rosters-and-pseudonyms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tenants, Rosters and Pseudonyms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tenants, Rosters and Pseudonyms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#student-privacy-and-the-pseudonym" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Privacy and the Pseudonym
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Student Privacy and the Pseudonym">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tenant-isolation-and-pseudonym-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Tenant Isolation and Pseudonym Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ingestion-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Ingestion Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Ingestion Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statement Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-all-or-nothing-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The All-or-Nothing Batch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The All-or-Nothing Batch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gateway-request-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Gateway Request Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-event-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Event Stream
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Event Stream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-by-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partition by Learner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partition by Learner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-partition-key-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Partition Key Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-stream-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Stream Processor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Stream Processor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idempotent-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotent Ingest
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idempotent Ingest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-redelivery-and-idempotency-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Redelivery and Idempotency Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clickhouse-and-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClickHouse and Neo4j
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ClickHouse and Neo4j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-log-and-graph-compression-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Log and Graph Compression Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-twelve-core-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Twelve Core Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-built-designed-and-hoped-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Built, Designed and Hoped For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-learning-record-store-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Learning Record Store Is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-architecture-in-five-planes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Architecture in Five Planes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Architecture in Five Planes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-full-lrs-architecture-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Full LRS Architecture Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tenants-rosters-and-pseudonyms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tenants, Rosters and Pseudonyms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tenants, Rosters and Pseudonyms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#student-privacy-and-the-pseudonym" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Student Privacy and the Pseudonym
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Student Privacy and the Pseudonym">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tenant-isolation-and-pseudonym-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Tenant Isolation and Pseudonym Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ingestion-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Ingestion Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Ingestion Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statement Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-all-or-nothing-batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The All-or-Nothing Batch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The All-or-Nothing Batch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-gateway-request-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Gateway Request Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-event-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Event Stream
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Event Stream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition-by-learner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partition by Learner
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partition by Learner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-partition-key-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Partition Key Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-stream-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Stream Processor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Stream Processor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idempotent-ingest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotent Ingest
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Idempotent Ingest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-redelivery-and-idempotency-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Redelivery and Idempotency Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clickhouse-and-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClickHouse and Neo4j
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ClickHouse and Neo4j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-log-and-graph-compression-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Log and Graph Compression Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-twelve-core-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Twelve Core Functions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-built-designed-and-hoped-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Is Built, Designed and Hoped For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/20-the-full-lrs-architecture-and-ingestion/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="the-full-lrs-architecture-and-ingestion">The Full LRS: Architecture and Ingestion</h1>
+<h2 id="summary">Summary</h2>
+<p>Describes the full Learning Record Store built for scale: multi-tenancy, pseudonymous identity, the graph data model and the ingestion pipeline.</p>
+<p>Students learn the gateway, statement validation, event streams, ClickHouse and Neo4j roles, and idempotent ingest. After it, they can explain how a statement travels from a MicroSim to durable storage.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 22 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learning Record Store</td>
+<td>245</td>
+</tr>
+<tr>
+<td>LRS Architecture</td>
+<td>191</td>
+</tr>
+<tr>
+<td>System Context</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Multi-Tenancy</td>
+<td>10</td>
+</tr>
+<tr>
+<td>District Tenant</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Roster and Identity</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Property Graph Data Model</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Summary Vertex</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Ingestion Gateway</td>
+<td>166</td>
+</tr>
+<tr>
+<td>Statement Validation</td>
+<td>5</td>
+</tr>
+<tr>
+<td>All-or-Nothing Batch</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Event Stream</td>
+<td>159</td>
+</tr>
+<tr>
+<td>Stream Processor</td>
+<td>84</td>
+</tr>
+<tr>
+<td>Redpanda</td>
+<td>1</td>
+</tr>
+<tr>
+<td>ClickHouse</td>
+<td>81</td>
+</tr>
+<tr>
+<td>Neo4j Graph Database</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Twelve Core Functions</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Idempotent Ingest</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Student Privacy</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Pseudonymous Learner ID</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Per-District Salt</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Partition by Learner</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../16-xapi-statements-and-evidence/">Chapter 16: xAPI Statements and Evidence</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Where Do the Bounces Go?</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Every slider you nudge in an instrumented MicroSim leaves a small piece of evidence, and this chapter shows you the machine built to catch it. By the end you can trace one statement from a learner's click to durable storage and explain why nothing gets lost on the way. Let's bounce it around!</p>
+</div>
+<p>Chapters 16 through 19 described the evidence itself: what an xAPI statement says, how a MicroSim emits it, and how a mastery estimate could be computed from it. This chapter turns to the place where that evidence lands. It describes the full Learning Record Store, the version designed for whole school districts, and it follows a single statement through the gateway, the event stream, the processor and the two databases. One warning applies to everything that follows. The design is detailed and parts of it are running code, but the remaining parts are still plans, so each section says which is which.</p>
+<h2 id="what-a-learning-record-store-is">What a Learning Record Store Is</h2>
+<p>A <strong>Learning Record Store</strong> (LRS) is a server that receives xAPI statements, keeps them, and answers questions about them. Chapter 16 defined a statement as a small record of the form actor, verb, object, with an optional result and context. An LRS is the other half of that exchange. A MicroSim or a textbook page produces statements, and the LRS is where they are accepted, stored durably and later retrieved.</p>
+<p>The xAPI standard requires only that an LRS accept and return statements. The LRS in this book's companion project does more, and its specification gives it three duties.</p>
+<ul>
+<li><strong>Accept</strong> statements from thousands of textbooks at once, without dropping any, even when the databases behind it are busy or briefly down.</li>
+<li><strong>Keep</strong> every statement unchanged, as an immutable log in which corrections are new statements rather than edits.</li>
+<li><strong>Answer</strong> questions for teachers, authors and administrators, which means turning a very large log into small, fast summaries.</li>
+</ul>
+<p>This chapter covers the first two duties and the structures that make the third possible. Chapter 21 covers the dashboards and operations that answer the questions. The book describes two LRS designs, and it helps to name them now. The <strong>full LRS</strong> in this chapter is a multi-service system built for districts with many concurrent classrooms. Chapters 22 and 23 describe LRS-Lite, a compact alternative that summarizes evidence in the browser. Chapter 23 explains how to choose between them.</p>
+<p>Because the first duty is the hardest, the specification sets a scale target for it. It asks the full LRS to sustain at least 10,000 statements per second in aggregate, with bursts up to 50,000 per second at the start of class periods across time zones. Those figures are targets from the specification, not measurements. No system has yet been run at that load, and the sections below say so where it matters.</p>
+<p>The table below lists what a worked trace will exercise. It is a preview of the chapter and a map you can return to.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens to the statement</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A MicroSim sends it in an HTTP request</td>
+<td>The Ingestion Gateway</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The gateway checks the token and the contract</td>
+<td>The Ingestion Gateway</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The gateway places it on a durable queue and replies</td>
+<td>The Event Stream</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A processor hides the learner's identity and enriches the statement</td>
+<td>The Stream Processor</td>
+</tr>
+<tr>
+<td>5</td>
+<td>The statement is stored in the log</td>
+<td>ClickHouse and Neo4j</td>
+</tr>
+<tr>
+<td>6</td>
+<td>A summary is derived and copied to the graph</td>
+<td>ClickHouse and Neo4j</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-architecture-in-five-planes">The Architecture in Five Planes</h2>
+<p>The <strong>system context</strong> of a software system is the picture of what surrounds it: who sends it data, who reads from it, and what it depends on. For the LRS the context is simple. On one side are intelligent textbooks, potentially thousands of them, each running MicroSims that emit statements. On the other side are three kinds of people, namely instructors reading dashboards, district and system administrators using admin screens, and authors reading content reports. Between them sits the LRS, and that middle region is the subject of the rest of the chapter.</p>
+<p><strong>LRS architecture</strong> is the division of that middle region into parts with one job each. The specification divides it into five planes, where a plane is a group of components that share a responsibility. The ingestion plane accepts statements and puts them on a durable queue. The processing plane validates, enriches and pseudonymizes them, and it also runs the compression that produces summaries. The storage plane holds the log and the graph. The analytics plane runs the queries behind every report. The presentation plane renders dashboards and admin screens.</p>
+<p>The design document maps these planes onto concrete components, and it makes one choice that shapes everything else: every process is the same container image, started with a different command such as <code>lrs gateway</code> or <code>lrs processor</code>. The backing services are unmodified upstream images. The list below names each component that this chapter uses. Each is defined in the paragraphs that follow the diagram, so treat this list as a glossary you can consult.</p>
+<ul>
+<li><strong>Gateway</strong> (<code>lrs gateway</code>): the HTTP endpoint that accepts statements.</li>
+<li><strong>Processor</strong> (<code>lrs processor</code>): the workers that enrich statements and write them to the log.</li>
+<li><strong>Summarizer</strong> (<code>lrs summarizer</code>): the worker that copies compact summaries into the graph.</li>
+<li><strong>Reconciler</strong> (<code>lrs reconciler</code>): the worker that matches never-before-seen textbooks and activities to published metadata.</li>
+<li><strong>Identity service</strong> (<code>lrs identity</code>): the only component allowed to reach the vault of learner identities.</li>
+</ul>
+<p>A worked example shows how the planes cooperate. Suppose a student drags a frequency slider in an instrumented sine-wave MicroSim. The runtime from Chapter 17 builds an <code>interacted</code> statement and sends it to the gateway, which is the ingestion plane. The gateway checks it and queues it. A processor in the processing plane pulls it from the queue, replaces the learner's identity with a pseudonym and stores it in ClickHouse, which is the storage plane. Roughly a minute later the summarizer copies the changed summary for that student and concept into the graph. Later still, a teacher opens a dashboard, and the analytics plane reads the summary while the presentation plane draws it. Five planes, one statement, and no plane needs to know how the others work internally.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why Split It This Way?</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the gateway as a receiving dock that never turns a truck away, while everything behind it works at its own pace. The split lets the dock stay open even when the warehouse is busy or closed for repairs.</p>
+</div>
+<p>Before you open the first diagram, two terms deserve a sentence each. <em>Built</em> means that code for the component exists in the companion repository and has been run. <em>Designed</em> means it appears in the design document but has no code yet. The diagram colors each component by that status, using the repository's own TODO file dated 2026-09-26.</p>
+<h4 id="diagram-full-lrs-architecture-explorer">Diagram: Full LRS Architecture Explorer</h4>
+<iframe src="../../sims/lrs-architecture-explorer/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/lrs-architecture-explorer/main.html">Run the Full LRS Architecture Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Full LRS Architecture Explorer</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> lrs-architecture-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the five architectural planes and the components in each, and distinguish built components from designed ones.</p>
+<p>Nodes: textbooks (left), then the gateway, the event stream, the processors, ClickHouse, Neo4j, the summarizer, the reconciler, the identity service, the vault, the analytics API and the dashboards. Nodes are grouped in five horizontal bands labeled Ingestion, Processing, Storage, Analytics and Presentation. Directed edges show data flow: textbooks to gateway to event stream to processors to ClickHouse, ClickHouse to summarizer to Neo4j, and processors to reconciler to Neo4j.</p>
+<p>Colors: the built component (the gateway) is green, the event stream and the two databases are yellow to mean that infrastructure and schema files exist but the workers that feed them do not, and designed components are light gray with a dashed border. A legend states the meaning.</p>
+<p>Interactions: clicking a node opens an information panel with a one-sentence role, its hard dependencies, and its status with the date of the source. Hovering an edge shows what travels along it. A checkbox "Hide designed components" leaves only the built path visible. A "Quiz me" button hides the labels and asks the learner to drag each component into its plane.</p>
+<p>Layout: the network fills the container width, with the panel below the network under 600 pixels wide.</p>
+<p>Responsive design: the network re-fits on every window resize event, and node labels shrink but never below 11 pixels.</p>
+<p>Implementation: vis-network with fixed positions and physics disabled. Node data and status live in a JSON file so the diagram can be updated when the status changes.</p>
+</details>
+<h2 id="tenants-rosters-and-pseudonyms">Tenants, Rosters and Pseudonyms</h2>
+<p>A single LRS serves many school districts, and the first architectural decision is how to keep them apart. <strong>Multi-tenancy</strong> means one running system serves several independent customers, called tenants, while keeping each tenant's data invisible to the others. In this design the tenant is the school district, so a <strong>district tenant</strong> is the top-level isolation boundary. Under a district sit schools, then courses, then sections (a class period or cohort), and finally enrollments that connect a student to a section. Textbook deployments hang off the district too, so that a textbook version, defined once, can be assigned to many courses.</p>
+<p>The specification gives each level a different guarantee. The district boundary is hard: no query may cross it, except an explicit system-administrator action that benchmarks de-identified aggregates above the privacy threshold. School, course and section boundaries are soft, meaning role-based access control decides what a teacher may see and a teacher sees only their own sections. A textbook deployment shares its definition across districts but partitions the events, so each district's event stream stays separate. The table summarizes the three cases.</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Isolation</th>
+<th>How it is enforced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>District</td>
+<td>Hard</td>
+<td>No cross-district query; <code>district_id</code> leads the storage keys</td>
+</tr>
+<tr>
+<td>School, course, section</td>
+<td>Soft</td>
+<td>Role-based access control at the API</td>
+</tr>
+<tr>
+<td>Textbook deployment</td>
+<td>Shared definition, separate events</td>
+<td>Events partitioned by district</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>roster and identity</strong> layer answers a different question: who are the learners? A roster is the list of students enrolled in each section. The LRS never creates that list. It imports rosters from the district through the OneRoster standard, as CSV files or a REST endpoint, or through a student information system, and the district remains the authoritative source of identity. Inside the LRS the roster becomes enrollment relationships in the graph. In the repository, no roster import code exists yet. What exists is a seeder, <code>lrs seed</code>, that loads demonstration districts and learners into Neo4j and marks them <code>seeded: true</code> so they are never mistaken for real data.</p>
+<h3 id="student-privacy-and-the-pseudonym">Student Privacy and the Pseudonym</h3>
+<p><strong>Student privacy</strong> is the requirement that the analytics system should not reveal who a learner is to anyone without a legitimate reason. The specification states that it is aligned with FERPA, COPPA and GDPR, and it commits to specific mechanisms: pseudonymous identifiers, a separate vault for real identities, a minimum group size for disaggregated results (default 10), and erasure on request. That list of mechanisms is a design commitment, and a district still needs its own legal review. Nothing in this book is legal advice.</p>
+<p>The central mechanism is the <strong>pseudonymous learner ID</strong>, a stable identifier derived from the learner's real identity that reveals nothing on its own. Every statement identifies its actor with an account, made of a home page URL and a name, for example <code>https://school.example.edu</code> and <code>learner-17</code>. The identity service combines the two with a secret and produces an opaque <code>student_key</code>. That key is what every analytics store sees. The mapping between real roster identities and keys lives in the vault, a separate PostgreSQL instance that only the identity service can reach. The design deliberately uses two separate instances rather than two schemas, because a shared instance would make the privacy boundary one permissions mistake deep.</p>
+<p>The secret in that derivation is a <strong>per-district salt</strong>: a random value, unique to each district, that is mixed into the calculation. The design document specifies HMAC-SHA256 over the home page and name, keyed with the salt. Because each district has its own salt, the same learner appearing in two districts receives two unrelated keys. A worked example makes this concrete. Suppose learner <code>learner-17</code> at <code>https://school.example.edu</code> is enrolled in District A and, after moving, in District B. Each district's salt is different, so the statements from the two districts carry different keys, say <code>KEY-A</code> and <code>KEY-B</code>, that share nothing. Someone with read access to the analytics store, but not the vault, cannot link them. Erasure follows the same logic in reverse. Deleting the vault row and the salt makes the key permanently underivable, and the aggregates that remain are genuinely de-identified.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>With a per-district salt</th>
+<th>Without one (a global salt)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Same learner in two districts</td>
+<td>Two unrelated keys</td>
+<td>One key, linkable</td>
+</tr>
+<tr>
+<td>Compromised analytics reader</td>
+<td>Cannot link across districts</td>
+<td>Can link across districts</td>
+</tr>
+<tr>
+<td>Erasure by deleting the salt</td>
+<td>Key becomes underivable</td>
+<td>Key stays derivable for every district</td>
+</tr>
+</tbody>
+</table>
+<p>Here the honest status matters. The gateway is built and deliberately holds no salt. The identity service and the processor, where the pseudonym is computed, are designed and not yet built. The TODO file also states a rule worth adopting: until the identity service exists, the processor must not invent a salt, because a hardcoded value would make the privacy boundary look tested when it is not.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Raw Column Loophole</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The original design stored each statement's original JSON verbatim, and that JSON contains the learner's real account name, so anyone who could read the log could re-identify every student. The repository's DDL fixes this by requiring the processor to replace the actor block with the derived key before the insert, and a smoke test is meant to check it on every run.</p>
+</div>
+<p>The tenancy hierarchy and the pseudonym both come together in the next diagram. Click a district to see how the same learner is keyed in each, and click a level to see who may cross it.</p>
+<h4 id="diagram-tenant-isolation-and-pseudonym-explorer">Diagram: Tenant Isolation and Pseudonym Explorer</h4>
+<iframe src="../../sims/tenant-pseudonym-explorer/main.html" width="100%" height="482px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/tenant-pseudonym-explorer/main.html">Run the Tenant Isolation and Pseudonym Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Tenant Isolation and Pseudonym Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> tenant-pseudonym-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain why a per-district salt gives one learner two unrelated pseudonymous keys, and which boundaries are hard or soft.</p>
+<p>Layout: the drawing region shows a tree, System at the top, two districts below, then schools, courses and sections, and one student node at the bottom of each district. The control region below has a text field for a learner name, a drop-down for salt handling, and a button "Derive keys".</p>
+<p>Controls:</p>
+<ul>
+<li>Text field "Learner account name", default learner-17</li>
+<li>Radio buttons "Per-district salt" (default) and "One global salt"</li>
+<li>Button "Derive keys" that shows each district's key as a short illustrative token, clearly labeled "illustrative, not a real hash"</li>
+<li>Toggle "Attacker view" that hides the vault and shows only the analytics side</li>
+</ul>
+<p>Behavior: with per-district salts, the two districts show different tokens, and in attacker view the learner cannot be linked. With a global salt the tokens match and the link appears as a red line. Clicking a level of the tree shows whether its boundary is hard or soft and the text of the rule.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, with a fixed drawing height of 380 pixels and a 100 pixel control region, and every control stays visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createInput, createRadio and createButton positioned relative to the drawing height. Tokens come from a simple non-cryptographic hash and are labeled as illustrative. Include a describe() call for accessibility.</p>
+</details>
+<h2 id="the-ingestion-gateway">The Ingestion Gateway</h2>
+<p>The <strong>ingestion gateway</strong> is the front door of the LRS: the one HTTP service that MicroSims and textbook pages send statements to. Its address in the specification is <code>POST /xapi/statements</code>, which accepts a single statement or an array of them, and the specification also lists a <code>PUT</code> form in which the client supplies its own statement identifier. In the repository the gateway is a Python FastAPI service, and its code defines a <code>POST</code> route and a <code>/health</code> route. The <code>app.py</code> file has no <code>PUT</code> or <code>GET</code> route, so those are specified rather than built.</p>
+<p>The gateway does five things per request, in this order, and the order carries meaning. It authenticates the caller with a bearer token that maps to a district. It validates the statements. It assigns identifiers and a <code>stored_at</code> timestamp. It places the statements on the durable queue. Finally it replies, and it does so only after the queue has acknowledged the write, never after any later processing. That last rule decouples the producer's wait from the rest of the system, so a slow database never slows a classroom.</p>
+<p>The design goes further and makes a promise that it treats as the most important property of the service: the gateway's only hard dependency is the queue. The module's own comment states that nothing in it may import a ClickHouse, Neo4j or Redis client. If the analytics database restarts, the gateway must still answer with success, because otherwise a classroom loses a lesson's worth of telemetry each time a database restarts.</p>
+<h3 id="statement-validation">Statement Validation</h3>
+<p><strong>Statement validation</strong> is the gateway's check that each incoming statement is well formed and follows the producer contract from Chapter 16. The specification describes two tiers. The synchronous tier at the gateway checks structure: valid JSON, an actor, a verb, an object and a parseable timestamp. The asynchronous tier in the processor handles semantic surprises such as unknown activities, which are accepted and flagged for later reconciliation rather than rejected.</p>
+<p>The built gateway is stricter than the first tier. Its <code>validation.py</code> module enforces the whole producer contract, and its own comment gives the reason: the log is append-only, and a statement that breaks the contract does not fail loudly later, it fails silently and permanently. For example, an <code>answered</code> statement without <code>result.success</code> would make the concept report zero attempts forever, looking exactly like a student who never tried. Its checks include the following.</p>
+<ul>
+<li>Exactly three verbs are valid: <code>answered</code>, <code>experienced</code> and <code>interacted</code>.</li>
+<li>The object type must be one of four activity types, and page-level objects need a trailing slash and no fragment.</li>
+<li><code>answered</code> requires a boolean <code>result.success</code>, and <code>experienced</code> requires an ISO-8601 <code>result.duration</code>.</li>
+<li>The actor needs an account with both a home page and a name.</li>
+<li>The first <code>grouping</code> entry must be a textbook version IRI of the form <code>{site_url}textbook/{textbook_id}/{version_id}</code>.</li>
+</ul>
+<p>This strictness is a documented tension with the specification. The specification says unknown verbs are accepted under schema-on-read, while the producer contract says any other verb is rejected at the gateway. The code follows the contract, and the design document's own principle is that where the two disagree, the contract wins.</p>
+<h3 id="the-all-or-nothing-batch">The All-or-Nothing Batch</h3>
+<p>An <strong>all-or-nothing batch</strong> is a batch of statements that the gateway either accepts in full or rejects in full. This is an xAPI conformance rule. If one statement in a <code>POST</code> array is invalid, the gateway stores none of them and returns a <code>400</code> response. The gateway does not stop at the first problem. It collects every violation across the whole batch, so the author of a producer fixes everything in one round trip.</p>
+<p>Before the example, note the fields the response uses. <code>index</code> is the position of the statement in the posted array, counting from zero. <code>field</code> is the dotted path inside the statement, and <code>contract</code> names the section of the producer contract that decides the rule. The example below is real output, produced by running the repository's <code>validate_batch</code> function on a batch of three statements, where statement 0 is valid, statement 1 uses the verb <code>completed</code>, and statement 2 is an <code>answered</code> statement with an empty result.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verb.id"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"§3"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'http://adlnet.gov/expapi/verbs/completed' is not one of the three v1 verbs (answered, experienced, interacted)."</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"result.success"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"§3"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"`answered` requires result.success (bool). ..."</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>The valid statement at index 0 is not stored either, since the batch as a whole is refused. The repository's TODO file reports that this rule was checked against a live queue, with two valid statements and one invalid producing zero queued messages, and a positive control showing that three valid statements produced three. The same file records that its first attempt at that test was a false pass, because it read the wrong column, which is why the positive control exists.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Read the Whole List</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+When a batch comes back rejected, sort the violations by <code>index</code> and fix every one before you resend. The gateway told you everything wrong in one response, so a second round trip means you skipped some of it.</p>
+</div>
+<p>The gateway returns different codes for different failures, and knowing them lets you debug from the network tab alone. The table restates what the code does.</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Missing or unrecognized bearer token</td>
+<td><code>401</code></td>
+</tr>
+<tr>
+<td>Missing or non-1.0.x <code>X-Experience-API-Version</code> header</td>
+<td><code>400</code></td>
+</tr>
+<tr>
+<td>Body is not valid JSON, or fails validation</td>
+<td><code>400</code>, with the violation list for validation</td>
+</tr>
+<tr>
+<td>Queue full and broker unreachable</td>
+<td><code>503</code> with <code>Retry-After: 5</code>, described as page-worthy</td>
+</tr>
+<tr>
+<td>Any other queueing failure</td>
+<td><code>500</code></td>
+</tr>
+<tr>
+<td>Whole batch durably queued</td>
+<td><code>200</code> with the array of statement ids</td>
+</tr>
+</tbody>
+</table>
+<p>The next specification lets you build a batch and watch the gateway's checks run.</p>
+<h4 id="diagram-gateway-request-simulator">Diagram: Gateway Request Simulator</h4>
+<iframe src="../../sims/gateway-request-simulator/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/gateway-request-simulator/main.html">Run the Gateway Request Simulator MicroSim Fullscreen</a></p>
+<details>
+<summary>Gateway Request Simulator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> gateway-request-simulator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: demonstrate): The learner will demonstrate the gateway's five request steps and predict whether a batch is accepted or rejected in full.</p>
+<p>Layout: the drawing region shows a batch of up to five statement cards on the left, five gateway step boxes in a column in the middle (authenticate, validate, assign ids, produce, respond) and a queue on the right. The control region below holds the controls.</p>
+<p>Controls:</p>
+<ul>
+<li>Buttons "Add valid statement" and "Add broken statement" with a drop-down for the defect: wrong verb, answered without success, missing grouping, page IRI with a fragment</li>
+<li>Checkbox "Token is valid" (default on) and checkbox "Broker reachable" (default on)</li>
+<li>Button "Send batch" and button "Reset"</li>
+<li>A "Predict first" checkbox (default on) that asks "Accepted or rejected?" before the result is revealed</li>
+</ul>
+<p>Behavior: sending the batch animates each card through the steps. If any statement is broken, all cards turn red at the validate step, the violation list appears with the index and field, and zero cards reach the queue. If the token is invalid the batch stops at 401. If the broker is unreachable and the local queue is full, the response is 503 with a Retry-After of 5.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the step column collapses to a vertical list under 500 pixels, and controls stay visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton, createSelect and createCheckbox controls. Include a describe() call for accessibility. The rules mirror validation.py so the simulator can reuse its message text.</p>
+</details>
+<h2 id="the-event-stream">The Event Stream</h2>
+<p>An <strong>event stream</strong> is an ordered, durable sequence of events that many independent readers can consume at their own pace. In the LRS, the stream is a log-based message queue: the gateway appends statements to it, and downstream workers read them. The stream sits between the ingestion plane and everything else for two reasons. It lets the gateway reply as soon as a statement is safely stored, and it lets slow consumers catch up later, or replay old events, without pushing back on producers.</p>
+<p>The design uses <strong>Redpanda</strong> in development and Apache Kafka in production. Redpanda speaks the Kafka protocol, ships as a single binary and starts in about a second on a laptop, so the same client code runs against both. The stream is organized into topics, and each topic into partitions. A partition is one ordered lane of a topic: Kafka guarantees order within a partition and makes no promise across partitions. Because ordering is per lane, the choice of which lane a statement goes to matters a great deal.</p>
+<p>The design defines six topics. The table summarizes them after this paragraph, so read the prose first. The raw topic carries live statements. A bulk topic carries backfill and replay, so that a district re-importing history never competes with live classroom traffic. A dead-letter topic is meant to hold rejected statements for inspection. A reconcile topic carries tasks for unknown textbooks and activities. A mastery-state topic checkpoints learner-model state. An audit topic carries the audit feed.</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Purpose</th>
+<th>Design partitions</th>
+<th>Retention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xapi.statements.raw</code></td>
+<td>Live ingest</td>
+<td>48</td>
+<td>7 days</td>
+</tr>
+<tr>
+<td><code>xapi.statements.bulk</code></td>
+<td>Backfill and replay</td>
+<td>12</td>
+<td>7 days</td>
+</tr>
+<tr>
+<td><code>xapi.statements.dlq</code></td>
+<td>Dead letters</td>
+<td>12</td>
+<td>30 days</td>
+</tr>
+<tr>
+<td><code>lrs.reconcile</code></td>
+<td>Reconciliation tasks</td>
+<td>12</td>
+<td>7 days</td>
+</tr>
+<tr>
+<td><code>lrs.mastery.state</code></td>
+<td>Learner-model checkpoints (compacted)</td>
+<td>48</td>
+<td>compacted</td>
+</tr>
+<tr>
+<td><code>lrs.audit</code></td>
+<td>Audit feed</td>
+<td>12</td>
+<td>400 days</td>
+</tr>
+</tbody>
+</table>
+<p>Two status notes qualify the table. The TODO file says the development bootstrap creates the raw topic with 6 partitions, reduced from the design's 48. And although the topic exists, the gateway code logs a rejected batch and returns the violation list; it does not write rejected statements to the dead-letter topic.</p>
+<h3 id="partition-by-learner">Partition by Learner</h3>
+<p><strong>Partition by learner</strong> means choosing the message key so that every statement from one learner goes to the same partition. The gateway builds the key as the district id, a colon, and the learner's raw account identity, which is the home page and name joined by a vertical bar. The gateway holds no salt and never hashes, so the key uses the raw identity. The design's own words for why this matters: the ordering is what makes mastery estimation correct, not only what balances load. Sequential Bayesian updates do not commute, so "wrong, wrong, right" and "right, wrong, wrong" produce different estimates, as Chapter 18 showed. Keeping one learner's statements in one lane preserves the order they were produced in.</p>
+<p>The specification originally said to partition by district, with the learner as a sub-key. The design document rejects that as a deviation, recorded as D-3 and still open. A single partition takes all of one key's traffic, so keying by district would put a 200,000-student district onto one lane, which is exactly the single-tenant hotspot the specification forbids. Keying by district and learner spreads traffic evenly while keeping per-learner order. Fairness between districts then comes from broker quotas, which bound each district's throughput.</p>
+<p>A worked example uses three learners and two partitions. Learner A's statements always hash to partition 0, learner B's to partition 1, and learner C's to partition 0. A's five statements arrive in order at partition 0 and a processor reads them in that order. Interleaved with them are C's statements, which are unrelated and harmless. If the key were only the district, all three learners would share one partition, and a large district would saturate it.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Order Is Evidence</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+A learner who fails twice and then succeeds looks very different from one who succeeds and then fails twice. The partition key is what keeps those two stories from being shuffled together.</p>
+</div>
+<h4 id="diagram-partition-key-simulator">Diagram: Partition Key Simulator</h4>
+<iframe src="../../sims/partition-key-simulator/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/partition-key-simulator/main.html">Run the Partition Key Simulator MicroSim Fullscreen</a></p>
+<details>
+<summary>Partition Key Simulator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> partition-key-simulator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: compare): The learner will compare keying by district with keying by district and learner, in terms of per-partition load and per-learner ordering.</p>
+<p>Layout: the drawing region shows a stream of colored statement dots (one color per learner) entering from the left, a row of partition lanes in the middle (default 6) and a consumer on the right that reads each lane in order. A load bar under each lane shows how many statements it holds. The control region is below.</p>
+<p>Controls:</p>
+<ul>
+<li>Radio buttons "Key: district only" and "Key: district and learner" (default the second)</li>
+<li>Slider "Learners" from 3 to 60, default 12, and slider "Districts" from 1 to 4, default 2</li>
+<li>Slider "Partitions" from 2 to 12, default 6</li>
+<li>Button "Send burst" that emits 60 statements, and a "Pause" button</li>
+</ul>
+<p>Behavior: each dot is routed by hashing the chosen key. With the district-only key, all of a district's dots land in one lane and its load bar overflows a red threshold line. With the learner key, load spreads evenly, and each learner's dots stay in one lane in their original order. Clicking a learner highlights the order in which the consumer read that learner's statements.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, lane count adapts to the width, and controls remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createRadio, createSlider and createButton positioned relative to the drawing height, and a simple deterministic string hash. Include describe() for accessibility.</p>
+</details>
+<h2 id="the-stream-processor">The Stream Processor</h2>
+<p>A <strong>stream processor</strong> is a worker that reads events from a stream, does work on each, and writes the results somewhere else. The LRS processor consumes the raw topic in batches of up to 1,000 statements or 200 milliseconds, whichever comes first, and runs a six-step sequence on each batch. The first step pseudonymizes the actor, using the salt fetched from the identity service. The second resolves the activity IRIs to known objects, and on a miss it emits a reconcile task and carries on, never blocking; that is how the design lets a textbook ship before its metadata is registered. The third enriches the statement with the section, version and concept identifiers. The fourth updates the learner's mastery estimate. The fifth writes the batch to ClickHouse in one insert. The sixth commits the queue offset, and only after the database has acknowledged the write.</p>
+<p>That final ordering is the processor's safety rule. If the processor crashes after writing to ClickHouse but before committing the offset, the batch will be delivered again, and the store must cope. That leads to the property this chapter calls idempotent ingest, which we define next. The processor, like the identity service, is designed and not yet built. The TODO file is explicit that this is the critical path: with the gateway working and the processor absent, the ingest smoke test now fails one check later than it used to, at the point where the statement should appear in the log.</p>
+<h3 id="idempotent-ingest">Idempotent Ingest</h3>
+<p><strong>Idempotent ingest</strong> means that receiving the same statement more than once has the same effect as receiving it once. It is necessary because the stream guarantees at-least-once delivery: a statement is never lost, but it may be delivered twice after a crash or a retry. The design achieves idempotency in two places. In the log, a ClickHouse table engine called ReplacingMergeTree keeps one row per statement id, which removes duplicates at merge time. And in the graph, the summarizer writes absolute values rather than increments.</p>
+<p>A worked example shows why the second choice matters. Suppose a learner's concept summary reads 10 statements. Two new statements arrive and the summarizer writes the result. If it wrote <code>count = count + 2</code> and the batch was redelivered, the count would become 14, and nothing could reveal the error afterward. If it writes <code>count = 12</code>, computed from the log, then redelivery writes 12 again and the graph is unchanged. The design calls this rule "recompute absolutes, never increment", and it makes retries, replays and crashes safe by construction.</p>
+<p>Deduplication in the log has a caveat that the design flags as a real correctness detail. ReplacingMergeTree removes duplicates eventually, when parts are merged, so readers go through a view that applies the engine's final-merge behavior. The repository's DDL defines that view as <code>lrs.statements_deduped</code>. The TODO file also records an unresolved defect nearby: a comment claiming that voided statements drop out of the rollups automatically is wrong, because a ClickHouse materialized view fires only on inserts and not on updates to stored rows. A retraction therefore needs a recompute of the affected key, and that path is not yet decided.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Two Copies, One Effect</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If at-least-once delivery feels slippery, that is normal, because most people need two passes at it. Try the simulation below with redelivery switched on and compare the "add" and "set" writers side by side before you read on.</p>
+</div>
+<h4 id="diagram-redelivery-and-idempotency-lab">Diagram: Redelivery and Idempotency Lab</h4>
+<iframe src="../../sims/redelivery-idempotency-lab/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/redelivery-idempotency-lab/main.html">Run the Redelivery and Idempotency Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Redelivery and Idempotency Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> redelivery-idempotency-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: justify): The learner will justify why writing absolute values, not increments, keeps a summary correct when statements are redelivered.</p>
+<p>Layout: the drawing region shows a queue of numbered statements on the left, a processor in the middle, a log table with a deduplication indicator, and two summary counters on the right, one labeled "Writer A: count += 1" and one labeled "Writer B: count = recomputed from log". A truth line shows the correct count. The control region is below.</p>
+<p>Controls:</p>
+<ul>
+<li>Button "Deliver next statement"</li>
+<li>Slider "Redelivery chance" from 0 to 50 percent, default 20</li>
+<li>Button "Crash before commit" that forces the last batch to be redelivered</li>
+<li>Checkbox "Deduplicate log by statement id" (default on)</li>
+<li>Button "Reset"</li>
+</ul>
+<p>Behavior: each delivered statement adds one row to the log if its id is new. Writer A increments its counter on every delivery. Writer B recomputes its counter from the deduplicated log. After a redelivery, Writer A drifts above the truth line, and Writer B does not. With deduplication off, Writer B also drifts, and a message explains which layer failed.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, and the counters stack vertically under 500 pixels wide, with controls visible at 400 pixels.</p>
+<p>Implementation: p5.js with createButton, createSlider and createCheckbox controls. Include describe() for accessibility.</p>
+</details>
+<h2 id="clickhouse-and-neo4j">ClickHouse and Neo4j</h2>
+<p>The LRS keeps two databases because they do two different jobs. <strong>ClickHouse</strong> is a column-oriented analytical database, and it is the system of record: every statement lands in it at full fidelity, and it answers aggregate queries over very large tables quickly. The <strong>Neo4j Graph Database</strong> is a graph store, and it holds structure and compact summaries, meaning the tenancy tree, the textbook contents, the concept prerequisite graph, experiments and the summary vertices described below. This division is the design's first and most consequential decision, recorded as ADR-001. The log is the truth, and the graph is a projection that can be rebuilt from it.</p>
+<p>Three properties of the ClickHouse log table matter here. It is ordered by district first, then learner, then time, so every district-scoped query prunes on the primary key and cannot accidentally scan another district. It is partitioned by month, so retention becomes dropping a partition rather than rewriting data. And it stores a <code>raw</code> column holding the original statement, with the actor block replaced by the pseudonym, so any summary can be rebuilt by replaying the log. The design estimates roughly 22 GB per day of stored data at its target volume, about 4 TB for a 180-day school year, and about 28 TB at seven years of retention. Those are design estimates derived from assumed statement sizes and compression, not measurements.</p>
+<p>The graph side needs three definitions. The <strong>property graph data model</strong> stores data as vertices with labels, edges with types, and properties on both. In this LRS, vertices include District, School, Course, Section, Student, Textbook, Page, MicroSim and Concept, and edges include <code>ENROLLED_IN</code>, <code>CONTAINS</code>, <code>COVERS</code> and <code>DEPENDS_ON</code>. The model holds exactly two kinds of thing: structure and compressed summaries. It deliberately has no statement vertex.</p>
+<p>A <strong>summary vertex</strong> is a single graph vertex that compresses every statement at one analytical grain into one record. A grain is the key a summary is computed at. The specification defines six.</p>
+<table>
+<thead>
+<tr>
+<th>Summary vertex</th>
+<th>One vertex per</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ConceptMastery</code></td>
+<td>student and concept</td>
+</tr>
+<tr>
+<td><code>PageEngagement</code></td>
+<td>student and page</td>
+</tr>
+<tr>
+<td><code>MicroSimEngagement</code></td>
+<td>student and MicroSim</td>
+</tr>
+<tr>
+<td><code>QuestionResponse</code></td>
+<td>student and question</td>
+</tr>
+<tr>
+<td><code>LearningSession</code></td>
+<td>student and session</td>
+</tr>
+<tr>
+<td><code>SectionRollup</code></td>
+<td>section and concept</td>
+</tr>
+</tbody>
+</table>
+<p>Every summary vertex carries a <code>statements_compressed</code> count, so a report can always say how much evidence a number rests on. Summary vertices are projections, not sources of truth, and if one disagrees with the log, the log wins and the summary is rebuilt.</p>
+<p>A worked example follows one grain. A student attempts a quiz question about a concept, watches a MicroSim on it and dwells on its page, generating perhaps 100 statements over a semester. In ClickHouse they are 100 rows. In the graph they become one <code>ConceptMastery</code> vertex, linked by <code>HAS_MASTERY</code> from the student and by <code>OF_CONCEPT</code> to the concept, with <code>statements_compressed = 100</code>. The design estimates about 100 to 1 for this grain, and it estimates section rollups near 3,000 to 1. Both are estimates from assumed usage, since no learner data has been collected through MicroSims yet.</p>
+<p>The reason for the compression is write rate, and the numbers come from the design. At its target the LRS would receive about 144 million statements a day, and materializing each as a vertex would demand roughly 50,000 graph writes per second, which the design says no property graph sustains. Summarizing on a 60-second cadence, the design estimates about 2,500 upserts per second, and that figure barely moves during a fivefold burst, because a burst makes each active student emit more events, not more students exist.</p>
+<p>The compressor is a set of ClickHouse materialized views, which are insert-triggered aggregations that update a small table as rows arrive. The summarizer reads changed rows and writes absolute values to Neo4j. The design's Cypher for one grain shows the shape. <code>MERGE</code> means "find the vertex with this key or create it", and the composite key is the grain itself.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">UNWIND</span><span class="w"> </span><span class="err">$</span><span class="n">rows</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row</span>
+<span class="k">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">Student</span><span class="w"> </span><span class="p">{</span><span class="n">student_key</span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">student_key</span><span class="p">})</span>
+<span class="k">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="n">Concept</span><span class="w"> </span><span class="p">{</span><span class="n">concept_id</span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">concept_id</span><span class="p">})</span>
+<span class="k">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_MASTERY</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">m</span><span class="p">:</span><span class="n">ConceptMastery</span><span class="w"> </span><span class="p">{</span><span class="n">student_key</span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">student_key</span><span class="p">,</span>
+<span class="w">                                             </span><span class="n">concept_id</span><span class="p">:</span><span class="w">  </span><span class="n">row</span><span class="p">.</span><span class="n">concept_id</span><span class="p">})</span>
+<span class="k">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">OF_CONCEPT</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">statements_compressed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">statements_compressed</span><span class="w">   </span><span class="c1">// absolute, never +=</span>
+</code></pre></div></td></tr></table></div>
+<p>A uniqueness constraint on each grain's key enforces the rule in the database. Because <code>(student_key, concept_id)</code> must be unique, the summarizer can only ever upsert one vertex per grain, and code that tried to write per-statement vertices would fail at its first write. The DDL and constraint files exist in the repository, but the TODO file says applying them is still done by hand: the <code>--apply-ddl</code> and <code>--apply-constraints</code> options of <code>lrs bootstrap</code> report "not implemented". And the summarizer is designed, not built.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">A Summary Is Not the Evidence</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A count on a summary vertex tells you how much evidence was compressed, not what the evidence said. Anything the rollup drops, such as the engagement mode of a click, is gone from the graph and lives only in the log, so query the log when the detail matters.</p>
+</div>
+<h4 id="diagram-log-and-graph-compression-lab">Diagram: Log and Graph Compression Lab</h4>
+<iframe src="../../sims/log-graph-compression-lab/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/log-graph-compression-lab/main.html">Run the Log and Graph Compression Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Log and Graph Compression Lab</summary>
+<p>Type: chart
+<strong>sim-id:</strong> log-graph-compression-lab<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: examine): The learner will examine how summary vertices decouple graph write rate from ingest rate, using the design's published estimates as inputs.</p>
+<p>Layout: two charts side by side above a control region. The left chart is a bar chart of ClickHouse rows and graph vertices for one simulated semester. The right chart is a line chart of graph upserts per second against ingest rate in statements per second, with a second line for "if every statement were a vertex".</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Ingest rate" from 1,000 to 50,000 statements per second, default 10,000</li>
+<li>Slider "Sync cadence" from 5 to 300 seconds, default 60</li>
+<li>Drop-down "Grain" listing the six summary vertices</li>
+<li>Checkbox "Show design estimates" that overlays the design document's 5-second, 60-second and 300-second rows</li>
+</ul>
+<p>Data: the per-grain ratios and cadence rows are the design document's estimates, labeled "design estimate, not measured". Hovering a bar or point shows the value and its source section.</p>
+<p>Behavior: raising the ingest rate lifts the "every statement a vertex" line steeply and moves the summary line very little, and a note explains that a burst increases statements per grain, not the number of grains.</p>
+<p>Responsive design: both charts resize with the container on every window resize event, stacking vertically under 600 pixels wide.</p>
+<p>Implementation: Chart.js with a controls panel built in HTML and event listeners that update the datasets. Provide alternative text through aria-label on each canvas.</p>
+</details>
+<h2 id="the-twelve-core-functions">The Twelve Core Functions</h2>
+<p>The specification lists its <strong>twelve core functions</strong> as F-1 through F-12, plus an extra row, F-7b, for statement compression, so the table actually has thirteen rows. Chapter 9 of the companion LRS textbook covers all of them. This chapter touches the ones on the ingestion path.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Where this chapter meets it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-1 Statement storage</td>
+<td>The processor's write to ClickHouse</td>
+</tr>
+<tr>
+<td>F-4 Actor pseudonymization</td>
+<td>The identity service and processor</td>
+</tr>
+<tr>
+<td>F-5 Activity resolution</td>
+<td>The processor's cache lookup and reconcile task</td>
+</tr>
+<tr>
+<td>F-7b Statement compression</td>
+<td>The rollups and the summarizer</td>
+</tr>
+<tr>
+<td>F-10 Reconciliation</td>
+<td>The reconciler matching provisional stubs</td>
+</tr>
+</tbody>
+</table>
+<p>The remaining functions, retrieval, voiding, concept mapping, mastery, progress, experiments, export and retention, mostly run after ingestion, and Chapter 21 picks up the reporting side of them.</p>
+<h2 id="what-is-built-designed-and-hoped-for">What Is Built, Designed and Hoped For</h2>
+<p>It is easy to read a detailed design and assume a running system. This section corrects that. The table separates three things, following the honesty rule that runs through the whole book.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Status, per the repository TODO dated 2026-09-26</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gateway (auth, contract validation, ids, produce, respond)</td>
+<td>Built, verified against a live Redpanda, with 28 contract tests reported</td>
+</tr>
+<tr>
+<td>Topic bootstrap, ClickHouse DDL, Neo4j constraint file</td>
+<td>Built as files; applying the DDL and constraints is manual</td>
+</tr>
+<tr>
+<td>Demo seeder for districts and learners</td>
+<td>Built; writes summary vertices directly and marks them seeded</td>
+</tr>
+<tr>
+<td>Processor, identity service, summarizer, reconciler</td>
+<td>Designed, not built</td>
+</tr>
+<tr>
+<td>Analytics API</td>
+<td>Designed, not built</td>
+</tr>
+<tr>
+<td>Dashboards</td>
+<td>Prototype Dash apps over a seeded graph with synthetic data; production dashboards designed, not built</td>
+</tr>
+<tr>
+<td>Emitters POSTing statements to the gateway</td>
+<td>Not built</td>
+</tr>
+</tbody>
+</table>
+<p>That last row deserves a plain statement. The shared runtime from Chapter 17 has a transport seam and no network call by design, so no MicroSim currently sends a statement to any store, and the TODO file records that, when last inspected, the statement table in the development database held zero rows. It also warns that older notes reading "verified against live ClickHouse" meant that a person copied an emitted statement shape into a manual insert to test the DDL, which tests the schema and not the path from producer to store. The hoped-for part is the reason to build the chain at all: the hypothesis from Chapter 18 that these statements carry enough signal to predict mastery. That is untested. The scale targets, storage sizes and compression ratios are estimates from the design. Only the gateway's behavior has been measured, and only against a local development stack.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>A <strong>Learning Record Store</strong> accepts, keeps and answers questions about xAPI statements, and the full LRS splits that work into five planes: ingestion, processing, storage, analytics and presentation.</li>
+<li><strong>Multi-tenancy</strong> makes the school district the hard isolation boundary, with soft, role-based isolation below it, and rosters come from the district rather than the LRS.</li>
+<li><strong>Student privacy</strong> is served by pseudonymous learner IDs derived with a per-district salt, kept apart from the analytics stores by a separate vault. The pseudonymizing components are designed, not built.</li>
+<li>The <strong>ingestion gateway</strong> authenticates, validates, assigns ids, queues durably and replies only after the queue acknowledges, and its only hard dependency is the queue.</li>
+<li><strong>Statement validation</strong> in the built gateway enforces the whole producer contract, and an <strong>all-or-nothing batch</strong> returns every violation at once.</li>
+<li>The <strong>event stream</strong> (Redpanda in development, Kafka in production) is keyed by district and learner, so each learner's statements keep their order.</li>
+<li>The <strong>stream processor</strong> enriches statements and writes them to the log, and <strong>idempotent ingest</strong> comes from deduplication in the log plus absolute writes to the graph.</li>
+<li><strong>ClickHouse</strong> holds every statement, the <strong>Neo4j graph database</strong> holds structure and <strong>summary vertices</strong>, one per grain, in a <strong>property graph data model</strong> with no statement vertex.</li>
+<li>Only the gateway, the DDL and constraint files, the topic bootstrap and a demo seeder exist. No emitter posts to it yet, and the numbers quoted are design estimates.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Trace a Statement</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now follow one xAPI statement from a slider drag through the gateway's all-or-nothing check, the learner-keyed stream, idempotent ingest and the log, down to a single summary vertex. You can also say which of those pieces are built and which are still plans.</p>
+</div>
+<p>The next chapter turns from ingestion to the people who use the results, covering the dashboards, operations and compliance work that make the stored evidence useful to teachers and administrators.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 19. Evaluating the Predictive Fidelity of the xAPI Stream">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                19. Evaluating the Predictive Fidelity of the xAPI Stream
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-footer__link md-footer__link--next" aria-label="Next: 21. The Full LRS: Dashboards, Operations and Compliance">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                21. The Full LRS: Dashboards, Operations and Compliance
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

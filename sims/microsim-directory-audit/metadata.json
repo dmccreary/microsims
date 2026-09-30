@@ -1,0 +1,80 @@
+{
+  "title": "MicroSim Directory Audit",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["MicroSim Anatomy", "Quality Assurance", "Iframe Embedding", "Metadata"],
+  "description": "A p5.js audit exercise in which learners open the files of three sample MicroSim directories, flag lines that contain planted defects, rate each defect as cosmetic, discovery, display or breaks-embedding, and check their audit against a rubric with explanations.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/microsim-directory-audit/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Technology",
+    "topic": "Auditing a MicroSim directory",
+    "learningObjectives": [
+      "Critique a MicroSim directory by finding planted defects.",
+      "Judge whether each defect would break embedding, discovery or display, or is only cosmetic."
+    ],
+    "bloomsTaxonomy": ["Evaluate"],
+    "bloomVerb": "critique",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Files of a MicroSim directory",
+      "Canvas height constant and iframe height rule",
+      "Page front matter versus metadata.json"
+    ],
+    "concepts": ["MicroSim Directory", "Pinned Library Version", "Canvas Height Constant", "Page Front Matter", "Preview Image", "Schema Meta Tag"],
+    "chapter": "02-anatomy-of-a-microsim"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "button", "label": "Check audit"},
+      {"type": "button", "label": "Next directory"},
+      {"type": "select", "label": "Severity of flag", "options": ["cosmetic", "discovery", "display", "breaks embedding"]},
+      {"type": "canvas-click", "label": "File tree and line flags"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Audit exercise with rubric-based feedback",
+    "variables": ["flags", "severity ratings", "defects found", "false alarms", "rating accuracy"],
+    "assumptions": ["Each sample directory contains three or four planted defects drawn from Chapter 2."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Practice audit with rubric and explanatory feedback",
+    "interactionPattern": "Flag-and-rate critique with a checker",
+    "keyQuestions": [
+      "Which defects would a reader notice, and which would only a search tool notice?",
+      "Why can the same kind of defect be cosmetic in one directory and a display problem in another?"
+    ],
+    "commonMisconceptions": [
+      "An iframe that matches the CANVAS_HEIGHT comment must be correct, even when the comment itself is wrong.",
+      "Any defect is equally serious.",
+      "Dublin Core fields in the front matter are harmless duplicates."
+    ],
+    "assessmentOpportunities": [
+      "Defects found, false alarms and rating accuracy reported by the checker.",
+      "Pair discussion defending a rating that differs from the rubric."
+    ]
+  }
+}

@@ -1,0 +1,3404 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how a MicroSim follows its container width and how iframe heights are declared, synchronized, measured at runtime and tested so nothing is clipped.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/12-width-responsive-design-and-iframe-heights/">
+      
+      
+        <link rel="prev" href="../11-verified-posters-and-specialized-microsim-types/">
+      
+      
+        <link rel="next" href="../13-quality-assurance-and-automated-layout-review/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Width-Responsive Design and Iframe Heights - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Width-Responsive Design and Iframe Heights - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how a MicroSim follows its container width and how iframe heights are declared, synchronized, measured at runtime and tested so nothing is clipped." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/12-width-responsive-design-and-iframe-heights/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/12-width-responsive-design-and-iframe-heights/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Width-Responsive Design and Iframe Heights - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how a MicroSim follows its container width and how iframe heights are declared, synchronized, measured at runtime and tested so nothing is clipped." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/12-width-responsive-design-and-iframe-heights/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#width-responsive-design-and-iframe-heights" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Width-Responsive Design and Iframe Heights
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#width-responsiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Width Responsiveness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Width Responsiveness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-width-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Width Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windowresized-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        windowResized Handler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="windowResized Handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-width-responsive-breakpoint-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Width-Responsive Breakpoint Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-wrapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Wrapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Overflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Height
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iframe Height">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas_height-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CANVAS_HEIGHT Comment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#height-resolution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Height Resolution Order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Height Resolution Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-height-resolution-order-tracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Height Resolution Order Tracer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#height-sync-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Height Sync Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relative-iframe-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relative Iframe Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-auto-height-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Auto-Height Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Auto-Height Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iframe-auto-height-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Auto-Height Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postmessage-resize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        postMessage Resize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overlay-height-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay Height Pinning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlay Height Pinning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iframe-resize-message-stepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Iframe Resize Message Stepper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fullscreen-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fullscreen Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#width-responsiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Width Responsiveness
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Width Responsiveness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-width-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Width Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windowresized-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        windowResized Handler
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="windowResized Handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-width-responsive-breakpoint-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Width-Responsive Breakpoint Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-wrapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Wrapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Overflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iframe-height" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Height
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iframe Height">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canvas_height-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CANVAS_HEIGHT Comment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#height-resolution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Height Resolution Order
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Height Resolution Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-height-resolution-order-tracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Height Resolution Order Tracer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#height-sync-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Height Sync Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relative-iframe-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relative Iframe Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-auto-height-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Auto-Height Protocol
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Auto-Height Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iframe-auto-height-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Auto-Height Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postmessage-resize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        postMessage Resize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overlay-height-pinning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay Height Pinning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlay Height Pinning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iframe-resize-message-stepper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Iframe Resize Message Stepper
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fullscreen-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fullscreen Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/12-width-responsive-design-and-iframe-heights/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="width-responsive-design-and-iframe-heights">Width-Responsive Design and Iframe Heights</h1>
+<h2 id="summary">Summary</h2>
+<p>Explains how MicroSims adapt to any container width and how iframe heights are set, synchronized and tested so nothing is clipped or hidden.</p>
+<p>Students learn container width detection, the CANVAS_HEIGHT convention, height resolution order and the auto-height protocol. After it, they can make a MicroSim responsive and embed it at the right height.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 15 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Width Responsiveness</td>
+<td>26</td>
+</tr>
+<tr>
+<td>Container Width Detection</td>
+<td>2</td>
+</tr>
+<tr>
+<td>windowResized Handler</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Iframe Height</td>
+<td>12</td>
+</tr>
+<tr>
+<td>CANVAS_HEIGHT Comment</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Height Resolution Order</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Iframe Auto-Height Protocol</td>
+<td>2</td>
+</tr>
+<tr>
+<td>postMessage Resize</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Height Sync Tool</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Relative Iframe Path</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Mobile Layout</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Control Wrapping</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Text Overflow</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Fullscreen Mode</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Overlay Height Pinning</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../06-p5js-microsims/">Chapter 6: p5.js MicroSims</a></li>
+<li><a href="../10-image-overlays-and-comparison-posters/">Chapter 10: Image Overlays and Comparison Posters</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Fit Every Screen</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+A MicroSim that looks perfect on your laptop and loses its sliders on a phone has failed the learner who needed it most. In this chapter you will learn to make a MicroSim follow its container and to embed it at exactly the right height, so nothing is clipped and nothing is hidden. Let's bounce it around!</p>
+</div>
+<p>Chapters 2 and 6 introduced two facts in passing: a sketch measures its container width, and an iframe needs a height that matches the MicroSim. This chapter turns those facts into a complete engineering practice. We begin with the width, because it is the property that the learner's device controls, and then move to the height, which the author must declare, synchronize, and sometimes measure while the page runs.</p>
+<h2 id="width-responsiveness">Width Responsiveness</h2>
+<p>A MicroSim can be embedded in a narrow textbook column, a wide slide, a phone, or a classroom projector. The author cannot know in advance which. <strong>Width responsiveness</strong> is the design rule that a MicroSim's width follows the width of the element that contains it, while its height stays a fixed constant. It is one of the properties in the definition of a MicroSim from Chapter 1, and this chapter is where that property becomes concrete.</p>
+<p>The rule sits between two alternatives. A <em>fixed-width</em> design hardcodes both dimensions, such as 400 by 450 pixels. It is the simplest to write, but it forces horizontal scrolling on a narrow screen and wastes space on a wide one. A <em>fully responsive</em> design lets both width and height adapt. The v1.0 book of this project argued that this is more complex to write and test, and that vertical adaptation is usually unnecessary for educational content. Width-responsive design keeps the useful half of each: the layout flexes horizontally, and the fixed height gives the embedding page a predictable number to reserve, which the second half of this chapter depends on.</p>
+<p>The table below compares the three approaches. It summarizes the paragraph above.</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Width</th>
+<th>Height</th>
+<th>Main cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed-width</td>
+<td>Hardcoded</td>
+<td>Hardcoded</td>
+<td>Scrolls or wastes space on other screens</td>
+</tr>
+<tr>
+<td>Width-responsive</td>
+<td>Follows the container</td>
+<td>Fixed constant</td>
+<td>Every control must be repositioned on resize</td>
+</tr>
+<tr>
+<td>Fully responsive</td>
+<td>Follows the container</td>
+<td>Follows the container</td>
+<td>More complex code and testing</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>worked example</strong> shows the practical difference. Suppose a sketch draws a slider labeled "Gravity" whose track is 300 pixels long, and a learner opens the page in a 320-pixel-wide phone column. With a fixed design, the track plus its label runs past the edge and the learner must scroll sideways to reach the end of the slider. With a width-responsive design, the track length is computed from the container width, for example as the container width minus the label margin minus a right margin, so at 320 pixels the track shrinks to fit. The learner sees the same controls in the same order. Only the widths changed.</p>
+<p>Two mechanisms make this work, and the next two sections define them. The first is measuring the container; the second is reacting when it changes.</p>
+<h3 id="container-width-detection">Container Width Detection</h3>
+<p><strong>Container width detection</strong> is the step in which the sketch reads the current pixel width of the element that will hold its canvas, rather than assuming a number. In the standard p5.js MicroSim this element is the <code>&lt;main&gt;</code> tag from Chapter 1, and the measurement happens in a helper named <code>updateCanvasSize()</code>. The helper stores the result in the global variable <code>canvasWidth</code>, and <code>setup()</code> calls it before creating the canvas, so the very first frame already has the right width.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span><span class="w">   </span><span class="c1">// placeholder until the real width is measured</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateCanvasSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'main'</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">container</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">width</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The function looks up the <code>&lt;main&gt;</code> element, asks the browser for its bounding rectangle, and keeps the width rounded down to a whole pixel. The <code>if</code> guard prevents an error if the element is missing. Chapter 2's H-Bridge sketch uses <code>getBoundingClientRect()</code>, and the template in Chapter 6 uses the container's <code>offsetWidth</code>. Both read the same laid-out width, and the project's style guide names only the pattern, not one call, so either is acceptable when used consistently.</p>
+<h3 id="windowresized-handler">windowResized Handler</h3>
+<p>The <strong>windowResized handler</strong> is the function <code>windowResized()</code> that p5.js calls automatically whenever the browser window changes size. Detection alone is not enough, because the container can change after the first frame: a learner rotates a tablet, drags a browser edge, or opens a sidebar. The handler re-runs the measurement, resizes the canvas, and repositions every control.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">windowResized</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span><span class="w">                                     </span><span class="c1">// measure again</span>
+<span class="w">  </span><span class="nx">resizeCanvas</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="p">,</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="p">);</span><span class="w">                </span><span class="c1">// width changes, height does not</span>
+<span class="w">  </span><span class="nx">speedSlider</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">canvasWidth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">sliderLeftMargin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">margin</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The call <code>resizeCanvas(canvasWidth, canvasHeight)</code> passes the constant <code>canvasHeight</code> unchanged. The last line resizes a slider, and this line is the one authors forget. A p5.js slider is an ordinary HTML element laid over the page, so it does not shrink when the canvas does. The generator skill's fix list records the symptom, a slider that extends past the right edge, and its cause: the size was set in <code>setup()</code> and never updated. Every horizontal slider needs its own <code>size()</code> call in the handler, using the same formula throughout the sketch.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Sliders Do Not Follow the Canvas</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A canvas that resizes while its sliders and buttons stay put looks fine at one width and broken at every other. After you write <code>windowResized()</code>, list every control the sketch creates and confirm that each one is resized or repositioned inside it.</p>
+</div>
+<p>The following MicroSim lets you feel these two mechanisms working together. Before reading the specification, note its terms. A <em>breakpoint</em> here means a container width at which a layout rule changes, such as a row of buttons wrapping onto a second line. The <em>control row</em> is the strip below the drawing region that holds sliders and buttons.</p>
+<h4 id="diagram-width-responsive-breakpoint-lab">Diagram: Width-Responsive Breakpoint Lab</h4>
+<iframe src="../../sims/width-responsive-breakpoint-lab/main.html" width="100%" height="537px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/width-responsive-breakpoint-lab/main.html">Run the Width-Responsive Breakpoint Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Width-Responsive Breakpoint Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> width-responsive-breakpoint-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: demonstrate): The learner will demonstrate how container width detection and the windowResized handler keep a MicroSim usable, by dragging a container edge and switching the handler and slider resizing on and off.</p>
+<p>Layout: a drawing region above a control region, following the standard MicroSim layout, with a "container" frame drawn inside the region. The frame has a draggable right edge, and inside it a miniature MicroSim is drawn: a ball, a slider labeled "Gravity", and a row of three buttons. A readout above the frame shows "container width = N px" and "canvas width = M px".</p>
+<p>Controls:</p>
+<ul>
+<li>Draggable frame edge: sets the container width from 280 to 900 pixels, default 600</li>
+<li>Checkbox "Call windowResized" (default on): when off, the miniature canvas keeps the width it measured at load</li>
+<li>Checkbox "Resize sliders in the handler" (default on): when off, the slider track keeps its old length</li>
+<li>Button "Reload page": re-runs setup and measures the container again</li>
+<li>Dropdown "Preset width": Phone 375, Tablet 768, Desktop 1024 (clamped to the maximum)</li>
+</ul>
+<p>Behavior: with both checkboxes on, the miniature canvas and slider follow the frame and nothing is clipped. With the first checkbox off, the canvas stays at its load width, so it is clipped or leaves blank space when the frame changes. With only the second checkbox off, the canvas follows but the slider track overshoots or undershoots, and a red outline marks the overflow. Clicking any element of the miniature shows a one-sentence note naming the function responsible for its width.</p>
+<p>Instructional rationale: parameter exploration fits an Apply objective because the learner must predict what breaks, then confirm it by toggling each mechanism independently.</p>
+<p>Responsive design: the lab itself is width-responsive and follows the same pattern it teaches, with a fixed height constant and controls repositioned on window resize.</p>
+<p>Implementation: p5.js with createCheckbox, createSelect and createButton controls positioned relative to drawHeight, mouse drag handling for the frame edge, and a describe() call.</p>
+</details>
+<h3 id="mobile-layout">Mobile Layout</h3>
+<p><strong>Mobile layout</strong> is the arrangement a MicroSim takes when its container is narrow, typically a phone column. Width responsiveness makes the canvas fit, but a narrow canvas exposes problems that a wide one hides: labels collide, buttons overrun the edge, and text no longer fits its panel. The v1.0 book suggested testing at three common widths, 375 pixels for a phone, 768 for a tablet and 1024 or more for a desktop, and setting a minimum width of about 300 pixels below which the layout is not required to work. Those figures are that book's recommendations, not fixed rules, and the automated tester later in this chapter uses its own single width.</p>
+<p>Designing for the narrow case first is a practical habit. If the layout works at 375 pixels, it almost always works wider, because extra width only adds empty space. The next two sections cover the two failures that appear most often at that width.</p>
+<h3 id="control-wrapping">Control Wrapping</h3>
+<p><strong>Control wrapping</strong> is the practice of moving buttons that no longer fit on one row onto a second row, so the control region grows taller instead of running past the right edge. The microsim-utils visual checklist lists "buttons extend past right edge" as a failure, and the fix list offers three remedies in order: shorten the labels, wrap to a second row by increasing <code>controlHeight</code> and placing the second row at a lower offset, or narrow each button with <code>size()</code>.</p>
+<p>Wrapping changes the height, which is why it interacts with the second half of this chapter. If <code>controlHeight</code> grows from 50 to 85 pixels to hold a second row, then <code>canvasHeight</code>, <code>CANVAS_HEIGHT</code> and the iframe height all grow by 35 pixels, and all three must be updated together. A wrapped control row that is not reflected in the declared height is a clipped control row.</p>
+<h3 id="text-overflow">Text Overflow</h3>
+<p><strong>Text overflow</strong> is content that extends past the boundary of the box meant to hold it: a long title cut by the canvas edge, a slider label spilling into its track, or a description running past the bottom of an information panel. The checklist's first category is legibility, and its rule is that every visible text element shows complete characters with at least 2 pixels of padding from any boundary.</p>
+<p>The p5.js cause is worth knowing. The library has no clipping, so text drawn outside a rectangle simply renders past it, with no scroll bar to warn you. The fix list recommends sizing an offset from the measured label, using at least <code>textWidth(longestLabel) + 8</code>, and, for panels, either enlarging the panel, truncating the text, or wrapping it. Narrow widths make every one of these worse, so text overflow is best tested at the narrowest supported width.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Test the Longest Label</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Layouts are usually tested with short sample text. Put your longest label, title and description into the sketch at your narrowest width, because that is the combination most likely to spill.</p>
+</div>
+<h2 id="iframe-height">Iframe Height</h2>
+<p>The width problem is solved by the sketch itself. The height problem is different, because the sketch does not control the box it appears in. An <strong>iframe height</strong> is the pixel height of the iframe element that displays a MicroSim inside a page, and it is set by the embedding page, not by the MicroSim. An iframe does not resize itself to fit its content, as Chapter 1 noted. If the iframe is shorter than the MicroSim, the bottom of the simulation is cut off, and since controls live at the bottom, the learner loses the sliders. If it is taller, the page shows a band of wasted blank space.</p>
+<p>The project's approach is to record one number per MicroSim, which Chapter 2 introduced, and derive every iframe from it. This section covers where the number lives, how tools find it, and how it reaches every page that embeds the MicroSim.</p>
+<h3 id="canvas_height-comment">CANVAS_HEIGHT Comment</h3>
+<p>The <strong>CANVAS_HEIGHT comment</strong> is a single line near the top of the sketch that declares the MicroSim's full rendered height in pixels, including the drawing region, the control region and any graph panel or legend. The line has a fixed form, <code>// CANVAS_HEIGHT: &lt;n&gt;</code>, with a plain integer and no <code>px</code> suffix. The generator skill requires it within the first ten lines, and the synchronization script scans the first fifteen. The rule that turns it into an iframe height is <code>iframe height = CANVAS_HEIGHT + 2</code>, where the two extra pixels cover the iframe border.</p>
+<p>A <strong>worked example</strong> with new numbers: a sketch has <code>drawHeight</code> of 400 and <code>controlHeight</code> of 50, so <code>canvasHeight</code> is 450. The first lines of the file declare it, and the iframe is written with 452 pixels.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Bouncing Ball Gravity Lab</span>
+<span class="c1">// CANVAS_HEIGHT: 450</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">400</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">controlHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">canvasHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">drawHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">controlHeight</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../sims/bouncing-ball-gravity-lab/main.html"</span> <span class="na">width</span><span class="o">=</span><span class="s">"100%"</span> <span class="na">height</span><span class="o">=</span><span class="s">"452px"</span> <span class="na">scrolling</span><span class="o">=</span><span class="s">"no"</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>The comment is redundant with the variables on purpose. The skill's guide says the comment is a redundant-but-authoritative declaration for tools, so that a script can read the height without executing the sketch. For libraries other than p5.js, the generator skill lists approximations built from parts, for example a Chart.js MicroSim's chart container plus its title, controls and legend, and it gives sample values, not universal ones. Treat those as starting estimates to be checked in a browser.</p>
+<h3 id="height-resolution-order">Height Resolution Order</h3>
+<p>Not every MicroSim has a script. A Mermaid diagram or a Leaflet map may be built entirely in <code>main.html</code>. The <strong>height resolution order</strong> is the ranked list of places where a tool looks for a MicroSim's height, taking the first one that has a value. The list makes one number retrievable for every library type.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Source</th>
+<th>Typical MicroSim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>// CANVAS_HEIGHT: &lt;n&gt;</code> comment in the first lines of <code>&lt;sim-id&gt;.js</code></td>
+<td>Any MicroSim with a script</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>"canvasHeight": &lt;n&gt;</code> in <code>metadata.json</code></td>
+<td>MicroSims with no script</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>&lt;!-- CANVAS_HEIGHT: &lt;n&gt; --&gt;</code> comment in <code>main.html</code></td>
+<td>Older MicroSims, kept for compatibility</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Computed <code>drawHeight + controlHeight</code> (plus <code>graphHeight</code>) from the script</td>
+<td>Last resort</td>
+</tr>
+</tbody>
+</table>
+<p>If none of the four yields a value, the MicroSim is reported as unresolved and its iframes are left untouched. This is also how directories that are not MicroSims are skipped safely. When the fourth source is used, the script writes the computed value back into line 2 of the <code>.js</code> file as a comment, so the next run finds it at priority 1.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Number, Many Iframes</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice the shape of this design: the height is stored once, next to the code that determines it, and every iframe is derived. If you hand-type a height into a chapter page, you have created a second source of truth that will drift the next time the sketch changes.</p>
+</div>
+<p>Before you look at the next specification, note its terms. A <em>source</em> is one row of the table above. A <em>trace</em> means following the tool's search from priority 1 downward until it finds a value.</p>
+<h4 id="diagram-height-resolution-order-tracer">Diagram: Height Resolution Order Tracer</h4>
+<iframe src="../../sims/height-resolution-order-tracer/main.html" width="100%" height="612px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/height-resolution-order-tracer/main.html">Run the Height Resolution Order Tracer MicroSim Fullscreen</a></p>
+<details>
+<summary>Height Resolution Order Tracer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> height-resolution-order-tracer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: examine): The learner will examine a MicroSim folder and determine which of the four height sources a synchronization tool would use, and what iframe height results.</p>
+<p>Layout: on the left, a folder tree of one MicroSim with toggleable files; on the right, a four-row stack of source boxes numbered 1 to 4, and beneath it a result panel reading "CANVAS_HEIGHT = n, iframe = n + 2" or "unresolved: iframes left untouched".</p>
+<p>Controls:</p>
+<ul>
+<li>Preset dropdown: "p5.js sketch with comment", "Mermaid diagram with metadata only", "Legacy HTML comment", "Sketch with variables only", "No height anywhere"</li>
+<li>Checkboxes on each file element: "// CANVAS_HEIGHT comment present", "metadata.json canvasHeight present", "main.html comment present", "drawHeight and controlHeight variables present"</li>
+<li>Number fields for each value, default 450, 480, 500 and 400 plus 50</li>
+<li>Button "Trace": animates a highlight down the four boxes and stops at the first one that has a value</li>
+</ul>
+<p>Behavior: the highlight passes over empty sources in gray and stops on the first source with a value in green, and the result panel shows that value plus 2. When source 4 is used, a note appears saying the comment would be written back to line 2 of the script. When all four are empty, the panel turns amber. If two sources disagree, both are shown but only the higher-priority one is used, and a tooltip explains why.</p>
+<p>Instructional rationale: analysis of a priority rule is best supported by letting the learner set the inputs and predict the winner before pressing Trace.</p>
+<p>Responsive design: the folder tree and the source stack sit side by side above 600 pixels and stack vertically below it, and text wraps inside boxes on window resize.</p>
+<p>Implementation: p5.js with createCheckbox, createSelect, createInput and createButton controls, and a describe() call.</p>
+</details>
+<h3 id="height-sync-tool">Height Sync Tool</h3>
+<p>The <strong>height sync tool</strong> is the Python script <code>sync-iframe-heights.py</code> in the microsim-utils skill. It reads each MicroSim's height using the resolution order and rewrites every iframe that displays the MicroSim to <code>CANVAS_HEIGHT + 2</code>. It writes the value with a <code>px</code> suffix. The scan walks every Markdown file under <code>docs/</code>, so it updates the MicroSim's own <code>index.md</code> and every chapter, guide or poster page that embeds it, and it recognizes an embed by a <code>sims/&lt;id&gt;/main.html</code> path in the <code>src</code>. The script's pattern looks for a <code>height</code> attribute in the tag, so an iframe with no height attribute is not rewritten.</p>
+<p>The script has five flags, listed here before the commands that use them. <code>--project-dir</code> names the project root containing <code>mkdocs.yml</code>, and the script searches upward for it if omitted. <code>--sim</code> limits the run to one MicroSim by its id. <code>--dry-run</code> reports changes without writing files. <code>--verbose</code> prints the resolved height and source for every MicroSim. <code>--write-metadata</code> copies each resolved height into <code>metadata.json</code> as <code>canvasHeight</code>, which is additive and useful for backfilling MicroSims with no script.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Preview: what would change, and where each height came from</span>
+python3<span class="w"> </span>sync-iframe-heights.py<span class="w"> </span>--project-dir<span class="w"> </span>/path/to/project<span class="w"> </span>--dry-run<span class="w"> </span>--verbose
+
+<span class="c1"># Apply to every MicroSim</span>
+python3<span class="w"> </span>sync-iframe-heights.py<span class="w"> </span>--project-dir<span class="w"> </span>/path/to/project
+
+<span class="c1"># Apply to one MicroSim</span>
+python3<span class="w"> </span>sync-iframe-heights.py<span class="w"> </span>--project-dir<span class="w"> </span>/path/to/project<span class="w"> </span>--sim<span class="w"> </span>bouncing-ball-gravity-lab
+</code></pre></div></td></tr></table></div>
+<p>Running the dry run first is a good habit, because the script rewrites many pages. The generator skill also warns about an older predecessor, <code>fix-iframe-heights.py</code>, which updated only the MicroSim's own page and left chapter embeds at stale heights, so the MicroSim looked right on its own page and clipped in the chapter.</p>
+<p>A related tool checks the result in a real browser. The skill's <code>test-iframe-heights.py</code> uses Playwright, an automated-browser library, to load each <code>main.html</code> at the iframe height declared in <code>index.md</code>, check that buttons, sliders and other controls fit, and suggest a new height on failure. It uses a fixed viewport width of 700 pixels, chosen to match a typical MkDocs Material content column. One caution from reading both scripts: the tester looks for <code>// CANVAS_HEIGHT = N</code> with an equals sign, while the sync script accepts a colon or an equals sign. Writing the comment with a colon, as this chapter does, satisfies the sync script but the tester will not read it as the declared height and falls back to measuring the page. Chapter 13 covers the tester as part of quality assurance.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Sync After Every Height Change</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+If you change <code>drawHeight</code>, add a control row, or wrap buttons, the comment and the iframes are now wrong until you update the comment and rerun the sync tool. Get in the habit of running it with <code>--dry-run --verbose</code> after any layout edit.</p>
+</div>
+<h3 id="relative-iframe-path">Relative Iframe Path</h3>
+<p>A <strong>relative iframe path</strong> is an iframe <code>src</code> written relative to the page that contains it, never as an absolute path beginning with a slash. The generator skill states the rule strongly: absolute paths such as <code>/sims/...</code> break on GitHub Pages, because a project site is served under a subdirectory, for example <code>/geometry-course/</code>, so a leading slash points at the wrong place. The relative form is correct wherever the site is mounted.</p>
+<p>The correct value depends on where the embedding page sits. Chapter 2 introduced the folders; the table below applies them.</p>
+<table>
+<thead>
+<tr>
+<th>Embedding page</th>
+<th>Correct <code>src</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The MicroSim's own <code>docs/sims/&lt;sim-id&gt;/index.md</code></td>
+<td><code>main.html</code></td>
+</tr>
+<tr>
+<td>A chapter at <code>docs/chapters/&lt;chapter&gt;/index.md</code></td>
+<td><code>../../sims/&lt;sim-id&gt;/main.html</code></td>
+</tr>
+</tbody>
+</table>
+<p>The sync tool recognizes both forms. A bare <code>main.html</code> counts as an embed only when the page sits directly inside a folder under <code>sims</code>, which is how the tool avoids rewriting unrelated iframes. The generator skill also provides a <code>--fix-paths</code> option in its insertion tool that converts absolute paths to relative ones.</p>
+<h2 id="the-auto-height-protocol">The Auto-Height Protocol</h2>
+<p>The build-time approach has a limit. Some MicroSims have a height that cannot be known until they run: a layout that reflows at narrow widths, or an information panel whose text changes as the learner clicks. For these, the project documents a second mechanism that measures at runtime.</p>
+<h3 id="iframe-auto-height-protocol">Iframe Auto-Height Protocol</h3>
+<p>The <strong>iframe auto-height protocol</strong> is a two-part agreement between a MicroSim inside an iframe (the child) and the page that embeds it (the parent). The child measures its own content height after it has laid out and sends the number to the parent. The parent finds the iframe that sent the message and sets that iframe's height. Neither side needs to know the other's code, only the message format, and the format is fixed: a message whose <code>type</code> is the literal string <code>microsim-resize</code> and whose <code>height</code> is a number of pixels. The guide warns that both sides must agree on the string, so it should not be changed without updating every participating MicroSim.</p>
+<p>Because the two systems can coexist, the static height in the Markdown becomes the loading-state default, which is the height the iframe has in the moment between page load and the first message. The guide asks authors to always set a sensible <code>height</code> attribute anyway, typically the fully rendered height, and the runtime message then overrides it.</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>When it runs</th>
+<th>Source of the number</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Height sync tool</td>
+<td>At build or before a commit</td>
+<td><code>CANVAS_HEIGHT</code> from the resolution order</td>
+<td>Any MicroSim with a knowable fixed height</td>
+</tr>
+<tr>
+<td>Auto-height protocol</td>
+<td>In the learner's browser</td>
+<td><code>document.body.scrollHeight</code> measured at runtime</td>
+<td>Layouts that change height after load</td>
+</tr>
+</tbody>
+</table>
+<h3 id="postmessage-resize">postMessage Resize</h3>
+<p><strong>postMessage resize</strong> is the browser feature that carries the message. <code>window.postMessage</code> is a standard browser method that lets a window send data to another window, including the page that contains it, without either reading the other's variables. Inside an iframe, <code>window.parent</code> refers to the embedding page, so the child can call <code>window.parent.postMessage(message, '*')</code>. The second argument is the target origin, and <code>'*'</code> means any origin. The guide justifies it because these books are typically deployed on one GitHub Pages origin, and it advises tightening the value to the real parent origin if a MicroSim is ever embedded across origins.</p>
+<p>The child-side code for a p5.js sketch has three parts that the next paragraph explains. The guard <code>window.self === window.top</code> is true when the page is not inside an iframe, which is the case in fullscreen mode, so the function returns without sending anything. The measurement <code>document.body.scrollHeight</code> is the total height of the page content, and the guide adds 10 pixels of breathing room. The <code>setTimeout</code> of 50 milliseconds delays the call because p5.js appends controls to the page asynchronously, so measuring inside <code>setup()</code> could miss them.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">reportHeightToParent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">self</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w">          </span><span class="c1">// not embedded, so nothing to report</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w">  </span><span class="c1">// small breathing room</span>
+<span class="w">  </span><span class="nb">window</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">({</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'microsim-resize'</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s1">'*'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">updateCanvasSize</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// ... createCanvas, createButton, createSlider, etc. ...</span>
+<span class="w">  </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">reportHeightToParent</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span><span class="w">            </span><span class="c1">// wait for layout to settle</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The parent-side listener belongs at the top of the site-wide <code>docs/js/extra.js</code>, and it is written once per project. It ignores any message that lacks the right type or a positive numeric height, then compares each iframe's <code>contentWindow</code> with the message's <code>event.source</code> to find the sender.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"message"</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"microsim-resize"</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"number"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">iframes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"iframe"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">iframe</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">iframes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">contentWindow</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">source</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">iframe</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"px"</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">iframe</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"height"</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Matching by <code>event.source</code> is deliberate. A page may hold several MicroSims that share a base path, and comparing <code>contentWindow</code> is the only reliable identification, whereas <code>src</code> strings and names can be duplicated. The listener sets both the style and the attribute because some themes and plugins read one and some the other.</p>
+<p>A note about this repository: as of this writing, this book's own <code>docs/js/extra.js</code> does not contain this listener, and the site configuration loads that file plus a math library. The protocol is therefore documented and used elsewhere, but a MicroSim in this book that posts the message would have no parent listener until one is added. Chapter 10 noted the same dependency for overlays.</p>
+<p>Three further cautions come from the guide. The report fires once by default, so a MicroSim whose height changes later must call it again from the relevant event handler or observe the page with a <code>ResizeObserver</code>, a browser feature that reports size changes. An iframe with a <code>sandbox</code> attribute must include <code>allow-scripts</code> or the message is silently dropped. And the parent should validate the number, as the listener above does, instead of trusting it.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A Conversation Between Two Windows</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the iframe as a room with no windows onto the outside except a mail slot. The MicroSim cannot reach out and resize its own frame, so it drops a note through the slot, and the page decides what to do with it.</p>
+</div>
+<h3 id="overlay-height-pinning">Overlay Height Pinning</h3>
+<p>Chapter 10's overlay MicroSims have a special height problem. Their information box, called the infobox, swaps its text each time the learner clicks a callout, so the content height varies while the iframe height must not jump under the learner's cursor. <strong>Overlay height pinning</strong> is the design, described in the generator skill's reference on iframe height pinning, that solves this in three steps. First, find the callout with the longest text. Second, temporarily fill the infobox with that text and read the infobox's height. Third, set that height as the infobox's inline <code>min-height</code>, restore the original text, and post the page height plus 30 pixels to the parent.</p>
+<p>The effect is that the infobox box keeps its worst-case size even when it holds only the short prompt, so every element below it stays in place and the iframe is a single constant height. The reference works through an example in which the controls would otherwise move 130 pixels between the shortest and tallest states. It also lists a constraint: the page order of layout, infobox, then controls must not be changed, and the pin must be cleared at the start of each remeasurement, or the iframe would never adjust after a window resize.</p>
+<p>We should be precise about what exists. The reference is a design description. When we read the shared <code>diagram.js</code> in the skill repository, its <code>reportHeight()</code> method performs the worst-case measurement and posts <code>document.body.scrollHeight + 30</code>, and a <code>ResizeObserver</code> calls it again on layout changes, but we did not find the <code>min-height</code> pinning lines in that file. Chapter 10 made the same observation. Treat pinning as a documented design that a copy of the library may or may not yet implement, and verify your copy before relying on it.</p>
+<p>The specification below lets a learner see why pinning matters. First, two terms: the <em>worst case</em> is the callout whose text produces the tallest infobox, and a <em>jump</em> is a change in the vertical position of the controls when the learner selects a different callout.</p>
+<h4 id="diagram-iframe-resize-message-stepper">Diagram: Iframe Resize Message Stepper</h4>
+<iframe src="../../sims/iframe-resize-message-stepper/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/iframe-resize-message-stepper/main.html">Run the Iframe Resize Message Stepper MicroSim Fullscreen</a></p>
+<details>
+<summary>Iframe Resize Message Stepper</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> iframe-resize-message-stepper<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the outcomes of a fixed iframe height, a runtime resize message, and a pinned infobox, by stepping through the protocol and observing where the controls land.</p>
+<p>Layout: two side-by-side panels. The left panel is labeled "Child (MicroSim)" and shows a miniature overlay with an image area, an infobox and a control row. The right panel is labeled "Parent (chapter page)" and shows the iframe as an outlined rectangle around the child, with a text panel below it that lists the messages received.</p>
+<p>Controls:</p>
+<ul>
+<li>Button "Next step" and button "Back": advance through the protocol in this order: page loads with the default height attribute, the child measures scrollHeight, the child posts a microsim-resize message, the parent's listener compares event.source, the iframe height changes</li>
+<li>Dropdown "Callout": Short prompt, Medium description, Long description with tip</li>
+<li>Radio "Mode": Fixed height only, Runtime message without pinning, Runtime message with pinning</li>
+<li>Checkbox "Parent listener installed" (default on)</li>
+<li>Slider "Iframe border allowance" from 0 to 40 pixels, default 30</li>
+</ul>
+<p>Behavior: in "Fixed height only", choosing a long callout clips the controls and a clipped-region marker appears. In "Runtime message without pinning", every callout change moves the controls and a readout shows the number of pixels they jumped. In "Runtime message with pinning", the controls stay at one position and a gray band shows the reserved whitespace. With the listener unchecked, the message list shows the message sent and a note "no listener: iframe height unchanged". Clicking the message shows its fields, type and height.</p>
+<p>Instructional rationale: a step-through with visible values is appropriate for an Analyze objective because the learner must compare three outcomes for the same content, and continuous animation would hide the sequence.</p>
+<p>Responsive design: the panels sit side by side above 700 pixels and stack vertically below it, and all text wraps on window resize.</p>
+<p>Implementation: p5.js with createButton, createSelect, createRadio, createCheckbox and createSlider controls positioned relative to drawHeight, and a describe() call.</p>
+</details>
+<h2 id="fullscreen-mode">Fullscreen Mode</h2>
+<p>The last concept completes the picture. <strong>Fullscreen mode</strong> is the case in which a MicroSim is opened directly in its own browser tab, at its own <code>main.html</code> address, instead of inside an iframe. Authors provide it with a fullscreen button, a plain Markdown link decorated with MkDocs Material classes and placed after the iframe: <code>[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }</code>. The standardization checklist in the microsim-utils skill checks for this button.</p>
+<p>Fullscreen mode changes two things. There is no parent page, so <code>window.self === window.top</code> is true and the height reporter correctly does nothing, which is why every snippet in this chapter starts with that guard. The container is also the whole browser window, so a width-responsive sketch simply stretches to the window width, and this is the setting in which the generator skill allows mouse-wheel zoom on maps and networks, since there is no page around them to scroll. Inside the iframe, wheel scrolling must not be hijacked, and the skill's example is setting the Leaflet option <code>scrollWheelZoom</code> to false unless explicitly requested.</p>
+<p>A <strong>worked example</strong> to close the chapter follows one MicroSim through every concept. An author adds a control row of five buttons, which wrap onto two rows at 375 pixels, so <code>controlHeight</code> grows from 50 to 85. The author updates the <code>// CANVAS_HEIGHT</code> comment from 450 to 485 and runs the sync tool with <code>--dry-run --verbose</code>, which resolves 485 from the comment at priority 1 and plans to rewrite the chapter's iframe from 452px to 487px. The author confirms the change, reruns without <code>--dry-run</code>, and checks that the <code>src</code> is still the relative <code>../../sims/&lt;sim-id&gt;/main.html</code>. Finally, the author opens the fullscreen link to confirm the MicroSim stretches to the window, and views the page at a narrow width to confirm nothing is clipped.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Nothing Clipped</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now make a MicroSim follow its container with container width detection and a windowResized handler, declare its height once with a CANVAS_HEIGHT comment, and keep every iframe correct with the height sync tool. That combination is what keeps the controls visible on every screen.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<p>The key ideas of this chapter are:</p>
+<ul>
+<li>Width responsiveness means the MicroSim's width follows its container while its height stays a fixed constant, which is simpler than full responsiveness and predictable for embedding pages.</li>
+<li>The sketch measures the container with <code>updateCanvasSize()</code> in <code>setup()</code> and again in <code>windowResized()</code>, which must also resize every slider and reposition every control.</li>
+<li>Narrow layouts expose mobile layout problems, solved by control wrapping and by fixing text overflow, and any added row of controls changes the declared height.</li>
+<li>An iframe does not resize itself, so the iframe height is derived from one declared number, <code>CANVAS_HEIGHT</code>, using the rule <code>iframe height = CANVAS_HEIGHT + 2</code>.</li>
+<li>Tools find that number by the height resolution order: script comment, <code>metadata.json</code>, HTML comment, then computed variables, and the height sync tool rewrites every embedding iframe.</li>
+<li>Iframe paths are relative, <code>main.html</code> from the MicroSim's own page and <code>../../sims/&lt;sim-id&gt;/main.html</code> from a chapter, never beginning with a slash.</li>
+<li>The iframe auto-height protocol lets a MicroSim send <code>{ type: 'microsim-resize', height }</code> with <code>postMessage</code>, and a parent listener matches <code>event.source</code> to resize the right iframe.</li>
+<li>Overlay height pinning is a documented design that fixes the infobox at its worst-case height so controls do not jump, and fullscreen mode is the case in which the height reporter does nothing.</li>
+</ul>
+<p>The next chapter shows how to check all of this automatically, with quality scores, browser tests and layout review.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11. Verified Posters and Specialized MicroSim Types">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                11. Verified Posters and Specialized MicroSim Types
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../13-quality-assurance-and-automated-layout-review/" class="md-footer__link md-footer__link--next" aria-label="Next: 13. Quality Assurance and Automated Layout Review">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                13. Quality Assurance and Automated Layout Review
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,152 @@
+{
+  "title": "Iframe Resize Message Stepper",
+  "description": "A child MicroSim (image area, infobox and control row) and the parent chapter page with the iframe drawn around it. Next step and Back walk the five steps of the microsim-resize protocol: default height attribute, scrollHeight measurement, postMessage, event.source matching and the height change. A Mode radio compares a fixed height, a runtime message without pinning and a runtime message with a pinned infobox; changing the callout shows clipping, jumps or stable controls.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Web Development",
+    "MicroSim Engineering",
+    "Iframe Heights"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/iframe-resize-message-stepper/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The iframe auto-height protocol and overlay height pinning",
+    "learningObjectives": [
+      "The learner will differentiate the outcomes of a fixed iframe height, a runtime resize message, and a pinned infobox, by stepping through the protocol and observing where the controls land."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Iframe height and the CANVAS_HEIGHT + 2 rule (Chapter 12)",
+      "Overlay MicroSims and their infobox (Chapter 10)"
+    ],
+    "concepts": [
+      "Iframe Auto-Height Protocol",
+      "postMessage Resize",
+      "Overlay Height Pinning",
+      "Iframe Height"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() provides a screen-reader description; all controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button",
+        "label": "Back"
+      },
+      {
+        "type": "button",
+        "label": "Next step"
+      },
+      {
+        "type": "select",
+        "label": "Callout",
+        "options": [
+          "Short prompt",
+          "Medium description",
+          "Long description with tip"
+        ]
+      },
+      {
+        "type": "radio",
+        "label": "Mode",
+        "options": [
+          "Fixed height only",
+          "Runtime message without pinning",
+          "Runtime message with pinning"
+        ],
+        "default": "Runtime message without pinning"
+      },
+      {
+        "type": "checkbox",
+        "label": "Parent listener installed",
+        "default": true
+      },
+      {
+        "type": "slider",
+        "label": "Iframe border allowance",
+        "min": 0,
+        "max": 40,
+        "default": 30,
+        "units": "px"
+      },
+      {
+        "type": "canvas-click",
+        "label": "Message list",
+        "action": "Show the fields of a received message"
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Step-through protocol model",
+    "variables": [
+      "infobox height (110, 140, 240)",
+      "scrollHeight",
+      "posted height",
+      "iframe height",
+      "controls position"
+    ],
+    "equations": [
+      "scrollHeight = 200 (image area) + infobox + 44 (controls)",
+      "posted height = scrollHeight + allowance"
+    ],
+    "assumptions": [
+      "Default height attribute 402 px; the image area and control row have constant heights."
+    ],
+    "limitations": [
+      "Sandboxed iframes, cross-origin targets and ResizeObserver timing are described, not simulated."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Step-through comparison of three designs on the same content",
+    "interactionPattern": "Step-through with visible values (Analyze level)",
+    "keyQuestions": [
+      "Which window measures, and which window resizes the iframe?",
+      "Why does the listener compare event.source instead of the iframe src?",
+      "What does pinning cost, and what does it buy?"
+    ],
+    "commonMisconceptions": [
+      "An iframe grows to fit its content by itself.",
+      "Sending the message is enough; no code on the parent is needed.",
+      "Re-measuring on every change is always best."
+    ],
+    "assessmentOpportunities": [
+      "The learner completes a table of iframe height and controls position for the three modes and two callouts.",
+      "The learner explains why pinning trades whitespace for stable controls."
+    ]
+  },
+  "chapter": "12-width-responsive-design-and-iframe-heights",
+  "canvasHeight": 600
+}

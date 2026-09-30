@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Clickable Flowchart Anatomy using Mermaid</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="diagram-panel">
+                <div class="diagram-status" id="diagram-status" hidden></div>
+                <div class="mermaid-box" id="mermaid-box" aria-label="Flowchart: Learning objective written, AI drafts the MicroSim, Meets the objective? Yes leads to Publish, No loops back to the draft."></div>
+            </div>
+            <div class="info-panel">
+                <div class="panel-top">
+                    <button type="button" id="break-btn" aria-pressed="false">Break it</button>
+                </div>
+                <div class="card" id="card" aria-live="polite">
+                    <div class="card-title">Flowchart anatomy</div>
+                    <div class="card-body">Mermaid draws this diagram from a few lines of text. Click or hover a node, a Yes/No label or an arrow to see its shape, its role and the Mermaid line that created it.</div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-key">
+            <span class="key-title">Four node shapes:</span>
+            <button type="button" class="key-item" data-shape="rounded"><svg width="34" height="20" aria-hidden="true"><rect x="2" y="2" width="30" height="16" rx="5" class="k-shape"/></svg>Rounded: start / end</button>
+            <button type="button" class="key-item" data-shape="rect"><svg width="34" height="20" aria-hidden="true"><rect x="2" y="2" width="30" height="16" class="k-shape"/></svg>Rectangle: step</button>
+            <button type="button" class="key-item" data-shape="diamond"><svg width="34" height="20" aria-hidden="true"><polygon points="17,1 33,10 17,19 1,10" class="k-shape"/></svg>Diamond: decision</button>
+            <button type="button" class="key-item" data-shape="circle"><svg width="34" height="20" aria-hidden="true"><circle cx="17" cy="10" r="8.5" class="k-shape"/></svg>Circle: connector</button>
+        </div>
+    </main>
+    <script src="clickable-flowchart-anatomy.js"></script>
+</body>
+</html>

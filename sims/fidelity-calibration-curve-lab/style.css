@@ -1,0 +1,96 @@
+/* Calibration Curve Lab - fills a fixed-height iframe (100vh).
+   The plot takes whatever height remains; below 600 px the table wraps under the plot. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+body { background: aliceblue; }
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+}
+.content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 8px;
+    padding: 6px 8px 0 8px;
+}
+.plot-box {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    background: white;
+    border: 1px solid #d6dde6;
+    border-radius: 8px;
+}
+/* absolutely positioned so the plot can never push the flex layout */
+.plot-inner { position: absolute; inset: 2px; }
+
+.table-box {
+    width: 280px;
+    flex: none;
+    background: white;
+    border: 1px solid #d6dde6;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 13px;
+    overflow-y: auto;
+}
+.table-title { font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+#bin-table { width: 100%; border-collapse: collapse; }
+#bin-table th, #bin-table td { padding: 3px 4px; text-align: right; border-bottom: 1px solid #e3e8ee; }
+#bin-table th:first-child, #bin-table td:first-child { text-align: left; white-space: nowrap; }
+#bin-table th { font-size: 12px; color: #333; vertical-align: bottom; }
+#bin-table tr.small td { color: #666; font-style: italic; }
+#bin-table tr.total td { font-weight: bold; border-top: 2px solid #b8c2cc; border-bottom: none; }
+.table-note { margin-top: 5px; color: #444; font-size: 12px; line-height: 1.35; }
+
+.diagnosis {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    padding: 6px 10px 4px 10px;
+    font-size: 15px;
+}
+.diag-label { font-weight: bold; }
+.diag-btn { font-size: 14px; padding: 3px 10px; }
+.diag-btn.chosen-right { background: #d9efe7; border-color: #009e73; }
+.diag-btn.chosen-wrong { background: #f8e3d6; border-color: #d55e00; }
+.diag-feedback {
+    flex-basis: 100%;
+    height: 40px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #222;
+}
+
+.controls {
+    background: white;
+    border-top: 1px solid silver;
+    padding: 6px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 18px;
+    font-size: 15px;
+}
+.ctrl { display: flex; align-items: center; gap: 8px; }
+.ctrl input[type=range] { width: 130px; }
+.controls select, .controls button { font-size: 14px; padding: 3px 6px; }
+
+@media (max-width: 599px) {
+    .content { flex-direction: column; }
+    .table-box { width: auto; height: 132px; font-size: 12px; padding: 4px 6px; }
+    .table-title { display: none; }
+    #bin-table th, #bin-table td { padding: 1px 4px; }
+    .diagnosis { font-size: 14px; padding: 4px 8px 2px 8px; }
+    .diag-btn { font-size: 13px; padding: 2px 6px; }
+    .diag-feedback { font-size: 13px; height: 36px; }
+    .controls { gap: 4px 12px; font-size: 14px; }
+    .controls select { max-width: 100%; }
+    .ctrl input[type=range] { width: 100px; }
+}

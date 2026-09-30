@@ -1,0 +1,134 @@
+{
+  "title": "Roadmap Status Board",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims Roadmap",
+    "Evidence Labels",
+    "Learning Analytics",
+    "Research Planning"
+  ],
+  "description": "A p5.js board of fourteen cards from Chapter 26 in two lanes: the five near-term roadmap items, each traced to a written source, and the five long-term ideas plus four open problem areas, each marked no source: speculative. Card color and a printed word show whether an item is built, designed or hoped for; clicking a card shows its source, the test that would show it worked and its main failure mode, and a quiz asks learners to label five cards.",
+  "date": "2026-09-30",
+  "type": "Interactive Infographic",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/roadmap-status-board/",
+  "canvasHeight": 760,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Separating built, designed and hoped-for claims on a roadmap",
+    "learningObjectives": [
+      "The learner will distinguish what is built, designed and hoped for among the near-term and long-term items by opening each item and reading its source and its test."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Built, designed and hoped-for labels (Chapter 26)",
+      "The xAPI runtime and the Full LRS design (Chapters 17 and 20)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 760
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Labels are printed on cards and hoped-for cards have a dashed border, so color is not the only cue; the board is a Tab stop with arrow-key selection and B/D/H quiz keys; filter checkboxes and quiz buttons are native controls; describe() lists every visible card and its label; quiz progress is announced in an aria-live region"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "cards",
+        "type": "clickable canvas cards",
+        "label": "Roadmap cards",
+        "purpose": "Open a card's label, source, required test and failure mode"
+      },
+      {
+        "id": "labelFilters",
+        "type": "checkbox",
+        "label": "Built / Designed / Hoped for",
+        "purpose": "Show only cards with the checked labels"
+      },
+      {
+        "id": "quizButton",
+        "type": "button",
+        "label": "Quiz me",
+        "purpose": "Hide labels and ask the learner to label five random cards"
+      },
+      {
+        "id": "answerButtons",
+        "type": "button",
+        "label": "Built / Designed / Hoped for (quiz only)",
+        "purpose": "Answer the current quiz card"
+      }
+    ]
+  },
+  "simulation": {
+    "model": "Static data set of fourteen roadmap cards with a labeling quiz",
+    "variables": [
+      "label filters",
+      "selected card",
+      "quiz answers"
+    ],
+    "assumptions": [
+      "Items the chapter calls partly built are shown as Built (verified adapters, shared sim libraries) or Designed (end-to-end POST path) with a partly built note",
+      "Every long-term idea and open problem is labeled hoped for, as the chapter states for the long-term half",
+      "No dates are given; the near-term horizon is about one year"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Evidence-status sorting with retrieval-practice quiz",
+    "interactionPattern": "Clickable cards with a detail panel, filters and a labeling quiz",
+    "keyQuestions": [
+      "What source does this item trace to?",
+      "What test would show it worked, and has it run?",
+      "Why can no long-term item be labeled built or designed yet?"
+    ],
+    "commonMisconceptions": [
+      "A written design means the feature exists",
+      "A partly built item is finished",
+      "An attractive long-term idea is supported by evidence"
+    ],
+    "assessmentOpportunities": [
+      "Quiz score",
+      "Rewriting a required test as a concrete study",
+      "Arguing for a label change with the chapter's definitions"
+    ]
+  },
+  "search": {
+    "tags": [
+      "roadmap",
+      "built designed hoped for",
+      "evidence labels",
+      "future of MicroSims",
+      "quiz",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "infographic",
+      "interactive-demo"
+    ]
+  },
+  "chapter": "26-the-future-of-microsims"
+}

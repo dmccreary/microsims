@@ -1,0 +1,15 @@
+{
+  "sim_id": "lrs-architecture-explorer",
+  "diagram_name": "Full LRS Architecture Explorer",
+  "chapter_number": 20,
+  "chapter_title": "\"The Full LRS: Architecture and Ingestion\"",
+  "chapter_dir": "20-the-full-lrs-architecture-and-ingestion",
+  "chapter_rel_dir": "chapters/20-the-full-lrs-architecture-and-ingestion",
+  "library": "vis-network",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the five architectural planes and the components in each, and distinguish built components from designed ones.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** lrs-architecture-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the five architectural planes and the components in each, and distinguish built components from designed ones.\n\nNodes: textbooks (left), then the gateway, the event stream, the processors, ClickHouse, Neo4j, the summarizer, the reconciler, the identity service, the vault, the analytics API and the dashboards. Nodes are grouped in five horizontal bands labeled Ingestion, Processing, Storage, Analytics and Presentation. Directed edges show data flow: textbooks to gateway to event stream to processors to ClickHouse, ClickHouse to summarizer to Neo4j, and processors to reconciler to Neo4j.\n\nColors: the built component (the gateway) is green, the event stream and the two databases are yellow to mean that infrastructure and schema files exist but the workers that feed them do not, and designed components are light gray with a dashed border. A legend states the meaning.\n\nInteractions: clicking a node opens an information panel with a one-sentence role, its hard dependencies, and its status with the date of the source. Hovering an edge shows what travels along it. A checkbox \"Hide designed components\" leaves only the built path visible. A \"Quiz me\" button hides the labels and asks the learner to drag each component into its plane.\n\nLayout: the network fills the container width, with the panel below the network under 600 pixels wide.\n\nResponsive design: the network re-fits on every window resize event, and node labels shrink but never below 11 pixels.\n\nImplementation: vis-network with fixed positions and physics disabled. Node data and status live in a JSON file so the diagram can be updated when the status changes."
+}

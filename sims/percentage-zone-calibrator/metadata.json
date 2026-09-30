@@ -1,0 +1,145 @@
+{
+  "title": "Percentage Zone Calibrator",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Image Overlays",
+    "Grid Overlay",
+    "Percentage Rectangle Zones",
+    "Hit Testing",
+    "Responsive Coordinates"
+  ],
+  "description": "Drag the four corner handles of a zone over a placeholder poster and watch the pixel-to-percentage calculation for x1, y1, x2 and y2; practice matching a target within two points and predict whether a click falls inside.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/percentage-zone-calibrator/",
+  "canvasHeight": 535,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Calculating percentage rectangle zones for a grid overlay",
+    "learningObjectives": [
+      "The learner will calculate the x1, y1, x2 and y2 percentages of a rectangle drawn over an image and predict whether a given click falls inside it."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Grid Overlay and Percentage Rectangle Zones sections of Chapter 10",
+      "Converting a fraction to a percentage"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 535
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() reports the current four percentages after every drag; handles are 24 px for touch"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "corner-handles",
+        "type": "drag handles",
+        "label": "Four corner handles",
+        "purpose": "Resize the zone; each handle sets two of x1, y1, x2, y2"
+      },
+      {
+        "id": "show-percentages",
+        "type": "checkbox",
+        "label": "Show percentages",
+        "default": true,
+        "purpose": "Show or hide the calculated percentages beside the handles and in the readout"
+      },
+      {
+        "id": "click-test",
+        "type": "checkbox",
+        "label": "Click test",
+        "default": false,
+        "purpose": "Click the picture to test whether a point is inside the zone"
+      },
+      {
+        "id": "copy-json",
+        "type": "button",
+        "label": "Copy JSON / Hide JSON",
+        "purpose": "Show the zone object in data.json form"
+      },
+      {
+        "id": "target-practice",
+        "type": "button",
+        "label": "Target practice / Check match / New target",
+        "purpose": "Match a random target within two percentage points per edge"
+      },
+      {
+        "id": "reset-zone",
+        "type": "button",
+        "label": "Reset zone",
+        "purpose": "Return the zone to 2, 12, 34, 90"
+      },
+      {
+        "id": "resize-picture",
+        "type": "slider",
+        "label": "Resize picture",
+        "min": 50,
+        "max": 100,
+        "default": 100,
+        "units": "percent",
+        "purpose": "Change the displayed picture width while the percentages stay fixed"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Calculate-then-check with immediate feedback",
+    "interactionPattern": "Direct manipulation with a live worked calculation, target matching and a click-test predictor",
+    "keyQuestions": [
+      "Why does x1 stay the same when the picture is resized?",
+      "Which inequality decides whether a click is inside the zone?",
+      "How many pixels is two percentage points on this picture?"
+    ],
+    "commonMisconceptions": [
+      "Zone edges are stored in pixels",
+      "x2 and y2 are a width and height rather than the bottom-right corner",
+      "A click on the zone border is outside"
+    ],
+    "assessmentOpportunities": [
+      "Hand-calculated percentages checked against the readout",
+      "Target practice edge errors",
+      "Inside/outside predictions in click test"
+    ]
+  },
+  "search": {
+    "tags": [
+      "percentage rectangle zone",
+      "grid overlay",
+      "x1 y1 x2 y2",
+      "hit testing",
+      "data.json",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "simulation",
+      "interactive diagram"
+    ]
+  },
+  "chapter": "10-image-overlays-and-comparison-posters"
+}

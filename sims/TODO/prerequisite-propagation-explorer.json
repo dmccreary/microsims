@@ -1,0 +1,15 @@
+{
+  "sim_id": "prerequisite-propagation-explorer",
+  "diagram_name": "Prerequisite Propagation Explorer",
+  "chapter_number": 18,
+  "chapter_title": "Mastery Prediction and Knowledge Tracing",
+  "chapter_dir": "18-mastery-prediction-and-knowledge-tracing",
+  "chapter_rel_dir": "chapters/18-mastery-prediction-and-knowledge-tracing",
+  "library": "vis-network",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate a struggling concept whose own evidence is weak from one whose weakness traces to an unmastered prerequisite, by walking dependency edges upstream.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: graph-model\n**sim-id:** prerequisite-propagation-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate a struggling concept whose own evidence is weak from one whose weakness traces to an unmastered prerequisite, by walking dependency edges upstream.\n\nLayout: a small directed graph of seven concepts, with edges pointing from each concept to its prerequisites, matching the direction of the learning graph. Node fill runs from red (estimate 0.0) through yellow to green (estimate 1.0). A side panel shows the selected concept's estimate and its list of prerequisites.\n\nControls:\n\n- Click a node to select it and open its infobox\n- Slider \"Estimate for selected concept\" from 0.00 to 1.00\n- Button \"Find first gap\" that highlights the deepest unmastered prerequisite reachable upstream from the selected concept\n- Toggle \"Threshold for mastered\" (default 0.95) and button \"Reset\"\n\nData: seven illustrative concepts in a chain and a small branch, with hand-chosen starting estimates that include one weak middle concept.\n\nInteractions: hovering an edge shows the text \"depends on\"; clicking a node lists which prerequisites are below the threshold. The tool does not change any estimate by propagation; it only reads them, matching the gap-analysis report. Every infobox text is also written to the console as a log line so it can later feed an activity log.\n\nResponsive design: the network canvas follows the container width on every window resize, the side panel moves below the graph under 600 pixels, and physics is disabled after the layout settles.\n\nImplementation: vis-network with a hierarchical layout and click and hover event handlers, plus a describe-style text summary for accessibility."
+}

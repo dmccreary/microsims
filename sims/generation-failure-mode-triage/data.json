@@ -1,0 +1,164 @@
+{
+  "title": "Generation Failure Mode Triage data",
+  "note": "Six failure modes from the Chapter 5 table and eight defective-MicroSim cases drawn from them. Console messages are simulated but written in the form Chrome prints them.",
+  "modes": [
+    {
+      "id": "hallucinated-api",
+      "name": "Hallucinated API",
+      "definition": "A call to a function, method or option that does not exist in the library, written by the model because it looks plausible.",
+      "symptom": "Console error about an unknown function",
+      "cause": "The model wrote a call that the library does not have.",
+      "repair": "Check the name in the library's reference and replace it with the documented call.",
+      "tell": "a console error naming a function or method that no release of the library has"
+    },
+    {
+      "id": "version-drift",
+      "name": "Library version drift",
+      "definition": "The growing mismatch between the library release the code was written for and the release it runs on, which turns once-correct calls into errors or changed behavior.",
+      "symptom": "Code that once worked now errors or draws differently",
+      "cause": "Code and library versions no longer match.",
+      "repair": "Compare the pin in main.html with the code's assumptions, then migrate the call or restore the pin.",
+      "tell": "code that used to work, a pin or editor release that changed, and a call that is real in another release"
+    },
+    {
+      "id": "control-in-drawing",
+      "name": "Control in drawing area",
+      "definition": "A slider or button placed inside the drawing region instead of the control region below drawHeight.",
+      "symptom": "A slider or button floats over the drawing",
+      "cause": "A hard-coded y position.",
+      "repair": "Position the control relative to drawHeight, for example drawHeight + 5.",
+      "tell": "a control sitting on the aliceblue drawing region while the console stays clean"
+    },
+    {
+      "id": "non-responsive",
+      "name": "Non-responsive canvas",
+      "definition": "A canvas that keeps one width when the window or its container is resized.",
+      "symptom": "Canvas stays one width when the window resizes",
+      "cause": "A hard-coded width and no updateCanvasSize().",
+      "repair": "Restore the standard resize pattern: updateCanvasSize() in setup() and windowResized() with resizeCanvas().",
+      "tell": "a defect that changes with window width: an empty strip or a cut-off on the right side"
+    },
+    {
+      "id": "iframe-height",
+      "name": "Wrong iframe height",
+      "definition": "An iframe whose height is not the canvas height plus 2, so the chapter shows too little or too much of the MicroSim.",
+      "symptom": "Controls are clipped in the chapter",
+      "cause": "The iframe height differs from the canvas height plus 2.",
+      "repair": "Run the height sync utility (sync-iframe-heights.py) so every iframe uses CANVAS_HEIGHT + 2.",
+      "tell": "a sim that is fine fullscreen but cut off at the bottom inside the chapter page"
+    },
+    {
+      "id": "text-outline",
+      "name": "Text with an outline",
+      "definition": "Text drawn while a stroke color is still active, so every glyph gets an outline and looks heavy or fuzzy.",
+      "symptom": "Labels look fuzzy or heavy",
+      "cause": "A stroke was still active when text() was drawn.",
+      "repair": "Call noStroke() before every text() call.",
+      "tell": "lettering that looks wrong while shapes, controls and the console are all fine"
+    }
+  ],
+  "cases": [
+    {
+      "id": "case-1",
+      "title": "Slider never appears",
+      "symptom": "The canvas shows as an empty white rectangle. No title, no ball and no speed slider appear, at any window width.",
+      "console": [
+        {"level": "error", "text": "Uncaught TypeError: createRangeSlider is not a function"},
+        {"level": "error", "text": "    at setup (bouncing-ball.js:31:17)"}
+      ],
+      "visual": "blank",
+      "answer": "hallucinated-api",
+      "evidence": "the console names createRangeSlider, which the p5.js reference does not list in any release. The documented call is createSlider(min, max, value, step).",
+      "confusions": {
+        "version-drift": "Drift needs a call that was real in some release. createRangeSlider never existed, and nothing about the pin changed."
+      }
+    },
+    {
+      "id": "case-2",
+      "title": "Slider floats over the ball",
+      "symptom": "On a laptop the speed slider sits inside the ball's box, right where the ball bounces. The control region below it is empty.",
+      "console": [],
+      "visual": "control-in-drawing",
+      "answer": "control-in-drawing",
+      "evidence": "the slider is drawn inside the aliceblue drawing region at a fixed height and the console is clean. The code positions it at a hard-coded y instead of drawHeight + 5.",
+      "confusions": {
+        "iframe-height": "A wrong iframe height clips controls at the bottom of the page; it never moves a control up into the drawing."
+      }
+    },
+    {
+      "id": "case-3",
+      "title": "Board photo vanished after a pin bump",
+      "symptom": "Last term this breadboard sim showed a photo of the board. The only change since then: main.html now loads p5.js 2.3.2. The drawing region is empty.",
+      "console": [
+        {"level": "error", "text": "Uncaught TypeError: Cannot read properties of undefined (reading 'width')"},
+        {"level": "error", "text": "    at draw (breadboard.js:52:28)"}
+      ],
+      "visual": "missing-image",
+      "answer": "version-drift",
+      "evidence": "the code worked before and only the pin changed. The sketch loads its image in preload(), which p5.js 2.x removed, so the image variable is never set.",
+      "confusions": {
+        "hallucinated-api": "A hallucinated API names a function that never existed. Here the failing code is real 1.x code, and the error only began when the pin moved to 2.x."
+      }
+    },
+    {
+      "id": "case-4",
+      "title": "Fuzzy, heavy labels",
+      "symptom": "The title and the Speed label look blurry and bold, as if outlined, although the font size is right. Shapes and controls look normal at every width.",
+      "console": [],
+      "visual": "outlined-text",
+      "answer": "text-outline",
+      "evidence": "only the lettering is wrong. A stroke() call made for the box border is still active when text() runs, so every glyph is outlined."
+    },
+    {
+      "id": "case-5",
+      "title": "Bottom row cut off in the chapter",
+      "symptom": "Opened fullscreen, the sim is fine. Embedded in the chapter page, the bottom row of controls is cut in half.",
+      "console": [],
+      "visual": "clipped-bottom",
+      "answer": "iframe-height",
+      "evidence": "fullscreen shows everything, so the sketch's own layout is correct. Only the container is too short: the iframe height is less than the canvas height plus 2.",
+      "confusions": {
+        "non-responsive": "A non-responsive canvas fails on the right side as the width changes. This defect is at the bottom and appears only inside the chapter."
+      }
+    },
+    {
+      "id": "case-6",
+      "title": "Reset button does nothing",
+      "symptom": "The ball bounces and the slider works. A Reset button appears, but clicking it never moves the ball back to the start.",
+      "console": [
+        {"level": "error", "text": "Uncaught TypeError: position.reset is not a function"},
+        {"level": "error", "text": "    at HTMLButtonElement.resetBall (bouncing-ball.js:88:12)"}
+      ],
+      "visual": "dead-button",
+      "answer": "hallucinated-api",
+      "evidence": "the error appears only when the line runs, on the click, and names a method p5.Vector does not have. The documented method is set().",
+      "confusions": {
+        "control-in-drawing": "The button is in the right place and responds to the click; the error happens inside the function it calls."
+      }
+    },
+    {
+      "id": "case-7",
+      "title": "Empty strip on the right",
+      "symptom": "In a wide browser window the canvas stops at 400 pixels and leaves an empty strip on the right. On a phone the right side is cut off.",
+      "console": [],
+      "visual": "narrow-canvas",
+      "answer": "non-responsive",
+      "evidence": "the defect depends on the window width and appears on the right side. The sketch creates a fixed 400-pixel canvas and never calls updateCanvasSize().",
+      "confusions": {
+        "iframe-height": "The iframe height controls the bottom edge. A gap or cut-off on the right comes from the canvas width."
+      }
+    },
+    {
+      "id": "case-8",
+      "title": "Curved arrows turned into spikes",
+      "symptom": "After the site moved to p5.js 2.x, the curved arrows in a workflow diagram draw as jagged straight segments. Nothing else changed.",
+      "console": [],
+      "visual": "jagged-curves",
+      "answer": "version-drift",
+      "evidence": "the code once drew correctly and there is no error at all. bezierVertex() still exists in 2.x but takes one control point per call, so the old six-number calls draw differently.",
+      "confusions": {
+        "hallucinated-api": "A hallucinated call fails with an error because the function does not exist. A clean console plus changed drawing after an upgrade points to drift."
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "activity-iri-builder",
+  "diagram_name": "Activity IRI Builder",
+  "chapter_number": 16,
+  "chapter_title": "xAPI Statements and Evidence",
+  "chapter_dir": "16-xapi-statements-and-evidence",
+  "chapter_rel_dir": "chapters/16-xapi-statements-and-evidence",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Construct",
+  "learning_objective": "The learner will construct a correct activity IRI for a page, a control and a question, and diagnose why a malformed IRI is wrong.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** activity-iri-builder<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: construct): The learner will construct a correct activity IRI for a page, a control and a question, and diagnose why a malformed IRI is wrong.\n\nLayout: a top region shows the IRI being assembled as colored segments (site URL, path, fragment). A middle region shows a preview of how a store would group the result. The bottom white region holds the controls.\n\nControls and data:\n\n- Text field \"site_url\" with a default of `https://dmccreary.github.io/microsims`, and a note that a missing trailing slash is added by the runtime.\n- Dropdown \"Page path\" listing five sample paths such as `sims/bouncing-ball/` and `chapters/01-what-is-a-microsim/`.\n- Dropdown \"Sub-activity\" with the options none, control, node, fixed-order question and shuffled question, plus a text field for its name or number.\n- Dropdown \"Where is the page loaded from\" with the options published site, local preview and iframe payload `main.html`.\n- Dropdown \"Show a mistake\" with the options none, uses main.html, missing trailing slash, local origin, zero-based question number, positional fragment for a shuffled quiz.\n\nInteractions: every change rebuilds the IRI live. Clicking a segment shows the rule behind it. When a mistake is chosen, the grouping preview shows one learner's visit splitting into two rows and the offending segment turns red with its reason. The \"Where is the page loaded from\" choice never changes the correct IRI, which demonstrates that the identifier is independent of the address the browser shows.\n\nDefault state: published site, a page with no fragment, no mistake.\n\nResponsive design: the canvas width follows the container on every window resize, and the segment display wraps below 500 pixels. All controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createInput, createSelect and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

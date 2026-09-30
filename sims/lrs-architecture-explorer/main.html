@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Full LRS Architecture Explorer using vis-network</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="lrs-architecture-explorer.js"></script>
+</head>
+<body>
+    <main aria-label="Full LRS Architecture Explorer">
+        <div class="app">
+            <div class="title">Full LRS Architecture Explorer</div>
+            <div class="toolbar">
+                <div class="legend" id="legend">
+                    <span class="lg"><span class="sw sw-built"></span>Built</span>
+                    <span class="lg"><span class="sw sw-partial"></span>Files exist, feeding workers not built</span>
+                    <span class="lg"><span class="sw sw-designed"></span>Designed, no code</span>
+                    <span class="lg"><span class="sw sw-context"></span>Outside the LRS</span>
+                </div>
+                <div class="toolbar-controls">
+                    <label><input type="checkbox" id="hide-designed"> Hide designed components</label>
+                    <button type="button" id="quiz-btn">Quiz me</button>
+                </div>
+            </div>
+            <div class="graph-wrap">
+                <div id="network" aria-hidden="true"></div>
+                <div class="load-error" id="load-error" hidden></div>
+            </div>
+            <div class="panel" id="panel" aria-live="polite"></div>
+            <p class="sr-only" id="sr-summary"></p>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

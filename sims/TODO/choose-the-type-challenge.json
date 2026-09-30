@@ -1,0 +1,15 @@
+{
+  "sim_id": "choose-the-type-challenge",
+  "diagram_name": "Choose the Type Challenge",
+  "chapter_number": 4,
+  "chapter_title": "Choosing a MicroSim Type",
+  "chapter_dir": "04-choosing-a-microsim-type",
+  "chapter_rel_dir": "chapters/04-choosing-a-microsim-type",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Justify",
+  "learning_objective": "The learner will justify the choice of a MicroSim type for a given objective by selecting a type and a reason, and will recognize when routing is ambiguous or when reuse is preferable.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** choose-the-type-challenge<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: justify): The learner will justify the choice of a MicroSim type for a given objective by selecting a type and a reason, and will recognize when routing is ambiguous or when reuse is preferable.\n\nLayout: a drawing region above a control region. The top of the drawing region shows an objective card with the Bloom level and verb highlighted. Below it are 12 type buttons in a grid, one for each type discussed in this chapter, and a row of reason chips.\n\nData: at least 15 objective cards, each with a correct type, an acceptable alternative (or none), a reason, and a flag for whether it is ambiguous. Examples include \"Analyze the prerequisites of one concept\" (vis-network), \"Explain how amplitude changes a sine wave\" (Plotly), and \"Identify the parts of a moss sporophyte\" (image overlay). At least three cards are ambiguous and at least two describe an existing MicroSim that should be reused.\n\nControls: a type button set, reason chips (\"data shape,\" \"verb and level,\" \"keyword,\" \"existing MicroSim\"), a \"Not sure: ask a question\" button, and \"Next\" and \"Reset\" buttons.\n\nInteractions: choosing a type and a reason gives immediate feedback with the reference reasoning. On ambiguous cards, the \"Not sure\" button is the correct response and reveals the clarifying question. A running score shows correct choices out of attempts, and a summary at the end lists the types the learner most often confused.\n\nResponsive design: the type-button grid reflows from four columns to two under 600 pixels, and the canvas width follows the container on window resize.\n\nImplementation: p5.js with mouse events on custom buttons, a JSON array of cards, and a describe() call for screen readers."
+}

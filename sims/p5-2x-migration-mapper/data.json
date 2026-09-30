@@ -1,0 +1,324 @@
+{
+  "title": "p5.js 2.x Migration Mapper data",
+  "note": "Snippets and replacements follow the migration table in Chapter 5 (the repository's static scan of v1-only calls). 'flagged' and 'mark' are zero-based line indexes.",
+  "chips": [
+    {"call": "preload", "label": "preload()", "rule": "Removed in 2.x. Load files inside async function setup() with await before createCanvas()."},
+    {"call": "bezierVertex", "label": "bezierVertex()", "rule": "Takes one control point per call in 2.x. Chain several calls; use bezierOrder() for a quadratic curve."},
+    {"call": "curveVertex", "label": "curveVertex()", "rule": "Renamed splineVertex() in 2.x. Drop the duplicated first and last anchors and rely on endShape(CLOSE)."},
+    {"call": "quadraticVertex", "label": "quadraticVertex()", "rule": "Folded into bezierVertex() in 2.x. Use bezierOrder(2) and single-control-point calls."}
+  ],
+  "snippets": [
+    {
+      "id": "preload",
+      "label": "Board image (preload)",
+      "call": "preload",
+      "affected": "breadboard (four sketch files)",
+      "guidance": "preload(): Removed. Load files inside async function setup() with await before createCanvas().",
+      "v1": [
+        "let board;",
+        "function preload() {",
+        "  board = loadImage('board.png');",
+        "}",
+        "function setup() {",
+        "  createCanvas(400, 300);",
+        "}",
+        "function draw() {",
+        "  image(board, 0, 0);",
+        "}"
+      ],
+      "flagged": [1],
+      "candidates": [
+        {
+          "label": "Make setup() async and await loadImage() before createCanvas()",
+          "correct": true,
+          "result": [
+            "let board;",
+            "async function setup() {",
+            "  board = await loadImage('board.png');",
+            "  createCanvas(400, 300);",
+            "}",
+            "function draw() {",
+            "  image(board, 0, 0);",
+            "}"
+          ],
+          "mark": [1, 2],
+          "explain": "Correct. The migration table says preload() is removed and files load \"inside async function setup() with await before createCanvas()\". The await pauses setup() until the image arrives, so draw() never runs with a missing picture."
+        },
+        {
+          "label": "Keep preload() as it is; 2.x still calls it before setup()",
+          "correct": false,
+          "result": [
+            "let board;",
+            "function preload() {",
+            "  board = loadImage('board.png');",
+            "}",
+            "function setup() {",
+            "  createCanvas(400, 300);",
+            "}",
+            "function draw() {",
+            "  image(board, 0, 0);",
+            "}"
+          ],
+          "mark": [1],
+          "explain": "No. The migration table lists preload() as \"Removed\" in 2.x, so 2.x never calls it and board is never set."
+        },
+        {
+          "label": "Move loadImage() into a plain setup() without await",
+          "correct": false,
+          "result": [
+            "let board;",
+            "function setup() {",
+            "  board = loadImage('board.png');",
+            "  createCanvas(400, 300);",
+            "}",
+            "function draw() {",
+            "  image(board, 0, 0);",
+            "}"
+          ],
+          "mark": [1, 2],
+          "explain": "Not quite. Without async and await, setup() does not wait for the file, so draw() can run before the picture has arrived. The table says to load \"inside async function setup() with await\"."
+        }
+      ],
+      "v2": [
+        "let board;",
+        "async function setup() {",
+        "  board = await loadImage('board.png');",
+        "  createCanvas(400, 300);",
+        "}",
+        "function draw() {",
+        "  image(board, 0, 0);",
+        "}"
+      ],
+      "changed": [1, 2]
+    },
+    {
+      "id": "bezier",
+      "label": "Workflow arrow (bezierVertex)",
+      "call": "bezierVertex",
+      "affected": "book-gen-workflow, temp-and-pressure",
+      "guidance": "Multi-control-point bezierVertex(...): Takes one control point per call. Chain several calls; use bezierOrder() for a quadratic curve.",
+      "v1": [
+        "function draw() {",
+        "  background('aliceblue');",
+        "  noFill();",
+        "  beginShape();",
+        "  vertex(50, 200);",
+        "  bezierVertex(100, 50, 300, 50, 350, 200);",
+        "  endShape();",
+        "}"
+      ],
+      "flagged": [5],
+      "candidates": [
+        {
+          "label": "Add bezierOrder(2) and keep the six-number call",
+          "correct": false,
+          "result": [
+            "function draw() {",
+            "  background('aliceblue');",
+            "  noFill();",
+            "  beginShape();",
+            "  bezierOrder(2);",
+            "  vertex(50, 200);",
+            "  bezierVertex(100, 50, 300, 50, 350, 200);",
+            "  endShape();",
+            "}"
+          ],
+          "mark": [4, 6],
+          "explain": "No. bezierOrder(2) selects a quadratic curve, the replacement for quadraticVertex(), and a 2.x bezierVertex() still takes one point per call. The table says to \"chain several calls\"."
+        },
+        {
+          "label": "Chain three single-point bezierVertex() calls",
+          "correct": true,
+          "result": [
+            "function draw() {",
+            "  background('aliceblue');",
+            "  noFill();",
+            "  beginShape();",
+            "  vertex(50, 200);",
+            "  bezierVertex(100, 50);",
+            "  bezierVertex(300, 50);",
+            "  bezierVertex(350, 200);",
+            "  endShape();",
+            "}"
+          ],
+          "mark": [5, 6, 7],
+          "explain": "Correct. In 2.x bezierVertex() \"takes one control point per call\", so the old call becomes a chain: two control points, then the end point. The vertex() before them is the starting anchor."
+        },
+        {
+          "label": "Keep the six-number call; 2.x reads it the same way",
+          "correct": false,
+          "result": [
+            "function draw() {",
+            "  background('aliceblue');",
+            "  noFill();",
+            "  beginShape();",
+            "  vertex(50, 200);",
+            "  bezierVertex(100, 50, 300, 50, 350, 200);",
+            "  endShape();",
+            "}"
+          ],
+          "mark": [5],
+          "explain": "No. The six numbers are no longer read as two control points and an end point, because a 2.x bezierVertex() \"takes one control point per call\". The curve draws differently, often with no error."
+        }
+      ],
+      "v2": [
+        "function draw() {",
+        "  background('aliceblue');",
+        "  noFill();",
+        "  beginShape();",
+        "  vertex(50, 200);",
+        "  bezierVertex(100, 50);",
+        "  bezierVertex(300, 50);",
+        "  bezierVertex(350, 200);",
+        "  endShape();",
+        "}"
+      ],
+      "changed": [5, 6, 7]
+    },
+    {
+      "id": "curve",
+      "label": "Closed blob (curveVertex)",
+      "call": "curveVertex",
+      "affected": "curve",
+      "guidance": "curveVertex(...): Renamed splineVertex() with changed anchor-point rules; drop the duplicated first and last anchors and rely on endShape(CLOSE).",
+      "v1": [
+        "beginShape();",
+        "curveVertex(200, 60);  // repeated",
+        "curveVertex(200, 60);",
+        "curveVertex(330, 200);",
+        "curveVertex(200, 340);",
+        "curveVertex(70, 200);",
+        "curveVertex(200, 60);",
+        "curveVertex(200, 60);  // repeated",
+        "endShape();"
+      ],
+      "flagged": [1, 2, 3, 4, 5, 6, 7],
+      "candidates": [
+        {
+          "label": "Rename to splineVertex() but keep every repeated anchor",
+          "correct": false,
+          "result": [
+            "beginShape();",
+            "splineVertex(200, 60);  // repeated",
+            "splineVertex(200, 60);",
+            "splineVertex(330, 200);",
+            "splineVertex(200, 340);",
+            "splineVertex(70, 200);",
+            "splineVertex(200, 60);",
+            "splineVertex(200, 60);  // repeated",
+            "endShape();"
+          ],
+          "mark": [1, 2, 6, 7],
+          "explain": "Half right. The rename is correct, but the table says the anchor-point rules changed: \"drop the duplicated first and last anchors and rely on endShape(CLOSE)\". A 2.x spline already passes through every point, so the repeats add extra points."
+        },
+        {
+          "label": "Replace each curveVertex() with bezierVertex()",
+          "correct": false,
+          "result": [
+            "beginShape();",
+            "bezierVertex(200, 60);",
+            "bezierVertex(330, 200);",
+            "bezierVertex(200, 340);",
+            "bezierVertex(70, 200);",
+            "endShape();"
+          ],
+          "mark": [1, 2, 3, 4],
+          "explain": "No. Bezier points are control points, so the curve no longer passes through them. The table says curveVertex() was \"Renamed splineVertex()\"."
+        },
+        {
+          "label": "Rename to splineVertex(), list each anchor once, close with endShape(CLOSE)",
+          "correct": true,
+          "result": [
+            "beginShape();",
+            "splineVertex(200, 60);",
+            "splineVertex(330, 200);",
+            "splineVertex(200, 340);",
+            "splineVertex(70, 200);",
+            "endShape(CLOSE);"
+          ],
+          "mark": [1, 2, 3, 4, 5],
+          "explain": "Correct. The table: curveVertex() was \"Renamed splineVertex() with changed anchor-point rules; drop the duplicated first and last anchors and rely on endShape(CLOSE)\". The 2.x spline passes through each anchor, and CLOSE joins the loop smoothly."
+        }
+      ],
+      "v2": [
+        "beginShape();",
+        "splineVertex(200, 60);",
+        "splineVertex(330, 200);",
+        "splineVertex(200, 340);",
+        "splineVertex(70, 200);",
+        "endShape(CLOSE);"
+      ],
+      "changed": [1, 2, 3, 4, 5]
+    },
+    {
+      "id": "quadratic",
+      "label": "Flower petal (quadraticVertex)",
+      "call": "quadraticVertex",
+      "affected": "flower-petal",
+      "guidance": "quadraticVertex(...): Folded into bezierVertex(); use bezierOrder(2) and single-control-point calls.",
+      "v1": [
+        "beginShape();",
+        "vertex(200, 300);",
+        "quadraticVertex(120, 180, 200, 60);",
+        "quadraticVertex(280, 180, 200, 300);",
+        "endShape();"
+      ],
+      "flagged": [2, 3],
+      "candidates": [
+        {
+          "label": "Rename to splineVertex() and keep the numbers",
+          "correct": false,
+          "result": [
+            "beginShape();",
+            "vertex(200, 300);",
+            "splineVertex(120, 180, 200, 60);",
+            "splineVertex(280, 180, 200, 300);",
+            "endShape();"
+          ],
+          "mark": [2, 3],
+          "explain": "No. splineVertex() is the new name for curveVertex(), a curve that passes through its points. The table says quadraticVertex() was \"Folded into bezierVertex()\"."
+        },
+        {
+          "label": "Rename to bezierVertex() and keep four numbers per call",
+          "correct": false,
+          "result": [
+            "beginShape();",
+            "vertex(200, 300);",
+            "bezierVertex(120, 180, 200, 60);",
+            "bezierVertex(280, 180, 200, 300);",
+            "endShape();"
+          ],
+          "mark": [2, 3],
+          "explain": "Half right. bezierVertex() is the new home, but the table says to \"use bezierOrder(2) and single-control-point calls\". Without bezierOrder(2) the curve is cubic, and each call takes one point."
+        },
+        {
+          "label": "Set bezierOrder(2), then split each call into two single-point bezierVertex() calls",
+          "correct": true,
+          "result": [
+            "beginShape();",
+            "bezierOrder(2);",
+            "vertex(200, 300);",
+            "bezierVertex(120, 180);",
+            "bezierVertex(200, 60);",
+            "bezierVertex(280, 180);",
+            "bezierVertex(200, 300);",
+            "endShape();"
+          ],
+          "mark": [1, 3, 4, 5, 6],
+          "explain": "Correct. The table: quadraticVertex() is \"Folded into bezierVertex(); use bezierOrder(2) and single-control-point calls\". Each old call becomes a control point call and an end point call."
+        }
+      ],
+      "v2": [
+        "beginShape();",
+        "bezierOrder(2);",
+        "vertex(200, 300);",
+        "bezierVertex(120, 180);",
+        "bezierVertex(200, 60);",
+        "bezierVertex(280, 180);",
+        "bezierVertex(200, 300);",
+        "endShape();"
+      ],
+      "changed": [1, 3, 4, 5, 6]
+    }
+  ]
+}

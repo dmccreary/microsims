@@ -1,0 +1,87 @@
+{
+  "title": "MicroSim Type Catalog Explorer",
+  "description": "A vis-network hierarchical explorer of the MicroSim Type Catalog: a central catalog node, eight color-coded family nodes and eighteen type nodes in lighter tints. Hovering a type shows its library, clicking it shows a definition, the data it needs, an example objective and a near-miss objective from another type, and a Quiz me mode hides the type labels and asks the learner to click the type that fits each example objective.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "MicroSim Engineering", "Data Visualization Libraries", "Instructional Design"],
+  "type": "Interactive Network Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/microsim-type-catalog-explorer/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The MicroSim type catalog",
+    "learningObjectives": [
+      "The learner will identify the library, the typical data, and one suitable objective for each MicroSim type in the catalog."
+    ],
+    "bloomsTaxonomy": "Remember",
+    "bloomVerb": "identify",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "What a MicroSim is and what a library is",
+      "The parts of a MicroSim folder"
+    ],
+    "concepts": ["MicroSim Type Catalog", "p5.js Type", "Chart.js Type", "Plotly Type", "Mermaid Type", "vis-network Type", "vis-timeline Type", "Leaflet Map Type", "Venn Diagram Type", "Causal Loop Diagram Type", "Comparison Table Type", "Image Overlay Type", "Grid Overlay Poster Type", "Verified Poster Type"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "libraryVersion": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 660
+    },
+    "responsive": true,
+    "dependencies": ["vis-network 9.1.9 standalone UMD and CSS (jsDelivr CDN)"],
+    "graph": {
+      "layout": "hierarchical, left to right",
+      "nodeCount": 27,
+      "edgeCount": 26,
+      "physics": false
+    },
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "All details appear as plain HTML text in the side panel; navigation buttons allow pan and zoom without a mouse wheel."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "button", "label": "Quiz me / Stop quiz", "action": "Hide type labels and ask which type fits an example objective" },
+      { "type": "button", "label": "Fit view", "action": "Fit the whole catalog in the view" },
+      { "type": "button", "label": "Next question", "action": "Advance the quiz (in the panel)" },
+      { "type": "network", "label": "Nodes", "action": "Hover a type for its library; click for details; drag to move" },
+      { "type": "navigation-buttons", "label": "Pan and zoom", "action": "vis-network navigation buttons; mouse-wheel zoom only outside an iframe" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Hierarchical classification network",
+    "variables": ["family", "type", "library", "data needs", "example objective"],
+    "assumptions": ["Families and types follow the catalog table in Chapter 4, with the bubble chart, HTML matrix, celebration effects, concept classifier and Docker lab listed as their own types."],
+    "limitations": ["Example and near-miss objectives are the author's teaching examples."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Exploration followed by retrieval practice",
+    "interactionPattern": "Explorer plus flashcard-style matching quiz (Remember level)",
+    "keyQuestions": [
+      "Which library does each type use?",
+      "What data does each type need?",
+      "What objective would each type serve well?"
+    ],
+    "commonMisconceptions": [
+      "A concept map belongs on a Leaflet map because both are called maps.",
+      "Every chart of numbers needs Plotly.",
+      "Image overlays and verified posters are the same thing."
+    ],
+    "assessmentOpportunities": [
+      "Quiz me score over 18 types",
+      "Written library and data list for two families"
+    ]
+  },
+  "chapter": "04-choosing-a-microsim-type",
+  "canvasHeight": 660
+}

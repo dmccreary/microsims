@@ -1,0 +1,149 @@
+{
+  "title": "Loop Polarity Tracer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "System Dynamics",
+    "Causal Loop Diagram",
+    "Polarity Link",
+    "Reinforcing Loop",
+    "Balancing Loop"
+  ],
+  "description": "A vis-network causal loop diagram of two learner loops that share the Mastery variable. Learners trace each loop one link at a time, count its negative links, classify it as reinforcing or balancing, and flip link signs to watch the loop label change.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/loop-polarity-tracer/",
+  "canvasHeight": 512,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Classifying feedback loops by counting negative polarity links",
+    "learningObjectives": [
+      "The learner will examine a causal loop diagram, trace its polarity links, and determine whether the loop is reinforcing or balancing."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "examine",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Feedback loop, polarity link and causal loop diagram (Chapter 8)",
+      "Reading arrows in a network diagram"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 512
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 standalone UMD (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "All controls are native buttons, a select and a checkbox; the details panel is an aria-live region; polarity is shown by symbol (+ or minus) as well as color and flipped links are dashed"
+    },
+    "dataFiles": [
+      "Causal loop JSON (metadata, nodes, edges, loops) embedded at the top of loop-polarity-tracer.js"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "loopSelect",
+        "type": "select",
+        "label": "Loop",
+        "options": [
+          "Learning loop",
+          "Goal loop"
+        ],
+        "purpose": "Choose which loop to trace"
+      },
+      {
+        "id": "traceBtn",
+        "type": "button",
+        "label": "Trace next link",
+        "purpose": "Highlight the next link around the chosen loop and update the negative-link counter"
+      },
+      {
+        "id": "resetTraceBtn",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Clear the current trace"
+      },
+      {
+        "id": "answerButtons",
+        "type": "button",
+        "label": "Reinforcing / Balancing",
+        "purpose": "Classify the loop before its final link is revealed"
+      },
+      {
+        "id": "flipMode",
+        "type": "checkbox",
+        "label": "Flip a sign",
+        "default": false,
+        "purpose": "Clicking a link reverses its polarity; loop markers update between R and B"
+      },
+      {
+        "id": "restoreBtn",
+        "type": "button",
+        "label": "Restore signs",
+        "purpose": "Return every link to its original polarity"
+      },
+      {
+        "id": "zoomButtons",
+        "type": "button",
+        "label": "+ / - / Fit",
+        "purpose": "Zoom and re-fit the diagram (mouse-wheel zoom is disabled)"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided tracing with a commit-before-reveal classification and a what-if sign flip",
+    "interactionPattern": "Network explorer with step-through trace",
+    "keyQuestions": [
+      "How many negative links does each loop contain?",
+      "Why does an odd count of negative links make a balancing loop?",
+      "What happens to a loop's type when you flip one link? Two links?"
+    ],
+    "commonMisconceptions": [
+      "A loop with any negative link is balancing (only an odd count is)",
+      "Polarity describes the size of an effect (it describes only its direction)",
+      "A reinforcing loop always means growth (it can amplify a decline too)"
+    ],
+    "assessmentOpportunities": [
+      "Accuracy of the Reinforcing/Balancing choice before the final link",
+      "Explanation of the result of a two-link flip"
+    ]
+  },
+  "search": {
+    "tags": [
+      "causal loop diagram",
+      "polarity",
+      "reinforcing loop",
+      "balancing loop",
+      "systems thinking",
+      "vis-network",
+      "mastery"
+    ],
+    "visualizationType": [
+      "network diagram",
+      "causal loop diagram"
+    ]
+  },
+  "chapter": "08-diagrams-networks-and-systems"
+}

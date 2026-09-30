@@ -1,0 +1,131 @@
+{
+  "title": "Verified Poster Pipeline Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Fact-Verified Poster",
+    "Claim Plan",
+    "Source Discovery",
+    "Claim Verification",
+    "Verification Report",
+    "Render Audit"
+  ],
+  "description": "A vis-network chain of the nine steps of the verified poster route, with the user checkpoint and the single render step highlighted, a render-audit retry loop, per-step files and skip failures, and a sequence quiz that shuffles the steps.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/verified-poster-pipeline-explorer/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Sequencing the verified poster route",
+    "learningObjectives": [
+      "The learner will sequence the nine steps of the verified poster route, and will explain which step is the mandatory human checkpoint and which step alone calls the image model."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "sequence",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Fact-Verified Poster section of Chapter 11",
+      "Grid overlays and comparison posters from Chapter 10"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)",
+      "vis-network 9.1.9 CSS for navigation buttons"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Information panel is an aria-live region; the Skip a step menu is a native select; step names are text on every node"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "pipeline-nodes",
+        "type": "clickable nodes",
+        "label": "Nine steps",
+        "purpose": "Show the description, the file written and what fails if skipped"
+      },
+      {
+        "id": "pipeline-edges",
+        "type": "hover tooltips",
+        "label": "Arrows between steps",
+        "purpose": "Show what passes from one step to the next"
+      },
+      {
+        "id": "skip-select",
+        "type": "select",
+        "label": "Skip a step",
+        "default": "(none)",
+        "purpose": "Grey out one step and show the failure the guide anticipates"
+      },
+      {
+        "id": "quiz-btn",
+        "type": "button",
+        "label": "Sequence quiz / Explore",
+        "purpose": "Shuffle the unnumbered steps to be clicked in order, then identify the checkpoint and the render step"
+      },
+      {
+        "id": "reveal-btn",
+        "type": "button",
+        "label": "Show the answer",
+        "purpose": "Reveal what goes wrong if the selected step is skipped"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-reveal with a sequencing check",
+    "interactionPattern": "Process chain explorer with skip toggles and a shuffled ordering quiz",
+    "keyQuestions": [
+      "Why must the user checkpoint come before the layout spec?",
+      "Which step alone calls the image model?",
+      "Why are steps 1 to 4 reusable without a poster?"
+    ],
+    "commonMisconceptions": [
+      "The render audit calls the image model itself",
+      "Verification can happen after the layout is drafted",
+      "The overlay is optional once a poster is verified"
+    ],
+    "assessmentOpportunities": [
+      "Out-of-order clicks in the sequence quiz",
+      "First-try identification of the checkpoint and render steps",
+      "Predicted versus shown skip failures"
+    ]
+  },
+  "search": {
+    "tags": [
+      "verified poster",
+      "fact verification",
+      "claim plan",
+      "render audit",
+      "user checkpoint",
+      "vis-network"
+    ],
+    "visualizationType": [
+      "diagram",
+      "flowchart",
+      "network"
+    ]
+  },
+  "chapter": "11-verified-posters-and-specialized-microsim-types"
+}

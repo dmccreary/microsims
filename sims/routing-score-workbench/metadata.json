@@ -1,0 +1,89 @@
+{
+  "title": "Routing Score Workbench",
+  "description": "A Chart.js horizontal bar chart workbench for the MicroSim routing rubric. For each of ten objectives the learner scores three or four candidate types with sliders over the five shaded rubric bands, reads the routing-criteria guideline for each band on hover, answers a clarifying-question prompt when the top two scores are within 10 points, and reveals author-written reference bands with a count of scores that fall inside them.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "Instructional Design", "MicroSim Engineering", "Rubrics"],
+  "type": "Interactive Chart",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/routing-score-workbench/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Routing scores and routing ambiguity",
+    "learningObjectives": [
+      "The learner will justify a type choice by assigning rubric scores to competing types for a described objective and explaining any routing ambiguity."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "justify",
+    "duration": "25 minutes",
+    "prerequisites": [
+      "The MicroSim type catalog",
+      "Keyword routing and the routing decision tree",
+      "Classifying an objective by Bloom level and verb"
+    ],
+    "concepts": ["Routing Rubric", "Routing Score", "Routing Ambiguity", "Type Routing", "Objective-to-Type Mapping"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "libraryVersion": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 680
+    },
+    "responsive": true,
+    "dependencies": ["Chart.js 4.4.4 (jsDelivr CDN)"],
+    "chart": {
+      "type": "bar",
+      "indexAxis": "y",
+      "customPlugins": ["rubricBands: shaded bands and band labels (beforeDatasetsDraw); reference-band boxes and value labels (afterDatasetsDraw)"]
+    },
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Sliders are native HTML range inputs with aria-labels; all feedback is plain HTML text."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "slider", "label": "One per candidate type", "min": 0, "max": 100, "step": 5, "default": 50 },
+      { "type": "button", "label": "Reveal reference bands", "action": "Overlay the reference band for each candidate and count scores inside it" },
+      { "type": "button", "label": "Next objective", "action": "Load the next of ten objectives and reset the sliders to 50" },
+      { "type": "checkbox", "label": "Show ambiguity warning", "default": true, "action": "Show the clarifying-question banner when the top two scores are within 10 points" },
+      { "type": "button-pair", "label": "Clarifying questions", "action": "Choose one of two questions; feedback says whether it separates the candidates" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Rubric scoring with band comparison",
+    "variables": ["candidate scores (0-100)", "score band", "reference band", "top-two gap"],
+    "equations": ["band = 90-100 perfect, 70-89 strong, 50-69 moderate, 30-49 weak, 0-29 poor", "ambiguous when top score - second score <= 10"],
+    "assumptions": ["Band guidelines are taken from the generator skill's routing-criteria.md; reference bands are teaching examples written for this bank."],
+    "limitations": ["The ten-point ambiguity margin is this book's suggestion, not part of the skill."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Judgment with explicit criteria, followed by calibration against reference bands",
+    "interactionPattern": "Rubric scoring with justification (Evaluate level)",
+    "keyQuestions": [
+      "Which rubric guideline describes this objective for each candidate?",
+      "How far ahead must the top candidate be before you commit?",
+      "Which single question would separate two close candidates?"
+    ],
+    "commonMisconceptions": [
+      "Routing scores are computed by a formula.",
+      "The highest score always wins, even by five points.",
+      "Any clarifying question will do."
+    ],
+    "assessmentOpportunities": [
+      "Share of scores inside the reference band",
+      "Choice of clarifying question on ambiguous objectives",
+      "Written justification of the top score"
+    ]
+  },
+  "chapter": "04-choosing-a-microsim-type",
+  "canvasHeight": 680
+}

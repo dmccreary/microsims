@@ -1,0 +1,15 @@
+{
+  "sim_id": "node-edge-data-explorer",
+  "diagram_name": "Node and Edge Data Explorer",
+  "chapter_number": 8,
+  "chapter_title": "Diagrams, Networks and Systems",
+  "chapter_dir": "08-diagrams-networks-and-systems",
+  "chapter_rel_dir": "chapters/08-diagrams-networks-and-systems",
+  "library": "vis-network",
+  "bloom_level": "Apply",
+  "bloom_verb": "Implement",
+  "learning_objective": "The learner will implement a small concept map by editing node and edge data and observing how each change alters the drawn network.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: graph-model\n**sim-id:** node-edge-data-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: implement): The learner will implement a small concept map by editing node and edge data and observing how each change alters the drawn network.\n\nLayout: the network occupies the left two thirds with fixed node positions and physics disabled; a data panel on the right shows the JSON for the selected node or edge.\n\nData: eight concept nodes drawn from this chapter (Flowchart, Concept Map, Venn Diagram, Mermaid Library, vis-network Library, Network Layout, Node Selection Event, Causal Loop Diagram) with x and y positions, and eight edges labeled with relationships such as \"is drawn with\" and \"is a kind of\".\n\nInteractions: clicking a node selects it, highlights its connected edges and shows its data; hovering an edge shows its relationship label. Controls: a text field and \"Add node\" button, a \"Connect\" mode in which the learner clicks two nodes to create an edge and chooses a relationship label, a \"Swap direction\" button for the selected edge, and a \"Reset\" button. A toggle switches between \"fixed\" and \"physics\" layout so the learner can compare them.\n\nResponsive design: the network re-fits on window resize, the data panel moves below the network under 600 pixels, and navigation buttons replace mouse-wheel zoom.\n\nImplementation: vis-network with DataSets for nodes and edges, network.on selectNode handlers, and navigationButtons enabled with the vis-network stylesheet loaded."
+}

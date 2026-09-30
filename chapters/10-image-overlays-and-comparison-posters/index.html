@@ -1,0 +1,3739 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to turn an AI-generated image into an interactive MicroSim with callout labels, hover zones, and grid-overlay comparison posters that have Explore and Quiz modes.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/10-image-overlays-and-comparison-posters/">
+      
+      
+        <link rel="prev" href="../09-timelines-and-maps/">
+      
+      
+        <link rel="next" href="../11-verified-posters-and-specialized-microsim-types/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Image Overlays and Comparison Posters - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Image Overlays and Comparison Posters - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to turn an AI-generated image into an interactive MicroSim with callout labels, hover zones, and grid-overlay comparison posters that have Explore and Quiz modes." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/10-image-overlays-and-comparison-posters/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/10-image-overlays-and-comparison-posters/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Image Overlays and Comparison Posters - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to turn an AI-generated image into an interactive MicroSim with callout labels, hover zones, and grid-overlay comparison posters that have Explore and Quiz modes." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/10-image-overlays-and-comparison-posters/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#image-overlays-and-comparison-posters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Image Overlays and Comparison Posters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-a-picture-into-a-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning a Picture into a MicroSim
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Turning a Picture into a MicroSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-engines-callout-overlays-and-grid-overlays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Engines: Callout Overlays and Grid Overlays
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-callout-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Callout Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Callout Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callout-labels-and-point-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Callout Labels and Point Markers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hover-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hover Zones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-overlay-data-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Overlay Data File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Overlay Data File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-callout-overlay-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Callout Overlay Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-the-image-prompts-and-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making the Image: Prompts and Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making the Image: Prompts and Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-text-free-image-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Text-Free Image Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-overlay-image-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Overlay Image Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-model-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Model Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-mode-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Mode Alignment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Edit Mode Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prompt-text-rule-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Prompt Text Rule Checker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grid-overlays-and-comparison-posters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grid Overlays and Comparison Posters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grid Overlays and Comparison Posters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grid-overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grid Overlay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percentage-rectangle-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percentage Rectangle Zones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Percentage Rectangle Zones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-percentage-zone-calibrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Percentage Zone Calibrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poster-column-zones-and-the-comparison-poster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster Column Zones and the Comparison Poster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verbatim-text-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbatim Text Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zone-summary-and-facts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zone Summary and Facts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zone Summary and Facts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-comparison-poster-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Comparison Poster Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-mode-and-quiz-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore Mode and Quiz Mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explore Mode and Quiz Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poster-quiz-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster Quiz Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-poster-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building a Poster Collection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building a Poster Collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-poster-folder-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Poster Folder Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-shared-overlay-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Shared Overlay Library
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Shared Overlay Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-poster-folder-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Poster Folder Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-a-picture-into-a-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning a Picture into a MicroSim
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Turning a Picture into a MicroSim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-engines-callout-overlays-and-grid-overlays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Engines: Callout Overlays and Grid Overlays
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-callout-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Callout Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Callout Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callout-labels-and-point-markers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Callout Labels and Point Markers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hover-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hover Zones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-overlay-data-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Overlay Data File
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Overlay Data File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-callout-overlay-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Callout Overlay Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-the-image-prompts-and-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making the Image: Prompts and Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making the Image: Prompts and Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-text-free-image-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Text-Free Image Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-overlay-image-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Overlay Image Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-model-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Model Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit-mode-alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Mode Alignment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Edit Mode Alignment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-prompt-text-rule-checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Prompt Text Rule Checker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grid-overlays-and-comparison-posters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grid Overlays and Comparison Posters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grid Overlays and Comparison Posters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grid-overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grid Overlay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percentage-rectangle-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percentage Rectangle Zones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Percentage Rectangle Zones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-percentage-zone-calibrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Percentage Zone Calibrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poster-column-zones-and-the-comparison-poster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster Column Zones and the Comparison Poster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verbatim-text-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verbatim Text Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zone-summary-and-facts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zone Summary and Facts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zone Summary and Facts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-comparison-poster-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Comparison Poster Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-mode-and-quiz-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore Mode and Quiz Mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explore Mode and Quiz Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poster-quiz-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster Quiz Questions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-poster-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building a Poster Collection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building a Poster Collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-poster-folder-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Poster Folder Convention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-shared-overlay-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Shared Overlay Library
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Shared Overlay Library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-poster-folder-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Poster Folder Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/10-image-overlays-and-comparison-posters/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="image-overlays-and-comparison-posters">Image Overlays and Comparison Posters</h1>
+<h2 id="summary">Summary</h2>
+<p>Explains how to turn an AI-generated image into an interactive MicroSim with callout labels, hover zones, and grid-overlay comparison posters with Explore and Quiz modes.</p>
+<p>Students learn image prompts that keep text out of the picture, overlay data files, percentage-rectangle zones and the poster folder convention. After it, they can build a comparison poster from a data file.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image Overlay</td>
+<td>42</td>
+</tr>
+<tr>
+<td>Callout Label</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hover Zone</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Point-Marker Overlay</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Overlay Data File</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Overlay Image Prompt</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Text-Free Image Rule</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Grid Overlay</td>
+<td>24</td>
+</tr>
+<tr>
+<td>Comparison Poster</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Poster Column Zone</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Percentage Rectangle Zone</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Explore Mode</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Quiz Mode</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Zone Summary and Facts</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Edit Mode Alignment</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Verbatim Text Prompt</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Image Model Generation</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Poster Folder Convention</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Shared Overlay Library</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Poster Quiz Question</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+<li><a href="../05-generating-microsims-with-ai-skills/">Chapter 5: Generating MicroSims with AI Skills</a></li>
+<li><a href="../06-p5js-microsims/">Chapter 6: p5.js MicroSims</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">One Picture, Many Questions</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+A good illustration is worth a thousand words, but a flat picture cannot tell you whether anyone understood it. In this chapter you will turn a single AI-generated image into a MicroSim that answers when learners hover, click, and quiz themselves. Let's bounce it around!</p>
+</div>
+<p>Chapters 6 through 9 built MicroSims out of code that draws shapes, charts, graphs and maps. This chapter takes the opposite route. We start from a finished picture, made by an image model, and add a thin layer of interaction on top of it. The result costs far less effort than drawing the same scene in code, and it still gives every region of the picture a name, a description and a place in a quiz.</p>
+<p>We cover two engines. The first labels small structures with numbered markers, as in an anatomy diagram. The second divides a whole poster into large rectangular zones, as in a side-by-side comparison. Both read their content from a data file, both expect an image with carefully controlled text, and both let an author calibrate positions with a built-in edit mode.</p>
+<h2 id="turning-a-picture-into-a-microsim">Turning a Picture into a MicroSim</h2>
+<p>An <strong>image overlay</strong> is an interactive layer of markers, zones and text panels drawn on top of a static image, so that regions of the image respond to hovering and clicking. The image supplies the visual content. The overlay supplies the names, the explanations and the interaction. Neither works alone: the image is silent, and the overlay has nothing to point at.</p>
+<p>A <strong>worked example</strong> shows the division of labor. Suppose you want learners to study the parts of a plant cell. You ask an image model for an illustration of a cell with no writing on it. You then describe each structure in a data file: its name, its position in the picture, and a two-sentence explanation. The overlay engine draws a numbered marker on each structure and shows the explanation when the learner hovers over it. If a teacher later spots an error in the description of the nucleus, the fix is one edit in the data file, and the image never has to be regenerated.</p>
+<p>That last point is the main economic argument for overlays. Text baked into pixels cannot be corrected without producing a new image, and image models make small lettering mistakes. Text held in a data file can be corrected, translated and searched. The overlay guide in the ibook-skills library also gives a measurement argument: a flat image produces no interaction events, while an overlay turns each hover, click and quiz attempt into something that could be counted. We should be precise about the current state. The two engine files we examine in this chapter contain no xAPI calls, so today they display interaction and do not record it. Chapter 17 shows how instrumentation is added.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Separate the Picture from the Words</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice the design pattern hiding in this chapter: keep the part that is expensive to change (pixels) free of the part that changes often (words). Once you see that split, every rule about prompts and data files follows from it.</p>
+</div>
+<h3 id="two-engines-callout-overlays-and-grid-overlays">Two Engines: Callout Overlays and Grid Overlays</h3>
+<p>Before we go deeper, we need names for the two engines. In the callout engine, the author marks a <em>point</em> on a structure, and the engine draws a numbered circle there, a line to a label, and an information box. In the grid engine, the author marks a <em>rectangle</em> on the image, and the engine makes the whole rectangle respond. The choice depends on the shape of the thing being labeled, as the table below summarizes.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Callout engine</th>
+<th>Grid engine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What does the author mark?</td>
+<td>A point on a small structure</td>
+<td>A rectangle over a large region</td>
+</tr>
+<tr>
+<td>Typical image</td>
+<td>Anatomy, hardware internals, labeled components</td>
+<td>Comparison poster with columns</td>
+</tr>
+<tr>
+<td>Data list in the file</td>
+<td><code>callouts[]</code> with <code>x</code> and <code>y</code></td>
+<td><code>zones[]</code> with <code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code></td>
+</tr>
+<tr>
+<td>Script and style files</td>
+<td><code>diagram.js</code> and <code>style.css</code></td>
+<td><code>grid-diagram.js</code> and <code>grid-overlay.css</code></td>
+</tr>
+<tr>
+<td>Text in the image</td>
+<td>None, not even a title</td>
+<td>Printed column titles are expected</td>
+</tr>
+</tbody>
+</table>
+<p>The overlay guide gives a simple rule of thumb: use a callout overlay when small numbered markers should point at specific structures, and use a grid overlay when large rectangular hover zones make more sense. We treat the callout engine first because its vocabulary carries over to the grid engine.</p>
+<h2 id="the-callout-engine">The Callout Engine</h2>
+<h3 id="callout-labels-and-point-markers">Callout Labels and Point Markers</h3>
+<p>A <strong>callout label</strong> is the text that names a marked structure, shown in a label panel beside the image and connected to the structure by a leader line, which is a thin line from the marker to its label. A <strong>point-marker overlay</strong> is an overlay whose interaction points are single locations on the image, each drawn as a small numbered circle. The number links the circle to its label, so a learner can move from a structure in the picture to its name and back.</p>
+<p>Each marker has a position given as percentages of the image size. The value <code>x</code> runs from 0 at the left edge to 100 at the right edge, and <code>y</code> runs from 0 at the top edge to 100 at the bottom edge. Percentages matter because the image is displayed at different sizes on a phone and on a wide monitor, and a marker at 40 percent across stays on the same structure at every size.</p>
+<h3 id="hover-zones">Hover Zones</h3>
+<p>A <strong>hover zone</strong> is a region of the display that reacts when the pointer enters it, by highlighting itself and revealing information. In the callout engine, the marker and its label row are both hover zones: moving the pointer onto either one highlights the marker and its leader line and fills the information box below the image. In the grid engine, the hover zone is the entire rectangle. Hovering is a low-effort action, so it suits exploration, but touch screens have no hover, which is why a click or tap on the same target shows the same information.</p>
+<h3 id="the-overlay-data-file">The Overlay Data File</h3>
+<p>An <strong>overlay data file</strong> is a JSON file, named <code>data.json</code>, that holds everything the overlay engine needs: the image filename, the title, the layout, and one entry per marker or zone. JSON, as Chapter 1 noted, is a plain-text format that programs read easily. Before reading the sample, note the fields it uses. The <code>label</code> is the structure's name. The <code>hint</code> describes what the structure looks like without naming it, and quiz mode uses it. The <code>description</code> is the explanation shown on hover. The <code>color</code> is a hex color for the marker, and <code>radius</code> sets the marker size in relative units, typically 3 to 6.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Animal Cell"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"orientation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"landscape"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"animal-cell.png"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"callouts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nucleus"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"radius"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#8E44AD"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Large round purple structure near the center of the cell."</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The control center of the cell, enclosed by a double-membrane nuclear envelope with pores. Contains DNA organized into chromosomes."</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>This excerpt, adapted from the schema reference in the overlay guide, holds a single callout. The engine reads the file when the page loads, draws one marker at 40.2 percent across and 16.1 percent down, and fills the label panel and information box from the text fields. Adding a second structure means appending another object to the list with the next <code>id</code>, since identifiers are sequential integers starting at 1.</p>
+<p>Two further top-level fields are worth knowing. The <code>layout</code> field chooses where labels go: <code>side-panel</code> puts the image on the left and labels on the right and is the default, <code>top-bottom</code> puts labels above and below a wide image, and <code>dual-panel</code> puts labels on both sides for diagrams with twelve or more callouts. The <code>showNumbers</code> field turns the numbers in the markers on or off. The guide recommends keeping markers at least 5 to 8 percentage points apart so that they do not overlap.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Check Which Tip Field Your Engine Reads</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The schema reference names the optional extra-detail field <code>tip</code>, but the older copy of <code>diagram.js</code> in the STEM Robots repository reads a field named <code>ap_tip</code>. If your tips never appear, search your copy of the engine for the field name and match your data file to it, or update the engine to the current version.</p>
+</div>
+<p>The following specification lets learners see how a data file becomes an interactive picture. Every term it uses has been defined above.</p>
+<h4 id="diagram-callout-overlay-anatomy-explorer">Diagram: Callout Overlay Anatomy Explorer</h4>
+<iframe src="../../sims/callout-overlay-anatomy-explorer/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/callout-overlay-anatomy-explorer/main.html">Run the Callout Overlay Anatomy Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Callout Overlay Anatomy Explorer</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> callout-overlay-anatomy-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain how each field of an overlay data file (position, label, hint, description) appears in the rendered overlay, by changing one field and observing the effect.</p>
+<p>Layout: a two-column drawing region. The left column shows a simple flat-color illustration of a cell drawn with p5.js shapes (no text in the picture) with four numbered markers. The right column shows the data file as syntax-colored JSON text with the selected callout highlighted. A white control region below holds the mode buttons.</p>
+<p>Data: four callouts (nucleus, cell membrane, mitochondrion, ribosome) with x and y percentages, colors, hints and one-sentence descriptions, using the same field names as the schema.</p>
+<p>Interactions: hovering a marker highlights its leader line and the matching JSON block and shows its description in an information box. Sliders labeled "x" and "y" move the selected marker, and the JSON text updates live so the learner sees percentages change. A "Resize picture" slider scales the drawing region from 50 to 100 percent of its width, and the markers stay on the same structures, demonstrating why percentages are used. A "Quiz" button hides the labels and shows each hint in turn; the learner clicks the marker that matches.</p>
+<p>Responsive design: the two columns stack vertically when the container is narrower than 600 pixels, and all marker positions are recomputed from percentages on every window resize.</p>
+<p>Implementation: p5.js with mouseMoved and mousePressed handlers, createSlider controls positioned relative to the drawing height, and a describe() call summarizing the current selection.</p>
+</details>
+<h2 id="making-the-image-prompts-and-rules">Making the Image: Prompts and Rules</h2>
+<h3 id="the-text-free-image-rule">The Text-Free Image Rule</h3>
+<p>The <strong>text-free image rule</strong> says that an image intended for a callout overlay must contain no text of any kind: no labels, no numbers, no arrows, no callout lines, and no title. The overlay engine draws every word and mark at runtime. Any lettering already in the picture would collide with the engine's markers and would duplicate the title, which the engine renders as a heading from the <code>title</code> field of the data file.</p>
+<p>The rule exists because image models add text whether or not you ask for it, and the title is the most common intruder. If the generated image comes back with a title, a stray label, or garbled pseudo-letters, the guide's instruction is to regenerate it. The same rule has a matching duty on the documentation page: the <code>index.md</code> for the MicroSim uses the front matter <code>title</code> field only and does not add its own top-level heading, because the engine's heading inside the iframe would then appear twice.</p>
+<h3 id="the-overlay-image-prompt">The Overlay Image Prompt</h3>
+<p>An <strong>overlay image prompt</strong> is the instruction text given to an image model to produce the picture for an overlay, written to a file named <code>image-prompt.md</code> in the MicroSim's folder. The overlay guide supplies a template with four parts. A <em>critical rule</em> section states the text-free image rule at the top. An <em>image specifications</em> section gives the format, pixel dimensions (typically 1200 by 900 for landscape), background color and art style. A <em>what to draw</em> section describes each structure with its position and appearance. A <em>layout notes</em> section reserves space so that markers will fit cleanly.</p>
+<p>The guide gives four habits that make prompts work. Be specific about colors, and use hex codes. Describe each position in words and in percentages, such as "centered at 35 percent from the left and 25 percent from the top". Describe each structure independently so the model can render it without ambiguity. Repeat the no-text rule at the top and again in the layout notes, because models frequently add labels anyway.</p>
+<p>A <strong>worked example</strong> for the cell diagram follows. It is a short sketch of the template's structure, not a complete prompt.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="gh"># Animal Cell — Image Generation Prompt</span>
+
+<span class="gu">## Critical Rule</span>
+This image must contain absolutely no text, labels, arrows, callout
+lines, or numbers, and no title or heading of any kind.
+
+<span class="gu">## Image Specifications</span>
+<span class="k">-</span><span class="w"> </span>Format: PNG, 1200 x 900 px (landscape, 4:3)
+<span class="k">-</span><span class="w"> </span>Background: clean white (#FFFFFF)
+<span class="k">-</span><span class="w"> </span>Style: flat scientific illustration for a college textbook
+
+<span class="gu">## What to Draw</span>
+A cross-section of an animal cell filling most of the frame.
+
+<span class="gu">### 1. Nucleus</span>
+Position: centered at 40% from the left, 16% from the top.
+Visual: large round purple structure with a darker double outline.
+
+<span class="gu">## Layout Notes</span>
+Leave at least 8% of the width between neighboring structures.
+Repeat: no text anywhere in the image.
+</code></pre></div></td></tr></table></div>
+<p>Read the sketch from the top. The critical rule comes first so that it cannot be missed. The specification lines fix the size and style so that the image proportions match the data file. The numbered structure gives the model a position that corresponds to the <code>x</code> and <code>y</code> values you will later write in the data file, which makes the first placement of markers a good guess.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Write the Percentages Twice</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Use the same percentages in the image prompt and in your first draft of <code>data.json</code>. The markers will start close to the right structures, and calibration becomes a nudge instead of a hunt.</p>
+</div>
+<h3 id="image-model-generation">Image Model Generation</h3>
+<p><strong>Image model generation</strong> is the step in which a text-to-image model turns the prompt into a picture file. The workflow around it is manual and short. You copy the prompt into an image tool, save the resulting PNG in the MicroSim's folder under the exact filename that <code>data.json</code> names, and open the page to see the overlay appear. In the STEM Robots posters, the image-prompt files tell the author to copy the prompt into an image tool such as ChatGPT, DALL-E 3, Gemini Imagen 3 or a similar model and to save the output under a fixed filename. Model names and capabilities change quickly, so treat those tools as examples and not as requirements.</p>
+<p>Because generation is a separate manual step, a filename mismatch is the most common failure. The image field in <code>data.json</code> is case-sensitive and must match the file on disk. The STEM Robots repository shows how easily this happens: its motor-control poster's <code>data.json</code> and image file use the name <code>motor-control-infographic.png</code>, while its <code>index.md</code> and <code>image-prompt.md</code> refer to <code>motor-control-methods-infographic.png</code>. Following the instructions on that page literally would save the file under a name the overlay does not load.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Name the File Once</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A picture saved under a slightly different name shows up as a broken image, and the cause is easy to miss. Copy the filename from <code>data.json</code> into the prompt file's instructions, and search the folder for the old name before you publish.</p>
+</div>
+<h3 id="edit-mode-alignment">Edit Mode Alignment</h3>
+<p>Model output never lands exactly where the prompt said. <strong>Edit mode alignment</strong> is the calibration step in which the author opens the overlay with <code>?edit=true</code> appended to the page address, drags markers or zone corners onto the correct places in the actual image, and copies the resulting coordinates back into the data file. The guide's calibration workflow is four steps: open the page in edit mode, drag each marker, click Copy JSON, and replace the coordinates in <code>data.json</code>.</p>
+<p>The grid engine's edit mode gives each zone four draggable corner handles instead of one draggable marker, and it prints the live percentages as you drag. One detail from the engine's code deserves attention. The JSON it copies contains the title, image, layout, zones and quiz, but it omits <code>showLabels</code> and <code>palette</code>. Pasting the copied text over the whole file would silently drop those two fields, so replace only the <code>zones</code> array, as the guide instructs.</p>
+<p>Here is a summary of the whole callout workflow so far.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Author action</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Write the overlay image prompt</td>
+<td><code>image-prompt.md</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Generate the picture and save it</td>
+<td>PNG named in <code>data.json</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Draft the overlay data file with estimated percentages</td>
+<td><code>data.json</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Open <code>main.html?edit=true</code>, drag, and copy</td>
+<td>Calibrated coordinates</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Paste the coordinates back and reload</td>
+<td>Working overlay</td>
+</tr>
+</tbody>
+</table>
+<p>The next specification tests whether a learner can spot prompt text that would break the overlay.</p>
+<h4 id="diagram-prompt-text-rule-checker">Diagram: Prompt Text Rule Checker</h4>
+<iframe src="../../sims/prompt-text-rule-checker/main.html" width="100%" height="602px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/prompt-text-rule-checker/main.html">Run the Prompt Text Rule Checker MicroSim Fullscreen</a></p>
+<details>
+<summary>Prompt Text Rule Checker</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> prompt-text-rule-checker<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: judge): The learner will judge whether a line of an image prompt is safe for a callout overlay or violates the text-free image rule, and will justify the judgment.</p>
+<p>Layout: a drawing region showing a draft image prompt as a list of eight to ten lines, one per row, above a control region with buttons "Keeps image text-free" and "Risks text in image".</p>
+<p>Data: at least twelve prompt lines, half safe (for example "Background: clean white") and half risky (for example "Add the title Animal Cell across the top", "Label each organelle with its name", "Draw arrows pointing to the nucleus"). Each line has a one-sentence explanation of why it is safe or risky.</p>
+<p>Interactions: the learner clicks a line and then a judgment button. The line turns green or red and its explanation appears. A "Rewrite" button on each risky line shows a safe replacement. A score readout shows correct judgments out of attempts, and the lines are shuffled on each run.</p>
+<p>Responsive design: line text wraps inside its row, and row height and button size scale with the container width on window resize.</p>
+<p>Implementation: p5.js with mousePressed hit testing on rows, a describe() call, and lines stored in an array of objects.</p>
+</details>
+<h2 id="grid-overlays-and-comparison-posters">Grid Overlays and Comparison Posters</h2>
+<p>The callout engine suits small structures. Many teaching images are different: they compare two or three things side by side, with a column for each. For those, we switch engines.</p>
+<h3 id="grid-overlay">Grid Overlay</h3>
+<p>A <strong>grid overlay</strong> is an image overlay whose interactive regions are large rectangles, called zones, drawn over the image and defined in a data file, so that each region of a poster responds to hover, click and quiz questions. The grid engine is a script named <code>grid-diagram.js</code> with a style sheet named <code>grid-overlay.css</code>. Unlike the callout engine, it does not use an <code>img</code> tag in the page template. The script creates the image and the transparent zone layer itself, using the filename in <code>data.json</code>.</p>
+<h3 id="percentage-rectangle-zones">Percentage Rectangle Zones</h3>
+<p>A <strong>percentage rectangle zone</strong> is a rectangular region defined by four numbers, each a percentage of the image size: <code>x1</code> and <code>y1</code> for the top-left corner and <code>x2</code> and <code>y2</code> for the bottom-right corner. Percentages again make the zone independent of display size. A zone from 2 to 34 percent across and 12 to 90 percent down covers the same part of the picture whether the poster is shown at 400 or 1400 pixels wide.</p>
+<p>Here is a <strong>worked example</strong> using the STEM Robots kit-comparison poster. Its zones are the three columns. Each spans vertically from 12 to 90 percent, which skips the printed title bar above the columns and the footer below. Horizontally the columns run from 2 to 34, 34 to 67, and 67 to 98 percent. Each zone's width is its right edge minus its left edge, so the first is 32 percentage points wide. If an author later regenerates the poster with slightly different margins, only these numbers need adjusting.</p>
+<p>Calculation is easy to practice, so the next specification lets learners drag a rectangle and see the numbers.</p>
+<h4 id="diagram-percentage-zone-calibrator">Diagram: Percentage Zone Calibrator</h4>
+<iframe src="../../sims/percentage-zone-calibrator/main.html" width="100%" height="537px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/percentage-zone-calibrator/main.html">Run the Percentage Zone Calibrator MicroSim Fullscreen</a></p>
+<details>
+<summary>Percentage Zone Calibrator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> percentage-zone-calibrator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will calculate the x1, y1, x2 and y2 percentages of a rectangle drawn over an image and predict whether a given click falls inside it.</p>
+<p>Layout: a drawing region containing a placeholder poster image (three colored columns drawn with p5.js shapes) and one translucent rectangle with four draggable corner handles. A white control region below holds a readout and buttons.</p>
+<p>Controls: dragging a corner handle resizes the rectangle. A "Show percentages" checkbox (default on) prints x1, y1, x2 and y2 to one decimal place beside the handles. A "Copy JSON" button shows the zone object as JSON text in a panel. A "Target practice" button shows a random target rectangle and asks the learner to match it within two percentage points, then reports the error for each edge. A "Click test" toggle lets the learner click anywhere on the picture and reports whether the click is inside the zone.</p>
+<p>Behavior: all coordinates are stored as percentages and converted to pixels on each draw, so a "Resize picture" slider that changes the drawing width leaves the percentages unchanged.</p>
+<p>Responsive design: the drawing region width follows the container width on window resize, handle sizes stay at least 24 pixels for touch, and the readout wraps under the picture below 600 pixels.</p>
+<p>Implementation: p5.js with pointer-based dragging, createSlider and createCheckbox controls, and a describe() call reporting the current percentages.</p>
+</details>
+<h3 id="poster-column-zones-and-the-comparison-poster">Poster Column Zones and the Comparison Poster</h3>
+<p>A <strong>comparison poster</strong> is an infographic that sets two or three items side by side in parallel columns, with the same attributes listed down each column, so that the reader can compare them row by row. The STEM Robots repository contains six of them: I2C versus SPI, distance sensors, motor control methods, robot control modes, robot kits, and wireless technologies. A <strong>poster column zone</strong> is a zone that covers one column of such a poster, so that hovering or clicking anywhere in the column selects that item.</p>
+<p>The poster's structure dictates the zone layout. Three equal columns give three zones that touch at their edges, and two columns give two zones with a small gap, as the I2C versus SPI poster does with edges at 4 to 49 and 51 to 96 percent. The overlay guide lists 2 to 6 zones as the practical range.</p>
+<p>Text works differently on a comparison poster than on a callout image. The guide's grid rules require the columns to have visible titles built into the illustration, because the overlay's optional chip labels are hidden by default. That is why the grid overlay's data file has a <code>showLabels</code> field. Leave it <code>false</code> when the image prints its own titles, so the chip does not overlap them, and set it <code>true</code> only for an image with no printed titles.</p>
+<p>This raises a question about the text-free image rule. The rule protects the callout engine, whose markers and labels need clear space. A grid overlay draws no markers on the image, so the poster's own text is welcome, and it is the reason the poster is useful as a printed classroom display. The two rules are consistent once you ask what the overlay draws and where.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Two Rules, One Question</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Text-free for callouts and text-rich for posters can look like a contradiction. It is not: ask what the overlay itself will draw on the picture, and leave that space clear.</p>
+</div>
+<h3 id="verbatim-text-prompts">Verbatim Text Prompts</h3>
+<p>Because a comparison poster prints text, the image prompt for it needs a different discipline. A <strong>verbatim text prompt</strong> is an image prompt that tells the model to render every word and number exactly as written, and it supplies the complete text of each title, badge, row label and value. The STEM Robots prompts open with an instruction to render all text exactly verbatim, and to avoid substituting numbers, paraphrasing labels, or inventing extra rows, columns or statistics. Where a cell says "None", the prompt tells the model to print that word exactly.</p>
+<p>The prompts then spell out each column: the header, an accent color as a hex code, a price badge, an illustration described in words, and every attribute row in the form label, then value. In the robot-kits poster, for instance, the three columns are colored raspberry red, teal blue and deep purple, with price badges of about 18, 21 and 24 dollars. The illustration descriptions are specific: a top view of a two-wheeled robot, with a sensor module at the front, a wireless symbol above the board, or a small screen on top.</p>
+<p>Verbatim prompting does not guarantee accuracy. It shifts the risk from the model's imagination to the author's spec, which is where you can check it. The motor-control prompt file in the repository contains a section headed as verification notes, marked "do not include in image", that records which sources the specs were checked against and which corrections were applied. For example, the notes record that the motor driver is the MX1508 and not another chip, so that the specs printed on the poster and shown in the overlay agree. Chapter 11 develops this into a full fact-verification pipeline.</p>
+<p>The poster's numbers and the overlay's <code>facts</code> must also agree. Both derive from the same specification, so change them together, or the printed column will contradict the panel that opens when the learner clicks it.</p>
+<h3 id="zone-summary-and-facts">Zone Summary and Facts</h3>
+<p>Each zone in the grid data file carries two kinds of text. The <strong>zone summary and facts</strong> pair consists of a one-line <code>summary</code>, shown in italics under the zone's label, and a <code>facts</code> array whose entries appear as bullet points in the detail panel. The summary is what a learner reads first, so it should say what makes this column different from its neighbors. The facts hold the details.</p>
+<p>Here is an excerpt of one zone from the robot-kits poster. The <code>id</code> is a unique kebab-case name that quiz questions refer to. The <code>color</code> sets the zone's border and hover highlight, and it matches the column's accent color in the image.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base-bot"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Base Bot"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#C7164E"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The core kit — motors, chassis, and a time-of-flight sensor"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"facts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"Total cost: ~$18 (the most affordable entry point)"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"Display: none"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"Best for: first-time robot builders; collision avoidance labs"</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The file shortens the real zone, which carries eleven facts. The overlay guide suggests 3 to 6 facts per zone, and the real posters carry more, eleven or twelve per column in the robot-kits file. Longer fact lists give the detail panel more to teach, but the panel grows taller with them. Choose the length by how much the learner needs after the poster's own printed rows, and cut facts that only repeat those rows.</p>
+<p>The full data file has the fields shown in the table below, all of which we have now met.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>top</td>
+<td>Image alt text</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>top</td>
+<td>Filename of the poster image</td>
+</tr>
+<tr>
+<td><code>layout</code></td>
+<td>top</td>
+<td>Must be <code>"grid"</code></td>
+</tr>
+<tr>
+<td><code>showLabels</code></td>
+<td>top</td>
+<td>Show chip labels inside zones</td>
+</tr>
+<tr>
+<td><code>palette</code></td>
+<td>top</td>
+<td>Colors for the quiz celebration</td>
+</tr>
+<tr>
+<td><code>zones[]</code></td>
+<td>top</td>
+<td>The rectangles, each with <code>id</code>, <code>label</code>, <code>color</code>, coordinates, <code>summary</code>, <code>facts</code></td>
+</tr>
+<tr>
+<td><code>quiz[]</code></td>
+<td>top</td>
+<td>Questions, each with <code>question</code>, <code>correct_zone</code>, <code>explanation</code></td>
+</tr>
+</tbody>
+</table>
+<p>The next diagram brings the poster, its zones and its two modes together.</p>
+<h4 id="diagram-comparison-poster-explorer">Diagram: Comparison Poster Explorer</h4>
+<iframe src="../../sims/comparison-poster-explorer/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/comparison-poster-explorer/main.html">Run the Comparison Poster Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Comparison Poster Explorer</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> comparison-poster-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: compare): The learner will compare three items across the same attributes by exploring the columns of a poster, and will identify which column matches a described property.</p>
+<p>Layout: a wide poster area with three flat-color columns (raspberry red, teal blue, deep purple) drawn with p5.js shapes and printed column titles "Base Bot", "WiFi Bot" and "Display Bot", above a detail panel and a control region with Explore and Quiz Me buttons.</p>
+<p>Data: three poster column zones with edges at 2 to 34, 34 to 67 and 67 to 98 percent across and 12 to 90 percent down, each with a summary and at least four facts taken from the STEM Robots robot-kits data file (for example the approximate costs of 18, 21 and 24 dollars, wireless in the WiFi Bot, and the OLED screen in the Display Bot).</p>
+<p>Interactions: in Explore mode, hovering a column highlights it and clicking opens its summary and facts in the panel. In Quiz Me mode, a question appears and the learner clicks the matching column; a wrong click shows which column was clicked and lets the learner try again, and a right click shows a confirmation. A "Show zone edges" checkbox reveals the four percentage values of each zone.</p>
+<p>Responsive design: the poster and panel scale to the container width on window resize, and the panel moves below the poster at all widths.</p>
+<p>Implementation: p5.js with rectangular hit testing from percentage zones, createButton controls, and a describe() call.</p>
+</details>
+<h2 id="explore-mode-and-quiz-mode">Explore Mode and Quiz Mode</h2>
+<p>Both engines offer the same two learner modes, and the grid engine's code shows exactly how they behave.</p>
+<p><strong>Explore mode</strong> is the default mode, in which the learner hovers over zones to highlight them and clicks a zone to read its details. In the grid engine, hovering adds a highlight class to the zone, and a click fills the detail panel with the zone's label, summary and facts and marks the zone active. Before any click, the panel shows a prompt inviting the learner to click a column. In the callout engine, hovering a marker or its label row shows the description in the information box, and a click does the same.</p>
+<p><strong>Quiz mode</strong> is the mode in which the labels are hidden or the zones dimmed, a question is posed, and the learner must click the correct target. In the grid engine, selecting Quiz Me shuffles the questions, dims all zones, resets a score readout, and shows the first question above the poster. A correct click reveals that zone and opens a "Correct!" panel with an OK button to continue. An incorrect click flashes the wrong zone and displays a brief "try again" message that names the zone clicked. In the callout engine, the quiz replaces each marker's number with a question mark and asks the learner to click the structure named in the prompt.</p>
+<h3 id="poster-quiz-questions">Poster Quiz Questions</h3>
+<p>A <strong>poster quiz question</strong> is a question stored in the <code>quiz</code> list of the data file, consisting of the question text, the <code>id</code> of the zone that answers it, and an optional explanation. The structure limits the question type: every question is a "which column?" question with exactly one correct zone. That fits the lowest Bloom levels well, where the learner identifies which item has a property, and it fits comparison, where the answer depends on distinguishing the columns.</p>
+<p>A <strong>worked example</strong> from the robot-kits file shows a well-formed question. It asks which kit lets the learner drive the robot from a phone browser without a USB cable, and its correct zone is <code>wifi-bot</code>. Each of the file's five questions targets one distinguishing property, and the answers are spread so that each zone is correct at least once. The Base Bot answers the question about the lowest price, the WiFi Bot answers two questions, and the Display Bot answers two.</p>
+<p>Three habits make such questions work. Base each question on one fact that is true of exactly one column, so that the answer is unambiguous. Cover every zone, so a learner cannot pass by guessing the same column each time. Write the <code>explanation</code> even though it is optional, because the schema marks it as reserved and the engine does not yet display it, so it currently documents the intended feedback for authors and for a later engine version.</p>
+<p>One consequence of the code deserves a careful reading, because it affects how much you can learn from a quiz. In the grid engine, a wrong click does not change the score, and the learner can keep clicking until the right zone is found. The score counts only correct answers, so the completion message will always report every question as correctly identified. The engine displays engagement and gives feedback, but the score alone does not distinguish a learner who answered instantly from one who needed five tries. Recording each attempt would need instrumentation, which is the subject of Chapter 17.</p>
+<h2 id="building-a-poster-collection">Building a Poster Collection</h2>
+<h3 id="the-poster-folder-convention">The Poster Folder Convention</h3>
+<p>The <strong>poster folder convention</strong> is the file layout in which every comparison poster lives in its own folder, containing the same set of files. In the STEM Robots repository, each folder under <code>docs/posters/</code> contains an <code>index.md</code> documentation page, a <code>main.html</code> page that hosts the overlay, a <code>data.json</code> file, the poster PNG, and, in four of the six folders, a separate <code>image-prompt.md</code> file. All six <code>index.md</code> pages also carry the prompt in a section headed Image Prompt. A landing page, <code>docs/posters/index.md</code>, shows all posters as a grid of cards, each with a thumbnail, a title link and a one-sentence description.</p>
+<p>The poster's <code>index.md</code> follows its own pattern. Its front matter carries a title, a description, image paths for social sharing, and <code>hide: toc</code>. The body states the audience and the chapter the poster supports, embeds the overlay in an iframe pointing at <code>main.html</code> with <code>width="100%"</code> and a fallback <code>height="800"</code>, and adds an About section. A section headed Image Prompt holds the prompt in a <code>!!! prompt</code> admonition, so a reader can copy it into an image tool.</p>
+<p>Here is the layout for one poster, using a placeholder name.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>docs/posters/
+  index.md                     landing page with a card for each poster
+  shared-libs/                 engine scripts and styles used by every poster
+  robot-kits/
+    index.md                   documentation page with the iframe
+    main.html                  overlay page that loads the shared libraries
+    data.json                  image name, zones, quiz
+    robot-kits-infographic.png the generated poster
+    image-prompt.md            the prompt that produced the poster
+</code></pre></div></td></tr></table></div>
+<p>Reading from the bottom, the prompt file records how the picture was made, the PNG is the picture, <code>data.json</code> describes the zones, and <code>main.html</code> loads the engine. The <code>index.md</code> wraps them for the site, and the landing page lists it. Chapter 15 returns to metadata and discovery for whole collections.</p>
+<h3 id="the-shared-overlay-library">The Shared Overlay Library</h3>
+<p>The <strong>shared overlay library</strong> is the set of engine files kept in one folder and loaded by every overlay page, instead of being copied into each poster or MicroSim folder. The overlay guide names four required files: <code>diagram.js</code>, <code>style.css</code>, <code>grid-diagram.js</code> and <code>grid-overlay.css</code>. In the STEM Robots repository they live in <code>docs/posters/shared-libs/</code>, alongside a template page and a second copy of the callout engine, and each poster's <code>main.html</code> references them with paths of the form <code>../shared-libs/grid-overlay.css</code>. In a book that keeps overlays under <code>docs/sims/</code>, the guide places the same folder at <code>docs/sims/shared-libs/</code>.</p>
+<p>Sharing has two advantages: a bug fix in one file reaches every poster, and each poster folder stays small. It also has a cost, which is drift between copies. The guide tells authors to check that the project's copy matches the skill's bundled version. A comparison for this chapter found that the grid engine in the STEM Robots repository is identical to the bundled one, while its <code>diagram.js</code> differs, which explains the <code>ap_tip</code> field noted earlier. Compare your copies with a diff before you debug a mysterious behavior.</p>
+<p>The last structural detail is height. An iframe has a fixed height, but an overlay's detail panel changes height when the learner clicks a zone with many facts. The grid engine sends the page's scroll height plus 30 pixels to the parent page in a <code>postMessage</code> event of type <code>microsim-resize</code> after each zone opens or question appears, and the parent page needs a listener that resizes the iframe. The callout engine measures the tallest description so that the iframe fits the worst case. A separate design note in the guide describes pinning the information box to that height so the controls never jump, and it lists this as a constraint for future changes to <code>reportHeight()</code>. We did not find that pinning code in either copy of <code>diagram.js</code> that we searched, so treat the note as a design description and verify it in your copy. Chapter 12 covers iframe heights in full.</p>
+<p>The final specification lets learners audit a poster folder.</p>
+<h4 id="diagram-poster-folder-explorer">Diagram: Poster Folder Explorer</h4>
+<iframe src="../../sims/poster-folder-explorer/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/poster-folder-explorer/main.html">Run the Poster Folder Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Poster Folder Explorer</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> poster-folder-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: describe): The learner will describe the role of each file in a poster folder and of the shared overlay library, and will identify which file to edit to fix a given problem.</p>
+<p>Nodes and edges: a tree with the folder "docs/posters/" at the top, children "index.md" (landing page), "shared-libs/" (with four child files: grid-diagram.js, grid-overlay.css, diagram.js, style.css) and one poster folder "robot-kits/" with children "index.md", "main.html", "data.json", "robot-kits-infographic.png" and "image-prompt.md". Dashed arrows show "main.html loads shared-libs", "main.html fetches data.json", and "data.json names the PNG".</p>
+<p>Interactions: clicking any node opens an information panel with a two-sentence role and one problem that the file would fix ("Zone in the wrong place: edit data.json", "Broken image: check the filename in data.json"). Hovering an arrow shows what passes along it. A "Fix it" mode shows a symptom and asks the learner to click the file to edit.</p>
+<p>Responsive design: the network re-fits to the container width on window resize, and the information panel moves below the network under 600 pixels.</p>
+<p>Implementation: vis-network with fixed hierarchical positions, physics disabled, and click and hover event handlers.</p>
+</details>
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>We can now follow one comparison poster from idea to classroom. The author writes a specification for three columns and checks its facts. A verbatim text prompt turns the specification into an image request, and the image model returns a PNG, which the author saves under the filename in <code>data.json</code>. The author drafts percentage rectangle zones from the prompt's layout, opens the page in edit mode to align the zones, and pastes only the <code>zones</code> array back. The zone summaries and facts, and a handful of poster quiz questions, come from the same specification. The folder follows the convention, the shared library supplies the engine, and an iframe places the result in a chapter. The learner then explores by hovering and clicking, and tests themselves with Quiz Me.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Build a Poster</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now turn a text-free image or a verbatim-text poster into an interactive MicroSim, from the overlay image prompt through the data file to zone calibration and quiz questions. That is a complete pipeline, and you did it without drawing a single pixel yourself.</p>
+</div>
+<p>The key ideas of this chapter are:</p>
+<ul>
+<li>An image overlay adds markers, zones and text panels to a static image, so the words live in a data file and the pixels stay unchanged.</li>
+<li>The callout engine marks points on small structures with numbered callout labels, while the grid engine marks large percentage rectangle zones over columns of a poster.</li>
+<li>The text-free image rule keeps callout images clear of any lettering, and an overlay image prompt states it first and repeats it.</li>
+<li>A comparison poster prints its own text, so its prompt is a verbatim text prompt whose facts must match the zone summaries and facts in the data file.</li>
+<li>Edit mode alignment, opened with <code>?edit=true</code>, calibrates zones or markers in the real image, and only the <code>zones</code> array should be pasted back.</li>
+<li>Explore mode shows details on hover and click, and quiz mode asks "which column?" questions from the data file, though the grid engine's score does not record wrong attempts.</li>
+<li>The poster folder convention and the shared overlay library keep collections consistent, but copies of the shared engine can drift and should be compared.</li>
+</ul>
+<p>The next chapter extends this idea to posters whose numeric claims are checked against cited sources before any pixel is rendered, and to the other specialized MicroSim types.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../09-timelines-and-maps/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 9. Timelines and Maps">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                9. Timelines and Maps
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-footer__link md-footer__link--next" aria-label="Next: 11. Verified Posters and Specialized MicroSim Types">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                11. Verified Posters and Specialized MicroSim Types
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

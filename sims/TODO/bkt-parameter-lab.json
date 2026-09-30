@@ -1,0 +1,15 @@
+{
+  "sim_id": "bkt-parameter-lab",
+  "diagram_name": "BKT Parameter Lab",
+  "chapter_number": 18,
+  "chapter_title": "Mastery Prediction and Knowledge Tracing",
+  "chapter_dir": "18-mastery-prediction-and-knowledge-tracing",
+  "chapter_rel_dir": "chapters/18-mastery-prediction-and-knowledge-tracing",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "The learner will calculate the mastery estimate after each answer in a sequence by choosing the four BKT parameters, and will judge when the estimate first reaches a chosen mastery threshold.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** bkt-parameter-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: calculate): The learner will calculate the mastery estimate after each answer in a sequence by choosing the four BKT parameters, and will judge when the estimate first reaches a chosen mastery threshold.\n\nLayout: the drawing region shows a line chart of the estimate \\(P(L_n)\\) from 0 to 1 against attempt number, with a dashed horizontal line for the threshold. Below the chart, a row of small tiles shows each attempt as a green (correct) or red (incorrect) square. The control region is white below the drawing region.\n\nControls:\n\n- Four sliders: initial knowledge (default 0.30), learning rate (default 0.15), guess (default 0.20) and slip (default 0.10), each from 0.00 to 1.00 in steps of 0.01\n- Slider \"Mastery threshold\" (default 0.95)\n- Click a tile to flip it between correct and incorrect; buttons \"Add correct\", \"Add incorrect\" and \"Reset\"\n- Checkbox \"Show intermediate numbers\" that prints the conditioning and learning-step values for the selected attempt\n\nData: the initial sequence is correct, incorrect, correct, correct, which reproduces the table in the text (0.71, 0.35, 0.75, 0.94). Every number is computed live from the update equations, never pre-baked.\n\nInteractions: hovering a point on the line shows its attempt, observation and value. Every tooltip text is also written to the console as a log line so it can later feed an activity log.\n\nResponsive design: the canvas width follows the container width on every window resize; sliders resize with it and the tiles wrap onto a second row below 500 pixels.\n\nImplementation: p5.js with createSlider and createButton controls positioned relative to the drawing height, and a describe() call for accessibility."
+}

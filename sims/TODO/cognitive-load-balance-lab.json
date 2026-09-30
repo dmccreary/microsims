@@ -1,0 +1,15 @@
+{
+  "sim_id": "cognitive-load-balance-lab",
+  "diagram_name": "Cognitive Load Balance Lab",
+  "chapter_number": 3,
+  "chapter_title": "Learning Objectives and Bloom's Taxonomy",
+  "chapter_dir": "03-learning-objectives-and-blooms-taxonomy",
+  "chapter_rel_dir": "chapters/03-learning-objectives-and-blooms-taxonomy",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the design features that add intrinsic, extraneous and germane load by toggling features on a mock MicroSim and observing a qualitative load gauge.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** cognitive-load-balance-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the design features that add intrinsic, extraneous and germane load by toggling features on a mock MicroSim and observing a qualitative load gauge.\n\nLayout: the drawing region shows a small mock of a bouncing-ball MicroSim on the left and a stacked horizontal bar on the right with three segments labeled Intrinsic, Extraneous and Germane, plus a marker for a \"comfortable capacity\" line. The control region holds the feature toggles.\n\nControls:\n\n- Slider \"Number of variables\" from 1 to 6, default 2 (raises intrinsic load)\n- Checkboxes \"Decorative particle trail\", \"Sound effects\" and \"Instructions far from the drawing\" (each raises extraneous load)\n- Checkboxes \"Prediction prompt before each run\" and \"Ask for a one-sentence explanation\" (each raises germane load)\n- Button \"Reset to Designer A\" and button \"Set to Designer B\" that load the two designs from the worked example\n\nBehavior: the bar segments are computed from fixed illustrative weights, and a caption states that the gauge is a teaching illustration and not a measurement of any real learner. When the total passes the capacity line, the bar turns amber and a message names the largest extraneous contributor.\n\nResponsive design: the canvas width follows the container width on every window resize, the mock and the bar stack vertically under 500 pixels, and all controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createSlider and createCheckbox controls positioned relative to drawHeight, and a describe() call for accessibility."
+}

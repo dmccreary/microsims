@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Node and Edge Data Explorer using vis-network</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/styles/vis-network.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="toolbar">
+            <div class="group">
+                <input type="text" id="node-label" placeholder="New concept" maxlength="28" aria-label="Label for a new node">
+                <button type="button" id="add-btn">Add node</button>
+            </div>
+            <div class="group">
+                <select id="rel-select" aria-label="Relationship label for new edges">
+                    <option>is drawn with</option>
+                    <option>is a kind of</option>
+                    <option>is an alternative to</option>
+                    <option>computes</option>
+                    <option>raises</option>
+                    <option>arranges</option>
+                    <option>depends on</option>
+                    <option>is part of</option>
+                </select>
+                <button type="button" id="connect-btn" aria-pressed="false">Connect</button>
+            </div>
+            <button type="button" id="swap-btn">Swap direction</button>
+            <button type="button" id="reset-btn" class="secondary">Reset</button>
+            <fieldset class="layout-toggle">
+                <legend>Layout</legend>
+                <label><input type="radio" name="layout" value="fixed" checked> fixed</label>
+                <label><input type="radio" name="layout" value="physics"> physics</label>
+            </fieldset>
+        </div>
+        <div class="work">
+            <div class="net-col">
+                <div id="network" aria-label="Concept map of eight Chapter 8 concepts"></div>
+                <div class="legend">
+                    <span><i class="dot diagram"></i>diagram type</span>
+                    <span><i class="dot library"></i>library</span>
+                    <span><i class="dot feature"></i>library feature</span>
+                    <span><i class="dot new"></i>your node</span>
+                </div>
+            </div>
+            <aside class="data-panel">
+                <div class="panel-title" id="panel-title">Node and edge data</div>
+                <pre id="json-view" aria-live="polite"></pre>
+                <div class="note" id="note"></div>
+                <div class="status" id="status" aria-live="polite"></div>
+            </aside>
+        </div>
+    </main>
+    <script src="node-edge-data-explorer.js"></script>
+</body>
+</html>

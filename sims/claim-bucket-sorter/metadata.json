@@ -1,0 +1,131 @@
+{
+  "title": "Claim Bucket Sorter",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Claim Verification",
+    "Source Discovery",
+    "Fact-Verified Poster",
+    "Sorting Quiz",
+    "Category Bucket"
+  ],
+  "description": "Drag twelve invented evidence records, each a planned claim with a source type and quoted passage, into the VERIFIED, DIRECTIONAL, QUALITATIVE-ONLY and REJECTED buckets; feedback names the deciding rule and a summary lists misses by pattern.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/claim-bucket-sorter/",
+  "canvasHeight": 550,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Classifying evidence for poster claims into the four verification buckets",
+    "learningObjectives": [
+      "The learner will classify evidence records for a planned claim as VERIFIED, DIRECTIONAL, QUALITATIVE-ONLY or REJECTED, and will justify each choice from the quoted passage and the source type."
+    ],
+    "bloomsTaxonomy": "Evaluate",
+    "bloomVerb": "classify",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Finding and Verifying Sources section of Chapter 11",
+      "The difference between a primary study and a review or meta-analysis"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 550
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)",
+      "data.json (twelve practice records, loaded with loadJSON)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Keys 1-4 sort the card without dragging; describe() reports each result and its rule"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "record-card",
+        "type": "drag",
+        "label": "Evidence record card",
+        "purpose": "Drag into a bucket to classify the record"
+      },
+      {
+        "id": "buckets",
+        "type": "drop targets",
+        "label": "VERIFIED, DIRECTIONAL, QUALITATIVE-ONLY, REJECTED",
+        "purpose": "The four verification buckets; keys 1-4 also sort"
+      },
+      {
+        "id": "show-rule",
+        "type": "button",
+        "label": "Show rule",
+        "purpose": "Reveal the deciding question; the record then scores 5 instead of 10"
+      },
+      {
+        "id": "next-record",
+        "type": "button",
+        "label": "Next record / See summary",
+        "purpose": "Advance after sorting"
+      },
+      {
+        "id": "restart",
+        "type": "button",
+        "label": "Restart",
+        "purpose": "Start a new shuffled round"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification with immediate rule-based feedback and a pattern summary",
+    "interactionPattern": "Drag-to-bucket sorting quiz with hint penalty",
+    "keyQuestions": [
+      "Can a meta-analysis ever VERIFY a number?",
+      "Why can a claim with no number not be VERIFIED?",
+      "Does a peer-reviewed source always support the claim it is cited for?"
+    ],
+    "commonMisconceptions": [
+      "Any number from a meta-analysis is VERIFIED",
+      "The top of a reported range is the result",
+      "A peer-reviewed source always supports the claim",
+      "A missing number means the claim must be rejected"
+    ],
+    "assessmentOpportunities": [
+      "Score out of 120 with rules shown",
+      "Missed records grouped by pattern",
+      "Written justifications for missed records"
+    ]
+  },
+  "search": {
+    "tags": [
+      "claim verification",
+      "VERIFIED",
+      "DIRECTIONAL",
+      "QUALITATIVE-ONLY",
+      "REJECTED",
+      "meta-source citation",
+      "sorting quiz",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "quiz",
+      "simulation"
+    ]
+  },
+  "chapter": "11-verified-posters-and-specialized-microsim-types"
+}

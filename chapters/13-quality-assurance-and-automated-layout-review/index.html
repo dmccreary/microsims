@@ -1,0 +1,3878 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how the 100-point quality score, Playwright tests, screenshots and vision-based layout review catch layout and quality defects before readers do.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/13-quality-assurance-and-automated-layout-review/">
+      
+      
+        <link rel="prev" href="../12-width-responsive-design-and-iframe-heights/">
+      
+      
+        <link rel="next" href="../14-batch-generation-from-specifications/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Quality Assurance and Automated Layout Review - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Quality Assurance and Automated Layout Review - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how the 100-point quality score, Playwright tests, screenshots and vision-based layout review catch layout and quality defects before readers do." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/13-quality-assurance-and-automated-layout-review/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/13-quality-assurance-and-automated-layout-review/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Quality Assurance and Automated Layout Review - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how the 100-point quality score, Playwright tests, screenshots and vision-based layout review catch layout and quality defects before readers do." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/13-quality-assurance-and-automated-layout-review/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quality-assurance-and-automated-layout-review" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quality Assurance and Automated Layout Review
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoring Quality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#100-point-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        100-Point Rubric
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-grade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Grade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Grade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-score-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Quality Score Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards Hardening
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-machinery-headless-browsers-and-playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Machinery: Headless Browsers and Playwright
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Machinery: Headless Browsers and Playwright">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headless-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headless Browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playwright
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshot-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screenshot Capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-browser-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Browser Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-defects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Defects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Defects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-defect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Defect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Defect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-layout-defect-catalog-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Layout Defect Catalog Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-geometry-height-and-visibility-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Geometry: Height and Visibility Tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Geometry: Height and Visibility Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-visibility-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Visibility Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-height-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Height Test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iframe Height Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iframe-height-test-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Iframe Height Test Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Review
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-review_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vision-based-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vision-Based Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smallest-patch-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smallest Patch Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-cycle-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix Cycle Limit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fix Cycle Limit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-review-and-fix-cycle-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Review and Fix Cycle Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-whole-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the Whole Chain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the Whole Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-chain-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Quality Chain Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-audit-baseline-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Audit Baseline Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoring-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scoring Quality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoring Quality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quality-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Score
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#100-point-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        100-Point Rubric
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-grade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Grade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality Grade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-score-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Quality Score Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality Gate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards Hardening
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-machinery-headless-browsers-and-playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Machinery: Headless Browsers and Playwright
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Machinery: Headless Browsers and Playwright">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headless-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headless Browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playwright
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#screenshot-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screenshot Capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-browser-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Browser Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-defects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Defects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Defects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-defect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Defect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Defect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-layout-defect-catalog-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Layout Defect Catalog Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-geometry-height-and-visibility-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Geometry: Height and Visibility Tests
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Geometry: Height and Visibility Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-visibility-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Control Visibility Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iframe-height-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iframe Height Test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iframe Height Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-iframe-height-test-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Iframe Height Test Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Review
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layout-review_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vision-based-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vision-Based Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smallest-patch-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smallest Patch Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fix-cycle-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fix Cycle Limit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fix Cycle Limit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-review-and-fix-cycle-simulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Review and Fix Cycle Simulator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-whole-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the Whole Chain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the Whole Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-quality-chain-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Quality Chain Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-audit-baseline-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Audit Baseline Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/13-quality-assurance-and-automated-layout-review/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="quality-assurance-and-automated-layout-review">Quality Assurance and Automated Layout Review</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the quality score, Playwright tests, screenshots and vision-based layout review that catch layout and quality defects before readers do.</p>
+<p>Students learn the 100-point rubric, layout defects, control-visibility and iframe-height tests, and the fix-cycle rules. After it, they can run the full quality chain and pass the quality gate.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 21 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100-Point Rubric</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Headless Browser</td>
+<td>26</td>
+</tr>
+<tr>
+<td>Screenshot Capture</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Layout Defect</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Clipped Content</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Hidden Control</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Cross-Browser Check</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Color Contrast</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Quality Score</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Quality Grade</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Validation Script</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Playwright</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Visual Checklist</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Control Visibility Test</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Iframe Height Test</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Quality Gate</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Standards Hardening</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Layout Review</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Vision-Based Review</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Fix Cycle Limit</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Smallest Patch Rule</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../09-timelines-and-maps/">Chapter 9: Timelines and Maps</a></li>
+<li><a href="../12-width-responsive-design-and-iframe-heights/">Chapter 12: Width-Responsive Design and Iframe Heights</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">A Second Pair of Eyes</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+A MicroSim that looks perfect on your laptop can hide its Start button, clip its labels, or squeeze its sliders off the edge of a phone. This chapter gives you automated eyes: a 100-point score, a real browser, and a vision model that read the page before a learner does. Let's bounce it around! By the end you will be able to run the whole quality chain and tell when a MicroSim has passed.</p>
+</div>
+<p>Chapter 12 showed how a MicroSim follows its container width and how its iframe height is declared and synchronized. That chapter told you how the layout is supposed to work. This chapter asks a different question: how do you know that it does? A MicroSim is code that draws pixels, and code that runs without errors can still draw a Start button below the visible edge of its frame. Reading the code will not reveal that, and neither will opening the page once on the author's own monitor.</p>
+<p>The book has a second reason to care. A learner cannot use a control they cannot see, so a hidden slider produces no interaction, and an instrumented MicroSim with a hidden slider produces no evidence about that interaction. The MicroSims 2.0 plan states this reasoning directly: a broken layout hides controls and corrupts the stream, so quality assurance is a data-quality control. That is a design argument, not a measured result, because no learner data have been collected through these MicroSims yet.</p>
+<p>We use one toolkit throughout: the <code>microsim-utils</code> skill from the ibook-skills project, together with the audit of this repository's own MicroSims recorded in its <code>TODO.md</code>. The chain has four kinds of check, and each catches what the others miss:</p>
+<ul>
+<li>A <strong>structural</strong> check counts required files, metadata fields and documentation sections, and turns them into a score.</li>
+<li>A <strong>capture</strong> step renders the MicroSim in a real browser and saves an image.</li>
+<li>A <strong>visual</strong> check inspects that image against a written checklist and patches the source.</li>
+<li>A <strong>geometric</strong> check measures whether every control fits inside the iframe.</li>
+</ul>
+<p>We start with the structural check, because its vocabulary carries through the rest of the chapter.</p>
+<h2 id="scoring-quality">Scoring Quality</h2>
+<h3 id="quality-score">Quality Score</h3>
+<p>A <strong>quality score</strong> is an integer from 0 to 100 that summarizes how completely a MicroSim meets the project's file, metadata and documentation standards. The standardization guide says the score is written into the <code>quality_score</code> field in the YAML header of the MicroSim's <code>index.md</code>, the same header that supplies the social preview fields. Chapter 2 separated that header from the Dublin Core metadata, which lives only in <code>metadata.json</code>; the two must never be mixed.</p>
+<p>Be precise about what the score measures. It counts the presence of things: a screenshot file, a References heading, a schema tag. It does not run the simulation, judge the physics, or ask whether a learner understood anything. A MicroSim can score 92 and still have a confusing interaction, which is why a score is one gate among several and never the whole of quality.</p>
+<h3 id="100-point-rubric">100-Point Rubric</h3>
+<p>The <strong>100-point rubric</strong> is the table of checks that the quality score adds up. The audit in this repository used the <code>validate-sims.py</code> script, and its rubric awards points in seven groups. Two terms need a definition first. The <em>schema meta tag</em> is the <code>&lt;meta name="schema" ...&gt;</code> line in <code>main.html</code> that identifies the metadata schema (Chapter 2 introduced it). The <em>educational</em> and <em>pedagogical</em> sections are named blocks inside <code>metadata.json</code> that describe the learning purpose of the MicroSim.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Points</th>
+<th>How the points are earned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main.html</code></td>
+<td>10</td>
+<td>File exists (5), has the schema meta tag (3), has a <code>main</code> element (2)</td>
+</tr>
+<tr>
+<td><code>metadata.json</code></td>
+<td>30</td>
+<td>File present (10); core fields title, description, creator, date and subject, with 10 points if at most one is missing and 5 if two or three are; an educational section (5); a pedagogical section (5)</td>
+</tr>
+<tr>
+<td><code>index.md</code> structure</td>
+<td>35</td>
+<td>Level 1 title (2), YAML title and description (3), YAML social images (5), an iframe with <code>src="main.html"</code> (10), a fullscreen link (5), a copy-paste iframe example in a code block (5), a description or about section (5)</td>
+</tr>
+<tr>
+<td>Screenshot</td>
+<td>5</td>
+<td>A PNG exists in the folder, other than <code>favicon.png</code> or <code>icon.png</code></td>
+</tr>
+<tr>
+<td>Lesson plan</td>
+<td>10</td>
+<td>A level 2 heading that reads Lesson Plan</td>
+</tr>
+<tr>
+<td>References</td>
+<td>5</td>
+<td>A level 2 heading that reads References</td>
+</tr>
+<tr>
+<td>p5.js conventions</td>
+<td>5</td>
+<td>For p5.js MicroSims: <code>updateCanvasSize</code> used (2), built-in controls rather than hand-drawn ones (2), canvas parented to the <code>main</code> element (1). Other libraries receive all 5</td>
+</tr>
+</tbody>
+</table>
+<p>The groups sum to 100: 10 + 30 + 35 + 5 + 10 + 5 + 5. Notice how much weight falls on documentation and metadata rather than on rendering. Sixty-five of the 100 points come from <code>metadata.json</code> and <code>index.md</code>, and only the p5.js group looks at code at all.</p>
+<p>A <strong>worked example</strong> uses the Bouncing Ball MicroSim from version 1.0, which the audit scored at 82. Its issues are the missing schema meta tag (3 points lost), the missing educational section (5), the missing description section (5) and the missing References section (5). Subtracting 3 + 5 + 5 + 5 = 18 from 100 gives 82, and the validator's per-group scores agree: <code>main.html</code> 7, <code>metadata.json</code> 25, <code>index.md</code> 30, screenshot 5, lesson plan 10, references 0 and p5.js conventions 5. The arithmetic also shows where the cheapest gains are. Adding a description section alone raises the score by 5, to 87.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Two Rubrics, One Total</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The standardization guide's own scoring table and the audit script split the 100 points differently: the guide checks nine Dublin Core fields, while the script checks five and adds educational and pedagogical sections. A score is only comparable with scores from the same script, so record which one produced it and re-run that same one after every change.</p>
+</div>
+<h3 id="validation-script">Validation Script</h3>
+<p>A <strong>validation script</strong> is a program that applies the rubric to every MicroSim folder and reports a score. In this book that is <code>validate-sims.py</code>, kept in the <code>src/microsim-utils</code> folder of the ibook-skills repository. It reads each folder under <code>docs/sims/</code>, applies the seven checks, and prints one line per MicroSim.</p>
+<p>Before the commands, here are the flags they use. <code>--project-dir</code> names the project root, the folder that contains <code>docs/sims/</code>. <code>--sim</code> restricts the run to one MicroSim by folder name. <code>--verbose</code> prints the list of issues under each score. <code>--format json</code> prints machine-readable results instead of a table, and <code>--output</code> writes the results to a JSON file. The <code>--min-score</code> flag shows only MicroSims at or above a given score.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Score one MicroSim and list what is missing</span>
+python3<span class="w"> </span>validate-sims.py<span class="w"> </span>--project-dir<span class="w"> </span>.<span class="w"> </span>--sim<span class="w"> </span>bouncing-ball<span class="w"> </span>--verbose
+
+<span class="c1"># Score every MicroSim and save the results as JSON</span>
+python3<span class="w"> </span>validate-sims.py<span class="w"> </span>--project-dir<span class="w"> </span>.<span class="w"> </span>--output<span class="w"> </span>scores.json
+</code></pre></div></td></tr></table></div>
+<p>Each JSON record holds the folder name (<code>sim_id</code>), the total <code>score</code>, the points per group under <code>categories</code>, and the list of <code>issues</code>. Running the script over all 116 MicroSim folders in this repository while this chapter was written reproduced the audit's mean of 60.6.</p>
+<p>One property of the script matters for automation: it always exits normally, whatever the scores are. The <code>--min-score</code> flag filters what is displayed, but nothing fails a build. If you want a hard threshold, you must read the JSON yourself, as the short script below does. It loads the saved results and prints every MicroSim under 85, lowest score first.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"scores.json"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">below</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s2">"sim_id"</span><span class="p">])</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s2">"score"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">score</span><span class="p">,</span> <span class="n">sim_id</span> <span class="ow">in</span> <span class="n">below</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">sim_id</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="quality-grade">Quality Grade</h3>
+<p>A <strong>quality grade</strong> is a letter that names a band of the quality score, so that a reader of a report can see at a glance how much work a MicroSim needs. The script uses four bands: A for 85 and above, B for 70 to 84, C for 50 to 69, and D below 50. The audit's <code>TODO.md</code> attaches a recommended action to each band.</p>
+<table>
+<thead>
+<tr>
+<th>Grade</th>
+<th>Score band</th>
+<th>Recommended action in the audit</th>
+<th>MicroSims in the 2026-09-30 audit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>85 and above</td>
+<td>Confirm and carry over when a chapter adopts it</td>
+<td>18</td>
+</tr>
+<tr>
+<td>B</td>
+<td>70 to 84</td>
+<td>Close to the bar; fix the listed issues</td>
+<td>27</td>
+</tr>
+<tr>
+<td>C</td>
+<td>50 to 69</td>
+<td>Substantial work; rebuild from a specification if cheaper</td>
+<td>30</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Under 50</td>
+<td>Likely rebuild or drop</td>
+<td>41</td>
+</tr>
+</tbody>
+</table>
+<p>Those counts are a measured result for this repository: 116 MicroSims, a mean score of 60.6, and roughly 16, 23, 26 and 35 percent in grades A to D. The highest score anywhere is 92. Every one of the 73 MicroSims that have a <code>main.html</code> lacks the schema meta tag, and 110 lack the educational section, which is why the best v1.0 MicroSims stop at 92 rather than 100. Forty-three folders have no <code>main.html</code> at all.</p>
+<h4 id="diagram-quality-score-calculator">Diagram: Quality Score Calculator</h4>
+<iframe src="../../sims/quality-score-calculator/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/quality-score-calculator/main.html">Run the Quality Score Calculator MicroSim Fullscreen</a></p>
+<details>
+<summary>Quality Score Calculator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> quality-score-calculator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will calculate the quality score and grade of a MicroSim by ticking which rubric checks it satisfies, and will identify the cheapest change that reaches the 85 threshold.</p>
+<p>Layout: a drawing region above a control region, using the standard MicroSim layout. The drawing region holds a list of the rubric checks grouped under the seven group headings, each row showing its point value, and on the right a large score readout, a horizontal bar from 0 to 100 with tick marks at 50, 70 and 85, and a grade letter colored by band.</p>
+<p>Controls:</p>
+<ul>
+<li>One checkbox per rubric check (about 20), pre-grouped by heading. Ticking a check adds its points; the metadata group implements the 10, 5 or 0 rule with a dropdown "Core fields missing" (0-1, 2-3, 4-5).</li>
+<li>Dropdown "Load example" with three presets: "Bouncing Ball (score 82)", "A-star (score 74)" and "Blank folder".</li>
+<li>Button "Suggest cheapest fix", which highlights the unticked check with the most points and shows the score it would produce.</li>
+<li>Checkbox "Show gate line", which draws the 85 threshold and states whether the MicroSim would pass the carried-over gate on score alone.</li>
+</ul>
+<p>Interactions: hovering a row shows what the validator looks for (for example, "level 2 heading named Description, About, Overview, How to Use or Introduction"). Clicking the grade letter shows the band table and the audit's recommended action.</p>
+<p>Data: the rubric weights from the table above; the Bouncing Ball preset leaves the schema tag, educational section, description section and References section unticked; the A-star preset leaves unticked the schema tag, educational section, social images, YAML title and description and copy-paste iframe example, and sets core fields missing to 2-3.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; at widths under 500 pixels the rubric list wraps to one column and the score readout moves above it. Include a describe() call for accessibility.</p>
+<p>Implementation: p5.js with createCheckbox, createSelect and createButton controls positioned relative to the drawing height, and a CANVAS_HEIGHT comment for the height sync tool.</p>
+</details>
+<h3 id="quality-gate">Quality Gate</h3>
+<p>A <strong>quality gate</strong> is a pass-or-fail threshold that a MicroSim must clear before it enters the book. The word "gate" matters: unlike a report, a gate stops something. The MicroSims 2.0 plan sets two bars. A MicroSim carried over from version 1.0 must reach a score of 85, be width-responsive, and have a correct iframe height. A new or regenerated MicroSim must score at least 70, and every MicroSim must pass the iframe-height and control-visibility tests described later in this chapter. The plan adds a further check for MicroSims that emit xAPI statements, which later chapters take up.</p>
+<p>The standardization guide adds a courtesy that saves effort: if a MicroSim's header already records a <code>quality_score</code> of 85 or more, skip the rest of the standardization steps and spend the tokens on new work. A gate has this shape because no single tool sees everything. The score checks documents, the iframe test checks geometry, and the layout review checks appearance.</p>
+<p>A <strong>worked example</strong> applies the gate to Bouncing Ball. At 82 it fails the 85 bar for a carried-over MicroSim. Adding a description section lifts it to 87, which clears the score. That is not yet a pass: the gate also demands width responsiveness and a correct iframe height, so the MicroSim still has to run the height test. If it cannot be raised past the bar, the plan leaves it out of the book; it remains in git at the <code>v1.0</code> tag.</p>
+<h3 id="standards-hardening">Standards Hardening</h3>
+<p><strong>Standards hardening</strong> is this book's name for the work of raising an existing MicroSim to the project's standards, so that it can pass the gate. The standardization guide defines the workflow. Run the checklist, write the failures as a TODO list, ask the author to approve the changes, implement them, validate again, and report the score before and after.</p>
+<p>Three rules from the guide keep hardening safe. Never remove or overwrite an author's content without confirmation. Keep Dublin Core metadata out of the YAML header and inside <code>metadata.json</code>. Add a blank line before every list, because MkDocs will not render the list otherwise. The audit follows the same spirit at project level: it does not upgrade everything, only the MicroSims that a chapter actually adopts.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Score Before You Patch</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Read the <code>--verbose</code> issue list first and sort it by points, not by order. Fixing a 10-point item takes the same effort as a 3-point one, so start with the largest and re-run the same script after each edit.</p>
+</div>
+<h2 id="the-machinery-headless-browsers-and-playwright">The Machinery: Headless Browsers and Playwright</h2>
+<p>The score never opens the MicroSim. Everything else in this chapter does, and it does so through a program-controlled browser.</p>
+<h3 id="headless-browser">Headless Browser</h3>
+<p>A <strong>headless browser</strong> is a full web browser that runs without a visible window, controlled by a program rather than a person. It still loads the page, runs the JavaScript, lays out the elements and paints the pixels; it simply does not show them on a screen. Because it does all the real work, what it produces is what a learner's browser would produce, and a program can then take a picture of it or measure where each element landed.</p>
+<h3 id="playwright">Playwright</h3>
+<p><strong>Playwright</strong> is an automation library that drives a headless browser from code. In this toolkit it is used from Python and drives Chromium, the open-source engine behind Chrome, through Chromium's DevTools protocol. Two commands install it:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>playwright
+playwright<span class="w"> </span>install<span class="w"> </span>chromium
+</code></pre></div></td></tr></table></div>
+<p>Two utilities depend on Playwright: the screenshot script and the iframe height tester. The screenshot guide gives reasons for choosing it over launching Chrome directly. Playwright can set an exact viewport before the page loads, which matters because Chrome's own screenshot mode on macOS starts the page about 87 pixels shorter and resizes only at capture time, so layouts that use <code>100vh</code> or size themselves once in <code>setup()</code> came out wrong. It can also enable software WebGL so that 3D p5.js sketches render instead of showing blank rectangles, print uncaught JavaScript errors, and run without a display on a build server.</p>
+<h3 id="screenshot-capture">Screenshot Capture</h3>
+<p><strong>Screenshot capture</strong> is the step that renders a MicroSim in the headless browser and saves it as a PNG. Chapter 2 introduced that image as the preview and social card; here it becomes evidence for review. The command is <code>bk-capture-screenshot</code>, which takes the MicroSim folder, an optional delay in seconds and an optional height:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>~/.local/bin/bk-capture-screenshot<span class="w"> </span>docs/sims/org-chart<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">600</span>
+</code></pre></div></td></tr></table></div>
+<p>The delay gives the sketch time to draw; the default is 3 seconds, and complex visualizations need longer. The height should equal the iframe height declared in the MicroSim's <code>index.md</code>, so the picture shows exactly what readers see. The viewport is 800 pixels wide, close to the MkDocs Material content column. The script serves the folder from a temporary web server on <code>127.0.0.1</code> instead of opening it as a <code>file://</code> address, because headless Chromium blocks <code>fetch()</code> of local files and any MicroSim that loads a <code>data.json</code> would otherwise render empty. The image is saved as <code>{microsim-name}.png</code> in the folder. This example, with <code>org-chart</code> and 600 pixels, is the one the screenshot guide itself uses.</p>
+<p>A blank screenshot is a defect in the capture, not necessarily in the MicroSim. The layout guide's first suggestion is to raise the delay from 3 to 5 seconds; if the image is still blank, open the MicroSim in a real browser and read the console for a JavaScript error.</p>
+<h3 id="cross-browser-check">Cross-Browser Check</h3>
+<p>A <strong>cross-browser check</strong> loads the same MicroSim in more than one browser engine, for example Chromium, Firefox and WebKit, and compares the results. Both scripts in this toolkit launch Chromium only, so this chapter's checks tell you how the MicroSim behaves in Chromium and nothing more. The risk is real: Chapter 8 reported the generation guide's claim that Chrome and Firefox both silently fail to paint some vis-network instances when a page holds many iframes. We report that as the guide states it and have not reproduced it. Playwright can also drive Firefox and WebKit, so a cross-browser step could be added to the scripts, but that extension is a design idea and is not built.</p>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Screenshot capture</th>
+<th>Iframe height test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Script</td>
+<td><code>bk-capture-screenshot</code></td>
+<td><code>test-iframe-heights.py</code></td>
+</tr>
+<tr>
+<td>Viewport width</td>
+<td>800 pixels</td>
+<td>700 pixels</td>
+</tr>
+<tr>
+<td>Viewport height</td>
+<td>The height argument (default 600)</td>
+<td>The iframe height in <code>index.md</code>, or the <code>--height</code> value</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A PNG in the MicroSim folder</td>
+<td>PASS or FAIL per MicroSim, with a suggested height</td>
+</tr>
+<tr>
+<td>Engine</td>
+<td>Chromium</td>
+<td>Chromium</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the two widths differ. A MicroSim that fits at 700 pixels may still be judged from a screenshot at 800, and the difference explains why a responsive MicroSim can look right in one tool and be flagged by the other.</p>
+<h2 id="layout-defects">Layout Defects</h2>
+<h3 id="layout-defect">Layout Defect</h3>
+<p>A <strong>layout defect</strong> is a rendering fault in which the arrangement of visible elements makes content unreadable or unusable even though the code runs without error. The MicroSim is doing what its code says; what the code says is wrong for the space available. Layout defects are the failures a learner sees first and an error console never reports.</p>
+<p>The layout reviewer's checklist names defects in six families: text legibility, the control region, the drawing region, color and hierarchy, library-specific elements and sanity checks. Three defects deserve their own definitions because they account for most of the fixes in the toolkit.</p>
+<p><strong>Clipped content</strong> is text or a control that is partly cut off by the canvas edge, a panel border or the iframe boundary. The guide's example is a row label that reads <code>mpletion: true</code> because the leading letters fell outside the canvas. A <strong>hidden control</strong> is an interactive element that is not fully visible or reachable, such as a button below the bottom edge of an iframe whose scrolling is turned off. Clipped content is often merely ugly; a hidden control is worse, because the learner cannot operate the MicroSim at all.</p>
+<p><strong>Color contrast</strong> is the difference in brightness between text and the color behind it. The checklist asks that body text look at least 4.5 to 1, judged by eye, and Chapter 8 tied that figure to the WCAG AA standard. Examples of failure are light gray text on a white panel or pale yellow text on the <code>aliceblue</code> drawing area.</p>
+<p>Each defect family has a usual cause and a usual repair. The table below summarizes the common ones from the fixes catalog, using the checklist's item numbers.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Checklist item</th>
+<th>Likely cause</th>
+<th>Repair</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row label cut off at the left edge</td>
+<td>1.1, 3.5</td>
+<td>The reserved offset is smaller than the label width</td>
+<td>Raise the offset to at least <code>textWidth(longestLabel) + 8</code></td>
+</tr>
+<tr>
+<td>Black halo around every letter (p5.js)</td>
+<td>1.3</td>
+<td>A <code>stroke()</code> was still active when <code>text()</code> ran</td>
+<td>Call <code>noStroke()</code> just before <code>text()</code></td>
+</tr>
+<tr>
+<td>Slider runs past the right edge (p5.js)</td>
+<td>2.1</td>
+<td><code>size()</code> was set in <code>setup()</code> but not in <code>windowResized()</code></td>
+<td>Resize every slider on resize with the same formula</td>
+</tr>
+<tr>
+<td>Slider label overlaps the track</td>
+<td>2.2</td>
+<td><code>sliderLeftMargin</code> is smaller than the longest label</td>
+<td>Widen it to clear the longest label by 10 pixels</td>
+</tr>
+<tr>
+<td>Buttons overlap</td>
+<td>2.3</td>
+<td>Two buttons share an <code>x</code> position</td>
+<td>Compute each <code>x</code> from the running total of widths</td>
+</tr>
+<tr>
+<td>Title missing or a white sliver</td>
+<td>3.2</td>
+<td>A background rectangle was drawn after the title</td>
+<td>Draw the title after all background shapes</td>
+</tr>
+<tr>
+<td>Title collides with a right panel</td>
+<td>3.1</td>
+<td>The title is centered on the whole canvas</td>
+<td>Left-align it or center it over the left panel</td>
+</tr>
+<tr>
+<td>Drawing area is white, not <code>aliceblue</code></td>
+<td>4.1</td>
+<td>The <code>fill('aliceblue')</code> call was omitted</td>
+<td>Set fill and stroke before the drawing-area rectangle</td>
+</tr>
+</tbody>
+</table>
+<p>The guide gives a worked number for the first row: for 13-point text and a label such as <code>completion: false</code>, about 96 pixels wide, an offset of 110 is a safe value.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why the Halo Happens</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Notice that p5.js keeps its drawing state, including the stroke, until you change it, so one forgotten <code>noStroke()</code> affects every later <code>text()</code> call. Think of the stroke as a paint-brush that stays wet: check what you last did with it before you write.</p>
+</div>
+<h4 id="diagram-layout-defect-catalog-explorer">Diagram: Layout Defect Catalog Explorer</h4>
+<iframe src="../../sims/layout-defect-catalog-explorer/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/layout-defect-catalog-explorer/main.html">Run the Layout Defect Catalog Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Layout Defect Catalog Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> layout-defect-catalog-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish clipped content, hidden controls and low color contrast in a rendered MicroSim, and will match each defect to its checklist item and its usual repair.</p>
+<p>Layout: a drawing region showing a deliberately flawed mock MicroSim at the left two thirds (a 2 by 2 grid whose row labels are cut off, a title overlapping a side panel, black-haloed text, pale text on aliceblue, and a slider running past the right edge), with a checklist panel on the right listing the checklist families. A control region below holds the buttons.</p>
+<p>Controls:</p>
+<ul>
+<li>Click any suspicious region of the mock MicroSim to flag it. A correct flag draws a green outline and opens a card with the defect name, the checklist item number, the likely cause and the repair; a wrong flag draws a red outline with a hint.</li>
+<li>Buttons "Apply repair" (fixes the currently selected defect and redraws the mock without it) and "Reset".</li>
+<li>Dropdown "Defect family" that filters which defects are visible: All, Clipped content, Hidden control, Color contrast.</li>
+<li>A counter "Found n of 8" and a "Reveal" button that outlines everything not yet found.</li>
+</ul>
+<p>Data: eight defects taken from the table above (the eight symptoms), each with an item number, cause and repair text.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; the mock MicroSim is drawn proportionally and the checklist panel drops below it under 600 pixels wide. Include a describe() call.</p>
+<p>Implementation: p5.js drawing the mock with rectangles and text, hit-testing flagged regions by bounding box, with createButton and createSelect controls positioned relative to the drawing height.</p>
+</details>
+<h2 id="automated-geometry-height-and-visibility-tests">Automated Geometry: Height and Visibility Tests</h2>
+<p>Chapter 12 introduced the <code>CANVAS_HEIGHT</code> comment, the sync tool that copies <code>CANVAS_HEIGHT + 2</code> into every iframe, and the fact that the tester <code>test-iframe-heights.py</code> checks the result. This section opens that tester and separates the two questions it answers.</p>
+<h3 id="control-visibility-test">Control Visibility Test</h3>
+<p>A <strong>control visibility test</strong> asks, for each interactive element in a MicroSim, whether the whole element lies inside the visible frame. The unit of measurement is the element's <em>bounding box</em>, the smallest rectangle that contains it, which the browser reports as a <code>top</code> and a <code>bottom</code> in pixels. The test loads <code>main.html</code> in a viewport whose height equals the declared iframe height, waits for the page to settle, and compares each bounding box to that height.</p>
+<p>The script looks for buttons, range sliders, checkboxes, text and number inputs, select menus and textareas, and it also measures canvases. It skips elements with zero height. A control is <em>visible</em> when its bottom edge is no lower than the iframe height plus a tolerance of 5 pixels. Canvases are measured but never reported as failures, because a canvas is the drawing surface rather than a control. The test therefore catches any <strong>hidden control</strong> whose bottom edge falls below the frame.</p>
+<h3 id="iframe-height-test">Iframe Height Test</h3>
+<p>An <strong>iframe height test</strong> asks the same question of the whole MicroSim rather than of one control: is the declared iframe height enough? It compares the height written in the MicroSim's <code>index.md</code> with the height the content needs, and when a control fails it proposes a better number. Both tests are one run of one script, and the difference is the level of the answer. Visibility is a verdict per element; height is a verdict per MicroSim, plus a recommendation.</p>
+<p>Before the commands, the options: <code>--sims-dir</code> names the folder holding the MicroSim folders, <code>--sim</code> tests one MicroSim, <code>--height</code> overrides the height in every <code>index.md</code> (useful for asking "would 530 work?"), and <code>--report</code> writes a Markdown table to a file. Playwright is required, as installed above.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Test every MicroSim at its declared iframe height</span>
+python3<span class="w"> </span>test-iframe-heights.py<span class="w"> </span>--sims-dir<span class="w"> </span>docs/sims
+
+<span class="c1"># Test one MicroSim</span>
+python3<span class="w"> </span>test-iframe-heights.py<span class="w"> </span>--sims-dir<span class="w"> </span>docs/sims<span class="w"> </span>--sim<span class="w"> </span>energy-pyramid
+
+<span class="c1"># Ask what happens at a different height, and save a report</span>
+python3<span class="w"> </span>test-iframe-heights.py<span class="w"> </span>--sims-dir<span class="w"> </span>docs/sims<span class="w"> </span>--height<span class="w"> </span><span class="m">530</span><span class="w"> </span>--report<span class="w"> </span>report.md
+</code></pre></div></td></tr></table></div>
+<p>The script prints one line per MicroSim. This sample output comes from the skill's own guide, and shows the columns you will read:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>MicroSim                    | Iframe Height | Content Height | Status | Suggested Height
+----------------------------|---------------|----------------|--------|------------------
+energy-pyramid              |           532 |            528 | PASS   |              532
+predator-prey               |           697 |            720 | FAIL   |              730
+</code></pre></div></td></tr></table></div>
+<p>Here is how those numbers are made. The script measures the <em>content height</em> as the lowest bottom edge of any element inside the <code>main</code> element (or the page body). If the MicroSim's JavaScript file declares <code>// CANVAS_HEIGHT = N</code>, that declared value replaces the measurement, because responsive MicroSims can measure taller at the test width than they render in the book. On a failure the suggested height is the content height plus a 10-pixel safety margin, rounded up to the next multiple of 10. On a pass, it simply repeats the current height. The script exits with status 1 if any MicroSim fails or cannot load, so, unlike the validation script, it can stop a build.</p>
+<p>A <strong>worked example</strong> follows the predator-prey row. The iframe is 697 pixels tall, and the content measures 720. Some control's bottom edge is beyond 697 + 5 = 702, so the status is FAIL. The suggestion is 720 + 10 = 730, already a multiple of 10. The repair is to set 730 in the MicroSim's <code>index.md</code> and in every chapter that embeds it, update the <code>CANVAS_HEIGHT</code> comment, and run the sync tool so that all embeds agree.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Comment Format Trap</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The sync tool accepts <code>// CANVAS_HEIGHT: 402</code> or <code>// CANVAS_HEIGHT = 402</code>, but the tester reads only the equals form and otherwise falls back to measuring the page. Write the equals form, which both tools understand, and the two will never disagree about the declared height.</p>
+</div>
+<p>The tests have limits worth knowing. They check only the bottom edge, so a control pushed past the right edge is not detected. They measure boxes, not appearance, so overlapping buttons or unreadable text pass without comment. They run in Chromium at 700 pixels wide. And they are only as good as the wait: the script loads the page until the network is idle and then waits 2 more seconds, so a MicroSim that builds its controls later than that can pass wrongly. Those gaps are why a second, visual check follows.</p>
+<h4 id="diagram-iframe-height-test-simulator">Diagram: Iframe Height Test Simulator</h4>
+<iframe src="../../sims/iframe-height-test-simulator/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/iframe-height-test-simulator/main.html">Run the Iframe Height Test Simulator MicroSim Fullscreen</a></p>
+<details>
+<summary>Iframe Height Test Simulator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> iframe-height-test-simulator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: calculate): The learner will apply the control visibility and iframe height tests to a mock MicroSim by choosing an iframe height, and will calculate the suggested height from the content height.</p>
+<p>Layout: a drawing region showing a mock MicroSim inside a bordered iframe frame whose bottom edge moves with the height slider. Inside are a canvas, three sliders and two buttons at fixed positions, each with a small label showing its bottom edge in pixels. A results panel on the right lists PASS or FAIL for each control, the status of the whole MicroSim, the content height, and the suggested height.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Iframe height" from 300 to 800 pixels in steps of 1, default 500.</li>
+<li>Slider "Content height" from 400 to 800 pixels, default 528, which moves the lowest control.</li>
+<li>Slider "Tolerance" from 0 to 20 pixels, default 5.</li>
+<li>Checkbox "Declared CANVAS_HEIGHT" with a numeric field; when on, the suggestion uses the declared value instead of the measured content height.</li>
+<li>Button "Run test", which animates a scan line from top to bottom and marks each control PASS or FAIL.</li>
+</ul>
+<p>Behavior: a control passes when its bottom is at most the iframe height plus the tolerance. The suggested height is the content height (or declared value) plus 10, rounded up to the next multiple of 10, shown only on FAIL. Clicking any control shows its bounding box and the inequality that decided its status.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; the results panel drops below the frame under 600 pixels wide. Include a describe() call.</p>
+<p>Implementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to the drawing height, and a CANVAS_HEIGHT comment for the height sync tool.</p>
+</details>
+<h2 id="layout-review">Layout Review</h2>
+<h3 id="layout-review_1">Layout Review</h3>
+<p>A <strong>layout review</strong> is the visual counterpart to the geometric tests: someone looks at the rendered MicroSim, judges whether the layout is right, and fixes what is wrong. The layout reviewer guide gives the reason: a geometric check catches "the slider got cut off at the bottom" but not "the row label says <code>mpletion: false</code>", nor a title that overlaps a JSON panel, nor an ugly outline on every letter. Those defects are obvious to a person, and to a vision model, looking at a picture.</p>
+<p>The guide's workflow has ten steps, which fall into four movements. First it resolves the target MicroSim and the source file it will patch. Second, it reads the iframe height from <code>index.md</code> and captures a screenshot at exactly that height. Third it reads the image and walks the checklist item by item, diagnoses each failure and patches the source. Finally it re-captures and re-checks, stops after three cycles, and reports. The report names the library and files touched, each defect with quoted evidence, each edit, the final state (clean, partial or unfixed) and the model version that did the looking.</p>
+<h3 id="visual-checklist">Visual Checklist</h3>
+<p>A <strong>visual checklist</strong> is a written list of the known ways a layout can be wrong, which the reviewer must answer one by one. The guide's checklist has 29 items in six sections, and each item gets one of three answers: PASS, FAIL or N/A (not applicable, such as a grid item for a MicroSim with no grid). For every FAIL the reviewer writes what the defect is, where it sits, and the evidence, meaning what is actually visible.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Focus</th>
+<th>Items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Text legibility</td>
+<td>Clipped text, residual strokes, low contrast, text too small</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2. Control region</td>
+<td>Sliders and buttons past the edge, overlaps, alignment, boundaries</td>
+<td>7</td>
+</tr>
+<tr>
+<td>3. Drawing region</td>
+<td>Title position, draw order, panel overflow, axes, highlights</td>
+<td>6</td>
+</tr>
+<tr>
+<td>4. Color and hierarchy</td>
+<td>Background fills, readable color coding, one dominant color</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5. Library-specific</td>
+<td>Mermaid titles, vis-network edge labels, chart legends, map attribution</td>
+<td>4</td>
+</tr>
+<tr>
+<td>6. Sanity checks</td>
+<td>It renders, no error banner, height matches the iframe</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Two entries reach beyond appearance. Item 5.4 says a Leaflet map without its OpenStreetMap attribution is a license violation and not merely a layout defect, so a checklist can protect a MicroSim's legal standing as well as its looks. And item 6.1 exists because a blank image usually means a capture problem, not a broken MicroSim.</p>
+<h3 id="vision-based-review">Vision-Based Review</h3>
+<p>A <strong>vision-based review</strong> is a layout review performed by a multimodal AI model that reads the screenshot directly as an image. In the toolkit the model opens the PNG file and sees pixels much as a person would, judging legibility, contrast, alignment, overlap and clipping, with no text extraction or image-processing library in between. The guide notes that the result depends on the model in use, so it asks the reviewer to record the model version in the report.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why a Checklist Beats a Glance</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+The guide is candid that a vision model is not deterministic: what it flags depends on what it is looking for. Ask "does this look right?" and it may miss a clipped label; ask "is the left edge clipped?" and it reliably finds one. The checklist turns one vague question into 29 pointed ones.</p>
+</div>
+<p>Honesty requires a caveat. The guide describes the review but reports no measured detection rate, so we do not know how many real defects a vision review misses or how often it invents one. Treat its verdict as that of a careful reviewer who can be wrong. That is another reason to keep the geometric tests, which give the same answer every time.</p>
+<h3 id="smallest-patch-rule">Smallest Patch Rule</h3>
+<p>The <strong>smallest patch rule</strong> says to make the smallest change that resolves the defect. The reviewer looks up each failure in the fixes catalog, edits only the source file identified at the start (usually the <code>.js</code> file, but <code>main.html</code> for Mermaid and inline-configured MicroSims, or a data file for data defects) and does not redesign anything. The rule exists because a broad edit can fix one defect and create three. It also draws two boundaries: a defect that comes from iframe height is handed to the tester and the sync tool, and a MicroSim whose <code>index.md</code> says <code>status: approved</code> is skipped, because approved MicroSims are locked against incidental edits.</p>
+<h3 id="fix-cycle-limit">Fix Cycle Limit</h3>
+<p>The <strong>fix cycle limit</strong> is the rule that a review stops after three review-and-patch cycles. One cycle is: capture, walk the checklist, patch, re-capture. If the third re-capture still shows failures, the reviewer stops and reports what remains. The guide's reasoning is that repeated tweaking usually means the design has a deeper problem that needs human judgment, and that surfacing this is better than quietly producing something subtly worse.</p>
+<p>A <strong>worked example</strong> contrasts two ways of spending the cycles on the guide's sample defect, row labels that read <code>mpletion: true</code> because the reserved offset is too small. In the disciplined path, cycle 1 diagnoses the offset, raises it to the fixes catalog's suggested 110 for a label about 96 pixels wide, re-captures, and finds the labels whole, so one cycle is enough. In the ratcheting path, the reviewer nudges the offset 60, 110, 160, 200 without asking why the picture is not changing. The guide names exactly that sequence as the thing to avoid: the lever may be the wrong one, so re-read the source around the suspect area for an unrelated cause.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Ratchet a Number</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+If a fix does not work, resist widening the same value again. A parameter that keeps growing without changing the picture is pointing at a different cause, such as a <code>stroke()</code> still active or a rectangle drawn in the wrong order. Stop, reread the surrounding code, and count the cycle you just used.</p>
+</div>
+<h4 id="diagram-review-and-fix-cycle-simulator">Diagram: Review and Fix Cycle Simulator</h4>
+<iframe src="../../sims/review-fix-cycle-simulator/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/review-fix-cycle-simulator/main.html">Run the Review and Fix Cycle Simulator MicroSim Fullscreen</a></p>
+<details>
+<summary>Review and Fix Cycle Simulator</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> review-fix-cycle-simulator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: judge): The learner will judge whether each proposed patch follows the smallest patch rule and decide when the fix cycle limit requires stopping and reporting.</p>
+<p>Layout: a drawing region split in two. The left half shows a mock screenshot of a MicroSim with up to three seeded defects (a clipped row label, a residual text stroke and a title overlapping a panel). The right half shows a cycle tracker with three numbered boxes, a checklist strip with items PASS, FAIL or unchecked, and a log of edits. A control region sits below.</p>
+<p>Controls:</p>
+<ul>
+<li>Dropdown "Choose a patch" listing three candidate patches for the selected defect: the smallest correct patch, an over-broad patch that also changes an unrelated value, and a patch aimed at the wrong cause.</li>
+<li>Button "Apply patch and re-capture", which redraws the mock screenshot with the effect of the chosen patch and consumes one cycle.</li>
+<li>Button "Stop and report", and a "Reset".</li>
+<li>Checkbox "Show hint from the fixes catalog".</li>
+</ul>
+<p>Behavior: the smallest correct patch clears its defect and introduces nothing; the over-broad patch clears the defect and creates a new one; the wrong-cause patch changes nothing visible. After three cycles the simulator locks and requires "Stop and report". The final panel scores the run on defects fixed, new defects introduced and cycles used, and explains each choice.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; the two halves stack vertically under 600 pixels wide. Include a describe() call.</p>
+<p>Implementation: p5.js with createSelect, createButton and createCheckbox controls positioned relative to the drawing height, and a CANVAS_HEIGHT comment for the height sync tool.</p>
+</details>
+<h2 id="running-the-whole-chain">Running the Whole Chain</h2>
+<p>The toolkit's guides list two orders for the checks. The routing summary for a new MicroSim runs the score first, then the screenshot, the layout review, the height test and the index page. Yet the layout reviewer advises running the height test first when the only problem is clipped controls, because the tester gives a precise suggested height where a review gives only an impression. This book's recommendation, which the skill does not itself state, is to follow the first order and then repeat the height test as the last step, since a layout patch can move a control.</p>
+<p>The chain, with the commands from this chapter, is as follows:</p>
+<ol>
+<li>Score the MicroSim with the validation script and fix the largest missing items.</li>
+<li>Capture a screenshot at the iframe height.</li>
+<li>Walk the visual checklist against the image and apply smallest patches, up to three cycles.</li>
+<li>Run the iframe height test, including the control visibility check, and correct the height.</li>
+<li>Apply the quality gate: score, responsiveness, height and visibility must all pass.</li>
+</ol>
+<p>The chain becomes economical when you connect it to the plan. The 2026-09-30 audit found 18 MicroSims already at grade A, and the plan does not upgrade the other 98 in bulk. When a chapter adopts a MicroSim, that MicroSim goes through the chain and its entry in <code>TODO.md</code> is ticked off. The diagram below shows the decision points, including where a failure sends the MicroSim back and where the cycle limit hands it to a person.</p>
+<h4 id="diagram-quality-chain-workflow">Diagram: Quality Chain Workflow</h4>
+<iframe src="../../sims/quality-chain-workflow/main.html" width="100%" height="562px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/quality-chain-workflow/main.html">Run the Quality Chain Workflow MicroSim Fullscreen</a></p>
+<details>
+<summary>Quality Chain Workflow</summary>
+<p>Type: workflow
+<strong>sim-id:</strong> quality-chain-workflow<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain the order of the quality chain, what each step checks, and what happens after a failure.</p>
+<p>Diagram: a top-to-bottom Mermaid flowchart with these nodes: "Validate score", "Capture screenshot", "Layout review", "Iframe height test", "Quality gate", "Patch source", "Stop and escalate to a person", and "Carry into the book". Edges run in the order above; "Quality gate" branches to "Carry into the book" on pass and to "Patch source" on fail; "Patch source" returns to "Capture screenshot"; "Layout review" branches to "Stop and escalate to a person" after the third cycle.</p>
+<p>Interactions: every node and every edge has a click directive that opens an infobox beside the diagram. Node infoboxes give the definition, the tool and command, and the chapter section; edge infoboxes explain the condition (for example, "score below 85" or "third cycle reached"). Hovering a node shows a one-line tooltip. A "Trace a failure" button highlights the path taken by a MicroSim that fails the height test.</p>
+<p>Responsive design: the diagram scales to the container width on every window resize and the infobox moves below the diagram under 600 pixels wide.</p>
+<p>Implementation: Mermaid flowchart with click callbacks bound to a small JavaScript infobox, following the standard MicroSim layout.</p>
+</details>
+<p>Finally, separate what is measured, built and only hoped for. <strong>Measured:</strong> the audit's 116 scores, their mean of 60.6 and the grade counts, reproduced by re-running the validator. <strong>Built and working:</strong> the validation script, the screenshot script, the height tester, the sync tool and the layout reviewer's checklist and fixes catalog. <strong>Designed but not built:</strong> cross-browser runs, a gate that fails a build on score, and closed-loop generation in which the quality chain runs inside the generator (a direction Chapter 26 discusses). <strong>Hoped for:</strong> that fewer layout defects will mean cleaner evidence in the xAPI stream. No test in this chapter can show that, because that stream has not yet been collected.</p>
+<h4 id="diagram-audit-baseline-explorer">Diagram: Audit Baseline Explorer</h4>
+<iframe src="../../sims/audit-baseline-explorer/main.html" width="100%" height="572px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/audit-baseline-explorer/main.html">Run the Audit Baseline Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Audit Baseline Explorer</summary>
+<p>Type: chart
+<strong>sim-id:</strong> audit-baseline-explorer<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: examine): The learner will examine the 2026-09-30 audit of 116 MicroSims and identify which rubric issues most often hold MicroSims below the grade A bar.</p>
+<p>Layout: a bar chart of MicroSims per grade (A 18, B 27, C 30, D 41) above a second horizontal bar chart of issue frequency, using the standard region layout with a control region below.</p>
+<p>Data: grade counts as above; issue counts across the audit are missing educational section 110, missing Lesson Plan section 76, missing References section 74, missing schema meta tag 73, missing copy-paste iframe example 68, missing description or about section 60, missing screenshot 54 and no main.html 43.</p>
+<p>Interactions: clicking a grade bar filters the issue chart to that grade and shows the recommended action from the audit; hovering an issue bar shows its rubric points and the score gained by fixing it. A dropdown switches the issue chart between counts and total points lost, computed as count times the rubric points for that check.</p>
+<p>Responsive design: both charts follow the container width on every window resize, and the two charts stack under 600 pixels wide. Include accessible text alternatives for each chart.</p>
+<p>Implementation: Chart.js bar charts with click and hover handlers, loading the counts from an inline JSON object that cites the audit date.</p>
+</details>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Run the Cheap Checks First</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+The score takes seconds and needs no browser, so run it first and across everything. Save the slower browser steps for MicroSims that already clear it, so you are not screenshotting a folder with no <code>main.html</code>.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>The <strong>quality score</strong> is a 0 to 100 count of files, metadata and documentation; the <strong>100-point rubric</strong> puts 65 points on <code>metadata.json</code> and <code>index.md</code>, and the score measures presence, not learning value.</li>
+<li><code>validate-sims.py</code> is the <strong>validation script</strong>; it always exits normally, so a hard threshold needs your own check of its JSON output.</li>
+<li><strong>Quality grades</strong> A to D mean 85 and above, 70 to 84, 50 to 69 and below 50; the audit of 116 MicroSims found a mean of 60.6 and 18, 27, 30 and 41 in grades A to D.</li>
+<li>The <strong>quality gate</strong> combines score, width responsiveness, iframe height and control visibility; <strong>standards hardening</strong> is the work of raising a MicroSim to pass it.</li>
+<li>A <strong>headless browser</strong> driven by <strong>Playwright</strong> supports <strong>screenshot capture</strong> and the height tests, though only in Chromium, so a <strong>cross-browser check</strong> is not yet built.</li>
+<li><strong>Layout defects</strong> include <strong>clipped content</strong>, <strong>hidden controls</strong> and poor <strong>color contrast</strong>; the fixes catalog maps each symptom to a repair.</li>
+<li>The <strong>control visibility test</strong> and <strong>iframe height test</strong> are geometric checks in one script that suggests a height and can fail a build; they see only the bottom edge.</li>
+<li>A <strong>layout review</strong> walks a 29-item <strong>visual checklist</strong> with a <strong>vision-based review</strong>, applying the <strong>smallest patch rule</strong> within a <strong>fix cycle limit</strong> of three.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Quality Chain Complete</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now score a MicroSim against the 100-point rubric, capture it in a headless browser, find clipped and hidden controls with the height test, and review a layout with the checklist inside the three-cycle limit. That is the full quality chain, and it is one of the harder skills in the book.</p>
+</div>
+<p>Chapter 14 takes these checks to scale, where a batch of MicroSims generated from specifications must pass the same chain without a person opening each one.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../12-width-responsive-design-and-iframe-heights/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12. Width-Responsive Design and Iframe Heights">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                12. Width-Responsive Design and Iframe Heights
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../14-batch-generation-from-specifications/" class="md-footer__link md-footer__link--next" aria-label="Next: 14. Batch Generation from Specifications">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                14. Batch Generation from Specifications
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

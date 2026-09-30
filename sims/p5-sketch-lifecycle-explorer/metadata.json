@@ -1,0 +1,74 @@
+{
+  "title": "Sketch Lifecycle Explorer",
+  "description": "A slowed, steppable model of the p5.js sketch lifecycle: a falling-ball sketch is drawn one draw() statement at a time while counters show setup() calls, draw() calls and frameCount, and checkboxes that skip background() or move the ball before it show why statement order inside draw() changes the canvas.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["p5.js", "Sketch Lifecycle", "setup() and draw()", "Animation Loop"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/p5-sketch-lifecycle-explorer/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "p5.js",
+  "canvasHeight": 555,
+  "chapter": "06-p5js-microsims",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Computer Science",
+    "topic": "The p5.js setup() and draw() lifecycle and drawing order",
+    "learningObjectives": [
+      "The learner will explain when setup() and draw() run and why the order of statements inside draw() changes what appears on the canvas."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "The p5.js Sketch, setup() Function and draw() Function sections (Chapter 6)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {"width": "responsive", "height": 555},
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 from the jsDelivr CDN"],
+    "accessibility": {"hasAltText": true, "describeCall": true, "keyboardNavigable": true}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "button", "label": "Start / Pause", "default": "paused", "action": "Call draw() repeatedly at the chosen frame rate"},
+      {"type": "button", "label": "Step one frame", "action": "Run exactly one draw() call, highlighting each statement as it runs"},
+      {"type": "slider", "label": "Frame rate", "min": 1, "max": 60, "default": 5, "step": 1, "units": "frames per second"},
+      {"type": "checkbox", "label": "Clear background each frame", "default": true},
+      {"type": "checkbox", "label": "Draw ball before background", "default": false}
+    ]
+  },
+  "simulation": {
+    "modelType": "Step-through execution model",
+    "variables": ["ballY", "draw() calls", "frameCount", "statement order"],
+    "equations": ["ballY = ballY + 8 each draw() call"],
+    "assumptions": ["The sketch's canvas is an offscreen buffer that persists between simulated frames, like a real p5.js canvas", "frameCount equals the number of draw() calls"],
+    "limitations": ["The draw loop is simulated and slowed; real p5.js aims for about 60 frames per second"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-observe-explain with a slowed, steppable loop",
+    "keyQuestions": [
+      "How many times does setup() run? And draw()?",
+      "What would happen if background() were never called?",
+      "Why does the ball vanish when it is drawn before the background?"
+    ],
+    "commonMisconceptions": [
+      "setup() runs again every frame",
+      "Shapes drawn in an earlier frame are removed automatically",
+      "The order of statements inside draw() does not matter"
+    ],
+    "assessmentOpportunities": [
+      "Predict the canvas for a draw() with reordered statements",
+      "Explain a streak or a vanished shape from the statement order"
+    ]
+  }
+}

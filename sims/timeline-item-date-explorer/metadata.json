@@ -1,0 +1,132 @@
+{
+  "title": "Timeline Item and Date Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "Timelines",
+    "vis-timeline",
+    "JSON",
+    "Date Handling"
+  ],
+  "description": "A vis-timeline MicroSim that places eight fictional course-schedule events from the template's JSON event format, shows each event's JSON beside its rendered item, and lets learners toggle the month off-by-one bug, filter by group, and edit an event's month to watch it move.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/timeline-item-date-explorer/",
+  "canvasHeight": 650,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Timeline event items, JSON dates and grouping",
+    "learningObjectives": [
+      "The learner will use the JSON event format to place events on a timeline and will identify how month numbering and group values change what is displayed."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "use",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "JSON objects and values",
+      "The timeline template's event format (Chapter 9)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-timeline",
+    "version": "7.7.3",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 650
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-timeline 7.7.3 standalone UMD and CSS (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": false,
+      "keyboardNavigable": true,
+      "notes": "All controls are native buttons, a checkbox and a text field (Enter submits); the detail panel and caption are aria-live regions; navigation buttons have aria-labels"
+    },
+    "dataFiles": [
+      "data.json (eight fictional course-schedule events in the timeline template format)",
+      "style.css"
+    ]
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "filterButtons",
+        "type": "button",
+        "label": "All / Planning / Teaching / Assessment",
+        "purpose": "Clear the dataset and re-add only events whose group matches"
+      },
+      {
+        "id": "navButtons",
+        "type": "button",
+        "label": "Pan left, Pan right, Zoom in, Zoom out, Fit All",
+        "purpose": "Navigate the timeline (wheel zoom and drag are disabled in the embed)"
+      },
+      {
+        "id": "bugToggle",
+        "type": "checkbox",
+        "label": "Show month numbering bug",
+        "default": false,
+        "purpose": "Rebuild dates without subtracting 1 from the month"
+      },
+      {
+        "id": "monthInput",
+        "type": "input",
+        "label": "Event month (1-12)",
+        "purpose": "New month value for the selected event"
+      },
+      {
+        "id": "updateBtn",
+        "type": "button",
+        "label": "Update",
+        "purpose": "Write the month into the event's JSON and redraw the item"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked examples with a deliberate bug to diagnose",
+    "interactionPattern": "Data-to-display explorer (JSON beside rendered item) with an edit field",
+    "keyQuestions": [
+      "Why does the script subtract 1 from the month?",
+      "Which events move when the subtraction is removed, and why do year-only events stay?",
+      "How does the group value change the color and the filter result?"
+    ],
+    "commonMisconceptions": [
+      "JavaScript Date months run 1-12 like calendar months (they run 0-11)",
+      "A filter button matches group names loosely (it compares exactly)"
+    ],
+    "assessmentOpportunities": [
+      "Moving an event to a named target month with the edit field",
+      "Writing the JSON and the new Date() call for a new event"
+    ]
+  },
+  "search": {
+    "tags": [
+      "timeline",
+      "vis-timeline",
+      "JSON",
+      "date",
+      "off-by-one",
+      "month index",
+      "grouping",
+      "filter"
+    ],
+    "visualizationType": [
+      "timeline"
+    ]
+  },
+  "chapter": "09-timelines-and-maps"
+}

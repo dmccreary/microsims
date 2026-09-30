@@ -1,0 +1,124 @@
+{
+  "title": "xAPI Statement Field Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Learning Analytics",
+    "Learning Record Store",
+    "JSON",
+    "Instrumented MicroSims"
+  ],
+  "description": "A p5.js explorer of three xAPI 1.0.3 statements from Chapter 16 (answered, interacted, experienced), shown one JSON line per row. Clicking a line highlights its part (actor, verb, object, result, context or housekeeping) and names the question the part answers; a quiz asks learners to click the line that carries a named property.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/xapi-statement-field-explorer/",
+  "canvasHeight": 670,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The parts of an xAPI statement",
+    "learningObjectives": [
+      "The learner will differentiate the five parts of an xAPI statement by selecting a line of a real statement and stating which part it belongs to and what question it answers."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "JSON objects and keys",
+      "The five parts of a statement (Chapter 16)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "1.0.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 670
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "notes": "Parts are named in words in the panel as well as by color; colors use the Okabe-Ito palette; line selection is by mouse or touch"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "statementLines",
+        "type": "clickable canvas rows",
+        "label": "Statement lines",
+        "purpose": "Click to highlight the part; hover for the line's meaning"
+      },
+      {
+        "id": "statementSelect",
+        "type": "select",
+        "label": "Statement",
+        "purpose": "Switch between the answered, interacted and experienced statements"
+      },
+      {
+        "id": "quizCheckbox",
+        "type": "checkbox",
+        "label": "Quiz me",
+        "purpose": "Hide colors and ask for the line that carries a named property"
+      },
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next",
+        "purpose": "Ask the next quiz question"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Structured decomposition of authentic examples followed by retrieval practice",
+    "interactionPattern": "Clickable annotated code with part highlighting and quiz",
+    "keyQuestions": [
+      "Which part answers 'how did it go'?",
+      "Why does an interacted statement carry no success?",
+      "Which of the lines containing id is the activity identifier?"
+    ],
+    "commonMisconceptions": [
+      "The statement id identifies the activity",
+      "The verb label is what stores match on",
+      "Every statement needs a result with success"
+    ],
+    "assessmentOpportunities": [
+      "Assigning lines to parts",
+      "Quiz score",
+      "Explaining which result field each verb requires"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "statement",
+      "actor",
+      "verb",
+      "object",
+      "result",
+      "context",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "diagram",
+      "interactive-demo"
+    ]
+  },
+  "chapter": "16-xapi-statements-and-evidence"
+}

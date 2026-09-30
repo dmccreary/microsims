@@ -1,0 +1,134 @@
+{
+  "title": "Guarded Call Runtime Toggle",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Instrumentation",
+    "JavaScript",
+    "p5.js",
+    "Defensive Programming"
+  ],
+  "description": "A p5.js demonstration in which learners toggle the xAPI runtime on and off and switch between guarded and unguarded instrumentation calls, observing the highlighted line, the status (Runs or ReferenceError: LRSSim is not defined) and whether a statement is recorded.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/guarded-call-runtime-toggle/",
+  "canvasHeight": 720,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The guarded call pattern for instrumented p5.js MicroSims",
+    "learningObjectives": [
+      "The learner will distinguish a guarded from an unguarded instrumentation call by observing what each does when the runtime is present and when it is absent."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "The LRS runtime script and handles (Chapter 17)",
+      "Basic p5.js structure: setup(), draw() and control callbacks"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 720
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Native checkbox, radio buttons and button; status is given in words (Runs, error text) as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "runtimeBox",
+        "type": "checkbox",
+        "label": "Runtime loaded (off = the p5.js editor)",
+        "default": true,
+        "purpose": "Simulate the runtime files being present or absent"
+      },
+      {
+        "id": "styleRadio",
+        "type": "radio",
+        "label": "Call style",
+        "options": [
+          "Unguarded lrs.slider(...)",
+          "Guarded if (lrs) ..."
+        ],
+        "default": "Guarded",
+        "purpose": "Choose the instrumentation style"
+      },
+      {
+        "id": "moveButton",
+        "type": "button",
+        "label": "Move slider",
+        "purpose": "Fire one simulated slider input"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Contrasting cases with an observation grid",
+    "interactionPattern": "Toggle two factors, trigger an event, compare highlighted code and outcomes",
+    "keyQuestions": [
+      "Which line throws when the runtime is absent, and why does draw() never start?",
+      "Why does the guarded sketch record nothing without the runtime?",
+      "Do the two styles differ when the runtime is present?"
+    ],
+    "commonMisconceptions": [
+      "A missing runtime only disables recording, whatever the code",
+      "Guarding the creation line is enough; later uses need no guard",
+      "The p5.js editor loads the book's runtime files"
+    ],
+    "assessmentOpportunities": [
+      "Predicting all four runtime-by-style outcomes",
+      "Rewriting an unguarded call as a guarded one"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "guarded call",
+      "ReferenceError",
+      "LRSSim",
+      "p5.js editor",
+      "instrumentation"
+    ],
+    "visualizationType": [
+      "simulation",
+      "code"
+    ]
+  },
+  "chapter": "17-instrumenting-microsims-with-the-xapi-runtime",
+  "simulation": {
+    "model": "State machine simulating setup() and the slider handler with and without window.LRSSim",
+    "variables": [
+      "runtime loaded",
+      "call style",
+      "speed",
+      "statements recorded"
+    ],
+    "assumptions": [
+      "The runtime is simulated in the sketch; nothing is sent",
+      "Full mode is assumed when a statement is recorded"
+    ]
+  }
+}

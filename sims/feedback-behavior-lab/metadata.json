@@ -1,0 +1,176 @@
+{
+  "title": "Reinforcing and Balancing Behavior Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "System Dynamics",
+    "Feedback Loops",
+    "Reinforcing Loop",
+    "Balancing Loop",
+    "Predict-Observe-Explain"
+  ],
+  "description": "A p5.js MicroSim that plots a reinforcing loop (x = x + rate*x) and a balancing loop (x = x + rate*(goal - x)) side by side so learners can compare exponential growth with goal-seeking behavior, with an optional prediction step after each slider change.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/feedback-behavior-lab/",
+  "canvasHeight": 650,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Time behavior of reinforcing and balancing feedback loops",
+    "learningObjectives": [
+      "The learner will compare the time behavior of a reinforcing loop and a balancing loop by changing the loop rate and the goal and observing the resulting curves."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "compare",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "Feedback loop, polarity link, reinforcing loop and balancing loop (Chapter 8)",
+      "Reading a line graph over time"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 650
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "describe() summary for screen readers; curves use shape (circles vs squares) and letters (R, B) as well as color; all controls are native HTML buttons, sliders and a checkbox"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "startButton",
+        "type": "button",
+        "label": "Start / Pause",
+        "purpose": "Run or pause the 50-step simulation (starts paused)"
+      },
+      {
+        "id": "resetButton",
+        "type": "button",
+        "label": "Reset",
+        "purpose": "Return both curves to the start value and clear the prediction state"
+      },
+      {
+        "id": "predictCheckbox",
+        "type": "checkbox",
+        "label": "Predict first",
+        "default": true,
+        "purpose": "Pause after each slider change and ask whether each curve will rise faster, slower or the same"
+      },
+      {
+        "id": "rateSlider",
+        "type": "slider",
+        "label": "Rate",
+        "min": 0.01,
+        "max": 0.3,
+        "step": 0.01,
+        "default": 0.1,
+        "units": "fraction per time step"
+      },
+      {
+        "id": "goalSlider",
+        "type": "slider",
+        "label": "Goal",
+        "min": 50,
+        "max": 200,
+        "step": 1,
+        "default": 100,
+        "units": "stock units"
+      },
+      {
+        "id": "startSlider",
+        "type": "slider",
+        "label": "Start value",
+        "min": 1,
+        "max": 50,
+        "step": 1,
+        "default": 10,
+        "units": "stock units"
+      },
+      {
+        "id": "predictionButtons",
+        "type": "button",
+        "label": "Faster / Slower / Same (R and B)",
+        "purpose": "Record a prediction for each curve (shown only while a prediction is pending)"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-observe-explain with side-by-side comparison",
+    "interactionPattern": "Parameter sliders with a prediction gate and a ghost of the previous run",
+    "keyQuestions": [
+      "Why does the reinforcing curve bend upward while the balancing curve bends toward the goal?",
+      "Why does raising the goal change only the balancing curve?",
+      "Why does a higher start value speed up R but slow down B?"
+    ],
+    "commonMisconceptions": [
+      "A balancing loop always keeps a value low (it moves the value toward a goal, which can mean rising)",
+      "Both loops respond the same way to a higher start value (R responds to the value, B to the gap)"
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy of the R and B predictions",
+      "Written comparison of the two update rules"
+    ]
+  },
+  "search": {
+    "tags": [
+      "system dynamics",
+      "reinforcing loop",
+      "balancing loop",
+      "exponential growth",
+      "goal-seeking",
+      "feedback",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "line chart",
+      "simulation"
+    ]
+  },
+  "chapter": "08-diagrams-networks-and-systems",
+  "simulation": {
+    "modelType": "Discrete-time system dynamics (first-order difference equations)",
+    "variables": [
+      "x (stock)",
+      "rate",
+      "goal",
+      "start value",
+      "time step"
+    ],
+    "equations": [
+      "reinforcing: x[t+1] = x[t] + rate * x[t]",
+      "balancing: x[t+1] = x[t] + rate * (goal - x[t])",
+      "rise = x[10] - x[0]"
+    ],
+    "assumptions": [
+      "One loop acts alone on each curve, with no delays or limits",
+      "Both curves share the same rate and start value"
+    ],
+    "limitations": [
+      "Real learner systems combine several loops and delays",
+      "Units are abstract stock units and time steps"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "objective-rewriter-workbench",
+  "diagram_name": "Objective Rewriter Workbench",
+  "chapter_number": 3,
+  "chapter_title": "Learning Objectives and Bloom's Taxonomy",
+  "chapter_dir": "03-learning-objectives-and-blooms-taxonomy",
+  "chapter_rel_dir": "chapters/03-learning-objectives-and-blooms-taxonomy",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Use",
+  "learning_objective": "The learner will use the actor, action, concept and condition-and-standard checklist to repair a weak learning objective until every part is present and the verb is observable.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** objective-rewriter-workbench<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: use): The learner will use the actor, action, concept and condition-and-standard checklist to repair a weak learning objective until every part is present and the verb is observable.\n\nLayout: a drawing region above a control region, following the standard MicroSim layout. The drawing region shows the current objective as a sentence split into four colored slots (actor, action, concept, condition and standard). An empty slot is drawn with a dashed outline and a red label. The control region holds the controls.\n\nData: eight weak objectives, for example \"Students will understand bouncing balls\", \"Learners will know the parts of a MicroSim\" and \"Students will be aware of xAPI\". Each has a stored model repair and a list of acceptable observable verbs.\n\nControls:\n\n- Button \"Next weak objective\" that loads the next of the eight\n- A dropdown of 24 verbs, each labeled with its Bloom level, that replaces the action slot\n- A text field for the concept slot, which turns green when it matches a concept label from the learning graph and amber otherwise\n- Buttons \"Add condition\" and \"Add standard\" that open short pick-lists of conditions and standards\n- Button \"Check\" that scores the repair and shows the stored model repair beside the learner's version\n\nInteractions: hovering a slot shows a one-sentence explanation of what the slot requires. Choosing an unobservable verb such as \"understand\" flashes the action slot and shows the message \"No observation separates a learner who does this from one who does not.\"\n\nResponsive design: the canvas width follows the container width on every window resize, slots wrap onto a second line below 500 pixels, and the controls remain visible at 400 pixels wide.\n\nImplementation: p5.js with createSelect, createInput and createButton controls positioned relative to drawHeight, and a describe() call for accessibility."
+}

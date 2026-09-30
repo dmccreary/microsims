@@ -1,0 +1,4097 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Explains the anatomy of an xAPI statement, the three MicroSim verbs, the producer contract, and the evidence classes and thresholds that separate meaningful interaction from noise.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/16-xapi-statements-and-evidence/">
+      
+      
+        <link rel="prev" href="../15-metadata-search-and-reuse/">
+      
+      
+        <link rel="next" href="../17-instrumenting-microsims-with-the-xapi-runtime/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>xAPI Statements and Evidence - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="xAPI Statements and Evidence - Micro Simulations for Education" />
+<meta property="og:description" content="Explains the anatomy of an xAPI statement, the three MicroSim verbs, the producer contract, and the evidence classes and thresholds that separate meaningful interaction from noise." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/16-xapi-statements-and-evidence/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/16-xapi-statements-and-evidence/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="xAPI Statements and Evidence - Micro Simulations for Education" />
+<meta property="twitter:description" content="Explains the anatomy of an xAPI statement, the three MicroSim verbs, the producer contract, and the evidence classes and thresholds that separate meaningful interaction from noise." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/16-xapi-statements-and-evidence/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xapi-statements-and-evidence" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              xAPI Statements and Evidence
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-a-shared-grammar-for-learning-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI: A Shared Grammar for Learning Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xAPI: A Shared Grammar for Learning Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-xapi-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The xAPI Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-parts-of-a-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Five Parts of a Statement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Five Parts of a Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-xapi-statement-field-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: xAPI Statement Field Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-things-activity-iris-and-the-canonical-site-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Things: Activity IRIs and the Canonical Site URL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming Things: Activity IRIs and the Canonical Site URL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-activity-iri-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Activity IRI Builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-a-statement-to-a-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting a Statement to a Concept
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-result-fields-and-result-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Result Fields and Result Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-microsim-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three MicroSim Verbs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three MicroSim Verbs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#answered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answered
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experienced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experienced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interacted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interacted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interacted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-three-verb-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Three Verb Classifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-producer-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Producer Contract
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Producer Contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-contract-violation-finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Contract Violation Finder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidence-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidence Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-evidence-class-sorter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Evidence Class Sorter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-parameter-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Parameter Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-inspection-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discrete Inspection Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-and-pause-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run and Pause Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-dwell-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Dwell Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assessment Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#focus-loss-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Focus Loss Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-not-count-non-evidence-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Does Not Count: Non-Evidence Thresholds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Does Not Count: Non-Evidence Thresholds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hover-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hover Threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misclick-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misclick Threshold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Misclick Threshold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-evidence-threshold-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Evidence Threshold Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xapi-a-shared-grammar-for-learning-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xAPI: A Shared Grammar for Learning Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xAPI: A Shared Grammar for Learning Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-xapi-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The xAPI Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-parts-of-a-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Five Parts of a Statement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Five Parts of a Statement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-xapi-statement-field-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: xAPI Statement Field Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-things-activity-iris-and-the-canonical-site-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Things: Activity IRIs and the Canonical Site URL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming Things: Activity IRIs and the Canonical Site URL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-activity-iri-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Activity IRI Builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-a-statement-to-a-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting a Statement to a Concept
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-result-fields-and-result-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Result Fields and Result Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-microsim-verbs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Three MicroSim Verbs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Three MicroSim Verbs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#answered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Answered
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experienced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experienced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interacted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interacted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interacted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-three-verb-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Three Verb Classifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-producer-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Producer Contract
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Producer Contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-contract-violation-finder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Contract Violation Finder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidence-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evidence Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-evidence-class-sorter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Evidence Class Sorter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-parameter-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Parameter Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discrete-inspection-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discrete Inspection Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-and-pause-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run and Pause Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-dwell-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Page Dwell Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assessment-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assessment Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#focus-loss-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Focus Loss Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-not-count-non-evidence-thresholds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Does Not Count: Non-Evidence Thresholds
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Does Not Count: Non-Evidence Thresholds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hover-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hover Threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misclick-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misclick Threshold
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Misclick Threshold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-evidence-threshold-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Evidence Threshold Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/16-xapi-statements-and-evidence/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="xapi-statements-and-evidence">xAPI Statements and Evidence</h1>
+<h2 id="summary">Summary</h2>
+<p>Introduces xAPI statements, the three MicroSim verbs, the producer contract, and the evidence classes that separate meaningful interaction from noise.</p>
+<p>Students learn actor, verb, object, result and context, activity identifiers, concept identifiers, and the thresholds below which an interaction does not count. After it, they can say which interactions in a MicroSim are evidence and of what.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 25 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xAPI</td>
+<td>2196</td>
+</tr>
+<tr>
+<td>xAPI Statement</td>
+<td>2195</td>
+</tr>
+<tr>
+<td>Actor</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Verb</td>
+<td>1305</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Activity IRI</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Answered Verb</td>
+<td>461</td>
+</tr>
+<tr>
+<td>Experienced Verb</td>
+<td>424</td>
+</tr>
+<tr>
+<td>Interacted Verb</td>
+<td>419</td>
+</tr>
+<tr>
+<td>Producer Contract</td>
+<td>413</td>
+</tr>
+<tr>
+<td>Canonical Site URL</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Concept ID Extension</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Result Extensions</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Evidence Class</td>
+<td>211</td>
+</tr>
+<tr>
+<td>Continuous Parameter Evidence</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Discrete Inspection Evidence</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Run and Pause Evidence</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Page Dwell Evidence</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Assessment Evidence</td>
+<td>28</td>
+</tr>
+<tr>
+<td>Focus Loss Handling</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Non-Evidence Threshold</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Hover Threshold</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Misclick Threshold</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../06-p5js-microsims/">Chapter 6: p5.js MicroSims</a></li>
+<li><a href="../10-image-overlays-and-comparison-posters/">Chapter 10: Image Overlays and Comparison Posters</a></li>
+<li><a href="../15-metadata-search-and-reuse/">Chapter 15: Metadata, Search and Reuse</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Every Bounce Leaves Evidence</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Up to now you have built MicroSims that learners can play with. This chapter teaches you the language a MicroSim uses to report what a learner actually did, so that you can tell a meaningful interaction from a stray mouse movement. Let's bounce it around!</p>
+</div>
+<p>The first fifteen chapters were about making MicroSims: choosing a type, generating the code, checking the layout, and describing the result with metadata. None of that tells you whether anyone learned anything. A MicroSim that sits in a page and reports nothing is a black box, and the central question of this book, how well does what a learner does inside a MicroSim predict mastery of a concept, cannot even be asked of a black box. This chapter defines the vocabulary of the answer: the statement format a MicroSim uses to describe a learner's action, the small set of rules that keeps every MicroSim's statements consistent, and the classification that decides which interactions deserve to be recorded as evidence.</p>
+<p>A note on status before we begin. Everything in this chapter describes a design and a working runtime, not a body of collected data. As of the learning-record-store repository's <code>TODO.md</code> dated 2026-09-26, the emitters build well-formed statements and can display them, but no emitter sends statements to a store yet. No learner data has been collected through MicroSims, so whenever this chapter says an interaction is <em>evidence</em> of something, it means "designed to be treated as evidence, under a rule we can test," never "shown to predict mastery." Chapter 19 describes how that testing would work.</p>
+<h2 id="xapi-a-shared-grammar-for-learning-events">xAPI: A Shared Grammar for Learning Events</h2>
+<p>The <strong>xAPI</strong>, short for Experience API (also called Tin Can), is an open specification for describing learning experiences as machine-readable records and for exchanging those records between systems. The version this book's producer contract targets is 1.0.3, which appears as the <code>X-Experience-API-Version</code> header the contract specifies for sending statements. The specification does not say what to teach or how to teach it. It defines a grammar, a fixed shape for saying "someone did something," so that a slider in a MicroSim, a quiz in a learning management system and a simulator on a factory floor can all write to one shared record without agreeing on anything else in advance.</p>
+<p>Three roles appear whenever xAPI is discussed. An <em>activity provider</em> is any software that observes a learner's action and produces a record of it; in this book, that is a MicroSim. A <em>learning record store</em>, abbreviated LRS, is the service that receives, stores and answers queries about those records. A <em>consumer</em> is any dashboard, report or model that reads records back out. This chapter concerns the producer side. The stores are the subject of Chapters 20 through 23, and the model that consumes the evidence is the subject of Chapter 18.</p>
+<p>Why adopt a standard instead of inventing a private log format? A private format is quicker to write but locks every later tool to your particular field names. With a shared grammar, a dashboard written for one textbook works on another, a store can validate incoming data without knowing the textbook, and a researcher can compare two courses. The cost is that the grammar is strict, and the strictness is what the rest of this chapter is about. For a fuller treatment of the standard itself, see the separate xAPI course book at <code>/Users/dan/projects/xapi-course</code>, whose Chapter 2 walks through every field of the statement.</p>
+<h3 id="the-xapi-statement">The xAPI Statement</h3>
+<p>The unit of xAPI is the <strong>xAPI statement</strong>: one JSON object that records one thing that one learner did, at one moment, to one activity. JSON, short for JavaScript Object Notation, is a plain-text format built from named fields, each holding a value, and it is the format every web tool already reads. A statement is deliberately shaped like a sentence, "the learner answered question 3," and it is that sentence structure that makes statements from unrelated systems comparable.</p>
+<p>The specification requires three parts, the subject, the verb and the object, and lets a statement carry two more, a result and a context. We will define all five in turn. Two other top-level fields appear on almost every statement a MicroSim produces: an <code>id</code>, a universally unique identifier that names the statement itself, and a <code>timestamp</code>, the moment the learner acted, written in ISO 8601 format (a standard way of writing dates and times, such as <code>2026-07-16T14:22:03Z</code>). The producer contract adds that the timestamp is the producer's, the time of the event, while the moment a store received the statement is stamped later by the store.</p>
+<p>A statement is a record of <em>behavior</em>, not of <em>learning</em>. Nothing in the format says whether the learner understood anything; it says only what happened. That distinction drives the whole second half of the chapter, because the choice of which behaviors to record, and how much weight to give each, is where instructional judgment enters.</p>
+<h2 id="the-five-parts-of-a-statement">The Five Parts of a Statement</h2>
+<p>Before we assemble a complete statement, we define each part separately. Keep the sentence analogy in mind: "Student 42 answered question 3 correctly, in the context of Chapter 5."</p>
+<h3 id="actor">Actor</h3>
+<p>The <strong>actor</strong> is the learner, or occasionally a group, to whom the statement's action belongs. The xAPI specification requires that an actor be identified by exactly one <em>inverse functional identifier</em>, a value that is globally unique on its own with no central registry. The four types the xAPI course book lists are an email address in <code>mbox</code> form, a hashed email in <code>mbox_sha1sum</code>, an <code>openid</code> URI, and an <code>account</code>, which pairs a <code>homePage</code> (the system the account lives in) with a <code>name</code> (the identifier inside that system).</p>
+<p>MicroSim statements use the <code>account</code> form. A worked example clarifies why. Suppose a school district runs its own learner accounts. The MicroSim would send <code>homePage</code> set to the district's address and <code>name</code> set to the learner's account name, and the two together identify one person across every book the district uses. The producer contract states the privacy rule that follows: the producer sends the real account name and must not pre-hash it, because the pseudonym is derived once, on the store side, using a per-district salt. In the current runtime the actor is a placeholder: every emitter uses a single account named <code>demo-student</code> under the demo address <code>https://demo.example.edu</code>, and the contract lists real actor handling as future work rather than a solved problem.</p>
+<p>The design consequence is worth stating plainly. The actor is the one place personal identity enters the system, so the contract confines it there and forbids producers from sending several store-side fields at all: <code>district_id</code>, <code>student_key</code>, <code>stored_at</code>, <code>section_id</code>, <code>voided_by</code> and <code>provisional</code>. Chapter 24 returns to what this means for privacy and ethics.</p>
+<h3 id="verb">Verb</h3>
+<p>The <strong>verb</strong> names the action the actor performed. In xAPI a verb is not a bare word but an identifier in the form of an IRI, an internationalized resource identifier, which is the web-address format (such as <code>http://adlnet.gov/expapi/verbs/answered</code>) used as a globally unique name. The statement also carries a <code>display</code> map that gives the same verb a human-readable label such as <code>answered</code>. Stores index and match on the IRI, never on the label, so two systems that use the same IRI mean the same verb.</p>
+<p>The xAPI community publishes vocabularies containing dozens of verbs, and most projects are tempted to use many of them. This book takes the opposite position, and the reasons appear in the section on the three MicroSim verbs below. For now, note that the verb is the field that answers "what kind of evidence is this?", so a small, strict verb set makes every downstream tool simpler.</p>
+<h3 id="object">Object</h3>
+<p>The <strong>object</strong> is the thing acted upon. In a MicroSim statement it is always an <em>activity</em>: something with an IRI as its identifier, a <code>definition</code> that carries a human-readable name, and a <code>type</code>. Section "Naming Things" below explains how the identifier is built. The type is more subtle than it looks, because a MicroSim contains several kinds of thing that a learner can act on. The contract distinguishes four, which we list here so the later sections can use the names.</p>
+<ul>
+<li>A <strong>Page</strong> is an ordinary textbook page, typed with the ADL <code>lesson</code> activity type.</li>
+<li>A <strong>MicroSim</strong> is an interactive page as a whole, typed <code>simulation</code>, with no fragment in its identifier.</li>
+<li>A <strong>Question</strong> is a single checked item, typed <code>cmi.interaction</code>.</li>
+<li>A <strong>Control</strong> is a sub-part of a page such as a slider or a diagram node, typed <code>interaction</code>.</li>
+</ul>
+<p>Notice that <code>cmi.interaction</code> (Question) and <code>interaction</code> (Control) differ by only four characters yet mean entirely different things. The contract acknowledges this as an unfortunate inheritance from the ADL vocabulary, and the runtime's builder rejects any type other than these four.</p>
+<h3 id="result">Result</h3>
+<p>The <strong>result</strong> describes the outcome of the action. It is optional in the xAPI specification but carries the fields that most matter for evidence. The fields MicroSims use are <code>success</code> (true or false), <code>score</code> with a <code>scaled</code> value from 0.0 to 1.0, <code>response</code> (what the learner chose or typed), <code>duration</code> (how long the action took, written as an ISO 8601 duration such as <code>PT4M12S</code>, meaning four minutes and twelve seconds), and <code>extensions</code>, a free-form map for anything else. Which fields are required depends on the verb, as the next section shows.</p>
+<h3 id="context">Context</h3>
+<p>The <strong>context</strong> places the action in its setting. Its most important part is <code>contextActivities</code>, which lists related activities in named buckets. MicroSim statements use two buckets. The <code>grouping</code> bucket holds the <em>textbook version</em> the learner was reading, and the contract requires it on every statement. The <code>parent</code> bucket holds the page a question or control belongs to. The context also holds <code>extensions</code>, and the one extension every mapped statement carries is the concept identifier, which we define later in this chapter.</p>
+<p>A complete example ties the five parts together. The statement below is the contract's own reference statement, lightly shortened, for a learner answering question 2 on a page of the learning-record-store book. Read it against the definitions above: the actor is an <code>account</code>, the verb is <code>answered</code>, the object is a <code>Question</code> (note the <code>cmi.interaction</code> type), the result carries <code>success</code>, <code>score</code> and <code>duration</code>, and the context carries both buckets and one extension.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"homePage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.example.edu"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"student-0042"</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/verbs/answered"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"display"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answered"</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmccreary.github.io/learning-record-store/sims/lrs-data-model/#q2"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/activities/cmi.interaction"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How many PageEngagement vertices exist?"</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"score"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"scaled"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">},</span><span class="w"> </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT4M12S"</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"contextActivities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"grouping"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmccreary.github.io/learning-record-store/textbook/lrs/v1.0.0"</span><span class="p">}],</span>
+<span class="w">      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w">   </span><span class="p">[{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmccreary.github.io/learning-record-store/sims/lrs-data-model/"</span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"https://w3id.org/lrs/ext/concept_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compression-ratio"</span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-16T14:22:03Z"</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The next specification lets you take such a statement apart yourself. Every term it uses, actor, verb, object, result and context, was defined above.</p>
+<h4 id="diagram-xapi-statement-field-explorer">Diagram: xAPI Statement Field Explorer</h4>
+<iframe src="../../sims/xapi-statement-field-explorer/main.html" width="100%" height="672px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/xapi-statement-field-explorer/main.html">Run the xAPI Statement Field Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>xAPI Statement Field Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> xapi-statement-field-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the five parts of an xAPI statement by selecting a line of a real statement and stating which part it belongs to and what question it answers.</p>
+<p>Layout: the left two-thirds of the canvas shows a formatted JSON statement, one line per row, in a monospaced font on an aliceblue background. The right third is an infobox panel. The bottom strip is a white control region.</p>
+<p>Data: three built-in statements taken from this chapter's examples: an <code>answered</code> statement for a question, an <code>interacted</code> statement for a slider, and an <code>experienced</code> statement for a run. Each line is tagged with one of the five parts (actor, verb, object, result, context) or "housekeeping" for <code>id</code> and <code>timestamp</code>.</p>
+<p>Controls and interactions:</p>
+<ul>
+<li>Clicking a line highlights the whole part it belongs to, using one color per part, and the infobox shows the part's name, the question it answers ("who", "did what", "to what", "how did it go", "in what setting") and the definition from this chapter.</li>
+<li>Hovering a line shows a one-line tooltip with the field's plain-language meaning.</li>
+<li>A dropdown "Statement" switches between the three built-in statements.</li>
+<li>A checkbox "Quiz me" hides the colors and asks the learner to click the line that carries a named property, such as "the line that says whether the answer was right", and then shows whether the choice was correct.</li>
+<li>A "Score" readout counts correct quiz answers out of attempts.</li>
+</ul>
+<p>Default state: the <code>answered</code> statement is shown with no line selected and "Quiz me" off.</p>
+<p>Responsive design: the canvas width follows the container on every window resize; below 500 pixels the infobox moves under the statement. Sliders and buttons remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSelect and createCheckbox controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="naming-things-activity-iris-and-the-canonical-site-url">Naming Things: Activity IRIs and the Canonical Site URL</h2>
+<p>A statement is only useful if two statements about the same page use exactly the same identifier for it. That sounds obvious, and the producer contract exists partly because the first attempt at it went wrong, as the next paragraphs show.</p>
+<p>The <strong>activity IRI</strong> is the identifier stored in <code>object.id</code>. For a page or a MicroSim, the contract's rule is that the identifier is the site's base address plus the page's navigation path, with a trailing slash. An IRI is an <em>identifier</em>, not a promise that something will load: it need not resolve at the moment a statement is stored, but it must never change when the site moves.</p>
+<p>The base address is the <strong>canonical site URL</strong>, the <code>site_url</code> value in the book's <code>mkdocs.yml</code>. It is <em>not</em> whatever address the learner's browser happens to show. A statement emitted while an author previews the book locally on <code>127.0.0.1</code> must still carry the published address, never the local one, so that test traffic and real traffic name the same page. This book's own <code>mkdocs.yml</code> gives <code>https://dmccreary.github.io/microsims</code> as its <code>site_url</code>; the runtime adds the trailing slash if the configuration omits it.</p>
+<p>Two mistakes have concrete costs, and the contract records both from its own history. The first is citing <code>main.html</code>, the file that holds the iframe payload of a MicroSim. MkDocs renders a MicroSim's <code>index.md</code> at <code>/sims/name/</code> and copies <code>main.html</code> alongside it, so one activity would gain a second identifier. The store's page rollup groups by object identifier, so the same learner's visit would land in two rows that never merge. The second is the trailing slash: <code>.../sims/x/</code> and <code>.../sims/x</code> are different strings to a store that groups by identifier. The runtime avoids the first mistake by construction. Its <code>pageIri()</code> function derives the identifier from the page location, strips a trailing <code>main.html</code> or <code>index.html</code>, and appends the slash, so an emitter cannot supply a wrong page identifier at all.</p>
+<p>Pages are only part of the naming problem. A page can hold several named sub-activities, such as a slider, a diagram node or a quiz question, and each needs an identifier of its own. The contract solves this with a URL fragment, the part after <code>#</code>. The rule is that the fragment is the sub-activity's <em>most stable local name</em>, and the test for any naming scheme is a single question: would an edit that does not change what the thing <em>is</em> change its identifier? If yes, the scheme is wrong. Three cases follow from that test.</p>
+<table>
+<thead>
+<tr>
+<th>Thing</th>
+<th>Fragment style</th>
+<th>Example</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A control</td>
+<td>its slugified name</td>
+<td><code>#speed-slider</code></td>
+<td>a control's identity is its name</td>
+</tr>
+<tr>
+<td>A diagram node</td>
+<td>its slugified stable key</td>
+<td><code>#hypothesis</code></td>
+<td>reordering the diagram must not re-point the identifier</td>
+</tr>
+<tr>
+<td>A question in a fixed order</td>
+<td><code>#q</code> plus its one-based number</td>
+<td><code>#q1</code></td>
+<td>the number the learner sees is the question's identity</td>
+</tr>
+<tr>
+<td>A question in a shuffled or generated order</td>
+<td><code>#q-</code> plus what it asks about</td>
+<td><code>#q-nucleus</code></td>
+<td>a position changes on every reload, so it is not an identity</td>
+</tr>
+</tbody>
+</table>
+<p>The one-based numbering has its own history. The first draft of the contract chose zero-based numbers, inferred from a test script, and the inference turned out to be reading a latent off-by-one error: a statement named "the third question" carried <code>#q2</code>. The fix was to number questions the way the learner sees them. The shuffled case was found by building a real image-overlay MicroSim whose quiz reshuffled on every load, which would have merged answers about six different structures into six position-keyed rows, a result the contract calls worse than collecting nothing "because it looks like data."</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">One Question Names a Fragment</p>
+<p>Before you invent a fragment, ask: if I reword this label or reorder this list, does it stay the same thing? If yes, name the fragment for what the thing is (<code>#speed-slider</code>), never for where it sits (<code>#control-3</code>).</p>
+</div>
+<p>The worked example below shows the two fragment styles for a single MicroSim page whose site is the learning-record-store book. The page identifier has no fragment and is typed as a MicroSim, while the slider and the question each get a fragment and a type.</p>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Identifier</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The page itself</td>
+<td><code>https://dmccreary.github.io/learning-record-store/sims/animal-cell/</code></td>
+<td>MicroSim</td>
+</tr>
+<tr>
+<td>A hotspot the learner inspects</td>
+<td><code>.../sims/animal-cell/#nucleus</code></td>
+<td>Control</td>
+</tr>
+<tr>
+<td>A shuffled quiz item about the same hotspot</td>
+<td><code>.../sims/animal-cell/#q-nucleus</code></td>
+<td>Question</td>
+</tr>
+</tbody>
+</table>
+<p>The last two rows share a pixel on screen but are different activities, and the contract's "one object, one type" rule says the user-interface mode never changes an object's type. Inspecting a thing and being asked to find it are different acts, and if two acts need different <code>result</code> fields to be honest, they are different objects. An inspection has no <code>success</code> to report; an answer must. The two objects meet again at the concept, not at the identifier.</p>
+<h4 id="diagram-activity-iri-builder">Diagram: Activity IRI Builder</h4>
+<iframe src="../../sims/activity-iri-builder/main.html" width="100%" height="642px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/activity-iri-builder/main.html">Run the Activity IRI Builder MicroSim Fullscreen</a></p>
+<details>
+<summary>Activity IRI Builder</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> activity-iri-builder<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: construct): The learner will construct a correct activity IRI for a page, a control and a question, and diagnose why a malformed IRI is wrong.</p>
+<p>Layout: a top region shows the IRI being assembled as colored segments (site URL, path, fragment). A middle region shows a preview of how a store would group the result. The bottom white region holds the controls.</p>
+<p>Controls and data:</p>
+<ul>
+<li>Text field "site_url" with a default of <code>https://dmccreary.github.io/microsims</code>, and a note that a missing trailing slash is added by the runtime.</li>
+<li>Dropdown "Page path" listing five sample paths such as <code>sims/bouncing-ball/</code> and <code>chapters/01-what-is-a-microsim/</code>.</li>
+<li>Dropdown "Sub-activity" with the options none, control, node, fixed-order question and shuffled question, plus a text field for its name or number.</li>
+<li>Dropdown "Where is the page loaded from" with the options published site, local preview and iframe payload <code>main.html</code>.</li>
+<li>Dropdown "Show a mistake" with the options none, uses main.html, missing trailing slash, local origin, zero-based question number, positional fragment for a shuffled quiz.</li>
+</ul>
+<p>Interactions: every change rebuilds the IRI live. Clicking a segment shows the rule behind it. When a mistake is chosen, the grouping preview shows one learner's visit splitting into two rows and the offending segment turns red with its reason. The "Where is the page loaded from" choice never changes the correct IRI, which demonstrates that the identifier is independent of the address the browser shows.</p>
+<p>Default state: published site, a page with no fragment, no mistake.</p>
+<p>Responsive design: the canvas width follows the container on every window resize, and the segment display wraps below 500 pixels. All controls remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createInput, createSelect and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="connecting-a-statement-to-a-concept">Connecting a Statement to a Concept</h2>
+<p>An identifier tells a store <em>which page or control</em> the learner acted on. It does not say which idea the action is evidence about, and a textbook's learning graph is organized by ideas, not by pages. The <strong>concept ID extension</strong> carries that link. It is a single entry in the context's <code>extensions</code> map, keyed by <code>https://w3id.org/lrs/ext/concept_id</code>, whose value is one concept identifier string.</p>
+<p>The identifiers come from the book's learning graph. Every book numbers its concepts 1 to N, so number 42 collides across books. The learning-record-store repository therefore namespaces each identifier with a prefix derived from the repository name, in the form <code>{conceptPrefix}-{ConceptID}</code>, giving values such as <code>learning-record-store-353</code>. Inside a MicroSim, the runtime's <code>LRS.conceptId(353)</code> builds that string from the book's configuration file so that the prefix is never typed by hand. Note that the contract's own reference statement uses a readable slug, <code>compression-ratio</code>, and the runtime's demonstration sims use slugs for concepts that are not in a learning graph; the concept-mapping reference warns never to mix the two forms silently inside one sim.</p>
+<p>Three rules govern the extension, and each protects against a specific failure. First, a statement carries <em>one</em> concept, because the contract's version 1 cannot express several; when a diagram node covers more than one concept, you pick its primary concept and record the others in your notes. Second, the extension is <em>authoritative</em> when present, and when it is absent the statement is excluded from the store's per-concept rollup by that rollup's own filter, so the statement still lands in the log but contributes no concept evidence. Third, when no concept matches an object, you leave the concept unset and say so. The concept-mapping reference puts the reason bluntly: a statement with a wrong concept identifier is worse than none, because it silently credits mastery of something the learner never touched.</p>
+<p>The worked example below shows the choice. A sine-wave MicroSim has an amplitude slider, a frequency slider and a Start/Pause button. The amplitude slider's movements are evidence of the <em>amplitude</em> concept, not of the broader <em>sine wave</em> concept, so the slider's statements carry the amplitude concept. The run interval is evidence of engagement with the simulation as a whole, so it carries the page-level concept. A checked question carries the concept it tests, and an inspection and a question about the same thing carry the same concept, which is where they reconverge.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Concepts Are Where Acts Meet</p>
+<p>Notice the pattern: identifiers keep different acts apart, while the concept brings related acts back together. Exploring a hotspot and answering a question about it have different identifiers but one concept, so the evidence adds up in the right place.</p>
+</div>
+<h2 id="the-result-fields-and-result-extensions">The Result Fields and Result Extensions</h2>
+<p>We defined the result earlier as the outcome of the action. The producer contract gives each field a job, and understanding the jobs explains why some statements are strict and others are lenient.</p>
+<p><code>success</code> is a Boolean, and its presence decides whether the store counts the statement as an attempt. The store's concept rollup counts attempts as the statements whose <code>success</code> is present, so a statement without <code>success</code> reports zero attempts however many times it occurs. <code>score.scaled</code> is a number from 0.0 to 1.0 used when an item is scored partially. <code>duration</code> feeds the store's dwell total, the only field that does. <code>response</code> holds what the learner chose. Everything that does not fit those four goes into <code>extensions</code>.</p>
+<p>The <strong>result extensions</strong> are named additions inside <code>result.extensions</code>. In code an emitter writes a short key such as <code>value</code> or <code>action</code>, and the runtime qualifies it to a full IRI under <code>https://w3id.org/lrs/ext/</code>, exactly once, so every emitter uses the same namespace. A key that is already an absolute address is passed through unchanged. The examples that appear in the contract and runtime are these.</p>
+<table>
+<thead>
+<tr>
+<th>Short key</th>
+<th>Carried by</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>value</code> and <code>previous-value</code></td>
+<td>a slider statement</td>
+<td>the value the learner moved to and the value it replaced</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>a button press</td>
+<td><code>start</code> or <code>pause</code>, for example</td>
+</tr>
+<tr>
+<td><code>engagement-mode</code></td>
+<td>an inspection</td>
+<td>how the learner engaged: hover, click, pinned, and similar</td>
+</tr>
+<tr>
+<td><code>run-ended-by</code></td>
+<td>a run's <code>experienced</code> statement</td>
+<td>why the run ended</td>
+</tr>
+</tbody>
+</table>
+<p>There is a caution here that a careful reader should not skip. The digest of the contract notes that several extension names the runtime emits, including <code>action</code>, <code>engagement-mode</code> and <code>run-ended-by</code>, are not yet listed in the contract's own tables, and it advises against adding new extension names casually because "each one is a future schema entry." Treat these names as the current runtime's vocabulary rather than as a settled standard.</p>
+<p>A slider example shows the extensions at work. The statement below records a learner moving a speed slider from 3 to 4 on a bouncing-ball MicroSim. All values are illustrative, chosen to match the shape the contract's digest gives for a slider statement, and the identifiers use the learning-record-store book's site as the reference implementation does.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"verb"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/verbs/interacted"</span><span class="p">,</span><span class="w"> </span><span class="nt">"display"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"interacted"</span><span class="p">}},</span>
+<span class="w">  </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmccreary.github.io/learning-record-store/sims/bouncing-ball/#speed-slider"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Speed Slider"</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://adlnet.gov/expapi/activities/interaction"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"https://w3id.org/lrs/ext/value"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"https://w3id.org/lrs/ext/previous-value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The actor, context and timestamp are omitted here so that the extensions stand out. Notice that the statement has no <code>success</code> and no <code>duration</code>: a slider movement is neither an answer nor an interval, and forcing either field onto it would make the verb carry a meaning it does not have.</p>
+<h2 id="the-three-microsim-verbs">The Three MicroSim Verbs</h2>
+<p>Now we can explain the decision the contract makes about verbs. Exactly three verbs are valid in version 1 of the contract, and the gateway is specified to reject a statement with any other verb. Each verb has a job, a required result field, and a clear test for when to use it.</p>
+<h3 id="answered">Answered</h3>
+<p>The <strong>answered verb</strong> (<code>http://adlnet.gov/expapi/verbs/answered</code>) records a checked attempt at a question. Its required result field is <code>success</code>, a Boolean, with <code>score.scaled</code> added when the item is scored. It is the only verb that can report whether the learner was right, and so it is the only one that contributes real attempts to a mastery estimate. Use it whenever the MicroSim checks a response against a right answer, whatever the interface looks like: a multiple-choice item, a drag-to-bin sort, a checked prediction, or a "goal reached" banner all qualify.</p>
+<p>The contract explains why <code>answered</code> is not merged with the other verbs. A verb called <code>completed</code> was considered and left out, because a <code>completed</code> statement carries no <code>success</code>, so a store's attempt count would read zero for every learner. Adding it later means deciding what it should mean for mastery first. The runtime backs this up: when an <code>answered</code> statement lacks <code>success</code>, its validator prints a console warning that attempts will stay at zero.</p>
+<p>A worked example shows why every attempt is emitted, including the wrong ones. In an image-overlay quiz with six hotspots, a learner who clicks every marker in turn will eventually hit the right one. The contract's log of such a case shows three clicks at one question producing three <code>answered</code> statements with <code>success</code> values false, false and true. Recording only the final success would make this learner look identical to one who knew the answer at once, one attempt and one success, when in fact the interaction plainly disproves it. The full sequence is what a knowledge-tracing model reads, and Chapter 18 explains how. For a click-to-identify quiz, the contract argues, the sequence "is the signal," not noise around it.</p>
+<p>There are two limits on this rule, both stated in the runtime's guidance. Checking the same choice twice is not a new attempt, and neither is a choice made after the correct answer was revealed. Both follow from one principle: do not report success the interaction does not support.</p>
+<h3 id="experienced">Experienced</h3>
+<p>The <strong>experienced verb</strong> (<code>http://adlnet.gov/expapi/verbs/experienced</code>) records time spent with a page or a MicroSim. Its required result field is <code>duration</code>, the ISO 8601 length of the interval. The object is the page itself, typed as a MicroSim, with no fragment. It is exposure evidence: it says the learner spent time here, and it says nothing about understanding.</p>
+<p>The most common use is a <em>run</em>, the interval between a learner pressing Start and pressing Pause. The contract's rule is that one Start and Pause pair produces exactly one <code>experienced</code> statement, emitted on Pause, carrying the elapsed time. Nothing is emitted on Start, because an interval that never closes is one nothing can score. The contract rejects the more obvious design of a <code>started</code> verb and a <code>paused</code> verb, reconstructing the duration by pairing them, for three reasons: it doubles the statement volume for no new information, it forces the reader to rebuild the duration (which is unreliable when delivery can repeat or reorder statements), and it leaves unclosed intervals whenever a learner never pauses. The chosen pattern degrades gracefully: the worst case is a missing interval, never a wrong one. The same reasoning explains a rule that seems arbitrary: every MicroSim must load <em>paused</em>, because an auto-running MicroSim would emit dwell the learner never chose to spend.</p>
+<p>Repeated cycles are simply repeated statements. Start, Pause, Start, Pause emits two <code>experienced</code> statements, which the store's page rollup sums into one row.</p>
+<h3 id="interacted">Interacted</h3>
+<p>The <strong>interacted verb</strong> (<code>http://adlnet.gov/expapi/verbs/interacted</code>) records a learner manipulating or inspecting a control. It requires no result field; the values go in the result extensions. It was added to the contract on 2026-07-16 because the other two verbs could not describe what MicroSims already did. A slider movement is not an answer, since it has no <code>success</code>, and it is not dwell, since it has no interval.</p>
+<p><code>interacted</code> statements are real evidence, but of a weaker kind. They carry a concept identifier, so they count toward the concept's compression total in the store's rollup, yet they contribute zero attempts. A quick summary of the three verbs follows, now that each has been explained.</p>
+<table>
+<thead>
+<tr>
+<th>Verb</th>
+<th>Object</th>
+<th>Required result</th>
+<th>What it can say</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>answered</td>
+<td>Question</td>
+<td><code>success</code></td>
+<td>the learner was right or wrong on a checked item</td>
+</tr>
+<tr>
+<td>experienced</td>
+<td>MicroSim or Page</td>
+<td><code>duration</code></td>
+<td>the learner spent this long with it</td>
+</tr>
+<tr>
+<td>interacted</td>
+<td>Control</td>
+<td>none</td>
+<td>the learner touched this control, with these values</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Only One Verb Can Say Right or Wrong</p>
+<p>Think of the three verbs as a ladder of strength. Time and touches show that a learner was present; only a checked answer shows what they could do. Any claim about understanding has to rest on <code>answered</code>.</p>
+</div>
+<p>The next specification asks you to classify events by verb, which is the skill this section teaches.</p>
+<h4 id="diagram-three-verb-classifier">Diagram: Three Verb Classifier</h4>
+<iframe src="../../sims/three-verb-classifier/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/three-verb-classifier/main.html">Run the Three Verb Classifier MicroSim Fullscreen</a></p>
+<details>
+<summary>Three Verb Classifier</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> three-verb-classifier<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: classify): The learner will classify learner actions in a described MicroSim into the correct verb, object type and required result field, and explain any action that needs no statement.</p>
+<p>Layout: an upper scene panel shows a small mock MicroSim (a slider, a Start/Pause button, a diagram with three nodes and a one-question check). A lower panel holds three verb bins labeled answered, experienced and interacted, plus a fourth bin labeled "no statement".</p>
+<p>Data: twelve scripted learner events, for example "moves the speed slider from 3 to 4", "presses Start, waits 40 seconds, presses Pause", "picks option B on the checked prediction, which is wrong", "presses Start and Pause 100 milliseconds later", "clicks the same wrong option a second time" and "sweeps the pointer across four nodes in under half a second".</p>
+<p>Controls and interactions:</p>
+<ul>
+<li>Each event card can be dragged into a bin, or selected and assigned with a button, so the task works by keyboard.</li>
+<li>After placement, an infobox shows the correct verb, the object type (Page, MicroSim, Question or Control), the required result field and one sentence of reasoning drawn from this chapter.</li>
+<li>A "Show statement" button renders the resulting statement's verb, object and result in JSON.</li>
+<li>A running score and a "Try again" button that reshuffles the twelve events.</li>
+</ul>
+<p>Default state: events shuffled, all bins empty, score 0 of 12.</p>
+<p>Responsive design: the canvas width follows the container on every window resize; the bins stack vertically below 500 pixels. All buttons remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with drag handling in mousePressed, mouseDragged and mouseReleased, keyboard-accessible button alternatives, and a describe() call for accessibility.</p>
+</details>
+<h2 id="the-producer-contract">The Producer Contract</h2>
+<p>You have now met most of the individual rules. The <strong>producer contract</strong> is the document that gathers them into one binding specification for everything that emits statements. The repository's <code>docs/specs/xapi-producer-contract-v1.md</code> is its normative text, version 1.0.0, last updated 2026-07-16 in the copy this chapter used, and it is marked as binding for the minimum viable product. It exists because the store's design deliberately left the producer side undefined, so the store's data definitions consumed fields that nothing was obliged to send.</p>
+<p>Each rule in the contract carries a tag that tells you how firm it is: <em>ratified</em> (already true in code, now binding), <em>resolved</em> (a real disagreement settled with evidence), <em>new</em> (the design was silent, so the contract decides) and <em>open</em> (needs a decision). That tagging is itself good practice for a standard that will change. The table below summarizes the rules an instrumented MicroSim must never break, using the section numbers of the contract's own digest.</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Rule in one line</th>
+<th>Where enforced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A page's IRI is the canonical site URL plus the navigation path, with a trailing slash; never <code>main.html</code>, never local</td>
+<td>derived by <code>LRS.pageIri()</code>, checked by a validator warning</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A sub-activity's fragment is its stable local name; fixed-order questions are <code>#q{N}</code>, one-based</td>
+<td>the author, because the runtime cannot know whether a key is stable</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Exactly three verbs; <code>answered</code> needs <code>success</code>, <code>experienced</code> needs <code>duration</code></td>
+<td>the builder throws on other verbs and warns on missing fields</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>grouping[0]</code> is the textbook version IRI on every statement; <code>parent[0]</code> is the page for answers and controls</td>
+<td>the builder, from the book's configuration</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Four object types: Page, MicroSim, Question, Control; one object, one type</td>
+<td>the builder throws on other types</td>
+</tr>
+<tr>
+<td>6</td>
+<td>One concept identifier per statement, in the concept ID extension</td>
+<td>the author, through a <code>concept</code> option on every handle</td>
+</tr>
+<tr>
+<td>7</td>
+<td>One <code>experienced</code> per run, emitted on Pause; nothing under 250 ms</td>
+<td>the runtime's run handle</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Producers never send <code>district_id</code>, <code>student_key</code>, <code>stored_at</code>, <code>section_id</code>, <code>voided_by</code> or <code>provisional</code></td>
+<td>the builder does not set them</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Transport is a JSON array sent by POST, accepted or rejected as a whole</td>
+<td>not built yet</td>
+</tr>
+</tbody>
+</table>
+<p>Two of these need a further sentence. The grouping rule in section 4 means every statement can be attributed to a specific <em>version</em> of a textbook, so that a statement can later be replayed against the content it described; its form is the site URL, then <code>textbook/</code>, then a textbook identifier, then a version. For this book the identifier and version come from the book's <code>lrs-config.js</code> file, which the installer generates from <code>mkdocs.yml</code>. And section 9's transport rule reads: the request is a POST to <code>/xapi/statements</code> with a JSON array body, and the whole batch is rejected if any statement in it is invalid. The design keeps <code>id</code> optional for now, but the contract warns that a producer that omits <code>id</code> cannot be deduplicated if the store later adds retry protection.</p>
+<p>The contract is honest about what it has not settled, and a reader relying on it should be as well. Its open items include the fact that multi-concept statements cannot be expressed, that the same MicroSim embedded in two textbooks merges in every rollup because the store's rollups do not key on the textbook, and that a control's duration currently reaches no rollup. The second item has a sharp consequence the contract states directly: "a student skimming because they already met the material in physics looks identical to a student who did not engage," so low engagement is not evidence of low mastery.</p>
+<p>The most important open caveat concerns the contract's own validation. The runtime file <code>lrs-xapi.js</code> enforces the rules, and the contract calls that "the producer marking its own homework": until a store validates statements on receipt, "conforms to the contract" means "conforms to one JavaScript file's reading of it." No statement produced by a MicroSim has yet been sent to a store, and this chapter should be read with that in mind.</p>
+<p>The following worked example uses the contract to audit a malformed statement. Suppose a hand-written emitter produces an <code>interacted</code> statement with the object identifier <code>http://127.0.0.1:8000/sims/sine-wave/main.html</code>, typed <code>simulation</code>, and no grouping in its context. Checking the table gives four violations at once: the identifier is not the published canonical address (section 1), it is not absolute HTTPS and it names the payload file (section 1 again), a slider is a Control whose identifier must carry a fragment and whose type should be <code>interaction</code> rather than <code>simulation</code> (sections 2 and 5), and the required grouping is missing (section 4). The contract's own history shows this is not contrived: the older sine-wave emitter was found to be wrong twice in its identifier, and fixing it uncovered five more wrong URLs in the same file.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Fix Is Rarely One Line</p>
+<p>A wrong identifier usually hides a wrong kind of thing, not just a wrong address. When the contract's authors fixed a bad <code>main.html</code> address, they found a page URL sitting where the textbook version belonged, and a search-and-replace would have made it look correct while staying wrong. Recheck every field of a statement against the table, not only the field you were fixing.</p>
+</div>
+<p>The next specification turns that audit into a practice exercise.</p>
+<h4 id="diagram-contract-violation-finder">Diagram: Contract Violation Finder</h4>
+<iframe src="../../sims/contract-violation-finder/main.html" width="100%" height="802px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/contract-violation-finder/main.html">Run the Contract Violation Finder MicroSim Fullscreen</a></p>
+<details>
+<summary>Contract Violation Finder</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> contract-violation-finder<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: critique): The learner will critique a candidate xAPI statement against the producer contract's rules and justify each violation by section number.</p>
+<p>Layout: the upper region shows one candidate statement as formatted JSON, one field per row. The right panel lists the nine contract rules as a checklist. The bottom white region holds the controls.</p>
+<p>Data: eight candidate statements, each valid or containing one to three planted violations drawn from the rules in this chapter: a <code>main.html</code> identifier, a missing trailing slash, a local origin, a verb outside the three (for example <code>completed</code>), an <code>answered</code> with no <code>success</code>, an <code>experienced</code> with no <code>duration</code>, a missing <code>grouping</code>, a slider typed as a MicroSim, a shuffled quiz question with an ordinal fragment, and a run under 250 milliseconds that still produced an <code>experienced</code>.</p>
+<p>Controls and interactions:</p>
+<ul>
+<li>Clicking a JSON row flags it as suspect; clicking a rule in the checklist links the flag to that rule.</li>
+<li>A "Check my answer" button reveals the planted violations, marks each flag correct, missed or false alarm, and explains the correct rule in one sentence.</li>
+<li>A "Next statement" button advances; a "Show hint" button highlights the section of the statement in which a violation lies without naming it.</li>
+<li>A score readout counts violations found, missed and falsely flagged across the set.</li>
+</ul>
+<p>Default state: the first statement is shown with no flags.</p>
+<p>Responsive design: the canvas width follows the container on every window resize; the rule checklist moves below the statement under 600 pixels. All controls remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton controls and click hit-testing on rows, keyboard-focusable alternatives, and a describe() call for accessibility.</p>
+</details>
+<h2 id="evidence-classes">Evidence Classes</h2>
+<p>The contract says how a statement must look. It does not say <em>which learner actions deserve a statement at all</em>, and that question determines how meaningful the entire record is. Recording every mouse movement would produce a mountain of statements from which no conclusion could be drawn, while recording nothing but quiz answers would waste what the learner did in between. The answer this book uses is a classification.</p>
+<p>An <strong>evidence class</strong> is a category of learner interaction, defined by what the interaction can show and by how the runtime turns it into statements. Every interaction in a MicroSim is assigned to exactly one class, or it is judged not to be evidence at all. The class is library-independent: a slider in a p5.js sketch and a slider in a Plotly chart are the same class, even though the code that detects them differs. The following classes are the ones the instrumentation skill defines, and we take them from the least to the most informative about knowledge.</p>
+<p>Two abbreviations appear in the class table and are used again in Chapters 20 through 23. <em>Full mode</em> means the runtime emits one statement per interaction, the stream a full learning record store would receive. <em>Compact mode</em> means the runtime folds exposure evidence into one summary statement per session, the design of the lighter LRS-Lite store. Both modes are designs; the compact one is developed in Chapter 22. Full and Compact treat answers identically, as the assessment section below explains.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Class</th>
+<th>What counts</th>
+<th>Full stream</th>
+<th>Compact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Continuous parameter</td>
+<td>slider, zoom, numeric input</td>
+<td><code>interacted</code> per step</td>
+<td>counts, min, max, last value, reversals</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Discrete inspection</td>
+<td>click, hover of 600 ms or more, pin, select</td>
+<td><code>interacted</code> with engagement mode and duration</td>
+<td>counts, modes and time</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Run and pause</td>
+<td>Start/Pause, Play/Stop</td>
+<td>a press <code>interacted</code>; one <code>experienced</code> per run</td>
+<td>run time plus a press touch</td>
+</tr>
+<tr>
+<td>3a</td>
+<td>Discrete press</td>
+<td>Reset, Randomize, Step</td>
+<td><code>interacted</code> with an action</td>
+<td>a touch with modes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Page dwell</td>
+<td>time on a MicroSim with no Run control</td>
+<td><code>experienced</code> on focus loss, if one second or more</td>
+<td>carried by the session summary</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Assessment</td>
+<td>quiz item, checked prediction, goal reached</td>
+<td><code>answered</code> with <code>success</code></td>
+<td>passes through unchanged</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Focus loss</td>
+<td>tab hidden, scroll away, idle, blur</td>
+<td>closes the open interval</td>
+<td>ends the session summary</td>
+</tr>
+</tbody>
+</table>
+<p>Class 3a, the discrete press, is a variant of class 3, so we treat it inside the run-and-pause discussion below. The classification itself rests on a set of questions the instrumentation skill asks in order, and using them is the quickest way to place any interaction.</p>
+<ol>
+<li>Does it check a response against a right answer? Then it is assessment, whatever it looks like.</li>
+<li>Does it change a numeric parameter continuously? Then it is a continuous parameter.</li>
+<li>Does it start or stop time passing in the MicroSim? Then it is run and pause, and the interval is the evidence.</li>
+<li>Is it a one-shot action such as Reset? Then it is a discrete press.</li>
+<li>Is it the learner looking at, opening, selecting or pinning something? Then it is discrete inspection.</li>
+<li>Does the MicroSim have no Run control at all? Then add page dwell so that time on the MicroSim is still recorded.</li>
+<li>Did the program fire the event rather than the learner? Then it is not evidence.</li>
+</ol>
+<p>A worked example applies the questions to a small p5.js MicroSim that has a gravity slider, a Start/Pause button, a Reset button and a checked prediction. Moving the slider is class 1. Pressing Start begins a run and pressing Pause ends it, which is class 3, with the interval carried by one <code>experienced</code> statement. Pressing Reset is class 3a. Choosing "higher, lower or the same" and having the MicroSim check it is class 5. If the learner leaves the tab open and walks away mid-run, that is class 6, and the runtime closes the interval by itself. The sequence's cost in statements matches what the skill states for a comparable case: dragging a slider through five steps, pressing Start and Pause, and leaving the tab produces eight Full-mode statements (five slider, two press and one run) or, in Compact mode, a single summary that records <code>statements_represented: 8</code>.</p>
+<p>Exposure evidence, which is classes 1 through 4, contributes zero attempts to a mastery estimate by design. Only class 5 carries <code>success</code>. The skill states the consequence outright: if a MicroSim is meant to measure <em>understanding</em>, it needs an assessment, and you should say so rather than implying that hover data measures knowledge. That is a modeling stance, not a measured result, and Chapter 19 describes how to test whether exposure evidence adds any predictive value at all.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Classify the Act, Not the Widget</p>
+<p>A button is not automatically a press. A canvas-drawn "Check my prediction" button checks an answer, so it is assessment; a Reset button does not, so it is a press. The class comes from what the interaction <em>does</em>, not from how it looks.</p>
+</div>
+<p>The next specification lets you practice the classification on a set of cases.</p>
+<h4 id="diagram-evidence-class-sorter">Diagram: Evidence Class Sorter</h4>
+<iframe src="../../sims/evidence-class-sorter/main.html" width="100%" height="762px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/evidence-class-sorter/main.html">Run the Evidence Class Sorter MicroSim Fullscreen</a></p>
+<details>
+<summary>Evidence Class Sorter</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> evidence-class-sorter<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish the evidence classes by assigning each interaction in a described MicroSim to its class and explaining the deciding question.</p>
+<p>Layout: the left panel shows a mock MicroSim with a gravity slider, Start/Pause, Reset, a three-node diagram and a checked prediction. The right panel shows the seven-question decision list, and a bottom strip shows the class bins: continuous parameter, discrete inspection, run and pause, page dwell, assessment, focus loss and not evidence.</p>
+<p>Controls and interactions:</p>
+<ul>
+<li>Clicking any element of the mock MicroSim highlights it and selects it as the item to classify.</li>
+<li>The learner picks a bin; the infobox then names the deciding question in the decision list and the statement the Full mode would emit, for example one <code>interacted</code> per deadband step.</li>
+<li>A "Full or Compact" toggle changes the infobox to show the folded Compact summary fields for the same item, and shows that a class 5 item is unchanged by the toggle.</li>
+<li>Hovering a bin shows its definition from this chapter.</li>
+<li>A "Challenge" button presents eight unlabeled events (such as "the pointer crosses the diagram in 300 milliseconds") to classify, with a score.</li>
+</ul>
+<p>Default state: nothing selected, Full mode shown, Challenge off.</p>
+<p>Responsive design: the canvas width follows the container on every window resize; the panels stack under 600 pixels. Buttons remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createButton and createCheckbox controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h3 id="continuous-parameter-evidence">Continuous Parameter Evidence</h3>
+<p><strong>Continuous parameter evidence</strong> comes from a control that sets a number along a range: a slider, a zoom, a numeric input. A slider fires an event for every pixel of drag, and hundreds of those events are not hundreds of decisions. The runtime therefore applies a <em>deadband</em>, a minimum change that must accumulate before a new statement is emitted. The default is the slider's range divided by 60, giving about sixty statements for one full sweep whatever the numeric range, and a control with a natural step can override it (the bouncing-ball's integer speed uses a deadband of one). When the learner releases the slider, the runtime always reports the value where they let go, even inside the deadband, so the final value is never lost. Values are reported in the units the learner sees, rounded as displayed. In Compact mode the slider folds into a count, a minimum, a maximum, the last value and the number of reversals.</p>
+<h3 id="discrete-inspection-evidence">Discrete Inspection Evidence</h3>
+<p><strong>Discrete inspection evidence</strong> comes from a learner looking at, opening, selecting or pinning one identifiable thing: a diagram node, a map marker, a legend entry, a data point. The <code>interacted</code> statement carries a mode (hover, click, pinned, select, legend or keyboard) and a duration. The deciding principle is to instrument the act the MicroSim was <em>designed</em> for, because hover does not exist on touch devices, and device type correlates with school funding. Two input paths that reach the same object are one act. A learner who hovers a node and then clicks it produces one engagement, and if click is a separate designed act such as pinning, it suppresses the hover in progress. Marker and label for one thing are one object, and a learner who steps through objects with a Next button and a learner who clicks them are doing the same thing. The eight-hour-entrepreneur batch of 20 MicroSims used that last rule in ten explorers, because a design that recorded only button presses would give a learner who only ever pressed Next no per-object evidence at all.</p>
+<h3 id="run-and-pause-evidence">Run and Pause Evidence</h3>
+<p><strong>Run and pause evidence</strong> is the interval between a learner starting and stopping a MicroSim's time. The contract's rule from the verbs section applies: one <code>experienced</code> statement per run, on Pause, plus an optional <code>interacted</code> statement for each press carrying an <code>action</code> extension. The press statements never claim to measure duration, and a press event must never fire on an automatic flush, since the learner clicked nothing. A full Start-to-Pause cycle therefore emits three statements, not one.</p>
+<h3 id="page-dwell-evidence">Page Dwell Evidence</h3>
+<p><strong>Page dwell evidence</strong> covers a MicroSim that has no Run control, such as a static diagram, where time on the page is otherwise unrecorded. The runtime, when configured with <code>pageDwell: true</code>, records one <code>experienced</code> statement on focus loss, but only if the visit lasted at least one second. The instrumentation notes flag an unresolved runtime issue: in Full mode, page dwell times from the moment the iframe loads until the tab hides and ignores scroll-away and idle, so a chart halfway down a long chapter could be credited with the whole visit. It is listed as a runtime fix, not something to work around per MicroSim, and it is one more reason to treat dwell as weak evidence.</p>
+<h3 id="assessment-evidence">Assessment Evidence</h3>
+<p><strong>Assessment evidence</strong> is any interaction that checks a response against a right answer. It is the only class that reports <code>success</code>, and so it is what a mastery model reads. The classification rule is broad on purpose: a quiz item, a checked prediction, a drag-to-bin sort and a goal-reached banner are all assessments, and every deliberate attempt is emitted, including the wrong ones.</p>
+<p>Two design decisions make assessment special. First, <em>answers are never folded</em>. In Compact mode the runtime merges exposure evidence into one session summary, but an <code>answered</code> statement passes through as its own statement at the moment it happens, in both modes, because a knowledge-tracing model reads the order of attempts and a fold would erase it. Second, an answer opens the Compact session without being counted in it. The contract records a fixed defect here: before 2026-09-26 a visit made only of answers left no summary and no time on the MicroSim. Such a summary now carries <code>statements_represented: 0</code> and only the time. Chapter quiz pages, which are not MicroSims, never emit a summary.</p>
+<p>The worked example is the six-hotspot quiz again. A learner who answers wrongly twice and then correctly leaves three <code>answered</code> statements against one identifier, in either mode. In Compact mode they also leave one <code>experienced</code> summary for the visit, which represents no folded interactions if they only answered. The contract leaves one question open, whether within-question retries should count as one opportunity or several for mastery estimation, because a guess-then-correct sequence is not the same evidence as two attempts a week apart.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Do Not Hide the Wrong Answers</p>
+<p>It is tempting to record only the final correct answer, because it looks tidy. But a learner who brute-forced six options and one who knew the answer would then look identical, so emit every deliberate attempt and de-duplicate only a repeat of the same choice.</p>
+</div>
+<h3 id="focus-loss-handling">Focus Loss Handling</h3>
+<p><strong>Focus loss handling</strong> is how the runtime closes an interval when the learner stops paying attention without pressing anything: the tab is hidden, the MicroSim scrolls out of view, the learner goes idle, or the window loses focus. The runtime handles this class itself, and a MicroSim author writes no code for it. In Full mode it closes the open run or page interval and emits the <code>experienced</code> statement then. The contract's reasoning is that starting a MicroSim and closing the tab is the <em>common</em> case, so without a flush the typical learner would emit nothing. It requires the <code>visibilitychange</code> event, not <code>beforeunload</code>, since only the former fires reliably on mobile Safari. In Compact mode a focus loss ends the session and produces its one summary. The Compact session ends after 90 seconds idle, 10 seconds off screen or 30 seconds of blur, by default, and tests shorten those values. A flush emits the interval's <code>experienced</code> statement but never a synthetic press, which would misrepresent a timeout as a deliberate act.</p>
+<h2 id="what-does-not-count-non-evidence-thresholds">What Does Not Count: Non-Evidence Thresholds</h2>
+<p>Every threshold in this chapter exists for one reason: to keep noise out of the record. The instrumentation skill states the principle in a sentence worth remembering: "If you emit them, dashboards will believe them." A statement in a store looks equally authoritative whether it came from a deliberate decision or from a mouse that happened to cross a diagram.</p>
+<p>A <strong>non-evidence threshold</strong> is a minimum duration or size below which an interaction is not recorded as evidence. The runtime defines three, plus the programmatic-event filter described in the next paragraph, and they are constants in <code>lrs-sim.js</code> that authors reference and never change.</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Applies to</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HOVER_MS</code></td>
+<td>600 ms</td>
+<td>discrete inspection by hover</td>
+<td>a pointer crossing a tall diagram enters a dozen nodes in a few hundred milliseconds</td>
+</tr>
+<tr>
+<td><code>MISCLICK_MS</code></td>
+<td>250 ms</td>
+<td>a run</td>
+<td>a run this short is a mis-click, and would add zero-length rows</td>
+</tr>
+<tr>
+<td><code>GLANCE_MS</code></td>
+<td>1000 ms</td>
+<td>page dwell</td>
+<td>under one second on a page is a glance</td>
+</tr>
+</tbody>
+</table>
+<p>The fourth filter is not a number. Events the program fires on itself, such as an automatic resize, a programmatic view change, or a range change during an animation, are not the learner's acts, and the adapter for each library must filter them out. The sim's load-time selection is likewise not evidence.</p>
+<p>The reasoning behind each number is design judgment, not measurement. The sources give the <em>reason</em> for each constant but do not cite any study or dataset from which the values were fitted, and no learner data has been collected. Treat 600, 250 and 1000 milliseconds as reasonable starting points that Chapter 19's evaluation method could test, for example by asking whether changing a threshold changes a model's predictions.</p>
+<p>A worked example shows the thresholds at work on a short session. A learner's pointer crosses five nodes in 400 ms, then rests on a sixth for 900 ms, presses Start and Pause 120 ms apart, presses Start again, and hides the tab after 40 seconds. Applying the rules gives the following.</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Rule</th>
+<th>Statement emitted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pointer crosses five nodes in 400 ms</td>
+<td>each hover under 600 ms</td>
+<td>none: the skill says sweeping five nodes quickly must emit 0</td>
+</tr>
+<tr>
+<td>pointer rests on the sixth node for 900 ms</td>
+<td>hover of at least 600 ms</td>
+<td>one <code>interacted</code> with mode <code>hover</code> and duration</td>
+</tr>
+<tr>
+<td>Start then Pause 120 ms later</td>
+<td>run under 250 ms</td>
+<td>two press <code>interacted</code> statements if press evidence is on; no <code>experienced</code></td>
+</tr>
+<tr>
+<td>Start, then tab hidden after 40 seconds</td>
+<td>focus loss flushes the run</td>
+<td>one Start press and one <code>experienced</code> of about 40 seconds, and no Pause press</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hover-threshold">Hover Threshold</h3>
+<p>The <strong>hover threshold</strong> is the 600 millisecond minimum a pointer must rest on one object before the runtime treats the hover as inspection. Below it, the pointer is moving across the object, not attending to it. The threshold applies only where hover is the designed act. Sweeping five nodes quickly must emit zero statements. When click merely serves touch devices as the same act, hover and click are one engagement and are not thresholded against each other.</p>
+<h3 id="misclick-threshold">Misclick Threshold</h3>
+<p>The <strong>misclick threshold</strong> is the 250 millisecond minimum length of a run before the runtime counts it as dwell. A Start and Pause pair closer together than that is almost certainly an accidental press. It emits no <code>experienced</code> statement, because zero-length rows would pollute the dwell total, though the press statements still fire, since the clicks did happen.</p>
+<p>A short warning belongs here because the thresholds are easy to misunderstand as a way of removing "bad" learners.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Thresholds Filter Acts, Not Learners</p>
+<p>A threshold removes a single sub-threshold act, never a person. A learner who moves quickly through a MicroSim still leaves whatever above-threshold acts and answers they made, so check that a fast pace is not being read as absence.</p>
+</div>
+<p>The last specification lets you feel how the thresholds change the record.</p>
+<h4 id="diagram-evidence-threshold-lab">Diagram: Evidence Threshold Lab</h4>
+<iframe src="../../sims/evidence-threshold-lab/main.html" width="100%" height="772px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/evidence-threshold-lab/main.html">Run the Evidence Threshold Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Evidence Threshold Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> evidence-threshold-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: justify): The learner will justify a choice of hover, misclick and glance thresholds by observing how each changes the number and kind of statements produced from a fixed, scripted session.</p>
+<p>Layout: the upper region is a timeline of a scripted 60-second learner session drawn as labeled bars: eight quick hovers of 100 to 500 ms, three hovers of 700 to 1200 ms, one 120 ms run, one 40 second run, a 700 ms page visit and an answered question. The lower left region shows the resulting statement list. The bottom white region holds the sliders.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Hover threshold (ms)" from 0 to 2000 in steps of 50, default 600</li>
+<li>Slider "Misclick threshold (ms)" from 0 to 1000 in steps of 50, default 250</li>
+<li>Slider "Glance threshold (ms)" from 0 to 3000 in steps of 100, default 1000</li>
+<li>Checkbox "Show statements that were filtered out" (default off)</li>
+<li>Button "Reset to runtime defaults"</li>
+</ul>
+<p>Behavior: moving a slider immediately recomputes which bars in the timeline produce statements, coloring emitted acts green and filtered acts gray. The statement list updates with the verb and object of each emitted statement, and a counter shows the total, with the answered statement highlighted as unaffected by any threshold.</p>
+<p>Interactions: hovering a bar shows its duration and the rule that admitted or removed it. Setting the hover threshold to 0 shows the flood of crossings, and setting it very high shows genuine attention being discarded, which the readout notes as a cost of an over-strict threshold.</p>
+<p>Default state: runtime defaults, filtered acts hidden.</p>
+<p>Responsive design: the canvas width follows the container on every window resize. Sliders resize to the container width minus the label margin and remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSlider, createCheckbox and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="putting-it-together">Putting It Together</h2>
+<p>Return to the question from the opening. A MicroSim can now describe what a learner did in a fixed grammar: five parts, three verbs, identifiers built from the canonical site URL, one concept per statement, and a classification that decides what is recorded and what is dropped. That grammar is what lets a store, a dashboard or a model treat the output of thousands of different MicroSims alike.</p>
+<p>The grammar has two honest limits. First, exposure evidence describes attendance, not understanding, and only checked answers can carry a mastery signal. Second, the thresholds and classes are design decisions that have not been tested against learner data. The chapters that follow keep those limits in view: Chapter 17 shows how to wire a MicroSim to this grammar using the shared runtime, Chapter 18 shows how a mastery model would read the stream, and Chapter 19 describes how to check whether the stream predicts anything.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Read the Evidence</p>
+<p>You can now take an xAPI statement apart into actor, verb, object, result and context, name the right verb and identifier for an interaction, and decide which interactions are evidence and of what class. Every bounce leaves evidence, and you know which ones count.</p>
+</div>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li><strong>xAPI</strong> is a shared grammar for learning events, and an <strong>xAPI statement</strong> is one JSON record of one learner action, shaped like a sentence.</li>
+<li>A statement has an actor, a verb, an object, a result and a context; the actor is an account, the verb an IRI, the object an activity, the result the outcome fields and the context the setting.</li>
+<li>The activity IRI is the canonical site URL plus the page path with a trailing slash; sub-activities add a fragment named for their stable local identity, and questions use <code>#q{N}</code> (one-based) only when their order is fixed.</li>
+<li>The concept ID extension attaches exactly one concept identifier to a statement; a wrong concept is worse than none.</li>
+<li>The three verbs are <code>answered</code> (needs <code>success</code>), <code>experienced</code> (needs <code>duration</code>) and <code>interacted</code> (needs nothing, values go in result extensions); only <code>answered</code> can say right or wrong.</li>
+<li>The producer contract binds every emitter to these rules, and its own open items, including the untested consumer side, are part of what you should know.</li>
+<li>Evidence classes place each interaction as continuous parameter, discrete inspection, run and pause, page dwell, assessment or focus loss, or as non-evidence.</li>
+<li>Non-evidence thresholds of 600 ms for hover, 250 ms for a run and one second for page dwell keep noise out; they are design judgments awaiting evaluation.</li>
+<li>All of this describes a design and a working runtime that builds and displays statements; nothing yet sends them to a store, and no learner data has been collected.</li>
+</ul>
+<p>The next chapter shows how to put this grammar into a real MicroSim with the shared xAPI runtime, without changing how the MicroSim behaves.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../15-metadata-search-and-reuse/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 15. Metadata, Search and Reuse">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                15. Metadata, Search and Reuse
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-footer__link md-footer__link--next" aria-label="Next: 17. Instrumenting MicroSims with the xAPI Runtime">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                17. Instrumenting MicroSims with the xAPI Runtime
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

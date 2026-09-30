@@ -1,0 +1,166 @@
+{
+  "title": "Semester Storage Estimator",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "xAPI",
+    "LRS-Lite",
+    "Browser Storage"
+  ],
+  "description": "Calculate a semester's xAPI statement count and LRS-Lite storage footprint from daily activity assumptions, then judge the headroom left under the 10 MB budget in Summary and Full mode.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/lite-semester-storage-estimator/",
+  "canvasHeight": 600,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "LRS-Lite statement volume and size estimates",
+    "learningObjectives": [
+      "The learner will calculate the statement count and storage footprint of a semester from activity assumptions, and judge how much headroom remains under a 10 MB limit."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "xAPI statements (Chapter 16)",
+      "Full mode and Compact mode (Chapter 22)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 600
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native range inputs and buttons; canvas has an aria-label; readout is an aria-live region."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Page reads / day",
+        "min": 0,
+        "max": 20,
+        "default": 6
+      },
+      {
+        "type": "slider",
+        "label": "Sim sessions / day",
+        "min": 0,
+        "max": 12,
+        "default": 4
+      },
+      {
+        "type": "slider",
+        "label": "Quiz answers / day",
+        "min": 0,
+        "max": 40,
+        "default": 15
+      },
+      {
+        "type": "slider",
+        "label": "Active study days",
+        "min": 10,
+        "max": 120,
+        "default": 90
+      },
+      {
+        "type": "slider",
+        "label": "Drags / session (Full mode only)",
+        "min": 0,
+        "max": 100,
+        "default": 40
+      },
+      {
+        "type": "toggle",
+        "label": "Emission mode",
+        "options": [
+          "Summary",
+          "Full"
+        ],
+        "default": "Summary"
+      },
+      {
+        "type": "button",
+        "label": "Load design cases",
+        "action": "Cycle through the four measured cases from the chapter table"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Worked-example calculator with design cases",
+    "keyQuestions": [
+      "How many statements does a typical semester produce in Summary mode?",
+      "How much headroom remains under 10 MB?",
+      "Which lever changes the footprint most: mode, drags or days?"
+    ],
+    "commonMisconceptions": [
+      "That the 10 MB budget is a tight working constraint for a summary-mode pilot",
+      "That Full mode and the Full LRS are the same thing"
+    ],
+    "assessmentOpportunities": [
+      "Compute statements per semester by hand and compare with the readout",
+      "Explain the gap between modelled and measured gzip size for Full mode"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "LRS-Lite",
+      "statement volume estimate",
+      "statement size measurement",
+      "10 MB budget",
+      "gzip",
+      "Full mode",
+      "Compact mode",
+      "headroom"
+    ]
+  },
+  "chapter": "22-lrs-lite-compact-summaries-and-browser-storage",
+  "simulation": {
+    "modelType": "deterministic calculator",
+    "variables": [
+      "reads",
+      "sessions",
+      "answers",
+      "days",
+      "drags",
+      "mode"
+    ],
+    "equations": [
+      "summary statements/day = reads + sessions + answers",
+      "full statements/day = reads + answers + sessions * (drags + 2)",
+      "raw MB = statements * 980 / 1,000,000",
+      "gzip MB = raw MB / 10",
+      "headroom = 10 MB / gzip MB"
+    ],
+    "assumptions": [
+      "980 bytes per statement (design measurement on synthetic statements)",
+      "gzip ratio of 10 (design approximation)"
+    ],
+    "limitations": [
+      "Figures are modelled from synthetic statements, not real learners",
+      "Measured gzip ratios for Full mode are about 15-17x, so the model overstates Full-mode gzip size"
+    ]
+  }
+}

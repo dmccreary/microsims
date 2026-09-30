@@ -1,0 +1,90 @@
+{
+  "title": "Full LRS Architecture Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic) via the microsim-generator skill"],
+  "subject": ["Learning Record Store", "LRS Architecture", "System Architecture", "Built Versus Designed"],
+  "description": "A vis-network diagram of the full Learning Record Store's five planes and twelve nodes, colored by built, partly built or designed status from the repository's TODO file, with edge tooltips describing each data flow, a filter for designed components and a drag-to-plane quiz.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/lrs-architecture-explorer/",
+  "canvasHeight": 660,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Learning Analytics Infrastructure",
+    "topic": "The five planes of the full LRS architecture",
+    "learningObjectives": [
+      "Differentiate the five architectural planes and the components in each, and distinguish built components from designed ones."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "differentiate",
+    "duration": "15-20 minutes",
+    "prerequisites": ["Learning Record Store", "xAPI statements"],
+    "concepts": ["LRS Architecture", "Learning Record Store", "Ingestion Gateway", "Event Stream", "ClickHouse", "Neo4j Graph Database"],
+    "chapter": "20-the-full-lrs-architecture-and-ingestion",
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 660
+    },
+    "responsive": true,
+    "dependencies": ["vis-network 9.1.9 (jsDelivr CDN)"],
+    "dataFiles": ["data.json (nodes, planes, edges and status; must be served over HTTP)"],
+    "accessibility": {
+      "hasAltText": true,
+      "screenReaderSummary": true,
+      "keyboardNavigable": true,
+      "keyboardNotes": "The quiz can be completed with plane buttons instead of dragging.",
+      "colorBlindSafePalette": "Okabe-Ito bluish green and yellow, plus a dashed border for designed components",
+      "minimumLabelSize": "Node labels scale up so they never render below 11 px"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "canvas-click", "label": "Click a component to open its information panel"},
+      {"type": "hover", "label": "Hover an arrow to see what travels along it"},
+      {"type": "checkbox", "label": "Hide designed components", "default": false},
+      {"type": "button", "label": "Quiz me / End quiz"},
+      {"type": "drag", "label": "Quiz: drag the component into its plane"},
+      {"type": "button", "label": "Quiz: plane buttons (keyboard alternative)"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Architecture diagram with status overlay and placement quiz",
+    "variables": ["component", "plane", "status", "data flow"],
+    "assumptions": [
+      "Status follows the LRS repository TODO.md dated 2026-09-26, as reported in Chapter 20.",
+      "The event stream is drawn in the ingestion plane, which accepts statements and puts them on the durable queue.",
+      "Edges for the identity service, vault, analytics API and dashboards follow the Chapter 20 text; the specification listed only the main statement path."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore, filter by status, then self-test",
+    "interactionPattern": "Network explorer with information panel and drag-to-category quiz",
+    "keyQuestions": [
+      "Which plane does each component belong to, and why?",
+      "Which parts of the LRS have been built and run, and which exist only on paper?",
+      "Why does the gateway depend on nothing but the queue?"
+    ],
+    "commonMisconceptions": [
+      "A detailed architecture diagram describes a running system.",
+      "The databases being present means statements are being stored.",
+      "The gateway writes directly to ClickHouse."
+    ],
+    "assessmentOpportunities": [
+      "First-try score in the placement quiz.",
+      "A written list of built, partly built and designed components with the status source."
+    ]
+  },
+  "search": {
+    "keywords": ["LRS", "architecture", "planes", "gateway", "ClickHouse", "Neo4j", "Redpanda", "vis-network"]
+  }
+}

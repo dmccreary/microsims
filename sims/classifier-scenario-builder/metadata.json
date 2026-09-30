@@ -1,0 +1,135 @@
+{
+  "title": "Classifier Scenario Builder",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Concept Classifier Type",
+    "Sorting Quiz",
+    "Category Bucket",
+    "Builder MicroSim",
+    "Item Writing"
+  ],
+  "description": "A form for one concept-classifier scenario (scenario, correctAnswer, three distractors, hint, explanation) beside a live learner preview of the quiz card, with quality checks, a data.json export and a playable Try as learner mode.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/classifier-scenario-builder/",
+  "canvasHeight": 835,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Writing a concept-classifier scenario with exactly one defensible option",
+    "learningObjectives": [
+      "The learner will write a classifier scenario, four options, a hint and an explanation, and will check that exactly one option is defensible."
+    ],
+    "bloomsTaxonomy": "Create",
+    "bloomVerb": "write",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Concept Classifiers and Sorting Quizzes section of Chapter 11",
+      "The poster anti-patterns listed in Chapter 11"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 835
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "The form uses native text inputs and text areas; the JSON is a selectable read-only text area"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "form-fields",
+        "type": "text inputs",
+        "label": "scenario, correctAnswer, three distractors, hint, explanation",
+        "purpose": "Author the scenario; the preview updates on every keystroke"
+      },
+      {
+        "id": "check-quality",
+        "type": "button",
+        "label": "Check quality",
+        "purpose": "Flag empty fields, a missing or repeated correct answer, an over-long option and a hint that repeats the answer"
+      },
+      {
+        "id": "show-json",
+        "type": "button",
+        "label": "Show JSON / Hide JSON",
+        "purpose": "Display the scenario in the classifier data.json shape"
+      },
+      {
+        "id": "try-as-learner",
+        "type": "button",
+        "label": "Try as learner / Back to editing",
+        "purpose": "Play the card with hint and feedback"
+      },
+      {
+        "id": "start-from",
+        "type": "select",
+        "label": "Start from",
+        "default": "chapter example",
+        "purpose": "Load the chapter example, a flawed draft or a blank form"
+      },
+      {
+        "id": "defensible-check",
+        "type": "checkbox",
+        "label": "Only one option is defensible (I checked)",
+        "default": false,
+        "purpose": "Record the author's judgment that no distractor can be defended"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Author, check, play and revise",
+    "interactionPattern": "Builder with live preview, automatic string checks and a human-judgment check",
+    "keyQuestions": [
+      "What makes a distractor plausible but indefensible?",
+      "Why do test-wise learners pick the longest option?",
+      "How can a hint help without naming the answer?"
+    ],
+    "commonMisconceptions": [
+      "Passing the automatic checks proves the item is good",
+      "A distractor should be obviously wrong",
+      "The hint may restate the category name"
+    ],
+    "assessmentOpportunities": [
+      "Scenarios that pass every automatic check",
+      "Peer attempts to defend each distractor",
+      "Exported JSON with all six fields"
+    ]
+  },
+  "search": {
+    "tags": [
+      "concept classifier",
+      "scenario writing",
+      "distractors",
+      "data.json",
+      "builder",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "editor",
+      "quiz"
+    ]
+  },
+  "chapter": "11-verified-posters-and-specialized-microsim-types"
+}

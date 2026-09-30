@@ -1,0 +1,102 @@
+/* Semester Storage Estimator - layout
+   Fixed total height (CANVAS_HEIGHT 600). The chart takes whatever height the
+   controls and readout leave. Wide: readout to the right of the controls.
+   Under 620px: readout moves beneath the controls. */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+main { display: block; }
+
+#app {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+    background: white;
+}
+#title-row {
+    flex: 0 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 12px;
+    padding: 6px 10px 2px 10px;
+    background: aliceblue;
+}
+#title { font-size: 19px; font-weight: bold; }
+#caption { font-size: 14px; color: dimgray; font-style: italic; }
+
+#chart-wrap {
+    flex: 1 1 auto;
+    min-height: 150px;
+    position: relative;
+    background: aliceblue;
+    border-bottom: 1px solid silver;
+    padding: 2px 8px 4px 4px;
+}
+#chart-wrap canvas { width: 100% !important; height: 100% !important; }
+
+#bottom {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 10px;
+    padding: 6px 10px 6px 10px;
+}
+#controls { flex: 1 1 auto; min-width: 0; }
+.row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 29px;
+    font-size: 15px;
+}
+.row label { flex: 0 0 170px; }
+.row label em { font-style: normal; color: dimgray; }
+.row .val { flex: 0 0 34px; text-align: right; font-weight: bold; }
+.row input[type="range"] { flex: 1 1 auto; min-width: 80px; }
+.row.disabled label, .row.disabled .val { color: darkgray; }
+.row.buttons { height: auto; flex-wrap: wrap; margin-top: 4px; gap: 6px; }
+.mode-label { font-size: 15px; }
+
+.seg, .btn {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid steelblue;
+    border-radius: 6px;
+    background: white;
+    color: #1f4f7a;
+    cursor: pointer;
+}
+.seg[aria-pressed="true"] { background: steelblue; color: white; font-weight: bold; }
+.btn { background: #f0f6fb; }
+.seg:focus-visible, .btn:focus-visible, input:focus-visible { outline: 3px solid orange; outline-offset: 1px; }
+
+#readout {
+    flex: 0 0 255px;
+    font-size: 14px;
+    line-height: 1.32;
+    background: aliceblue;
+    border: 1px solid lightsteelblue;
+    border-radius: 8px;
+    padding: 6px 9px;
+}
+#readout .k { color: #333; }
+#readout .n { font-weight: bold; }
+#readout .f { color: dimgray; }
+#readout .headroom { font-size: 16px; font-weight: bold; margin: 3px 0; }
+#readout .verdict { font-weight: bold; }
+#readout .ok { color: #1a5e20; }
+#readout .warn { color: #8a5300; }
+#readout .bad { color: #b00020; }
+#readout .case { margin-top: 4px; padding-top: 4px; border-top: 1px dashed lightsteelblue; }
+
+/* Readout moves beneath the controls on narrow screens */
+@media (max-width: 619px) {
+    #bottom { flex-direction: column; gap: 4px; }
+    #readout { flex: 0 0 auto; }
+    .row label { flex-basis: 150px; font-size: 14px; }
+    .row { height: 27px; }
+    .row.buttons { gap: 4px; }
+    .seg, .btn { padding: 5px 7px; }
+    .mode-label { font-size: 14px; }
+    #caption { font-size: 13px; }
+}

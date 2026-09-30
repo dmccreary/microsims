@@ -1,0 +1,114 @@
+/* MicroSims Milestones Timeline - fixed total height 480px (CANVAS_HEIGHT)
+   toolbar 42 + timeline (flex) + nav bar 38 + details 150 */
+* { box-sizing: border-box; }
+body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+main { display: block; }
+
+#app {
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid silver;
+    background: aliceblue;
+}
+#toolbar {
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    background: white;
+    border-bottom: 1px solid silver;
+    font-size: 15px;
+}
+#title { font-size: 18px; font-weight: bold; white-space: nowrap; }
+.spacer { flex: 1; }
+#group-select { font-size: 15px; padding: 3px 4px; }
+
+#timeline { flex: 1 1 auto; min-height: 0; background: aliceblue; }
+
+#navbar {
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: white;
+    border-top: 1px solid silver;
+    padding: 0 6px;
+}
+.nav-btn {
+    font-size: 14px;
+    padding: 4px 9px;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    background: white;
+    color: #1f4e79;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.nav-btn:hover { background: aliceblue; }
+
+#details {
+    flex: 0 0 150px;
+    background: white;
+    border-top: 1px solid silver;
+    padding: 8px 12px;
+    font-size: 15px;
+    line-height: 1.4;
+    overflow: hidden;
+}
+#legend { font-size: 14px; margin-bottom: 6px; color: #333; }
+.swatch {
+    display: inline-block; width: 13px; height: 13px; border-radius: 3px;
+    vertical-align: -2px; margin: 0 4px 0 10px;
+}
+.swatch:first-child { margin-left: 0; }
+#event-details .when { color: dimgray; font-size: 14px; }
+#event-details .what { font-weight: bold; }
+#event-details p { margin: 3px 0 0 0; }
+#event-details .hint { color: dimgray; }
+
+/* Theme colors (book, paper, tools) */
+.swatch.book, .vis-item.book { background-color: steelblue; border-color: #1f4e79; color: white; }
+.swatch.paper, .vis-item.paper { background-color: darkorange; border-color: #9a4d00; color: black; }
+.swatch.tools, .vis-item.tools { background-color: seagreen; border-color: #1d5c38; color: white; }
+.vis-item.vis-line.book { border-color: steelblue; }
+.vis-item.vis-line.paper { border-color: darkorange; }
+.vis-item.vis-line.tools { border-color: seagreen; }
+.vis-item.vis-dot.book { border-color: steelblue; }
+.vis-item.vis-dot.paper { border-color: darkorange; }
+.vis-item.vis-dot.tools { border-color: seagreen; }
+
+/* Item boxes must fit their text (see the timeline guide) */
+.vis-item .vis-item-content {
+    white-space: nowrap !important;
+    padding: 3px 7px !important;
+    font-size: 13px;
+    cursor: pointer;
+}
+.vis-item.vis-box { min-width: fit-content !important; border-radius: 5px; }
+/* Keep the theme color when selected; mark selection with a dark border and a gold halo */
+.vis-item.vis-selected { border-color: black !important; border-width: 2px; box-shadow: 0 0 0 3px gold; }
+.vis-item.vis-box.book.vis-selected { background-color: steelblue !important; color: white; }
+.vis-item.vis-box.paper.vis-selected { background-color: darkorange !important; color: black; }
+.vis-item.vis-box.tools.vis-selected { background-color: seagreen !important; color: white; }
+.vis-labelset .vis-label { font-size: 14px; font-weight: bold; color: #333; }
+.vis-time-axis .vis-text { font-size: 13px; color: #333; }
+
+.vis-tooltip {
+    background: #2c3e50 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    max-width: 260px !important;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+}
+
+@media (max-width: 520px) {
+    #title { font-size: 16px; }
+    .nav-btn { font-size: 13px; padding: 4px 6px; }
+    #details { font-size: 14px; line-height: 1.3; padding: 6px 10px; }
+}

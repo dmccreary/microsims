@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Choropleth Threshold Lab using Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="choropleth-threshold-lab.js"></script>
+</head>
+<body>
+    <main>
+        <h2>Choropleth Threshold Lab</h2>
+        <div class="subtitle">Placeholder values, not real statistics</div>
+        <div id="map" aria-label="Choropleth map of US states colored by a placeholder value"></div>
+        <div id="legend" aria-live="polite"></div>
+        <div class="controls">
+            <div class="row">
+                <label for="presetSelect">Preset:</label>
+                <select id="presetSelect">
+                    <option>Template thresholds</option>
+                    <option>Equal intervals</option>
+                    <option>Cluster near 80</option>
+                    <option disabled>Custom</option>
+                </select>
+                <label><input type="checkbox" id="valuesToggle" checked> Show values on hover</label>
+                <button id="resetViewBtn">Reset view</button>
+            </div>
+            <div class="sliders" id="sliders"></div>
+            <div class="judge">
+                <div class="row" style="margin-top:0">
+                    <label>North&ndash;south gradient:
+                        <select id="judgeGradient"><option value="">choose</option><option>revealed</option><option>hidden</option></select></label>
+                    <label>Great Lakes trend:
+                        <select id="judgeCluster"><option value="">choose</option><option>revealed</option><option>hidden</option></select></label>
+                    <button id="checkBtn">Check</button>
+                </div>
+                <div id="feedback" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

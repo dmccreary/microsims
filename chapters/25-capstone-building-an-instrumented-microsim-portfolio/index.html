@@ -1,0 +1,3056 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A project chapter that walks through building, testing, protecting and reporting on an instrumented MicroSim portfolio, with milestones, a rubric and a worked plan.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/25-capstone-building-an-instrumented-microsim-portfolio/">
+      
+      
+        <link rel="prev" href="../24-pedagogy-accessibility-and-ethics/">
+      
+      
+        <link rel="next" href="../26-the-future-of-microsims/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Capstone: Building an Instrumented MicroSim Portfolio - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Capstone: Building an Instrumented MicroSim Portfolio - Micro Simulations for Education" />
+<meta property="og:description" content="A project chapter that walks through building, testing, protecting and reporting on an instrumented MicroSim portfolio, with milestones, a rubric and a worked plan." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/25-capstone-building-an-instrumented-microsim-portfolio/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/25-capstone-building-an-instrumented-microsim-portfolio/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Capstone: Building an Instrumented MicroSim Portfolio - Micro Simulations for Education" />
+<meta property="twitter:description" content="A project chapter that walks through building, testing, protecting and reporting on an instrumented MicroSim portfolio, with milestones, a rubric and a worked plan." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/25-capstone-building-an-instrumented-microsim-portfolio/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#capstone-building-an-instrumented-microsim-portfolio" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Capstone: Building an Instrumented MicroSim Portfolio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Brief
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidence-about-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence About Simulations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-with-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing With People
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-learner-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protecting Learner Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-portfolio-fidelity-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Portfolio Fidelity Report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestones-and-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestones and Deliverables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestones and Deliverables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-portfolio-milestone-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Portfolio Milestone Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading Rubric
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grading Rubric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-rubric-self-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Rubric Self-Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-a-small-portfolio-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example: A Small Portfolio Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-brief" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Brief
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evidence-about-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evidence About Simulations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-with-people" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing With People
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-learner-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protecting Learner Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-portfolio-fidelity-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Portfolio Fidelity Report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestones-and-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestones and Deliverables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Milestones and Deliverables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-portfolio-milestone-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Portfolio Milestone Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading-rubric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading Rubric
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grading Rubric">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-rubric-self-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Rubric Self-Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-a-small-portfolio-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example: A Small Portfolio Plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/25-capstone-building-an-instrumented-microsim-portfolio/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="capstone-building-an-instrumented-microsim-portfolio">Capstone: Building an Instrumented MicroSim Portfolio</h1>
+<h2 id="summary">Summary</h2>
+<p>Guides students through building an instrumented MicroSim portfolio and reporting how well its event stream predicts mastery of its target concepts.</p>
+<p>The chapter adds usability testing, peer review and the evidence on simulation effectiveness, and applies data minimization and aggregate-only policies. After it, students can deliver and defend a portfolio.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 8 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulation Effectiveness Studies</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Engagement Versus Learning</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Aggregate-Only Data Policy</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Data Minimization</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Usability Testing</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Peer Review</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Capstone Portfolio</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Portfolio Fidelity Report</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../13-quality-assurance-and-automated-layout-review/">Chapter 13: Quality Assurance and Automated Layout Review</a></li>
+<li><a href="../14-batch-generation-from-specifications/">Chapter 14: Batch Generation from Specifications</a></li>
+<li><a href="../17-instrumenting-microsims-with-the-xapi-runtime/">Chapter 17: Instrumenting MicroSims with the xAPI Runtime</a></li>
+<li><a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/">Chapter 19: Evaluating the Predictive Fidelity of the xAPI Stream</a></li>
+<li><a href="../20-the-full-lrs-architecture-and-ingestion/">Chapter 20: The Full LRS: Architecture and Ingestion</a></li>
+<li><a href="../24-pedagogy-accessibility-and-ethics/">Chapter 24: Pedagogy, Accessibility and Ethics</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Your Portfolio Starts Here</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+This is the chapter where the whole book turns into something you can show other people. You will assemble a small set of MicroSims that generate, pass quality checks, report evidence and come with an honest answer to the book's big question. Let's bounce it around!</p>
+</div>
+<p>Every earlier chapter taught one part of a pipeline: choose a type, generate from a specification, check the layout, describe the result, instrument it, and evaluate what its events can predict. The capstone asks you to run the whole pipeline once, on a topic you choose, and to defend the result. This chapter gives the project brief, the milestones, the deliverables, a rubric and a worked example. Along the way it adds five ideas the pipeline still lacks: evidence about whether simulations work, human testing, review by peers, and two data-protection policies.</p>
+<h2 id="project-brief">Project Brief</h2>
+<p>A <strong>capstone portfolio</strong> is a curated, documented set of instrumented MicroSims, built by one student or a small team for one course topic, together with the evidence that each part works. The brief below is the assignment for this book. The course description weights the capstone at 25 percent of the course grade and describes it as an instrumented portfolio with documentation and a mastery-prediction analysis. The portfolio size and the milestone dates in this chapter are suggestions for a semester course, and an instructor may change them.</p>
+<p>The portfolio must meet these requirements, each of which points back to a chapter that taught the skill:</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Suggested target</th>
+<th>Taught in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learning objectives with Bloom levels, one per target concept</td>
+<td>4 to 6 concepts</td>
+<td><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3</a></td>
+</tr>
+<tr>
+<td>MicroSims of at least three different types, generated from specifications</td>
+<td>4 to 6 MicroSims</td>
+<td><a href="../14-batch-generation-from-specifications/">Chapter 14</a></td>
+</tr>
+<tr>
+<td>Quality gate: every new MicroSim scores at least 70 on the validator, and is width-responsive</td>
+<td>All MicroSims</td>
+<td><a href="../13-quality-assurance-and-automated-layout-review/">Chapter 13</a></td>
+</tr>
+<tr>
+<td>xAPI instrumentation that passes <code>check-xapi.py</code></td>
+<td>All MicroSims</td>
+<td><a href="../17-instrumenting-microsims-with-the-xapi-runtime/">Chapter 17</a></td>
+</tr>
+<tr>
+<td>Usability test and peer review, with the fixes they led to</td>
+<td>3 or more test participants, 1 reviewer</td>
+<td>This chapter</td>
+</tr>
+<tr>
+<td>Data policy statement</td>
+<td>One page</td>
+<td>This chapter and <a href="../24-pedagogy-accessibility-and-ethics/">Chapter 24</a></td>
+</tr>
+<tr>
+<td>Portfolio fidelity report</td>
+<td>One report</td>
+<td><a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/">Chapter 19</a> and this chapter</td>
+</tr>
+</tbody>
+</table>
+<p>The 70-point bar for new MicroSims comes from the MicroSims 2.0 plan, which also sets 85 for any MicroSim carried over from version 1.0. Because the plan's own pilot instrumented about 10 MicroSims, a portfolio of four to six is deliberately smaller and deeper.</p>
+<h2 id="evidence-about-simulations">Evidence About Simulations</h2>
+<p>Before you claim your portfolio helps anyone learn, you need to know what the research does and does not say. <strong>Simulation effectiveness studies</strong> are empirical studies that compare learning outcomes of students who used a simulation with outcomes of comparison groups, usually on a test of the target concept. Many such studies exist for established simulation libraries such as PhET. The MicroSims 2.0 plan is candid about the gap for this book: its effectiveness data are borrowed from PhET studies and meta-analyses, and none has been measured on MicroSims. Read published effect sizes as motivation for your design, never as a result you inherit.</p>
+<p>The distinction that protects you from overclaiming is <strong>engagement versus learning</strong>. Engagement is what learners do with a MicroSim, such as clicks, minutes and slider changes. Learning is a change in what they know or can do, and only an assessment observes it. A MicroSim can be enjoyable and heavily used while teaching little, and the reverse is also possible. The xAPI stream measures engagement directly, so its link to learning is a hypothesis, which is exactly what your fidelity report tests.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Clicks Are Not Knowledge</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the event stream as footprints and the held-out assessment as the destination. Footprints can suggest where someone went, but only the assessment tells you whether they arrived.</p>
+</div>
+<h2 id="testing-with-people">Testing With People</h2>
+<p>Automated checks find layout and instrumentation defects, but they cannot tell you whether a learner understands what to do. <strong>Usability testing</strong> is observing representative users as they attempt realistic tasks with a MicroSim, so that you find where they hesitate, misread or give up. Three participants is a practical minimum for a course project, though a small test finds problems and cannot estimate how common they are. Ask each participant to think aloud, and give tasks such as "make the ball bounce lower" without explaining the controls.</p>
+<p><strong>Peer review</strong> is structured critique of your work by another student or an instructor, using the same rubric that will grade it. Reviewers open the deployed pages, not your source folder, and they check the claims in your documentation against what they see. The table records what each method catches, and the worked plan later in the chapter shows both in use.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Who does it</th>
+<th>What it catches</th>
+<th>What it cannot catch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automated quality chain</td>
+<td>Scripts</td>
+<td>Layout defects, missing metadata, hidden controls, malformed statements</td>
+<td>Confusing instructions</td>
+</tr>
+<tr>
+<td>Usability test</td>
+<td>Representative users</td>
+<td>Misread controls, unclear tasks, dead ends</td>
+<td>How common a problem is</td>
+</tr>
+<tr>
+<td>Peer review</td>
+<td>Another student or instructor</td>
+<td>Unsupported claims, gaps against the rubric</td>
+<td>Problems only novices meet</td>
+</tr>
+</tbody>
+</table>
+<h2 id="protecting-learner-data">Protecting Learner Data</h2>
+<p>Chapter 24 mapped where personal data can enter an instrumented MicroSim. Two policies from that discussion become deliverables in your capstone. <strong>Data minimization</strong> is the practice of collecting only the data needed for a stated purpose. For a portfolio, the purpose is predicting mastery of your target concepts, so each event you keep must map to an evidence class and a concept, and you should avoid free-text capture when a choice will do.</p>
+<p>An <strong>aggregate-only data policy</strong> is a commitment that reports, dashboards and the portfolio fidelity report present only group-level figures and never individual learners' records. Chapter 21 supplies the mechanism in the Full LRS design: a suppression threshold, 10 students by default, below which a cell is hidden, plus complementary suppression so that row totals do not reveal a hidden cell. That chapter also notes the suppression filter is designed but not built, so your policy statement must say how your own analysis enforces the rule. A class of a dozen students will often fall under the threshold, which means many of your cells may have to be merged or withheld.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Small Classes Leak</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+In a class of twelve, a group of three is easy to identify by elimination, even without names. Merge small groups into larger ones, or report only the whole-cohort figure, and check that no total lets a reader subtract a hidden cell.</p>
+</div>
+<h2 id="the-portfolio-fidelity-report">The Portfolio Fidelity Report</h2>
+<p>The <strong>portfolio fidelity report</strong> is the capstone's written analysis of how well the event stream from your instrumented MicroSims predicts mastery of their target concepts. It follows the reporting structure of Chapter 19: prediction target, evidence window, held-out assessment, sample, baseline, metrics with uncertainty, confounders, coverage gaps, and a plain statement of what is measured, designed and hoped for.</p>
+<p>Honesty rules apply strongly here. No learner data has been collected through MicroSims so far, and as of the learning-record-store repository's TODO dated 2026-09-26 no emitter posts statements to a store yet. A student portfolio therefore has two legitimate routes. You may run the Chapter 19 evaluation on a synthetic cohort, which demonstrates your procedure and says nothing about real learners. Or you may collect a small pilot from consenting classmates, which gives real but very noisy data. Chapter 19 showed that a 50-learner synthetic cohort produced an AUC interval about 0.27 wide, so a pilot of a dozen cannot support a predictive claim. State the sample size and label every result accordingly.</p>
+<h2 id="milestones-and-deliverables">Milestones and Deliverables</h2>
+<p>The milestones below order the work so that each stage feeds the next. Dates are expressed as weeks of a suggested 8-week schedule.</p>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Milestone</th>
+<th>Deliverable</th>
+<th>Gate to pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Plan</td>
+<td>Portfolio plan: topic, concepts, objectives, one MicroSim type per concept</td>
+<td>Instructor approves plan</td>
+</tr>
+<tr>
+<td>2 to 3</td>
+<td>Specify and generate</td>
+<td>Specification blocks, generated MicroSims, metadata files</td>
+<td>Each new MicroSim scores at least 70</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Instrument</td>
+<td>xAPI wiring and <code>check-xapi.py</code> reports</td>
+<td>All checks pass</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Test and review</td>
+<td>Usability notes, peer review form, list of fixes made</td>
+<td>Fixes re-scored</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Protect</td>
+<td>Data policy statement</td>
+<td>Reviewer confirms minimization and aggregate-only rules</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Evaluate</td>
+<td>Portfolio fidelity report</td>
+<td>Limits sentence present</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Present</td>
+<td>Deployed site and a short defense</td>
+<td>Rubric score</td>
+</tr>
+</tbody>
+</table>
+<p>Two commands support the gates. The first scores every MicroSim in the project and saves the results, and the second drives one MicroSim in a headless browser and checks its statements. The <code>--project-dir</code> flag names the book folder, <code>--output</code> names the results file, and the <code>--actions</code> flag names an optional JSON file that drives canvas clicks the generic pass cannot reach.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>python3<span class="w"> </span>validate-sims.py<span class="w"> </span>--project-dir<span class="w"> </span>.<span class="w"> </span>--output<span class="w"> </span>scores.json
+uv<span class="w"> </span>run<span class="w"> </span>--with<span class="w"> </span><span class="nv">playwright</span><span class="o">==</span><span class="m">1</span>.58.0<span class="w"> </span>python<span class="w"> </span>check-xapi.py<span class="w"> </span>docs/sims/&lt;name&gt;<span class="w"> </span>--actions<span class="w"> </span>actions.json
+</code></pre></div></td></tr></table></div>
+<h4 id="diagram-portfolio-milestone-planner">Diagram: Portfolio Milestone Planner</h4>
+<iframe src="../../sims/portfolio-milestone-planner/main.html" width="100%" height="682px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/portfolio-milestone-planner/main.html">Run the Portfolio Milestone Planner MicroSim Fullscreen</a></p>
+<details>
+<summary>Portfolio Milestone Planner</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> portfolio-milestone-planner<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Create; verb: design): The learner will design a week-by-week schedule for their own portfolio and identify which milestone gates put the schedule at risk.</p>
+<p>Layout: a drawing region above a control region. The drawing region shows eight week columns and seven milestone bars from the chapter's milestone table, each bar clickable. The control region is white and holds the sliders and buttons.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Number of MicroSims" from 3 to 8, default 5</li>
+<li>Slider "Test participants" from 1 to 8, default 3</li>
+<li>Slider "Weeks available" from 6 to 12, default 8</li>
+<li>Button "Reset to suggested schedule"</li>
+</ul>
+<p>Behavior: changing a slider stretches or shrinks the bars for generation, testing and instrumentation, and bars that no longer fit turn amber with a one-sentence warning. Clicking a bar opens a panel listing its deliverable and the gate it must pass. The bar values are illustrative estimates for planning and are not measured effort data, and the sim says so.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, and week labels rotate or abbreviate at narrow widths.</p>
+<p>Implementation: p5.js with createSlider and createButton controls, and a describe() call summarizing the current schedule.</p>
+</details>
+<h2 id="grading-rubric">Grading Rubric</h2>
+<p>The rubric assigns 100 points to the capstone. The weights emphasize honest analysis over impressive-looking numbers, since a weak but honest fidelity result deserves more credit than a strong claim the data cannot support.</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Points</th>
+<th>Full credit means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portfolio design</td>
+<td>15</td>
+<td>Objectives with Bloom levels, at least three types, sound type choices</td>
+</tr>
+<tr>
+<td>Quality gate</td>
+<td>15</td>
+<td>Every new MicroSim at 70 or above and width-responsive</td>
+</tr>
+<tr>
+<td>Instrumentation</td>
+<td>15</td>
+<td>Passing checks, one concept per statement, evidence classes justified</td>
+</tr>
+<tr>
+<td>Usability test and peer review</td>
+<td>15</td>
+<td>Findings recorded, fixes made and re-scored</td>
+</tr>
+<tr>
+<td>Data policy</td>
+<td>10</td>
+<td>Minimization and aggregate-only rules stated and enforced in the analysis</td>
+</tr>
+<tr>
+<td>Portfolio fidelity report</td>
+<td>20</td>
+<td>Complete Chapter 19 structure, uncertainty shown, limits sentence first</td>
+</tr>
+<tr>
+<td>Defense</td>
+<td>10</td>
+<td>Answers questions about measured versus designed claims</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Check Early, Check Often</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Run the quality chain and the instrumentation check after every MicroSim, not once at the end. A defect found in week 3 costs one regeneration, while the same defect found in week 7 can invalidate your evidence window.</p>
+</div>
+<h4 id="diagram-rubric-self-check">Diagram: Rubric Self-Check</h4>
+<iframe src="../../sims/portfolio-rubric-self-check/main.html" width="100%" height="622px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/portfolio-rubric-self-check/main.html">Run the Rubric Self-Check MicroSim Fullscreen</a></p>
+<details>
+<summary>Rubric Self-Check</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> portfolio-rubric-self-check<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: assess): The learner will assess a draft portfolio against the seven rubric criteria and justify which criterion to improve first.</p>
+<p>Data: the seven criteria and their point values from the rubric table. Each criterion has a self-rating slider from 0 to 100 percent, defaulting to 50.</p>
+<p>Layout: a horizontal stacked bar chart above a control region. Each bar shows points earned against points available for one criterion, with a total score displayed above the chart.</p>
+<p>Interactions: moving a slider updates the bar and the total. Hovering a bar shows the criterion's "full credit means" text. A button "Suggest next focus" highlights the criterion with the largest points still available, and a text box records the learner's reason. The ratings are self-assessments and the sim says they are not a grade.</p>
+<p>Responsive design: the chart width follows the container width on every window resize, and the sliders stack below the chart at narrow widths.</p>
+<p>Implementation: Chart.js bar chart with HTML range inputs, updating the chart data on the input event.</p>
+</details>
+<h2 id="worked-example-a-small-portfolio-plan">Worked Example: A Small Portfolio Plan</h2>
+<p>A worked example shows the plan from week 1. The scenario is invented for illustration: a student builds a portfolio for a unit on Ohm's law in an introductory electronics course. The concept identifiers are illustrative, and no real learners exist for this example.</p>
+<table>
+<thead>
+<tr>
+<th>Concept ID</th>
+<th>Objective (Bloom)</th>
+<th>MicroSim and type</th>
+<th>Evidence class expected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ohms-law-relation</td>
+<td>Apply: compute current from voltage and resistance</td>
+<td>Circuit lab, p5.js</td>
+<td>Manipulation, checked prediction</td>
+</tr>
+<tr>
+<td>iv-curve</td>
+<td>Analyze: distinguish ohmic from non-ohmic parts</td>
+<td>Current-voltage explorer, Chart.js</td>
+<td>Exploration</td>
+</tr>
+<tr>
+<td>series-resistance</td>
+<td>Understand: explain why resistances add</td>
+<td>Series circuit diagram, vis-network</td>
+<td>Exploration, quiz answer</td>
+</tr>
+<tr>
+<td>circuit-vocabulary</td>
+<td>Remember: name components</td>
+<td>Labeled overlay, image overlay</td>
+<td>Exploration, quiz answer</td>
+</tr>
+</tbody>
+</table>
+<p>The plan uses three types across four MicroSims, which meets the type requirement. The data policy names each retained event by evidence class, drops free-text answers, and promises class-level figures only. The usability test uses three classmates given tasks such as "find the current when resistance doubles". Suppose two of them miss the reset button; the fix is a clearer label, and the MicroSim is re-scored afterward. The fidelity report uses a synthetic cohort and states, first, that its results show the procedure and nothing about real learners.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>A capstone portfolio is a documented set of instrumented MicroSims plus evidence that each part works; this course's version needs three or more types and passes the quality gate.</li>
+<li>Simulation effectiveness studies exist mainly for other libraries, so their results motivate your design and are never a measured result for your MicroSims.</li>
+<li>Engagement is what learners do and learning is what they know; the event stream measures the first, and only a held-out assessment observes the second.</li>
+<li>Usability testing finds where real users struggle, and peer review checks your claims against the rubric; neither replaces automated checks.</li>
+<li>Data minimization keeps only events tied to an evidence class and concept, and an aggregate-only policy reports groups, applies suppression, and guards against subtraction.</li>
+<li>The portfolio fidelity report follows the Chapter 19 structure, states its sample and limits, and separates measured from designed and hoped-for claims.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Deliver and Defend</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now plan, build, test, protect and report on an instrumented MicroSim portfolio, including writing a fidelity report that says only what the evidence supports. Every bounce leaves evidence, and yours is now organized.</p>
+</div>
+<p>With a defended portfolio in hand, <a href="../26-the-future-of-microsims/">Chapter 26</a> looks ahead to how AI-generated MicroSims might be designed for higher predictive value.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../24-pedagogy-accessibility-and-ethics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 24. Pedagogy, Accessibility and Ethics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                24. Pedagogy, Accessibility and Ethics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../26-the-future-of-microsims/" class="md-footer__link md-footer__link--next" aria-label="Next: 26. The Future of MicroSims">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                26. The Future of MicroSims
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

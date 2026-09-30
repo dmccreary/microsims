@@ -1,0 +1,15 @@
+{
+  "sim_id": "faceted-filter-lab",
+  "diagram_name": "Faceted Filter Lab",
+  "chapter_number": 15,
+  "chapter_title": "Metadata, Search and Reuse",
+  "chapter_dir": "15-metadata-search-and-reuse",
+  "chapter_rel_dir": "chapters/15-metadata-search-and-reuse",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Use",
+  "learning_objective": "The learner will use facet selections to narrow a sample of the MicroSim catalog to a short list, and will predict how switching a facet between OR and AND logic changes the count before checking the result.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** faceted-filter-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: use): The learner will use facet selections to narrow a sample of the MicroSim catalog to a short list, and will predict how switching a facet between OR and AND logic changes the count before checking the result.\n\nData: a sample of 300 records drawn at build time from `microsims-data.json` (title, subject, framework, bloomLevel, url), stored as `sample.json` next to the MicroSim. Records with a missing field are kept and counted under a value named \"(missing)\" so the learner sees the effect of incomplete metadata.\n\nLayout: a drawing region above a control region. The left third of the drawing region lists three facets (Subject, Framework, Bloom level) as columns of value chips with counts; the right two thirds show a bar of \"records remaining\" and a scrolling list of up to 12 matching titles.\n\nControls:\n\n- Clicking a value chip toggles that value in its facet; selected chips turn green and counts on all other chips update immediately\n- Toggle \"Within a facet: OR / AND\" (default OR)\n- Button \"Predict first\": before applying a change, the learner types or selects an expected count, then sees the actual count and the difference\n- Button \"Reset filters\"\n- Hovering a title shows its description in a tooltip\n\nBehavior: different facets always combine with AND. Within a facet the toggle chooses OR or AND. A chip whose count would be zero is drawn in gray and cannot be selected.\n\nResponsive design: the canvas width follows the container width on every window resize; at widths under 500 pixels the facet columns stack vertically and the list moves below them.\n\nImplementation: p5.js with DOM-free canvas drawing for chips and list, a describe() call for accessibility, and a keyboard alternative in which Tab moves between chips and Space toggles one."
+}

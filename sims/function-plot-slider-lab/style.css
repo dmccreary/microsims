@@ -1,0 +1,116 @@
+/* Function Plot Slider Lab - minimal margins for iframe embedding.
+   Plot height: 400px on desktop, 300px on narrow screens (set in the JS). */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: aliceblue;
+    color: #1f2937;
+}
+
+main {
+    display: block;
+    padding: 5px 8px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.ctl {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+}
+
+select, input[type="number"] {
+    font-size: 14px;
+    padding: 3px 4px;
+}
+
+input[type="number"] { width: 80px; }
+
+button {
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 5px;
+    border: 1px solid #15803d;
+    background: #16a34a;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover { background: #15803d; }
+
+button.secondary {
+    background: #f1f5f9;
+    color: #1f2937;
+    border-color: #64748b;
+}
+
+button.secondary:hover { background: #e2e8f0; }
+
+button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.slider-label {
+    font-weight: bold;
+    font-style: italic;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+}
+
+#x-slider { flex: 1 1 auto; min-width: 120px; }
+
+.slider-ends { color: #64748b; font-size: 12px; white-space: nowrap; }
+
+.readout {
+    margin: 4px 2px;
+    font-size: 16px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: #b91c1c;
+}
+
+#plot {
+    width: 100%;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.matches {
+    margin: 4px 2px 0 2px;
+    font-size: 14px;
+    min-height: 18px;
+    color: #14532d;
+}
+
+.matches.none { color: #92400e; }
+
+@media (max-width: 480px) {
+    .slider-ends { display: none; }
+}

@@ -1,0 +1,117 @@
+{
+  "title": "MicroSim Technology Stack",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "MicroSims",
+    "HTML5",
+    "CSS",
+    "JavaScript",
+    "JavaScript Library",
+    "Content Delivery Network",
+    "iframe"
+  ],
+  "description": "A p5.js infographic of the six layers behind a running MicroSim (iframe, HTML5, CSS, JavaScript, a JavaScript library and a CDN): click a layer for its role, code sample and dependencies, and press Break it to preview what the learner sees without it.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/microsim-technology-stack/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Web technologies that make up a MicroSim",
+    "learningObjectives": [
+      "The learner will describe what HTML5, CSS, JavaScript, a JavaScript library, a CDN, and an iframe each contribute to a running MicroSim."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "describe",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Web foundations section of Chapter 1"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "notes": "describe() summary; layer colors are always paired with text labels; hover dependencies are marked with a 'needed' tag as well as a gold outline"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "breakButton",
+        "type": "button",
+        "label": "Break it / Restore",
+        "purpose": "Remove the selected layer and preview the result, or put it back"
+      },
+      {
+        "id": "layers",
+        "type": "clickable canvas regions",
+        "label": "Six stack layers",
+        "purpose": "Select a layer to show its role, code sample, dependencies and failure mode"
+      },
+      {
+        "id": "layer-hover",
+        "type": "hover",
+        "label": "Six stack layers",
+        "purpose": "Outline the layers the hovered layer depends on"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore-then-break: learners predict and observe the failure caused by removing each layer",
+    "interactionPattern": "Clickable layered infographic with a failure preview",
+    "keyQuestions": [
+      "What does the learner see if the CSS is missing?",
+      "Why do a missing library and an unreachable CDN look the same?",
+      "Which layer lets one MicroSim appear in many different pages?"
+    ],
+    "commonMisconceptions": [
+      "The iframe contains the MicroSim's code",
+      "CSS controls what the simulation does",
+      "A library loaded from a CDN works offline"
+    ],
+    "assessmentOpportunities": [
+      "Naming the missing layer from a described symptom",
+      "One-sentence descriptions of all six layers"
+    ]
+  },
+  "search": {
+    "tags": [
+      "technology stack",
+      "HTML5",
+      "CSS",
+      "JavaScript",
+      "p5.js",
+      "CDN",
+      "iframe"
+    ],
+    "visualizationType": [
+      "infographic",
+      "diagram"
+    ]
+  },
+  "chapter": "01-what-is-a-microsim"
+}

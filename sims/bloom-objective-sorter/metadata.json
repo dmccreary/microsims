@@ -1,0 +1,78 @@
+{
+  "title": "Bloom Objective Sorter",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["Bloom's Taxonomy", "Objective Classification", "Learning Outcomes", "Bloom Verbs"],
+  "description": "A p5.js drag-and-drop sorter in which learners classify 24 learning outcomes from the course description into the six Bloom levels using the three-step classification procedure, with verb highlighting, rationales, and defensible neighboring levels for ambiguous outcomes when the learner chooses the matching reason.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/bloom-objective-sorter/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Design",
+    "topic": "Classifying learning objectives by Bloom level",
+    "learningObjectives": [
+      "Demonstrate the three-step objective classification procedure on real course-description outcomes.",
+      "Give a reason for each placement, including ambiguous outcomes."
+    ],
+    "bloomsTaxonomy": ["Apply"],
+    "bloomVerb": "demonstrate",
+    "duration": "20 minutes",
+    "prerequisites": ["Six Bloom levels", "Bloom verb table", "Objective classification procedure"],
+    "concepts": ["Objective Classification", "Bloom Verb", "Bloom's Taxonomy", "Course Description"],
+    "chapter": "03-learning-objectives-and-blooms-taxonomy"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": false,
+      "clickAlternativeToDrag": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "drag", "label": "Outcome card (drag to a bin)"},
+      {"type": "canvas-click", "label": "Bins, procedure panel and reason choices"},
+      {"type": "button", "label": "Next card"},
+      {"type": "button", "label": "Restart"},
+      {"type": "checkbox", "label": "Show the procedure", "default": false}
+    ]
+  },
+  "simulation": {
+    "modelType": "Classification practice with rubric feedback",
+    "variables": ["outcome", "placed level", "official level", "defensible level", "reason chosen"],
+    "assumptions": ["Official levels are the headings under which docs/course-description.md lists each outcome."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Modeled procedure, guided practice, then independent practice",
+    "interactionPattern": "Sorting into category bins with explanatory feedback",
+    "keyQuestions": [
+      "What must the learner actually do with the content?",
+      "When two levels are plausible, which is the most demanding process the task truly requires?"
+    ],
+    "commonMisconceptions": [
+      "The first verb alone decides the Bloom level.",
+      "A verb that is missing from the verb table cannot be classified.",
+      "Every outcome has exactly one defensible level."
+    ],
+    "assessmentOpportunities": [
+      "Counts of correct, defensible and missed placements.",
+      "Written three-step classifications for instructor-chosen outcomes."
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "verified-poster-pipeline-explorer",
+  "diagram_name": "Verified Poster Pipeline Explorer",
+  "chapter_number": 11,
+  "chapter_title": "Verified Posters and Specialized MicroSim Types",
+  "chapter_dir": "11-verified-posters-and-specialized-microsim-types",
+  "chapter_rel_dir": "chapters/11-verified-posters-and-specialized-microsim-types",
+  "library": "vis-network",
+  "bloom_level": "Understand",
+  "bloom_verb": "Sequence",
+  "learning_objective": "The learner will sequence the nine steps of the verified poster route, and will explain which step is the mandatory human checkpoint and which step alone calls the image model.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** verified-poster-pipeline-explorer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: sequence): The learner will sequence the nine steps of the verified poster route, and will explain which step is the mandatory human checkpoint and which step alone calls the image model.\n\nNodes and edges: nine nodes in a left-to-right chain, labeled \"1 Claim plan\", \"2 Source discovery\", \"3 Verification\", \"4 User checkpoint\", \"5 Layout spec\", \"6 Prompt assembly\", \"7 Render\", \"8 Render audit\", \"9 Overlay\". A dashed backward edge from \"8 Render audit\" to \"7 Render\" is labeled \"drift found, up to 3 retries\". A bracket labels nodes 1 to 4 \"reusable on their own\". The \"4 User checkpoint\" node is orange and the \"7 Render\" node is purple.\n\nInteractions: clicking a node opens an information panel with a two-sentence description, the file it writes (for example 01-claim-plan.yaml for step 1), and the question \"What goes wrong if this step is skipped?\". Hovering an edge shows what passes along it. A \"Skip a step\" toggle greys out one node and shows the failure the guide anticipates, such as unverified numbers reaching the prompt.\n\nResponsive design: the network re-fits to the container width on every window resize, and the information panel moves below the network when the width is under 600 pixels.\n\nImplementation: vis-network with fixed positions, physics disabled, and click and hover handlers."
+}

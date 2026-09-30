@@ -1,0 +1,152 @@
+{
+  "title": "Height Resolution Order Tracer",
+  "description": "A folder tree of one MicroSim and four numbered height sources: the // CANVAS_HEIGHT comment in the script, canvasHeight in metadata.json, a CANVAS_HEIGHT comment in main.html, and computed drawHeight + controlHeight. The learner toggles sources, edits their values, predicts the winner, and presses Trace to see which source sync-iframe-heights.py would use and the resulting iframe height, CANVAS_HEIGHT + 2.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Web Development",
+    "MicroSim Engineering",
+    "Iframe Heights"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/height-resolution-order-tracer/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Height resolution order of sync-iframe-heights.py",
+    "learningObjectives": [
+      "The learner will examine a MicroSim folder and determine which of the four height sources a synchronization tool would use, and what iframe height results."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "examine",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The CANVAS_HEIGHT comment and the rule iframe height = CANVAS_HEIGHT + 2 (Chapter 12)",
+      "The files in a MicroSim folder: main.html, the script, metadata.json, index.md (Chapter 2)"
+    ],
+    "concepts": [
+      "CANVAS_HEIGHT Comment",
+      "Height Resolution Order",
+      "Height Sync Tool",
+      "Iframe Height"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 610
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() provides a screen-reader description; all controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "select",
+        "label": "Preset",
+        "options": [
+          "p5.js sketch with comment",
+          "Mermaid diagram with metadata only",
+          "Legacy HTML comment",
+          "Sketch with variables only",
+          "No height anywhere"
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "// CANVAS_HEIGHT comment present",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "label": "metadata.json canvasHeight present",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "main.html comment present",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "drawHeight and controlHeight variables present",
+        "default": true
+      },
+      {
+        "type": "input",
+        "label": "Source values",
+        "default": "450, 480, 500, 400 + 50"
+      },
+      {
+        "type": "button",
+        "label": "Trace",
+        "action": "Walk the sources from priority 1 and stop at the first value"
+      },
+      {
+        "type": "canvas-click",
+        "label": "Source box or result panel",
+        "action": "Record a prediction"
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Rule-based priority resolution",
+    "variables": [
+      "four source values",
+      "first source with a value",
+      "CANVAS_HEIGHT",
+      "iframe height"
+    ],
+    "equations": [
+      "iframe height = CANVAS_HEIGHT + 2",
+      "source 4: CANVAS_HEIGHT = drawHeight + controlHeight"
+    ],
+    "assumptions": [
+      "The folder is named demo-sim and the script is demo-sim.js, so the tool looks for demo-sim.js."
+    ],
+    "limitations": [
+      "The graphHeight term, the canvasHeight-variable and createCanvas() fallbacks of source 4 are described in the text but not modeled."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict, then trace, on varied folder configurations",
+    "interactionPattern": "Rule explorer with prediction (Analyze level)",
+    "keyQuestions": [
+      "Which source does the tool read first, and when does it stop?",
+      "What happens to a lower source that disagrees?",
+      "Why does the tool write the comment back after using source 4?"
+    ],
+    "commonMisconceptions": [
+      "The tool takes the largest or the most recent height it finds.",
+      "A stale value in metadata.json is harmless only because it is ignored; it will drift and mislead readers of the file.",
+      "An iframe with no height found is set to a default height."
+    ],
+    "assessmentOpportunities": [
+      "Given a description of a MicroSim folder, the learner names the source the tool uses and the iframe height it writes.",
+      "The learner explains why a lower-priority value that disagrees is never read, and how to remove the drift."
+    ]
+  },
+  "chapter": "12-width-responsive-design-and-iframe-heights",
+  "canvasHeight": 610
+}

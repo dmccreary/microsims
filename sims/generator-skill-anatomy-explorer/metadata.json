@@ -1,0 +1,82 @@
+{
+  "title": "Generator Skill Anatomy Explorer",
+  "description": "An explorer of the microsim-generator skill's four parts — the SKILL.md entry file, 17 reference guides, template asset folders and six utility scripts — that traces, for one of six sample requests, which parts enter the agent's working context and in what order, while unread guides and template folders stay grey.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "AI-Assisted Content Generation", "MicroSim Engineering", "AI Agent Skills"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/generator-skill-anatomy-explorer/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Structure of the MicroSim generator skill",
+    "learningObjectives": [
+      "The learner will differentiate the entry file, reference guides, template assets and utility scripts of the generator skill by tracing which parts an agent reads for a given request."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "differentiate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Keyword routing and the MicroSim type catalog",
+      "What an AI skill and an agent are",
+      "MicroSim layout conventions (drawHeight, controlHeight)"
+    ],
+    "concepts": ["MicroSim Generator Skill", "Skill Reference Guide", "Skill Template Asset", "Skill Invocation", "Token Cost"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)", "data.json (template folder file lists, loaded with fetch)"],
+    "dataFiles": ["data.json"],
+    "accessibility": {
+      "hasAltText": true,
+      "screenReaderDescription": "describe() explains the four boxes, the trace and the click-for-why panel",
+      "keyboardNavigable": false
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "select", "label": "Request", "options": ["A bouncing ball simulation", "A bar chart of survey results", "A timeline of Unix history", "A map of trade routes", "A concept dependency network", "A sorting quiz"], "default": "A bouncing ball simulation" },
+      { "type": "button", "label": "Trace", "action": "Highlight the parts the agent reads for the selected request, numbered in order" },
+      { "type": "button", "label": "Reset", "action": "Clear the trace" },
+      { "type": "canvas-click", "label": "Box or file square", "action": "Open a panel explaining why the agent needs (or skips) that part" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Routing trace over a static folder structure",
+    "variables": ["selected request", "loaded guide", "copied template folder", "utility scripts run"],
+    "assumptions": ["Request-to-guide mapping follows the routing table and decision tree in the skill's SKILL.md.", "A single-MicroSim request uses the Step 1B route, so the chapter-only scripts are not run."],
+    "limitations": ["Line counts and file lists reflect the skill as of 2026-09-30 and will drift as the skill changes."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided exploration with comparison across requests",
+    "interactionPattern": "Explorer with trace and click-for-detail (Analyze level)",
+    "keyQuestions": [
+      "Which parts of the skill are read for every request, and which change with the request?",
+      "What does a reference guide give the agent that a template asset does not?",
+      "Why are the utility scripts run but not read?"
+    ],
+    "commonMisconceptions": [
+      "The agent reads every guide in the skill for every request.",
+      "Templates and guides are interchangeable.",
+      "The utility scripts are part of the agent's prompt."
+    ],
+    "assessmentOpportunities": [
+      "Record the guide and template folder for all six requests",
+      "Predict the parts loaded for a new request and justify the grey squares"
+    ]
+  },
+  "chapter": "05-generating-microsims-with-ai-skills",
+  "canvasHeight": 560
+}

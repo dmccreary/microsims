@@ -1,0 +1,15 @@
+{
+  "sim_id": "quality-chain-workflow",
+  "diagram_name": "Quality Chain Workflow",
+  "chapter_number": 13,
+  "chapter_title": "Quality Assurance and Automated Layout Review",
+  "chapter_dir": "13-quality-assurance-and-automated-layout-review",
+  "chapter_rel_dir": "chapters/13-quality-assurance-and-automated-layout-review",
+  "library": "Mermaid",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain the order of the quality chain, what each step checks, and what happens after a failure.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: workflow\n**sim-id:** quality-chain-workflow<br/>\n**Library:** Mermaid<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain the order of the quality chain, what each step checks, and what happens after a failure.\n\nDiagram: a top-to-bottom Mermaid flowchart with these nodes: \"Validate score\", \"Capture screenshot\", \"Layout review\", \"Iframe height test\", \"Quality gate\", \"Patch source\", \"Stop and escalate to a person\", and \"Carry into the book\". Edges run in the order above; \"Quality gate\" branches to \"Carry into the book\" on pass and to \"Patch source\" on fail; \"Patch source\" returns to \"Capture screenshot\"; \"Layout review\" branches to \"Stop and escalate to a person\" after the third cycle.\n\nInteractions: every node and every edge has a click directive that opens an infobox beside the diagram. Node infoboxes give the definition, the tool and command, and the chapter section; edge infoboxes explain the condition (for example, \"score below 85\" or \"third cycle reached\"). Hovering a node shows a one-line tooltip. A \"Trace a failure\" button highlights the path taken by a MicroSim that fails the height test.\n\nResponsive design: the diagram scales to the container width on every window resize and the infobox moves below the diagram under 600 pixels wide.\n\nImplementation: Mermaid flowchart with click callbacks bound to a small JavaScript infobox, following the standard MicroSim layout."
+}

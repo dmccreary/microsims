@@ -1,0 +1,134 @@
+/* Set Overlap Explorer - venn.js MicroSim
+   Diagram on the left, explanation / classify panel on the right; the panel
+   moves below the diagram under 600px. 16px minimum text in the diagram. */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: aliceblue;
+    color: #1f2937;
+    font-size: 15px;
+}
+
+main { display: block; padding: 6px 8px; }
+
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 5px 8px;
+}
+
+.mode-status { font-size: 14px; color: #334155; }
+
+button {
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: 1px solid #1d4ed8;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover { background: #1d4ed8; }
+button[aria-pressed="true"] { background: #b45309; border-color: #92400e; }
+button.secondary { background: #f1f5f9; color: #1f2937; border-color: #64748b; }
+button:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+
+.work {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    align-items: flex-start;
+}
+
+.venn-col {
+    flex: 1 1 60%;
+    min-width: 0;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+}
+
+#venn-diagram { display: flex; justify-content: center; }
+#venn-diagram svg { display: block; }
+
+/* venn.js labels */
+#venn-diagram text {
+    font-size: 16px !important;
+    font-weight: bold;
+    fill: #1f2937 !important;
+    pointer-events: none;
+}
+
+#venn-diagram .venn-area path { cursor: pointer; }
+.region-hl { pointer-events: none; }
+
+.panel {
+    flex: 0 0 38%;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 15px;
+    line-height: 1.4;
+    min-height: 200px;
+}
+
+.panel h2 { font-size: 16px; color: #1e3a8a; margin-bottom: 4px; }
+.panel .def { margin-bottom: 6px; }
+.panel ul { margin: 4px 0 0 18px; }
+.panel li { margin-bottom: 4px; }
+.panel .muted { color: #64748b; font-size: 14px; }
+.panel .item-card {
+    background: #f8fafc;
+    border-left: 4px solid #7c3aed;
+    border-radius: 4px;
+    padding: 6px 8px;
+    margin: 6px 0;
+}
+.panel .result { border-radius: 5px; padding: 6px 8px; margin: 6px 0; }
+.panel .result.right { background: #dcfce7; color: #14532d; }
+.panel .result.wrong { background: #fef3c7; color: #78350f; }
+.panel .progress { font-size: 13px; color: #475569; }
+.panel .actions { margin-top: 6px; display: flex; gap: 8px; }
+
+.swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: -1px;
+}
+
+.venn-tooltip {
+    position: absolute;
+    max-width: min(260px, 80vw);
+    background: #1f2937;
+    color: white;
+    padding: 6px 9px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.35;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 20;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.venn-tooltip.visible { opacity: 1; }
+.venn-tooltip b { color: #fde68a; }
+
+@media (max-width: 599px) {
+    .work { flex-direction: column; align-items: stretch; }
+    .panel { flex: 0 0 auto; }
+}

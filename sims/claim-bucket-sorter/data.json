@@ -1,0 +1,156 @@
+{
+  "title": "Claim Bucket Sorter",
+  "description": "Twelve invented practice records. Each pairs a planned poster claim with a source type and a quoted passage. None of the numbers are real findings.",
+  "config": {
+    "pointsCorrect": 10,
+    "pointsWithRule": 5
+  },
+  "buckets": [
+    {
+      "name": "VERIFIED",
+      "color": "seagreen",
+      "short": "Exact number, specific paper",
+      "definition": "A specific number matches a specific paper, with a quoted passage. Use the exact number."
+    },
+    {
+      "name": "DIRECTIONAL",
+      "color": "royalblue",
+      "short": "Direction agreed, numbers differ",
+      "definition": "The direction is well established but the number differs across studies. Use a range or the best-supported single study."
+    },
+    {
+      "name": "QUALITATIVE-ONLY",
+      "color": "darkorange",
+      "short": "Supported, but no reliable number",
+      "definition": "The effect is supported but not reliably quantified. Use a word such as \"lower\", with no invented percentage."
+    },
+    {
+      "name": "REJECTED",
+      "color": "firebrick",
+      "short": "No credible source",
+      "definition": "No credible source supports the claim. Remove it, or replace it with a verified claim on a related subject."
+    }
+  ],
+  "records": [
+    {
+      "id": 1,
+      "claim": "Students who took a 10-minute walk before class answered 9% more reading questions correctly.",
+      "sourceType": "Peer-reviewed article",
+      "passage": "Participants in the walking condition answered 9% more comprehension questions correctly than seated participants (n = 212).",
+      "bucket": "VERIFIED",
+      "hint": "Does the passage state the claim's exact number, from one specific study?",
+      "rule": "The exact number appears in a quoted passage from a specific peer-reviewed paper, so the claim is VERIFIED and the poster can print 9%.",
+      "pattern": "Exact number from a specific paper"
+    },
+    {
+      "id": 2,
+      "claim": "Pooled across studies, acoustic panels cut reported distraction by 5%.",
+      "sourceType": "Meta-analysis",
+      "passage": "Pooling 18 studies, we estimate that acoustic panels reduce self-reported distraction by 5 percent (95% CI 3 to 7 percent).",
+      "bucket": "VERIFIED",
+      "hint": "Is this number the review's own pooled result, or one borrowed from a single study it reviewed?",
+      "rule": "A meta-analysis is the origin of its own pooled estimate, so quoting that pooled number is VERIFIED. The error would be citing a review for a number from one of its primary studies.",
+      "pattern": "Pooled estimate from a meta-analysis"
+    },
+    {
+      "id": 3,
+      "claim": "In the study schools, library visits rose by 14% after a reading-buddy program began.",
+      "sourceType": "Peer-reviewed article",
+      "passage": "Library visits rose 14 percent in the program schools over the same term, compared with no change in the comparison schools.",
+      "bucket": "VERIFIED",
+      "hint": "Do the number, the subject and the setting all match the quoted sentence?",
+      "rule": "The number, the subject and the comparison all match a quoted sentence in a peer-reviewed article, so the claim is VERIFIED.",
+      "pattern": "Exact number from a specific paper"
+    },
+    {
+      "id": 4,
+      "claim": "Greener schoolyards reduce playground injuries by 30%.",
+      "sourceType": "Meta-analysis",
+      "passage": "Across the included studies, injury reductions ranged from 8 to 30 percent, and all but one study found some reduction.",
+      "bucket": "DIRECTIONAL",
+      "hint": "Do the studies agree on the size of the effect, or only on its direction?",
+      "rule": "The studies agree on the direction but not the size, so the claim is DIRECTIONAL: print the range 8% to 30%, not the largest value.",
+      "pattern": "Top of a range printed as the number"
+    },
+    {
+      "id": 5,
+      "claim": "Shorter lecture segments raise attention scores by 15%.",
+      "sourceType": "Meta-analysis",
+      "passage": "Of the primary studies reviewed, Study C reported a 15 percent gain in attention; the other studies found smaller gains.",
+      "bucket": "DIRECTIONAL",
+      "hint": "Whose number is the 15%: the review's, or one study's inside it?",
+      "rule": "A review is not the origin of a number. The 15% belongs to Study C and the other studies found smaller gains, so the claim is DIRECTIONAL: trace 15% to Study C or print a range.",
+      "pattern": "Meta-source citation"
+    },
+    {
+      "id": 6,
+      "claim": "Quiet reading corners increase reading time by 20%.",
+      "sourceType": "Peer-reviewed article",
+      "passage": "Reading time increased in all three schools, by 11, 17 and 24 percent respectively.",
+      "bucket": "DIRECTIONAL",
+      "hint": "Is there one number, or several numbers pointing the same way?",
+      "rule": "All three schools improved, but by different amounts, so the claim is DIRECTIONAL: print 11% to 24% instead of a single 20%.",
+      "pattern": "One number from varied results"
+    },
+    {
+      "id": 7,
+      "claim": "A view of trees lowers student stress by 25%.",
+      "sourceType": "Peer-reviewed article",
+      "passage": "Students with a view of trees reported significantly lower stress, although the scales used do not allow a percentage change to be calculated.",
+      "bucket": "QUALITATIVE-ONLY",
+      "hint": "Does the source support the effect with a number, or only in words?",
+      "rule": "The effect is supported but not quantified, so the poster says \"significantly lower stress\" and prints no percentage. A missing number is a legitimate result.",
+      "pattern": "Supported effect with no number"
+    },
+    {
+      "id": 8,
+      "claim": "Standing desks improve on-task behavior by 10%.",
+      "sourceType": "Meta-analysis",
+      "passage": "The evidence suggests a modest benefit for on-task behavior, but effect sizes were too inconsistent to pool.",
+      "bucket": "QUALITATIVE-ONLY",
+      "hint": "Did the review produce a number at all?",
+      "rule": "The review supports a modest benefit but declined to pool a number, so use words such as \"modest benefit\" with no percentage: QUALITATIVE-ONLY.",
+      "pattern": "Supported effect with no number"
+    },
+    {
+      "id": 9,
+      "claim": "Wood-paneled classrooms feel calmer to students.",
+      "sourceType": "Peer-reviewed article",
+      "passage": "In interviews, students described the wood-paneled rooms as calmer than the painted rooms.",
+      "bucket": "QUALITATIVE-ONLY",
+      "hint": "Can a claim with no number be VERIFIED under the bucket definitions?",
+      "rule": "VERIFIED needs a specific number. Interview evidence supports the effect in words only, so keep the word \"calmer\": QUALITATIVE-ONLY.",
+      "pattern": "Qualitative claim sorted as VERIFIED"
+    },
+    {
+      "id": 10,
+      "claim": "Blue-light lenses boost test scores by 23%.",
+      "sourceType": "Marketing page",
+      "passage": "Studies show students score 23% higher with our FocusShield lenses!",
+      "bucket": "REJECTED",
+      "hint": "Can you trace this number to a primary paper?",
+      "rule": "A marketing page with no primary paper cannot verify a number, and no other source supports it: REJECTED.",
+      "pattern": "Marketing page"
+    },
+    {
+      "id": 11,
+      "claim": "Classroom plants raise grades by a full letter grade.",
+      "sourceType": "Blog post citing unnamed studies",
+      "passage": "Research has shown that plants can boost grades by a whole letter grade.",
+      "bucket": "REJECTED",
+      "hint": "Which research? Is a study named anywhere?",
+      "rule": "A blog post that cites unnamed \"research\" has no traceable primary paper, so the claim is REJECTED.",
+      "pattern": "Blog citing unnamed studies"
+    },
+    {
+      "id": 12,
+      "claim": "Brighter classroom lighting doubles reading speed.",
+      "sourceType": "Peer-reviewed article",
+      "passage": "Reading speed did not differ between the two lighting conditions.",
+      "bucket": "REJECTED",
+      "hint": "Does the passage support the claim, or contradict it?",
+      "rule": "A peer-reviewed source does not rescue a claim it contradicts. With no credible support, the claim is REJECTED: remove it or replace it with a verified claim.",
+      "pattern": "Source contradicts the claim"
+    }
+  ]
+}

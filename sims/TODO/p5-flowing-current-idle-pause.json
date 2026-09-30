@@ -1,0 +1,15 @@
+{
+  "sim_id": "p5-flowing-current-idle-pause",
+  "diagram_name": "Flowing Current and Idle Pause",
+  "chapter_number": 6,
+  "chapter_title": "p5.js MicroSims",
+  "chapter_dir": "06-p5js-microsims",
+  "chapter_rel_dir": "chapters/06-p5js-microsims",
+  "library": "p5.js",
+  "bloom_level": "Create",
+  "bloom_verb": "Design",
+  "learning_objective": "The learner will design a flowing-current animation by choosing path, spacing, and speed, and will decide whether pause-when-idle should be on, by observing the effect on the animation and on a live step counter.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** p5-flowing-current-idle-pause<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Create; verb: design): The learner will design a flowing-current animation by choosing path, spacing, and speed, and will decide whether pause-when-idle should be on, by observing the effect on the animation and on a live step counter.\n\nLayout: a drawing region containing a rectangular loop of wire with a battery on the left and a lamp on the right, and a control region beneath it.\n\nVisual elements: green dots flowing along the loop, spaced evenly, hidden while inside the lamp circle; a text readout \"Animation advancing: yes or no\" and a counter \"Animation steps since load\".\n\nControls: sliders \"Dot spacing (pixels)\" from 12 to 48, default 24, and \"Flow speed (pixels per frame)\" from 0.5 to 4, default 1.5; a checkbox \"Pause when idle\" (default on); a checkbox \"Reverse direction\"; a button \"Start / Pause\" (default paused).\n\nBehavior: with \"Pause when idle\" on, the dots move only while the pointer is over the sim, and the step counter stops when the pointer leaves. With it off, the dots move whenever the Start button has been pressed. Reversing direction changes the dot color from green to purple and runs the offset backward.\n\nResponsive design: the loop's corner points are computed from the canvas width on every frame, so the loop stretches with the container, and sliders are resized in windowResized().\n\nImplementation: p5.js using a list of corner points, an offset modulo the spacing, lerp() to place dots, and mouse enter and leave listeners on the main element; include a describe() call."
+}

@@ -1,0 +1,96 @@
+{
+  "examples": [
+    {
+      "label": "1. Complete specification",
+      "startDefect": 3,
+      "bands": {
+        "heading": "#### Diagram: Pendulum Period Explorer",
+        "type": "Type: microsim",
+        "sim-id": "sim-id: pendulum-period-explorer",
+        "library": "Library: p5.js",
+        "status": "Status: Specified",
+        "objective": "Learning objective (Bloom level: Apply; verb: predict): The learner will predict how the period of a pendulum changes when length changes, then test the prediction.",
+        "body": "Layout: drawing region above a control region; canvas 400 wide by 450 high. Controls: slider \"Length\" 0.2 to 2.0 in steps of 0.1, default 1.0; button \"Release\". Behavior: on release, the bob swings; a readout shows the measured period. Responsive design: canvas width follows the container on resize.",
+        "implementation": "Implementation: p5.js, createSlider and createButton positioned relative to drawHeight."
+      }
+    },
+    {
+      "label": "2. Missing a Bloom verb",
+      "startDefect": 1,
+      "bands": {
+        "heading": "#### Diagram: Bounce Height Explainer",
+        "type": "Type: microsim",
+        "sim-id": "sim-id: bounce-height-explainer",
+        "library": "Library: p5.js",
+        "status": "Status: Specified",
+        "objective": "Learning objective (Bloom level: Understand): The learner will understand why a ball with lower bounciness reaches a lower height on its next bounce.",
+        "body": "Layout: drawing region above a control region; canvas 400 wide by 450 high. Controls: slider \"Bounciness\" 0.1 to 1.0 in steps of 0.05, default 0.7; button \"Drop\". Behavior: the ball falls and bounces; a readout shows the height of each bounce.",
+        "implementation": "Implementation: p5.js, createSlider and createButton positioned relative to drawHeight."
+      }
+    },
+    {
+      "label": "3. No numeric ranges",
+      "startDefect": 0,
+      "bands": {
+        "heading": "#### Diagram: Sine Wave Amplitude Lab",
+        "type": "Type: microsim",
+        "sim-id": "sim-id: sine-wave-amplitude-lab",
+        "library": "Library: Plotly",
+        "status": "Status: Specified",
+        "objective": "Learning objective (Bloom level: Understand; verb: explain): The learner will explain how amplitude and frequency change the graph of a sine wave.",
+        "body": "Layout: a plot above a control region. Controls: a slider for amplitude, a slider for frequency and a Reset button. Behavior: the curve redraws as either slider moves, and the equation above the plot updates.",
+        "implementation": "Implementation: Plotly.js with two HTML range inputs and a responsive plot div."
+      }
+    }
+  ],
+  "defects": [
+    {
+      "text": "Slider range not what I wanted: the slider runs from 1 to 100.",
+      "band": "body",
+      "explain": "The body sets ranges, steps, defaults and sizes. When it gives no numbers, the agent has to invent them. Write the range, step and default into the Controls sentence.",
+      "hint": "Which band would hold numbers such as 0.2 to 2.0?"
+    },
+    {
+      "text": "The ball animates continuously, although the goal was for learners to explain each bounce.",
+      "band": "objective",
+      "explain": "Without a Bloom verb the design checkpoint cannot see that the task is to explain, so it has no reason to recommend a step-through. Write '(Bloom level: Understand; verb: explain)'.",
+      "hint": "The design checkpoint chooses the interaction pattern from one field."
+    },
+    {
+      "text": "You asked for a p5.js simulation but received a Chart.js chart.",
+      "band": "library",
+      "explain": "The Library field is the routing decision written down. If it is missing or wrong, the agent routes on keywords alone and may load the wrong guide.",
+      "hint": "Which field records the routing decision from Chapter 4?"
+    },
+    {
+      "text": "The batch run skipped this MicroSim: no folder was ever created.",
+      "band": "heading",
+      "explain": "extract-sim-specs.py finds blocks by a heading that begins '#### Diagram:' or '#### Drawing:'. A heading such as '### Diagram' or '#### Figure:' is never extracted.",
+      "hint": "How does the extraction script find a block in the first place?"
+    },
+    {
+      "text": "The chapter iframe points to one folder, but the MicroSim was generated in a folder with another name.",
+      "band": "sim-id",
+      "explain": "The sim-id becomes the folder name under docs/sims and the iframe path. It must match everywhere and be unique across the whole book.",
+      "hint": "Which field becomes the directory name?"
+    },
+    {
+      "text": "A new MicroSim was generated even though you planned to embed an existing one.",
+      "band": "status",
+      "explain": "The status records the lifecycle state. A MicroSim you intend to reuse should be marked Reused so the batch run never scaffolds or implements it.",
+      "hint": "Which field tells the batch run what state this MicroSim is in?"
+    },
+    {
+      "text": "The buttons are drawn with rect() and mouse hit-testing instead of createButton().",
+      "band": "implementation",
+      "explain": "The implementation line names the calls to use, such as createButton and createSlider positioned relative to drawHeight. Leave it vague and the agent may draw its own controls.",
+      "hint": "Which line names the library calls?"
+    },
+    {
+      "text": "You expected a MicroSim with controls but got a static labeled diagram.",
+      "band": "type",
+      "explain": "The Type field names the kind of element to build. 'diagram' or 'infographic' invites a different build than 'microsim'.",
+      "hint": "Which field names the kind of element?"
+    }
+  ]
+}

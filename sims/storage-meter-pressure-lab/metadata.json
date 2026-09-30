@@ -1,0 +1,181 @@
+{
+  "title": "Storage Meter Pressure Lab",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "LRS-Lite",
+    "Browser Storage",
+    "IndexedDB"
+  ],
+  "description": "Set the size, backup age and unsynced age of an LRS-Lite browser database, predict which pressure level (Normal, Offer, Reclaim or Protect) the storage meter triggers, then see which slices the library discards first.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/storage-meter-pressure-lab/",
+  "canvasHeight": 700,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The LRS-Lite 10 MB budget, storage meter and pressure levels",
+    "learningObjectives": [
+      "The learner will predict which pressure level a given storage state triggers and which data the library discards first."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "predict",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "IndexedDB storage and its object stores (Chapter 22)",
+      "The 10 MB budget and its slices (Chapter 22)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "All controls are native p5 DOM elements; describe() is updated with the current state and, after a prediction, the level. Slice tooltips need a pointer; the legend repeats every slice size as text."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Database size (MB)",
+        "min": 0,
+        "max": 10,
+        "step": 0.01,
+        "default": 0.34
+      },
+      {
+        "type": "slider",
+        "label": "Days since backup",
+        "min": 0,
+        "max": 30,
+        "default": 2
+      },
+      {
+        "type": "slider",
+        "label": "Oldest unsynced event (hours)",
+        "min": 0,
+        "max": 72,
+        "default": 0
+      },
+      {
+        "type": "radio",
+        "label": "Mode",
+        "options": [
+          "Summary",
+          "Full"
+        ],
+        "default": "Summary"
+      },
+      {
+        "type": "button",
+        "label": "Advance 10 days"
+      },
+      {
+        "type": "button",
+        "label": "Reset"
+      },
+      {
+        "type": "select",
+        "label": "Persistence scenario",
+        "options": [
+          "Firefox prompt",
+          "Chrome silent grant",
+          "Chrome silent denial"
+        ]
+      },
+      {
+        "type": "button",
+        "label": "Keep my record on this device"
+      },
+      {
+        "type": "button-group",
+        "label": "Predict the level",
+        "options": [
+          "Normal",
+          "Offer",
+          "Reclaim",
+          "Protect"
+        ]
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict-then-reveal with rule feedback",
+    "keyQuestions": [
+      "Which level does this state trigger, and which rule decides it?",
+      "What does the library discard first?",
+      "Why does Protect need unsynced data?"
+    ],
+    "commonMisconceptions": [
+      "That summaries can be pruned to save space",
+      "That granted persistence changes the budget or level",
+      "That only fullness triggers Offer"
+    ],
+    "assessmentOpportunities": [
+      "Prediction score across several states",
+      "Write the discard order from memory"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "LRS-Lite",
+      "storage meter",
+      "10 MB budget",
+      "pressure levels",
+      "Reclaim",
+      "Protect",
+      "IndexedDB",
+      "persistent storage",
+      "eviction"
+    ]
+  },
+  "chapter": "22-lrs-lite-compact-summaries-and-browser-storage",
+  "simulation": {
+    "modelType": "rule-based state model with prediction gate",
+    "variables": [
+      "size MB",
+      "percent of 10 MB",
+      "days since backup",
+      "hours since oldest unsynced event",
+      "emission mode"
+    ],
+    "equations": [
+      "Protect if pct >= 95 and unsynced hours > 0",
+      "Reclaim if pct >= 80",
+      "Offer if pct >= 60 or days >= 7 or hours > 24",
+      "Normal otherwise; the highest matching level wins",
+      "illustrative slices: summaries = min(1, 0.25 S), unsealed = min(0.5, 0.05 S), mirrored = 0.2 S, device = rest"
+    ],
+    "assumptions": [
+      "Growth per 10 days uses the design heavy-student figures (0.37 MB and 3.6 MB per 90-day semester)",
+      "Reclaim frees space down to just under 80%; at Protect the Reclaim drops also apply",
+      "0 h of unsynced age means nothing is waiting"
+    ],
+    "limitations": [
+      "The meter and levels are a design, not built code",
+      "Slice split and covered-segment amounts are illustrative"
+    ]
+  }
+}

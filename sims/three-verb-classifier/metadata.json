@@ -1,0 +1,130 @@
+{
+  "title": "Three Verb Classifier",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "xAPI",
+    "Learning Analytics",
+    "xAPI Verbs",
+    "Producer Contract",
+    "Evidence"
+  ],
+  "description": "A p5.js drag-to-bin classifier in which learners sort twelve scripted learner events from a mock Bouncing Ball MicroSim into answered, experienced, interacted or no statement, with feedback on object type, required result field and reasoning, plus the xAPI 1.0.3 JSON of each statement.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/three-verb-classifier/",
+  "canvasHeight": 700,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "The three MicroSim verbs: answered, experienced and interacted",
+    "learningObjectives": [
+      "The learner will classify learner actions in a described MicroSim into the correct verb, object type and required result field, and explain any action that needs no statement."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "classify",
+    "duration": "15-20 minutes",
+    "prerequisites": [
+      "The five parts of an xAPI statement (Chapter 16)",
+      "The three MicroSim verbs and four object types (Chapter 16)",
+      "Hover and misclick thresholds (Chapter 16)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 700
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true,
+      "notes": "Bin buttons and keys 1-4 place the card without dragging; N advances, S shows the statement; feedback uses words as well as color"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "card",
+        "type": "draggable canvas card",
+        "label": "Event card",
+        "purpose": "Drag into a bin to classify the event"
+      },
+      {
+        "id": "binButtons",
+        "type": "button",
+        "label": "1 answered / 2 experienced / 3 interacted / 4 no statement",
+        "purpose": "Keyboard-accessible alternative to dragging"
+      },
+      {
+        "id": "showButton",
+        "type": "button",
+        "label": "Show statement",
+        "purpose": "Render the statement's verb, object and result as JSON"
+      },
+      {
+        "id": "nextButton",
+        "type": "button",
+        "label": "Next event",
+        "purpose": "Advance to the next event"
+      },
+      {
+        "id": "againButton",
+        "type": "button",
+        "label": "Try again",
+        "purpose": "Reshuffle the twelve events and reset the score"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Classification practice with rule-based corrective feedback",
+    "interactionPattern": "Drag-to-bin sorting (concept classifier) with statement preview",
+    "keyQuestions": [
+      "Can this event say whether the learner was right or wrong?",
+      "Did time pass in a run, and was the run longer than 250 ms?",
+      "Was a control touched on purpose, or was the pointer only crossing it?"
+    ],
+    "commonMisconceptions": [
+      "A slider movement needs a success or a duration",
+      "Only the final correct answer should be recorded",
+      "Every pointer movement over a node is evidence"
+    ],
+    "assessmentOpportunities": [
+      "First-try accuracy over twelve events",
+      "Naming the required result field for each verb",
+      "Explaining the rule that suppresses each no-statement event"
+    ]
+  },
+  "search": {
+    "tags": [
+      "xAPI",
+      "answered",
+      "experienced",
+      "interacted",
+      "classification",
+      "producer contract",
+      "p5.js"
+    ],
+    "visualizationType": [
+      "quiz",
+      "simulation"
+    ]
+  },
+  "chapter": "16-xapi-statements-and-evidence"
+}

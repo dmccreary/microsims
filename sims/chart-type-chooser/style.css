@@ -1,0 +1,161 @@
+/* Chart Type Chooser - layout and styling
+   Fixed-height chart that fills the container width; the controls wrap onto
+   a second row below 500px and the side note moves under the chart below 560px. */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: aliceblue;
+    color: #1f2937;
+}
+
+main {
+    display: block;
+    padding: 8px 10px 6px 10px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.control {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+select {
+    font-size: 14px;
+    padding: 3px 4px;
+}
+
+.type-group {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-group legend {
+    float: left;
+    margin-right: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.type-group label {
+    font-weight: normal;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #1d4ed8;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover { background: #1d4ed8; }
+button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+.question {
+    margin: 6px 2px 4px 2px;
+    font-size: 16px;
+}
+
+.question strong { color: #1e3a8a; }
+
+.stage {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.chart-box {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 320px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.side-note {
+    flex: 0 0 205px;
+    background: white;
+    border: 1px solid silver;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.note-title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #1e3a8a;
+}
+
+.feedback {
+    border-radius: 5px;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+}
+
+.feedback.neutral { background: #f1f5f9; color: #334155; }
+.feedback.good    { background: #dcfce7; color: #14532d; border-left: 5px solid #16a34a; }
+.feedback.amber   { background: #fef3c7; color: #78350f; border-left: 5px solid #d97706; }
+
+.rule {
+    font-style: italic;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.rule:empty { display: none; }
+
+.viewed {
+    font-size: 13px;
+    color: #475569;
+}
+
+.source {
+    margin: 4px 2px 0 2px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+@media (max-width: 559px) {
+    .stage { flex-direction: column; }
+    .side-note { flex: 0 0 auto; }
+    .chart-box { height: 270px; }
+}
+
+@media (max-width: 499px) {
+    .controls { gap: 6px 10px; }
+    #check-btn { width: 100%; }
+}

@@ -1,0 +1,125 @@
+{
+  "title": "Docker Lab Run Flow",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Docker Python Lab Type",
+    "Runnable Code Block",
+    "Lab Sandbox",
+    "Troubleshooting",
+    "MkDocs configuration"
+  ],
+  "description": "A vis-network path from a Docker Python lab's Run button through docker-lab.js, the local service on port 5001 and a fresh container to the output area; break it with one of five failures and diagnose the missing part from the symptom.",
+  "date": "2026-09-30",
+  "type": "Interactive Diagram",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/docker-lab-run-flow/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Diagnosing why a Docker Python lab fails to run",
+    "learningObjectives": [
+      "The learner will diagnose why a lab fails to run by identifying which part of the path from browser to container is missing."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "diagnose",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Runnable Code Blocks and the Lab Sandbox section of Chapter 11",
+      "Basic familiarity with a browser developer console"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "version": "9.1.9",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "vis-network 9.1.9 (jsDelivr CDN)",
+      "vis-network 9.1.9 CSS for navigation buttons"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Information panel is an aria-live region; the Break it menu and Diagnose first checkbox are native form controls"
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "id": "path-nodes",
+        "type": "clickable nodes",
+        "label": "Five parts of the run path",
+        "purpose": "Show each part's role and one thing that can break it, or answer a diagnosis"
+      },
+      {
+        "id": "path-edges",
+        "type": "hover tooltips",
+        "label": "Run clicked, code sent, container started, text returned, output displayed",
+        "purpose": "Show what travels along each arrow"
+      },
+      {
+        "id": "break-select",
+        "type": "select",
+        "label": "Break it",
+        "default": "Nothing broken",
+        "purpose": "Choose one of five failures or a mystery failure"
+      },
+      {
+        "id": "diagnose-check",
+        "type": "checkbox",
+        "label": "Diagnose first",
+        "default": true,
+        "purpose": "Show only the symptom until the learner clicks the broken part"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Symptom-first diagnosis with hints",
+    "interactionPattern": "Process path explorer with failure scenarios and click-to-diagnose",
+    "keyQuestions": [
+      "Which part wrote the 'Cannot connect' message, and what does that tell you?",
+      "How do the two 'nothing happens' failures differ?",
+      "Why does input() fail in the sandbox?"
+    ],
+    "commonMisconceptions": [
+      "The Python code runs in the browser",
+      "A lab that shows an error message has a broken script",
+      "Reloading the page starts the Docker service"
+    ],
+    "assessmentOpportunities": [
+      "First-click diagnoses in Mystery rounds",
+      "Explaining the clue that separates two similar symptoms"
+    ]
+  },
+  "search": {
+    "tags": [
+      "Docker Python lab",
+      "docker-lab.js",
+      "port 5001",
+      "lab sandbox",
+      "EOFError",
+      "mkdocs.yml",
+      "vis-network"
+    ],
+    "visualizationType": [
+      "diagram",
+      "flowchart",
+      "network"
+    ]
+  },
+  "chapter": "11-verified-posters-and-specialized-microsim-types"
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "bloom-objective-sorter",
+  "diagram_name": "Bloom Objective Sorter",
+  "chapter_number": 3,
+  "chapter_title": "Learning Objectives and Bloom's Taxonomy",
+  "chapter_dir": "03-learning-objectives-and-blooms-taxonomy",
+  "chapter_rel_dir": "chapters/03-learning-objectives-and-blooms-taxonomy",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Demonstrate",
+  "learning_objective": "The learner will demonstrate the three-step objective classification procedure by sorting real course-description outcomes into the six Bloom levels and giving a reason for each placement.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** bloom-objective-sorter<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: demonstrate): The learner will demonstrate the three-step objective classification procedure by sorting real course-description outcomes into the six Bloom levels and giving a reason for each placement.\n\nLayout: an objective card at the top of the drawing region and six labeled bins (Remember through Create) in two rows of three below it. The control region holds the buttons and score.\n\nData: 24 outcomes taken from `docs/course-description.md`, four per level, each stored with its official level, a rationale sentence, and a flag \"ambiguous\" for cases such as the \"Distinguish claims...\" outcome.\n\nInteractions: the learner drags the card into a bin or clicks a bin. After the drop, the sim shows the verb highlighted in the sentence, the official level, and the rationale. For ambiguous cards the sim accepts the neighboring level as \"defensible\" and asks the learner to choose one of two written reasons. A step-through mode reveals the three procedure steps one at a time before the drop.\n\nControls: buttons \"Next card\" and \"Restart\", a checkbox \"Show the procedure\", and a score line showing correct, defensible and missed placements.\n\nResponsive design: the canvas width follows the container width on every window resize, the bins re-flow to two columns under 500 pixels, and all controls remain visible at 400 pixels wide.\n\nImplementation: p5.js drag-and-drop with a describe() call for accessibility, following the concept-classifier pattern used elsewhere in the book."
+}

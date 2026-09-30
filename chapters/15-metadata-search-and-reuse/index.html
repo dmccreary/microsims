@@ -1,0 +1,3282 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how metadata describes a MicroSim, how a search index and similarity search find it, and how reuse-before-build keeps a library from duplicating itself.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/15-metadata-search-and-reuse/">
+      
+      
+        <link rel="prev" href="../14-batch-generation-from-specifications/">
+      
+      
+        <link rel="next" href="../16-xapi-statements-and-evidence/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Metadata, Search and Reuse - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Metadata, Search and Reuse - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how metadata describes a MicroSim, how a search index and similarity search find it, and how reuse-before-build keeps a library from duplicating itself." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/15-metadata-search-and-reuse/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/15-metadata-search-and-reuse/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Metadata, Search and Reuse - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how metadata describes a MicroSim, how a search index and similarity search find it, and how reuse-before-build keeps a library from duplicating itself." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/15-metadata-search-and-reuse/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metadata-search-and-reuse" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metadata, Search and Reuse
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-description-comes-before-reuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Description Comes Before Reuse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Metadata Schema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dublin-core-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dublin Core Metadata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dublin Core Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-metadata-section-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Metadata Section Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Educational Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-link-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Link Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-licensing-and-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version, Licensing and Provenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-search-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Search Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faceted-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faceted Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Faceted Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-faceted-filter-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Faceted Filter Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cross-book-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cross-Book Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Similarity Search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-before-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reuse Before Build
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reuse Before Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-reuse-threshold-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Reuse Threshold Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapting-an-existing-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adapting an Existing MicroSim
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-submission-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MicroSim Submission Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-description-comes-before-reuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Description Comes Before Reuse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-metadata-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Metadata Schema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dublin-core-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dublin Core Metadata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dublin Core Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-metadata-section-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Metadata Section Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#educational-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Educational Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-link-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Link Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-licensing-and-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version, Licensing and Provenance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-search-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Search Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faceted-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faceted Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Faceted Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-faceted-filter-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Faceted Filter Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-cross-book-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Cross-Book Index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#similarity-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Similarity Search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-before-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reuse Before Build
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reuse Before Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-reuse-threshold-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Reuse Threshold Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adapting-an-existing-microsim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adapting an Existing MicroSim
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microsim-submission-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MicroSim Submission Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/15-metadata-search-and-reuse/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="metadata-search-and-reuse">Metadata, Search and Reuse</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers the metadata that describes each MicroSim, the search index built from it, and the reuse-before-build practice that keeps a library of MicroSims from duplicating itself.</p>
+<p>Students learn Dublin Core, educational, technical and search metadata, faceted and similarity search, and provenance and licensing. After it, they can describe a MicroSim completely and find an existing one to adapt.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dublin Core Metadata</td>
+<td>158</td>
+</tr>
+<tr>
+<td>Educational Metadata</td>
+<td>37</td>
+</tr>
+<tr>
+<td>Technical Metadata</td>
+<td>37</td>
+</tr>
+<tr>
+<td>Search Metadata</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Metadata Schema</td>
+<td>36</td>
+</tr>
+<tr>
+<td>Faceted Search</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Search Index</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Cross-Book Index</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Reuse Before Build</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Similarity Search</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Adapt Existing MicroSim</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Provenance Record</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Concept Link Metadata</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Version Metadata</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Licensing Metadata</td>
+<td>2</td>
+</tr>
+<tr>
+<td>MicroSim Submission Guidelines</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+<li><a href="../13-quality-assurance-and-automated-layout-review/">Chapter 13: Quality Assurance and Automated Layout Review</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">A Library You Can Actually Search</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+A MicroSim nobody can find might as well not exist, and a MicroSim you rebuild from scratch when one already exists wastes your afternoon. By the end of this chapter you will describe any MicroSim so that a search tool can find it, and you will know how to check the library before you build. Let's bounce it around!</p>
+</div>
+<h2 id="why-description-comes-before-reuse">Why Description Comes Before Reuse</h2>
+<p>A library of interactive simulations is only as useful as its ability to answer one question: does a MicroSim that teaches this concept already exist? Chapter 1 defined a learning object as a unit of content that can be described, found and reused independently. Chapter 2 showed the file that holds the description. This chapter follows the description outward: how it is structured, how tools index it, and how it changes what an author does before writing the first line of code.</p>
+<p>The stakes grow with the size of the collection. The author's own catalog, described later in this chapter, holds thousands of MicroSims across dozens of textbooks, and no person can remember them all. The paper that accompanies this book states the principle bluntly: educators cannot reuse what they cannot find. AI generation sharpens the problem, because a skill can produce a new MicroSim in minutes, which makes duplicating an existing one cheap for the machine and expensive for the library.</p>
+<h2 id="the-metadata-schema">The Metadata Schema</h2>
+<p>A <strong>metadata schema</strong> is a formal specification of which fields a metadata record must and may contain, what type each field holds, and which values are allowed. Without one, every author invents field names, and a search tool cannot rely on any of them. The MicroSims schema is a JSON Schema, a machine-readable format for describing the shape of a JSON document, stored at <code>src/microsim-schema/microsim-schema.json</code> in this repository.</p>
+<p>The schema groups fields into sections under a single top-level <code>microsim</code> object. Chapter 2 introduced the five required sections and the three optional ones. Four of the required sections are the subject of this chapter: <code>dublinCore</code>, <code>educational</code>, <code>technical</code> and <code>search</code>. Each serves a different reader, and the following sections take them in turn. The <code>userInterface</code> section, which lists controls, is documented in Chapter 2, and the optional <code>analytics</code> section is reserved for the event design of Chapters 16 and 17.</p>
+<p>A schema earns its keep through validation. The repository ships <code>src/microsim-schema/validate.py</code>, whose docstring gives the usage <code>python validate.py path/to/metadata.json [more.json ...]</code>. It exits with status 0 when every file is valid, 1 when any file is invalid and 2 when a file or the schema cannot be loaded. It needs the Python packages <code>jsonschema</code> and <code>rfc3339-validator</code>, the second being what makes date-time values actually checked. Chapter 13 placed schema conformance inside the quality gate, so a metadata file that fails validation is a defect just as a clipped control is.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Validate as You Write</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Run the validator every time an AI skill edits a <code>metadata.json</code>, not only at the end. A missing required field found ten seconds after the edit is a one-line fix, and the same field found across fifty files is an afternoon.</p>
+</div>
+<h2 id="dublin-core-metadata">Dublin Core Metadata</h2>
+<p><strong>Dublin Core metadata</strong> is a small, internationally used vocabulary of fifteen generic elements for describing any digital resource: title, creator, subject, description, publisher, contributor, date, type, format, identifier, source, language, relation, coverage and rights. It was designed for libraries and repositories, so a MicroSim that carries it can be catalogued by systems that know nothing about MicroSims. In the schema, the <code>dublinCore</code> section implements these elements, and it is the most important section because every other tool in this chapter starts from it.</p>
+<p>Not every element is mandatory. The schema requires eight: <code>title</code>, <code>creator</code>, <code>subject</code>, <code>description</code>, <code>date</code>, <code>type</code>, <code>format</code> and <code>rights</code>. The rest are optional, though <code>identifier</code> and <code>language</code> are worth including because they let a tool distinguish two MicroSims that share a title. Some fields are constrained. The schema allows only three values for <code>type</code> (<code>Interactive Simulation</code>, <code>Educational MicroSim</code> and <code>Infographic</code>) and three for <code>format</code> (<code>text/javascript</code>, <code>application/javascript</code> and <code>text/html</code>). The <code>creator</code>, <code>subject</code> and <code>contributor</code> fields hold arrays, since a resource often has several.</p>
+<p>A <strong>worked example</strong> makes the elements concrete. The H-Bridge Circuit MicroSim from the STEM Robots textbook, the specimen from Chapter 2, carries the following abridged <code>dublinCore</code> section. Read the comments after the block, which explain what each field does for a searcher.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">"dublinCore"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H-Bridge Circuit"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Dan McCreary"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"H-Bridge"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DC Motors"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Motor Direction"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Robotics"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An interactive H-bridge with four clickable knife switches around a DC motor. ..."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"publisher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STEM Robots Intelligent Textbook"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"contributor"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Claude (Anthropic)"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-29T00:00:00Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interactive Simulation"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/html"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://dmccreary.github.io/stem-robots/sims/h-bridge/"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"rights"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CC BY-NC-SA 4.0"</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>title</code> and <code>description</code> are what a full-text search matches against, so the description should state what the learner does and what they discover, as this one does. The <code>subject</code> list places the MicroSim in topical categories. The <code>identifier</code> is the published address, which doubles as a stable key that other tools can use, as the similarity files later in this chapter do. The <code>contributor</code> field records that an AI assistant helped, which is a small piece of provenance we return to shortly. The <code>rights</code> string states the license.</p>
+<p>The paper describing the framework says the <code>subject</code> field should employ controlled vocabularies, so that "math" and "mathematics" land together. The schema itself types <code>subject</code> only as an array of strings and does not enforce a vocabulary. Consistency therefore depends on authors and on the tools that normalize values afterward.</p>
+<p>Before the interactive specification below, one more term. A <em>section explorer</em> here means a diagram in which each section of the metadata file is a node you can click to read what the section holds. The specification follows.</p>
+<h4 id="diagram-metadata-section-explorer">Diagram: Metadata Section Explorer</h4>
+<iframe src="../../sims/metadata-section-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/metadata-section-explorer/main.html">Run the Metadata Section Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Metadata Section Explorer</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> metadata-section-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: classify): The learner will classify each field of the H-Bridge <code>metadata.json</code> under the correct section (<code>dublinCore</code>, <code>search</code>, <code>educational</code>, <code>technical</code>, <code>userInterface</code>) and tell required fields from optional ones.</p>
+<p>Data: nodes and edges are built from a copy of the H-Bridge metadata file stored as <code>data.json</code> beside the MicroSim, with the required-field lists taken from <code>microsim-schema.json</code>. Do not invent field values; every value shown is read from those two files.</p>
+<p>Visual elements: a root node labeled <code>microsim</code> in the center, five section nodes around it (the five required sections, each in a different color), and three smaller gray nodes for the optional sections <code>simulation</code>, <code>analytics</code> and <code>usage</code>. Clicking a section node expands it into field nodes; required fields have a solid border and optional fields a dashed border.</p>
+<p>Interactions:</p>
+<ul>
+<li>Click a section node: expand or collapse its fields, and show an infobox at the right with the section's purpose in one sentence and the H-Bridge values for that section</li>
+<li>Click a field node: show the field's type, whether the schema requires it, and its H-Bridge value</li>
+<li>Hover any node: show a tooltip with the schema description of the field</li>
+<li>Checkbox "Required fields only": hide optional fields</li>
+<li>Button "Quiz me": hide the section labels on field nodes and ask the learner to click the section a highlighted field belongs to; report correct or incorrect immediately</li>
+</ul>
+<p>Layout: a network canvas 700 pixels wide by 450 pixels tall with an infobox region below it. Physics is on for the initial layout and off after the first stabilization so that nodes stay where the learner drags them.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the infobox moves below the canvas at widths under 500 pixels, and node labels never fall below 12 pixels.</p>
+<p>Implementation: vis-network with click and hover handlers, plain HTML for the infobox and checkbox, and an aria-label on each interactive element for accessibility.</p>
+</details>
+<h2 id="educational-metadata">Educational Metadata</h2>
+<p><strong>Educational metadata</strong> describes who a MicroSim is for and what it teaches, so that a teacher can judge fit without running it. In the schema it lives in the <code>educational</code> section. Four fields are required: <code>gradeLevel</code>, <code>subjectArea</code>, <code>topic</code> and <code>learningObjectives</code>. Optional fields include <code>bloomsTaxonomy</code>, <code>prerequisites</code>, <code>duration</code>, <code>difficulty</code> (one of Beginner, Intermediate or Advanced), <code>misconceptions</code> and <code>learningTheory</code>.</p>
+<p>The link to earlier chapters is direct. Chapter 3 taught you to write a learning objective with a Bloom verb and level; this section is where that objective is recorded in a form a tool can filter on. The H-Bridge file lists four objectives, beginning with "Explain how closing diagonally opposite switches (S1 + S4 or S2 + S3) sets the direction of current through a DC motor", and declares the levels <code>Understand</code>, <code>Apply</code> and <code>Analyze</code>. The verbs match the levels: explain is an Understand verb, predict an Apply verb and analyze an Analyze verb.</p>
+<p>The H-Bridge also shows the richest optional field, <code>misconceptions</code>. Each entry pairs a misconception with a correction and the evidence a learner can see in the MicroSim. One entry states that closing more switches does not give the motor more power, and that closing both switches on one side creates a short circuit, which the MicroSim shows by flashing the shorted wires red. A teacher reading this entry learns what the MicroSim is designed to confront, which no title or tag would reveal.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Declared Levels Drift</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A Bloom level typed into metadata is a claim, and nothing checks it against the objectives. When you edit an objective, edit the level in the same pass, and compare the verbs to Chapter 3's list before you trust the field.</p>
+</div>
+<p>The drift is not hypothetical. In the merged catalog described below, the top-level <code>bloomLevel</code> field holds mixed forms: strings such as <code>Understand (L2)</code>, lists such as <code>["Understand", "Apply"]</code>, and 271 records that simply say <code>TBD</code>. A facet built on such a field needs cleaning before it can filter reliably.</p>
+<h2 id="technical-metadata">Technical Metadata</h2>
+<p><strong>Technical metadata</strong> describes how a MicroSim is built and what it needs to run, so that a person deploying it can judge compatibility. It lives in the <code>technical</code> section, where <code>framework</code> and <code>canvasDimensions</code> are required. The <code>framework</code> value must be one of <code>p5.js</code>, <code>vanilla-js</code>, <code>d3.js</code>, <code>three.js</code> or <code>other</code>. Optional fields cover <code>version</code>, <code>dependencies</code>, <code>browserCompatibility</code>, <code>performance</code>, <code>deviceRequirements</code> and <code>accessibility</code>.</p>
+<p>The H-Bridge shows the typical content. Its canvas is 700 pixels wide and 530 tall and is marked responsive, which agrees with the height rule of Chapter 12: a 480-pixel drawing region plus a 50-pixel control region is 530. Its <code>dependencies</code> entry reads <code>p5.js 1.11.10 (jsDelivr CDN)</code>. Its <code>deviceRequirements</code> report a minimum screen width of 360 pixels, touch support, no keyboard or mouse requirement and a network requirement, which follows from loading the library from a CDN. Its <code>accessibility</code> block declares screen reader support, keyboard navigation, color contrast and alternative text.</p>
+<p>A <strong>worked example</strong> shows the payoff. A school has tablets but a filtered network that blocks CDNs. Because each MicroSim declares <code>networkRequired</code>, the school can exclude the H-Bridge and every other CDN-dependent MicroSim before a teacher plans a lesson around one. Without the field the only test is trying each MicroSim on a tablet, which does not scale.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Two Different Versions</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+The H-Bridge lists <code>technical.version</code> as 2.0.0 and its p5.js dependency as 1.11.10, and these are unrelated numbers. The schema describes <code>version</code> as the version of the MicroSim, so keep library versions in <code>dependencies</code> and never in <code>version</code>.</p>
+</div>
+<h2 id="search-metadata">Search Metadata</h2>
+<p><strong>Search metadata</strong> is the section of the file written for discovery rather than description. It lives in the <code>search</code> section, where <code>tags</code> and <code>visualizationType</code> are required. Where Dublin Core says what a MicroSim is, search metadata says how people are likely to look for it. The optional fields are <code>searchKeywords</code>, <code>interactionLevel</code>, <code>complexity</code>, <code>relatedConcepts</code> and <code>applicationDomains</code>.</p>
+<p>Several fields are constrained so that they can serve as facets later. The <code>visualizationType</code> array draws from thirteen allowed values, among them <code>simulation</code>, <code>chart</code>, <code>diagram</code>, <code>timeline</code>, <code>network</code> and <code>map</code>. The <code>interactionLevel</code> is one of five values from <code>passive</code> to <code>very-high</code>. The <code>complexity</code> is an integer from 1 to 10, and <code>applicationDomains</code> draws from eight values such as <code>education</code>, <code>training</code> and <code>assessment</code>. Chapter 4 taught you to choose a MicroSim type; <code>visualizationType</code> is where that choice is recorded so that others can filter on it.</p>
+<p>The distinction between <code>subject</code>, <code>tags</code> and <code>searchKeywords</code> confuses newcomers, so consider what each is for. The <code>subject</code> field in Dublin Core names the topical category and should be stable. The <code>tags</code> are freer labels that add specific handles, and the H-Bridge lists seven, including <code>shoot-through</code> and <code>knife switch</code>. The <code>searchKeywords</code> are phrases a person might type, such as "reverse a dc motor". A teacher who does not know the word "H-bridge" can still find the MicroSim through that phrase.</p>
+<h2 id="concept-link-metadata">Concept Link Metadata</h2>
+<p><strong>Concept link metadata</strong> connects a MicroSim to the ideas around it, so that a tool can recommend a neighbor or warn that a prerequisite is missing. The schema carries three kinds of link. The <code>relatedConcepts</code> array in the <code>search</code> section names concepts for recommendation. The <code>prerequisites</code> array in the <code>educational</code> section names what a learner should already know. The Dublin Core <code>relation</code> field points to related resources such as curriculum standards or textbooks.</p>
+<p>The H-Bridge lists five related concepts: Conventional Current, Complete Circuit, Motor Driver IC, Braking vs Coasting and Transistor as a Switch. Its prerequisites are three plain sentences, for example "A circuit needs a complete loop from + to - for current to flow". Both are free-text strings. The schema does not require that a related concept match a label in any learning graph, so a textbook's concept graph and a MicroSim's links can drift apart without anything failing. Making the two agree, for instance by requiring each link to be a graph label, would be a design change and is not something the current schema does.</p>
+<h2 id="version-licensing-and-provenance">Version, Licensing and Provenance</h2>
+<p>Three small concepts complete the description of a MicroSim over time and across owners. Each is a few fields, but each answers a question that a serious reuser asks.</p>
+<p><strong>Version metadata</strong> records which edition of a MicroSim you are looking at. The schema offers <code>technical.version</code>, a string described as the version number of the MicroSim, and the Dublin Core <code>date</code>, a timestamp. Together they answer "is this the current one?". The H-Bridge records version 2.0.0 and a date of 2026-09-29. Library versions are separate and belong in <code>dependencies</code>, as the warning above noted.</p>
+<p><strong>Licensing metadata</strong> states the terms under which a MicroSim may be reused. It is carried by the required Dublin Core <code>rights</code> field, which the schema types as free text. The H-Bridge says <code>CC BY-NC-SA 4.0</code>, a Creative Commons license introduced in Chapter 1 that requires attribution, forbids commercial use and requires adaptations to carry the same terms. This chapter is not legal advice, and an institution planning wide reuse should read the license text itself.</p>
+<p>A <strong>provenance record</strong> is the trail showing where a MicroSim came from and who has handled it. The schema has no dedicated provenance section. The nearest fields are <code>creator</code>, <code>contributor</code>, the Dublin Core <code>source</code>, and <code>identifier</code>. The H-Bridge's contributor entry naming an AI assistant is one modest example. The catalog builder adds another, described next: each catalog record carries a <code>_source</code> object naming the repository and folder it was collected from. Records of which AI skill and which prompt produced a MicroSim would be useful, but the current schema does not have a field for them.</p>
+<p>The measured state of licensing metadata in the catalog is instructive. In the merged catalog file of the search project, checked for this chapter, 3,764 records exist and 1,441 of them have no <code>rights</code> value at all. Of the 2,323 that do, the most common values are <code>CC BY-NC-SA 4.0</code> (1,157 records), <code>CC BY 4.0</code> (920), <code>CC BY-NC 4.0</code> (129) and <code>All rights reserved</code> (57). The file does not say why the others are blank, so the count shows a gap in the metadata and not a gap in the licensing itself. A reuser who finds a blank should ask the author instead of assuming permission.</p>
+<h2 id="the-search-index">The Search Index</h2>
+<p>Metadata is only a promise until a tool reads it. A <strong>search index</strong> is a data structure, built ahead of time from many metadata records, that lets a search interface answer queries quickly without opening every MicroSim. In this project the index is a single JSON file, <code>docs/search/microsims-data.json</code>, in the <code>search-microsims</code> repository, which a browser loads and searches entirely on the client with the ItemsJS library. No server is involved, which suits GitHub Pages hosting.</p>
+<p>Each record in the file is a flat, normalized summary of one MicroSim. Its top-level fields include <code>title</code>, <code>description</code>, <code>library</code>, <code>bloomLevel</code>, <code>url</code> and <code>_source</code>, as well as many optional ones. Normalization matters because the source files differ: some use the nested <code>microsim</code> layout of the current schema, and older ones are flat. The search page's script reads a Bloom value from several possible paths in turn, among them <code>microsim.educational.bloomsTaxonomy</code>, <code>educational.bloomsTaxonomy</code> and a bare <code>bloomsTaxonomy</code>. The index is therefore a merge, and a merge inherits every inconsistency of its sources.</p>
+<p>We can measure the index instead of trusting a description of it. The counts below come from a short script run against the file for this chapter, and they will change when the catalog is refreshed. The table summarizes them after the prose has defined every column.</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Value in the checked file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Records</td>
+<td>3,764</td>
+</tr>
+<tr>
+<td>Distinct source repositories</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Records with a <code>library</code> value</td>
+<td>2,066</td>
+</tr>
+<tr>
+<td>Records with a <code>bloomLevel</code> value</td>
+<td>1,834</td>
+</tr>
+<tr>
+<td>Records with a <code>description</code></td>
+<td>3,762</td>
+</tr>
+</tbody>
+</table>
+<p>The coverage gap is the lesson. The <code>library</code> field is present in only 2,066 records, yet a separate <code>framework</code> field is present in 3,644 and reports <code>p5.js</code> for 2,641 of them, against 1,414 for <code>library</code>. Two fields meant to hold the same idea have different coverage, so a filter on one silently omits records that only the other describes. Good index hygiene means picking one field, filling it everywhere and retiring the duplicate.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">An Index Is a Merge</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of the index as a librarian's card catalog compiled from ninety different handwriting styles. Search quality is limited by the messiest hand, so the cheapest way to improve search is to fix metadata at the source, not to make the search cleverer.</p>
+</div>
+<h2 id="faceted-search">Faceted Search</h2>
+<p><strong>Faceted search</strong> lets a user narrow a collection by choosing values along several independent dimensions at once, each called a facet, instead of typing one query. Each facet corresponds to a metadata field with a small set of values, and the interface shows how many records each value would leave. The paper's example is a teacher who filters by grade level, subject, topic, Bloom level and tablet compatibility together to get a short, relevant list.</p>
+<p>The search page configures six facets: Subject Area, Grade Level, Bloom's Taxonomy, Difficulty, Framework and Visualization. Its full-text search covers the fields <code>title</code>, <code>description</code>, <code>concepts</code> and <code>subjectArea</code>. Every facet is configured with <code>conjunction: false</code>, which in ItemsJS means OR logic inside a facet: choosing p5.js and Chart.js shows MicroSims that use either. Different facets combine with AND, so choosing Physics and p5.js shows only MicroSims that satisfy both.</p>
+<p>A <strong>worked example</strong> reproduces this on the real file. The following script applies two facet choices to the catalog. It defines a helper because some fields hold a single string and others a list, then filters records whose <code>subject</code> includes Physics, then narrows by <code>framework</code>. Run it from the root of the <code>search-microsims</code> repository.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"docs/search/microsims-data.json"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">catalog</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">as_list</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Treat a missing field as [], a single string as [string]."""</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+
+<span class="n">physics</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">catalog</span>
+           <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"physics"</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">as_list</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"subject"</span><span class="p">)))]</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">physics</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"framework"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"p5.js"</span><span class="p">]</span>
+<span class="n">network</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">physics</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"framework"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"vis-network"</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"records in catalog:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">catalog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"subject = Physics:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">physics</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  and framework = p5.js:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">p5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  and framework = vis-network:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">network</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>Run against the checked file, the script printed 3,764 records, 104 with the subject Physics, 92 of those built with p5.js and 1 with vis-network. Ninety-two of 104 is a useful narrowing, and a teacher can now scan the list. The single vis-network result also shows the limit of a facet: it only counts what the metadata says, and a Physics MicroSim whose subject was spelled differently would be missing from all of these numbers.</p>
+<p>Before the specification below, note that it uses a <em>sample</em> of the catalog: a few hundred records copied into a data file at build time, so the MicroSim runs without a network call.</p>
+<h4 id="diagram-faceted-filter-lab">Diagram: Faceted Filter Lab</h4>
+<iframe src="../../sims/faceted-filter-lab/main.html" width="100%" height="652px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/faceted-filter-lab/main.html">Run the Faceted Filter Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Faceted Filter Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> faceted-filter-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: use): The learner will use facet selections to narrow a sample of the MicroSim catalog to a short list, and will predict how switching a facet between OR and AND logic changes the count before checking the result.</p>
+<p>Data: a sample of 300 records drawn at build time from <code>microsims-data.json</code> (title, subject, framework, bloomLevel, url), stored as <code>sample.json</code> next to the MicroSim. Records with a missing field are kept and counted under a value named "(missing)" so the learner sees the effect of incomplete metadata.</p>
+<p>Layout: a drawing region above a control region. The left third of the drawing region lists three facets (Subject, Framework, Bloom level) as columns of value chips with counts; the right two thirds show a bar of "records remaining" and a scrolling list of up to 12 matching titles.</p>
+<p>Controls:</p>
+<ul>
+<li>Clicking a value chip toggles that value in its facet; selected chips turn green and counts on all other chips update immediately</li>
+<li>Toggle "Within a facet: OR / AND" (default OR)</li>
+<li>Button "Predict first": before applying a change, the learner types or selects an expected count, then sees the actual count and the difference</li>
+<li>Button "Reset filters"</li>
+<li>Hovering a title shows its description in a tooltip</li>
+</ul>
+<p>Behavior: different facets always combine with AND. Within a facet the toggle chooses OR or AND. A chip whose count would be zero is drawn in gray and cannot be selected.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; at widths under 500 pixels the facet columns stack vertically and the list moves below them.</p>
+<p>Implementation: p5.js with DOM-free canvas drawing for chips and list, a describe() call for accessibility, and a keyboard alternative in which Tab moves between chips and Space toggles one.</p>
+</details>
+<h2 id="the-cross-book-index">The Cross-Book Index</h2>
+<p>A <strong>cross-book index</strong> is a single index built across the MicroSims of many separate textbooks, so that a search in one place finds a MicroSim published in another. This is the situation the author's catalog addresses: the checked file draws on 90 source repositories, each a textbook with its own <code>docs/sims</code> folder. The original crawler, now deprecated in the repository's own notes, gathered <code>metadata.json</code> files by scanning the <code>dmccreary</code> GitHub account for <code>docs/sims/*/metadata.json</code>.</p>
+<p>Crossing books creates an identity problem. A <code>url</code> that is a short sim name is unique only inside one book. In the checked file, 1,153 records have a relative <code>url</code> and 2,611 an absolute address, and three of the relative values are shared by more than one record. More broadly, 114 sim names occur in more than one record. The dependable key is the pair of repository and sim name. Every one of the 3,764 records is unique on that pair, and each record carries it in its <code>_source</code> object with a <code>github_url</code>. That object is the provenance record for the catalog entry: it is added by the catalog builder, not written by the MicroSim's author, and it is what lets you go from a search hit back to the code that produced it.</p>
+<h2 id="similarity-search">Similarity Search</h2>
+<p>Facets only find what the metadata says explicitly. <strong>Similarity search</strong> finds MicroSims that teach related content even when the wording differs, by comparing meaning instead of matching words. The search project converts each MicroSim's text into an embedding, a list of numbers produced by a language model so that texts with similar meaning have similar lists. It uses the <code>all-MiniLM-L6-v2</code> Sentence Transformers model, which produces 384-number embeddings. Two embeddings are compared by cosine similarity, a score that is higher when the lists point in a more similar direction.</p>
+<p>The project builds two embeddings per MicroSim. The WHAT embedding summarizes what it teaches, using title, description, topic, subjects, grade level, learning objectives and related fields. The HOW embedding summarizes how it is built, using visualization type, framework and interaction style. Keeping them apart matters for reuse: a MicroSim that teaches the right concept in a different library is still reusable through an iframe, so the reuse check compares only WHAT.</p>
+<p>The result is a precomputed file, <code>similar-microsims.json</code>, that lists the ten most similar MicroSims for each entry. Its own metadata says it was generated on 2026-07-15 for 3,746 MicroSims, while the catalog checked for this chapter holds 3,764 records, so the two files are 18 records out of step and would need regeneration to agree. For the first sim in the file, <code>ai-in-am-pipeline</code>, the top neighbor scores 0.6596 and the second 0.5962. Those numbers show that even a best match need not be a near-duplicate.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Similar Is a Score, Not a Verdict</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of a similarity score as a measured distance on a map, not a yes or no. Where you draw the line between "reuse" and "build new" is a judgment, and you can only make it well if you see what different scores look like.</p>
+</div>
+<h2 id="reuse-before-build">Reuse Before Build</h2>
+<p><strong>Reuse before build</strong> is the practice of searching the existing library for a MicroSim that already teaches the target concept before specifying or generating a new one. It matters more with AI generation than without it, because generation makes duplication effortless, and every duplicate must later be tested, height-checked, quality-scored and maintained. Chapter 14 showed how many MicroSims a batch can produce; this practice keeps that number from being padded with copies.</p>
+<p>The search project's <code>find-similar-templates.py</code> supports this in a <code>reuse</code> mode. Its argument list defines <code>--mode</code> (choices <code>template</code> or <code>reuse</code>), <code>--query</code> for a plain description of the target concept, <code>--top</code> for the number of results, <code>--min-score</code>, <code>--json</code> and <code>--quiet</code>. The README states that reuse mode ranks on pure WHAT similarity and sorts each result into a recommendation band, summarized below after the following explanation of the three outcomes.</p>
+<p>A <code>reuse</code> result means an existing MicroSim already teaches the concept, so embed it with an iframe rather than writing a specification. A <code>template</code> result means the concept is not covered but a similar MicroSim's structure is worth borrowing, so write a new specification and cite the match. A <code>generate</code> result means nothing close exists, so specify from scratch.</p>
+<table>
+<thead>
+<tr>
+<th>Band</th>
+<th>WHAT score</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>reuse</code></td>
+<td>0.75 or higher</td>
+<td>Embed the existing MicroSim</td>
+</tr>
+<tr>
+<td><code>template</code></td>
+<td>0.60 to below 0.75</td>
+<td>Write a new specification, borrowing structure</td>
+</tr>
+<tr>
+<td><code>generate</code></td>
+<td>Below 0.60</td>
+<td>Write a new specification from scratch</td>
+</tr>
+</tbody>
+</table>
+<p>These thresholds are the tool's own calibration and are worth reading skeptically. The README reports that, on a 1,411-MicroSim catalog after objectives were rewritten, same-concept matches scored 0.73 to 0.86, related but different concepts 0.53 to 0.69 and absent concepts 0.43 to 0.51. It also reports that a genuine same-concept probe about Coulomb's law scored 0.730, just under the 0.75 reuse threshold, and that the author kept the threshold conservative because a false reuse recommendation is costlier than a missed one. The material reviewed for this chapter reports no comparison of the bands against teachers' own judgments, so the bands are a working heuristic, not a validated classifier. The command itself was not run while this chapter was written, because the tool's environment is not available here.</p>
+<p>The chapter-content-generator skill that produced this chapter is designed to use this check. When it finds a match, it writes the specification with <code>**Status:** Reused</code>, and the batch tools of Chapter 14 skip such specifications because the MicroSim is already deployed elsewhere.</p>
+<h4 id="diagram-reuse-threshold-explorer">Diagram: Reuse Threshold Explorer</h4>
+<iframe src="../../sims/reuse-threshold-explorer/main.html" width="100%" height="677px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/reuse-threshold-explorer/main.html">Run the Reuse Threshold Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Reuse Threshold Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> reuse-threshold-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: judge): The learner will judge where the reuse and template thresholds should sit by moving them and observing which documented example scores are misclassified, and will justify why a conservative reuse threshold trades missed reuse for fewer false reuse.</p>
+<p>Data: only values stated in the <code>find-similar-templates</code> README are used: the default thresholds 0.75 and 0.60; the observed score ranges 0.73 to 0.86 (same concept), 0.53 to 0.69 (related but different) and 0.43 to 0.51 (absent); and one probe scoring 0.730 (Coulomb's law). Nothing else is invented, and the panel labels the ranges as "reported by the tool's author".</p>
+<p>Visual elements: a horizontal score axis from 0.40 to 0.90 with three colored range bars for the documented ranges, one marker for the Coulomb's law probe, and two vertical threshold lines colored by band (reuse, template, generate regions shaded behind).</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Reuse threshold" from 0.60 to 0.90 in steps of 0.01, default 0.75</li>
+<li>Slider "Template threshold" from 0.40 to 0.75 in steps of 0.01, default 0.60</li>
+<li>Button "Reset to defaults"</li>
+<li>Toggle "Show misclassified": highlights any part of a range that falls in the wrong band and prints a sentence such as "Coulomb's law probe would be sent to template, not reuse"</li>
+<li>Hover a range bar or the probe to read its description</li>
+</ul>
+<p>Behavior: the shaded band regions and the misclassification readout update on every slider change. The reuse threshold can never be set below the template threshold.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize; sliders stay visible at 400 pixels wide and the axis labels shrink to a minimum of 12 pixels.</p>
+<p>Implementation: p5.js with createSlider and createButton positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="adapting-an-existing-microsim">Adapting an Existing MicroSim</h2>
+<p><strong>Adapt existing MicroSim</strong> names the middle path between embedding and building: copy a MicroSim that is close but not exact, then change what differs. It is the right response to a <code>template</code> band result, or to a <code>reuse</code> result whose subject or controls do not quite fit your course.</p>
+<p>Adaptation is a metadata task as much as a coding task, and skipping the metadata is the usual failure. After copying the directory, give it a new kebab-case sim-id, and update the folder name, the iframe paths and the <code>identifier</code> together, as Chapter 2 warned. Rewrite the title, description and learning objectives to describe the new behavior. Update the <code>date</code> and <code>technical.version</code>. Keep the original author in <code>creator</code> or <code>contributor</code> and point the Dublin Core <code>source</code> at the original. Preserve the license: a CC BY-NC-SA 4.0 MicroSim must be attributed and any adaptation must carry the same terms, and this is not legal advice.</p>
+<p>Then rerun the validator and the quality chain of Chapter 13, because the copy inherits the original's height constant, tests and screenshot, all of which may now be wrong.</p>
+<h2 id="microsim-submission-guidelines">MicroSim Submission Guidelines</h2>
+<p><strong>MicroSim submission guidelines</strong> tell outside contributors how to add a MicroSim to a shared library so that it arrives complete. This repository's version is <code>docs/submission-guidelines.md</code>. It offers two routes: newcomers open a GitHub Issue with a short description and code, and experienced users submit a pull request. It lists ten usability tips, including copying the template, providing a background in <code>index.md</code>, adding a preview image, linking to the running MicroSim, placing controls below the drawing region, and using an aliceblue drawing background with white controls.</p>
+<p>Read against this chapter, the guidelines have a gap: none of the ten tips mentions <code>metadata.json</code>. A submission that follows them faithfully would still be invisible to the search index. A reasonable extension, proposed here and not yet adopted in the repository, would add a checklist of what a search index needs.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>metadata.json</code> present and passes <code>validate.py</code></td>
+<td>The index and facets read it</td>
+</tr>
+<tr>
+<td>All eight required Dublin Core fields, with a specific description</td>
+<td>Full-text search matches on it</td>
+</tr>
+<tr>
+<td><code>rights</code> set to an explicit license</td>
+<td>Reusers need permission terms</td>
+</tr>
+<tr>
+<td><code>bloomsTaxonomy</code> consistent with the objectives</td>
+<td>Bloom facets filter on it</td>
+</tr>
+<tr>
+<td><code>dependencies</code> and <code>deviceRequirements</code> filled in</td>
+<td>Deployers judge compatibility</td>
+</tr>
+<tr>
+<td>A search for the concept was run before building</td>
+<td>Prevents duplicates</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>A <strong>metadata schema</strong> fixes field names, types and allowed values so tools can rely on them, and <code>validate.py</code> turns the schema into an automatic check.</li>
+<li>Dublin Core supplies the generic description of a MicroSim; the schema requires eight of its fifteen elements, and <code>rights</code> and <code>identifier</code> carry licensing and stable identity.</li>
+<li>Educational metadata records audience, objectives, Bloom levels and misconceptions; technical metadata records framework, canvas, dependencies and device needs; search metadata records tags, keywords, visualization type, interaction level and complexity.</li>
+<li>Concept links, version, license and provenance describe a MicroSim over time and across owners, but the schema stores concept links as free text and has no dedicated provenance section.</li>
+<li>A search index merges many sources, so its quality is limited by the messiest source; the checked catalog holds 3,764 records from 90 repositories, with 1,441 lacking a <code>rights</code> value.</li>
+<li>Faceted search combines facets with AND and values within a facet with OR, and a cross-book index needs repository plus sim name as its key.</li>
+<li>Similarity search compares WHAT embeddings by cosine similarity; the reuse bands of 0.75 and 0.60 are a documented heuristic, not a validated result.</li>
+<li>Reuse before build, and adapting with fresh metadata, keep a library of AI-generated MicroSims from filling with duplicates.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Describe and Find a MicroSim</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now write a complete <code>metadata.json</code>, read a faceted search result critically, and run the reuse-before-build check that decides whether to embed, adapt or generate. That skill saves more time than any single MicroSim you will ever build.</p>
+</div>
+<p>Metadata makes a MicroSim findable, but it says nothing about what learners do inside one, and Chapter 16 begins the design of the xAPI statements that will describe exactly that.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../14-batch-generation-from-specifications/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 14. Batch Generation from Specifications">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                14. Batch Generation from Specifications
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../16-xapi-statements-and-evidence/" class="md-footer__link md-footer__link--next" aria-label="Next: 16. xAPI Statements and Evidence">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                16. xAPI Statements and Evidence
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

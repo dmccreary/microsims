@@ -1,0 +1,15 @@
+{
+  "sim_id": "clickable-detail-matrix",
+  "diagram_name": "Clickable Detail Matrix",
+  "chapter_number": 7,
+  "chapter_title": "Charts, Plots and Tables",
+  "chapter_dir": "07-charts-plots-and-tables",
+  "chapter_rel_dir": "chapters/07-charts-plots-and-tables",
+  "library": "HTML and JavaScript",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate several items across several dimensions by reading each cell's summary and then opening its explanation and example.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: table\n**sim-id:** clickable-detail-matrix<br/>\n**Library:** HTML and JavaScript<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate several items across several dimensions by reading each cell's summary and then opening its explanation and example.\n\nData: a `data.json` file with four rows (invented learning-theory names) and four columns (invented dimensions), each cell holding `value`, `emphasis`, `description` and `example`.\n\nLayout: a table with aliceblue background and cells tinted by emphasis. A detail panel slides in from the right and a semi-transparent overlay covers the table while the panel is open.\n\nControls:\n\n- Click a cell to open the panel, and a close button or a click on the overlay to close it\n- Toggle \"Show emphasis colors\", which removes the tints so the learner can test whether the summaries alone are clear\n- Button \"Random cell\" that opens a randomly chosen cell and asks the learner to predict its emphasis first\n\nInteractions: hovering a cell raises it slightly. The panel shows row name, column name, description and example. The Escape key closes the panel, and focus returns to the clicked cell.\n\nResponsive design: the panel becomes a bottom sheet below 600 pixels, and the table scrolls horizontally inside its wrapper.\n\nImplementation: the table is generated from `data.json` with `fetch`, and each cell has a click listener that calls `showDetail`."
+}

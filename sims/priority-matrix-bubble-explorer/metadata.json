@@ -1,0 +1,77 @@
+{
+  "title": "Priority Matrix Bubble Explorer",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude (Anthropic)"],
+  "subject": "Data Visualization; Instructional Design",
+  "description": "Interactive Chart.js bubble chart of eight invented MicroSim types plotted by effort and impact, with bubble size for count and color for status. Learners select and move items across the quadrant midpoints and see the quadrant list and a why-explanation update.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "canvasHeight": 500,
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Priority matrices and bubble charts",
+    "learningObjectives": [
+      "The learner will compare candidate items by impact, effort and frequency, and identify which quadrant each item occupies and why."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "compare",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Reading a scatter plot",
+      "Bubble data as { x, y, r } objects"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "frameworkVersion": "4.4.0",
+    "version": "1.0",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 500
+    },
+    "responsive": true,
+    "dependencies": ["https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "click", "label": "Select a bubble"},
+      {"type": "slider", "label": "Effort", "min": 0, "max": 10, "step": 0.5},
+      {"type": "slider", "label": "Impact", "min": 0, "max": 10, "step": 0.5},
+      {"type": "slider", "label": "Bubble scale", "min": 1, "max": 3, "step": 0.5},
+      {"type": "checkbox", "label": "Show quadrant labels"},
+      {"type": "button", "label": "Reset"}
+    ]
+  },
+  "simulation": {
+    "model": "Two-by-two priority matrix with midpoint 5 on both axes",
+    "variables": ["effort", "impact", "count", "status", "bubble scale"],
+    "equations": ["radius = minR + (count - minCount) / (maxCount - minCount) * (maxR - minR), with minR = 4 x scale and maxR = 15 x scale"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Comparison tool with manipulable data",
+    "interactionPattern": "Select, move, observe quadrant change, explain",
+    "keyQuestions": [
+      "Which criterion separates two items that sit in different quadrants?",
+      "Should bubble size change a build-first decision?"
+    ],
+    "commonMisconceptions": [
+      "Bubble radius is proportional to the quantity it encodes (readers perceive area).",
+      "An item exactly on the midpoint belongs to the high side."
+    ],
+    "assessmentOpportunities": [
+      "Name an item's quadrant from its scores and justify it",
+      "Compare two items on all three variables"
+    ]
+  },
+  "chapter": "07-charts-plots-and-tables"
+}

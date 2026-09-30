@@ -1,0 +1,127 @@
+{
+  "title": "Audit Baseline Explorer",
+  "description": "Two Chart.js bar charts of the 2026-09-30 validate-sims.py audit of this repository: MicroSims per grade (A 18, B 27, C 30, D 41) and the frequency of eight rubric issues. Clicking a grade bar filters the issue chart to that grade and shows the audit's recommended action; a Below A filter combines grades B to D; a menu switches between counts and total points lost (count times the rubric points of the check).",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Quality Assurance",
+    "Data Analysis",
+    "MicroSim Engineering"
+  ],
+  "type": "Interactive Chart",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/audit-baseline-explorer/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The 2026-09-30 quality audit of this repository",
+    "learningObjectives": [
+      "The learner will examine the 2026-09-30 audit of 116 MicroSims and identify which rubric issues most often hold MicroSims below the grade A bar."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "examine",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The 100-point rubric and grades (Chapter 13)"
+    ],
+    "concepts": [
+      "Quality Score",
+      "Quality Grade",
+      "100-Point Rubric",
+      "Standards Hardening"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "libraryVersion": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 570
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Text alternatives are provided with aria-label attributes; controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "chart-click",
+        "label": "Grade bar",
+        "action": "Filter the issue chart to that grade and show the recommended action"
+      },
+      {
+        "type": "select",
+        "label": "Grades",
+        "options": [
+          "All grades",
+          "Below A (B, C, D)",
+          "A only",
+          "B only",
+          "C only",
+          "D only"
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Issue chart shows",
+        "options": [
+          "Counts",
+          "Total points lost"
+        ]
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Descriptive statistics of an audit",
+    "variables": [
+      "grade counts",
+      "issue counts by grade",
+      "rubric points per check"
+    ],
+    "equations": [
+      "points lost = count x rubric points"
+    ],
+    "assumptions": [
+      "Data from the TODO.md audit of 2026-09-30, produced by validate-sims.py."
+    ],
+    "limitations": [
+      "Only eight issues are charted; the audit also lists missing iframes (50), social images (45) and fullscreen links (44)."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided data exploration with filters",
+    "interactionPattern": "Linked charts with drill-down (Analyze level)",
+    "keyQuestions": [
+      "Which issues are most common below the A bar?",
+      "Does weighting by points change the order?",
+      "What does the audit recommend for each grade?"
+    ],
+    "commonMisconceptions": [
+      "The most frequent issue is always the most important one to fix.",
+      "Grade A MicroSims have no issues."
+    ],
+    "assessmentOpportunities": [
+      "The learner identifies the most common and the most costly issues below the A bar and explains the difference.",
+      "The learner links each grade to its recommended action."
+    ]
+  },
+  "chapter": "13-quality-assurance-and-automated-layout-review",
+  "canvasHeight": 570
+}

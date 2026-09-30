@@ -1,0 +1,15 @@
+{
+  "sim_id": "height-resolution-order-tracer",
+  "diagram_name": "Height Resolution Order Tracer",
+  "chapter_number": 12,
+  "chapter_title": "Width-Responsive Design and Iframe Heights",
+  "chapter_dir": "12-width-responsive-design-and-iframe-heights",
+  "chapter_rel_dir": "chapters/12-width-responsive-design-and-iframe-heights",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Examine",
+  "learning_objective": "The learner will examine a MicroSim folder and determine which of the four height sources a synchronization tool would use, and what iframe height results.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** height-resolution-order-tracer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: examine): The learner will examine a MicroSim folder and determine which of the four height sources a synchronization tool would use, and what iframe height results.\n\nLayout: on the left, a folder tree of one MicroSim with toggleable files; on the right, a four-row stack of source boxes numbered 1 to 4, and beneath it a result panel reading \"CANVAS_HEIGHT = n, iframe = n + 2\" or \"unresolved: iframes left untouched\".\n\nControls:\n\n- Preset dropdown: \"p5.js sketch with comment\", \"Mermaid diagram with metadata only\", \"Legacy HTML comment\", \"Sketch with variables only\", \"No height anywhere\"\n- Checkboxes on each file element: \"// CANVAS_HEIGHT comment present\", \"metadata.json canvasHeight present\", \"main.html comment present\", \"drawHeight and controlHeight variables present\"\n- Number fields for each value, default 450, 480, 500 and 400 plus 50\n- Button \"Trace\": animates a highlight down the four boxes and stops at the first one that has a value\n\nBehavior: the highlight passes over empty sources in gray and stops on the first source with a value in green, and the result panel shows that value plus 2. When source 4 is used, a note appears saying the comment would be written back to line 2 of the script. When all four are empty, the panel turns amber. If two sources disagree, both are shown but only the higher-priority one is used, and a tooltip explains why.\n\nInstructional rationale: analysis of a priority rule is best supported by letting the learner set the inputs and predict the winner before pressing Trace.\n\nResponsive design: the folder tree and the source stack sit side by side above 600 pixels and stack vertically below it, and text wraps inside boxes on window resize.\n\nImplementation: p5.js with createCheckbox, createSelect, createInput and createButton controls, and a describe() call."
+}

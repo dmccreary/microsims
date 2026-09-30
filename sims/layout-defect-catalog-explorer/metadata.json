@@ -1,0 +1,130 @@
+{
+  "title": "Layout Defect Catalog Explorer",
+  "description": "A deliberately flawed mock MicroSim with eight layout defects in three families: clipped content (cut-off row labels, a title under a side panel, a painted-over legend heading), hidden controls (a slider past the right edge, a slider label over its track, overlapping buttons) and color contrast (black-haloed text, pale text on aliceblue). Clicking a region flags it; correct flags open a card with the checklist item, cause and repair, and Apply repair redraws the mock.",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude Code"
+  ],
+  "date": "2026-09-30",
+  "subject": [
+    "Educational Technology",
+    "Quality Assurance",
+    "Visual Design",
+    "MicroSim Engineering"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/layout-defect-catalog-explorer/",
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "Layout defects and the visual checklist",
+    "learningObjectives": [
+      "The learner will distinguish clipped content, hidden controls and low color contrast in a rendered MicroSim, and will match each defect to its checklist item and its usual repair."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "distinguish",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "The standard MicroSim layout: aliceblue drawing region, white control region (Chapter 2)",
+      "Layout defects and the fixes table (Chapter 13)"
+    ],
+    "concepts": [
+      "Layout Defect",
+      "Clipped Content",
+      "Hidden Control",
+      "Color Contrast",
+      "Visual Checklist"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "libraryVersion": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 540
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "describe() provides a screen-reader description; all controls are native HTML elements."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "canvas-click",
+        "label": "Mock MicroSim region",
+        "action": "Flag a suspected defect"
+      },
+      {
+        "type": "button",
+        "label": "Apply repair"
+      },
+      {
+        "type": "button",
+        "label": "Reset"
+      },
+      {
+        "type": "button",
+        "label": "Reveal"
+      },
+      {
+        "type": "select",
+        "label": "Defect family",
+        "options": [
+          "All",
+          "Clipped content",
+          "Hidden control",
+          "Color contrast"
+        ]
+      }
+    ]
+  },
+  "simulation": {
+    "modelType": "Hit-test exploration of seeded defects",
+    "variables": [
+      "found defects",
+      "repaired defects",
+      "family filter"
+    ],
+    "equations": [],
+    "assumptions": [
+      "Each defect has one bounding box in the mock; clicks inside it count as a correct flag."
+    ],
+    "limitations": [
+      "Only eight defects from checklist sections 1 to 3 are seeded; sections 4 to 6 have none."
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Search and classify with immediate feedback",
+    "interactionPattern": "Defect finder (Analyze level)",
+    "keyQuestions": [
+      "Which family does this defect belong to?",
+      "What in the code most likely caused it?",
+      "What is the smallest repair?"
+    ],
+    "commonMisconceptions": [
+      "A layout that runs without errors has no defects.",
+      "Clipped text is always at the bottom of the iframe.",
+      "Contrast problems are only about color choice, never about leftover strokes."
+    ],
+    "assessmentOpportunities": [
+      "The learner finds at least six of the eight defects without Reveal.",
+      "The learner sorts each defect into clipped content, hidden control or color contrast and names its checklist item."
+    ]
+  },
+  "chapter": "13-quality-assurance-and-automated-layout-review",
+  "canvasHeight": 540
+}

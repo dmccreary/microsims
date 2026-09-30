@@ -1,0 +1,15 @@
+{
+  "sim_id": "percentage-zone-calibrator",
+  "diagram_name": "Percentage Zone Calibrator",
+  "chapter_number": 10,
+  "chapter_title": "Image Overlays and Comparison Posters",
+  "chapter_dir": "10-image-overlays-and-comparison-posters",
+  "chapter_rel_dir": "chapters/10-image-overlays-and-comparison-posters",
+  "library": "p5.js",
+  "bloom_level": "Apply",
+  "bloom_verb": "Calculate",
+  "learning_objective": "The learner will calculate the x1, y1, x2 and y2 percentages of a rectangle drawn over an image and predict whether a given click falls inside it.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** percentage-zone-calibrator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Apply; verb: calculate): The learner will calculate the x1, y1, x2 and y2 percentages of a rectangle drawn over an image and predict whether a given click falls inside it.\n\nLayout: a drawing region containing a placeholder poster image (three colored columns drawn with p5.js shapes) and one translucent rectangle with four draggable corner handles. A white control region below holds a readout and buttons.\n\nControls: dragging a corner handle resizes the rectangle. A \"Show percentages\" checkbox (default on) prints x1, y1, x2 and y2 to one decimal place beside the handles. A \"Copy JSON\" button shows the zone object as JSON text in a panel. A \"Target practice\" button shows a random target rectangle and asks the learner to match it within two percentage points, then reports the error for each edge. A \"Click test\" toggle lets the learner click anywhere on the picture and reports whether the click is inside the zone.\n\nBehavior: all coordinates are stored as percentages and converted to pixels on each draw, so a \"Resize picture\" slider that changes the drawing width leaves the percentages unchanged.\n\nResponsive design: the drawing region width follows the container width on window resize, handle sizes stay at least 24 pixels for touch, and the readout wraps under the picture below 600 pixels.\n\nImplementation: p5.js with pointer-based dragging, createSlider and createCheckbox controls, and a describe() call reporting the current percentages."
+}

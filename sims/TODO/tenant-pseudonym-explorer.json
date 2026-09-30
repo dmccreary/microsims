@@ -1,0 +1,15 @@
+{
+  "sim_id": "tenant-pseudonym-explorer",
+  "diagram_name": "Tenant Isolation and Pseudonym Explorer",
+  "chapter_number": 20,
+  "chapter_title": "\"The Full LRS: Architecture and Ingestion\"",
+  "chapter_dir": "20-the-full-lrs-architecture-and-ingestion",
+  "chapter_rel_dir": "chapters/20-the-full-lrs-architecture-and-ingestion",
+  "library": "p5.js",
+  "bloom_level": "Understand",
+  "bloom_verb": "Explain",
+  "learning_objective": "The learner will explain why a per-district salt gives one learner two unrelated pseudonymous keys, and which boundaries are hard or soft.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** tenant-pseudonym-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Understand; verb: explain): The learner will explain why a per-district salt gives one learner two unrelated pseudonymous keys, and which boundaries are hard or soft.\n\nLayout: the drawing region shows a tree, System at the top, two districts below, then schools, courses and sections, and one student node at the bottom of each district. The control region below has a text field for a learner name, a drop-down for salt handling, and a button \"Derive keys\".\n\nControls:\n\n- Text field \"Learner account name\", default learner-17\n- Radio buttons \"Per-district salt\" (default) and \"One global salt\"\n- Button \"Derive keys\" that shows each district's key as a short illustrative token, clearly labeled \"illustrative, not a real hash\"\n- Toggle \"Attacker view\" that hides the vault and shows only the analytics side\n\nBehavior: with per-district salts, the two districts show different tokens, and in attacker view the learner cannot be linked. With a global salt the tokens match and the link appears as a red line. Clicking a level of the tree shows whether its boundary is hard or soft and the text of the rule.\n\nResponsive design: the canvas width follows the container width on every window resize, with a fixed drawing height of 380 pixels and a 100 pixel control region, and every control stays visible at 400 pixels wide.\n\nImplementation: p5.js with createInput, createRadio and createButton positioned relative to the drawing height. Tokens come from a simple non-cryptographic hash and are labeled as illustrative. Include a describe() call for accessibility."
+}

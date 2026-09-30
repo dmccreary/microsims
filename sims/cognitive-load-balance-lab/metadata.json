@@ -1,0 +1,87 @@
+{
+  "title": "Cognitive Load Balance Lab",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "subject": ["Cognitive Load Theory", "Intrinsic Load", "Extraneous Load", "Germane Load", "MicroSim Design"],
+  "description": "A p5.js lab in which learners toggle design features on a mock bouncing-ball MicroSim and see a stacked load gauge split into intrinsic, extraneous and germane segments against a comfortable-capacity line, with Designer A and Designer B presets from the Chapter 3 worked example. The weights are fixed teaching illustrations, not measurements.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/cognitive-load-balance-lab/",
+  "publisher": "MicroSims 2.0",
+  "audience": "Teachers, instructional designers and learning-technology developers",
+  "canvasHeight": 625,
+  "educational": {
+    "gradeLevel": ["College Undergraduate", "Professional Development"],
+    "subjectArea": "Instructional Design",
+    "topic": "Intrinsic, extraneous and germane load in MicroSim design",
+    "learningObjectives": [
+      "Differentiate the design features that add intrinsic, extraneous and germane load.",
+      "Identify the largest extraneous contributor to remove when a design exceeds comfortable capacity."
+    ],
+    "bloomsTaxonomy": ["Analyze"],
+    "bloomVerb": "differentiate",
+    "duration": "15 minutes",
+    "prerequisites": ["Cognitive load theory", "Intrinsic, extraneous and germane load"],
+    "concepts": ["Cognitive Load Theory", "Intrinsic Load", "Extraneous Load", "Germane Load", "Predict-First Design"],
+    "chapter": "03-learning-objectives-and-blooms-taxonomy"
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 625
+    },
+    "responsive": true,
+    "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+    "accessibility": {
+      "hasAltText": true,
+      "describeFunction": true,
+      "keyboardNavigable": true
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "slider", "label": "Number of variables", "min": 1, "max": 6, "step": 1, "default": 2},
+      {"type": "checkbox", "label": "Decorative particle trail", "default": false},
+      {"type": "checkbox", "label": "Sound effects", "default": false},
+      {"type": "checkbox", "label": "Prediction prompt before each run", "default": true},
+      {"type": "checkbox", "label": "Ask for a one-sentence explanation", "default": false},
+      {"type": "checkbox", "label": "Instructions far from the drawing", "default": false},
+      {"type": "button", "label": "Reset to Designer A"},
+      {"type": "button", "label": "Set to Designer B"}
+    ]
+  },
+  "simulation": {
+    "modelType": "Qualitative additive load gauge (illustrative weights)",
+    "variables": ["number of variables", "extraneous features", "germane features", "total load"],
+    "equations": [
+      "intrinsic = [10, 22, 36, 52, 70, 90] for 1 to 6 variables",
+      "extraneous = 18 (particle trail) + 12 (sound) + 15 (distant instructions)",
+      "germane = 12 (prediction prompt) + 10 (one-sentence explanation)",
+      "comfortable capacity = 100"
+    ],
+    "assumptions": ["Loads add; weights are made up for teaching and do not measure any learner."],
+    "limitations": ["Real cognitive load depends on the learner's prior knowledge and cannot be read from a MicroSim's features alone."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Predict, toggle and observe; repair an overloaded design",
+    "interactionPattern": "Comparison tool with feature toggles and a gauge",
+    "keyQuestions": [
+      "Which segment does each feature grow, and why?",
+      "Why remove extraneous load before reducing germane load?"
+    ],
+    "commonMisconceptions": [
+      "All load is bad and should be minimized.",
+      "More variables always make a simulation more educational.",
+      "Decorative effects are free because AI makes them cheap to generate."
+    ],
+    "assessmentOpportunities": [
+      "Classification of the six features by load type.",
+      "A minimal repair of Designer B with written reasons."
+    ]
+  }
+}

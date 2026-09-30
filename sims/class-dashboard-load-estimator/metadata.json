@@ -1,0 +1,122 @@
+{
+  "title": "Class Dashboard Load Estimator",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Learning Analytics",
+    "LRS-Lite",
+    "Dashboards"
+  ],
+  "description": "Calculate how much a teacher's browser must download to build an LRS-Lite class dashboard, estimate the load-time band, and decide when the design's rollup function is needed.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/class-dashboard-load-estimator/",
+  "canvasHeight": 540,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "Browser-side teacher dashboards in LRS-Lite",
+    "learningObjectives": [
+      "The learner will calculate the download size and load-time band for a teacher dashboard at a given roster size and decide whether the design's rollup function is needed."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "calculate",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Browser-side dashboards and object storage sync (Chapter 23)"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.4",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 540
+    },
+    "responsive": true,
+    "dependencies": [
+      "Chart.js 4.4.4 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Native range inputs; canvas aria-label; text panel is an aria-live region."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "slider",
+        "label": "Students",
+        "min": 10,
+        "max": 300,
+        "step": 10,
+        "default": 30
+      },
+      {
+        "type": "slider",
+        "label": "Summary size (KB gzipped)",
+        "min": 5,
+        "max": 30,
+        "step": 1,
+        "default": 11
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Calculator with thresholds and an explicit decision message",
+    "keyQuestions": [
+      "How many files and megabytes does the teacher download?",
+      "At what roster size should the rollup function be used?"
+    ],
+    "commonMisconceptions": [
+      "That a larger summary size changes the rollup threshold",
+      "That the time band is a measurement"
+    ],
+    "assessmentOpportunities": [
+      "Compute totals for given rosters",
+      "Recommend enabling the rollup for a described school"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "LRS-Lite",
+      "browser-side dashboard",
+      "teacher dashboard",
+      "rollup function",
+      "summary.json",
+      "load time"
+    ]
+  },
+  "chapter": "23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "simulation": {
+    "modelType": "deterministic calculator",
+    "variables": [
+      "students",
+      "summaryKB"
+    ],
+    "equations": [
+      "total MB = students * summaryKB / 1000",
+      "threshold line MB = 100 * summaryKB / 1000",
+      "load band (s) = students * [5, 20] ms + total MB / [10, 2.5] MB/s (illustrative)",
+      "rollup MB = (students * 2 KB + 20 KB) / 1000 (illustrative)"
+    ],
+    "assumptions": [
+      "11 KB per summary and the 100-student threshold are design estimates",
+      "Load band calibrated to the design statement that 150 students load in about 1-4 s"
+    ],
+    "limitations": [
+      "The load-time band and rollup size are illustrative, not measured"
+    ]
+  }
+}

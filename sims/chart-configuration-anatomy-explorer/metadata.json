@@ -1,0 +1,78 @@
+{
+  "title": "Chart Configuration Anatomy Explorer",
+  "description": "A Chart.js 4.4.0 explorer that shows a live chart configuration as color-coded type, data and options blocks beside the chart it produces; each control rewrites one block, hovering a block outlines the chart features it controls, tooltips name the configuration path of every bar, point or slice, and a Break it button demonstrates a labels/values mismatch.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Chart.js", "Data Visualization", "Chart Configuration", "Declarative Charts"],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/chart-configuration-anatomy-explorer/",
+  "publisher": "MicroSims 2.0: Generating, Instrumenting and Evaluating Interactive Learning Objects with AI",
+  "library": "Chart.js",
+  "canvasHeight": 660,
+  "chapter": "07-charts-plots-and-tables",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": ["Teachers", "Instructional designers", "Learning-technology developers"],
+    "subjectArea": "Computer Science",
+    "topic": "The type, data and options parts of a Chart.js configuration",
+    "learningObjectives": [
+      "The learner will explain which part of a chart configuration (type, data or options) controls each visible feature of a chart, by editing values and observing the result."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "bloomVerb": "explain",
+    "duration": "10-15 minutes",
+    "prerequisites": [
+      "Chart.js: Configuration and Datasets (Chapter 7)",
+      "Reading a JavaScript object literal"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Chart.js",
+    "version": "4.4.0",
+    "canvasDimensions": {"width": "responsive", "height": 660},
+    "responsive": true,
+    "dependencies": ["Chart.js 4.4.0 from the jsDelivr CDN"],
+    "files": ["main.html", "style.css", "chart-configuration-anatomy-explorer.js"],
+    "accessibility": {"hasAltText": true, "keyboardNavigable": true, "notes": "Configuration blocks are focusable; focusing a block triggers the same highlight as hovering; the caption is an aria-live region"}
+  },
+  "userInterface": {
+    "controls": [
+      {"type": "select", "label": "Chart type", "options": ["bar", "line", "pie"], "default": "bar", "rewrites": "type"},
+      {"type": "number", "label": "First dataset values (Mon to Fri)", "min": 0, "max": 50, "default": [12, 19, 8, 15, 10], "rewrites": "data"},
+      {"type": "checkbox", "label": "Responsive", "default": true, "rewrites": "options"},
+      {"type": "select", "label": "Legend position", "options": ["top", "bottom", "left", "right"], "default": "top", "rewrites": "options"},
+      {"type": "button", "label": "Add dataset / Remove dataset", "rewrites": "data"},
+      {"type": "button", "label": "Break it / Fix it", "action": "Remove or restore the last label to show a labels/values mismatch"},
+      {"type": "button", "label": "Reset"}
+    ],
+    "hover": ["Hover a configuration block to outline the chart features it controls", "Hover a chart element for a tooltip naming its configuration path"]
+  },
+  "simulation": {
+    "modelType": "Declarative configuration explorer",
+    "variables": ["type", "data.labels", "data.datasets", "options.responsive", "options.plugins.legend.position"],
+    "assumptions": ["Type and responsive changes rebuild the chart from the configuration object; data and legend edits call chart.update()"],
+    "limitations": ["Tooltip callbacks and the highlight plugin are part of the real configuration but are summarized, not printed, in the options block"]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Explore and explain: change one part, observe which chart features respond",
+    "keyQuestions": [
+      "Which part of the configuration moves the legend?",
+      "Where does the color of the second bar come from?",
+      "What happens when labels and values disagree, and why?"
+    ],
+    "commonMisconceptions": [
+      "The chart type lives in options",
+      "Changing a dataset array redraws the chart without chart.update()",
+      "Labels and values are matched by name rather than by position"
+    ],
+    "assessmentOpportunities": [
+      "Name the configuration path for a given chart feature",
+      "Predict the effect of a labels/values mismatch for bar and pie charts"
+    ]
+  }
+}

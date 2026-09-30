@@ -1,0 +1,15 @@
+{
+  "sim_id": "full-or-lite-decision-explorer",
+  "diagram_name": "Full or Lite Decision Explorer",
+  "chapter_number": 23,
+  "chapter_title": "\"LRS-Lite: Sync, Dashboards and Choosing Full or Lite\"",
+  "chapter_dir": "23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "chapter_rel_dir": "chapters/23-lrs-lite-sync-dashboards-and-choosing-full-or-lite",
+  "library": "p5.js",
+  "bloom_level": "Evaluate",
+  "bloom_verb": "Recommend",
+  "learning_objective": "The learner will recommend Full, single-server or Lite for a described school by weighing scale, freshness, evidence integrity and budget, and will justify the recommendation against the trade-off table.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** full-or-lite-decision-explorer<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Evaluate; verb: recommend): The learner will recommend Full, single-server or Lite for a described school by weighing scale, freshness, evidence integrity and budget, and will justify the recommendation against the trade-off table.\n\nControls:\n\n- Slider \"Students\" from 10 to 20000 on a logarithmic scale (default 30)\n- Checkboxes: \"Grades depend on evidence\", \"Need cross-class analytics\", \"Need real-time alerts\", \"Staff to run servers\"\n- Slider \"Monthly budget (USD)\" from 0 to 12000 (default 50)\n- Button \"Show reasoning\" and button \"Reset\"\n\nVisual elements: three tier cards (Lite, Single server, Full) each showing its design estimate for cost per month, scale target and the requirements it fails. A card is dimmed with a red label for each unmet requirement and highlighted when nothing is unmet. A recommendation banner names the cheapest card with no unmet requirement, or states that no tier fits.\n\nInteractions: hovering a card shows the source of each figure, labeled as a design or planning estimate. \"Show reasoning\" lists each requirement and which tier it rules out.\n\nBehavior: the rule set is a teaching heuristic derived from the trade-off table, not an official sizing tool, and the banner says so.\n\nResponsive design: cards sit in a row above 600 pixels wide and stack below it, resizing on every window resize, with controls remaining reachable at 400 pixels wide.\n\nImplementation: p5.js with createSlider and createCheckbox controls positioned relative to drawHeight. Include a describe() call for accessibility."
+}

@@ -1,0 +1,15 @@
+{
+  "sim_id": "objectives-graph-neighborhood",
+  "diagram_name": "Objectives Neighborhood of the Learning Graph",
+  "chapter_number": 3,
+  "chapter_title": "Learning Objectives and Bloom's Taxonomy",
+  "chapter_dir": "03-learning-objectives-and-blooms-taxonomy",
+  "chapter_rel_dir": "chapters/03-learning-objectives-and-blooms-taxonomy",
+  "library": "vis-network",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the prerequisites of a concept from its dependents by exploring a small neighborhood of the book's learning graph, and will explain why a concept with many dependents deserves more careful teaching.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: diagram\n**sim-id:** objectives-graph-neighborhood<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the prerequisites of a concept from its dependents by exploring a small neighborhood of the book's learning graph, and will explain why a concept with many dependents deserves more careful teaching.\n\nData: the 26 concepts of taxonomy category OBJ plus their direct prerequisites and dependents, read from `docs/learning-graph/learning-graph.json` at load time. Node size is proportional to the logarithm of the Concept Impact Score. Edges point from dependent to prerequisite, and an arrowhead at the prerequisite end is labeled \"depends on\" in the legend.\n\nInteractions: clicking a node highlights its direct prerequisites in green and its direct dependents in orange, and opens an information panel that shows the concept's definition, its Concept Impact Score, and its two lists. Hovering a node shows a tooltip with the score. A toggle \"Show transitive dependents\" extends the orange highlight to every concept that depends on the selected one through any path. A \"Check me\" button hides the highlight and asks the learner to click every prerequisite of a randomly chosen concept, then scores the answer.\n\nLayout: the network fills the left two thirds, with the information panel on the right. Physics is disabled and nodes use a stored left-to-right layout so that prerequisites sit to the left.\n\nResponsive design: the network re-fits to the container width on every window resize, and the information panel moves below the network when the width is under 600 pixels.\n\nImplementation: vis-network with nodes and edges loaded from the learning graph JSON file, and click, hover and toggle handlers as described."
+}

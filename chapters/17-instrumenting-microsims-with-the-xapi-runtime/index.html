@@ -1,0 +1,3169 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to add xAPI reporting to a MicroSim with the shared runtime, its handles and adapters, concept mapping, policy precedence and the automated quality check.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/17-instrumenting-microsims-with-the-xapi-runtime/">
+      
+      
+        <link rel="prev" href="../16-xapi-statements-and-evidence/">
+      
+      
+        <link rel="next" href="../18-mastery-prediction-and-knowledge-tracing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Instrumenting MicroSims with the xAPI Runtime - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Instrumenting MicroSims with the xAPI Runtime - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to add xAPI reporting to a MicroSim with the shared runtime, its handles and adapters, concept mapping, policy precedence and the automated quality check." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/17-instrumenting-microsims-with-the-xapi-runtime/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/17-instrumenting-microsims-with-the-xapi-runtime/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Instrumenting MicroSims with the xAPI Runtime - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to add xAPI reporting to a MicroSim with the shared runtime, its handles and adapters, concept mapping, policy precedence and the automated quality check." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/17-instrumenting-microsims-with-the-xapi-runtime/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instrumenting-microsims-with-the-xapi-runtime" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instrumenting MicroSims with the xAPI Runtime
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lrs-runtime-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The LRS Runtime Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lrs-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The LRS Config File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Precedence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Precedence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-policy-precedence-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Policy Precedence Resolver
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teaching-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teaching Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-statement-log-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Statement Log Viewer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handles-slider-item-button-and-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handles: Slider, Item, Button and Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-guarded-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Guarded Call
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Guarded Call">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-guarded-call-runtime-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Guarded Call Runtime Toggle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-adapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Adapters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poster-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster Instrumentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sub-activity-fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sub-Activity Fragment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrumented-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instrumented Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-xapi-quality-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The xAPI Quality Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lrs-runtime-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The LRS Runtime Script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-lrs-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The LRS Config File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Precedence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Precedence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-policy-precedence-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Policy Precedence Resolver
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teaching-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teaching Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-statement-log-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Statement Log Viewer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handles-slider-item-button-and-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handles: Slider, Item, Button and Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-guarded-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Guarded Call
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Guarded Call">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-guarded-call-runtime-toggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Guarded Call Runtime Toggle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-adapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library Adapters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poster-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster Instrumentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-sub-activity-fragment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sub-Activity Fragment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Mapping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrumented-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instrumented Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-xapi-quality-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The xAPI Quality Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/17-instrumenting-microsims-with-the-xapi-runtime/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="instrumenting-microsims-with-the-xapi-runtime">Instrumenting MicroSims with the xAPI Runtime</h1>
+<h2 id="summary">Summary</h2>
+<p>Shows how to add xAPI reporting to a MicroSim using the shared runtime, its handles and library adapters, and how to map interactions to concepts.</p>
+<p>Students learn the config file, policy precedence, teaching mode, the instrumented status and the quality check. After it, they can instrument a MicroSim without changing how it behaves.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 16 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Poster Instrumentation</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sub-Activity Fragment</td>
+<td>1</td>
+</tr>
+<tr>
+<td>LRS Runtime Script</td>
+<td>25</td>
+</tr>
+<tr>
+<td>LRS Config File</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Library Adapter</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Slider Handle</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Item Handle</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Button Handle</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Question Handle</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Guarded Call</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Concept Mapping</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Teaching Mode</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Policy Precedence</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Instrumented Status</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Statement Log Viewer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>xAPI Quality Check</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../02-anatomy-of-a-microsim/">Chapter 2: Anatomy of a MicroSim</a></li>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../10-image-overlays-and-comparison-posters/">Chapter 10: Image Overlays and Comparison Posters</a></li>
+<li><a href="../13-quality-assurance-and-automated-layout-review/">Chapter 13: Quality Assurance and Automated Layout Review</a></li>
+<li><a href="../14-batch-generation-from-specifications/">Chapter 14: Batch Generation from Specifications</a></li>
+<li><a href="../15-metadata-search-and-reuse/">Chapter 15: Metadata, Search and Reuse</a></li>
+<li><a href="../16-xapi-statements-and-evidence/">Chapter 16: xAPI Statements and Evidence</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">From Reading Evidence to Producing It</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Chapter 16 taught you to read xAPI statements; this chapter teaches you to make a MicroSim produce them, in a few dozen lines, without changing how it behaves. By the end you can take a working simulation, wire it to the shared runtime, and check the result with a script. Let's bounce it around!</p>
+</div>
+<p>Chapter 16 defined what counts as evidence: statements, three verbs, a producer contract and six evidence classes. This chapter is the practical counterpart. It follows the workflow of the <code>add-xapi-events-to-microsim</code> skill, which takes a MicroSim that already works and makes it report what a learner did. We start with the shared runtime and its configuration, then the handles a MicroSim calls, then the adapters, concept mapping and the tools that verify the work.</p>
+<p>A note on status before we begin. The runtime described here exists and runs in the <code>learning-record-store</code> repository, and its four reference MicroSims emit statements today. However, as of that repository's <code>TODO.md</code> dated 2026-09-26, no emitter sends a statement to any store: the runtime keeps statements in memory and shows them in a panel, and the network transport is a designed seam that has not been built. Everything below is therefore about producing correct statements, which is built and tested, not about delivering them, which is not yet built.</p>
+<h2 id="the-lrs-runtime-script">The LRS Runtime Script</h2>
+<p>Every instrumented MicroSim needs the same machinery: something to build contract-valid statements, something to decide between Full and Compact mode, and something to close open intervals when the learner leaves. Rewriting that in each MicroSim would create many slightly different implementations. The design instead uses one shared set of files, the <strong>LRS runtime script</strong>, meaning the small group of JavaScript files (<code>lrs-xapi.js</code>, <code>lrs-lite-sim.js</code>, <code>lrs-sim.js</code> and <code>xapi-json-viewer.js</code>, plus the stylesheet <code>lrs-xapi.css</code>) that every instrumented MicroSim loads. The files are identical in every textbook. The MicroSim's own code stays a thin mapping of roughly 20 to 60 lines, according to the skill, and is never a copy of the runtime.</p>
+<p>Each file has one job. <code>lrs-xapi.js</code> builds every statement and enforces the producer contract from Chapter 16. <code>lrs-lite-sim.js</code> reads the policy, tracks sessions and detects focus loss. <code>lrs-sim.js</code> provides the API the MicroSim calls, <code>LRSSim</code>, and renders the optional teaching panel. <code>xapi-json-viewer.js</code> opens one statement in a formatted view.</p>
+<p>Load order matters, because each file expects the ones before it. The block below sits in the MicroSim's <code>main.html</code>, before the MicroSim's own script, and paths are relative to <code>docs/sims/&lt;name&gt;/main.html</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">href</span><span class="o">=</span><span class="s">"../../css/lrs-xapi.css"</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../js/lrs-config.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../js/lrs-xapi.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../js/lrs-lite-sim.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../js/lrs-sim.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"../../js/xapi-json-viewer.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"your-sim.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>The skill provides <code>install-runtime.py</code> to put these files in a book. Running <code>install-runtime.py --book . --check</code> reports files that are missing or that differ from the canonical copy, and running it without <code>--check</code> copies the missing ones. If a book's copy has drifted from the canonical one, the script reports the difference and refuses to overwrite it unless given <code>--force</code>, which the skill says to use only after asking the user. This protects a book that deliberately pins an older runtime.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Wrap Vendored Code, Never Edit It</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Do not edit the runtime files or a shared library file such as <code>shared-libs/diagram.js</code>; a fix in one book silently forks it from every other. Wrap the function or add a listener beside the original from your own script, and if the runtime truly lacks a feature, use <code>lrs.emit(spec)</code> or report the gap.</p>
+</div>
+<h2 id="the-lrs-config-file">The LRS Config File</h2>
+<p>A shared runtime still has to know whose statements it is building. That identity lives in the <strong>LRS config file</strong>, <code>docs/js/lrs-config.js</code>, one per textbook. It defines a global object, <code>window.LRS_CONFIG</code>, whose fields come straight from the file in the <code>learning-record-store</code> repository:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>siteUrl</code></td>
+<td>The book's published address with a trailing slash; every activity IRI starts with it</td>
+</tr>
+<tr>
+<td><code>textbookId</code> and <code>version</code></td>
+<td>The textbook identity placed in each statement's grouping</td>
+</tr>
+<tr>
+<td><code>conceptPrefix</code></td>
+<td>The namespace for concept identifiers, explained under Concept Mapping below</td>
+</tr>
+<tr>
+<td><code>xapi</code></td>
+<td>The default policy for every MicroSim: <code>compact</code> and <code>teaching</code></td>
+</tr>
+<tr>
+<td><code>quizzes</code></td>
+<td>The policy for chapter quiz pages, which have no metadata file of their own</td>
+</tr>
+</tbody>
+</table>
+<p>The file is loaded before the runtime, and <code>install-runtime.py</code> generates it from <code>mkdocs.yml</code> only when it is absent. It is never overwritten, because it is the book's identity. A wrong <code>siteUrl</code> mislabels every statement the book emits, so it deserves a check by a person when a book is first set up.</p>
+<p>In the reference book the default policy is <code>xapi: { compact: true, teaching: false }</code>. In words: a MicroSim is silent to the learner, and when statements are eventually kept they are summarized one per session. Both settings are policy choices, not properties of any one MicroSim, and the next sections show how a single MicroSim overrides them.</p>
+<h2 id="policy-precedence">Policy Precedence</h2>
+<p>A policy has several places it can be set, so the runtime needs a rule for conflicts. <strong>Policy precedence</strong> is the fixed order in which those sources are consulted, from lowest to highest priority:</p>
+<ol>
+<li>The runtime's built-in defaults.</li>
+<li>The book's <code>lrs-config.js</code> <code>xapi</code> block.</li>
+<li>The <code>policy</code> option a page passes to <code>LRSSim.create</code>.</li>
+<li>The MicroSim's own <code>metadata.json</code> <code>xapi</code> block.</li>
+<li>The URL switch <code>?xapi=</code>, which applies to one visit only.</li>
+</ol>
+<p>The keys being resolved are <code>compact</code>, <code>teaching</code>, and three timers that end a session: <code>idleMs</code> (no input for that long while nothing is running), <code>offscreenMs</code> (the MicroSim mostly out of view) and <code>blurMs</code> (the frame without keyboard focus). The runtime's defaults for the timers are 90000, 10000 and 30000 milliseconds. Resolution is per key, so a <code>metadata.json</code> that sets only <code>teaching: true</code> leaves <code>compact</code> to whatever the layers below decided.</p>
+<p>The reason for this layering is scope. A person can change one setting for an entire textbook in one file, change one MicroSim in its own metadata, and change a single visit by editing a URL, with no file touched. A worked example follows. Suppose the book's default is <code>compact: true, teaching: false</code>, and a MicroSim's <code>metadata.json</code> says <code>"compact": false, "teaching": true</code>. That MicroSim starts in Full mode with its panel showing, because layer 4 beats layer 2. A reader who opens the page with <code>?xapi=production</code> overrides layer 4 for that visit and hides the panel, because layer 5 is highest.</p>
+<h4 id="diagram-policy-precedence-resolver">Diagram: Policy Precedence Resolver</h4>
+<iframe src="../../sims/policy-precedence-resolver/main.html" width="100%" height="702px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/policy-precedence-resolver/main.html">Run the Policy Precedence Resolver MicroSim Fullscreen</a></p>
+<details>
+<summary>Policy Precedence Resolver</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> policy-precedence-resolver<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: determine): The learner will determine the final <code>compact</code> and <code>teaching</code> values for a MicroSim by applying the five policy layers in order, and will identify which layer supplied each value.</p>
+<p>Layout: the drawing region shows five stacked horizontal bars, lowest priority at the bottom (runtime defaults) and highest at the top (URL switch). Each bar shows the two keys <code>compact</code> and <code>teaching</code> as small boxes reading true, false or "not set". To the right, a result box shows the resolved values. The control region is white below the drawing region.</p>
+<p>Controls:</p>
+<ul>
+<li>Three dropdowns "Book config", "metadata.json" and "URL switch", each with choices for the two keys (not set, true, false, and for the URL the tokens teaching, production, full, compact)</li>
+<li>Button "Resolve" that animates a highlight from the bottom bar upward, overwriting the running value wherever a layer sets a key</li>
+<li>Button "Reset" that returns every layer to its starting state</li>
+<li>Checkbox "Show which layer won" that labels each resolved value with its source layer</li>
+</ul>
+<p>Data: the runtime defaults are fixed at compact true and teaching false, matching the runtime. One preset button loads the worked example from the text.</p>
+<p>Interactions: hovering a bar shows a tooltip naming the layer and its file. Every hover tooltip text is also written to the console as a log line so it can later feed an activity log.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, the bars scale to the width, and the controls wrap onto a second row below 500 pixels.</p>
+<p>Implementation: p5.js with createSelect and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="teaching-mode">Teaching Mode</h2>
+<p>Production MicroSims stay silent. <strong>Teaching mode</strong> is the policy state in which the runtime renders a panel beside the MicroSim showing the statements it emits, along with controls to switch between Full and Compact and a Simulate Done button that imitates the learner leaving. It is set by <code>teaching: true</code> in any policy layer, and it exists for MicroSims that exist to teach xAPI, and for a reader who wants to look under the hood.</p>
+<p>The URL switch makes any instrumented MicroSim a teaching aid for one visit. Adding <code>?xapi=teaching</code> to the page that embeds the MicroSim turns the panel on, and by default the panel starts on Full mode. The tokens are <code>teaching</code>, <code>production</code>, <code>full</code> and <code>compact</code>, and they can be combined, as in <code>teaching,compact</code>. The runtime grows the embedding iframe to fit the panel.</p>
+<p>One layout rule follows from this. A MicroSim whose container fills its frame (<code>100vh</code>, or <code>html</code> and <code>body</code> at 100 percent) grows with the iframe, so the runtime cannot make room for the panel. The runtime detects this, stops, and writes a console warning. The remedy is CSS that applies only while the panel exists, such as <code>body:has(&gt; .xapi-panel) #network { height: 480px; }</code>, which costs nothing in production where no panel is present.</p>
+<h2 id="the-statement-log-viewer">The Statement Log Viewer</h2>
+<p>The teaching panel contains what this chapter calls the <strong>statement log viewer</strong>: a scrolling list with one line per statement, plus a <code>View Formatted JSON</code> button. Pressing the button, or a summary line, opens the most recent statement pretty-printed and colored in a new browser tab. The runtime file <code>xapi-json-viewer.js</code> builds that tab from a <code>Blob</code> held in memory, and its header states that it posts nothing. A new tab is used because a MicroSim sits in a fixed-height iframe, where a panel large enough for a statement of about sixty lines would be clipped or would force the iframe taller for everyone.</p>
+<p>Lines that are not statements also appear in the log. A call to <code>lrs.note(msg)</code> writes a line explaining why something was deliberately not emitted, and the runtime writes "folded into the session summary" lines in Compact mode. These are teaching aids and vanish when teaching mode is off.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Compare the Two Streams</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Do the same five slider steps in Full and then Compact and watch the log. Full shows every step; Compact shows nothing until the session ends, then one summary. Seeing what compaction keeps and what it drops is worth more than reading about it.</p>
+</div>
+<h2 id="handles-slider-item-button-and-question">Handles: Slider, Item, Button and Question</h2>
+<p>A MicroSim never constructs a statement itself. It calls <code>LRSSim.create(opts)</code> once, receives an instance (conventionally named <code>lrs</code>), and asks it for a <strong>handle</strong> for each object it wants to report on. A handle is a small object that knows one object's identifier, name and concept, and offers methods matching the evidence class from Chapter 16. Each handle takes a <em>fragment key</em>, the stable local name explained in Chapter 16 and formalized below, plus an options object with <code>name</code> and <code>concept</code>.</p>
+<p>The four handles the chapter's concept list names map to four of the evidence classes:</p>
+<table>
+<thead>
+<tr>
+<th>Handle</th>
+<th>Evidence class</th>
+<th>Methods</th>
+<th>Typical source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Slider handle</strong>, <code>lrs.slider(key, o)</code></td>
+<td>Continuous parameter</td>
+<td><code>.input(v)</code>, <code>.settle(v)</code></td>
+<td>slider, zoom, numeric input</td>
+</tr>
+<tr>
+<td><strong>Item handle</strong>, <code>lrs.item(key, o)</code></td>
+<td>Discrete inspection</td>
+<td><code>.study(mode, ms)</code></td>
+<td>click, hover of at least 600 ms, pin, select</td>
+</tr>
+<tr>
+<td><strong>Button handle</strong>, <code>lrs.button(key, o)</code></td>
+<td>Discrete press</td>
+<td><code>.press(action)</code></td>
+<td>Reset, Start/Pause toggle, checkbox</td>
+</tr>
+<tr>
+<td><strong>Question handle</strong>, <code>lrs.question(key, o)</code></td>
+<td>Assessment</td>
+<td><code>.answer({success, ...})</code></td>
+<td>quiz item, checked prediction</td>
+</tr>
+</tbody>
+</table>
+<p>A fifth kind, the runner from <code>lrs.runner({onStop})</code>, brackets a Start/Pause interval, and the option <code>pageDwell: true</code> covers MicroSims with no Run control.</p>
+<p>The slider handle needs the most explanation. Its options include <code>min</code>, <code>max</code>, <code>initial</code>, <code>round</code> and <code>deadband</code>. The deadband defaults to the range divided by 60, and <code>round</code> sets the decimal places reported, which should match what the learner sees. Feed <code>.input(v)</code> every raw input event, because the runtime counts direction reversals on raw values, and call <code>.settle(v)</code> when the learner lets go. The item handle's <code>.study(mode, ms)</code> does not apply the hover threshold for you, since only the MicroSim knows when a hover began, so the adapter compares the dwell against <code>LRSSim.HOVER_MS</code> (600 ms). The runtime also defines <code>LRSSim.MISCLICK_MS</code> (250) and <code>LRSSim.GLANCE_MS</code> (1000). The question handle's <code>.answer</code> requires a boolean <code>success</code>, without which the concept rollup counts no attempt, and it emits immediately in both modes, so every attempt, wrong ones included, is its own statement.</p>
+<p>The smallest complete example is the bouncing-ball MicroSim. The excerpt below creates the instance, one handle of each of three kinds, and calls them from the existing Start/Pause function. The runner's <code>onStop</code> callback makes the ball actually stop whenever the runtime closes a run, for example when the tab is hidden.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">lrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LRSSim</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Bouncing Ball Simulation'</span><span class="p">,</span><span class="w"> </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="nx">CONCEPT_ID</span><span class="p">,</span>
+<span class="w">                      </span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s1">'the Bouncing Ball MicroSim'</span><span class="p">,</span><span class="w"> </span><span class="nx">mount</span><span class="o">:</span><span class="w"> </span><span class="s1">'#xapi-slot'</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">speedEvidence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lrs</span><span class="p">.</span><span class="nx">slider</span><span class="p">(</span><span class="s1">'speed-slider'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Speed Slider'</span><span class="p">,</span>
+<span class="w">                           </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="nx">SPEED_CONCEPT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">initial</span><span class="o">:</span><span class="w"> </span><span class="nx">speed</span><span class="p">,</span><span class="w"> </span><span class="nx">deadband</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">startPause</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lrs</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span><span class="s1">'start-pause-control'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Start/Pause Control'</span><span class="p">,</span>
+<span class="w">                        </span><span class="nx">concept</span><span class="o">:</span><span class="w"> </span><span class="nx">CONCEPT_ID</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lrs</span><span class="p">.</span><span class="nx">runner</span><span class="p">({</span><span class="w"> </span><span class="nx">onStop</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setRunning</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleSimulation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isRunning</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">lrs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">startPause</span><span class="p">.</span><span class="nx">press</span><span class="p">(</span><span class="s1">'pause'</span><span class="p">);</span><span class="w"> </span><span class="nx">run</span><span class="p">.</span><span class="nx">stop</span><span class="p">(</span><span class="s1">'paused'</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nx">setRunning</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w">           </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">lrs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">startPause</span><span class="p">.</span><span class="nx">press</span><span class="p">(</span><span class="s1">'start'</span><span class="p">);</span><span class="w"> </span><span class="nx">run</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">        </span><span class="nx">setRunning</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>In that MicroSim the concept identifiers are the illustrative placeholders <code>motion</code> and <code>adjustable-speed</code>, which its own comments label as placeholders. A production MicroSim would use real identifiers from its book, as the Concept Mapping section describes.</p>
+<h2 id="the-guarded-call">The Guarded Call</h2>
+<p>A teacher may paste a p5.js MicroSim into the p5.js web editor, where none of the runtime exists. An unprotected call such as <code>lrs.slider(...)</code> would throw a <code>ReferenceError</code> there, and the sketch would never draw. A <strong>guarded call</strong> is an instrumentation call wrapped in a test that the runtime is present, so the MicroSim runs unchanged, and silently, without it. The pattern in the excerpt above shows the idiom: the instance variable starts as <code>null</code>, is created only inside <code>if (window.LRSSim)</code>, and every use is written <code>if (lrs)</code>.</p>
+<p>Two details recur in practice. Name the instance <code>lrs</code>, not <code>x</code>, since p5.js sketches often use <code>x</code> for a position. And do not call <code>LRS.conceptId(...)</code> at the top level of a sketch, because <code>LRS</code> also does not exist in the editor; call it inside the guarded block or inside a function. In a non-p5 script, the equivalent guard is <code>if (!window.LRSSim) return;</code> at the top.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Prove the Guard with a Script</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Do not trust a read-through to catch a missing guard. Run <code>check-no-runtime.py --book . &lt;sim-name&gt;</code>, which blocks the five runtime files, loads the MicroSim, clicks its buttons and fails on any uncaught error.</p>
+</div>
+<h4 id="diagram-guarded-call-runtime-toggle">Diagram: Guarded Call Runtime Toggle</h4>
+<iframe src="../../sims/guarded-call-runtime-toggle/main.html" width="100%" height="722px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/guarded-call-runtime-toggle/main.html">Run the Guarded Call Runtime Toggle MicroSim Fullscreen</a></p>
+<details>
+<summary>Guarded Call Runtime Toggle</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> guarded-call-runtime-toggle<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: distinguish): The learner will distinguish a guarded from an unguarded instrumentation call by observing what each does when the runtime is present and when it is absent.</p>
+<p>Layout: the drawing region is split in two. The left half shows a small bouncing ball sketch. The right half shows a code excerpt with one line highlighted and a status strip that reads "Runs" or "ReferenceError: LRSSim is not defined". The control region is white below.</p>
+<p>Controls:</p>
+<ul>
+<li>Toggle "Runtime loaded" (on: the runtime is present; off: simulates the p5.js editor)</li>
+<li>Radio "Call style" with choices "Unguarded lrs.slider(...)" and "Guarded if (lrs) ..."</li>
+<li>Button "Move slider" that fires one simulated slider input</li>
+</ul>
+<p>Behavior: with the runtime on, both styles run and a one-line log shows one statement recorded. With the runtime off, the guarded style still runs and records nothing, while the unguarded style stops the ball and shows the error in the status strip. A short caption explains which line caused the outcome.</p>
+<p>Responsive design: the canvas width follows the container width on every window resize, and below 500 pixels the two halves stack vertically. Controls remain visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createCheckbox, createRadio and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="library-adapters">Library Adapters</h2>
+<p>MicroSims are built with different libraries, and each exposes its interactions differently. A p5.js slider fires a <code>.input</code> callback, a Mermaid node fires a DOM event, and a Chart.js point fires a library callback. A <strong>library adapter</strong> is a reference document in the skill that says, for one library or MicroSim shape, which student acts map to which handle, where to attach the hooks, and what traps to avoid. The skill ships adapters for p5.js with DOM controls, p5.js canvas hit-tests, Mermaid and plain HTML, image overlays, chapter quiz pages, Chart.js, vis-network, vis-timeline, Plotly and Leaflet.</p>
+<p>The adapters have different confidence levels, and the skill labels them. The p5.js DOM controls, Mermaid, image overlay, quiz page and Chart.js adapters are marked verified, meaning a MicroSim in the reference book proved them. The vis-network, Plotly and Leaflet adapters are marked unverified, drafted from library documentation and not yet piloted, and vis-timeline is partly verified (item clicks, hovers and steps) with zoom and pan unverified. The skill's instruction for an unverified adapter is to follow it but check its claims against the real MicroSim and report corrections, so treat those three adapters as starting points.</p>
+<p>The p5.js DOM adapter shows what one looks like. It lists each p5 control with its existing hook and the call to add: <code>createSlider</code> maps to <code>.input</code> and <code>.changed</code>, a Start/Pause button to a press plus a runner, a Reset button to a press, and a button that checks the student's choice to a question answer. It also records a trap that is easy to miss: p5 element hooks replace rather than chain. A second call to <code>slider.input(fn)</code> silently disconnects the MicroSim's own handler, so add the handle call inside the existing function, or attach a plain DOM listener beside it with <code>slider.elt.addEventListener</code>.</p>
+<h2 id="poster-instrumentation">Poster Instrumentation</h2>
+<p>Chapter 10 built image overlays and comparison posters: an image with numbered markers or zones, driven by a data file, with Explore and Quiz modes. <strong>Poster instrumentation</strong> is the application of the image-overlay adapter to such a MicroSim. The reference implementation is the animal-cell MicroSim, which the adapter marks as verified.</p>
+<p>Three decisions shape it. First, the Explore and Quiz modes use two different objects for the same structure, <code>#nucleus</code> (an item) and <code>#q-nucleus</code> (a question), because an object's type belongs to the object and not to the mode. Both carry the same concept. Second, hover and click are one act in that MicroSim, since one function shows the infobox for both and there is no pin, so the adapter emits one inspection per visit. Click is what a touchscreen calls hover. Third, the quiz order is shuffled on every load, so the question key uses the target's name (<code>q-nucleus</code>) and never a position, and every attempt is emitted: wrong, wrong, right on one identifier is a sequence that mastery models can read, whereas emitting only the success would make a guesser look like an expert.</p>
+<p>The shared library file in that MicroSim, <code>diagram.js</code>, is used by many MicroSims, so the instrumentation lives in a separate <code>xapi.js</code> loaded after it. That file wraps the MicroSim's <code>handleAnswer</code> method rather than editing it, and it keeps the concept map in itself instead of in the vendored data file, so that re-syncing the library cannot delete it.</p>
+<h2 id="the-sub-activity-fragment">The Sub-Activity Fragment</h2>
+<p>Chapter 16 introduced the URL fragment that names a sub-activity, and instrumentation is where authors must choose those names. A <strong>sub-activity fragment</strong> is the part of an activity identifier after the <code>#</code>, such as <code>#speed-slider</code>, that names one control, node or question within a page. The handle's <code>key</code> becomes the fragment.</p>
+<p>The naming test is the same as in Chapter 16: would an edit that does not change what the thing is change its name? The skill applies it in three ways. A button whose label toggles Start and Pause keeps one fragment, <code>#start-pause-control</code>, because the label changing does not change the control. A slider is named for the concept it evidences (<code>#frequency-slider</code>), and never by a position such as <code>#node-3</code> or <code>#q3</code> for anything whose order can change. In the animal-cell quiz, which reshuffles on each load, <code>#q1</code> would have meant a different question for each student.</p>
+<h2 id="concept-mapping">Concept Mapping</h2>
+<p>An identifier for the interaction is not enough; the statement must also say which concept it is evidence of. <strong>Concept mapping</strong> is the step of assigning each instrumented object the identifier of the learning-graph concept it evidences. The identifier has the form <code>{conceptPrefix}-{ConceptID}</code>, where the prefix comes from <code>lrs-config.js</code> and the number is the concept's <code>ConceptID</code> in <code>docs/learning-graph/learning-graph.csv</code>. The prefix exists because every book numbers its concepts from 1, so a bare <code>42</code> would collide across books. In code the skill says to write <code>LRS.conceptId(353)</code>, so the prefix follows the config, and to record full literal identifiers in <code>metadata.json</code>, which tools read without running the runtime.</p>
+<p>The rules that matter most are these, all from the skill:</p>
+<ul>
+<li>Each statement carries exactly one concept. Choose what the interaction is evidence <em>for</em>: an amplitude slider is evidence of amplitude, not of the whole sine-wave topic.</li>
+<li>A run or page dwell takes the page-level concept passed to <code>LRSSim.create</code>.</li>
+<li>Several objects may share one concept, and Explore and Quiz objects for one structure should.</li>
+<li>If nothing genuinely matches, leave the concept unmapped and say so. A missing concept costs coverage, but a wrong one credits mastery of something the learner never touched.</li>
+</ul>
+<p>The script <code>find-concepts.py --book . --sim docs/sims/&lt;name&gt;</code> proposes ranked candidates from the MicroSim's own metadata and labels, and it proposes only; a person or agent chooses. The result is recorded in the <code>metadata.json</code> block below, shown with the skill's example values.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">"xapi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"learning-record-store-353"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"objects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"service-select"</span><span class="p">:</span><span class="w"> </span><span class="s2">"learning-record-store-353"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"q-kafka"</span><span class="p">:</span><span class="w"> </span><span class="s2">"learning-record-store-334"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Here the page and its generic controls carry concept 353, while the question <code>q-kafka</code> carries the concept it tests, 334. The checker verifies that emitted statements match this map, so the map and the code cannot drift apart unnoticed. The skill also says to check a question's answer key against the chapter text, because a key that contradicts the chapter marks every learner who learned the chapter as wrong.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Nearest Label Is Not a Mapping</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+It is tempting to pick the closest-sounding concept when none fits, and the result is silent credit for the wrong skill. If the chapter or a sibling MicroSim's specification does not pair the object with a concept, leave it unmapped and report it.</p>
+</div>
+<h2 id="instrumented-status">Instrumented Status</h2>
+<p>Once a MicroSim is wired, the book should record that fact so authors and reviewers can see which MicroSims report evidence. <strong>Instrumented status</strong> is the <code>status: instrumented</code> value in a MicroSim page's front matter, which the navigation shows as a teal signal icon. It means the capability is present: <code>main.html</code> loads <code>lrs-sim.js</code> and the MicroSim's code calls <code>LRSSim.create</code>. It says nothing about whether teaching mode is on. The script <code>sync-status.py --book .</code> reports what it would change, and adding <code>--apply</code> edits the front matter. It never overwrites a human <code>approved</code> sign-off, and it installs the icon's CSS and tooltip if the book lacks them. The skill adds one housekeeping step: if a book's <code>AGENTS.md</code> or <code>CLAUDE.md</code> lists the allowed status values, add <code>instrumented</code> there, or the next agent may "fix" it back to <code>built</code>.</p>
+<h2 id="the-xapi-quality-check">The xAPI Quality Check</h2>
+<p>Wiring can be wrong in ways a quick look will not reveal, so the skill ends with a script. The <strong>xAPI quality check</strong> is <code>check-xapi.py</code>, a headless-browser test that serves the book's <code>docs/</code>, embeds the MicroSim in an iframe as the book does, and checks statements against the producer contract in each mode. Its modes are <code>full</code>, <code>compact</code>, <code>production</code> and <code>url</code> (the last loads the production MicroSim with <code>?xapi=teaching</code> at its real iframe height). Its checks, as the skill lists them, include:</p>
+<ul>
+<li>only the three verbs appear;</li>
+<li>activity identifiers derive from the book's <code>siteUrl</code>, with no <code>main.html</code> and no localhost;</li>
+<li>grouping and concept identifiers are present and match the metadata map;</li>
+<li>Compact mode is silent until focus loss, then emits exactly one summary carrying <code>statements_represented</code>;</li>
+<li>answers pass through unfolded;</li>
+<li>production mode shows no teaching interface, and the console is clean.</li>
+</ul>
+<p>It runs through Playwright, for example <code>uv run --with playwright==1.58.0 python check-xapi.py docs/sims/&lt;name&gt; --actions actions.json</code>. Generic driving sweeps sliders and clicks buttons, and an optional actions file (JSON) drives canvas clicks, hovers and keyboard input the generic pass cannot reach. Full mode must emit something for each evidence class wired, which is the check's positive control: a probe that counts zero before and zero after proves nothing if it cannot see a write.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Your First Failing Check</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+A first run of the checker often fails, and that is normal; the skill's pitfalls list exists because each item shipped as a bug at least once. Read the failing line, look it up in that list, fix one thing and run again.</p>
+</div>
+<p>The end-to-end sequence, from the skill's workflow, is: detect the library, inventory the interactions, classify each into an evidence class, map concepts, confirm the runtime is installed, wire the adapter, set the metadata block and status, re-measure the iframe height, and run the checks. The evidence claims of the whole design remain hypotheses: correct instrumentation makes a stream well formed, not predictive, and Chapters 18 and 19 test whether it predicts anything.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>The <strong>LRS runtime script</strong> is a set of shared files, identical in every book; a MicroSim adds only a thin mapping of roughly 20 to 60 lines and never copies the runtime.</li>
+<li>The <strong>LRS config file</strong> <code>lrs-config.js</code> holds each book's identity (<code>siteUrl</code>, <code>textbookId</code>, <code>version</code>, <code>conceptPrefix</code>) and its default policy.</li>
+<li><strong>Policy precedence</strong> runs from runtime defaults, through the book config and page option, to the MicroSim's <code>metadata.json</code>, with the <code>?xapi=</code> URL switch highest for one visit.</li>
+<li><strong>Teaching mode</strong> shows the statement log, a Full/Compact switch and Simulate Done; the <strong>statement log viewer</strong> opens any statement formatted in a new tab.</li>
+<li>Slider, item, button and question <strong>handles</strong> report the evidence classes, and every call must be a <strong>guarded call</strong> so the MicroSim still runs in the p5.js editor.</li>
+<li>A <strong>library adapter</strong> says where to hook each library; the vis-network, Plotly and Leaflet adapters are unverified. <strong>Poster instrumentation</strong> uses separate Explore and Quiz objects and never edits the shared library.</li>
+<li>A <strong>sub-activity fragment</strong> is named for what the thing is, and <strong>concept mapping</strong> gives each object one concept or none, never a guess.</li>
+<li><strong>Instrumented status</strong> marks the capability, and the <strong>xAPI quality check</strong> verifies Full, Compact, production and URL-switch behavior.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Instrument a MicroSim</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now wire a MicroSim to the shared runtime with guarded handle calls, name its sub-activities by what they are, map each object to one concept, and verify the result with the quality check. Every bounce leaves evidence, and yours will now be well formed.</p>
+</div>
+<p>The next chapter takes the stream these MicroSims produce and asks the hard question: how can a sequence of events become an estimate of whether a learner has mastered a concept?</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../16-xapi-statements-and-evidence/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 16. xAPI Statements and Evidence">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                16. xAPI Statements and Evidence
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-footer__link md-footer__link--next" aria-label="Next: 18. Mastery Prediction and Knowledge Tracing">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                18. Mastery Prediction and Knowledge Tracing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

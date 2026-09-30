@@ -1,0 +1,15 @@
+{
+  "sim_id": "iframe-resize-message-stepper",
+  "diagram_name": "Iframe Resize Message Stepper",
+  "chapter_number": 12,
+  "chapter_title": "Width-Responsive Design and Iframe Heights",
+  "chapter_dir": "12-width-responsive-design-and-iframe-heights",
+  "chapter_rel_dir": "chapters/12-width-responsive-design-and-iframe-heights",
+  "library": "p5.js",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Differentiate",
+  "learning_objective": "The learner will differentiate the outcomes of a fixed iframe height, a runtime resize message, and a pinned infobox, by stepping through the protocol and observing where the controls land.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: microsim\n**sim-id:** iframe-resize-message-stepper<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the outcomes of a fixed iframe height, a runtime resize message, and a pinned infobox, by stepping through the protocol and observing where the controls land.\n\nLayout: two side-by-side panels. The left panel is labeled \"Child (MicroSim)\" and shows a miniature overlay with an image area, an infobox and a control row. The right panel is labeled \"Parent (chapter page)\" and shows the iframe as an outlined rectangle around the child, with a text panel below it that lists the messages received.\n\nControls:\n\n- Button \"Next step\" and button \"Back\": advance through the protocol in this order: page loads with the default height attribute, the child measures scrollHeight, the child posts a microsim-resize message, the parent's listener compares event.source, the iframe height changes\n- Dropdown \"Callout\": Short prompt, Medium description, Long description with tip\n- Radio \"Mode\": Fixed height only, Runtime message without pinning, Runtime message with pinning\n- Checkbox \"Parent listener installed\" (default on)\n- Slider \"Iframe border allowance\" from 0 to 40 pixels, default 30\n\nBehavior: in \"Fixed height only\", choosing a long callout clips the controls and a clipped-region marker appears. In \"Runtime message without pinning\", every callout change moves the controls and a readout shows the number of pixels they jumped. In \"Runtime message with pinning\", the controls stay at one position and a gray band shows the reserved whitespace. With the listener unchecked, the message list shows the message sent and a note \"no listener: iframe height unchanged\". Clicking the message shows its fields, type and height.\n\nInstructional rationale: a step-through with visible values is appropriate for an Analyze objective because the learner must compare three outcomes for the same content, and continuous animation would hide the sequence.\n\nResponsive design: the panels sit side by side above 700 pixels and stack vertically below it, and all text wraps on window resize.\n\nImplementation: p5.js with createButton, createSelect, createRadio, createCheckbox and createSlider controls positioned relative to drawHeight, and a describe() call."
+}

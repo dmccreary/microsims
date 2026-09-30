@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Loop Polarity Tracer using vis-network</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; background: white; }
+        main { border: 1px solid silver; background: aliceblue; }
+        h1 { font-size: 20px; margin: 0; padding: 8px 10px 4px 10px; text-align: center; font-weight: normal; }
+        .workspace { display: flex; gap: 8px; padding: 0 8px 8px 8px; height: 400px; }
+        #network { flex: 1 1 auto; min-width: 0; height: 100%; background: white;
+                   border: 1px solid silver; border-radius: 6px; position: relative; }
+        #details { flex: 0 0 270px; height: 100%; overflow-y: auto; position: relative; background: white;
+                   border: 1px solid silver; border-radius: 6px; padding: 10px 12px;
+                   font-size: 15px; line-height: 1.4; }
+        #details h2 { font-size: 16px; margin: 0 0 6px 0; }
+        #details p { margin: 0 0 8px 0; }
+        .badge { display: inline-block; font-weight: bold; padding: 1px 8px; border-radius: 10px;
+                 color: white; font-size: 14px; }
+        .pos { background: #1e7e34; }
+        .neg { background: #b02a37; }
+        .counter { font-size: 16px; font-weight: bold; margin: 6px 0; }
+        .ok { color: #1e7e34; font-weight: bold; }
+        .no { color: #b02a37; font-weight: bold; }
+        .hint { color: #444; font-size: 14px; }
+        .choice-row { display: flex; gap: 8px; margin: 6px 0 8px 0; }
+        .choice-row button { flex: 1; }
+        ol.trace { margin: 4px 0 8px 0; padding-left: 22px; }
+        .controls { background: white; border-top: 1px solid silver; padding: 4px 8px 6px 8px; }
+        .row { display: flex; gap: 6px; align-items: center; margin-top: 3px; flex-wrap: nowrap; }
+        .spacer { width: 10px; }
+        button, select { font-size: 15px; padding: 3px 8px; }
+        label { font-size: 15px; }
+        @media (max-width: 599px) {
+            .workspace { flex-direction: column; height: 400px; }
+            #network { flex: 0 0 232px; height: 232px; }
+            #details { flex: 1 1 auto; height: auto; min-height: 0; }
+        }
+    </style>
+    <script src="loop-polarity-tracer.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Loop Polarity Tracer</h1>
+        <div class="workspace">
+            <div id="network" aria-label="Causal loop diagram with two loops that share the Mastery variable"></div>
+            <div id="details" aria-live="polite"></div>
+        </div>
+        <div class="controls">
+            <div class="row">
+                <label for="loopSelect">Loop:</label>
+                <select id="loopSelect"></select>
+                <button id="traceBtn">Trace next link</button>
+                <button id="resetTraceBtn">Reset</button>
+            </div>
+            <div class="row">
+                <label><input type="checkbox" id="flipMode"> Flip a sign</label>
+                <button id="restoreBtn">Restore signs</button>
+                <span class="spacer"></span>
+                <button id="zoomInBtn" title="Zoom in" aria-label="Zoom in">+</button>
+                <button id="zoomOutBtn" title="Zoom out" aria-label="Zoom out">&minus;</button>
+                <button id="fitBtn" title="Fit the whole diagram">Fit</button>
+            </div>
+        </div>
+    </main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
+</body>
+</html>

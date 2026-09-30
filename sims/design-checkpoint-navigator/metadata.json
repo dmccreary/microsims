@@ -1,0 +1,89 @@
+{
+  "title": "Instructional Design Checkpoint Navigator",
+  "description": "A Mermaid flowchart of the instructional design checkpoint with a click directive on every node that opens its definition and an example. A Try a specification mode loads one of four sample MicroSim specifications, lets the learner click the path they would take through the four checkpoint questions, compares it with the recommended path, and displays the completed Instructional Design Check block.",
+  "creator": "Dan McCreary",
+  "contributor": ["Claude Code"],
+  "date": "2026-09-30",
+  "subject": ["Educational Technology", "Instructional Design", "Bloom's Taxonomy", "MicroSim Engineering"],
+  "type": "Interactive Workflow Diagram",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "https://dmccreary.github.io/microsims/sims/design-checkpoint-navigator/",
+  "educational": {
+    "gradeLevel": ["Undergraduate", "Professional Development"],
+    "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners",
+    "subjectArea": "Educational Technology",
+    "topic": "The instructional design checkpoint",
+    "learningObjectives": [
+      "The learner will execute the instructional design checkpoint on a supplied MicroSim specification, reaching a recorded decision about interaction pattern, prediction and animation."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "bloomVerb": "execute",
+    "duration": "20 minutes",
+    "prerequisites": [
+      "Bloom's Taxonomy levels and verbs",
+      "The level-to-interaction-pattern table",
+      "Intrinsic, extraneous and germane cognitive load"
+    ],
+    "concepts": ["Instructional Design Checkpoint", "Predict-First Design", "Purpose of Animation", "Interaction Pattern", "Objective Classification"],
+    "standards": []
+  },
+  "technical": {
+    "framework": "Mermaid",
+    "libraryVersion": "11.4.1",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 680
+    },
+    "responsive": true,
+    "dependencies": ["Mermaid 11.4.1 (jsDelivr CDN)"],
+    "diagram": {
+      "type": "flowchart",
+      "direction": "TD",
+      "nodeCount": 11,
+      "edgeCount": 13,
+      "clickDirectives": 11
+    },
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": false,
+      "notes": "Node text is real HTML inside the SVG; the information panel is plain HTML."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      { "type": "select", "label": "Try a specification", "options": ["Explore: click any node", "1. Bouncing Ball Gravity Lab", "2. Prerequisite Explorer", "3. Projectile Range Calculator", "4. Wave Interference Viewer"], "default": "Explore: click any node" },
+      { "type": "button", "label": "Check my path", "action": "Compare the clicked path with the recommended path and show the decision block" },
+      { "type": "button", "label": "Clear path", "action": "Start the path again" },
+      { "type": "diagram-click", "label": "Any node", "action": "Show the node's definition and example, or add it to the path in Try mode" }
+    ]
+  },
+  "simulation": {
+    "modelType": "Decision flowchart with path comparison",
+    "variables": ["selected sample", "learner path", "recommended path"],
+    "assumptions": ["Recommended paths follow the four checkpoint questions as described in Chapter 3 and the generator skill's Step 3."],
+    "limitations": ["The comparison is position by position; it reports the first step where the paths differ."]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Guided practice on worked cases with immediate comparison",
+    "interactionPattern": "Procedure execution with feedback (Apply level)",
+    "keyQuestions": [
+      "What concrete data must the learner see?",
+      "Does the learner need to predict before observing?",
+      "Can you finish the sentence 'the animation shows ___, which an arrow cannot'?",
+      "Is continuous animation appropriate for this Bloom level?"
+    ],
+    "commonMisconceptions": [
+      "If the phenomenon moves, continuous animation is always appropriate.",
+      "A step-through means the MicroSim has no animation at all.",
+      "The checkpoint is optional when the specification is detailed."
+    ],
+    "assessmentOpportunities": [
+      "Path accuracy on the four samples",
+      "Learner-written decision blocks compared with the completed ones"
+    ]
+  },
+  "chapter": "03-learning-objectives-and-blooms-taxonomy",
+  "canvasHeight": 680
+}

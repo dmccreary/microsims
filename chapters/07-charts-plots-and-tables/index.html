@@ -1,0 +1,3394 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to build interactive Chart.js charts, Plotly function plots and HTML tables that present quantitative data and comparisons in MicroSims.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/07-charts-plots-and-tables/">
+      
+      
+        <link rel="prev" href="../06-p5js-microsims/">
+      
+      
+        <link rel="next" href="../08-diagrams-networks-and-systems/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Charts, Plots and Tables - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Charts, Plots and Tables - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to build interactive Chart.js charts, Plotly function plots and HTML tables that present quantitative data and comparisons in MicroSims." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/07-charts-plots-and-tables/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/07-charts-plots-and-tables/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Charts, Plots and Tables - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to build interactive Chart.js charts, Plotly function plots and HTML tables that present quantitative data and comparisons in MicroSims." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/07-charts-plots-and-tables/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#charts-plots-and-tables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Charts, Plots and Tables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chartjs-configuration-and-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart.js: Configuration and Datasets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chart.js: Configuration and Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-chart-configuration-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Chart Configuration Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-common-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Common Chart Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Common Chart Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-chart-type-chooser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Chart Type Chooser
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scatter-plots-bubble-charts-and-priority-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scatter Plots, Bubble Charts and Priority Matrices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scatter Plots, Bubble Charts and Priority Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-priority-matrix-bubble-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Priority Matrix Bubble Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tooltips-and-the-chart-palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tooltips and the Chart Palette
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotly-function-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plotly Function Plots
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plotly Function Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-function-plot-slider-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Function Plot Slider Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-tables-and-comparison-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Tables and Comparison Tables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Tables and Comparison Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-star-rating-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Star Rating Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clickable-tables-with-detail-panels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clickable Tables with Detail Panels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clickable Tables with Detail Panels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-clickable-detail-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Clickable Detail Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citing-sources-and-choosing-infographics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citing Sources and Choosing Infographics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-matching-data-objectives-to-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together: Matching Data Objectives to Chart Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-diagrams-networks-and-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chartjs-configuration-and-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chart.js: Configuration and Datasets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chart.js: Configuration and Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-chart-configuration-anatomy-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Chart Configuration Anatomy Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-common-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Common Chart Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Common Chart Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-chart-type-chooser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Chart Type Chooser
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scatter-plots-bubble-charts-and-priority-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scatter Plots, Bubble Charts and Priority Matrices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scatter Plots, Bubble Charts and Priority Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-priority-matrix-bubble-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Priority Matrix Bubble Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tooltips-and-the-chart-palette" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tooltips and the Chart Palette
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotly-function-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plotly Function Plots
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plotly Function Plots">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-function-plot-slider-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Function Plot Slider Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-tables-and-comparison-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Tables and Comparison Tables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Tables and Comparison Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-star-rating-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Star Rating Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clickable-tables-with-detail-panels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clickable Tables with Detail Panels
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clickable Tables with Detail Panels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-clickable-detail-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Clickable Detail Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citing-sources-and-choosing-infographics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citing Sources and Choosing Infographics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-together-matching-data-objectives-to-chart-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It Together: Matching Data Objectives to Chart Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/07-charts-plots-and-tables/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="charts-plots-and-tables">Charts, Plots and Tables</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers Chart.js, Plotly and HTML tables for showing quantitative data, comparisons and mathematical functions in interactive form.</p>
+<p>Students learn chart configuration and datasets, the common chart types, slider-driven plots and clickable comparison tables, along with color and source-citation practice. After it, they can pick and build the right chart for a data objective.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 20 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chart.js Library</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Chart Configuration</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Chart Dataset</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Bar Chart</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Line Chart</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Pie Chart</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Scatter Plot</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Bubble Chart</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Priority Matrix</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Chart Tooltip</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Plotly Library</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Function Plot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Slider-Driven Plot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Data Table</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Comparison Table</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Star Rating Table</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Clickable Table Detail Panel</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Chart Color Palette</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Data Source Citation</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Infographic</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+<li><a href="../06-p5js-microsims/">Chapter 6: p5.js MicroSims</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Numbers That Move</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Most learners meet data as a frozen picture, but in this chapter you will build charts, plots and tables they can poke, hover over and slide. By the end you will be able to pick the right chart for a data objective and specify it well enough for an AI skill to build it. Let's bounce it around!</p>
+</div>
+<p>Chapter 4 taught you to route a learning objective to a MicroSim type and a library. Chapter 6 covered the most flexible library, p5.js, where you draw every pixel yourself. This chapter covers the types that you choose when the objective is about <em>quantitative data</em>: how much, how many, how fast, how two things compare. Three families do this work. <strong>Chart.js</strong> draws standard chart types from a data description. <strong>Plotly</strong> draws mathematical function plots with built-in hovering and zooming. <strong>HTML tables</strong> present exact values and comparisons, with a little JavaScript to make cells respond to clicks.</p>
+<p>The three families share one design idea that we will keep returning to: separate the <em>data</em> from the <em>presentation</em>. When the numbers live in a plain data structure and the chart is generated from it, an author can change one without touching the other, and an AI skill can fill in a template instead of writing drawing code from scratch.</p>
+<h2 id="chartjs-configuration-and-datasets">Chart.js: Configuration and Datasets</h2>
+<p>The <strong>Chart.js Library</strong> is an open-source JavaScript library that draws charts on an HTML canvas element from a declarative description of the chart. "Declarative" means you state what the chart should contain and how it should look, and the library decides how to draw it. The MicroSim generator's guide names the supported types as line, bar, pie, doughnut, radar, polar area, bubble and scatter. It recommends loading the library from a CDN (a content delivery network, a public server that hosts shared library files) at version 4.4.0, using the address <code>https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js</code>. Chart.js is a <em>JavaScript library</em> in the sense of Chapter 1, so a MicroSim needs no installation step beyond that one script tag.</p>
+<p>Every Chart.js chart is created from a single JavaScript object, the <strong>chart configuration</strong>. This <strong>Chart Configuration</strong> object has three top-level parts that you should be able to name from memory:</p>
+<ul>
+<li><code>type</code> is a string naming the kind of chart, such as <code>'bar'</code> or <code>'line'</code>.</li>
+<li><code>data</code> holds the labels and datasets, which is the content to draw.</li>
+<li><code>options</code> holds settings for behavior and appearance, such as scales, legend position and responsiveness.</li>
+</ul>
+<p>The guide's bar chart example shows all three parts together. Read the comments first, since they explain the properties that matter most for MicroSims.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'bar'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">labels</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Category A'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Category B'</span><span class="p">],</span><span class="w">        </span><span class="c1">// one label per bar</span>
+<span class="w">        </span><span class="nx">datasets</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Dataset 1'</span><span class="p">,</span><span class="w">                       </span><span class="c1">// name shown in the legend</span>
+<span class="w">            </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">65</span><span class="p">,</span><span class="w"> </span><span class="mf">59</span><span class="p">],</span><span class="w">                           </span><span class="c1">// one value per label</span>
+<span class="w">            </span><span class="nx">backgroundColor</span><span class="o">:</span><span class="w"> </span><span class="s1">'rgba(54, 162, 235, 0.8)'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">borderColor</span><span class="o">:</span><span class="w"> </span><span class="s1">'rgb(54, 162, 235)'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">borderWidth</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">        </span><span class="p">}]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">responsive</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">                             </span><span class="c1">// resize with the container</span>
+<span class="w">        </span><span class="nx">scales</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">beginAtZero</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">          </span><span class="c1">// y axis starts at zero</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>The <code>responsive: true</code> setting matters for this book because every MicroSim must fit the width of its container, a requirement Chapter 12 develops fully. The guide also lists <code>maintainAspectRatio</code> and <code>aspectRatio</code> as the options for keeping the chart a sensible shape as the width changes.</p>
+<p>A <strong>chart dataset</strong> is one series of values plus the styling that goes with it. In Chart.js terms, the <strong>Chart Dataset</strong> is one object inside the <code>datasets</code> array, carrying its own <code>label</code>, its <code>data</code> array and its colors. A chart can hold several datasets: a multi-line chart, for example, is a line chart whose <code>datasets</code> array contains one object per line. The shape of the <code>data</code> array depends on the chart type. Bar, line and pie charts take a plain list of numbers matched to <code>labels</code>. Scatter charts take objects of the form <code>{ x, y }</code>, and bubble charts take <code>{ x, y, r }</code>, where <code>r</code> is the bubble radius. The table below summarizes this pairing, which you have just read about in prose.</p>
+<table>
+<thead>
+<tr>
+<th>Chart type</th>
+<th>What each <code>data</code> entry looks like</th>
+<th>Uses <code>labels</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bar, line, pie</td>
+<td>a number</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>scatter</td>
+<td><code>{ x: -10, y: 0 }</code></td>
+<td>no</td>
+</tr>
+<tr>
+<td>bubble</td>
+<td><code>{ x: 20, y: 30, r: 15 }</code></td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>The template that ships with the generator skill applies the data-versus-presentation idea directly. Its script keeps a single <code>chartData</code> object holding <code>labels</code>, <code>values</code>, <code>colors</code>, axis labels and a unit string, then builds a pie chart and a bar chart from that one object, plus a table view. Change the numbers in <code>chartData</code> and every view updates together. Chart.js does not redraw when you change a dataset in place, however, so a slider or button that modifies data must call <code>chart.update()</code> afterward, as the guide's troubleshooting section shows.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">One Object, Three Jobs</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of a chart configuration as a recipe card: <code>type</code> names the dish, <code>data</code> lists the ingredients and <code>options</code> sets the oven. When a chart looks wrong, ask which of the three parts holds the mistake before you touch anything else.</p>
+</div>
+<p>Before the next specification, note the terms it uses. A <em>panel</em> is a labeled region of a page. A <em>live JSON editor</em> is a text box holding the configuration that the chart re-reads whenever you edit it.</p>
+<h4 id="diagram-chart-configuration-anatomy-explorer">Diagram: Chart Configuration Anatomy Explorer</h4>
+<iframe src="../../sims/chart-configuration-anatomy-explorer/main.html" width="100%" height="662px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/chart-configuration-anatomy-explorer/main.html">Run the Chart Configuration Anatomy Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Chart Configuration Anatomy Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> chart-configuration-anatomy-explorer<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: explain): The learner will explain which part of a chart configuration (type, data or options) controls each visible feature of a chart, by editing values and observing the result.</p>
+<p>Layout: two panels side by side. The left panel is a text region showing the chart configuration as color-coded blocks, one color each for <code>type</code>, <code>data</code> and <code>options</code>. The right panel is a canvas showing the chart. On narrow screens the panels stack.</p>
+<p>Controls:</p>
+<ul>
+<li>Dropdown "Chart type" with bar, line and pie. Changing it rewrites the <code>type</code> block only</li>
+<li>Editable number fields for each value in the first dataset, which rewrite the <code>data</code> block</li>
+<li>Checkbox "Responsive" and dropdown "Legend position" (top, bottom, left, right), which rewrite the <code>options</code> block</li>
+<li>Button "Add dataset", which appends a second dataset object with its own label and colors</li>
+</ul>
+<p>Interactions: hovering a color-coded block highlights the chart features it controls. Hovering any chart element shows a tooltip naming the configuration path that produced it, for example <code>data.datasets[0].data[1]</code>. A "Break it" button removes one label and shows the resulting mismatch between labels and values.</p>
+<p>Responsive design: the canvas width follows the container width on window resize, and the two panels stack vertically below 600 pixels.</p>
+<p>Implementation: Chart.js 4.4.0 from a CDN, with the chart rebuilt from the configuration object and <code>chart.update()</code> called after each edit.</p>
+</details>
+<h2 id="the-common-chart-types">The Common Chart Types</h2>
+<p>Choosing a chart type is a decision about the relationship you want the learner to see. Chart.js supports the types listed earlier, and this chapter's concepts cover five of them. Each definition below gives the data relationship it fits, following the selection guide in the generator skill.</p>
+<p>A <strong>bar chart</strong> compares values across discrete categories by drawing one bar per category. The <strong>Bar Chart</strong> is the default choice for questions such as "which of these is largest?" It is not suited to trends or continuous data. A horizontal variant, produced by setting <code>indexAxis: 'y'</code>, helps when category labels are long, and stacked bars come from setting <code>stacked: true</code> on both axes.</p>
+<p>A <strong>line chart</strong> connects values in order, so it shows change over a continuous quantity such as time. The <strong>Line Chart</strong> takes one dataset per line, and the <code>tension</code> property controls how curved the connecting segments are. It is a poor choice for unordered categories, because the line implies a continuous path between them that does not exist.</p>
+<p>A <strong>pie chart</strong> shows how a whole divides into parts. The <strong>Pie Chart</strong> works only when the parts sum to a meaningful total and there are few of them; the guide advises no more than six slices and warns that pie charts are unsuited to precise comparisons or many categories. Setting <code>type: 'doughnut'</code> gives the same information with a hole in the middle.</p>
+<p>A worked example shows how the choice follows the question. Suppose you have the share of each library used across a set of MicroSims. If the question is "how is the whole divided?", use a pie chart with a handful of slices. If the question is "which library is used most, and by how much more than the next?", use a bar chart, because the eye compares bar lengths more precisely than slice angles. The same numbers support both charts, but each answers a different question.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">The Seven-Slice Pie</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A common trap is putting eight categories into a pie because the data happen to have eight rows, which makes the thin slices impossible to compare. If a pie needs more than about six slices, switch to a bar chart and sort the bars.</p>
+</div>
+<h4 id="diagram-chart-type-chooser">Diagram: Chart Type Chooser</h4>
+<iframe src="../../sims/chart-type-chooser/main.html" width="100%" height="452px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/chart-type-chooser/main.html">Run the Chart Type Chooser MicroSim Fullscreen</a></p>
+<details>
+<summary>Chart Type Chooser</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> chart-type-chooser<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: select): The learner will select the chart type that best fits a stated data question, then check the choice against the same data drawn in two alternative types.</p>
+<p>Data: three small built-in datasets. The first is category shares that sum to 100 percent, the second is a value measured at six ordered time points, and the third is eight categories with unrelated values.</p>
+<p>Controls:</p>
+<ul>
+<li>Dropdown "Dataset" to choose one of the three datasets</li>
+<li>Radio buttons "Chart type" for bar, line and pie</li>
+<li>Button "Check my choice", which shows a green or amber message explaining why the choice fits or does not fit</li>
+</ul>
+<p>Interactions: the chart redraws when the type changes. After "Check my choice", a side note quotes the fit rule (for example, "pie: parts of a whole, six slices or fewer"). Hovering any bar, point or slice shows a tooltip with its label and value.</p>
+<p>Responsive design: the canvas fills the container width, the controls wrap onto a second row below 500 pixels, and the height is fixed.</p>
+<p>Implementation: Chart.js 4.4.0 with one chart object destroyed and rebuilt when the type changes.</p>
+</details>
+<h2 id="scatter-plots-bubble-charts-and-priority-matrices">Scatter Plots, Bubble Charts and Priority Matrices</h2>
+<p>The chart types so far take a list of values matched to labels. Two further types plot <em>pairs</em> or <em>triples</em> of numbers. A <strong>scatter plot</strong> places one point for each observation at its (x, y) position, so it shows whether and how two numeric variables are related. The <strong>Scatter Plot</strong> dataset is a list of <code>{ x, y }</code> objects, and the guide's example gives the x scale <code>type: 'linear'</code>, meaning the axis is a continuous number line. Scatter plots suit correlations and distributions but not categorical data.</p>
+<p>A <strong>bubble chart</strong> adds a third variable by drawing each point as a circle whose size encodes a third number. The <strong>Bubble Chart</strong> dataset uses <code>{ x, y, r }</code>, where <code>r</code> is the bubble radius in pixels. Because pixel radius is not proportional to the underlying quantity, the bubble guide includes a scaling function that maps a count linearly between a minimum and maximum radius, with 8 and 30 pixels as its example bounds. The guide also recommends extending the scale limits slightly, for example <code>min: -0.5, max: 10.5</code>, so that bubbles near an edge are not clipped.</p>
+<p>A <strong>priority matrix</strong> is a bubble chart whose axes are decision criteria and whose plane is divided into four quadrants. The <strong>Priority Matrix</strong> in the bubble guide plots items by impact against effort, with a third quantity such as frequency as bubble size, so that high-impact, low-effort items stand out in one corner. Other pairings the guide names are risk against value and cost against benefit. Quadrants are drawn by a custom Chart.js plugin, a function that hooks into the drawing cycle to paint shaded backgrounds and labels, and the guide suggests background opacity of only 0.05 to 0.1 so the bubbles stay readable.</p>
+<p>A worked example makes the idea concrete. Suppose a team is deciding which MicroSim types to build first. Each candidate type gets an impact score from 0 to 10, an effort score from 0 to 10, and a count of how many planned MicroSims use it. The data structure below follows the shape used in the bubble guide.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'bar-charts'</span><span class="p">,</span><span class="w">   </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="nx">impact</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="nx">effort</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'function-plots'</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">impact</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">effort</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'network-maps'</span><span class="p">,</span><span class="w"> </span><span class="nx">count</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">impact</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">effort</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+<span class="c1">// Bubble radius grows with count; x is effort, y is impact.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">effort</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">impact</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">count</span><span class="w"> </span><span class="p">}));</span>
+</code></pre></div></td></tr></table></div>
+<p>The items and scores are invented for illustration. Under the impact-against-effort layout, the bar-chart item lands in the high-impact, low-effort quadrant and would be built first, while the network item, with high effort and only moderate impact, would wait. The value of the chart is that the decision is visible at a glance and that the learner can move an item and see it change quadrant.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Radius Is Not Area</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+Readers judge a bubble by its area, but Chart.js draws the radius you give it, so doubling <code>r</code> quadruples the area and exaggerates the difference. Scale the radius with a function and state in the caption that bubble size shows the count.</p>
+</div>
+<p>The terms in the next specification are now defined: <em>impact</em> and <em>effort</em> are the two axes, <em>bubble size</em> is the third variable, and a <em>quadrant</em> is one of the four regions the axes' midpoints create.</p>
+<h4 id="diagram-priority-matrix-bubble-explorer">Diagram: Priority Matrix Bubble Explorer</h4>
+<iframe src="../../sims/priority-matrix-bubble-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/priority-matrix-bubble-explorer/main.html">Run the Priority Matrix Bubble Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Priority Matrix Bubble Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> priority-matrix-bubble-explorer<br/>
+<strong>Library:</strong> Chart.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: compare): The learner will compare candidate items by impact, effort and frequency, and identify which quadrant each item occupies and why.</p>
+<p>Data: eight invented items, each with a name, an impact score, an effort score and a count, plus a status category used for color.</p>
+<p>Layout: a bubble chart with x axis "Effort" and y axis "Impact", both from -0.5 to 10.5 so that no bubble is clipped. Four quadrant backgrounds shaded at low opacity and labeled, drawn by a plugin in the <code>afterDatasetsDraw</code> hook. A list below the chart names the items in each quadrant.</p>
+<p>Controls:</p>
+<ul>
+<li>Slider "Effort" and slider "Impact" that move the currently selected item, with the selection made by clicking a bubble</li>
+<li>Slider "Bubble scale" from 1 to 3 that changes the minimum and maximum radius</li>
+<li>Checkbox "Show quadrant labels"</li>
+</ul>
+<p>Interactions: hovering a bubble shows a tooltip with the item name, effort, impact and count. Moving an item across a midpoint updates the quadrant list immediately. A "Reset" button restores the original data.</p>
+<p>Responsive design: the chart follows the container width with a fixed aspect ratio, and the quadrant list moves below the chart at all widths under 700 pixels.</p>
+<p>Implementation: Chart.js 4.4.0 bubble chart with a custom plugin for quadrant shading, and <code>chart.update()</code> called after each slider change.</p>
+</details>
+<h2 id="tooltips-and-the-chart-palette">Tooltips and the Chart Palette</h2>
+<p>A <strong>chart tooltip</strong> is a small box that appears when the learner hovers over or touches a chart element, showing details about that element. The <strong>Chart Tooltip</strong> is the simplest form of interactivity in Chart.js, and the generator's guide requires it: "Tooltips should always be used." By default a tooltip shows the label and value, but the <code>plugins.tooltip.callbacks.label</code> function lets you return any text. The guide's example returns <code>'Custom: ' + context.parsed.y</code>, where <code>context</code> is an object describing the hovered element and <code>parsed.y</code> is its y value.</p>
+<p>Tooltips matter twice in this book. Pedagogically, a tooltip can carry an explanation instead of a raw number, such as "12 MicroSims use this type". For evidence, a hover is an event that an instrumented MicroSim could report, a topic Chapters 16 and 17 develop. We have not measured what tooltip hovers reveal about mastery, and Chapter 18 treats that link as a hypothesis to test.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Write the Tooltip Last</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Before you accept a chart, hover over three elements and ask whether each tooltip tells the learner something the axes do not. If it only repeats the number, rewrite the label callback to add a unit or a one-line meaning.</p>
+</div>
+<p>The second half of this section concerns color. A <strong>chart color palette</strong> is the ordered set of colors assigned to the categories or series of a chart. The <strong>Chart Color Palette</strong> in the generator's Chart.js template is four semi-transparent colors in the <code>rgba(red, green, blue, alpha)</code> format, a blue, a green, an amber and a red, each drawn at 0.85 alpha with a matching fully opaque border color. Pairing a translucent fill with an opaque border keeps neighboring shapes distinguishable. The guide's design rules add three constraints: use distinguishable colors with good contrast, prefer intuitive meanings such as green for good and red for caution, and make sure the array of colors matches the length of the data, since a short array leaves elements uncolored.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Color Alone Is Not a Message</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A learner with color-vision deficiency may not tell the green slice from the red one, so a chart that relies on hue alone hides its message from them. Add a second cue, such as direct labels, a legend the learner can click, or a table view of the same numbers, and check the contrast of every text color.</p>
+</div>
+<h2 id="plotly-function-plots">Plotly Function Plots</h2>
+<p>Chart.js excels at charts of measured or categorical data. Mathematical functions call for something different: a smooth curve computed from a formula, with axes that behave like a graph in a mathematics text. The <strong>Plotly Library</strong> (Plotly.js) is a JavaScript charting library with built-in hover tooltips and an export option that the generator skill uses for exactly this job. Its template loads <code>https://cdn.plot.ly/plotly-2.27.0.min.js</code> and builds the plot from <em>traces</em>. A trace is one drawn series, described by an object with <code>x</code> and <code>y</code> arrays, a <code>type</code> and a <code>mode</code>, and a <code>layout</code> object holds axes, margins and legend settings.</p>
+<p>A <strong>function plot</strong> is a graph of the values of a mathematical function <span class="arithmatex">\( f(x) \)</span> over a chosen domain, drawn as a curve. The <strong>Function Plot</strong> MicroSim in the guide works by <em>sampling</em>: it evaluates <span class="arithmatex">\( f \)</span> at many evenly spaced x values and joins the results with a line. The guide recommends 500 points for a smooth curve and keeping the total under 2000 for performance. The author edits a JavaScript function <code>f(x)</code> and a <code>config</code> object, and the guide gives a conversion table from mathematical notation to code, for example <span class="arithmatex">\( \sin(x) \)</span> as <code>Math.sin(x)</code> and <span class="arithmatex">\( e^x \)</span> as <code>Math.exp(x)</code>.</p>
+<p>The template's configuration object shows the parameters an author sets. Its default domain is about <span class="arithmatex">\( -2\pi \)</span> to <span class="arithmatex">\( 2\pi \)</span>, written as -6.28 to 6.28, with a y range of -1.5 to 1.5 and <code>numPoints</code> of 500.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">xMin</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">6.28</span><span class="p">,</span><span class="w"> </span><span class="nx">xMax</span><span class="o">:</span><span class="w"> </span><span class="mf">6.28</span><span class="p">,</span><span class="w">      </span><span class="c1">// domain: left and right edges of the plot</span>
+<span class="w">    </span><span class="nx">yMin</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="w">  </span><span class="nx">yMax</span><span class="o">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w">       </span><span class="c1">// range: bottom and top edges</span>
+<span class="w">    </span><span class="nx">numPoints</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w">               </span><span class="c1">// samples used to draw the curve</span>
+<span class="w">    </span><span class="nx">initialX</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w">                   </span><span class="c1">// starting position of the movable point</span>
+<span class="p">};</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// replace with the function to plot</span>
+</code></pre></div></td></tr></table></div>
+<p>To choose a domain, the guide advises showing one to three complete periods of a trigonometric function, all real roots of a polynomial where possible, and a meaningful span of change for an exponential. For the range, it says to add 10 percent padding above and below the extreme values so the curve does not touch the frame.</p>
+<p>A <strong>slider-driven plot</strong> adds a control that moves a marker along the curve. In the <strong>Slider-Driven Plot</strong> pattern, an HTML range input sets the x position, the script computes <span class="arithmatex">\( f(x) \)</span> at that position, and a second trace, a single red marker, is redrawn there. The tooltip should teach rather than merely report. The guide's own example contrasts "At x = <span class="arithmatex">\( \pi/2 \)</span> (1.571), sin(x) reaches its maximum value of 1" with the bare pair "1.571, 1.000", and recommends slider activities such as finding where <span class="arithmatex">\( f(x) = 0 \)</span> or locating the maximum. Because the slider is a standard range input, it is keyboard accessible with no extra work.</p>
+<p>A worked example shows why the slider changes what a learner can do. Ask a learner, "At what x does <span class="arithmatex">\( \sin(x) = 0.5 \)</span>?" With a static plot they estimate by eye. With the slider they move the marker until the readout shows 0.5, notice that this happens at two x values within each period, and can then predict the pattern in the next period. The interaction turns a lookup into an investigation, which is the property that defined an interactive simulation in Chapter 1.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Bounded Sampling Beats Guessing</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+If you are unsure whether a curve looks right, sample it at the domain edges and at one or two points where you know the answer, such as <span class="arithmatex">\( \sin(0) = 0 \)</span>. If those points are off, the formula is wrong long before the styling matters.</p>
+</div>
+<p>Before the specification, recall the terms it uses: the <em>domain</em> is the set of x values plotted, the <em>marker</em> is the movable point, and the <em>readout</em> is the text that reports the current x and <span class="arithmatex">\( f(x) \)</span>.</p>
+<h4 id="diagram-function-plot-slider-lab">Diagram: Function Plot Slider Lab</h4>
+<iframe src="../../sims/function-plot-slider-lab/main.html" width="100%" height="542px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/function-plot-slider-lab/main.html">Run the Function Plot Slider Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Function Plot Slider Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> function-plot-slider-lab<br/>
+<strong>Library:</strong> Plotly<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: locate): The learner will locate the x values where a chosen function reaches a given output, by moving a marker along the curve and reading the tooltip.</p>
+<p>Data and layout: a Plotly plot with one line trace of 500 samples over the domain -6.28 to 6.28 and one red marker trace. The y range is padded by 10 percent beyond the function's extreme values. A readout line above the plot shows x and <span class="arithmatex">\( f(x) \)</span>.</p>
+<p>Controls:</p>
+<ul>
+<li>Dropdown "Function" with sin(x), cos(x), <span class="arithmatex">\( x^2 \)</span> and <span class="arithmatex">\( e^{-x^2} \)</span></li>
+<li>Slider "x" spanning the full domain in steps of 0.01, keyboard accessible</li>
+<li>Number field "Target y" and button "Show matches", which marks every x where the curve crosses the target within the domain</li>
+</ul>
+<p>Interactions: hovering the curve shows a tooltip in the form "x = 1.571, f(x) = 1.000 (maximum of sin)". The marker follows the slider. Changing the function keeps the slider position and redraws the curve.</p>
+<p>Responsive design: the plot height is 400 pixels on desktop and 300 on narrow screens, the body has no margin, and the plot fills the container width.</p>
+<p>Implementation: Plotly.js 2.27.0 from a CDN, with the plot redrawn by a <code>createPlot(pointX)</code> function called from the slider's input event.</p>
+</details>
+<h2 id="data-tables-and-comparison-tables">Data Tables and Comparison Tables</h2>
+<p>Not every quantitative message is best drawn. A <strong>data table</strong> arranges values in rows and columns so that a reader can look up an exact figure. The <strong>Data Table</strong> has a role even in chart MicroSims: the Chart.js template includes a Table tab beside its pie and bar tabs, built from the same <code>chartData</code> object, so a learner who needs the exact number, or who cannot interpret the graphic, still has access to it. A table view also supplies a text alternative to the drawing, which is one small contribution to the accessibility practices of Chapter 24.</p>
+<p>A <strong>comparison table</strong> goes further by placing several items side by side against shared criteria so that a reader can choose among them. The <strong>Comparison Table</strong> generator in the skill library builds tables of 3 to 8 items, with 1 to 4 rating columns, an optional category column with Easy, Medium and Hard badges, a description column, and hover tooltips that carry a one or two sentence description of each item. The guide sets tooltips under 200 characters and estimates an iframe height of about 60 pixels per row plus 150 pixels for the header and legend.</p>
+<p>A <strong>star rating table</strong> is the comparison table's most recognizable form: each rating criterion is shown as one to five filled stars. The guide's <strong>Star Rating Table</strong> uses a five-color scale, with 5 stars in green, 4 in yellow-green, 3 in orange, 2 in red-orange and 1 in red, applied through classes such as <code>stars-4</code>. Each rating is written as filled stars followed by an empty one, as in the guide's pattern for four out of five: four filled stars in a <code>stars stars-4</code> span and one in a <code>stars-empty</code> span. Star ratings are easy to scan but they compress judgment into a number. A trustworthy table therefore states what each criterion means, which the guide handles by requiring "rating explanations" on the documentation page.</p>
+<p>A worked example shows the design choices. Suppose you compare three chart libraries for a course. The rows are the libraries, the rating columns are "Ease of use" and "Interactivity", the category column marks the difficulty of learning each, and the tooltip describes what each library is best for. The table below sketches the row structure of that design. It summarizes the pieces just described, and the ratings shown are illustrative only, not a measured evaluation.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Ease of use</th>
+<th>Interactivity</th>
+<th>Difficulty badge</th>
+<th>Tooltip on hover</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Library A</td>
+<td>4 stars</td>
+<td>3 stars</td>
+<td>Easy</td>
+<td>One-sentence description</td>
+</tr>
+<tr>
+<td>Library B</td>
+<td>3 stars</td>
+<td>5 stars</td>
+<td>Medium</td>
+<td>One-sentence description</td>
+</tr>
+<tr>
+<td>Library C</td>
+<td>2 stars</td>
+<td>4 stars</td>
+<td>Hard</td>
+<td>One-sentence description</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-neutral">
+<p class="admonition-title">Where Tables Fit</p>
+<p><img alt="Bounce neutral" class="mascot-admonition-img" src="../../img/mascot/neutral.png" />
+The comparison-table and HTML-table generators are separate skills from the chart generators, so Chapter 4's routing decides which one runs. Chapter 14 shows how a specification can request many of them in one batch.</p>
+</div>
+<h4 id="diagram-star-rating-comparison-table">Diagram: Star Rating Comparison Table</h4>
+<iframe src="../../sims/star-rating-comparison-table/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/star-rating-comparison-table/main.html">Run the Star Rating Comparison Table MicroSim Fullscreen</a></p>
+<details>
+<summary>Star Rating Comparison Table</summary>
+<p>Type: table
+<strong>sim-id:</strong> star-rating-comparison-table<br/>
+<strong>Library:</strong> HTML and CSS<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: judge): The learner will judge which of several items best fits a stated need, by comparing star ratings, badges and tooltip descriptions across weighted criteria.</p>
+<p>Data: five items, each with a name, two rating criteria on a 1 to 5 scale, a difficulty badge, a description tooltip of at most 200 characters, and a "Best for" text cell. All ratings are invented illustrations.</p>
+<p>Layout: a table with one row per item. Star cells use the five-color scale (5 green, 4 yellow-green, 3 orange, 2 red-orange, 1 red), and a legend below explains the badges. A source line sits under the legend.</p>
+<p>Controls:</p>
+<ul>
+<li>Two sliders "Weight: Ease of use" and "Weight: Interactivity", each from 0 to 5</li>
+<li>Button "Sort by weighted score" and button "Reset order"</li>
+<li>Checkbox "Show numeric ratings", which adds the digit next to each star group for readers who cannot rely on color</li>
+</ul>
+<p>Interactions: hovering a row shows its tooltip, and the first row's tooltip appears below the row so the header does not hide it. Changing a weight recomputes the weighted score and, when sorting is on, reorders the rows.</p>
+<p>Responsive design: the table scrolls horizontally inside its container below 600 pixels while the item column stays fixed, and the iframe height is set to about 60 pixels per row plus 150 pixels.</p>
+<p>Implementation: plain HTML, CSS star classes such as <code>stars-4</code>, and a short JavaScript sort function.</p>
+</details>
+<h2 id="clickable-tables-with-detail-panels">Clickable Tables with Detail Panels</h2>
+<p>A comparison table has one weakness: a cell can hold only a short value. When each cell needs a paragraph of explanation, as in a comparison of learning theories across several dimensions, a plain table either becomes unreadable or drops the reasoning. The <strong>clickable table detail panel</strong> is a pattern that keeps cells short and moves the explanation into a side panel that slides open when the learner clicks. In the <strong>Clickable Table Detail Panel</strong> pattern from the HTML-table generator, rows are the items, columns are the dimensions, and each cell holds a short summary value plus a description and an example that appear in the panel.</p>
+<p>The pattern separates concerns into files. A <code>data.json</code> file holds all the content, a <code>style.css</code> file holds the light theme, a <code>script.js</code> file generates the table and handles clicks, and a small <code>main.html</code> provides the empty structure. Each cell in the JSON carries four fields: a short <code>value</code>, an <code>emphasis</code> label chosen from high, medium, low, balanced and unique that controls the cell tint, a <code>description</code> and an <code>example</code>. The script reads the JSON with <code>fetch</code>, builds the table rows, and attaches a click handler to every cell. The handler fills the panel with the row name, column name, description and example, and opens it. A short excerpt from the guide shows the whole mechanism.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">data</span><span class="p">.</span><span class="nx">columns</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">col</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'td'</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cellData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">row</span><span class="p">.</span><span class="nx">cells</span><span class="p">[</span><span class="nx">col</span><span class="p">.</span><span class="nx">key</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">cell</span><span class="p">.</span><span class="nx">className</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`cell emphasis-</span><span class="si">${</span><span class="nx">cellData</span><span class="p">.</span><span class="nx">emphasis</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w">  </span><span class="c1">// tint by emphasis</span>
+<span class="w">    </span><span class="nx">cell</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cellData</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span><span class="w">                       </span><span class="c1">// short summary only</span>
+<span class="w">    </span><span class="nx">cell</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">showDetail</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span><span class="w"> </span><span class="nx">col</span><span class="p">.</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">col</span><span class="p">.</span><span class="nx">name</span><span class="p">));</span>
+<span class="w">    </span><span class="nx">tr</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Because the summary and the explanation live in the same JSON record, an author edits one place, and a reviewer can read the reasoning behind every cell without opening the page. The guide contrasts this pattern with the star-rating table: use the clickable table when cells need explanations, and the star-rating table for simple rated comparisons.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Three Files, One Table</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+Splitting a table across JSON, CSS and JavaScript can feel like too many moving parts at first, and that reaction is normal. Start by editing only <code>data.json</code> in an existing example and watch the table change, then touch the script once you trust the data flow.</p>
+</div>
+<h4 id="diagram-clickable-detail-matrix">Diagram: Clickable Detail Matrix</h4>
+<iframe src="../../sims/clickable-detail-matrix/main.html" width="100%" height="437px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/clickable-detail-matrix/main.html">Run the Clickable Detail Matrix MicroSim Fullscreen</a></p>
+<details>
+<summary>Clickable Detail Matrix</summary>
+<p>Type: table
+<strong>sim-id:</strong> clickable-detail-matrix<br/>
+<strong>Library:</strong> HTML and JavaScript<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate several items across several dimensions by reading each cell's summary and then opening its explanation and example.</p>
+<p>Data: a <code>data.json</code> file with four rows (invented learning-theory names) and four columns (invented dimensions), each cell holding <code>value</code>, <code>emphasis</code>, <code>description</code> and <code>example</code>.</p>
+<p>Layout: a table with aliceblue background and cells tinted by emphasis. A detail panel slides in from the right and a semi-transparent overlay covers the table while the panel is open.</p>
+<p>Controls:</p>
+<ul>
+<li>Click a cell to open the panel, and a close button or a click on the overlay to close it</li>
+<li>Toggle "Show emphasis colors", which removes the tints so the learner can test whether the summaries alone are clear</li>
+<li>Button "Random cell" that opens a randomly chosen cell and asks the learner to predict its emphasis first</li>
+</ul>
+<p>Interactions: hovering a cell raises it slightly. The panel shows row name, column name, description and example. The Escape key closes the panel, and focus returns to the clicked cell.</p>
+<p>Responsive design: the panel becomes a bottom sheet below 600 pixels, and the table scrolls horizontally inside its wrapper.</p>
+<p>Implementation: the table is generated from <code>data.json</code> with <code>fetch</code>, and each cell has a click listener that calls <code>showDetail</code>.</p>
+</details>
+<h2 id="citing-sources-and-choosing-infographics">Citing Sources and Choosing Infographics</h2>
+<p>Every chart makes a claim about the world, and a claim needs a source. <strong>Data source citation</strong> is the practice of stating where a chart's data came from, so that a reader can check it. The <strong>Data Source Citation</strong> appears in the skill's templates as a <code>&lt;p class="source"&gt;</code> line under the chart in the Chart.js template and under the comparison table, filled from a <code>{{SOURCE_CITATION}}</code> placeholder, and as a "Data Source" section in the Chart.js documentation template. A good citation names the origin, the date or version, and any transformation you applied, such as rounding or converting a count to a percentage.</p>
+<p>Citation practice is where this book's honesty rules meet chart design. If the data are invented for a teaching example, say so on the chart itself, as this chapter's examples do in their specifications. If the data are real, cite them, and if you cannot verify a number, do not chart it. Chapter 11 develops this into a full workflow for posters in which every numeric claim is checked against a cited source.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Cite Where the Eye Lands</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Put the source line directly beneath the chart, in the same iframe, so it travels with the chart when someone embeds it elsewhere. A citation on a separate documentation page is easy to lose.</p>
+</div>
+<p>Finally, the chart types in this chapter are pieces of a broader category. An <strong>infographic</strong> is a visual that combines graphics, data and short text to communicate one message at a glance. An <strong>Infographic</strong> may contain a chart, but it is composed as a designed image, and a MicroSim version makes it interactive, for example with labeled callouts that respond to hovering. Building those overlays on an image is the subject of Chapter 10, and building fact-checked infographic posters is the subject of Chapter 11. Here it is enough to know the boundary: reach for Chart.js, Plotly or a table when the data can be drawn from numbers, and reach for an infographic when the message is a designed image with annotations.</p>
+<h2 id="putting-it-together-matching-data-objectives-to-chart-types">Putting It Together: Matching Data Objectives to Chart Types</h2>
+<p>The decision below draws on every section of this chapter. It restates the selection rules as questions you can ask about a learning objective, so treat it as a summary of what you have already learned.</p>
+<table>
+<thead>
+<tr>
+<th>If the learner must...</th>
+<th>Use</th>
+<th>Because</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compare a value across categories</td>
+<td>Bar chart</td>
+<td>Bar length is easy to compare</td>
+</tr>
+<tr>
+<td>See a change in order or over time</td>
+<td>Line chart</td>
+<td>The line shows continuous change</td>
+</tr>
+<tr>
+<td>See parts of a whole (six or fewer)</td>
+<td>Pie chart</td>
+<td>Slices sum to a total</td>
+</tr>
+<tr>
+<td>See whether two variables are related</td>
+<td>Scatter plot</td>
+<td>Each point is one observation</td>
+</tr>
+<tr>
+<td>Weigh items on two criteria and a size</td>
+<td>Bubble chart or priority matrix</td>
+<td>Quadrants support a decision</td>
+</tr>
+<tr>
+<td>Explore a formula</td>
+<td>Plotly function plot with a slider</td>
+<td>The marker links input to output</td>
+</tr>
+<tr>
+<td>Look up exact values</td>
+<td>Data table</td>
+<td>Exact figures, no interpretation</td>
+</tr>
+<tr>
+<td>Choose among rated options</td>
+<td>Comparison or star rating table</td>
+<td>Criteria appear side by side</td>
+</tr>
+<tr>
+<td>Understand reasoning behind cells</td>
+<td>Clickable table with detail panel</td>
+<td>Short cells, long explanations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<ul>
+<li>The Chart.js library draws charts on a canvas from a chart configuration with three parts: <code>type</code>, <code>data</code> and <code>options</code>.</li>
+<li>A chart dataset is one series inside the <code>datasets</code> array, and its <code>data</code> entries are numbers, <code>{ x, y }</code> pairs or <code>{ x, y, r }</code> triples depending on the chart type.</li>
+<li>Bar charts compare categories, line charts show ordered change, and pie charts show parts of a whole with about six slices or fewer.</li>
+<li>Scatter plots show relationships between two variables, bubble charts add a third as size, and a priority matrix adds quadrants for decisions such as impact against effort.</li>
+<li>Chart tooltips should always be present and should teach, not just repeat values, and a chart color palette needs contrast and a second cue beyond hue.</li>
+<li>Plotly draws function plots by sampling a formula, and a slider-driven plot moves a marker along the curve so learners can investigate values.</li>
+<li>Data tables give exact values, comparison tables and star rating tables support choices, and clickable tables with detail panels keep cells short and put explanations in a side panel.</li>
+<li>A data source citation belongs beneath the chart, invented data must be labeled as invented, and an infographic is a designed image that Chapters 10 and 11 make interactive.</li>
+</ul>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Choose the Chart</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now match a data objective to a bar, line, pie, scatter or bubble chart, a Plotly function plot, or the right kind of table, and you can specify each one with a tooltip, a palette and a source line. That is the toolkit for turning numbers into things a learner can explore.</p>
+</div>
+<p>Chapter 8 moves from quantitative data to structure and relationships, using diagrams, networks and system models to show how things connect and influence one another.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../06-p5js-microsims/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. p5.js MicroSims">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                6. p5.js MicroSims
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08-diagrams-networks-and-systems/" class="md-footer__link md-footer__link--next" aria-label="Next: 8. Diagrams, Networks and Systems">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                8. Diagrams, Networks and Systems
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

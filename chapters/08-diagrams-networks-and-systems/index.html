@@ -1,0 +1,3673 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Shows how to build interactive Mermaid diagrams, vis-network graphs, Venn diagrams and causal loop diagrams that reveal processes, relationships and feedback.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/microsims/chapters/08-diagrams-networks-and-systems/">
+      
+      
+        <link rel="prev" href="../07-charts-plots-and-tables/">
+      
+      
+        <link rel="next" href="../09-timelines-and-maps/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Diagrams, Networks and Systems - Micro Simulations for Education</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-BBR7MPK96Z"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-BBR7MPK96Z",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-BBR7MPK96Z",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Diagrams, Networks and Systems - Micro Simulations for Education" />
+<meta property="og:description" content="Shows how to build interactive Mermaid diagrams, vis-network graphs, Venn diagrams and causal loop diagrams that reveal processes, relationships and feedback." />
+<meta property="og:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/08-diagrams-networks-and-systems/index.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dmccreary.github.io/microsims/chapters/08-diagrams-networks-and-systems/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="Diagrams, Networks and Systems - Micro Simulations for Education" />
+<meta property="twitter:description" content="Shows how to build interactive Mermaid diagrams, vis-network graphs, Venn diagrams and causal loop diagrams that reveal processes, relationships and feedback." />
+<meta property="twitter:image" content="https://dmccreary.github.io/microsims/assets/images/social/chapters/08-diagrams-networks-and-systems/index.png" />
+</head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#diagrams-networks-and-systems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Micro Simulations for Education" class="md-header__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Micro Simulations for Education
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Diagrams, Networks and Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Micro Simulations for Education" class="md-nav__button md-logo" aria-label="Micro Simulations for Education" data-md-component="logo">
+      
+  <img src="../../img/mascot/welcome.png" alt="logo">
+
+    </a>
+    Micro Simulations for Education
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/microsims" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course Description
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../why/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapters
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-what-is-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What Is a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-anatomy-of-a-microsim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Anatomy of a MicroSim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-learning-objectives-and-blooms-taxonomy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Learning Objectives and Bloom's Taxonomy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-choosing-a-microsim-type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Choosing a MicroSim Type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-generating-microsims-with-ai-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Generating MicroSims with AI Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-p5js-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. p5.js MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-charts-plots-and-tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Charts, Plots and Tables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Diagrams, Networks and Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid-diagrams-from-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid: Diagrams from Text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid: Diagrams from Text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-syntax-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid Syntax Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-hover-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid Hover Text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid Hover Text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-clickable-flowchart-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Clickable Flowchart Anatomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks-with-vis-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networks with vis-network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networks with vis-network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-and-edge-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node and Edge Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concept-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph Viewer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Viewer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-learning-graph-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Learning Graph Viewer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-selection-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Selection Event
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Selection Event">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-node-and-edge-data-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Node and Edge Data Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venn-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Venn Diagrams
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venn Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-set-overlap-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Set Overlap Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-and-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems and Feedback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systems and Feedback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polarity-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polarity Link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#causal-loop-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal Loop Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforcing-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reinforcing Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balancing-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Balancing Loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Balancing Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-loop-polarity-tracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Loop Polarity Tracer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-reinforcing-and-balancing-behavior-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Reinforcing and Balancing Behavior Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-diagrams-readable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Diagrams Readable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Diagrams Readable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-readability-repair-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Readability Repair Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-among-the-four" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing Among the Four
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-timelines-and-maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Timelines and Maps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-image-overlays-and-comparison-posters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Image Overlays and Comparison Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-verified-posters-and-specialized-microsim-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Verified Posters and Specialized MicroSim Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-width-responsive-design-and-iframe-heights/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Width-Responsive Design and Iframe Heights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-quality-assurance-and-automated-layout-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Quality Assurance and Automated Layout Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-batch-generation-from-specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Batch Generation from Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-metadata-search-and-reuse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Metadata, Search and Reuse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-xapi-statements-and-evidence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. xAPI Statements and Evidence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-instrumenting-microsims-with-the-xapi-runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Instrumenting MicroSims with the xAPI Runtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-mastery-prediction-and-knowledge-tracing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Mastery Prediction and Knowledge Tracing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-evaluating-the-predictive-fidelity-of-the-xapi-stream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Evaluating the Predictive Fidelity of the xAPI Stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-the-full-lrs-architecture-and-ingestion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. The Full LRS: Architecture and Ingestion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-the-full-lrs-dashboards-operations-and-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. The Full LRS: Dashboards, Operations and Compliance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-lrs-lite-compact-summaries-and-browser-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. LRS-Lite: Compact Summaries and Browser Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-lrs-lite-sync-dashboards-and-choosing-full-or-lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. LRS-Lite: Sync, Dashboards and Choosing Full or Lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-pedagogy-accessibility-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Pedagogy, Accessibility and Ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-capstone-building-an-instrumented-microsim-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Capstone: Building an Instrumented MicroSim Portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-the-future-of-microsims/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. The Future of MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../setup/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../rules/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rules
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MicroSims
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../prompts/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample GenAI Prompts
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Graph
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../appendices/microsims-2-plan/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shared-microsims-linking-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared MicroSims Linking Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../submission-guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Submission Guidelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-we-built-this-site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How We Built This Site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creative Commons License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts Covered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#welcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mermaid-diagrams-from-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid: Diagrams from Text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid: Diagrams from Text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-syntax-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid Syntax Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-hover-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mermaid Hover Text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mermaid Hover Text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-clickable-flowchart-anatomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Clickable Flowchart Anatomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks-with-vis-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Networks with vis-network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networks with vis-network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-and-edge-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node and Edge Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Layout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concept-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph Viewer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Graph Viewer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-learning-graph-viewer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Learning Graph Viewer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-selection-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Selection Event
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Selection Event">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-node-and-edge-data-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Node and Edge Data Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venn-diagrams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Venn Diagrams
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Venn Diagrams">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-set-overlap-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Set Overlap Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systems-and-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systems and Feedback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Systems and Feedback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#polarity-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polarity Link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#causal-loop-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal Loop Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reinforcing-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reinforcing Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#balancing-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Balancing Loop
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Balancing Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-loop-polarity-tracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Loop Polarity Tracer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-reinforcing-and-balancing-behavior-lab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Reinforcing and Balancing Behavior Lab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-diagrams-readable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Diagrams Readable
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Diagrams Readable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-readability-repair-bench" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram: Readability Repair Bench
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-among-the-four" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing Among the Four
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chapter-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Chapters
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/microsims/edit/master/docs/chapters/08-diagrams-networks-and-systems/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="diagrams-networks-and-systems">Diagrams, Networks and Systems</h1>
+<h2 id="summary">Summary</h2>
+<p>Covers Mermaid diagrams, vis-network graphs, Venn diagrams and causal-loop diagrams for showing processes, relationships and feedback systems.</p>
+<p>Students learn the syntax rules and hover text for Mermaid, node and edge data for networks, and how to draw and read reinforcing and balancing loops. After it, they can build a readable diagram or network MicroSim.</p>
+<h2 id="concepts-covered">Concepts Covered</h2>
+<p>This chapter covers the following 19 concepts from the learning graph:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Concept Impact Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mermaid Library</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Flowchart</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sequence Diagram</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Mermaid Syntax Rules</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Mermaid Hover Text</td>
+<td>1</td>
+</tr>
+<tr>
+<td>vis-network Library</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Node and Edge Data</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Network Layout</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Concept Map</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Graph Viewer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Node Selection Event</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Venn Diagram</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Causal Loop Diagram</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Reinforcing Loop</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Balancing Loop</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Feedback Loop</td>
+<td>2</td>
+</tr>
+<tr>
+<td>System Dynamics</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Polarity Link</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Diagram Readability</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-what-is-a-microsim/">Chapter 1: What Is a MicroSim</a></li>
+<li><a href="../03-learning-objectives-and-blooms-taxonomy/">Chapter 3: Learning Objectives and Bloom's Taxonomy</a></li>
+<li><a href="../04-choosing-a-microsim-type/">Chapter 4: Choosing a MicroSim Type</a></li>
+</ul>
+<hr />
+<h2 id="welcome">Welcome</h2>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Boxes, Arrows and Loops</p>
+<p><img alt="Bounce waving welcome" class="mascot-admonition-img" src="../../img/mascot/welcome.png" />
+Some ideas are about how things connect: steps in a process, prerequisites in a course, or a habit that feeds itself. Let's bounce it around! By the end of this chapter you will be able to build diagrams and network MicroSims that a learner can click, hover and reason about, instead of a picture they can only look at.</p>
+</div>
+<p>Charts and plots, the subject of the previous chapter, show quantities. This chapter is about <em>structure</em>: which things exist, what connects to what, and what happens when a chain of connections curls back on itself. Four families of MicroSim cover most of that ground. Mermaid diagrams draw processes from text. Network graphs show relationships among many items. Venn diagrams show what sets share. Causal loop diagrams show how feedback drives a system over time. Chapter 4 helped you choose among these types; here you learn to build and read each one.</p>
+<h2 id="mermaid-diagrams-from-text">Mermaid: Diagrams from Text</h2>
+<p>The <strong>Mermaid library</strong> is a JavaScript library that turns a short block of plain text into a diagram drawn in the browser. The author writes a description such as "step A leads to step B" and Mermaid decides where to place each box and how to route each arrow. This is the cheapest way to make a process diagram, and it suits AI generation well, because a language model can write and revise a few lines of text far more reliably than it can position boxes by hand. In this book, Mermaid is the library of choice when the content is a process, a decision path or an interaction between actors.</p>
+<p>Mermaid offers several diagram types, and two matter most for MicroSims. A <strong>flowchart</strong> is a diagram of a process in which boxes (nodes) represent steps or decisions and arrows (edges) show the order in which they happen. A <strong>sequence diagram</strong> shows messages passed between named participants over time, read from top to bottom. A flowchart answers "what are the steps?", and a sequence diagram answers "who says what to whom, and in what order?".</p>
+<p>The MicroSim generator's Mermaid guide documents flowcharts in detail, so we build on them first. A flowchart begins with the word <code>flowchart</code> followed by a direction: <code>TD</code> for top-down, which the guide makes the default, or <code>LR</code> for left-to-right. Each node has an identifier, a shape given by the brackets around its label, and the label itself. Edges are drawn with arrows. Before reading the example, note the shapes the guide lists: rounded brackets mark a start or end, square brackets a process step, and curly braces a decision.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>flowchart TD
+    Start("Learning objective written"):::startNode
+    Draft["AI drafts the MicroSim"]:::processNode
+    Check{"Meets the objective?"}:::decisionNode
+    Done("Publish"):::endNode
+
+    Start --&gt; Draft --&gt; Check
+    Check --&gt;|Yes| Done
+    Check --&gt;|No| Draft
+
+    classDef startNode fill:#667eea,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef processNode fill:#764ba2,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+    classDef decisionNode fill:#f093fb,stroke:#333,stroke-width:2px,color:#333,font-size:16px
+    classDef endNode fill:#4facfe,stroke:#333,stroke-width:2px,color:#fff,font-size:16px
+</code></pre></div></td></tr></table></div>
+<p>Read the example from the top. The first line fixes the direction. The four node lines create a start, a process step, a decision and an end, each tagged with a style class through the <code>:::</code> suffix. The edge lines connect them, and the label <code>Yes</code> or <code>No</code> sits between the vertical bars on the two edges leaving the decision. The <code>No</code> edge loops back to the drafting step, which is how a flowchart shows iteration. The <code>classDef</code> lines at the end define the colors and the 16-pixel font size that the guide requires for readability.</p>
+<p>A short <strong>sequence diagram</strong> looks different because its rows are messages, not boxes. The following sketch uses the standard Mermaid sequence syntax: <code>participant</code> declares an actor, and an arrow with a colon carries a message.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>sequenceDiagram
+    participant L as Learner
+    participant M as MicroSim
+    L-&gt;&gt;M: Move the gravity slider
+    M--&gt;&gt;L: Redraw the ball path
+</code></pre></div></td></tr></table></div>
+<p>The solid arrow is a request and the dashed arrow is a reply. Sequence diagrams are useful for explaining how a learner action and a system response alternate, which is exactly the pattern instrumented MicroSims record. The generator guides listed for this chapter cover flowcharts only, so the sequence syntax above comes from Mermaid's own conventions and you should check it against the Mermaid documentation before relying on it.</p>
+<h3 id="mermaid-syntax-rules">Mermaid Syntax Rules</h3>
+<p>Mermaid is forgiving in some ways and strict in others, and a small mistake in a label can stop the whole diagram from rendering. The <strong>Mermaid syntax rules</strong> in the generator guide exist to prevent the most common failures. The rules are easier to apply once you know why each one exists: the parser treats several characters as part of its own grammar, so a label that contains them is misread as code.</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Why it exists</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wrap every label in double quotes</td>
+<td>Labels with spaces or punctuation are otherwise misparsed</td>
+</tr>
+<tr>
+<td>Use <code>&lt;br/&gt;</code> for a line break, never <code>\n</code></td>
+<td>Mermaid v11 does not interpret <code>\n</code> in labels by default</td>
+</tr>
+<tr>
+<td>Avoid <code>$</code>, curly braces and backslash sequences inside labels</td>
+<td>They collide with math rendering and with the decision-node syntax</td>
+</tr>
+<tr>
+<td>Do not use lowercase <code>end</code> as a node identifier</td>
+<td>It is a reserved word</td>
+</tr>
+<tr>
+<td>Put <code>classDef</code> lines after the flowchart lines</td>
+<td>Style declarations are applied to nodes already defined</td>
+</tr>
+<tr>
+<td>Add <code>subGraphTitleMargin</code> when a <code>subgraph</code> has a title</td>
+<td>Without it the title collides with the border and the first node</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Quote Every Label</p>
+<p><img alt="Bounce giving a tip" class="mascot-admonition-img" src="../../img/mascot/tip.png" />
+Put double quotes around every label, even the ones that look safe. A label like "Test (unit)" breaks without them, and the error message rarely points at the label.</p>
+</div>
+<p>A <strong>worked example</strong> shows the rules at work. Suppose a first draft contains the node <code>Cost{Total $ spent}</code>. It fails for two reasons: the <code>$</code> may trigger math parsing, and the braces are read as a decision-node shape. The repaired line is <code>Cost["Total spent in dollars"]</code>, which quotes the label, spells out the symbol and uses square brackets for a plain process step. When an AI generator produces a broken diagram, check these rules first.</p>
+<h3 id="mermaid-hover-text">Mermaid Hover Text</h3>
+<p>A diagram that only sits on the page is a picture. <strong>Mermaid hover text</strong> is the explanatory text that appears when a learner moves the pointer over a node, and it is what turns a Mermaid flowchart into an interactive MicroSim. The generator guide requires that every node have an entry, and it prefers a right-hand information panel over a floating tooltip so the text stays readable inside an iframe.</p>
+<p>The mechanism is a JavaScript object that maps each node identifier to a short description. The identifiers in the object must match the identifiers in the Mermaid text exactly, which is why the earlier example used meaningful names such as <code>Draft</code> and <code>Check</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">tooltips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">Start</span><span class="o">:</span><span class="w"> </span><span class="s1">'The objective states what the learner will be able to do.'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">Draft</span><span class="o">:</span><span class="w"> </span><span class="s1">'The agent writes code from the specification.'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">Check</span><span class="o">:</span><span class="w"> </span><span class="s1">'Automated checks and a human review decide if it is ready.'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">Done</span><span class="o">:</span><span class="w">  </span><span class="s1">'The MicroSim is added to the chapter.'</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The guide's script waits for Mermaid to finish drawing before attaching handlers, by polling until the SVG and its node elements exist, because a fixed delay fails unpredictably inside iframes. The guide's tooltip advice is to write one or two short sentences that explain the purpose of a step, not just repeat its label. This book's rule for Mermaid goes one step further: a Mermaid diagram is acceptable only when every node also has a <code>click</code> directive, so that touch users and keyboard users, who cannot hover, still reach the same explanation. Mermaid's <code>click</code> statement binds a node to a callback function, and the callback fills the same information panel.</p>
+<h4 id="diagram-clickable-flowchart-anatomy">Diagram: Clickable Flowchart Anatomy</h4>
+<iframe src="../../sims/clickable-flowchart-anatomy/main.html" width="100%" height="522px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/clickable-flowchart-anatomy/main.html">Run the Clickable Flowchart Anatomy MicroSim Fullscreen</a></p>
+<details>
+<summary>Clickable Flowchart Anatomy</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> clickable-flowchart-anatomy<br/>
+<strong>Library:</strong> Mermaid<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: differentiate): The learner will differentiate the four node shapes of a flowchart and the roles of edges, labels and style classes by inspecting a small working diagram.</p>
+<p>Diagram: the drafting flowchart from the text, drawn top-down in the left two thirds of the region: Learning objective written (rounded), AI drafts the MicroSim (rectangle), Meets the objective? (diamond), Publish (rounded). Edges: start to draft, draft to check, check to publish labeled Yes, check back to draft labeled No.</p>
+<p>Interactions: every node has a click directive that fills an information panel in the right third with its shape name, its role and the Mermaid line that created it. Hovering a node highlights it and shows the same text. Clicking an edge label shows what a branch label means. A "Break it" toggle removes the quotes from one label and shows the resulting parse error message in the panel, and a second click restores it.</p>
+<p>Responsive design: the diagram scales to the container width on window resize, the information panel moves below the diagram under 600 pixels, and fonts stay at least 16 pixels.</p>
+<p>Implementation: Mermaid flowchart with classDef styles and click callbacks that write to the panel.</p>
+</details>
+<h2 id="networks-with-vis-network">Networks with vis-network</h2>
+<p>Flowcharts suit a process with a clear start and end. Many educational structures are not processes but webs: a concept map, a set of prerequisites, a social network. For those, we need a library that draws an arbitrary graph and lets the reader explore it. The <strong>vis-network library</strong> is a JavaScript library for drawing and interacting with networks of nodes joined by edges. It handles drawing, hit testing, selection, zooming and dragging, so the author supplies only data and options. It is the most heavily depended-on library in this chapter, because the learning graph viewer, the causal loop diagrams later in this chapter and several other MicroSim types all sit on top of it.</p>
+<p>Before writing any code, we should settle the vocabulary. A <em>graph</em> here means a collection of <em>nodes</em> (the items) and <em>edges</em> (the connections between them). An edge is <em>directed</em> if it points from one node to another, and an arrow at one end shows the direction.</p>
+<h3 id="node-and-edge-data">Node and Edge Data</h3>
+<p><strong>Node and edge data</strong> is the information you give vis-network to describe a graph. Each node needs a unique <code>id</code> and normally a <code>label</code>, which is the text shown. Each edge needs a <code>from</code> and a <code>to</code> that name node identifiers. The MicroSim generator's template goes further and stores fixed screen positions in each node as <code>x</code> and <code>y</code>, measured from a canvas center at <code>(0, 0)</code>, with negative <code>x</code> to the left and negative <code>y</code> upward. The template's data file has the shape <code>nodes</code> with <code>id</code>, <code>label</code>, <code>x</code>, <code>y</code>, and <code>edges</code> with <code>from</code>, <code>to</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">nodeData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Flowchart'</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">100</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Concept Map'</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">100</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Venn Diagram'</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">edgeData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="kr">from</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">nodeData</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">DataSet</span><span class="p">(</span><span class="nx">edgeData</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">vis</span><span class="p">.</span><span class="nx">Network</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">nodes</span><span class="p">,</span><span class="w"> </span><span class="nx">edges</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">options</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>The code creates a <code>DataSet</code> for each list, because a DataSet lets you update a single node later, for example to change its color when a learner selects it, without rebuilding the graph. The last line hands both DataSets and an <code>options</code> object to <code>vis.Network</code>, along with the page element named <code>container</code> in which to draw.</p>
+<p>A <strong>worked example</strong> shows the value of rich node data. Because each node is an object, it can carry extra fields: a <code>group</code> that sets its color, a <code>title</code> for a tooltip, and any custom field the MicroSim needs. The learning graph viewer, which we meet shortly, stores a <code>group</code> per concept for the category color and computes a font size from each concept's Concept Impact Score. The lesson is that a good network MicroSim is mostly a good data file. The layout and interaction code changes little from one network to the next.</p>
+<p>Two cautions apply. First, the causal loop diagram files described later in this chapter use a different vocabulary, <code>source</code> and <code>target</code> in place of <code>from</code> and <code>to</code>, and <code>position</code> objects in place of bare <code>x</code> and <code>y</code>, so data is not portable between the two formats without conversion. Second, edge direction carries meaning. In this book's learning graph, an edge points from a concept to a prerequisite it depends on, so an arrow reads "depends on". Decide what your arrows mean, and state it in the legend.</p>
+<h3 id="network-layout">Network Layout</h3>
+<p>A <strong>network layout</strong> is the rule that decides where each node appears on the canvas. There are two broad strategies. In a <em>physics</em> layout, the library simulates forces: nodes repel one another, edges act as springs, and the picture settles into an arrangement that tends to place connected nodes near each other. In a <em>fixed</em> layout, the author supplies the coordinates and nothing moves.</p>
+<p>The generator guide's standard options choose the fixed strategy, with <code>physics: { enabled: false }</code> and <code>improvedLayout: false</code>, because fixed positions give "educational clarity": the diagram looks the same for every learner and every screenshot. The learning graph viewer takes the other strategy. It uses the <code>forceAtlas2Based</code> physics solver with a fixed random seed of 42, so its layout is reproducible, runs up to 1000 stabilization iterations, and switches physics off after five seconds so the picture stops moving. It turns physics on briefly while a node is being dragged. A large graph with hundreds of nodes is impractical to position by hand, so physics is the right choice there.</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Best for</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed positions</td>
+<td>Small diagrams with a deliberate reading order</td>
+<td>The author must place every node</td>
+</tr>
+<tr>
+<td>Physics layout</td>
+<td>Large graphs whose structure is unknown in advance</td>
+<td>Layout can differ between runs unless seeded, and it takes time to settle</td>
+</tr>
+</tbody>
+</table>
+<p>The guide also offers a practical tip for fixed layouts: place the graph on the left of the canvas if a control or information panel occupies the right, and adjust the camera after the first draw using the <code>afterDrawing</code> event, because vis-network re-centers the graph automatically when it initializes.</p>
+<div class="admonition mascot-warning">
+<p class="admonition-title">Mind the Scroll Wheel</p>
+<p><img alt="Bounce warning" class="mascot-admonition-img" src="../../img/mascot/warning.png" />
+A network in an iframe that zooms on the mouse wheel steals the scroll from the page around it, so readers get stuck on your diagram. The guide's remedy is <code>zoomView: false</code> and <code>dragView: false</code> with <code>navigationButtons: true</code> when embedded, and mouse zoom only in fullscreen.</p>
+</div>
+<p>When you use <code>navigationButtons</code>, also load the vis-network stylesheet, because the standalone script build does not include the CSS for the button icons. Without it the buttons exist but are invisible.</p>
+<h3 id="concept-map">Concept Map</h3>
+<p>A <strong>concept map</strong> is a network diagram in which nodes are concepts and labeled edges state how they relate, such as "requires", "is a kind of" or "causes". Concept maps are among the most established tools for showing knowledge structure, and they are the natural fit for vis-network because the content is already nodes and edges. A concept map differs from a flowchart in that it has no start, no end and no implied sequence. It differs from a mind map in that edges carry meaning through their labels, not only through proximity.</p>
+<p>A <strong>worked example</strong> builds one from this chapter. Take four concepts and two relationships: Flowchart is a kind of Diagram, Concept Map is a kind of Diagram, and a Concept Map is drawn with the vis-network library. Written as data, that is four nodes and three labeled edges. A learner who clicks the Concept Map node can then see its definition, its incoming and outgoing relationships, and a prompt such as "What relationship would connect a Venn Diagram to this map?". Asking learners to add their own nodes and relationships moves the activity from reading a map toward the Create level of Bloom's taxonomy, which Chapter 3 introduced.</p>
+<h3 id="graph-viewer">Graph Viewer</h3>
+<p>The <strong>graph viewer</strong> is this repository's own vis-network MicroSim, and it is a real, working example of the ideas above. It draws the book's learning graph, version 1.04 as displayed in its interface, from the file <code>learning-graph.json</code>. Its features, taken from its documentation and code, are:</p>
+<ul>
+<li>A search box that lists up to ten matching concepts and focuses the one you pick.</li>
+<li>Category checkboxes that show or hide groups of concepts, with live counts of visible nodes, visible edges and foundational concepts.</li>
+<li>Node sizes that follow the Concept Impact Score: font size runs from 12 to 22 points on a logarithmic scale, because the scores are heavy-tailed.</li>
+<li>Highlighting of a selected node and its connections.</li>
+</ul>
+<p>The viewer's edges point from a concept to its prerequisites, so foundational concepts, which have no outgoing edges, are counted as those with no dependencies. Try it below, and locate the concepts of this chapter.</p>
+<iframe src="../../sims/graph-viewer/main.html" width="100%" height="600px" scrolling="no"></iframe>
+
+<p><a class="md-button" href="../../sims/graph-viewer/main.html">Run the Graph Viewer MicroSim fullscreen</a></p>
+<h4 id="diagram-learning-graph-viewer">Diagram: Learning Graph Viewer</h4>
+<details>
+<summary>Learning Graph Viewer (existing local MicroSim)</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> graph-viewer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Reused<br/>
+<strong>Source:</strong> ../../sims/graph-viewer/main.html<br/>
+<strong>Source Repo:</strong> docs/sims/graph-viewer in this repository</p>
+<p>Reused from this book's own sims directory. Learning objective (Bloom level: Analyze; verb: examine): The learner will examine the learning graph to find the prerequisites of a chosen concept and to distinguish foundational concepts from advanced ones.</p>
+</details>
+<p>One observation from the code is worth a reviewer's attention. The viewer sets <code>zoomView: true</code> and <code>dragView: true</code>, so the mouse wheel zooms inside its iframe, which is the behavior the vis-network guide advises against for embedded diagrams. The viewer was designed as a full-page tool with its own sidebar, and the trade-off is acceptable there, but a network embedded inline among paragraphs should follow the guide's stricter default.</p>
+<h3 id="node-selection-event">Node Selection Event</h3>
+<p>A <strong>node selection event</strong> is the notification that vis-network raises when a user clicks a node. You register a function for the event with <code>network.on</code>, and the function receives a <code>params</code> object whose <code>nodes</code> array holds the identifiers of the selected nodes. The graph viewer does exactly this, and its handler calls a function that fades every node that is not the selected node or one of its neighbors to 30 percent opacity for three seconds.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">network</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'selectNode'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">showDetails</span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">nodes</span><span class="p">[</span><span class="mf">0</span><span class="p">]);</span><span class="w">   </span><span class="c1">// fill the information panel</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+<p>Selection is the smallest useful interaction in a network MicroSim: it turns a static drawing into something that answers a question about the node the learner chose. It is also the natural place to record evidence. A selection event is a discrete, meaningful learner action, and Chapter 17 shows how such events can be turned into xAPI statements. As of this writing that reporting path is a design, not something the graph viewer does.</p>
+<h4 id="diagram-node-and-edge-data-explorer">Diagram: Node and Edge Data Explorer</h4>
+<iframe src="../../sims/node-edge-data-explorer/main.html" width="100%" height="502px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/node-edge-data-explorer/main.html">Run the Node and Edge Data Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Node and Edge Data Explorer</summary>
+<p>Type: graph-model
+<strong>sim-id:</strong> node-edge-data-explorer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Apply; verb: implement): The learner will implement a small concept map by editing node and edge data and observing how each change alters the drawn network.</p>
+<p>Layout: the network occupies the left two thirds with fixed node positions and physics disabled; a data panel on the right shows the JSON for the selected node or edge.</p>
+<p>Data: eight concept nodes drawn from this chapter (Flowchart, Concept Map, Venn Diagram, Mermaid Library, vis-network Library, Network Layout, Node Selection Event, Causal Loop Diagram) with x and y positions, and eight edges labeled with relationships such as "is drawn with" and "is a kind of".</p>
+<p>Interactions: clicking a node selects it, highlights its connected edges and shows its data; hovering an edge shows its relationship label. Controls: a text field and "Add node" button, a "Connect" mode in which the learner clicks two nodes to create an edge and chooses a relationship label, a "Swap direction" button for the selected edge, and a "Reset" button. A toggle switches between "fixed" and "physics" layout so the learner can compare them.</p>
+<p>Responsive design: the network re-fits on window resize, the data panel moves below the network under 600 pixels, and navigation buttons replace mouse-wheel zoom.</p>
+<p>Implementation: vis-network with DataSets for nodes and edges, network.on selectNode handlers, and navigationButtons enabled with the vis-network stylesheet loaded.</p>
+</details>
+<h2 id="venn-diagrams">Venn Diagrams</h2>
+<p>A <strong>Venn diagram</strong> shows sets as overlapping circles, so that the region where circles overlap represents what the sets share. The MicroSim generator's guide builds Venn diagrams with the venn.js library on top of D3, and it supports two to four sets. The data is a list of sets with sizes, plus a size for each intersection, and the guide's rule is that an intersection may not be larger than the smallest set that contains it.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">sets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nx">sets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Flowchart'</span><span class="p">],</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nx">sets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Concept Map'</span><span class="p">],</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nx">sets</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Flowchart'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Concept Map'</span><span class="p">],</span><span class="w"> </span><span class="nx">size</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">}</span>
+<span class="p">];</span>
+</code></pre></div></td></tr></table></div>
+<p>For a symbolic diagram like this one, the sizes are chosen to look balanced and do not measure anything. The educational value therefore does not come from the sizes. It comes from what a tooltip says. The guide insists on this: each set and each intersection should map to a short definition, ideally taken from the glossary, and the tooltip shows that definition in place of the numeric size. Here the intersection would read "Nodes joined by arrows". A <strong>worked example</strong> shows how a learner uses it: hovering over the overlap reveals what flowcharts and concept maps share, and hovering over each outer part reveals what is unique, namely a required order of steps for the flowchart and labeled relationships for the concept map.</p>
+<p>Choose a Venn diagram when the learning goal is to classify or compare, and the answer is a set relationship. If the relationship is a flow, use a flowchart; if it is a web of many-to-many links, use a network.</p>
+<h4 id="diagram-set-overlap-explorer">Diagram: Set Overlap Explorer</h4>
+<iframe src="../../sims/set-overlap-explorer/main.html" width="100%" height="442px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/set-overlap-explorer/main.html">Run the Set Overlap Explorer MicroSim Fullscreen</a></p>
+<details>
+<summary>Set Overlap Explorer</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> set-overlap-explorer<br/>
+<strong>Library:</strong> venn.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: classify): The learner will classify example diagrams into the correct region of a three-circle Venn diagram of Flowchart, Concept Map and Causal Loop Diagram characteristics.</p>
+<p>Data: three sets with the characteristics "shows an ordered process", "labels relationships between concepts" and "shows feedback", and seven regions, each with a one-sentence definition used in its tooltip instead of a numeric size.</p>
+<p>Interactions: hovering a region shows its definition; clicking a region lists two example diagrams that belong there. A "Classify" mode presents six example diagram descriptions one at a time, and the learner clicks the region where each belongs, receiving immediate feedback and a one-sentence reason.</p>
+<p>Responsive design: circles scale to the container width on window resize and tooltip text wraps at narrow widths.</p>
+<p>Implementation: venn.js with D3, a definitions object keyed by sorted set names, and a click handler that scores the classification.</p>
+</details>
+<h2 id="systems-and-feedback">Systems and Feedback</h2>
+<p>The remaining concepts address a different question. A flowchart shows what happens in order, and a network shows what connects. Neither shows how a system <em>behaves over time</em> when its parts affect each other. <strong>System dynamics</strong> is the field that studies how the structure of a system, its stocks, flows and feedback, produces its behavior over time. A <em>stock</em> is a quantity that accumulates, such as the number of skills a learner has mastered. A <em>flow</em> changes a stock, such as skills gained per week. The generator's causal loop schema uses the term stock the same way, marking the central accumulating variable of a diagram with the type <code>stock</code>.</p>
+<p>The core building block of system dynamics is the feedback loop. A <strong>feedback loop</strong> is a closed chain of cause-and-effect relationships in which a change in one variable eventually returns to affect that same variable. Compare a chain, where A affects B and B affects C and the story ends, with a loop, where C then affects A again. Loops are what make systems surprising, because the effect of a change comes back changed.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A Loop Is a Conversation</p>
+<p><img alt="Bounce thinking" class="mascot-admonition-img" src="../../img/mascot/thinking.png" />
+Think of a loop as a variable talking to itself through other variables. The question to ask is never "what does A do to B?" alone, but "when the answer comes back around, does A get louder or quieter?"</p>
+</div>
+<p>Feedback loops come in two kinds, and the difference between them is the most important idea in this section. Before defining them, we need the notation that lets us tell them apart.</p>
+<h3 id="polarity-link">Polarity Link</h3>
+<p>A <strong>polarity link</strong> is an arrow between two variables that also states the direction of the effect. A <em>positive</em> link means that a rise in the source variable pushes the target variable up, and a fall pushes it down. A <em>negative</em> link means that a rise in the source pushes the target down, and a fall pushes it up. In the generator's causal loop format, a positive link is drawn with a green plus sign and a negative link with a red minus sign, and the polarity is causal, not statistical: it answers "if the source goes up, what happens to the target?"</p>
+<p>A <strong>worked example</strong> with two links from education. "Practice time to Mastery" is positive: more practice, more mastery. "Mastery to Gap between goal and mastery" is negative: as mastery rises, the gap to the learning goal shrinks. Note that the polarity says nothing about the size of the effect, and it says nothing about whether the effect is immediate; the schema records a separate optional delay field for that.</p>
+<h3 id="causal-loop-diagram">Causal Loop Diagram</h3>
+<p>A <strong>causal loop diagram</strong> is a diagram of variables joined by polarity links, drawn so that its feedback loops are visible and labeled as reinforcing or balancing. It is the standard notation of system dynamics for communicating the <em>structure</em> of a system, before any numbers are attached. In the generator's format, a causal loop diagram is a vis-network drawing, so a reader can drag nodes, zoom and click a node or link to open its description.</p>
+<p>The file format is a JSON document with four principal parts: <code>metadata</code>, <code>nodes</code>, <code>edges</code> and <code>loops</code>. Each node has an <code>id</code>, a <code>label</code>, a <code>position</code> and a <code>description</code>. Each edge has a <code>source</code>, a <code>target</code>, a <code>polarity</code> of <code>positive</code> or <code>negative</code>, and a description. Each loop has an <code>id</code> such as <code>R1</code> or <code>B1</code>, a <code>type</code>, and a <code>path</code> listing the nodes in traversal order, starting and ending at the same node. The renderer disables physics, so every node needs an explicit position, and the layout templates offer a three-node triangle and a four-node diamond for single loops.</p>
+<p>A practical warning from the guide's list of footguns applies to any page with many diagrams: do not give every inline diagram its own iframe. The guide reports that Chrome and Firefox silently fail to paint vis-network instances somewhere around the fifth or sixth iframe on one page, with no error message, and its remedy is an inline renderer that draws all diagrams in one document and reserves iframes for the single fullscreen viewer. We report this as the guide states it; we have not independently reproduced the limit.</p>
+<h3 id="reinforcing-loop">Reinforcing Loop</h3>
+<p>A <strong>reinforcing loop</strong> is a feedback loop in which a change in any variable, after traveling around the loop, returns as a change in the same direction, so the original change is amplified. Growth feeds more growth, and decline feeds more decline. Reinforcing loops are labeled <code>R</code> with a number.</p>
+<p>A <strong>worked example</strong> with a learner. Higher Mastery raises Confidence, more Confidence raises Practice time, and more Practice time raises Mastery. Every link is positive. Left alone, the loop drives Mastery upward at an accelerating pace, and it drives it downward just as quickly if it starts from low confidence. This is a plausible structure to draw as a hypothesis about a learner, not a measured result: this book has not yet gathered learner data that would show how strongly any such loop operates.</p>
+<h3 id="balancing-loop">Balancing Loop</h3>
+<p>A <strong>balancing loop</strong> is a feedback loop in which a change returns as an opposing change, so the loop pushes the system toward a goal or a limit. Balancing loops are labeled <code>B</code> with a number, and they are how a thermostat works: the further the room is below the target, the harder the heater runs.</p>
+<p>A <strong>worked example</strong> in the same setting. A larger Gap between goal and mastery raises Study effort, Study effort raises Mastery, and Mastery lowers the Gap. Two links are positive and one is negative, so the loop pushes the gap toward zero and then stops pushing. The behavior is <em>goal-seeking</em>: fast change at first, slowing as the goal approaches.</p>
+<p>There is a quick test for classifying any loop, and the generator's schema states it: count the negative links around the loop. An even count, including zero, makes a reinforcing loop, and an odd count makes a balancing loop.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">Tracing Loops Takes Practice</p>
+<p><img alt="Bounce encouraging" class="mascot-admonition-img" src="../../img/mascot/encouraging.png" />
+If counting signs around a loop feels slippery at first, that is normal, because you are simulating a system in your head. You have already traced flowcharts, so trace one link at a time with your finger and count the minus signs aloud.</p>
+</div>
+<p>The table below sets the two loop types side by side. It summarizes what we have just defined.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Reinforcing loop</th>
+<th>Balancing loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Label</td>
+<td>R1, R2, ...</td>
+<td>B1, B2, ...</td>
+</tr>
+<tr>
+<td>Negative links around the loop</td>
+<td>Even, including zero</td>
+<td>Odd</td>
+</tr>
+<tr>
+<td>Effect of a change</td>
+<td>Amplified</td>
+<td>Opposed</td>
+</tr>
+<tr>
+<td>Typical behavior over time</td>
+<td>Accelerating growth or decline</td>
+<td>Movement toward a goal, then leveling off</td>
+</tr>
+<tr>
+<td>Marker color in the generator's format</td>
+<td>Red</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>Learner example from this section</td>
+<td>Mastery, Confidence, Practice time</td>
+<td>Gap, Study effort, Mastery</td>
+</tr>
+</tbody>
+</table>
+<p>The behavior in the last row can be seen in a few lines of code. Before reading it, note the parameters: <code>x</code> is the stock, <code>rate</code> is how strongly the loop acts each step, and <code>goal</code> is the value a balancing loop pursues. In the reinforcing update the change is proportional to the current value, and in the balancing update it is proportional to the distance from the goal.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="nx">goal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">stepReinforcing</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">stepBalancing</span><span class="p">()</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">rate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">goal</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Run <code>stepReinforcing</code> repeatedly and <code>x</code> grows faster each step. Run <code>stepBalancing</code> repeatedly and <code>x</code> rises quickly at first and then flattens near 100, because the term <code>goal - x</code> shrinks as <code>x</code> approaches the goal. These two lines are a complete, if crude, system dynamics model, and they are a good candidate for a p5.js MicroSim in which the learner moves the <code>rate</code> and <code>goal</code> sliders.</p>
+<h4 id="diagram-loop-polarity-tracer">Diagram: Loop Polarity Tracer</h4>
+<iframe src="../../sims/loop-polarity-tracer/main.html" width="100%" height="514px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/loop-polarity-tracer/main.html">Run the Loop Polarity Tracer MicroSim Fullscreen</a></p>
+<details>
+<summary>Loop Polarity Tracer</summary>
+<p>Type: causal-loop-diagram
+<strong>sim-id:</strong> loop-polarity-tracer<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Analyze; verb: examine): The learner will examine a causal loop diagram, trace its polarity links, and determine whether the loop is reinforcing or balancing.</p>
+<p>Data: two loops on one canvas with fixed positions and physics disabled. Loop A: Mastery, Confidence, Practice time, back to Mastery, all positive. Loop B: Gap between goal and mastery, Study effort, Mastery, with the link from Mastery to Gap negative. Mastery is shared, so the two loops touch.</p>
+<p>Interactions: hovering or clicking a node shows its one-sentence description; clicking a link shows its polarity and reason (for example "More practice, more mastery"). A "Trace" button highlights one link at a time around a chosen loop while a counter shows the number of negative links so far. Before the final step, the learner chooses "Reinforcing" or "Balancing" and receives feedback that names the count. A "Flip a sign" mode lets the learner change one link's polarity and watch the loop label change between R and B.</p>
+<p>Responsive design: the diagram re-fits to the container width on window resize, the details panel moves below the diagram under 600 pixels, and mouse-wheel zoom is disabled in favor of navigation buttons.</p>
+<p>Implementation: vis-network with a JSON document in the causal loop schema (nodes, edges with polarity, loops with type and path), a click handler on nodes and edges, and green plus and red minus labels on the edges.</p>
+</details>
+<h4 id="diagram-reinforcing-and-balancing-behavior-lab">Diagram: Reinforcing and Balancing Behavior Lab</h4>
+<iframe src="../../sims/feedback-behavior-lab/main.html" width="100%" height="652px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/feedback-behavior-lab/main.html">Run the Reinforcing and Balancing Behavior Lab MicroSim Fullscreen</a></p>
+<details>
+<summary>Reinforcing and Balancing Behavior Lab</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> feedback-behavior-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Understand; verb: compare): The learner will compare the time behavior of a reinforcing loop and a balancing loop by changing the loop rate and the goal and observing the resulting curves.</p>
+<p>Layout: a drawing region above a control region. The drawing region shows a line graph with time steps on the horizontal axis and the stock value on the vertical axis, with two colored curves, one per loop type, and a dashed horizontal line for the goal. The control region is white.</p>
+<p>Controls: slider "Rate" from 0.01 to 0.3 in steps of 0.01, default 0.1; slider "Goal" from 50 to 200, default 100; slider "Start value" from 1 to 50, default 10; a Start / Pause button and a Reset button; a checkbox "Predict first" that pauses after each slider change and asks whether each curve will rise faster, slower or the same.</p>
+<p>Behavior: each frame applies the two update rules from the chapter, x = x + rate * x for the reinforcing curve and x = x + rate * (goal - x) for the balancing curve. Hovering a point shows the step number and value. A caption explains the shape seen so far.</p>
+<p>Responsive design: the canvas width follows the container width on window resize; sliders and buttons stay visible at 400 pixels wide.</p>
+<p>Implementation: p5.js with createSlider and createButton controls positioned relative to the drawing height, and a describe() call for accessibility.</p>
+</details>
+<h2 id="making-diagrams-readable">Making Diagrams Readable</h2>
+<p>Every technique in this chapter can produce a diagram that is technically correct and still unusable. <strong>Diagram readability</strong> is the degree to which a learner can find, decode and remember what a diagram is trying to say without effort spent on the drawing itself. It matters more in a MicroSim than on paper, because a learner may see it on a phone, inside a narrow iframe, or with a screen reader.</p>
+<p>The generator guides give concrete standards, and we collect them here. They are recommendations from those guides, not measured results, though they are consistent with the general guidance on accessible design that Chapter 24 develops.</p>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Standard from the generator guides</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Text size</td>
+<td>Minimum 16 pixel fonts on nodes and edge labels</td>
+</tr>
+<tr>
+<td>Contrast</td>
+<td>At least the WCAG AA ratio of 4.5:1 between text and its background</td>
+</tr>
+<tr>
+<td>Label length</td>
+<td>Two to five words per node</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>If a Mermaid diagram exceeds about 15 nodes, split it into several diagrams</td>
+</tr>
+<tr>
+<td>Color use</td>
+<td>Use color consistently for meaning, such as green for success and red for errors, and keep one palette across related diagrams</td>
+</tr>
+<tr>
+<td>Interaction</td>
+<td>Every node has hover or click text; information panels beside the diagram are preferred to overlays that cover it</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>Fixed positions for small diagrams; overlays that do not consume layout space; navigation buttons instead of mouse-wheel zoom in embedded frames</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>worked example</strong> applies the table. A first-draft flowchart has 22 nodes, labels of eight words each, and pale yellow text on a white background. Applying the standards, the author splits it into a main flow of eight nodes and two detail diagrams, shortens labels to "Draft the specification" and "Run automated checks", and changes the text color to a dark shade that passes the contrast ratio. The information does not shrink, since the details move into hover text; only the reading effort does.</p>
+<p>Color alone should not carry meaning, because some readers cannot distinguish the colors. The green plus and red minus of a polarity link avoid this problem in the generator's format by pairing the color with a symbol, and you should do likewise: add a shape, a symbol or a text label wherever a color encodes a category.</p>
+<h4 id="diagram-readability-repair-bench">Diagram: Readability Repair Bench</h4>
+<iframe src="../../sims/diagram-readability-repair-bench/main.html" width="100%" height="657px" scrolling="no"></iframe>
+
+<p><a class="md-button md-button--primary" href="../../sims/diagram-readability-repair-bench/main.html">Run the Readability Repair Bench MicroSim Fullscreen</a></p>
+<details>
+<summary>Readability Repair Bench</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> diagram-readability-repair-bench<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Learning objective (Bloom level: Evaluate; verb: critique): The learner will critique a cluttered diagram against the readability standards and repair it by applying fixes in order of effect.</p>
+<p>Layout: the left two thirds show a deliberately flawed flowchart drawn in the canvas (small fonts, long labels, low-contrast text, 20 nodes, color-only meaning). The right third shows a checklist of the seven standards, each with a status light.</p>
+<p>Interactions: clicking a flaw on the diagram names the violated standard and lights the matching checklist item. Buttons apply one repair each (enlarge fonts, shorten labels, fix contrast, split into two diagrams, add symbols to colors); each repair updates the diagram and the status lights. A "Score" readout shows how many standards are met, and a "Before / After" toggle compares the original and the repaired diagram.</p>
+<p>Responsive design: the diagram and checklist scale to the container width on window resize, and the checklist moves below the diagram under 600 pixels.</p>
+<p>Implementation: p5.js with hit regions on diagram elements, a state object holding the seven standard statuses, and describe() text for screen readers.</p>
+</details>
+<h2 id="choosing-among-the-four">Choosing Among the Four</h2>
+<p>You can now match a structure to a library. Use Mermaid when the content is an ordered process, a decision path or a message exchange. Use vis-network when the content is a set of items and relationships without an inherent order, and when learners should explore it. Use a Venn diagram when the question is what sets share. Use a causal loop diagram when the point is behavior over time driven by feedback. Chapter 4 gave a general routing method for these choices, and the table below shows the mapping in miniature.</p>
+<table>
+<thead>
+<tr>
+<th>If the learner must understand...</th>
+<th>Consider</th>
+<th>Library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The steps of a procedure</td>
+<td>Flowchart</td>
+<td>Mermaid</td>
+</tr>
+<tr>
+<td>Who sends what to whom</td>
+<td>Sequence diagram</td>
+<td>Mermaid</td>
+</tr>
+<tr>
+<td>How concepts relate</td>
+<td>Concept map or network</td>
+<td>vis-network</td>
+</tr>
+<tr>
+<td>What two or three categories share</td>
+<td>Venn diagram</td>
+<td>venn.js</td>
+</tr>
+<tr>
+<td>Why a system grows, stalls or oscillates</td>
+<td>Causal loop diagram</td>
+<td>vis-network</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You Can Draw the Structure</p>
+<p><img alt="Bounce celebrating" class="mascot-admonition-img" src="../../img/mascot/celebration.png" />
+You can now write a valid Mermaid flowchart with hover text, describe a graph as node and edge data, and classify a feedback loop as reinforcing or balancing by counting its negative polarity links. That is a complete toolkit for showing structure and feedback.</p>
+</div>
+<p>The key ideas of this chapter are:</p>
+<ul>
+<li>The Mermaid library turns text into flowcharts and sequence diagrams, its syntax rules prevent parse failures, and hover text or click directives on every node make a diagram interactive.</li>
+<li>The vis-network library draws graphs from node and edge data, and its layout can be fixed by the author or computed by physics; embedded networks should disable mouse-wheel zoom.</li>
+<li>A concept map labels the relationships among concepts, the graph viewer shows the whole learning graph with search, filters and importance-scaled nodes, and a node selection event is the basic hook for interaction.</li>
+<li>A Venn diagram compares sets, and its value comes from the definitions in its tooltips, not from the sizes.</li>
+<li>System dynamics explains behavior over time through feedback loops; polarity links show the direction of each effect, and counting negative links classifies a loop as reinforcing (even) or balancing (odd).</li>
+<li>Diagram readability depends on large text, sufficient contrast, short labels, limited size, consistent color plus symbols, and information available on hover or click.</li>
+</ul>
+<p>The next chapter turns from structure to time and place, showing how timelines and maps present events and geographic data as interactive MicroSims.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../07-charts-plots-and-tables/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 7. Charts, Plots and Tables">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                7. Charts, Plots and Tables
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../09-timelines-and-maps/" class="md-footer__link md-footer__link--next" aria-label="Next: 9. Timelines and Maps">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                9. Timelines and Maps
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.footer", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/extra.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

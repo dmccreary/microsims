@@ -1,0 +1,129 @@
+{
+  "title": "PRIMM Semantic Wave Explorer",
+  "creator": "Dan McCreary",
+  "contributor": [
+    "Claude (Anthropic) via the microsim-generator skill"
+  ],
+  "subject": [
+    "Pedagogy",
+    "PRIMM",
+    "Semantic Waves",
+    "Instructional Design"
+  ],
+  "description": "Relate each PRIMM stage (Predict, Run, Investigate, Modify, Make) to a point on a semantic wave between concrete and abstract, then place bouncing-ball lesson activities on the stage where each belongs.",
+  "date": "2026-09-30",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY-NC-SA 4.0",
+  "audience": "Teachers, instructional designers, learning-technology developers and learning-analytics practitioners (college undergraduate and professional development)",
+  "identifier": "https://dmccreary.github.io/microsims/sims/primm-semantic-wave-explorer/",
+  "canvasHeight": 560,
+  "educational": {
+    "gradeLevel": [
+      "Undergraduate",
+      "Professional Development"
+    ],
+    "subjectArea": "Educational Technology",
+    "topic": "PRIMM stages and semantic waves in MicroSim lessons",
+    "learningObjectives": [
+      "The learner will relate each PRIMM stage to a point on a semantic wave and identify which stage a given lesson activity belongs to."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "bloomVerb": "relate",
+    "duration": "15 minutes",
+    "prerequisites": [
+      "Active learning and scaffolding (Chapter 24)",
+      "A simple simulation such as the Chapter 1 bouncing ball"
+    ],
+    "standards": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "version": "2.3.2",
+    "canvasDimensions": {
+      "width": "responsive",
+      "height": 560
+    },
+    "responsive": true,
+    "dependencies": [
+      "p5.js 2.3.2 (jsDelivr CDN)"
+    ],
+    "accessibility": {
+      "hasAltText": true,
+      "keyboardNavigable": true,
+      "notes": "Stage buttons, the activity select and Reset are native controls; with a card in hand, pressing a stage button places it, so dragging is optional. describe() summarizes the highlighted stage and progress."
+    }
+  },
+  "userInterface": {
+    "controls": [
+      {
+        "type": "button-group",
+        "label": "Stage buttons",
+        "options": [
+          "Predict",
+          "Run",
+          "Investigate",
+          "Modify",
+          "Make"
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Lesson activity",
+        "options": 6
+      },
+      {
+        "type": "drag",
+        "label": "Activity card",
+        "action": "drop onto a stage for immediate feedback"
+      },
+      {
+        "type": "button",
+        "label": "Reset"
+      }
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Relate stages to a visual model, then classify activities with feedback",
+    "keyQuestions": [
+      "Why is Predict abstract but Run concrete?",
+      "Why does Investigate climb back toward the abstract?",
+      "Which stage does a given activity belong to?"
+    ],
+    "commonMisconceptions": [
+      "That any activity that runs the sim is Run",
+      "That Make is the most concrete stage"
+    ],
+    "assessmentOpportunities": [
+      "Place six activities with no mistakes",
+      "Write one activity per stage for a new MicroSim"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "PRIMM",
+      "semantic waves",
+      "Predict Run Investigate Modify Make",
+      "concrete and abstract",
+      "lesson design",
+      "MicroSim pedagogy"
+    ]
+  },
+  "chapter": "24-pedagogy-accessibility-and-ethics",
+  "simulation": {
+    "modelType": "static concept diagram with a placement task",
+    "variables": [
+      "highlighted stage",
+      "activity in hand",
+      "placed activities"
+    ],
+    "equations": [],
+    "assumptions": [
+      "Wave heights are illustrative: Predict 0.78, Run 0.18, Investigate 0.72, Modify 0.38, Make 0.60"
+    ],
+    "limitations": [
+      "A single fixed wave; real lessons vary in shape"
+    ]
+  }
+}

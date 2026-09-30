@@ -1,0 +1,15 @@
+{
+  "sim_id": "loop-polarity-tracer",
+  "diagram_name": "Loop Polarity Tracer",
+  "chapter_number": 8,
+  "chapter_title": "Diagrams, Networks and Systems",
+  "chapter_dir": "08-diagrams-networks-and-systems",
+  "chapter_rel_dir": "chapters/08-diagrams-networks-and-systems",
+  "library": "vis-network",
+  "bloom_level": "Analyze",
+  "bloom_verb": "Examine",
+  "learning_objective": "The learner will examine a causal loop diagram, trace its polarity links, and determine whether the loop is reinforcing or balancing.",
+  "completion_status": "specified",
+  "extracted_date": "2026-09-30",
+  "specification": "Type: causal-loop-diagram\n**sim-id:** loop-polarity-tracer<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nLearning objective (Bloom level: Analyze; verb: examine): The learner will examine a causal loop diagram, trace its polarity links, and determine whether the loop is reinforcing or balancing.\n\nData: two loops on one canvas with fixed positions and physics disabled. Loop A: Mastery, Confidence, Practice time, back to Mastery, all positive. Loop B: Gap between goal and mastery, Study effort, Mastery, with the link from Mastery to Gap negative. Mastery is shared, so the two loops touch.\n\nInteractions: hovering or clicking a node shows its one-sentence description; clicking a link shows its polarity and reason (for example \"More practice, more mastery\"). A \"Trace\" button highlights one link at a time around a chosen loop while a counter shows the number of negative links so far. Before the final step, the learner chooses \"Reinforcing\" or \"Balancing\" and receives feedback that names the count. A \"Flip a sign\" mode lets the learner change one link's polarity and watch the loop label change between R and B.\n\nResponsive design: the diagram re-fits to the container width on window resize, the details panel moves below the diagram under 600 pixels, and mouse-wheel zoom is disabled in favor of navigation buttons.\n\nImplementation: vis-network with a JSON document in the causal loop schema (nodes, edges with polarity, loops with type and path), a click handler on nodes and edges, and green plus and red minus labels on the edges."
+}
