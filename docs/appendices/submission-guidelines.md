@@ -11,7 +11,7 @@ We prefer you submit a [Pull Request](https://docs.github.com/en/pull-requests) 
 ## Usability Tips
 
 1. Create a new directory for you MicroSim in the docs/sims area
-2. Copy the [Sims Template](./sims/template/) to get started
+2. Copy the [Sims Template](../sims/template/index.md) to get started
 3. Provide a background in your index.md file
 4. Include an image of your working MicroSim in the index.md file
 5. Include a link to your MicroSim html file in the index.md file
@@ -23,8 +23,8 @@ We prefer you submit a [Pull Request](https://docs.github.com/en/pull-requests) 
 
 ## Sample Templates for Drawing and Controls Region
 
-1. [Template for index.md](./sims/template/index.md)
-2. [Template for MicroSim](./sims/template/template.js)
+1. [Template for index.md](../sims/template/index.md)
+2. [Template for MicroSim](../sims/template/sketch.js)
 
 
 
