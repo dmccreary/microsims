@@ -1,71 +1,145 @@
 {
-  "title": "H Bridge",
-  "description": "Interactive simulation for H Bridge",
-  "creator": "Dan McCreary",
-  "date": "2025-11-24",
-  "subject": [
-    "H"
-  ],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
-  "contributor": [
-    "Claude Code"
-  ],
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/h-bridge/",
-  "publisher": "MicroSims Educational Platform",
-  "educationalLevel": "High School, College",
-  "learningResourceType": "simulation",
-  "audience": "Students, Educators",
-  "version": "1.0.0",
-  "bloomLevel": [
-    "Understand",
-    "Apply"
-  ],
-  "concepts": [
-    "H Bridge"
-  ],
-  "prerequisites": [
-    "Basic understanding of the subject"
-  ],
-  "library": "p5.js",
-  "visualizationType": [
-    "3d-model",
-    "animation",
-    "interactive-demo",
-    "map"
-  ],
-  "learningObjectives": [
-    "Understand the key concepts of h bridge",
-    "Explore h bridge through interactive visualization",
-    "Apply knowledge of h bridge to solve problems"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Apply",
-    "Create"
-  ],
-  "pedagogical": {
-    "pattern": "demonstration",
-    "bloomAlignment": [
-      "remember",
-      "apply",
-      "evaluate"
-    ],
-    "bloomVerbs": [
-      "state",
-      "apply",
-      "demonstrate",
-      "implement",
-      "use"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": false,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "corrective"
-    ],
-    "interactionStyle": "construct"
+  "microsim": {
+    "dublinCore": {
+      "title": "H-Bridge Circuit",
+      "creator": ["Dan McCreary"],
+      "subject": ["H-Bridge", "DC Motors", "Motor Direction", "Circuits", "Robotics", "Physical Computing"],
+      "description": "An interactive H-bridge with four clickable knife switches around a DC motor. Students close switches directly on the drawing, or press Forward, Stop, or Reverse, to watch green (forward) or purple (reverse) current flow spin the motor in the matching direction. Closing both switches on one side creates a short circuit, which flashes the shorted wires red.",
+      "publisher": "STEM Robots Intelligent Textbook",
+      "contributor": ["Claude (Anthropic)"],
+      "date": "2026-09-29T00:00:00Z",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/h-bridge/",
+      "language": "en",
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["h-bridge", "motor driver", "knife switch", "short circuit", "shoot-through", "current flow", "dc motor"],
+      "searchKeywords": ["h-bridge simulator", "motor direction", "reverse a dc motor", "h-bridge switch states", "short circuit animation"],
+      "visualizationType": ["simulation", "animation", "diagram"],
+      "interactionLevel": "moderate",
+      "complexity": 3,
+      "relatedConcepts": ["Conventional Current", "Complete Circuit", "Motor Driver IC", "Braking vs Coasting", "Transistor as a Switch"],
+      "applicationDomains": ["education", "exploration", "demonstration"],
+      "showcase": true
+    },
+    "educational": {
+      "gradeLevel": ["8", "9", "10", "11", "12"],
+      "subjectArea": ["Engineering", "Physics", "Computer Science"],
+      "topic": ["H-Bridge Circuit", "DC Motor Direction", "Short Circuits"],
+      "learningObjectives": [
+        "Explain how closing diagonally opposite switches (S1 + S4 or S2 + S3) sets the direction of current through a DC motor.",
+        "Predict the motor's direction, or lack of motion, for any combination of the four switches.",
+        "Analyze a switch combination to decide whether it drives the motor, stops it, or creates a short circuit.",
+        "Relate the four switches to the transistors inside the robot's motor driver IC."
+      ],
+      "bloomsTaxonomy": ["Understand", "Apply", "Analyze"],
+      "prerequisites": [
+        "A circuit needs a complete loop from + to - for current to flow",
+        "A DC motor reverses when its two wires are swapped",
+        "Open and closed switches"
+      ],
+      "duration": {
+        "typical": 15,
+        "range": {"min": 5, "max": 20}
+      },
+      "difficulty": "Beginner",
+      "misconceptions": [
+        {
+          "misconception": "Closing more switches always gives the motor more power.",
+          "correction": "Closing both switches on one side bypasses the motor entirely and creates a short circuit.",
+          "evidence": "Closing S1 + S3 or S2 + S4 flashes the shorted wires red and the motor stops."
+        },
+        {
+          "misconception": "Any two closed switches will make the motor turn.",
+          "correction": "Only diagonal pairs put a voltage difference across the motor; S1 + S2 or S3 + S4 connect both motor wires to the same voltage.",
+          "evidence": "With S1 + S2 closed, no dots flow and the motor stays still."
+        }
+      ]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.0.0",
+      "canvasDimensions": {
+        "width": 700,
+        "height": 530,
+        "responsive": true
+      },
+      "dependencies": ["p5.js 2.3.4 (jsDelivr CDN)"],
+      "browserCompatibility": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+      "deviceRequirements": {
+        "minScreenWidth": 360,
+        "touchSupport": true,
+        "keyboardRequired": false,
+        "mouseRequired": false,
+        "networkRequired": true
+      },
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "colorContrast": true,
+        "altText": true
+      }
+    },
+    "userInterface": {
+      "layoutType": "responsive-width",
+      "layoutPattern": "circuit-drawing-above-button-row",
+      "colorScheme": {
+        "drawingArea": "aliceblue",
+        "controlArea": "white",
+        "borders": "silver",
+        "accent": "green",
+        "text": "black"
+      },
+      "controls": [
+        {
+          "id": "forwardButton",
+          "type": "button",
+          "label": "Forward",
+          "description": "Closes S1 and S4 and opens S2 and S3 so current flows left to right and the motor spins clockwise (key F)."
+        },
+        {
+          "id": "stopButton",
+          "type": "button",
+          "label": "Stop",
+          "description": "Opens all four switches so no current flows (key S)."
+        },
+        {
+          "id": "reverseButton",
+          "type": "button",
+          "label": "Reverse",
+          "description": "Closes S2 and S3 and opens S1 and S4 so current flows right to left and the motor spins counterclockwise (key R)."
+        },
+        {
+          "id": "switchS1toS4",
+          "type": "toggle-button",
+          "label": "S1, S2, S3, S4 knife switches",
+          "description": "Click any switch on the canvas (or press keys 1-4) to open or close it."
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "diagram",
+          "description": "H-bridge with a solid red +5V wire on top, a solid black GND wire on the bottom, and four knife switches on the legs of the H.",
+          "interactive": true
+        },
+        {
+          "type": "animation",
+          "description": "Green dots flow along the forward current path and purple dots along the reverse path; shorted wires flash wide and red.",
+          "interactive": false
+        },
+        {
+          "type": "animation",
+          "description": "A motor with a spinning spiral surrounded by rotating circular arrows, green for clockwise and purple for counterclockwise.",
+          "interactive": false
+        },
+        {
+          "type": "text-display",
+          "description": "A message under the circuit explains the current switch combination; a status label in the control area shows the motor state.",
+          "interactive": false
+        }
+      ]
+    }
   }
 }

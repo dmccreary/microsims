@@ -124,8 +124,8 @@ Here is the complete `main.html` of the H-Bridge MicroSim.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
-    <title>H-Bridge Circuit MicroSim using p5.js 1.11.10</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <title>H-Bridge Circuit MicroSim using p5.js 2.3.4</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.js"></script>
     <style>
         body {
             margin: 0px;
@@ -145,13 +145,13 @@ Here is the complete `main.html` of the H-Bridge MicroSim.
 
 Read it top to bottom. The `viewport` tag tells phones to use the device width. The `title` names the MicroSim and the library version. The first `script` line loads p5.js from a CDN, and the second loads the sketch from the same directory by relative name. The `style` block removes the default page margin so the canvas touches the edges of the iframe that will hold it. The final link returns to the documentation page, which sits in the same directory as `main.html`.
 
-The old Bouncing Ball wrapper from MicroSims 1.0 is a useful contrast. It has the same library and script lines, but it lacks both the `viewport` tag and the schema tag, and its back link reads "Back to Bouncing Ball Lesson Plan". Both wrappers work in a browser. Only the newer one is discoverable by the code-search scheme.
+The old Bouncing Ball wrapper from MicroSims 1.0 is a useful contrast. It has the same two script lines, with the library pinned to the older release 1.11.10, but it lacks both the `viewport` tag and the schema tag, and its back link reads "Back to Bouncing Ball Lesson Plan". Both wrappers work in a browser. Only the newer one is discoverable by the code-search scheme.
 
 ## Pinned Library Version
 
-A **pinned library version** is a library address that names one exact release, so the same code runs the same way every time. In the wrapper above, `p5@1.11.10` in the script address pins p5.js to release 1.11.10. Without the version, or with one that floats, the CDN could serve a newer release than the one the sketch was tested against, and a working MicroSim could change behavior or break the day the library updates.
+A **pinned library version** is a library address that names one exact release, so the same code runs the same way every time. In the wrapper above, `p5@2.3.4` in the script address pins p5.js to release 2.3.4. Without the version, or with one that floats, the CDN could serve a newer release than the one the sketch was tested against, and a working MicroSim could change behavior or break the day the library updates.
 
-The version number appears in three places in the H-Bridge directory: the script address in `main.html`, the `<title>` text, and the `dependencies` entry of `metadata.json`, which reads `p5.js 1.11.10 (jsDelivr CDN)`. Keeping the three in agreement lets a person or a tool see the library version without running the MicroSim. It also gives a maintainer a precise place to start when a newer library release is worth testing. Chapter 1 noted that a generative model may write code for an outdated library version, so the pinned version is also the standard against which generated code should be checked.
+The version number appears in three places in the H-Bridge directory: the script address in `main.html`, the `<title>` text, and the `dependencies` entry of `metadata.json`, which reads `p5.js 2.3.4 (jsDelivr CDN)`. Keeping the three in agreement lets a person or a tool see the library version without running the MicroSim. It also gives a maintainer a precise place to start when a newer library release is worth testing. Chapter 1 noted that a generative model may write code for an outdated library version, so the pinned version is also the standard against which generated code should be checked.
 
 !!! mascot-warning "Do Not Float the Version"
     ![Bounce giving a warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
@@ -274,6 +274,10 @@ Responsive design: the drawing scales to the container width on window resize wh
 Implementation: p5.js with the standard drawHeight and controlHeight variables, a windowResized function, and describe() text for screen readers.
 </details>
 
+### Why Controls at the Bottom?
+
+The control region sits below the draw region because of something a teacher told us. Early in MicroSim testing, one teacher explained that their school runs MicroSims on Smartboards, the large interactive whiteboards at the front of a classroom that a teacher operates by touch. When the controls were on the sides, teachers had to reach over the canvas to use them, and the reach blocked the students' view of the drawing area. Putting the control region on top moved the drawing area down the board, and the teachers did not like that either, because students in the back of the room could not see the drawing area clearly. The best layout for schools that use Smartboards was the control region below the canvas, where the teacher's hand stays under the drawing instead of in front of it. That layout became a standard early in MicroSim testing and has stuck ever since.
+
 ## The Canvas Height Constant
 
 The **canvas height constant** is the single number, written `CANVAS_HEIGHT`, that records the full rendered height of a MicroSim in pixels: the draw region plus the control region plus any graph panel or legend. It exists for a practical reason. A MicroSim is shown inside an iframe, and an iframe does not resize itself to fit its content. If the iframe is shorter than the MicroSim, the bottom is cut off, usually the controls. If it is much taller, the page shows wasted blank space. Every place that embeds the MicroSim needs the right height, and the constant is where that height is declared once.
@@ -391,7 +395,7 @@ The following excerpt is abridged from the H-Bridge file. It keeps real values a
     "technical": {
       "framework": "p5.js",
       "canvasDimensions": { "width": 700, "height": 530, "responsive": true },
-      "dependencies": ["p5.js 1.11.10 (jsDelivr CDN)"]
+      "dependencies": ["p5.js 2.3.4 (jsDelivr CDN)"]
     },
     "userInterface": {
       "controls": [
@@ -402,7 +406,7 @@ The following excerpt is abridged from the H-Bridge file. It keeps real values a
 }
 ```
 
-A **worked example** shows how the file is used. A teacher searches a catalog for "grade 9 simulations where the learner analyzes a circuit". A tool can filter on `gradeLevel`, on `bloomsTaxonomy` containing Analyze, and on `tags`, and it never opens `main.html`. The same file tells a maintainer that the MicroSim depends on p5.js 1.11.10 and that its canvas is 530 pixels tall.
+A **worked example** shows how the file is used. A teacher searches a catalog for "grade 9 simulations where the learner analyzes a circuit". A tool can filter on `gradeLevel`, on `bloomsTaxonomy` containing Analyze, and on `tags`, and it never opens `main.html`. The same file tells a maintainer that the MicroSim depends on p5.js 2.3.4 and that its canvas is 530 pixels tall.
 
 To check a file against the schema, the repository provides `src/microsim-schema/validate.py`, run as `python validate.py path/to/metadata.json`. It requires the Python `jsonschema` package and exits with status 0 when every file is valid. Chapter 15 develops metadata into search and reuse, so here the goal is only to read one.
 

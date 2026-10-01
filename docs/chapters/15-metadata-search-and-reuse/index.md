@@ -154,13 +154,13 @@ The drift is not hypothetical. In the merged catalog described below, the top-le
 
 **Technical metadata** describes how a MicroSim is built and what it needs to run, so that a person deploying it can judge compatibility. It lives in the `technical` section, where `framework` and `canvasDimensions` are required. The `framework` value must be one of `p5.js`, `vanilla-js`, `d3.js`, `three.js` or `other`. Optional fields cover `version`, `dependencies`, `browserCompatibility`, `performance`, `deviceRequirements` and `accessibility`.
 
-The H-Bridge shows the typical content. Its canvas is 700 pixels wide and 530 tall and is marked responsive, which agrees with the height rule of Chapter 12: a 480-pixel drawing region plus a 50-pixel control region is 530. Its `dependencies` entry reads `p5.js 1.11.10 (jsDelivr CDN)`. Its `deviceRequirements` report a minimum screen width of 360 pixels, touch support, no keyboard or mouse requirement and a network requirement, which follows from loading the library from a CDN. Its `accessibility` block declares screen reader support, keyboard navigation, color contrast and alternative text.
+The H-Bridge shows the typical content. Its canvas is 700 pixels wide and 530 tall and is marked responsive, which agrees with the height rule of Chapter 12: a 480-pixel drawing region plus a 50-pixel control region is 530. Its `dependencies` entry reads `p5.js 2.3.4 (jsDelivr CDN)`. Its `deviceRequirements` report a minimum screen width of 360 pixels, touch support, no keyboard or mouse requirement and a network requirement, which follows from loading the library from a CDN. Its `accessibility` block declares screen reader support, keyboard navigation, color contrast and alternative text.
 
 A **worked example** shows the payoff. A school has tablets but a filtered network that blocks CDNs. Because each MicroSim declares `networkRequired`, the school can exclude the H-Bridge and every other CDN-dependent MicroSim before a teacher plans a lesson around one. Without the field the only test is trying each MicroSim on a tablet, which does not scale.
 
 !!! mascot-warning "Two Different Versions"
     ![Bounce warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
-    The H-Bridge lists `technical.version` as 2.0.0 and its p5.js dependency as 1.11.10, and these are unrelated numbers. The schema describes `version` as the version of the MicroSim, so keep library versions in `dependencies` and never in `version`.
+    The H-Bridge lists `technical.version` as 2.0.0 and its p5.js dependency as 2.3.4, and these are unrelated numbers. The schema describes `version` as the version of the MicroSim, so keep library versions in `dependencies` and never in `version`.
 
 ## Search Metadata
 
