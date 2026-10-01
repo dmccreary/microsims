@@ -1,75 +1,250 @@
 {
-  "title": "Bathtub",
-  "description": "Interactive simulation for Bathtub",
-  "creator": "Dan McCreary",
-  "date": "2025-11-24",
-  "subject": [
-    "Bathtub"
-  ],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
-  "contributor": [
-    "Claude Code"
-  ],
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/bathtub/",
-  "publisher": "MicroSims Educational Platform",
-  "educationalLevel": "High School, College",
-  "learningResourceType": "simulation",
-  "audience": "Students, Educators",
-  "version": "1.0.0",
-  "bloomLevel": [
-    "Understand",
-    "Apply"
-  ],
-  "concepts": [
-    "Bathtub"
-  ],
-  "prerequisites": [
-    "Basic understanding of the subject"
-  ],
-  "library": "p5.js",
-  "visualizationType": [
-    "chart",
-    "graph",
-    "interactive-demo",
-    "map",
-    "network",
-    "simulation",
-    "timeline"
-  ],
-  "learningObjectives": [
-    "Understand the key concepts of bathtub",
-    "Explore bathtub through interactive visualization",
-    "Apply knowledge of bathtub to solve problems",
-    "Experiment with parameters to observe their effects on bathtub"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Apply",
-    "Create"
-  ],
-  "pedagogical": {
-    "pattern": "reference",
-    "bloomAlignment": [
-      "remember",
-      "apply",
-      "evaluate"
-    ],
-    "bloomVerbs": [
-      "calculate",
-      "demonstrate",
-      "experiment",
-      "assess",
-      "evaluate"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": false,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "corrective"
-    ],
-    "interactionStyle": "construct"
+  "microsim": {
+    "dublinCore": {
+      "title": "Bathtub MicroSim",
+      "creator": ["Dan McCreary"],
+      "subject": ["Systems Thinking", "System Dynamics", "Stock and Flow", "Interactive Simulation"],
+      "description": "A p5.js MicroSim in which a source fills a bathtub, a drain empties it, and a chart plots the water height over time, so learners can see how the net flow changes a stock. A checkbox switches between a constant drain and a drain that follows Torricelli's law.",
+      "publisher": "MicroSims Educational Platform",
+      "contributor": ["Claude (Anthropic) via the microsim-utils skill"],
+      "date": "2024-01-10",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/bathtub/",
+      "language": "en",
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["bathtub", "stock and flow", "system dynamics", "net flow", "Torricelli's law", "non-linear", "equilibrium", "p5.js"],
+      "visualizationType": ["simulation", "chart"],
+      "showcase": true
+    },
+    "educational": {
+      "gradeLevel": ["9", "10", "11", "12", "Undergraduate"],
+      "subjectArea": ["Science", "Mathematics"],
+      "topic": [
+        "Stock and flow: how inflow and outflow rates change a stock over time",
+        "Systems Thinking",
+        "System Dynamics"
+      ],
+      "learningObjectives": [
+        "The learner will explain how the difference between the source flow rate and the drain flow rate changes the water height over time."
+      ],
+      "bloomsTaxonomy": ["Understand"],
+      "prerequisites": [
+        "Reading a line chart of a quantity over time",
+        "The idea of a rate"
+      ],
+      "duration": {
+        "typical": 15
+      },
+      "misconceptions": [
+        {
+          "misconception": "The water height follows the source flow rate.",
+          "correction": "The water height follows the net flow: the source flow rate minus the drain flow."
+        },
+        {
+          "misconception": "Turning the source down makes the water height fall.",
+          "correction": "The water height keeps rising while the source is larger than the drain."
+        },
+        {
+          "misconception": "A tub drains at the same speed whatever its water height.",
+          "correction": "Deeper water pushes more water through the drain."
+        }
+      ]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.1.0",
+      "canvasDimensions": {
+        "width": 400,
+        "height": 550,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 400,
+        "controlHeight": 150
+      },
+      "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "altText": true,
+        "screenReaderScript": "A bathtub stock and flow simulation. On the left, a bathtub holds blue water. A source pipe at the top left adds water and a drain pipe at the bottom right removes it. On the right, a line chart plots the water height over time. Start, Pause and Reset buttons control the simulation, and two sliders set the source flow rate and the drain flow rate. The water rises when the source is larger than the drain and falls when the drain is larger than the source. A checkbox makes the drain depend on the water height, so a fuller tub drains faster and the line on the chart becomes a curve."
+      }
+    },
+    "userInterface": {
+      "layoutType": "two-column",
+      "layoutPattern": "simulation-left-chart-right, responsive width: the bathtub on the left and a linked time-series chart on the right, above a button row, two parameter sliders and a model-switching checkbox",
+      "controls": [
+        {
+          "id": "startButton",
+          "type": "toggle-button",
+          "label": "Start / Pause",
+          "description": "Run or pause the simulation (starts paused)",
+          "properties": {
+            "text": "Start",
+            "action": "toggleSimulation",
+            "toggleable": true
+          }
+        },
+        {
+          "id": "resetButton",
+          "type": "button",
+          "label": "Reset",
+          "description": "Pause, return the tub to 75% full, clear the chart, restore both sliders and uncheck the checkbox",
+          "properties": {
+            "text": "Reset",
+            "action": "resetSimulation"
+          }
+        },
+        {
+          "id": "sourceSlider",
+          "type": "slider",
+          "label": "Source Flow Rate",
+          "properties": {
+            "min": 0,
+            "max": 2,
+            "default": 0,
+            "step": 0.1,
+            "units": "height units per frame"
+          }
+        },
+        {
+          "id": "drainSlider",
+          "type": "slider",
+          "label": "Drain Flow Rate",
+          "description": "Constant drain: the drain flow on every frame. Torricelli drain: the drain flow of a full tub, and the label changes to Max Drain Flow Rate",
+          "properties": {
+            "min": 0,
+            "max": 2,
+            "default": 0.2,
+            "step": 0.1,
+            "units": "height units per frame"
+          }
+        },
+        {
+          "id": "heightCheckbox",
+          "type": "checkbox",
+          "label": "Drain depends on water height",
+          "description": "Unchecked: constant drain and straight chart lines. Checked: Torricelli drain, so a fuller tub drains faster, the chart lines curve and a Drain Flow readout appears under the tub",
+          "properties": {
+            "checked": false
+          }
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "mathematical",
+        "description": "Discrete-time stock and flow with a constant drain or a Torricelli drain",
+        "equations": [
+          "water height = water height + source flow rate - drain flow (each frame)",
+          "constant drain (checkbox unchecked): drain flow = drain flow rate",
+          "Torricelli drain (checkbox checked): drain flow = max drain flow rate * sqrt(water height / 200)",
+          "net flow = source flow rate - drain flow",
+          "Torricelli drain, source < max drain: settled water height = 200 * (source flow rate / max drain flow rate)^2",
+          "0 <= water height <= 200"
+        ],
+        "assumptions": [
+          "Constant drain: the drain flow does not depend on the water height",
+          "Torricelli drain: the drain flow is proportional to the square root of the water height, and the slider sets the drain flow of a full tub",
+          "The tub has straight sides, so the water height is proportional to the volume of water",
+          "A full tub overflows, so the water height stops at 200"
+        ],
+        "limitations": [
+          "Units are pixels and frames, not liters and seconds",
+          "The Torricelli drain ignores viscosity, the vortex over the drain and the size of the drain opening, so it shows the shape of the curve, not the drain time of a real tub",
+          "The model advances one frame at a time (Euler's method), so the curve is a close approximation of the exact solution"
+        ]
+      },
+      "variables": [
+        {
+          "name": "water height",
+          "type": "output",
+          "description": "The stock: the height of the water in the tub",
+          "dataType": "number",
+          "units": "height units",
+          "range": {"min": 0, "max": 200}
+        },
+        {
+          "name": "source flow rate",
+          "type": "input",
+          "description": "The inflow: water added to the tub on every frame",
+          "dataType": "number",
+          "units": "height units per frame",
+          "range": {"min": 0, "max": 2}
+        },
+        {
+          "name": "drain flow rate",
+          "type": "input",
+          "description": "Constant drain: the drain flow on every frame. Torricelli drain: the max drain flow rate, which is the drain flow of a full tub",
+          "dataType": "number",
+          "units": "height units per frame",
+          "range": {"min": 0, "max": 2}
+        },
+        {
+          "name": "drain flow",
+          "type": "intermediate",
+          "description": "The outflow: water that leaves the tub through the drain on one frame",
+          "dataType": "number",
+          "units": "height units per frame"
+        },
+        {
+          "name": "net flow",
+          "type": "output",
+          "description": "The source flow rate minus the drain flow. It is the slope of the line on the chart",
+          "dataType": "number",
+          "units": "height units per frame"
+        }
+      ]
+    },
+    "usage": {
+      "instructionalStrategies": [
+        "Predict-test-explain with immediate visual feedback"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "What settings keep the water height constant?",
+          "type": "short-answer",
+          "level": "Apply"
+        },
+        {
+          "question": "Why do a source of 1.0 with a drain of 0.4 and a source of 1.6 with a drain of 1.0 fill the tub at the same speed?",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "How would the chart change if the tub drained faster when it was fuller?",
+          "type": "prediction",
+          "level": "Analyze"
+        },
+        {
+          "question": "With the drain depending on the water height, why does the line get flatter as the tub empties?",
+          "type": "short-answer",
+          "level": "Analyze"
+        },
+        {
+          "question": "With the drain depending on the water height, why does the tub settle at a level between empty and full?",
+          "type": "short-answer",
+          "level": "Analyze"
+        },
+        {
+          "question": "Predict the chart line for a new pair of flow rates.",
+          "type": "prediction",
+          "level": "Apply"
+        },
+        {
+          "question": "Explain in writing that the slope of the line equals the net flow.",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "Sketch the draining curve for a height-dependent drain, then compare it with the simulated curve.",
+          "type": "prediction",
+          "level": "Analyze"
+        }
+      ]
+    }
   }
 }
