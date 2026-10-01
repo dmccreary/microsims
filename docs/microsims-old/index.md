@@ -68,7 +68,7 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Bathtub MicroSim](./bathtub/index.md)**
 
-    ![Bathtub](./bathtub/bathtub-image.png)
+    ![Bathtub](./bathtub/bathtub.png)
     Stock and flow simulation demonstrating bathtub dynamics.
 
 - **[Battery Drain](./battery-drain/index.md)**
@@ -273,8 +273,8 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Least Squares](./least-squares/index.md)**
 
-    ![Least Squares](./least-squares/regression-line.png)
-    Interactive linear regression demonstration.
+    ![Least Squares](./least-squares/least-squares.png)
+    Fit a line to four data points by shrinking the squares of the errors.
 
 - **[Lissajous Figures](./lissajous-figures/index.md)**
 
@@ -293,8 +293,8 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
 - **[Maze Solver](./maze-solver/index.md)**
 
-    ![Maze Solver](./maze-solver/solution-example.png)
-    Visualization of maze solving algorithms.
+    ![Maze Solver](./maze-solver/maze-solver.png)
+    Watch breadth-first search find the shortest path through a random maze.
 
 - **[AI-Assisted MicroSim Creation Workflow](./microsim-creation-workflow/index.md)**
 
@@ -435,11 +435,6 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
     ![Resize Test](./resize-test/resize-test.png)
     Canvas resize behavior demonstration.
-
-- **[Responsive Design](./responsive-design/index.md)**
-
-    ![Responsive](./responsive-design/responsive-design.png)
-    Responsive design patterns for MicroSims.
 
 - **[Collision Avoidance Robot](./robots/index.md)**
 

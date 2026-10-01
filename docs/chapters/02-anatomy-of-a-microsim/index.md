@@ -280,11 +280,24 @@ The control region sits below the draw region because of something a teacher tol
 
 ## The Canvas Height Constant
 
-The **canvas height constant** is the single number, written `CANVAS_HEIGHT`, that records the full rendered height of a MicroSim in pixels: the draw region plus the control region plus any graph panel or legend. It exists for a practical reason. A MicroSim is shown inside an iframe, and an iframe does not resize itself to fit its content. If the iframe is shorter than the MicroSim, the bottom is cut off, usually the controls. If it is much taller, the page shows wasted blank space. Every place that embeds the MicroSim needs the right height, and the constant is where that height is declared once.
+The **canvas height constant** is the single number, written `CANVAS_HEIGHT`, that records the full rendered height of a MicroSim in pixels: the draw region plus the control region plus any graph panel or legend. It exists for a practical reason. A MicroSim is shown inside an iframe, and an iframe does not resize itself to fit its content. If the iframe is shorter than the MicroSim, the bottom is cut off, usually the controls. If it is taller, the page shows wasted blank space. Every place that embeds the MicroSim needs the right height, and the constant is where that height is declared once.
+
+Choosing that number well is a key factor in the quality of a MicroSim. A MicroSim sits in the middle of a lesson page, so every unused row of pixels pushes the text below it further down the screen, and a learner on a laptop may have to scroll to see the drawing and its controls together. The goal is the smallest height that shows everything. Size `drawHeight` to the largest state of the figure plus a small margin, and size `controlHeight` to the rows of controls that are actually present. A **worked example** shows the cost of skipping this step. An author keeps a default `drawHeight` of 400 for a figure that needs only 300 pixels with its margins. The MicroSim runs correctly, but it carries 100 pixels of empty space onto every page that embeds it.
 
 The rule that turns the constant into an iframe height is simple: `iframe height = CANVAS_HEIGHT + 2`, where the extra two pixels account for the iframe border. The canvas-height strategy document applies this rule identically on the MicroSim's own documentation page and on every chapter page that embeds it, so a MicroSim is never a different height in two places.
 
 The H-Bridge shows the rule in action. Its sketch declares `// CANVAS_HEIGHT: 530`, which equals `drawHeight` 480 plus `controlHeight` 50. The iframe in its documentation page is therefore 532 pixels tall, and the metadata records the same canvas height of 530.
+
+That number does not stay in one file. Several downstream places must carry the correct value, and a change to any region height has to reach all of them. The table below lists them with the H-Bridge's values.
+
+| Downstream place | H-Bridge value | What goes wrong if it is stale |
+|------------------|----------------|--------------------------------|
+| The `// CANVAS_HEIGHT` comment in `h-bridge.js` | 530 | Every tool that derives a height starts from the wrong number |
+| The iframe on the MicroSim's own `index.md` | 532 | Controls are clipped, or a blank band appears |
+| The copy-and-paste iframe snippet on `index.md` | 532 | Other people's sites inherit the wrong height |
+| The iframe on every chapter page that embeds the MicroSim | 532 | The MicroSim looks right on its own page and wrong in the chapter |
+| `canvasDimensions.height` in `metadata.json` | 530 | Catalogs and search tools report the wrong size |
+| The height used to capture the preview image | 532 | The screenshot does not match what readers see |
 
 Where is the constant stored? The strategy document lists four sources, and tools read the first one that has a value.
 
@@ -297,11 +310,13 @@ Where is the constant stored? The strategy document lists four sources, and tool
 
 Three rules govern the comment. It must appear within the first ten lines of the script, its value must be a plain integer with no `px` suffix, and it must be updated whenever a height-related value changes. A hand-typed height in an iframe tag is never the source of truth. It is derived, and the synchronization script overwrites it.
 
+Remembering to write the comment is a key quality metric. The generator skill marks it as mandatory for every script file, and a reviewer can check it in seconds by reading the first ten lines of the sketch: the comment is present, its value is a plain integer, and it equals the sum of the region heights.
+
 That script, `sync-iframe-heights.py` in the microsim-utils skill, reads each MicroSim's constant and rewrites every embedding iframe under `docs/`. Its flags include `--project-dir`, `--dry-run`, `--verbose` and `--write-metadata`. Running with `--dry-run --verbose` first reports what would change without writing anything. Chapter 12 covers the script and the runtime alternative in detail.
 
-!!! mascot-warning "The Template Height Trap"
+!!! mascot-warning "The Forgotten Comment"
     ![Bounce giving a warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
-    The repository's `responsive-template.js` sets `drawHeight` to 400 and `controlHeight` to 50 but creates the canvas from a separate `containerHeight` of 400, so the 50-pixel control region is cut off. Always create the canvas from `canvasHeight`, as the H-Bridge does.
+    Watch out for the sketch that works without its comment. The canvas sizes itself from `canvasHeight`, so nothing looks wrong on screen until an iframe somewhere clips the controls. Write `// CANVAS_HEIGHT` on line 2 before you write any drawing code, and change it in the same edit as any region height.
 
 ## The Documentation Page: index.md
 
@@ -418,9 +433,9 @@ Not every MicroSim in the repository follows this layout. The older Bouncing Bal
 
 ## The MicroSim Template
 
-The **MicroSim template** is the starter directory an author copies to begin a new MicroSim by hand. In this repository it is `docs/sims/template/`. It contains a `main.html`, an `index.md`, a `metadata.json`, and several sketch files: `sketch.js`, `responsive-template.js`, an empty `resize-width.js`, and a local test page `00-template-local.html`. All contain placeholder values such as the title "Title" and the description "Description."
+The **MicroSim template** is the starter directory an author copies to begin a new MicroSim by hand. In this repository it is `docs/sims/template/`. It contains a `main.html`, an `index.md`, a `metadata.json`, two sketch files, `sketch.js` and an empty `resize-width.js`, and a local test page `00-template-local.html`. All contain placeholder values such as the title "Title" and the description "Description."
 
-The CLAUDE.md steps for a new simulation say to copy the template, create `docs/sims/{sim-name}/`, add the required files, add metadata, add a navigation entry to `mkdocs.yml`, regenerate the gallery, and validate. Those steps are correct in outline, but the template directory has aged, and a **worked example** of using it shows why you should inspect what you copy. `sketch.js` begins with a Git merge-conflict marker on line 1 and a divider marker on line 44, so two versions of the sketch are interleaved, and one of them declares `function setup {` without parentheses. It will not run as it stands. The template's `metadata.json` uses the older flat layout, and `responsive-template.js` has the height mismatch noted earlier.
+The CLAUDE.md steps for a new simulation say to copy the template, create `docs/sims/{sim-name}/`, add the required files, add metadata, add a navigation entry to `mkdocs.yml`, regenerate the gallery, and validate. Those steps are correct in outline, but the template directory has aged, and a **worked example** of using it shows why you should inspect what you copy. `sketch.js` begins with a Git merge-conflict marker on line 1 and a divider marker on line 44, so two versions of the sketch are interleaved, and one of them declares `function setup {` without parentheses. It will not run as it stands. The template's `metadata.json` uses the older flat layout.
 
 Two lessons follow. First, in MicroSims 2.0 the preferred starting point is not a hand copy but the scaffold step of the generator skill, which writes fresh `main.html`, `index.md` and `metadata.json` files from current templates. Second, a mature MicroSim like the H-Bridge is a better reference than the template for what a finished directory should look like. Use the template to see the file list and the placeholder pattern, and use a current showcase to see the conventions applied.
 
@@ -478,7 +493,7 @@ The key ideas of this chapter are:
 - `main.html` is a short wrapper that loads a pinned library version and the sketch, and it carries the schema tag that makes MicroSims discoverable.
 - The MicroSim JavaScript file holds all behavior, in the order of globals, `setup()`, `draw()`, helpers and event handlers, and it keeps width responsive while height stays fixed.
 - The draw region holds the simulation and no controls, the control region holds the controls, and their heights sum to the canvas height.
-- The canvas height constant `CANVAS_HEIGHT` is declared once, and the iframe height is that constant plus 2.
+- The canvas height constant `CANVAS_HEIGHT` is the smallest height that shows everything, it is declared once in a comment at the top of the sketch, and the iframe height is that constant plus 2.
 - `index.md` documents and embeds the MicroSim, its page front matter serves the site, and its preview image is a `<sim-id>.png` screenshot.
 - `metadata.json` holds Dublin Core and educational, technical and interface metadata under a `microsim` object, validated against a schema, and it is separate from the front matter.
 - The template directory is a starting point that should be inspected before use, and the generator's scaffold step is the preferred route.

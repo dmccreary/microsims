@@ -1,90 +1,357 @@
 {
-  "title": "Revenue Maximum",
-  "description": "Two-panel interactive simulation showing the relationship between price, quantity demanded, and total revenue, demonstrating where maximum revenue occurs on the demand curve",
-  "creator": "Dan McCreary",
-  "date": "2025-12-12",
-  "subject": [
-    "Economics",
-    "Microeconomics",
-    "Revenue",
-    "Demand Curve",
-    "Price Optimization"
-  ],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
-  "contributor": [
-    "Claude Code"
-  ],
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/revenue-maximum/",
-  "publisher": "MicroSims Educational Platform",
-  "educationalLevel": "High School, College",
-  "learningResourceType": "simulation",
-  "audience": "Students, Educators",
-  "version": "1.0.0",
-  "bloomLevel": [
-    "Understand",
-    "Apply",
-    "Analyze"
-  ],
-  "concepts": [
-    "Revenue Maximization",
-    "Demand Curve",
-    "Price Elasticity",
-    "Total Revenue",
-    "Optimal Pricing"
-  ],
-  "prerequisites": [
-    "Basic understanding of supply and demand",
-    "Understanding of linear relationships"
-  ],
-  "library": "p5.js",
-  "visualizationType": [
-    "3d-model",
-    "animation",
-    "graph",
-    "interactive-demo",
-    "map",
-    "network",
-    "simulation"
-  ],
-  "learningObjectives": [
-    "Understand revenue maximum economic concepts",
-    "Analyze how variables affect revenue maximum",
-    "Apply revenue maximum principles to real-world scenarios",
-    "Experiment with parameters to observe their effects on revenue maximum"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Understand",
-    "Apply",
-    "Analyze",
-    "Evaluate",
-    "Create"
-  ],
-  "pedagogical": {
-    "pattern": "demonstration",
-    "bloomAlignment": [
-      "understand",
-      "apply",
-      "analyze"
-    ],
-    "bloomVerbs": [
-      "compare",
-      "describe",
-      "explain",
-      "apply",
-      "calculate"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": false,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "immediate",
-      "corrective",
-      "explanatory"
-    ],
-    "interactionStyle": "construct"
+  "microsim": {
+    "dublinCore": {
+      "title": "Revenue Maximum",
+      "creator": ["Dan McCreary"],
+      "subject": ["Economics", "Microeconomics", "Total Revenue", "Demand Curve", "Price Optimization", "Quadratic Functions"],
+      "description": "Two linked charts for finding the price that gives the most total revenue. On the left, a straight-line demand curve (quantity = 200 - price) carries a shaded rectangle whose height is the price, whose width is the quantity sold and whose area is the revenue. On the right, the learner traces the revenue curve by changing the price with a slider, by dragging on either chart, with the arrow keys or with an animated sweep, and finds that revenue peaks at $10,000 when the price is $100.",
+      "publisher": "MicroSims Educational Platform",
+      "contributor": ["Claude (Anthropic) via the microsim-utils skill"],
+      "date": "2025-12-12",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/revenue-maximum/",
+      "language": "en-US",
+      "relation": ["https://dmccreary.github.io/microsims/microsims-old/profit-maximum/"],
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["revenue", "total revenue", "demand curve", "price", "pricing", "maximum", "optimization", "parabola", "microeconomics", "p5.js"],
+      "searchKeywords": ["revenue maximizing price", "price times quantity", "revenue rectangle", "total revenue curve", "linear demand curve", "find the maximum of a parabola"],
+      "visualizationType": ["simulation", "chart", "animation"],
+      "interactionLevel": "high",
+      "complexity": 3,
+      "relatedConcepts": ["Price Elasticity of Demand", "Marginal Revenue", "Profit Maximization", "Vertex of a Parabola", "Area of a Rectangle"],
+      "applicationDomains": ["education", "exploration", "demonstration"],
+      "showcase": true
+    },
+    "educational": {
+      "gradeLevel": ["10", "11", "12", "Undergraduate"],
+      "subjectArea": ["Economics", "Mathematics"],
+      "topic": ["Total Revenue", "Demand Curve", "Revenue-Maximizing Price"],
+      "learningObjectives": [
+        "Define revenue as the product of price and quantity sold.",
+        "Explain the inverse relationship between price and quantity demanded.",
+        "Identify the price that gives the most total revenue on a straight-line demand curve.",
+        "Analyze why neither the highest price nor the lowest price gives the most revenue.",
+        "Connect the area of the revenue rectangle to the formula revenue = price x quantity.",
+        "Apply revenue maximization to a new linear demand curve."
+      ],
+      "bloomsTaxonomy": ["Understand", "Apply", "Analyze"],
+      "prerequisites": [
+        "Multiplication and variables from basic algebra",
+        "Reading a point from a graph with two axes",
+        "The area of a rectangle"
+      ],
+      "duration": {
+        "typical": 15,
+        "range": { "min": 5, "max": 50 }
+      },
+      "difficulty": "Beginner",
+      "cognitiveLoad": {
+        "intrinsic": "moderate",
+        "extraneous": "low",
+        "germane": "high"
+      },
+      "scaffolding": {
+        "type": ["guided-discovery", "progressive-disclosure", "feedback"],
+        "adaptability": "fixed",
+        "removal": "user-controlled"
+      },
+      "misconceptions": [
+        {
+          "misconception": "A higher price always brings in more revenue.",
+          "correction": "Revenue depends on both the price and the quantity sold, and the quantity falls as the price rises.",
+          "evidence": "Raising the price from $100 to $160 shrinks the rectangle from $10,000 to $6,400, and at $200 the revenue is $0."
+        },
+        {
+          "misconception": "The lowest price brings in the most revenue because it sells the most units.",
+          "correction": "A low price sells many units but earns little on each one.",
+          "evidence": "At a price of $0 the rectangle is 200 units wide and has no height, so the revenue is $0."
+        },
+        {
+          "misconception": "The demand curve and the revenue curve are the same curve.",
+          "correction": "The demand curve gives the quantity at each price. The revenue at a price is the area of the rectangle under that one point of the demand curve.",
+          "evidence": "The left chart is a straight line and the right chart is a hill, and the height of the point on the hill always equals the area of the rectangle."
+        },
+        {
+          "misconception": "The price with the most revenue is also the price with the most profit.",
+          "correction": "Profit subtracts costs from revenue, so the profit-maximizing price is higher whenever each unit has a cost.",
+          "evidence": "With a cost of $30 a unit, a price of $100 gives a profit of $7,000 and a price of $120 gives $7,200. The Profit Maximum MicroSim shows the shift."
+        }
+      ],
+      "transferSkills": [
+        {
+          "skill": "Finding the maximum of a quantity that is the product of two opposing factors",
+          "domains": ["Business", "Calculus", "Engineering", "Biology"]
+        },
+        {
+          "skill": "Reading one quantity in two linked representations (an area and a point on a curve)",
+          "domains": ["Mathematics", "Physics", "Data Science"]
+        }
+      ],
+      "learningTheory": ["constructivism", "experiential"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.0.0",
+      "canvasDimensions": {
+        "width": 800,
+        "height": 475,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 405,
+        "controlHeight": 70
+      },
+      "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+      "browserCompatibility": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+      "performance": {
+        "targetFrameRate": 60,
+        "memoryUsage": "low",
+        "computationalComplexity": "O(n)"
+      },
+      "deviceRequirements": {
+        "minScreenWidth": 320,
+        "touchSupport": true,
+        "keyboardRequired": false,
+        "mouseRequired": false,
+        "networkRequired": true
+      },
+      "stateManagement": {
+        "stateType": "local-state",
+        "persistence": false,
+        "synchronization": false
+      },
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "colorContrast": true,
+        "altText": true,
+        "screenReaderScript": "Two linked charts about pricing. The left chart is a straight demand curve with a shaded rectangle whose height is the price, whose width is the quantity and whose area is the revenue. The right chart plots revenue against price; the curve is traced as the price changes and peaks at 10,000 dollars when the price is 100 dollars.",
+        "keyboardMaps": [
+          { "key": "ArrowRight", "action": "Raise the price by $1" },
+          { "key": "ArrowLeft", "action": "Lower the price by $1" },
+          { "key": "Shift+ArrowRight / Shift+ArrowLeft", "action": "Change the price by $10" },
+          { "key": "S", "action": "Start, pause or resume the price sweep" },
+          { "key": "M", "action": "Show or hide the maximum" },
+          { "key": "R", "action": "Reset the MicroSim" },
+          { "key": "Tab", "action": "Move between the buttons, the checkbox and the slider" }
+        ],
+        "alternativeInputs": ["keyboard", "touch", "mouse drag on either chart"]
+      }
+    },
+    "userInterface": {
+      "layoutType": "two-column",
+      "layoutPattern": "two-linked-charts-above-two-control-rows",
+      "colorScheme": {
+        "drawingArea": "aliceblue",
+        "controlArea": "white",
+        "borders": "silver",
+        "accent": "royalblue",
+        "text": "black"
+      },
+      "responsiveBreakpoints": [
+        {
+          "width": 600,
+          "description": "Below 600 px the charts use 12 px tick labels, revenue labels such as $7.5k, the short equation Q = 200 - P and shorter readout text."
+        },
+        {
+          "width": 320,
+          "description": "Minimum supported canvas width."
+        }
+      ],
+      "controls": [
+        {
+          "id": "priceSlider",
+          "type": "slider",
+          "label": "Price",
+          "description": "Sets the selling price. Every price it passes through is added to the traced revenue curve.",
+          "accessibility": {
+            "keyboardShortcut": "ArrowLeft / ArrowRight",
+            "ariaLabel": "Price in dollars"
+          },
+          "affects": ["demand-chart", "revenue-chart", "revenue-readout"],
+          "properties": {
+            "min": 0,
+            "max": 200,
+            "default": 50,
+            "step": 1,
+            "units": "dollars",
+            "showValue": true
+          }
+        },
+        {
+          "id": "sweepButton",
+          "type": "toggle-button",
+          "label": "Sweep Price",
+          "description": "Clears the traced curve and moves the price from $0 to $200 in about six seconds. The label changes to Pause while the sweep runs and to Resume while it is paused. The sweep only advances while the mouse is over the MicroSim or a control has keyboard focus.",
+          "accessibility": { "keyboardShortcut": "S" },
+          "affects": ["demand-chart", "revenue-chart", "revenue-readout"],
+          "properties": {
+            "text": "Sweep Price",
+            "action": "toggleSweep",
+            "toggleable": true
+          }
+        },
+        {
+          "id": "resetButton",
+          "type": "button",
+          "label": "Reset",
+          "description": "Stops the sweep, returns the price to $50, clears the traced curve and unchecks Show Maximum.",
+          "accessibility": { "keyboardShortcut": "R" },
+          "properties": {
+            "text": "Reset",
+            "action": "resetSim"
+          }
+        },
+        {
+          "id": "maxCheckbox",
+          "type": "checkbox",
+          "label": "Show Maximum",
+          "description": "Reveals the whole revenue curve, a dashed line and label at the peak ($10,000 at $100) and the outline of the largest rectangle under the demand curve. Unchecked by default so the learner predicts first.",
+          "accessibility": { "keyboardShortcut": "M" },
+          "affects": ["demand-chart", "revenue-chart"],
+          "properties": {
+            "checked": false
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "chart",
+          "description": "Demand chart: price on the vertical axis, quantity sold on the horizontal axis, a crimson demand line and a blue rectangle whose area is the revenue. The point on the line can be dragged.",
+          "interactive": true,
+          "updateTriggers": ["priceSlider", "sweepButton", "resetButton", "maxCheckbox"]
+        },
+        {
+          "type": "chart",
+          "description": "Revenue chart: revenue on the vertical axis, price on the horizontal axis. The blue curve is drawn only over the prices the learner has visited, and an orange ring marks the highest revenue found so far. Dragging across the chart sets the price.",
+          "interactive": true,
+          "updateTriggers": ["priceSlider", "sweepButton", "resetButton", "maxCheckbox"]
+        },
+        {
+          "type": "animation",
+          "description": "The price sweep, which grows and shrinks the rectangle while the revenue curve is traced, and a pulsing halo on the draggable point before the first interaction.",
+          "interactive": false,
+          "updateTriggers": ["sweepButton"]
+        },
+        {
+          "type": "text-display",
+          "description": "Value labels on all four axes, the calculation Revenue = Price x Quantity with the current numbers, and a line that reports the highest revenue found so far or the maximum.",
+          "interactive": false,
+          "updateTriggers": ["priceSlider", "sweepButton", "resetButton", "maxCheckbox"]
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "mathematical",
+        "description": "A seller faces a straight-line demand curve. Total revenue is price times the quantity demanded at that price, which is a downward-opening parabola in price.",
+        "equations": [
+          "quantity = 200 - price",
+          "revenue = price * quantity = 200 * price - price^2",
+          "revenue-maximizing price = 200 / 2 = 100",
+          "maximum revenue = 100 * 100 = 10000"
+        ],
+        "assumptions": [
+          "Demand falls in a straight line from 200 units at a price of $0 to 0 units at a price of $200",
+          "The seller charges every buyer the same price",
+          "Prices are whole dollars"
+        ],
+        "limitations": [
+          "Real demand curves are rarely straight lines, so a real revenue curve is rarely a symmetric parabola",
+          "Costs are left out, so the model finds the most revenue and not the most profit",
+          "Competitors, capacity limits and changes in demand over time are left out"
+        ]
+      },
+      "variables": [
+        {
+          "name": "price",
+          "type": "input",
+          "description": "Selling price of one unit",
+          "dataType": "integer",
+          "units": "dollars",
+          "range": { "min": 0, "max": 200 }
+        },
+        {
+          "name": "quantity",
+          "type": "intermediate",
+          "description": "Units sold at the current price",
+          "dataType": "integer",
+          "units": "units",
+          "range": { "min": 0, "max": 200 }
+        },
+        {
+          "name": "revenue",
+          "type": "output",
+          "description": "Total revenue: price times quantity",
+          "dataType": "integer",
+          "units": "dollars",
+          "range": { "min": 0, "max": 10000 }
+        },
+        {
+          "name": "bestFoundRevenue",
+          "type": "output",
+          "description": "The highest revenue among the prices the learner has visited since the last reset or sweep",
+          "dataType": "integer",
+          "units": "dollars",
+          "range": { "min": 0, "max": 10000 }
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Starting point",
+          "description": "The default state: a price below the peak, so revenue rises when the price rises.",
+          "parameters": { "price": 50, "quantity": 150, "revenue": 7500 }
+        },
+        {
+          "name": "Maximum revenue",
+          "description": "The rectangle is a square and the revenue curve is at its peak.",
+          "parameters": { "price": 100, "quantity": 100, "revenue": 10000 }
+        },
+        {
+          "name": "Same revenue, two prices",
+          "description": "Prices of $40 and $160 are the same distance from $100 and give the same revenue.",
+          "parameters": { "price": 160, "quantity": 40, "revenue": 6400 }
+        }
+      ]
+    },
+    "usage": {
+      "recommendedUsage": ["exploration", "demonstration", "guided-practice", "group-activity"],
+      "instructionalStrategies": [
+        "Predict-test-explain: learners predict the best price before they touch the controls",
+        "Guided discovery: the revenue curve appears only where the learner has moved the price",
+        "Linked representations: the area of the rectangle and the height of the point on the revenue curve show the same number"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "At what price is revenue the largest in this MicroSim, and how much is it?",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "Before you move the price from $50 to $60, predict whether revenue will rise or fall. Then test your prediction.",
+          "type": "prediction",
+          "level": "Apply"
+        },
+        {
+          "question": "Prices of $40 and $160 both give a revenue of $6,400. Explain why, using the rectangle.",
+          "type": "short-answer",
+          "level": "Analyze"
+        },
+        {
+          "question": "A theater sells 1,000 tickets at $0 and none at $20, and demand is a straight line. What ticket price gives the most revenue?",
+          "type": "short-answer",
+          "level": "Apply"
+        }
+      ],
+      "extensions": [
+        "Add a unit cost and compare the revenue-maximizing price with the profit-maximizing price (see the Profit Maximum MicroSim)",
+        "Add sliders for the intercept and the slope of the demand curve",
+        "Color the demand curve by price elasticity: elastic above the midpoint and inelastic below it",
+        "Replace the straight demand line with a curved one and watch the revenue curve lose its symmetry"
+      ]
+    }
   }
 }

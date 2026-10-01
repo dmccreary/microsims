@@ -36,8 +36,6 @@ In this example, we will use a more detailed prompt to control the placement of 
     Use the text() function at the end of the draw() function to display the
     label and current values of the sliders in the bottom left of the screen.
 
-    Use the [responsive-template.js](../../sims/template/responsive-template.js) as a starting point.
-
 
 ## Sample Response
 

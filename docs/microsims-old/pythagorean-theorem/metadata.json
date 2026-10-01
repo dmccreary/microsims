@@ -1,71 +1,254 @@
 {
-  "title": "Pythagorean Theorem MicroSim",
-  "description": "A MicroSim that visually demonstrates the Pythagorean Theorem by showing how the sum of the squares of the sides are are equal to square of hypotenuse.",
-  "creator": "Dan McCreary",
-  "date": "2025-11-24",
-  "subject": [
-    "Pythagorean"
-  ],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
-  "contributor": [
-    "Claude Code"
-  ],
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/pythagorean-theorem/",
-  "publisher": "MicroSims Educational Platform",
-  "educationalLevel": "High School, College",
-  "learningResourceType": "simulation",
-  "audience": "Students, Educators",
-  "version": "1.0.0",
-  "bloomLevel": [
-    "Understand",
-    "Apply"
-  ],
-  "concepts": [
-    "Pythagorean Theorem MicroSim"
-  ],
-  "prerequisites": [
-    "Basic understanding of the subject"
-  ],
-  "library": "p5.js",
-  "visualizationType": [
-    "graph",
-    "interactive-demo"
-  ],
-  "learningObjectives": [
-    "Understand the key concepts of pythagorean theorem",
-    "Explore pythagorean theorem through interactive visualization",
-    "Apply knowledge of pythagorean theorem to solve problems",
-    "Experiment with parameters to observe their effects on pythagorean theorem"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Apply",
-    "Create"
-  ],
-  "pedagogical": {
-    "pattern": "demonstration",
-    "bloomAlignment": [
-      "remember",
-      "apply",
-      "evaluate"
-    ],
-    "bloomVerbs": [
-      "calculate",
-      "demonstrate",
-      "illustrate",
-      "implement",
-      "use"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": false,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "immediate",
-      "corrective"
-    ],
-    "interactionStyle": "manipulate"
+  "microsim": {
+    "dublinCore": {
+      "title": "Pythagorean Theorem MicroSim",
+      "creator": ["Dan McCreary"],
+      "subject": ["Geometry", "Pythagorean Theorem", "Right Triangles", "Area of a Square", "Interactive Simulation"],
+      "description": "A p5.js MicroSim in which two sliders set the legs of a right triangle and a Show Squares button draws a square on each of the three sides, so learners can see that the areas of the two smaller squares add up to the area of the square on the hypotenuse. A readout panel lists each side length and each area.",
+      "publisher": "MicroSims Educational Platform",
+      "contributor": ["Claude Code"],
+      "date": "2025-10-16",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/pythagorean-theorem/",
+      "language": "en-US",
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["pythagorean theorem", "right triangle", "hypotenuse", "legs", "area", "squares", "pythagorean triple", "geometry", "p5.js"],
+      "visualizationType": ["interactive-demo", "diagram"],
+      "showcase": true
+    },
+    "educational": {
+      "gradeLevel": ["6", "7", "8", "9", "10", "11", "12"],
+      "subjectArea": ["Mathematics"],
+      "topic": [
+        "Pythagorean theorem: the squares on the two legs of a right triangle add up to the square on the hypotenuse"
+      ],
+      "learningObjectives": [
+        "The learner will explain why the areas of the squares on the two legs of a right triangle add up to the area of the square on the hypotenuse.",
+        "The learner will calculate the length of the hypotenuse from the lengths of the two legs."
+      ],
+      "bloomsTaxonomy": ["Understand", "Apply"],
+      "prerequisites": [
+        "The area of a square is its side length multiplied by itself",
+        "Squares and square roots of whole numbers",
+        "The parts of a right triangle: the right angle, the two legs and the hypotenuse"
+      ],
+      "duration": {
+        "typical": 20
+      },
+      "curriculumStandards": [
+        {
+          "framework": "Common Core State Standards for Mathematics",
+          "identifier": "CCSS.MATH.CONTENT.8.G.B.6",
+          "description": "Explain a proof of the Pythagorean Theorem and its converse."
+        },
+        {
+          "framework": "Common Core State Standards for Mathematics",
+          "identifier": "CCSS.MATH.CONTENT.8.G.B.7",
+          "description": "Apply the Pythagorean Theorem to determine unknown side lengths in right triangles in real-world and mathematical problems in two and three dimensions."
+        }
+      ],
+      "scaffolding": {
+        "type": ["progressive-disclosure", "feedback"]
+      },
+      "misconceptions": [
+        {
+          "misconception": "The hypotenuse equals the sum of the legs: c = a + b.",
+          "correction": "The areas add, not the lengths."
+        },
+        {
+          "misconception": "Doubling the sides doubles the areas.",
+          "correction": "Each area becomes four times as large."
+        },
+        {
+          "misconception": "The theorem only works for whole-number triangles such as 3, 4, 5.",
+          "correction": "It holds for every right triangle."
+        }
+      ]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.0.0",
+      "canvasDimensions": {
+        "width": 400,
+        "height": 460,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 360,
+        "controlHeight": 100
+      },
+      "dependencies": ["p5.js 2.3.4 (jsDelivr CDN)"],
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "altText": true,
+        "screenReaderScript": "A right triangle with a horizontal side a, a vertical side b and a hypotenuse c. Two sliders set the lengths of side a and side b from 50 to 130. A Show Squares button draws a green square on side a, a blue square on side b and a pink square on side c. A readout panel lists the length of each side and the area of each square, and shows that the area of square a plus the area of square b always equals the area of square c. A Reset button returns both sides to 100."
+      }
+    },
+    "userInterface": {
+      "layoutType": "responsive-width",
+      "layoutPattern": "Figure beside the title and readout panel at 500 pixels and wider; title and readout panel above the figure on a narrower canvas. Two parameter sliders and a reveal button with a linked readout panel",
+      "responsiveBreakpoints": [
+        {
+          "width": 500,
+          "description": "At this width and wider, the figure sits beside the title and the readout panel. On a narrower canvas, the title and the readout panel sit above the figure"
+        }
+      ],
+      "controls": [
+        {
+          "id": "toggleButton",
+          "type": "toggle-button",
+          "label": "Show Squares / Hide Squares",
+          "description": "Show or hide the square on each side of the triangle (progressive disclosure). The squares start hidden",
+          "properties": {
+            "text": "Show Squares",
+            "action": "toggleSquares",
+            "toggleable": true
+          }
+        },
+        {
+          "id": "resetButton",
+          "type": "button",
+          "label": "Reset",
+          "description": "Return side a and side b to 100. The squares stay shown or hidden",
+          "properties": {
+            "text": "Reset",
+            "action": "resetValues"
+          }
+        },
+        {
+          "id": "aSlider",
+          "type": "slider",
+          "label": "Side a",
+          "description": "Length of the horizontal leg",
+          "properties": {
+            "min": 50,
+            "max": 130,
+            "default": 100,
+            "step": 1,
+            "units": "length units"
+          }
+        },
+        {
+          "id": "bSlider",
+          "type": "slider",
+          "label": "Side b",
+          "description": "Length of the vertical leg",
+          "properties": {
+            "min": 50,
+            "max": 130,
+            "default": 100,
+            "step": 1,
+            "units": "length units"
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "shape",
+          "description": "A square on each side of the triangle: green on side a, blue on side b and pink on side c. Every colored square is also named by a text label",
+          "interactive": false,
+          "updateTriggers": ["toggleButton", "aSlider", "bSlider"]
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "mathematical",
+        "description": "The Pythagorean theorem",
+        "equations": [
+          "c = sqrt(a² + b²)",
+          "a² + b² = c²"
+        ],
+        "assumptions": [
+          "The angle between side a and side b is always 90 degrees",
+          "Lengths have no physical units"
+        ],
+        "limitations": [
+          "Side a and side b are whole numbers from 50 to 130",
+          "Side c is rounded to two decimal places, so squaring the displayed value of c can differ slightly from the displayed c²",
+          "The MicroSim shows that the areas agree. It does not show a proof of why they agree"
+        ]
+      },
+      "variables": [
+        {
+          "name": "side a",
+          "type": "input",
+          "description": "Leg: the horizontal side of the triangle",
+          "dataType": "integer",
+          "units": "length units",
+          "range": {"min": 50, "max": 130}
+        },
+        {
+          "name": "side b",
+          "type": "input",
+          "description": "Leg: the vertical side of the triangle",
+          "dataType": "integer",
+          "units": "length units",
+          "range": {"min": 50, "max": 130}
+        },
+        {
+          "name": "side c",
+          "type": "output",
+          "description": "Hypotenuse",
+          "dataType": "number",
+          "units": "length units"
+        },
+        {
+          "name": "area of each square",
+          "type": "output",
+          "description": "a², b² and c²",
+          "dataType": "number",
+          "units": "square length units"
+        }
+      ]
+    },
+    "usage": {
+      "recommendedUsage": ["demonstration", "individual-study"],
+      "instructionalStrategies": [
+        "Predict-test-explain with progressive disclosure: explore the triangle first, then reveal the squares",
+        "Immediate feedback: the readout panel updates as each slider moves"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "When side a grows by 30, why does side c grow by less than 30?",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "What is the same about the three areas at every slider setting?",
+          "type": "observation",
+          "level": "Understand"
+        },
+        {
+          "question": "Which slider settings make side c a whole number?",
+          "type": "short-answer",
+          "level": "Apply"
+        },
+        {
+          "question": "When both legs double, what happens to side c and to the three areas?",
+          "type": "prediction",
+          "level": "Apply"
+        },
+        {
+          "question": "Predict how side c changes when one leg changes.",
+          "type": "prediction",
+          "level": "Understand"
+        },
+        {
+          "question": "Make a table of a², b² and c² for three slider settings, and state the pattern in words.",
+          "type": "observation",
+          "level": "Understand"
+        },
+        {
+          "question": "Calculate the hypotenuse for a new pair of legs, then check it with the MicroSim.",
+          "type": "short-answer",
+          "level": "Apply"
+        }
+      ]
+    }
   }
 }

@@ -37,6 +37,7 @@ The enhanced schema provides comprehensive metadata for Educational MicroSims ac
 - **Interaction Level**: Scale of required user interaction (passive to very-high)
 - **Complexity Score**: 1-10 rating for filtering and recommendation
 - **Application Domains**: Primary use cases (education, research, training, etc.)
+- **Showcase**: Boolean flag that marks a MicroSim as a showcase example to feature in galleries and search results
 
 ### Enhanced User Interface Documentation
 - **Layout Types**: Fixed, responsive-width, two-column, multi-panel, dashboard
@@ -136,6 +137,11 @@ The enhanced schema supports advanced search and filtering:
 ### By Application Domain
 ```json
 "applicationDomains": ["education", "demonstration"]
+```
+
+### By Showcase Status
+```json
+"showcase": true  // optional Boolean in the search section; false when omitted
 ```
 
 ## Control Documentation

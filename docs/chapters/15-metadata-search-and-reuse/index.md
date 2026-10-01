@@ -164,7 +164,7 @@ A **worked example** shows the payoff. A school has tablets but a filtered netwo
 
 ## Search Metadata
 
-**Search metadata** is the section of the file written for discovery rather than description. It lives in the `search` section, where `tags` and `visualizationType` are required. Where Dublin Core says what a MicroSim is, search metadata says how people are likely to look for it. The optional fields are `searchKeywords`, `interactionLevel`, `complexity`, `relatedConcepts` and `applicationDomains`.
+**Search metadata** is the section of the file written for discovery rather than description. It lives in the `search` section, where `tags` and `visualizationType` are required. Where Dublin Core says what a MicroSim is, search metadata says how people are likely to look for it. The optional fields are `searchKeywords`, `interactionLevel`, `complexity`, `relatedConcepts`, `applicationDomains` and `showcase`. The `showcase` field is a Boolean that marks a MicroSim as an example worth featuring in a gallery, and it is treated as false when it is left out.
 
 Several fields are constrained so that they can serve as facets later. The `visualizationType` array draws from thirteen allowed values, among them `simulation`, `chart`, `diagram`, `timeline`, `network` and `map`. The `interactionLevel` is one of five values from `passive` to `very-high`. The `complexity` is an integer from 1 to 10, and `applicationDomains` draws from eight values such as `education`, `training` and `assessment`. Chapter 4 taught you to choose a MicroSim type; `visualizationType` is where that choice is recorded so that others can filter on it.
 

@@ -61,9 +61,9 @@ Every sim also needs, whatever its issues below: a width-responsiveness check, `
 - [ ] **profit-maximum** — score 92, p5.js
     - main.html: missing schema meta tag
     - metadata.json: missing educational section
-- [ ] **revenue-maximum** — score 92, p5.js
-    - main.html: missing schema meta tag
-    - metadata.json: missing educational section
+- [x] **revenue-maximum** — score 92 → 100 (2026-09-30), p5.js 2.3.2, showcase
+    - main.html: schema meta tag added
+    - metadata.json: rewritten to the schema layout with an educational section
 - [ ] **seven-segment-display** — score 92, p5.js
     - main.html: missing schema meta tag
     - metadata.json: missing educational section
@@ -128,7 +128,7 @@ Every sim also needs, whatever its issues below: a width-responsiveness check, `
     - metadata.json: missing educational section
     - screenshot PNG missing
     - index.md: missing References section
-- [ ] **maze-solver** — score 80, p5.js
+- [x] **maze-solver** — score 80, p5.js
     - main.html: missing schema meta tag
     - metadata.json: missing educational section
     - index.md: missing description/about section

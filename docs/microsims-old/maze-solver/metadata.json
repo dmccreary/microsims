@@ -1,76 +1,349 @@
 {
-  "title": "Maze Solver",
-  "description": "Interactive simulation for Maze Solver",
-  "creator": "Dan McCreary",
-  "date": "2025-11-24",
-  "subject": [
-    "Maze"
-  ],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
-  "contributor": [
-    "Claude Code"
-  ],
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/maze-solver/",
-  "publisher": "MicroSims Educational Platform",
-  "educationalLevel": "High School, College",
-  "learningResourceType": "simulation",
-  "audience": "Students, Educators",
-  "version": "1.0.0",
-  "bloomLevel": [
-    "Understand",
-    "Apply"
-  ],
-  "concepts": [
-    "Maze Solver"
-  ],
-  "prerequisites": [
-    "Basic understanding of the subject"
-  ],
-  "library": "p5.js",
-  "visualizationType": [
-    "animation",
-    "interactive-demo",
-    "network",
-    "simulation"
-  ],
-  "learningObjectives": [
-    "Understand the key concepts of maze solver",
-    "Explore maze solver through interactive visualization",
-    "Apply knowledge of maze solver to solve problems",
-    "Experiment with parameters to observe their effects on maze solver"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Understand",
-    "Apply",
-    "Analyze",
-    "Create"
-  ],
-  "pedagogical": {
-    "pattern": "practice",
-    "bloomAlignment": [
-      "understand",
-      "apply",
-      "analyze"
-    ],
-    "bloomVerbs": [
-      "compare",
-      "describe",
-      "explain",
-      "apply",
-      "calculate"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": false,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "immediate",
-      "corrective",
-      "explanatory"
-    ],
-    "interactionStyle": "construct"
+  "microsim": {
+    "dublinCore": {
+      "title": "Maze Solver",
+      "creator": ["Dan McCreary"],
+      "subject": ["Maze Solving", "Breadth-First Search", "Depth-First Search", "Maze Generation", "Graph Traversal", "Shortest Path", "Algorithms"],
+      "description": "A p5.js MicroSim that generates a random maze with depth-first search and then solves it, one step at a time, with breadth-first search. The cells the search reaches turn pink, the shortest path from the start cell to the end cell turns yellow, and a status line counts the cells explored and the cells on the path. A Solve Speed slider sets the steps per second and pauses the search at 0.",
+      "publisher": "MicroSims Educational Platform",
+      "contributor": ["Claude (Anthropic) via the microsim-utils skill"],
+      "date": "2025-11-24",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/maze-solver/",
+      "language": "en",
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["maze", "maze solver", "breadth-first search", "BFS", "depth-first search", "DFS", "backtracking", "queue", "stack", "shortest path", "graph traversal", "p5.js"],
+      "searchKeywords": ["maze solver simulation", "breadth-first search animation", "BFS shortest path maze", "depth-first search maze generator", "queue versus stack"],
+      "visualizationType": ["animation", "simulation", "interactive-demo"],
+      "interactionLevel": "moderate",
+      "complexity": 4,
+      "relatedConcepts": ["Graph", "Tree", "Queue", "Stack", "Backtracking", "Shortest Path", "Perfect Maze", "Randomized Algorithm", "Pathfinding"],
+      "applicationDomains": ["education", "demonstration", "exploration"],
+      "showcase": true
+    },
+    "educational": {
+      "gradeLevel": ["9", "10", "11", "12", "Undergraduate"],
+      "subjectArea": ["Computer Science"],
+      "topic": ["Breadth-First Search", "Depth-First Search with Backtracking", "Maze Generation", "Shortest Path in an Unweighted Graph", "Queues and Stacks"],
+      "learningObjectives": [
+        "Explain how breadth-first search explores a maze in layers and why the first path it finds to the end cell is the shortest path.",
+        "Describe how depth-first search with backtracking builds a maze that has exactly one path between any two cells.",
+        "Compare the number of cells a search explores with the number of cells on the path it finds."
+      ],
+      "bloomsTaxonomy": ["Understand", "Analyze"],
+      "prerequisites": [
+        "A grid of cells, with rows and columns",
+        "The idea of an algorithm as a list of steps",
+        "Helpful, but not required: lists or arrays in any programming language"
+      ],
+      "duration": {
+        "typical": 30,
+        "range": {"min": 10, "max": 30}
+      },
+      "difficulty": "Intermediate",
+      "curriculumStandards": [
+        {
+          "framework": "CSTA K-12 Computer Science Standards",
+          "identifier": "3B-AP-10",
+          "description": "Use and adapt classic algorithms to solve computational problems."
+        }
+      ],
+      "cognitiveLoad": {
+        "intrinsic": "moderate",
+        "extraneous": "low",
+        "germane": "high"
+      },
+      "scaffolding": {
+        "type": ["guided-discovery", "modeling", "feedback"],
+        "adaptability": "fixed",
+        "removal": "user-controlled"
+      },
+      "misconceptions": [
+        {
+          "misconception": "The search walks along one path, like a person in a maze.",
+          "correction": "Breadth-first search moves outward along every open branch in turn, one layer at a time.",
+          "evidence": "With the search paused at speed 0, pink cells appear in several branches of the maze at once."
+        },
+        {
+          "misconception": "The solver knows where the end cell is and heads toward it.",
+          "correction": "Breadth-first search has no sense of direction. It finds the end cell only when the layers reach it.",
+          "evidence": "The status line often shows that the search explored far more cells than are on the yellow path, including dead ends that lead away from E."
+        },
+        {
+          "misconception": "The yellow path is drawn as the search moves.",
+          "correction": "The path is found at the end, by following each cell's link back to the cell it was reached from.",
+          "evidence": "No cell turns yellow until the search reaches E. Then the whole path appears at once."
+        }
+      ],
+      "transferSkills": [
+        {
+          "skill": "Choosing between a queue and a stack to control the order in which items are processed",
+          "domains": ["Computer Science", "Software Engineering"]
+        },
+        {
+          "skill": "Finding the shortest route in a network where every step costs the same",
+          "domains": ["Network Routing", "Game Development", "Robotics", "Artificial Intelligence"]
+        }
+      ],
+      "learningTheory": ["constructivism", "experiential"]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.0.0",
+      "canvasDimensions": {
+        "width": 400,
+        "height": 480,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 410,
+        "controlHeight": 70
+      },
+      "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+      "browserCompatibility": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+      "performance": {
+        "targetFrameRate": 60,
+        "memoryUsage": "low",
+        "computationalComplexity": "O(n)",
+        "optimizations": ["Each cell stores a link to its parent cell instead of a copy of the whole path", "The maze is generated once, not on every frame"]
+      },
+      "deviceRequirements": {
+        "minScreenWidth": 300,
+        "touchSupport": true,
+        "keyboardRequired": false,
+        "mouseRequired": false,
+        "networkRequired": true
+      },
+      "stateManagement": {
+        "stateType": "local-state",
+        "persistence": false,
+        "synchronization": false
+      },
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "colorContrast": true,
+        "altText": true,
+        "screenReaderScript": "A maze of square cells with black walls. The start cell in the upper left corner is green and marked S. The end cell in the lower right corner is red and marked E. A Solve button starts a breadth-first search that spreads out from the start cell and colors each cell it reaches pink. When the search reaches the end cell, the shortest path from start to end turns yellow. A status line under the maze counts the cells explored and the cells on the path. A Reset button clears the search, a New Maze button makes a new random maze, and a Solve Speed slider sets the steps per second from 0, which pauses the search, to 60."
+      }
+    },
+    "userInterface": {
+      "layoutType": "responsive-width",
+      "layoutPattern": "title-maze-status-above-button-row-and-slider-row",
+      "colorScheme": {
+        "drawingArea": "aliceblue",
+        "controlArea": "white",
+        "borders": "silver",
+        "accent": "yellow",
+        "text": "black"
+      },
+      "responsiveBreakpoints": [
+        {
+          "width": 300,
+          "description": "Smallest canvas: 12 columns of cells, and the status line uses its short wording"
+        },
+        {
+          "width": 400,
+          "description": "17 columns of cells. Every 20 pixels of extra width adds one column, and a change in the number of columns makes a new maze"
+        }
+      ],
+      "controls": [
+        {
+          "id": "solveButton",
+          "type": "toggle-button",
+          "label": "Solve / Reset",
+          "description": "Solve (green) starts the breadth-first search. The button then reads Reset (dark red), which clears the search and keeps the same maze.",
+          "affects": ["searchState", "explored-cells", "solution-path", "status-line"],
+          "properties": {
+            "text": "Solve",
+            "action": "toggleSolving",
+            "toggleable": true,
+            "style": "success"
+          }
+        },
+        {
+          "id": "newMazeButton",
+          "type": "button",
+          "label": "New Maze",
+          "description": "Generates a new random maze with depth-first search and clears the search.",
+          "affects": ["maze", "searchState", "status-line"],
+          "properties": {
+            "text": "New Maze",
+            "action": "createNewMaze",
+            "style": "primary"
+          }
+        },
+        {
+          "id": "speedSlider",
+          "type": "slider",
+          "label": "Solve Speed",
+          "description": "Sets the number of search steps per second. A value of 0 pauses the search.",
+          "affects": ["search-rate"],
+          "size": {
+            "responsive": true
+          },
+          "properties": {
+            "min": 0,
+            "max": 60,
+            "default": 8,
+            "step": 1,
+            "units": "steps per second",
+            "showValue": true
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "text-display",
+          "description": "The title Maze Solver, centered at the top of the drawing region.",
+          "interactive": false
+        },
+        {
+          "type": "diagram",
+          "description": "A maze 17 cells tall and as wide as the canvas allows, with 20 pixel cells and black walls. The green start cell S is in the upper left corner and the red end cell E is in the lower right corner.",
+          "interactive": false,
+          "updateTriggers": ["newMazeButton", "window-resize"]
+        },
+        {
+          "type": "animation",
+          "description": "Cells turn pink as the breadth-first search reaches them. When the search reaches the end cell, the cells on the shortest path turn yellow.",
+          "interactive": false,
+          "updateTriggers": ["solveButton", "speedSlider"]
+        },
+        {
+          "type": "text-display",
+          "description": "A status line under the maze: the number of cells explored out of the total, Paused when the speed is 0, and the path length when the search is finished.",
+          "interactive": false,
+          "updateTriggers": ["solveButton", "speedSlider"]
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "algorithmic",
+        "description": "A grid of cells in which each cell has four walls. Depth-first search with backtracking removes walls to make a perfect maze. Breadth-first search then explores the maze from the start cell, one queue step at a time, until it reaches the end cell.",
+        "algorithms": [
+          "Maze generation: randomized depth-first search with backtracking, using an explicit stack",
+          "Maze solving: breadth-first search, using a queue and a parent link for each cell",
+          "Path reconstruction: follow the parent links from the end cell back to the start cell"
+        ],
+        "equations": [
+          "columns = floor((canvas width - 50) / 20)",
+          "rows = 17",
+          "steps on a frame = solve speed * seconds since the last frame"
+        ],
+        "assumptions": [
+          "Every move from one cell to a neighbor costs the same, so the path with the fewest cells is the shortest path",
+          "The start cell is the upper left corner and the end cell is the lower right corner",
+          "The solver checks the four directions in a fixed order: right, down, left, up"
+        ],
+        "limitations": [
+          "The maze is perfect, so there is only one path from the start cell to the end cell",
+          "The maze generation is not animated",
+          "Only breadth-first search is available as a solver",
+          "The start and end cells cannot be moved"
+        ]
+      },
+      "variables": [
+        {
+          "name": "solveSpeed",
+          "type": "input",
+          "description": "Search steps per second. 0 pauses the search",
+          "dataType": "integer",
+          "units": "steps per second",
+          "range": {"min": 0, "max": 60}
+        },
+        {
+          "name": "cols",
+          "type": "intermediate",
+          "description": "Number of maze columns, set by the width of the canvas",
+          "dataType": "integer",
+          "units": "cells"
+        },
+        {
+          "name": "rows",
+          "type": "constant",
+          "description": "Number of maze rows",
+          "dataType": "integer",
+          "units": "cells"
+        },
+        {
+          "name": "queue",
+          "type": "intermediate",
+          "description": "Cells the search has reached that are waiting for their turn, oldest first",
+          "dataType": "array"
+        },
+        {
+          "name": "exploredCount",
+          "type": "output",
+          "description": "Number of cells the search has reached, counting the start cell",
+          "dataType": "integer",
+          "units": "cells"
+        },
+        {
+          "name": "pathLength",
+          "type": "output",
+          "description": "Number of cells on the shortest path, counting the start cell and the end cell",
+          "dataType": "integer",
+          "units": "cells"
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "step-by-step",
+          "description": "The starting speed. Each cell can be followed as it turns pink",
+          "parameters": {"solveSpeed": 8}
+        },
+        {
+          "name": "paused",
+          "description": "Freeze the search to study the shape of the explored area",
+          "parameters": {"solveSpeed": 0}
+        },
+        {
+          "name": "fast-comparison",
+          "description": "Solve several mazes quickly and compare the cells explored with the path length",
+          "parameters": {"solveSpeed": 60}
+        }
+      ]
+    },
+    "usage": {
+      "recommendedUsage": ["demonstration", "exploration", "guided-practice", "group-activity"],
+      "instructionalStrategies": [
+        "Predict-observe-explain: estimate the path length and the cells explored before pressing Solve",
+        "Pause and inspect: set the speed to 0 midway to study the layers of the search",
+        "Data collection: record the cells explored and the path length for several mazes and compare them"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "Why does BFS guarantee the shortest path while DFS doesn't?",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "What changes would you make to use DFS instead of BFS for solving?",
+          "type": "short-answer",
+          "level": "Apply"
+        },
+        {
+          "question": "Press Reset and solve the same maze again. Does the search reach the cells in the same order? Explain why.",
+          "type": "observation",
+          "level": "Analyze"
+        },
+        {
+          "question": "How might you modify the code to create mazes with multiple possible solutions?",
+          "type": "short-answer",
+          "level": "Create"
+        }
+      ],
+      "extensions": [
+        "Change the solver to depth-first search by taking cells from the back of the queue",
+        "Remove a few extra walls so the maze has loops, then check that BFS still finds the shortest path",
+        "Animate the maze generation one step at a time",
+        "Let the user click to choose the start cell and the end cell"
+      ]
+    }
   }
 }
