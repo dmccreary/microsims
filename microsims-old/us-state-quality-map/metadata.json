@@ -10,11 +10,11 @@
       "type": "Interactive Simulation",
       "format": "text/html",
       "identifier": "https://dmccreary.github.io/microsims/microsims-old/us-state-quality-map/",
-      "source": "State values in data.json, attributed there to the Bureau of Economic Analysis, US Census Bureau, CDC National Center for Health Statistics, FBI Uniform Crime Report, Zillow Home Value Index and USDA Economic Research Service",
+      "source": "Personal income: U.S. Bureau of Economic Analysis, real per capita personal income, 2023 (via FRED). Poverty: U.S. Census Bureau, Poverty in the United States: 2025, Table 17, Supplemental Poverty Measure, 2023-2025 average. Education: U.S. Census Bureau, American Community Survey 1-year estimates, 2023 (via FRED). Life expectancy: CDC National Center for Health Statistics, U.S. State Life Tables, 2022. Infant mortality: CDC National Center for Health Statistics, Stats of the States, 2023. Violent crime: FBI Uniform Crime Reporting Program, estimated crimes, 2023. Home value: Zillow Home Value Index, 2024 (via FRED). Food insecurity: USDA Economic Research Service, Household Food Security in the United States in 2023, 2021-2023 average. All retrieved 2026-10-01",
       "language": "en",
       "coverage": {
         "spatial": "United States (50 states)",
-        "temporal": "2023-2024"
+        "temporal": "2021-2025"
       },
       "rights": "CC BY-NC-SA 4.0"
     },
@@ -53,17 +53,17 @@
         {
           "misconception": "A state with high personal income has a high quality of life grade.",
           "correction": "Income is one of 8 equally weighted metrics, so a state can beat the average on income and still fall below it on most of the others.",
-          "evidence": "Texas has a personal income of $56,890, above the $55,000 average, yet its grade is 2/8."
+          "evidence": "Wyoming has the highest personal income of any state, $75,323 against a national average of $58,088, yet its grade is 5/8, lower than the grades of 14 other states."
         },
         {
           "misconception": "Low home prices mean a high grade, and high home prices mean a low grade.",
           "correction": "Median home price counts as a single metric. The other 7 metrics decide most of the grade.",
-          "evidence": "Massachusetts has a median home price of $595,000 and a grade of 7/8, while Alabama has a median home price of $232,000 and a grade of 1/8."
+          "evidence": "Massachusetts has a typical home value of $633,126 and a grade of 7/8, while Louisiana has a typical home value of $214,811 and a grade of 1/8."
         },
         {
           "misconception": "A state graded 0/8 is far worse than average on every metric.",
           "correction": "The grade counts how many metrics are worse than average and ignores how much worse each one is.",
-          "evidence": "Alaska is graded 0/8, yet its median home price ($359,000 against $350,000) and its food insecurity rate (10.8% against 10.5%) are close to the national averages."
+          "evidence": "Nevada is graded 0/8, yet its food insecurity rate (12.5% against 12.2%) and its infant mortality rate (5.88 against 5.60 per 1,000) are close to the national averages."
         }
       ]
     },
@@ -198,82 +198,87 @@
         ],
         "assumptions": [
           "All 8 metrics have equal weight",
-          "The national averages are fixed reference values stored in data.json and are not computed from the 50 state values",
+          "The national averages are the published national figures for each metric, stored in data.json; they are not computed from the 50 state values",
           "A state average describes the whole state"
         ],
         "limitations": [
-          "A value equal to the national average counts as worse; this affects 11 of the 400 state metric values, including three for Maine",
+          "A value equal to the national average counts as worse; this affects 4 of the 400 state metric values (for example, the life expectancy of Illinois is 77.5 years, the same as the national figure)",
           "The grade ignores how far a value is from the average",
-          "The rank shown beside each metric is read from data.json and is not computed from the values; some ranks disagree with the values (North Dakota has the highest personal income but is ranked 5, and two states are ranked 1 for median home price)",
+          "The rank shown beside each metric is stored in data.json and is not computed by the page, so the ranks must be recomputed whenever a value changes",
+          "States with equal values share a rank, so some rank numbers are skipped (Alabama, Louisiana, Oklahoma and Tennessee all have a life expectancy of 73.8 years)",
+          "The metrics cover different periods: life expectancy is for 2022; personal income, education, infant mortality and violent crime are for 2023; home value is for 2024; food insecurity is a 2021-2023 average; and poverty is a 2023-2025 average",
+          "The state poverty and food insecurity rates are survey estimates with margins of error between 0.6 and 2.5 percentage points, so a small difference from the national average may not be statistically significant",
+          "The metric labeled Median Home Price is the Zillow Home Value Index, a measure of the typical home value and not a median sale or listing price",
+          "Personal income is in chained 2017 dollars, while median home price is in current dollars",
           "The District of Columbia and Puerto Rico are drawn on the map but have no data",
           "State averages hide differences within a state, such as urban and rural areas",
-          "The data describe 2023-2024 and do not update"
+          "The data are a snapshot retrieved on 2026-10-01 and do not update"
         ]
       },
       "variables": [
         {
           "name": "personalIncome",
           "type": "constant",
-          "description": "Per capita personal income adjusted for regional cost of living. Higher is better. National average: 55000",
+          "description": "Real per capita personal income for 2023, adjusted for regional price parities and inflation. Higher is better. National average: 58088",
           "dataType": "integer",
-          "units": "US dollars",
-          "range": {"min": 42345, "max": 60123}
+          "units": "chained 2017 US dollars",
+          "range": {"min": 47517, "max": 75323}
         },
         {
           "name": "povertyRate",
           "type": "constant",
-          "description": "Percentage of the population below the poverty line, adjusted for regional differences. Lower is better. National average: 11.5",
+          "description": "Percentage of people in poverty under the Supplemental Poverty Measure, which adjusts for regional housing costs; 3-year average for 2023-2025. Lower is better. National average: 13.0",
           "dataType": "number",
           "units": "%",
-          "range": {"min": 7.8, "max": 17.2}
+          "range": {"min": 6.4, "max": 19.0}
         },
         {
           "name": "educationAttainment",
           "type": "constant",
-          "description": "Percentage of adults aged 25 and over with a bachelor's degree or higher. Higher is better. National average: 33.0",
+          "description": "Percentage of adults aged 25 and over with a bachelor's degree or higher, 2023. Higher is better. National average: 36.2",
           "dataType": "number",
           "units": "%",
-          "range": {"min": 22.5, "max": 45.0}
+          "range": {"min": 24.0, "max": 47.8}
         },
         {
           "name": "lifeExpectancy",
           "type": "constant",
-          "description": "Average life expectancy at birth. Higher is better. National average: 77.5",
+          "description": "Life expectancy at birth, 2022. Higher is better. National average: 77.5",
           "dataType": "number",
           "units": "years",
-          "range": {"min": 73.1, "max": 81.3}
+          "range": {"min": 72.2, "max": 80.0}
         },
         {
           "name": "infantMortality",
           "type": "constant",
-          "description": "Deaths under 1 year of age. Lower is better. National average: 5.5",
+          "description": "Deaths under 1 year of age, 2023. Lower is better. National average: 5.60",
           "dataType": "number",
           "units": "per 1,000 live births",
-          "range": {"min": 3.7, "max": 8.4}
+          "range": {"min": 2.93, "max": 8.94}
         },
         {
           "name": "violentCrime",
           "type": "constant",
-          "description": "Violent crimes. Lower is better. National average: 380",
-          "dataType": "integer",
+          "description": "Violent crimes (homicide, rape, robbery and aggravated assault), 2023. Lower is better. National average: 379.5",
+          "dataType": "number",
           "units": "per 100,000 population",
-          "range": {"min": 109, "max": 837}
+          "range": {"min": 103.8, "max": 746.9}
         },
         {
           "name": "medianHomePrice",
           "type": "constant",
-          "description": "Median listing price for homes. Lower is better. National average: 350000",
+          "description": "Typical home value: Zillow Home Value Index for all homes, average of the 12 months of 2024. Lower is better. National average: 362544",
           "dataType": "integer",
           "units": "US dollars",
-          "range": {"min": 145000, "max": 975000}
+          "range": {"min": 169013, "max": 844819}
         },
         {
           "name": "foodInsecurity",
           "type": "constant",
-          "description": "Percentage of households experiencing food insecurity. Lower is better. National average: 10.5",
+          "description": "Percentage of households experiencing food insecurity; 3-year average for 2021-2023. Lower is better. National average: 12.2",
           "dataType": "number",
           "units": "%",
-          "range": {"min": 6.8, "max": 15.8}
+          "range": {"min": 7.4, "max": 18.9}
         },
         {
           "name": "betterCount",
@@ -297,13 +302,13 @@
         },
         {
           "name": "worst-grade",
-          "description": "Alaska and Nevada are worse than the national average on all 8 metrics (0/8, dark red)",
-          "parameters": {"state": "Alaska"}
+          "description": "Nevada is the only state worse than the national average on all 8 metrics (0/8, dark red)",
+          "parameters": {"state": "Nevada"}
         },
         {
-          "name": "high-income-low-grade",
-          "description": "Texas beats the average on personal income and median home price only (2/8)",
-          "parameters": {"state": "Texas"}
+          "name": "highest-income-middling-grade",
+          "description": "Wyoming has the highest personal income but is worse than average on education attainment, life expectancy and food insecurity (5/8)",
+          "parameters": {"state": "Wyoming"}
         },
         {
           "name": "expensive-homes-high-grade",
@@ -331,12 +336,12 @@
           "level": "Understand"
         },
         {
-          "question": "Texas has above-average personal income but a grade of 2/8. Which metrics lower its grade?",
+          "question": "Wyoming has the highest personal income of any state but a grade of 5/8. Which metrics lower its grade?",
           "type": "short-answer",
           "level": "Analyze"
         },
         {
-          "question": "Alaska and Nevada are both graded 0/8. Does that mean they are equally far below average? Use their metric values to support your answer.",
+          "question": "Nevada is graded 0/8. Does that mean it is far below average on every metric? Use its metric values to support your answer.",
           "type": "essay",
           "level": "Evaluate"
         }
@@ -344,7 +349,7 @@
       "extensions": [
         "Add a control that colors the map by a single metric",
         "Replace the better-or-worse count with a weighted score that uses the distance from the average",
-        "Recompute the ranks from the values instead of reading them from data.json",
+        "Compute the ranks in the page from the values instead of reading them from data.json",
         "Add metrics such as air quality or commute time"
       ]
     }
