@@ -12,7 +12,7 @@ hide:
 
 # Micro Simulations for Education
 
-![MicroSim Banner](./img/cover.png){ width="500px" }
+![MicroSim Banner](./img/cover.png){ width="670px" }
 
 Welcome to the MicroSims for Education website.
 
