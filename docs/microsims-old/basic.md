@@ -12,7 +12,7 @@ These examples progress from simple animations to more complex visualizations, d
 | [Temperature & Pressure](#temperature-and-pressure) | Particle Physics | p5.js |
 | [Sine Wave](#sine-wave) | Math Visualization | p5.js |
 | [String Harmonics](#sound-example-string-harmonics) | Sound Output | p5.js + p5.sound |
-| [FFT Microphone](#microphone-example-fft-frequency-visualization) | Audio Input | p5.js + p5.sound |
+| [Sound Spectrum Analyzer](#microphone-example-fft-frequency-visualization) | Audio Input | p5.js + p5.sound |
 | [Learning Modality](#chart-example-learning-modality-effectiveness) | Bar Chart | Chart.js |
 | [Global Impact](#map-example-global-impact) | Interactive Map | Leaflet.js |
 | [MicroSim Growth](#causal-loop-diagram-microsim-growth) | Causal Loop Diagram | vis-network |
@@ -74,8 +74,8 @@ Demonstrates string harmonics with an animated vibrating string. When "Enable So
 
 Captures microphone input and displays a real-time frequency spectrum using Fast Fourier Transform (FFT). Color-coded bars show low frequencies (blue) to high frequencies (red), with peak frequency detection.
 
-<iframe src="/microsims/microsims-old/fft-mic/main.html" width="100%" height="450px" scrolling="no"></iframe>
-[Go to the FFT Microphone MicroSim Page](./fft-mic/index.md)
+<iframe src="/microsims/microsims-old/sound-spectrum-analyzer/main.html" width="100%" height="450px" scrolling="no"></iframe>
+[Go to the Sound Spectrum Analyzer MicroSim Page](./sound-spectrum-analyzer/index.md)
 
 **Key Features:** Microphone input, FFT analysis, frequency spectrum, start/stop control
 

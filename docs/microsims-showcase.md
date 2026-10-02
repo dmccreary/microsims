@@ -1,14 +1,14 @@
 ---
 title: MicroSims Showcase
-description: Thirty MicroSims, drawn from 3,764 across 90 intelligent textbooks, that show how an interactive simulation explains a complex concept better than static text
+description: Thirty-one MicroSims, drawn from 3,764 across 90 intelligent textbooks, that show how an interactive simulation explains a complex concept better than static text
 ---
 # MicroSims Showcase
 
-These thirty MicroSims come from across the family of intelligent textbooks, not only from this book. Each one was chosen because it explains something that a paragraph of text explains badly: a limit, a feedback loop, a random process, an algorithm in motion. If you want to show a colleague what a MicroSim is for, start here.
+These thirty-one MicroSims come from across the family of intelligent textbooks, not only from this book. Each one was chosen because it explains something that a paragraph of text explains badly: a limit, a feedback loop, a random process, an algorithm in motion. If you want to show a colleague what a MicroSim is for, start here.
 
 Every entry below links to the MicroSim, says what it does, and says why seeing it works better than reading about it.
 
-## How We Picked These 30
+## How We Picked These 31
 
 The starting point was the [MicroSim search](https://dmccreary.github.io/search-microsims/) index, which on October 1, 2026 listed 3,764 MicroSims in 90 textbook repositories. We narrowed that collection in four steps.
 
@@ -16,6 +16,8 @@ The starting point was the [MicroSim search](https://dmccreary.github.io/search-
 2. **Read every candidate.** We read the title and description of each remaining MicroSim and kept 143 for a shortlist.
 3. **Load every shortlisted MicroSim.** Each of the 143 was opened from its live site in a headless browser. We recorded whether the page loaded, whether it drew a canvas, and whether it raised a JavaScript error. 129 loaded cleanly and 14 did not.
 4. **Balance the final list.** From the working MicroSims we chose 30 that cover eleven subject areas, so the list shows range and not just the subjects with the most simulations.
+
+One more MicroSim, the Sound Spectrum Analyzer, was added by hand after this selection, which brings the list to 31. The notes at the end say how it was checked.
 
 A MicroSim made the shortlist when it passed three tests:
 
@@ -25,7 +27,7 @@ A MicroSim made the shortlist when it passed three tests:
 
 Reference diagrams, infographics, flowcharts, classification quizzes and calculators were left out. Many of them are useful, but they organize information more than they explain a mechanism.
 
-## The 30 at a Glance
+## The 31 at a Glance
 
 | # | MicroSim | Subject | Textbook | What it makes visible |
 |---|----------|---------|----------|-----------------------|
@@ -57,8 +59,9 @@ Reference diagrams, infographics, flowcharts, classification quizzes and calcula
 | [26](#ai-fairness) | [AI Fairness Trade-offs Explorer](https://dmccreary.github.io/ethics-course/sims/ai-fairness-tradeoffs/) | AI and machine learning | ethics-course | Fairness metrics that cannot all hold at once |
 | [27](#h-bridge) | [H-Bridge Circuit](microsims-old/h-bridge/index.md) | Engineering | microsims | Switch states steering motor current |
 | [28](#feedback-loop) | [Interactive Feedback Loop Simulator](https://dmccreary.github.io/control-systems/sims/feedback-loop-simulator/) | Engineering | control-systems | Gain and time constant shaping a step response |
-| [29](#arms-race) | [Arms Race Dynamics: The Security Dilemma Loop](https://dmccreary.github.io/us-history/sims/arms-race-dynamics/) | Social science | us-history | Reinforcing and balancing feedback loops |
-| [30](#inoculation-theory) | [Inoculation Theory Visualizer](https://dmccreary.github.io/public-health/sims/inoculation-theory-sim/) | Social science | public-health | Misinformation spread with and without prebunking |
+| [29](#sound-spectrum-analyzer) | [Sound Spectrum Analyzer](microsims-old/sound-spectrum-analyzer/index.md) | Engineering | microsims | The frequencies inside a live sound |
+| [30](#arms-race) | [Arms Race Dynamics: The Security Dilemma Loop](https://dmccreary.github.io/us-history/sims/arms-race-dynamics/) | Social science | us-history | Reinforcing and balancing feedback loops |
+| [31](#inoculation-theory) | [Inoculation Theory Visualizer](https://dmccreary.github.io/public-health/sims/inoculation-theory-sim/) | Social science | public-health | Misinformation spread with and without prebunking |
 
 ## 1. Secant Lines Approaching the Tangent Line { #secant-to-tangent }
 
@@ -284,7 +287,15 @@ Reference diagrams, infographics, flowcharts, classification quizzes and calcula
 
 **Why seeing it beats reading it.** A transfer function is a compact answer to a question students have not yet asked. Raising the gain and watching the response speed up, while the gap to the reference shrinks and never closes, shows what proportional control can and cannot do. The shaded error region makes the leftover error visible.
 
-## 29. Arms Race Dynamics: The Security Dilemma Loop { #arms-race }
+## 29. Sound Spectrum Analyzer { #sound-spectrum-analyzer }
+
+[Run the MicroSim](microsims-old/sound-spectrum-analyzer/index.md){ .md-button } Engineering, from this book
+
+**What it does.** The learner presses Start and allows the browser to use the microphone. A bar chart then shows how strong the incoming sound is at each frequency, redrawn many times a second, with bars colored from blue for low frequencies to red for high ones. A slider sets the highest frequency shown, from 2 kHz to 24 kHz, and Stop freezes the last spectrum on screen.
+
+**Why seeing it beats reading it.** "Every sound is a mix of frequencies" stays abstract until the sound is your own. Whistle and one narrow group of bars stands up; speak and several peaks appear; clap and the bars spread across the range. The learner hears the difference and sees it at the same moment, which is what a Fourier transform reports, before any of the mathematics is introduced.
+
+## 30. Arms Race Dynamics: The Security Dilemma Loop { #arms-race }
 
 [Run the MicroSim](https://dmccreary.github.io/us-history/sims/arms-race-dynamics/){ .md-button } Social science, from the us-history textbook
 
@@ -292,7 +303,7 @@ Reference diagrams, infographics, flowcharts, classification quizzes and calcula
 
 **Why seeing it beats reading it.** A history text lists the events of the arms race in order, which makes the escalation look like a series of choices. The loop shows the structure underneath: each side's defense is the other side's threat. Running it produces runaway growth with no villain, and the treaty shows what a balancing loop does.
 
-## 30. Inoculation Theory Visualizer { #inoculation-theory }
+## 31. Inoculation Theory Visualizer { #inoculation-theory }
 
 [Run the MicroSim](https://dmccreary.github.io/public-health/sims/inoculation-theory-sim/){ .md-button } Social science, from the public-health textbook
 
@@ -302,12 +313,14 @@ Reference diagrams, infographics, flowcharts, classification quizzes and calcula
 
 ## Notes on the Selection
 
-**How far these were checked.** Each of the 30 loaded from its live site on October 1, 2026 with no JavaScript errors. We looked at a screenshot of the opening state of the 25 MicroSims from other textbooks. We did not operate every control, so a MicroSim on this list could still have a control that misbehaves.
+**How far these were checked.** Each of the original 30 loaded from its live site on October 1, 2026 with no JavaScript errors. We looked at a screenshot of the opening state of the 25 MicroSims from other textbooks. We did not operate every control, so a MicroSim on this list could still have a control that misbehaves.
+
+**The one added by hand.** The Sound Spectrum Analyzer was not on the 143-sim shortlist. It was added because it passes the same three tests. It was loaded from a local build of this site, where it drew its canvas with no JavaScript errors. It was not tested with a live microphone.
 
 **MicroSims left out because they did not load.** Fourteen of the 143 shortlisted MicroSims were set aside. Five raised JavaScript errors: Kalman Filter Visualizer, Local Linearity Zoom, Osmosis and Water Potential Simulator, Flip Flop, and Bias-Variance Dartboard. Nine were not found at the expected address. Several of these would be strong candidates once repaired.
 
-**Showcase flags in this book.** Five of the six MicroSims already flagged `showcase` in this repository's metadata are on this list. The sixth, the US State Quality of Life Index Map, is a good example of a map MicroSim but displays data instead of explaining a mechanism.
+**Showcase flags in this book.** Six of the seven MicroSims flagged `showcase` in this repository's metadata are on this list. The seventh, the US State Quality of Life Index Map, is a good example of a map MicroSim but displays data instead of explaining a mechanism.
 
-**Thin descriptions in the search index.** Seven of the 30 have a placeholder description in the search index, such as "Interactive simulation for Bathtub". Bathtub, Maze Solver and H-Bridge already have full descriptions in this repository, so the index is out of date for those. Genetic Drift, Operon Regulation, Tragedy of the Commons and Recursive Call Stack still need descriptions and learning objectives written in their own repositories.
+**Thin descriptions in the search index.** Seven of the original 30 have a placeholder description in the search index, such as "Interactive simulation for Bathtub". Bathtub, Maze Solver and H-Bridge already have full descriptions in this repository, so the index is out of date for those. Genetic Drift, Operon Regulation, Tragedy of the Commons and Recursive Call Stack still need descriptions and learning objectives written in their own repositories.
 
 **This is one reader's list.** Another reviewer applying the same three tests would keep most of these and swap some. MicroSims that came close include Gimbal Lock Demonstration, Type I and Type II Error Visualizer, Rotational Inertia Race, Tipping Points Explorer, Tax Incidence Explorer, Backpropagation, PCA Step-by-Step Visualizer, and Password Cracking Cost.

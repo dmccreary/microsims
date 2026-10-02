@@ -176,11 +176,6 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
     ![FFT Butterfly](./fft-butterfly/fft-butterfly.png)
     Visualization of FFT butterfly computation pattern.
 
-- **[Microphone Frequency Visualization with FFT](./fft-mic/index.md)**
-
-    ![FFT Mic](./fft-mic/fft-mic.png)
-    Real-time audio frequency analysis using FFT.
-
 - **[FFT Microphone V2](./fft-mic-v2/index.md)**
 
     ![FFT Mic V2](./fft-mic-v2/fft-mic-v2.png)
@@ -490,6 +485,11 @@ We encourage you to submit your own MicroSims and we have a set of guidelines to
 
     ![Solar Cell](./solar-cell/solar-cell.png)
     Detailed solar cell charging system.
+
+- **[Sound Spectrum Analyzer](./sound-spectrum-analyzer/index.md)**
+
+    ![Sound Spectrum Analyzer](./sound-spectrum-analyzer/sound-spectrum-analyzer.png)
+    Real-time audio frequency analysis using FFT.
 
 - **[Bouncing 3D Sphere Demo](./sphere/index.md)**
 

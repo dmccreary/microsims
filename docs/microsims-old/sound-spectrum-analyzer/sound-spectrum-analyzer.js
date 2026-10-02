@@ -1,4 +1,4 @@
-// FFT Microphone Visualizer MicroSim
+// Sound Spectrum Analyzer MicroSim
 // Canvas dimensions
 let canvasWidth = 500;
 let drawHeight = 400;
@@ -49,7 +49,7 @@ function setup() {
   maxFreqSlider.position(sliderLeftMargin, drawHeight + 7);
   maxFreqSlider.size(containerWidth - 150);
   
-  describe('FFT Microphone Visualizer showing real-time frequency analysis of microphone input with start/stop control.', LABEL);
+  describe('Sound Spectrum Analyzer showing real-time frequency analysis of microphone input with start/stop control.', LABEL);
 }
 
 function draw() {
@@ -73,7 +73,7 @@ function draw() {
   noStroke();
   textSize(24);
   textAlign(CENTER, TOP);
-  text("FFT Microphone Visualizer", canvasWidth/2, margin/2);
+  text("Sound Spectrum Analyzer", canvasWidth/2, margin/2);
   
   if (started && isListening) {
     // Get FFT analysis

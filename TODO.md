@@ -199,7 +199,7 @@ Every sim also needs, whatever its issues below: a width-responsiveness check, `
     - index.md: missing social preview images in frontmatter
     - index.md: missing copy-paste iframe example
     - index.md: missing Lesson Plan section
-- [ ] **fft-mic** — score 72, p5.js
+- [ ] **sound-spectrum-analyzer** — score 72, p5.js
     - main.html: missing schema meta tag
     - metadata.json: missing educational section
     - index.md: missing description/about section
