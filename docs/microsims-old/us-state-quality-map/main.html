@@ -187,11 +187,31 @@
             return { betterCount, worseCount: 8 - betterCount, comparison };
         }
 
+        // Rank the states on each metric from the values. Rank 1 is the best state,
+        // and states with equal values share a rank (standard competition ranking).
+        // The rank fields stored in data.json are not used.
+        function calculateRanks(states) {
+            for (const stateName in states) {
+                states[stateName].ranks = {};
+            }
+            for (const metric in higherIsBetter) {
+                const better = higherIsBetter[metric];
+                const values = Object.values(states).map(s => s.metrics[metric].value);
+                for (const stateName in states) {
+                    const value = states[stateName].metrics[metric].value;
+                    const betterStates = values.filter(v => better ? v > value : v < value).length;
+                    states[stateName].ranks[metric] = betterStates + 1;
+                }
+            }
+        }
+
         function processStateData(data) {
             nationalAverages = data.nationalAverages;
             higherIsBetter = data.higherIsBetter;
             metricDescriptions = data.metricDescriptions;
             stateData = data.states;
+
+            calculateRanks(stateData);
 
             // Calculate grades for each state
             for (const stateName in stateData) {
@@ -259,7 +279,7 @@
                 }
 
                 html += `<div class="metric-row">
-                    <span class="metric-name">${desc.name} <span style="color:#888;">(#${m.rank})</span></span>
+                    <span class="metric-name">${desc.name} <span style="color:#888;">(#${state.ranks[key]})</span></span>
                     <span class="metric-value">${displayValue}</span>
                     <span class="metric-status ${statusClass}">${statusSymbol}</span>
                 </div>`;
