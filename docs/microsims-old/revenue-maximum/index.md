@@ -1,49 +1,107 @@
 ---
 title: Revenue Maximum
-description: An interactive MicroSim demonstrating how revenue changes with price and the concept of maximum revenue.
-quality_score: 92
-image: revenue-maximum.png
+description: Drag the price along a demand curve and trace the revenue curve to find the price that brings in the most total revenue. A shaded rectangle shows that revenue is price times quantity.
+quality_score: 100
+image: /microsims-old/revenue-maximum/revenue-maximum.png
+og:image: /microsims-old/revenue-maximum/revenue-maximum.png
+twitter:image: /microsims-old/revenue-maximum/revenue-maximum.png
 social:
-    cards: false
+   cards: false
+status: implemented
 ---
 
 # Revenue Maximum
 
-<iframe src="main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="main.html" width="100%" height="477px" scrolling="no"></iframe>
+
+Copy this iframe to your website:
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/microsims-old/revenue-maximum/main.html" width="100%" height="450px" scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/microsims-old/revenue-maximum/main.html" width="100%" height="477px" scrolling="no"></iframe>
 ```
 
-[Run Revenue Maximum Fullscreen](main.html){ .md-button .md-button--primary }
+[Run the Revenue Maximum MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
 
-[Edit in p5.js Editor](https://editor.p5js.org/dmccreary/sketches/atfbM4MTM)
+[Edit in the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/atfbM4MTM)
 
 ## About This MicroSim
 
-This two-panel MicroSim demonstrates the fundamental economic relationship between price, quantity demanded, and total revenue.
+This MicroSim asks one question: **what price brings in the most money?**
 
-**Left Panel: Demand Curve**
+A seller faces a straight-line demand curve, `quantity = 200 − price`. At a price of $0 the
+seller gives away 200 units and takes in nothing. At a price of $200 nobody buys, so the seller
+again takes in nothing. The price with the most revenue is somewhere in between, and the
+learner's job is to find it.
 
-- Shows the inverse relationship between price and quantity
-- The shaded rectangle represents total revenue (Price × Quantity)
-- As price increases, quantity demanded decreases
+**Left panel: Demand Curve**
 
-**Right Panel: Revenue Curve**
+- Price is on the vertical axis and quantity sold is on the horizontal axis.
+- The blue rectangle under the current point is as tall as the price and as wide as the
+  quantity, so **its area is the revenue**.
+- A high price gives a tall, narrow rectangle. A low price gives a short, wide one.
 
-- Shows how total revenue varies with price
-- Revenue = Price × Quantity = Price × (MaxQuantity - Price)
-- This creates a parabolic curve
-- Maximum revenue occurs at the midpoint price (Price = 100)
-- The orange vertical line marks the maximum revenue point
+**Right panel: Revenue Curve**
+
+- Revenue is on the vertical axis and price is on the horizontal axis.
+- The curve is **not drawn when the MicroSim loads**. It appears as the price changes, so the
+  learner builds the hill and finds its top.
+- An orange ring marks the highest revenue found so far.
+- The height of the blue point always equals the area of the rectangle in the left panel.
+
+The line under the charts shows the calculation with the current numbers, such as
+`Revenue = Price × Quantity = $50 × 150 = $7,500`. The line below it reports the highest
+revenue found so far.
+
+**Learning objective:** The learner will identify the price that gives the most total revenue
+on a straight-line demand curve and explain why revenue falls at prices above and below it.
+
+**Bloom's taxonomy level:** Analyze (verbs: *identify*, *explain*)
 
 ### How to Use
 
-1. Move the **Price slider** to adjust the selling price (0-200)
-2. Observe how quantity changes on the left panel (demand curve)
-3. Watch the shaded revenue rectangle grow and shrink
-4. Find the price that maximizes revenue (peak of the parabola)
-5. Notice the orange line marking the maximum revenue point at Price = 100
+1. **Change the price.** Drag the blue point along the demand curve, drag across the revenue
+   chart, or move the **Price** slider.
+2. **Watch the rectangle.** Its area is the revenue. The same number is the height of the point
+   on the revenue chart.
+3. **Find the top of the hill.** Keep changing the price until the revenue stops going up.
+4. **Press Sweep Price** to clear the traced curve and watch the price move from $0 to $200.
+   Press the button again to pause, and again to resume. The sweep only runs while the mouse
+   is over the MicroSim, so it will not distract a reader who has moved on to the text.
+5. **Check Show Maximum** to reveal the whole curve, the peak, and the dashed orange outline of
+   the largest rectangle that fits under the demand curve.
+6. **Press Reset** to return the price to $50, clear the traced curve and uncheck the box.
+
+### Keyboard Shortcuts
+
+Click the MicroSim once so it has the keyboard focus.
+
+| Key | Action |
+|-----|--------|
+| **→** and **←** | Raise or lower the price by $1 |
+| **Shift** + **→** or **←** | Raise or lower the price by $10 |
+| **S** | Start, pause or resume the sweep |
+| **M** | Show or hide the maximum |
+| **R** | Reset |
+
+### What the Colors Mean
+
+| What you see | What it means |
+|--------------|---------------|
+| Crimson line | The demand curve: the quantity sold at each price |
+| Blue rectangle | Revenue as an area: price (height) × quantity (width) |
+| Blue curve | The part of the revenue curve traced so far |
+| Black labels on the axes | The current price and the current quantity |
+| Blue label on the revenue axis | The current revenue |
+| Orange ring | The highest revenue found so far |
+| Dashed orange lines | With **Show Maximum** checked: the peak of the revenue curve and the largest rectangle |
+
+### What to Try
+
+- Set the price to $40 and then to $160. Both give a revenue of $6,400. Use the two rectangles
+  to explain why.
+- Start at $50 and raise the price $10 at a time. Write down how much revenue you gain on each
+  step. The gains are $900, $700, $500, $300 and $100. What happens on the next step, and why?
+- Find the price where the rectangle is a square. What is special about that price?
 
 ## Lesson Plan
 
@@ -87,10 +145,13 @@ By the end of this lesson, students will be able to:
 
 **Instructions for students:**
 
-1. Start with the slider at Price = 0. What is the revenue? Why?
-2. Move to Price = 200. What is the revenue now? Why?
-3. Slowly move the slider from 0 to 200. At what price is revenue highest?
-4. Record your observations in a table:
+1. The MicroSim starts at a price of $50. Before you touch anything, predict: will revenue
+   rise or fall if the price goes up?
+2. Move the slider to Price = 0. What is the revenue? Why?
+3. Move to Price = 200. What is the revenue now? Why?
+4. Slowly move the slider from 0 to 200 and watch the revenue curve appear. At what price is
+   revenue highest?
+5. Record your observations in a table:
 
 | Price | Quantity | Revenue |
 |-------|----------|---------|
@@ -108,7 +169,8 @@ By the end of this lesson, students will be able to:
 2. The width represents quantity, the height represents price
 3. The area of the rectangle equals revenue (length × width = P × Q)
 4. Find the price where the rectangle has the maximum area
-5. **Discussion**: Why does the rectangle get smaller at extreme prices?
+5. Check **Show Maximum** and compare your rectangle with the dashed orange outline
+6. **Discussion**: Why does the rectangle get smaller at extreme prices?
 
 #### Activity 3: Mathematical Connection (15 minutes)
 
@@ -186,6 +248,25 @@ Calculate:
 4. The maximum revenue (5 points)
 5. Explain why the answer makes intuitive sense (5 points)
 
+??? note "Answer key"
+
+    **Activity 1 table**
+
+    | Price | Quantity | Revenue |
+    |-------|----------|---------|
+    | 0 | 200 | 0 |
+    | 50 | 150 | 7,500 |
+    | 100 | 100 | 10,000 |
+    | 150 | 50 | 7,500 |
+    | 200 | 0 | 0 |
+
+    **Activity 4 (movie theater):** R = 1000P - 50P². Revenue is largest at P = $10, where
+    500 people attend and the revenue is $5,000.
+
+    **Summative assessment (concert venue):** Q = 5000 - 50P and R = 5000P - 50P². Revenue is
+    largest at P = $50, where 2,500 seats are sold and the revenue is $125,000. The price is
+    halfway between $0 (a full house that pays nothing) and $100 (an empty house).
+
 ### Extensions
 
 #### For Advanced Students
@@ -210,7 +291,7 @@ Calculate:
 | Misconception | Clarification |
 |---------------|---------------|
 | "Higher prices always mean more revenue" | Revenue depends on BOTH price AND quantity sold |
-| "The demand curve IS the revenue curve" | They're related but different—revenue is the AREA under the demand curve |
+| "The demand curve IS the revenue curve" | They're related but different. Revenue is the area of the rectangle under one point of the demand curve, not the area under the whole curve |
 | "Maximum revenue = maximum profit" | Profit also considers costs, not just revenue |
 | "This is how all real markets work" | This is a simplified model; real demand curves are rarely perfectly linear |
 
@@ -220,11 +301,16 @@ Calculate:
 - **Technology needs**: Projector/smartboard for demonstration, student devices for exploration
 - **Differentiation**: Pair struggling students with peers; provide extension problems for advanced students
 - **Prior knowledge check**: Review multiplication and graph reading before starting
+- **Predict first**: Leave **Show Maximum** unchecked until students have committed to a prediction. The revenue curve is hidden at the start for the same reason.
 
 ## Revenue Maximization vs. Profit Maximization
 
-!!! warning "Important Distinction"
-    **Revenue maximization is NOT the same as profit maximization!** This MicroSim teaches revenue concepts, but businesses ultimately care about profit—what remains after costs are subtracted.
+!!! mascot-warning "Revenue Is Not Profit"
+    ![Bounce warning](../../img/mascot/warning.png){ class="mascot-admonition-img" }
+    A common trap here is to treat the top of the revenue hill as the best price for a business. Revenue ignores what each unit costs to make, so the price with the most profit is usually higher. Find the peak here first, then subtract the costs.
+
+This MicroSim teaches revenue concepts, but businesses ultimately care about profit, which is
+what remains after costs are subtracted.
 
 !!! tip "Next Steps"
     Ready to explore profit maximization? Continue to the [Profit Maximum MicroSim](../profit-maximum/index.md) to see how production costs change the optimal pricing decision.
@@ -251,116 +337,136 @@ But at Price = $120, we sell 80 units:
 
 **The profit-maximizing price is different from the revenue-maximizing price when costs are considered.**
 
-### Proposed MicroSim: Profit Maximization
+### The Profit Maximum MicroSim
 
-A natural extension of this MicroSim would add production costs to demonstrate true profit optimization. The key design principle: **keep the familiar two-panel structure** to reduce cognitive load and enable direct visual comparison.
+The design below was first written on this page as a proposal. It has since been built as the
+[Profit Maximum MicroSim](../profit-maximum/index.md), which keeps the two-panel structure of
+this MicroSim and adds a marginal cost slider.
 
-#### Two-Panel Design (Recommended)
+??? note "The original design proposal for the Profit Maximum MicroSim"
 
-```
-┌───────────────────────┬───────────────────────┐
-│    DEMAND CURVE       │   REVENUE vs PROFIT   │
-│                       │                       │
-│   Price               │   $                   │
-│     │╲                │         ∩ Revenue     │
-│     │ ╲               │        ╱ ╲  (blue)    │
-│     │  ╲  Profit      │       ╱   ╲           │
-│     │   ╲ Rectangle   │   ∩  ╱     ╲          │
-│     │    ╲ (green)    │  ╱ ╲╱ Profit (green)  │
-│     └─────────────    │  └────────────────    │
-│        Quantity       │        Price          │
-└───────────────────────┴───────────────────────┘
-              Controls
-   [Price]  [Marginal Cost]  [Toggle Revenue Curve]
-```
+    A natural extension of this MicroSim would add production costs to demonstrate true profit optimization. The key design principle: **keep the familiar two-panel structure** to reduce cognitive load and enable direct visual comparison.
 
-#### Why Two Panels Instead of Three?
+    **Two-Panel Design (Recommended)**
 
-From an instructional design perspective:
+    ```
+    ┌───────────────────────┬───────────────────────┐
+    │    DEMAND CURVE       │   REVENUE vs PROFIT   │
+    │                       │                       │
+    │   Price               │   $                   │
+    │     │╲                │         ∩ Revenue     │
+    │     │ ╲               │        ╱ ╲  (blue)    │
+    │     │  ╲  Profit      │       ╱   ╲           │
+    │     │   ╲ Rectangle   │   ∩  ╱     ╲          │
+    │     │    ╲ (green)    │  ╱ ╲╱ Profit (green)  │
+    │     └─────────────    │  └────────────────    │
+    │        Quantity       │        Price          │
+    └───────────────────────┴───────────────────────┘
+                  Controls
+       [Price]  [Marginal Cost]  [Toggle Revenue Curve]
+    ```
 
-1. **Reduced cognitive load**: Students track two visualizations, not three
-2. **Direct comparison**: Overlaying revenue and profit curves on the same axes makes the key insight immediately visible—the peaks occur at *different* prices
-3. **Familiar structure**: Matches the Revenue Maximum MicroSim, so students spend less time orienting and more time learning
-4. **Better responsiveness**: Works well on mobile devices and classroom projectors
+    **Why Two Panels Instead of Three?**
 
-!!! tip "Design Principle"
-    The core learning objective is simple: *profit-maximizing price ≠ revenue-maximizing price*. The UI should be equally simple. Save cost curve analysis (MC, ATC, AVC) for a separate, more advanced MicroSim.
+    From an instructional design perspective:
 
-#### Panel Descriptions
+    1. **Reduced cognitive load**: Students track two visualizations, not three
+    2. **Direct comparison**: Overlaying revenue and profit curves on the same axes makes the key insight immediately visible—the peaks occur at *different* prices
+    3. **Familiar structure**: Matches the Revenue Maximum MicroSim, so students spend less time orienting and more time learning
+    4. **Better responsiveness**: Works well on mobile devices and classroom projectors
 
-**Left Panel: Demand Curve with Profit Rectangle**
+    !!! tip "Design Principle"
+        The core learning objective is simple: *profit-maximizing price ≠ revenue-maximizing price*. The UI should be equally simple. Save cost curve analysis (MC, ATC, AVC) for a separate, more advanced MicroSim.
 
-- Same demand curve as Revenue Maximum MicroSim
-- Shaded area now shows **PROFIT**, not revenue
-- Profit rectangle = (Price - Marginal Cost) × Quantity
-- **Green** when profit > 0, **Red** when operating at a loss
-- Horizontal dashed line shows the marginal cost level
+    **Panel Descriptions**
 
-**Right Panel: Revenue and Profit Curves (Overlaid)**
+    **Left Panel: Demand Curve with Profit Rectangle**
 
-- **Blue curve**: Revenue (same parabola as Revenue Maximum)
-- **Green curve**: Profit (shifted down and right)
-- **Blue vertical line**: Revenue-maximizing price (always at P = 100)
-- **Green vertical line**: Profit-maximizing price (shifts based on marginal cost)
-- Students can visually see the gap between the two optimal prices
+    - Same demand curve as Revenue Maximum MicroSim
+    - Shaded area now shows **PROFIT**, not revenue
+    - Profit rectangle = (Price - Marginal Cost) × Quantity
+    - **Green** when profit > 0, **Red** when operating at a loss
+    - Horizontal dashed line shows the marginal cost level
 
-#### Interactive Controls
+    **Right Panel: Revenue and Profit Curves (Overlaid)**
 
-| Control | Range | Purpose |
-|---------|-------|---------|
-| **Price Slider** | $0 - $200 | Set selling price |
-| **Marginal Cost Slider** | $0 - $80 | Adjust per-unit production cost |
-| **Show Revenue Curve** | Toggle | Compare profit curve to revenue curve |
+    - **Blue curve**: Revenue (same parabola as Revenue Maximum)
+    - **Green curve**: Profit (shifted down and right)
+    - **Blue vertical line**: Revenue-maximizing price (always at P = 100)
+    - **Green vertical line**: Profit-maximizing price (shifts based on marginal cost)
+    - Students can visually see the gap between the two optimal prices
 
-#### Key Learning Moments
+    **Interactive Controls**
 
-1. **The Gap**: When MC = $30, revenue peaks at P = 100, but profit peaks at P = 115
-2. **Why the Shift**: Higher costs mean you need higher prices to maintain margins
-3. **Break-even Points**: Two prices where profit = 0 (too low or too high)
-4. **Loss Region**: Red shading when price is below marginal cost
-5. **Special Case**: When MC = 0, both curves peak at the same price
+    | Control | Range | Purpose |
+    |---------|-------|---------|
+    | **Price Slider** | $0 - $200 | Set selling price |
+    | **Marginal Cost Slider** | $0 - $80 | Adjust per-unit production cost |
+    | **Show Revenue Curve** | Toggle | Compare profit curve to revenue curve |
 
-#### Mathematical Foundation
+    **Key Learning Moments**
 
-**Profit Function:**
+    1. **The Gap**: When MC = $30, revenue peaks at P = 100, but profit peaks at P = 115
+    2. **Why the Shift**: Higher costs mean you need higher prices to maintain margins
+    3. **Break-even Points**: Two prices where profit = 0 (too low or too high)
+    4. **Loss Region**: Red shading when price is below marginal cost
+    5. **Special Case**: When MC = 0, both curves peak at the same price
 
-$$\pi(P) = P \cdot Q(P) - MC \cdot Q(P) = (P - MC) \cdot Q(P)$$
+    **Mathematical Foundation**
 
-With our demand function $Q(P) = 200 - P$:
+    **Profit Function:**
 
-$$\pi(P) = (P - MC)(200 - P)$$
+    $$\pi(P) = P \cdot Q(P) - MC \cdot Q(P) = (P - MC) \cdot Q(P)$$
 
-$$\pi(P) = 200P - P^2 - 200 \cdot MC + MC \cdot P$$
+    With our demand function $Q(P) = 200 - P$:
 
-$$\pi(P) = -P^2 + (200 + MC)P - 200 \cdot MC$$
+    $$\pi(P) = (P - MC)(200 - P)$$
 
-**Optimal Price (using calculus):**
+    $$\pi(P) = 200P - P^2 - 200 \cdot MC + MC \cdot P$$
 
-$$\frac{d\pi}{dP} = -2P + 200 + MC = 0$$
+    $$\pi(P) = -P^2 + (200 + MC)P - 200 \cdot MC$$
 
-$$P^* = \frac{200 + MC}{2} = 100 + \frac{MC}{2}$$
+    **Optimal Price (using calculus):**
 
-| Marginal Cost | Revenue-Max Price | Profit-Max Price | Difference |
-|---------------|-------------------|------------------|------------|
-| $0 | $100 | $100 | $0 |
-| $20 | $100 | $110 | $10 |
-| $40 | $100 | $120 | $20 |
-| $60 | $100 | $130 | $30 |
+    $$\frac{d\pi}{dP} = -2P + 200 + MC = 0$$
 
-**Key insight**: The profit-maximizing price is always $100 + \frac{MC}{2}$, which is higher than the revenue-maximizing price whenever production has a cost.
+    $$P^* = \frac{200 + MC}{2} = 100 + \frac{MC}{2}$$
 
-#### Classroom Applications
+    | Marginal Cost | Revenue-Max Price | Profit-Max Price | Difference |
+    |---------------|-------------------|------------------|------------|
+    | $0 | $100 | $100 | $0 |
+    | $20 | $100 | $110 | $10 |
+    | $40 | $100 | $120 | $20 |
+    | $60 | $100 | $130 | $30 |
 
-1. **What-if scenarios**: "What happens to optimal price if our supplier raises costs by $10?"
-2. **Visual proof**: "Why doesn't the highest price give the most profit?"
-3. **Break-even planning**: "At what prices do we just cover our costs?"
-4. **Comparison exercise**: Toggle the revenue curve on/off to see the relationship
+    **Key insight**: The profit-maximizing price is always $100 + \frac{MC}{2}$, which is higher than the revenue-maximizing price whenever production has a cost.
 
-This Profit Maximization MicroSim would serve as the natural "Part 2" to the Revenue Maximum MicroSim, completing the economic picture of business decision-making while maintaining a simple, learnable interface.
+    **Classroom Applications**
+
+    1. **What-if scenarios**: "What happens to optimal price if our supplier raises costs by $10?"
+    2. **Visual proof**: "Why doesn't the highest price give the most profit?"
+    3. **Break-even planning**: "At what prices do we just cover our costs?"
+    4. **Comparison exercise**: Toggle the revenue curve on/off to see the relationship
+
+    This Profit Maximization MicroSim would serve as the natural "Part 2" to the Revenue Maximum MicroSim, completing the economic picture of business decision-making while maintaining a simple, learnable interface.
+
+## Version History
+
+The first version of this MicroSim (December 2025) drew the whole revenue curve and an orange
+line at the maximum as soon as it loaded, and the slider started at $100, which is the answer.
+The current version starts at $50 and hides the curve so that the learner finds the peak. It
+also adds axis scales, value labels on the axes, dragging on both charts, keyboard shortcuts,
+the **Sweep Price** animation, the **Show Maximum** checkbox and a narrow-screen layout, and it
+runs on p5.js 2.3.2. The original version is saved in this repository's git history.
 
 ## References
 
-1. [Khan Academy - Revenue and Pricing](https://www.khanacademy.org/economics-finance-domain/microeconomics/firm-economic-profit/economic-profit-tutorial/v/economic-profit-vs-accounting-profit) - Video explanations of revenue concepts
-2. [Principles of Economics - OpenStax](https://openstax.org/details/books/principles-economics-3e) - Free economics textbook
-3. [Revenue Optimization in Practice](https://hbr.org/2016/08/a-quick-guide-to-value-based-pricing) - Harvard Business Review article on pricing strategy
-4. [Desmos Graphing Calculator](https://www.desmos.com/calculator) - Tool for exploring quadratic revenue functions
+1. [Total revenue](https://en.wikipedia.org/wiki/Total_revenue) - accessed 2026-09-30 - Wikipedia - Defines total revenue as price times the quantity sold and relates changes in revenue to price elasticity.
+2. [Demand curve](https://en.wikipedia.org/wiki/Demand_curve) - accessed 2026-09-30 - Wikipedia - Background on the curve in the left panel and on the law of demand behind its downward slope.
+3. [Price elasticity of demand](https://en.wikipedia.org/wiki/Price_elasticity_of_demand) - accessed 2026-09-30 - Wikipedia - Explains why a price increase raises revenue where demand is inelastic and lowers it where demand is elastic.
+4. [5.3 Elasticity and Pricing](https://openstax.org/books/principles-economics-3e/pages/5-3-elasticity-and-pricing) - 2022 - Principles of Economics 3e, OpenStax - A free textbook section that uses a band's ticket price to ask whether a higher price brings in more revenue.
+5. [A Quick Guide to Value-Based Pricing](https://hbr.org/2016/08/a-quick-guide-to-value-based-pricing) - August 2016 - Harvard Business Review - How businesses set prices in practice, for the discussion of factors beyond the revenue-maximizing price.
+6. [Economic profit vs accounting profit](https://www.khanacademy.org/economics-finance-domain/microeconomics/firm-economic-profit/economic-profit-tutorial/v/economic-profit-vs-accounting-profit) - Khan Academy - A video on revenue, costs and profit that supports the revenue versus profit section.
+7. [Quadratic function](https://en.wikipedia.org/wiki/Quadratic_function) - accessed 2026-09-30 - Wikipedia - The mathematics of the parabola R = 200P - P² and its vertex.
+8. [Desmos Graphing Calculator](https://www.desmos.com/calculator) - Desmos - A tool for graphing the revenue function of the movie theater and concert venue problems.
+9. [p5.js Reference](https://p5js.org/reference/) - accessed 2026-09-30 - p5.js - Documentation for the JavaScript library used to build this MicroSim.

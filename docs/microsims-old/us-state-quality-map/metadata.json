@@ -1,71 +1,357 @@
 {
-  "title": "US State Quality of Life Index Map",
-  "description": "Interactive choropleth map grading all 50 US states on 8 quality of life metrics including income, education, health, crime, and housing costs.",
-  "subject": "Mathematics",
-  "topic": "US State Quality of Life Index Map",
-  "gradeLevel": "6-12",
-  "bloomsTaxonomy": [
-    "Understand",
-    "Apply"
-  ],
-  "author": "Dan McCreary",
-  "dateCreated": "2026-01-23",
-  "dateModified": "2026-01-23",
-  "version": "1.0.0",
-  "license": "MIT",
-  "language": "en",
-  "format": "text/html",
-  "type": "Interactive Simulation",
-  "framework": "leaflet",
-  "url": "https://dmccreary.github.io/microsims/microsims-old/us-state-quality-map/",
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/us-state-quality-map/",
-  "_source": {
-    "repo": "microsims",
-    "sim": "us-state-quality-map",
-    "github_url": "https://github.com/dmccreary/microsims/tree/main/docs/microsims-old/us-state-quality-map",
-    "auto_generated": true,
-    "generation_date": "2026-01-23"
-  },
-  "subjects": [
-    "Mathematics",
-    "Computer Science",
-    "Chemistry",
-    "Biology",
-    "Statistics",
-    "Engineering",
-    "Economics"
-  ],
-  "visualizationType": [
-    "chart",
-    "graph",
-    "interactive-demo",
-    "map"
-  ],
-  "learningObjectives": [
-    "Understand the mathematical concept of us state quality of life index map",
-    "Apply us state quality of life index map to solve problems",
-    "Visualize and interpret us state quality of life index map relationships",
-    "Experiment with parameters to observe their effects on us state quality of life index map"
-  ],
-  "pedagogical": {
-    "pattern": "assessment",
-    "bloomAlignment": [
-      "understand",
-      "apply"
-    ],
-    "bloomVerbs": [
-      "compare",
-      "calculate",
-      "implement",
-      "use"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": true,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "immediate",
-      "corrective"
-    ],
-    "interactionStyle": "manipulate"
+  "microsim": {
+    "dublinCore": {
+      "title": "US State Quality of Life Index Map",
+      "creator": ["Dan McCreary"],
+      "subject": ["Quality of Life", "US States", "Choropleth Maps", "Social Indicators", "Economics", "Public Health", "Data Visualization"],
+      "description": "An interactive choropleth map that grades each of the 50 US states on 8 quality of life metrics: personal income, poverty rate, education attainment, life expectancy, infant mortality, violent crime, median home price and food insecurity. A state's color shows how many of the 8 metrics are better than the national average, from dark green (8 of 8) to dark red (0 of 8). Hovering over a state lists its 8 values with a + or - for each, and clicking a state zooms the map to it.",
+      "publisher": "MicroSims Educational Platform",
+      "date": "2025-12-12",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/us-state-quality-map/",
+      "source": "Personal income: U.S. Bureau of Economic Analysis, real per capita personal income, 2023 (via FRED). Poverty: U.S. Census Bureau, Poverty in the United States: 2025, Table 17, Supplemental Poverty Measure, 2023-2025 average. Education: U.S. Census Bureau, American Community Survey 1-year estimates, 2023 (via FRED). Life expectancy: CDC National Center for Health Statistics, U.S. State Life Tables, 2022. Infant mortality: CDC National Center for Health Statistics, Stats of the States, 2023. Violent crime: FBI Uniform Crime Reporting Program, estimated crimes, 2023. Home value: Zillow Home Value Index, 2024 (via FRED). Food insecurity: USDA Economic Research Service, Household Food Security in the United States in 2023, 2021-2023 average. All retrieved 2026-10-01",
+      "language": "en",
+      "coverage": {
+        "spatial": "United States (50 states)",
+        "temporal": "2021-2025"
+      },
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["choropleth map", "US states", "quality of life", "national average", "state comparison", "composite index", "Leaflet"],
+      "searchKeywords": ["quality of life by state map", "compare US states", "state rankings choropleth", "better than national average", "interactive US map"],
+      "visualizationType": ["map", "data-visualization", "interactive-demo"],
+      "interactionLevel": "moderate",
+      "complexity": 3,
+      "relatedConcepts": ["Choropleth Map", "Composite Index", "National Average", "Equal Weighting", "Cost-of-Living Adjustment", "Supplemental Poverty Measure", "Rate per 100,000"],
+      "applicationDomains": ["education", "exploration", "analysis"],
+      "showcase": true
+    },
+    "educational": {
+      "gradeLevel": ["9", "10", "11", "12", "Undergraduate"],
+      "subjectArea": ["Social Studies", "Economics", "Statistics"],
+      "topic": ["Quality of Life Indicators", "Choropleth Maps", "Composite Indexes", "Comparison with a National Average"],
+      "learningObjectives": [
+        "Interpret the color of a state on a choropleth map as the number of metrics on which the state is better than the national average.",
+        "Explain why a higher value is better for income, education and life expectancy, while a lower value is better for poverty, infant mortality, violent crime, home price and food insecurity.",
+        "Compare two states metric by metric to find which metrics account for the difference in their grades.",
+        "Evaluate the limits of an index that gives every metric equal weight and counts only whether a value is better or worse than average."
+      ],
+      "bloomsTaxonomy": ["Understand", "Analyze", "Evaluate"],
+      "prerequisites": [
+        "Locating US states on a map",
+        "The meaning of an average",
+        "Percentages and rates such as per 1,000 and per 100,000"
+      ],
+      "duration": {
+        "typical": 15,
+        "range": {"min": 5, "max": 30}
+      },
+      "difficulty": "Intermediate",
+      "misconceptions": [
+        {
+          "misconception": "A state with high personal income has a high quality of life grade.",
+          "correction": "Income is one of 8 equally weighted metrics, so a state can beat the average on income and still fall below it on most of the others.",
+          "evidence": "Wyoming has the highest personal income of any state, $75,323 against a national average of $58,088, yet its grade is 5/8, lower than the grades of 14 other states."
+        },
+        {
+          "misconception": "Low home prices mean a high grade, and high home prices mean a low grade.",
+          "correction": "Median home price counts as a single metric. The other 7 metrics decide most of the grade.",
+          "evidence": "Massachusetts has a typical home value of $633,126 and a grade of 7/8, while Louisiana has a typical home value of $214,811 and a grade of 1/8."
+        },
+        {
+          "misconception": "A state graded 0/8 is far worse than average on every metric.",
+          "correction": "The grade counts how many metrics are worse than average and ignores how much worse each one is.",
+          "evidence": "Nevada is graded 0/8, yet its food insecurity rate (12.5% against 12.2%) and its infant mortality rate (5.88 against 5.60 per 1,000) are close to the national averages."
+        }
+      ]
+    },
+    "technical": {
+      "framework": "other",
+      "version": "1.0.0",
+      "canvasDimensions": {
+        "width": 700,
+        "height": 546,
+        "responsive": true
+      },
+      "dependencies": [
+        "Leaflet 1.9.4 (unpkg CDN)",
+        "OpenStreetMap raster tiles (tile.openstreetmap.org)",
+        "US state boundaries GeoJSON (PublicaMundi/MappingAPI on raw.githubusercontent.com)",
+        "data.json (local file with the state metrics and national averages)"
+      ],
+      "browserCompatibility": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+      "deviceRequirements": {
+        "minScreenWidth": 360,
+        "touchSupport": false,
+        "keyboardRequired": false,
+        "mouseRequired": true,
+        "networkRequired": true
+      },
+      "dataFlow": {
+        "inputSources": [
+          "data.json: 8 metric values and ranks for each state, the national averages, and a higher-is-better flag for each metric",
+          "us-states.json: GeoJSON state boundaries fetched from GitHub",
+          "OpenStreetMap tile server: base map tiles",
+          "User: pointer hover, click, drag and scroll wheel"
+        ],
+        "dataProcessing": [
+          "Compare each metric value of a state with the national average, using the higher-is-better flag to set the direction",
+          "Count the metrics that are better than average to give a grade from 0 to 8",
+          "Look up the label and the fill color for the grade"
+        ],
+        "outputTargets": [
+          "Fill color of each state shape on the map",
+          "Info panel listing the 8 metrics of the hovered state"
+        ]
+      },
+      "stateManagement": {
+        "stateType": "local-state",
+        "persistence": false,
+        "synchronization": false
+      },
+      "accessibility": {
+        "screenReader": false,
+        "keyboardNavigation": false,
+        "colorContrast": false,
+        "altText": false,
+        "screenReaderScript": "A map of the United States in which each of the 50 states is filled with one of nine colors. The color shows how many of 8 quality of life metrics are better than the national average, from dark green for 8 of 8 through yellow for 4 of 8 to dark red for 0 of 8. Hovering over a state opens a panel with the state's name, its grade, and a row for each metric giving the rank, the value, and a plus sign if the value is better than average or a minus sign if it is worse. A legend below the map lists the nine colors."
+      }
+    },
+    "userInterface": {
+      "layoutType": "responsive-width",
+      "layoutPattern": "title-above-map-above-legend",
+      "colorScheme": {
+        "drawingArea": "aliceblue",
+        "controlArea": "white",
+        "borders": "white",
+        "accent": "#1a5e1a to #8B0000 (nine-step green to red grade scale)",
+        "text": "#333"
+      },
+      "controls": [
+        {
+          "id": "stateShapes",
+          "type": "button",
+          "label": "State shapes on the map",
+          "description": "Each of the 50 state shapes responds to the pointer. Hovering outlines the state and lists its 8 metrics in the info panel; clicking zooms the map to the state.",
+          "affects": ["infoPanel", "map"],
+          "properties": {
+            "action": "highlightFeature on hover, resetHighlight on leave, zoomToFeature on click"
+          }
+        },
+        {
+          "id": "zoomIn",
+          "type": "button",
+          "label": "Zoom in",
+          "description": "The Leaflet + button at the top left of the map zooms in one level.",
+          "affects": ["map"],
+          "properties": {
+            "text": "+"
+          }
+        },
+        {
+          "id": "zoomOut",
+          "type": "button",
+          "label": "Zoom out",
+          "description": "The Leaflet - button at the top left of the map zooms out one level.",
+          "affects": ["map"],
+          "properties": {
+            "text": "-"
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "shape",
+          "description": "A 420-pixel-high Leaflet map with a choropleth of the 50 states over OpenStreetMap tiles. Each state is filled with one of nine grade colors. The District of Columbia and Puerto Rico have no data and are filled gray. The map can also be dragged and zoomed with the scroll wheel.",
+          "interactive": true,
+          "updateTriggers": ["stateShapes", "zoomIn", "zoomOut"]
+        },
+        {
+          "type": "text-display",
+          "description": "An info panel in a top corner of the map shows the hovered state's name, abbreviation, grade badge and counts of better and worse metrics, then one row per metric with its rank, value and a green + or red -. The panel moves to the top left for states east of 100 degrees west longitude so that it does not cover the state.",
+          "interactive": false,
+          "updateTriggers": ["stateShapes"]
+        },
+        {
+          "type": "diagram",
+          "description": "A legend below the map with nine color swatches labeled from 8/8 Best through 4/8 Avg to 0/8 Worst.",
+          "interactive": false
+        },
+        {
+          "type": "text-display",
+          "description": "A title and subtitle above the map and the instruction 'Hover over a state to see detailed metrics' below the legend.",
+          "interactive": false
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "statistical",
+        "description": "Each state is compared with the national average on 8 metrics. The grade is the number of metrics on which the state is better than average, and the grade sets the state's color.",
+        "equations": [
+          "better = value > national average, for metrics where higher is better (personal income, education attainment, life expectancy)",
+          "better = value < national average, for metrics where lower is better (poverty rate, infant mortality, violent crime, median home price, food insecurity)",
+          "grade = number of the 8 metrics that are better (0 to 8)",
+          "worse count = 8 - grade"
+        ],
+        "assumptions": [
+          "All 8 metrics have equal weight",
+          "The national averages are the published national figures for each metric, stored in data.json; they are not computed from the 50 state values",
+          "A state average describes the whole state"
+        ],
+        "limitations": [
+          "A value equal to the national average counts as worse; this affects 4 of the 400 state metric values (for example, the life expectancy of Illinois is 77.5 years, the same as the national figure)",
+          "The grade ignores how far a value is from the average",
+          "The rank shown beside each metric is stored in data.json and is not computed by the page, so the ranks must be recomputed whenever a value changes",
+          "States with equal values share a rank, so some rank numbers are skipped (Alabama, Louisiana, Oklahoma and Tennessee all have a life expectancy of 73.8 years)",
+          "The metrics cover different periods: life expectancy is for 2022; personal income, education, infant mortality and violent crime are for 2023; home value is for 2024; food insecurity is a 2021-2023 average; and poverty is a 2023-2025 average",
+          "The state poverty and food insecurity rates are survey estimates with margins of error between 0.6 and 2.5 percentage points, so a small difference from the national average may not be statistically significant",
+          "The metric labeled Median Home Price is the Zillow Home Value Index, a measure of the typical home value and not a median sale or listing price",
+          "Personal income is in chained 2017 dollars, while median home price is in current dollars",
+          "The District of Columbia and Puerto Rico are drawn on the map but have no data",
+          "State averages hide differences within a state, such as urban and rural areas",
+          "The data are a snapshot retrieved on 2026-10-01 and do not update"
+        ]
+      },
+      "variables": [
+        {
+          "name": "personalIncome",
+          "type": "constant",
+          "description": "Real per capita personal income for 2023, adjusted for regional price parities and inflation. Higher is better. National average: 58088",
+          "dataType": "integer",
+          "units": "chained 2017 US dollars",
+          "range": {"min": 47517, "max": 75323}
+        },
+        {
+          "name": "povertyRate",
+          "type": "constant",
+          "description": "Percentage of people in poverty under the Supplemental Poverty Measure, which adjusts for regional housing costs; 3-year average for 2023-2025. Lower is better. National average: 13.0",
+          "dataType": "number",
+          "units": "%",
+          "range": {"min": 6.4, "max": 19.0}
+        },
+        {
+          "name": "educationAttainment",
+          "type": "constant",
+          "description": "Percentage of adults aged 25 and over with a bachelor's degree or higher, 2023. Higher is better. National average: 36.2",
+          "dataType": "number",
+          "units": "%",
+          "range": {"min": 24.0, "max": 47.8}
+        },
+        {
+          "name": "lifeExpectancy",
+          "type": "constant",
+          "description": "Life expectancy at birth, 2022. Higher is better. National average: 77.5",
+          "dataType": "number",
+          "units": "years",
+          "range": {"min": 72.2, "max": 80.0}
+        },
+        {
+          "name": "infantMortality",
+          "type": "constant",
+          "description": "Deaths under 1 year of age, 2023. Lower is better. National average: 5.60",
+          "dataType": "number",
+          "units": "per 1,000 live births",
+          "range": {"min": 2.93, "max": 8.94}
+        },
+        {
+          "name": "violentCrime",
+          "type": "constant",
+          "description": "Violent crimes (homicide, rape, robbery and aggravated assault), 2023. Lower is better. National average: 379.5",
+          "dataType": "number",
+          "units": "per 100,000 population",
+          "range": {"min": 103.8, "max": 746.9}
+        },
+        {
+          "name": "medianHomePrice",
+          "type": "constant",
+          "description": "Typical home value: Zillow Home Value Index for all homes, average of the 12 months of 2024. Lower is better. National average: 362544",
+          "dataType": "integer",
+          "units": "US dollars",
+          "range": {"min": 169013, "max": 844819}
+        },
+        {
+          "name": "foodInsecurity",
+          "type": "constant",
+          "description": "Percentage of households experiencing food insecurity; 3-year average for 2021-2023. Lower is better. National average: 12.2",
+          "dataType": "number",
+          "units": "%",
+          "range": {"min": 7.4, "max": 18.9}
+        },
+        {
+          "name": "betterCount",
+          "type": "output",
+          "description": "The grade: the number of metrics on which the state is better than the national average",
+          "dataType": "integer",
+          "range": {"min": 0, "max": 8}
+        },
+        {
+          "name": "color",
+          "type": "output",
+          "description": "The fill color of the state, looked up from the grade in a nine-color scale",
+          "dataType": "string"
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "best-grade",
+          "description": "Minnesota is the only state better than the national average on all 8 metrics (8/8, dark green)",
+          "parameters": {"state": "Minnesota"}
+        },
+        {
+          "name": "worst-grade",
+          "description": "Nevada is the only state worse than the national average on all 8 metrics (0/8, dark red)",
+          "parameters": {"state": "Nevada"}
+        },
+        {
+          "name": "highest-income-middling-grade",
+          "description": "Wyoming has the highest personal income but is worse than average on education attainment, life expectancy and food insecurity (5/8)",
+          "parameters": {"state": "Wyoming"}
+        },
+        {
+          "name": "expensive-homes-high-grade",
+          "description": "Massachusetts beats the average on every metric except median home price (7/8)",
+          "parameters": {"state": "Massachusetts"}
+        }
+      ]
+    },
+    "usage": {
+      "recommendedUsage": ["demonstration", "exploration", "guided-practice", "group-activity"],
+      "instructionalStrategies": [
+        "Predict, then test: students guess their own state's grade and the metrics it is better on before hovering over it",
+        "Pair comparison: each pair picks two neighboring states with different colors and lists the metrics that explain the difference",
+        "Index critique: students propose a different weighting or a different set of metrics and argue how the map would change"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "Which state is better than the national average on all 8 metrics?",
+          "type": "observation",
+          "level": "Remember"
+        },
+        {
+          "question": "For which of the 8 metrics is a lower value better, and why?",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "Wyoming has the highest personal income of any state but a grade of 5/8. Which metrics lower its grade?",
+          "type": "short-answer",
+          "level": "Analyze"
+        },
+        {
+          "question": "Nevada is graded 0/8. Does that mean it is far below average on every metric? Use its metric values to support your answer.",
+          "type": "essay",
+          "level": "Evaluate"
+        }
+      ],
+      "extensions": [
+        "Add a control that colors the map by a single metric",
+        "Replace the better-or-worse count with a weighted score that uses the distance from the average",
+        "Compute the ranks in the page from the values instead of reading them from data.json",
+        "Add metrics such as air quality or commute time"
+      ]
+    }
   }
 }

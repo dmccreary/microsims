@@ -1,77 +1,291 @@
 {
-  "title": "Least Squares",
-  "description": "Interactive simulation for Least Squares",
-  "creator": "Dan McCreary",
-  "date": "2025-11-24",
-  "subject": [
-    "Least"
-  ],
-  "type": "Interactive Simulation",
-  "format": "text/html",
-  "language": "en-US",
-  "rights": "CC BY 4.0",
-  "contributor": [
-    "Claude Code"
-  ],
-  "identifier": "https://dmccreary.github.io/microsims/microsims-old/least-squares/",
-  "publisher": "MicroSims Educational Platform",
-  "educationalLevel": "High School, College",
-  "learningResourceType": "simulation",
-  "audience": "Students, Educators",
-  "version": "1.0.0",
-  "bloomLevel": [
-    "Understand",
-    "Apply"
-  ],
-  "concepts": [
-    "Least Squares"
-  ],
-  "prerequisites": [
-    "Basic understanding of the subject"
-  ],
-  "library": "p5.js",
-  "visualizationType": [
-    "animation",
-    "graph",
-    "interactive-demo",
-    "network",
-    "simulation"
-  ],
-  "learningObjectives": [
-    "Understand the key concepts of least squares",
-    "Explore least squares through interactive visualization",
-    "Apply knowledge of least squares to solve problems",
-    "Experiment with parameters to observe their effects on least squares"
-  ],
-  "bloomsTaxonomy": [
-    "Remember",
-    "Understand",
-    "Apply",
-    "Evaluate",
-    "Create"
-  ],
-  "pedagogical": {
-    "pattern": "guided-discovery",
-    "bloomAlignment": [
-      "understand",
-      "apply",
-      "analyze"
-    ],
-    "bloomVerbs": [
-      "compare",
-      "describe",
-      "explain",
-      "interpret",
-      "apply"
-    ],
-    "pacing": "self-paced",
-    "supportsPrediction": true,
-    "dataVisibility": "high",
-    "feedbackType": [
-      "immediate",
-      "corrective",
-      "explanatory"
-    ],
-    "interactionStyle": "manipulate"
+  "microsim": {
+    "dublinCore": {
+      "title": "Least Squares",
+      "creator": ["Dan McCreary"],
+      "subject": ["Least Squares", "Linear Regression", "Slope and Intercept", "Residuals", "Algebra", "Statistics"],
+      "description": "A p5.js MicroSim in which students move a slope slider and an intercept slider to fit a line to four data points. A colored square between each data point and the line shows the squared error, so the least squares line is the one that makes the total area of the squares as small as possible.",
+      "publisher": "MicroSims Educational Platform",
+      "contributor": ["Claude (Anthropic) via the microsim-utils skill"],
+      "date": "2023-11-24",
+      "type": "Interactive Simulation",
+      "format": "text/html",
+      "identifier": "https://dmccreary.github.io/microsims/microsims-old/least-squares/",
+      "language": "en",
+      "rights": "CC BY-NC-SA 4.0"
+    },
+    "search": {
+      "tags": ["least squares", "linear regression", "line of best fit", "slope", "intercept", "residuals", "squared error", "p5.js"],
+      "searchKeywords": ["least squares simulation", "fit a line to data", "sum of squared errors", "slope intercept slider", "residual squares"],
+      "visualizationType": ["simulation", "graph", "interactive-demo"],
+      "interactionLevel": "moderate",
+      "complexity": 3,
+      "relatedConcepts": ["Slope-Intercept Form", "Scatter Plot", "Residual", "Sum of Squared Errors", "Interpolation and Extrapolation", "Prediction"],
+      "applicationDomains": ["education", "exploration", "demonstration"],
+      "showcase": false
+    },
+    "educational": {
+      "gradeLevel": ["8", "9", "10", "11", "12"],
+      "subjectArea": ["Mathematics", "Statistics"],
+      "topic": ["Least Squares", "Linear Regression", "Slope and Intercept of a Line", "Residuals"],
+      "learningObjectives": [
+        "Adjust the slope and the intercept of a line to make the squares of the errors as small as possible.",
+        "Define slope as a rate of change.",
+        "Explain the meaning of the y-intercept in a linear function.",
+        "Identify how changes in slope and intercept affect the graph of a line.",
+        "Use a linear model to make predictions for new x-values.",
+        "Evaluate the reliability of predictions made with a linear model."
+      ],
+      "bloomsTaxonomy": ["Remember", "Understand", "Apply", "Evaluate"],
+      "prerequisites": [
+        "Basic understanding of the coordinate plane",
+        "Ability to plot points on a graph",
+        "Familiarity with the equation y = mx + b"
+      ],
+      "duration": {
+        "typical": 50,
+        "range": {"min": 15, "max": 50}
+      },
+      "difficulty": "Beginner",
+      "curriculumStandards": [
+        {
+          "framework": "Common Core State Standards for Mathematics",
+          "identifier": "8.SP.A.2",
+          "description": "For scatter plots that suggest a linear association, informally fit a straight line, and informally assess the model fit by judging the closeness of the data points to the line."
+        },
+        {
+          "framework": "Common Core State Standards for Mathematics",
+          "identifier": "HSS-ID.B.6",
+          "description": "Represent data on two quantitative variables on a scatter plot, fit a function to the data, and informally assess the fit by analyzing residuals."
+        },
+        {
+          "framework": "Common Core State Standards for Mathematics",
+          "identifier": "HSS-ID.C.7",
+          "description": "Interpret the slope (rate of change) and the intercept (constant term) of a linear model in the context of the data."
+        }
+      ],
+      "misconceptions": [
+        {
+          "misconception": "The best line passes through as many data points as possible.",
+          "correction": "The least squares line makes the total squared error as small as possible and may not pass through any data point.",
+          "evidence": "At a slope of 0.33 and an intercept of 165 the squares are smallest, yet the line misses all four green points."
+        },
+        {
+          "misconception": "A point that is twice as far from the line counts twice as much.",
+          "correction": "The error is squared, so a point that is twice as far from the line counts four times as much.",
+          "evidence": "Doubling the distance between a green point and its purple point doubles the side of the square and gives four times the area."
+        },
+        {
+          "misconception": "Errors above the line and errors below the line cancel out.",
+          "correction": "Each error is squared, so every error adds a positive amount to the total.",
+          "evidence": "A square appears whether the green point is above or below the line; only its color changes."
+        }
+      ]
+    },
+    "technical": {
+      "framework": "p5.js",
+      "version": "2.3.2",
+      "canvasDimensions": {
+        "width": 500,
+        "height": 555,
+        "responsive": true
+      },
+      "regions": {
+        "drawHeight": 500,
+        "controlHeight": 55
+      },
+      "dependencies": ["p5.js 2.3.2 (jsDelivr CDN)"],
+      "browserCompatibility": ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
+      "deviceRequirements": {
+        "minScreenWidth": 300,
+        "touchSupport": true,
+        "keyboardRequired": false,
+        "mouseRequired": false,
+        "networkRequired": true
+      },
+      "stateManagement": {
+        "stateType": "local-state",
+        "persistence": false,
+        "synchronization": false
+      },
+      "accessibility": {
+        "screenReader": true,
+        "keyboardNavigation": true,
+        "colorContrast": true,
+        "altText": true,
+        "screenReaderScript": "A least squares simulation. Four green data points sit on a grid with a blue line. A purple point on the line marks the predicted value for each data point. A colored square between each data point and its purple point shows the squared error. A slope slider and an intercept slider move the line, and the squares grow or shrink as the line moves."
+      }
+    },
+    "userInterface": {
+      "layoutType": "responsive-width",
+      "layoutPattern": "plot-above-two-slider-rows",
+      "colorScheme": {
+        "drawingArea": "aliceblue",
+        "controlArea": "white",
+        "borders": "silver",
+        "accent": "blue",
+        "text": "black"
+      },
+      "controls": [
+        {
+          "id": "slopeSlider",
+          "type": "slider",
+          "label": "Slope",
+          "description": "Sets the slope of the line. The line tilts around the point where it meets the left edge of the plot.",
+          "affects": ["line", "predicted-points", "error-squares"],
+          "properties": {
+            "min": -2,
+            "max": 3,
+            "default": 0.5,
+            "step": 0.01,
+            "units": "plot units of y per plot unit of x",
+            "showValue": true
+          }
+        },
+        {
+          "id": "interceptSlider",
+          "type": "slider",
+          "label": "Intercept",
+          "description": "Sets the y-intercept of the line. The whole line moves up or down without tilting.",
+          "affects": ["line", "predicted-points", "error-squares"],
+          "properties": {
+            "min": -100,
+            "max": 170,
+            "default": 0,
+            "step": 1,
+            "units": "plot units",
+            "showValue": true
+          }
+        }
+      ],
+      "visualElements": [
+        {
+          "type": "graph",
+          "description": "A grid from 0 to 500 on both axes with grid lines every 50 units, four green data points and a blue line.",
+          "interactive": false
+        },
+        {
+          "type": "shape",
+          "description": "A purple point on the line for each data point marks the predicted y value.",
+          "interactive": false
+        },
+        {
+          "type": "shape",
+          "description": "A colored square between each data point and its predicted point. The side of the square is the size of the error, and the color shows whether the data point is above or below the line.",
+          "interactive": false
+        },
+        {
+          "type": "text-display",
+          "description": "Labels to the left of the sliders show the current slope and intercept.",
+          "interactive": false
+        }
+      ]
+    },
+    "simulation": {
+      "model": {
+        "type": "statistical",
+        "description": "A line with an adjustable slope and intercept is compared with four fixed data points. The squared error of each point is drawn as a square.",
+        "equations": [
+          "predicted y = slope * x + intercept",
+          "error = actual y - predicted y",
+          "area of each square = error^2",
+          "sum of squared errors = error1^2 + error2^2 + error3^2 + error4^2",
+          "least squares line for the four data points: y = 0.33 * x + 165 (sum of squared errors = 4430)"
+        ],
+        "assumptions": [
+          "The data points are fixed at (100, 220), (200, 180), (300, 300) and (400, 290)",
+          "Errors are measured vertically, from the data point to the line"
+        ],
+        "limitations": [
+          "The sum of the squared errors is shown only as the area of the squares, not as a number",
+          "The data points cannot be moved",
+          "The axes have grid lines but no number labels"
+        ]
+      },
+      "variables": [
+        {
+          "name": "slope",
+          "type": "input",
+          "description": "Slope of the line",
+          "dataType": "number",
+          "range": {"min": -2, "max": 3}
+        },
+        {
+          "name": "intercept",
+          "type": "input",
+          "description": "Value of y where the line meets the left edge of the plot (x = 0)",
+          "dataType": "integer",
+          "units": "plot units",
+          "range": {"min": -100, "max": 170}
+        },
+        {
+          "name": "dataPoints",
+          "type": "constant",
+          "description": "The four data points as [x, y] pairs in plot units",
+          "dataType": "array"
+        },
+        {
+          "name": "predicted y",
+          "type": "output",
+          "description": "The y value on the line at the x value of a data point",
+          "dataType": "number",
+          "units": "plot units"
+        },
+        {
+          "name": "error",
+          "type": "output",
+          "description": "The vertical distance from a data point to the line, drawn as the side of a square",
+          "dataType": "number",
+          "units": "plot units"
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "starting-line",
+          "description": "All four data points are above the line and the squares are large (sum of squared errors = 65900)",
+          "parameters": {"slope": 0.5, "intercept": 0}
+        },
+        {
+          "name": "least-squares-line",
+          "description": "The squares are as small as they can be (sum of squared errors = 4430)",
+          "parameters": {"slope": 0.33, "intercept": 165}
+        }
+      ]
+    },
+    "usage": {
+      "recommendedUsage": ["demonstration", "exploration", "guided-practice", "group-activity"],
+      "instructionalStrategies": [
+        "Guided exploration: change one slider at a time and describe what happens to the line and the squares",
+        "Pair work: find the line that best fits the green data points and record the slope and the intercept",
+        "Prediction: use the best fit line to predict y for an x value inside and outside the data range"
+      ],
+      "assessmentQuestions": [
+        {
+          "question": "If a line has a slope of 2 and a y-intercept of -3, what is its equation?",
+          "type": "short-answer",
+          "level": "Apply"
+        },
+        {
+          "question": "If a line has a negative slope, what does that tell us about the relationship?",
+          "type": "short-answer",
+          "level": "Understand"
+        },
+        {
+          "question": "How can you tell when you have found a good fit?",
+          "type": "observation",
+          "level": "Evaluate"
+        },
+        {
+          "question": "Using the best fit line, what y value do you predict for x = 250 and for x = 600, and how confident are you in each prediction?",
+          "type": "prediction",
+          "level": "Evaluate"
+        }
+      ],
+      "extensions": [
+        "Create your own set of points and find the best-fitting line",
+        "Modify the code to show the sum of the squared errors as a number",
+        "Compare linear and non-linear relationships"
+      ]
+    }
   }
 }

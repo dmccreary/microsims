@@ -167,6 +167,31 @@ The `.cursor/rules/microsims.mdc` file contains comprehensive coding standards i
 7. Run `python src/mk-gallery.py` to regenerate gallery
 8. Validate metadata: `python src/validate-yaml-file.py docs/sims/{sim-name}/index.md`
 
+### Marking a MicroSim as a "Showcase"
+When asked to mark a MicroSim as a "showcase" MicroSim, set the `showcase` flag in that sim's
+`metadata.json` (`docs/sims/{sim-name}/metadata.json` or `docs/microsims-old/{sim-name}/metadata.json`).
+The schema (`src/microsim-schema/microsim-schema.json`) defines it as an optional Boolean in the
+`search` section, false when omitted:
+
+```json
+{
+  "microsim": {
+    "search": {
+      "showcase": true
+    }
+  }
+}
+```
+
+- Write the JSON literal `true` (lowercase), not Python's `True` or the string `"true"`.
+- Put the flag in the file's existing `search` object: `microsim.search` when the file has the
+  `microsim` wrapper, or the top-level `search` in the older flat-layout files. If the file has no
+  `search` object, add one at the level where the rest of the metadata lives, and tell the user it
+  still lacks the `tags` and `visualizationType` fields the schema requires in `search`.
+- Change only the `showcase` field; leave the rest of the file and its formatting untouched.
+- To remove showcase status, set `"showcase": false`.
+- This is a metadata-only change: do not edit `index.md`, the sketch, or `mkdocs.yml` for it.
+
 ### Working with MkDocs
 - Navigation is manually maintained in `mkdocs.yml` (100+ entries)
 - Site uses Material theme with code copy, navigation expansion, search

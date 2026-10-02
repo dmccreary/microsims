@@ -12,7 +12,7 @@ Collected from the per-chapter reports of the 2026-09-30 content generation run 
 ## Defects found in other repositories or tools (not fixed here)
 
 - `docs/sims/template/sketch.js` in this repo has merge-conflict markers and `function setup {` without parentheses (Chapter 2).
-- `docs/sims/template/responsive-template.js` creates the canvas from `containerHeight` (400) while the layout needs 450, clipping controls (Chapter 2).
+- `docs/sims/template/responsive-template.js` creates the canvas from `containerHeight` (400) while the layout needs 450, clipping controls (Chapter 2). **Resolved 2026-10-01:** the file was deleted and Chapter 2 no longer refers to it.
 - The metadata schema is at `src/microsim-schema/microsim-schema.json`, not `src/microsim-schema.json` as the plan and some docs say (Chapter 15).
 - `sync-iframe-heights.py` reads a top-level `canvasHeight` key that the nested schema does not define (Chapter 2).
 - `test-iframe-heights.py` accepts only `// CANVAS_HEIGHT = N`; `sync-iframe-heights.py` accepts a colon or an equals sign (Chapter 12).

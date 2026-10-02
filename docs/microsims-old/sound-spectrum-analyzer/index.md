@@ -1,31 +1,31 @@
 ---
-title: Microphone Frequency Visualization with FFT
+title: Sound Spectrum Analyzer
 description: A MicroSim that shows the frequency spectrum of sound coming in from a microphone using the p5.js fft library.
 quality_score: 75
-image: /microsims-old/fft-mic/fft-mic.png
-og:image: /microsims-old/fft-mic/fft-mic.png
-twitter:image: /microsims-old/fft-mic/fft-mic.png
+image: /microsims-old/sound-spectrum-analyzer/sound-spectrum-analyzer.png
+og:image: /microsims-old/sound-spectrum-analyzer/sound-spectrum-analyzer.png
+twitter:image: /microsims-old/sound-spectrum-analyzer/sound-spectrum-analyzer.png
 social:
    cards: false
 hide:
    toc
 ---
-# Microphone Frequency Visualization with FFT
+# Sound Spectrum Analyzer
 
 <iframe src="main.html" height="450px" scrolling="no"></iframe>
 
-[Run the Microphone Frequency Visualization with FFT MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
-[Edit Microphone Frequency Visualization with FFT MicroSim with the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/89df6y1OK)
+[Run the Sound Spectrum Analyzer MicroSim Fullscreen](main.html){ .md-button .md-button--primary }
+[Edit Sound Spectrum Analyzer MicroSim with the p5.js Editor](https://editor.p5js.org/dmccreary/sketches/89df6y1OK)
 
 ## Sample iframe
 
 You can add this MicroSim to your course website by adding the following HTML element:
 
 ```html
-<iframe src="https://dmccreary.github.io/microsims/microsims-old/fft-mic/main.html" height="450px"  scrolling="no"></iframe>
+<iframe src="https://dmccreary.github.io/microsims/microsims-old/sound-spectrum-analyzer/main.html" height="450px"  scrolling="no"></iframe>
 ```
 
-Here is a FFT Microphone Visualizer MicroSim that follows the standard responsive design template. Here are the key features:
+Here is a Sound Spectrum Analyzer MicroSim that follows the standard responsive design template. Here are the key features:
 
 ## Key Features
 

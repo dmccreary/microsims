@@ -41,7 +41,7 @@ the length of two sides of a right triangle.  By checking the
 
 Read the sound from the computer microphone and display a chart of the frequency
 
-[Signal Processing FFT](../microsims-old/fft-mic/index.md)
+[Sound Spectrum Analyzer](../microsims-old/sound-spectrum-analyzer/index.md)
 
 ## Graph Search
 
