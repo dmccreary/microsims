@@ -7,7 +7,7 @@
 // short circuit (both switches on one side closed) flashes the wires red.
 // Switches are numbered in reading order: S1 top-left, S2 top-right,
 // S3 bottom-left, S4 bottom-right.  Forward = S1 + S4.  Reverse = S2 + S3.
-// The Forward and Reverse buttons are disabled while their preset is already set.
+// The Forward, Stop and Reverse buttons are disabled while their preset is already set.
 
 // global variables for width and height
 let canvasWidth = 400;          // replaced by the container width
@@ -92,11 +92,12 @@ function positionControls() {
   statusX = x + 10;
 }
 
-// Gray out Forward or Reverse while the switches already match that preset,
+// Gray out Forward, Stop or Reverse while the switches already match that preset,
 // so students can see that pressing it again would change nothing.
 // The button comes back as soon as any switch changes.
 function updateButtons(circuit) {
   forwardButton.elt.disabled = circuit.mode === 'forward';
+  stopButton.elt.disabled = switches.every(s => !s.closed);   // all four open
   reverseButton.elt.disabled = circuit.mode === 'reverse';
 }
 
