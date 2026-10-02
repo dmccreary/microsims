@@ -91,12 +91,13 @@
       },
       "dataFlow": {
         "inputSources": [
-          "data.json: 8 metric values and ranks for each state, the national averages, and a higher-is-better flag for each metric",
+          "data.json: 8 metric values for each state, the national averages, and a higher-is-better flag for each metric (the rank fields stored in data.json are not read)",
           "us-states.json: GeoJSON state boundaries fetched from GitHub",
           "OpenStreetMap tile server: base map tiles",
           "User: pointer hover, click, drag and scroll wheel"
         ],
         "dataProcessing": [
+          "Rank the 50 states on each metric from the values, using the higher-is-better flag to set the direction, so that rank 1 is the best state and states with equal values share a rank",
           "Compare each metric value of a state with the national average, using the higher-is-better flag to set the direction",
           "Count the metrics that are better than average to give a grade from 0 to 8",
           "Look up the label and the fill color for the grade"
@@ -194,7 +195,8 @@
           "better = value > national average, for metrics where higher is better (personal income, education attainment, life expectancy)",
           "better = value < national average, for metrics where lower is better (poverty rate, infant mortality, violent crime, median home price, food insecurity)",
           "grade = number of the 8 metrics that are better (0 to 8)",
-          "worse count = 8 - grade"
+          "worse count = 8 - grade",
+          "rank = 1 + number of states with a better value for the metric (higher or lower, by the same direction rule)"
         ],
         "assumptions": [
           "All 8 metrics have equal weight",
@@ -204,7 +206,6 @@
         "limitations": [
           "A value equal to the national average counts as worse; this affects 4 of the 400 state metric values (for example, the life expectancy of Illinois is 77.5 years, the same as the national figure)",
           "The grade ignores how far a value is from the average",
-          "The rank shown beside each metric is stored in data.json and is not computed by the page, so the ranks must be recomputed whenever a value changes",
           "States with equal values share a rank, so some rank numbers are skipped (Alabama, Louisiana, Oklahoma and Tennessee all have a life expectancy of 73.8 years)",
           "The metrics cover different periods: life expectancy is for 2022; personal income, education, infant mortality and violent crime are for 2023; home value is for 2024; food insecurity is a 2021-2023 average; and poverty is a 2023-2025 average",
           "The state poverty and food insecurity rates are survey estimates with margins of error between 0.6 and 2.5 percentage points, so a small difference from the national average may not be statistically significant",
@@ -349,7 +350,6 @@
       "extensions": [
         "Add a control that colors the map by a single metric",
         "Replace the better-or-worse count with a weighted score that uses the distance from the average",
-        "Compute the ranks in the page from the values instead of reading them from data.json",
         "Add metrics such as air quality or commute time"
       ]
     }
